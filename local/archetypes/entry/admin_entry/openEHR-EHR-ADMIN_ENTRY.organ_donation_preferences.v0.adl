@@ -1,0 +1,167 @@
+﻿archetype (adl_version=1.4; uid=b081821a-2537-41b6-9071-290790edacfb)
+	openEHR-EHR-ADMIN_ENTRY.organ_donation_preferences.v0
+
+concept
+	[at0000]	-- Organ donation preferences
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2017-08-29">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the recording of organ donation preferences.">
+			use = <"Use to record organ donation preferences.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"9600D96AB99E8C64E6BAC82A2C40AE05">
+		["build_uid"] = <"45ca2201-d38f-43a7-a80f-e7bee45f61e4">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	ADMIN_ENTRY[at0000] matches {	-- Organ donation preferences
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0013] occurrences matches {0..1} matches {	-- On NHS Organ Donor register
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+					ELEMENT[at0014] occurrences matches {0..1} matches {	-- Preference
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0015, 	-- Opted in
+									at0016, 	-- Opted out
+									at0017]	-- Not stated or not known
+								}
+							}
+						}
+					}
+					ELEMENT[at0012] occurrences matches {0..1} matches {	-- All organs
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+					ELEMENT[at0002] occurrences matches {0..*} matches {	-- Specific organs
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0003, 	-- Kidneys
+									at0004, 	-- Heart
+									at0005, 	-- Liver
+									at0006, 	-- Pancreas
+									at0007, 	-- Small bowel
+									at0008, 	-- Lungs
+									at0009, 	-- Corneas
+									at0011]	-- Tissue
+								}
+							}
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Organ donation preferences">
+					description = <"Organ donation preferences.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Specific organs">
+					description = <"Description of which organ or organs the subject wishes to donate.">
+				>
+				["at0003"] = <
+					text = <"Kidneys">
+					description = <"The subject wishes to donate their kidneys.">
+				>
+				["at0004"] = <
+					text = <"Heart">
+					description = <"The subject wishes to donate their heart.">
+				>
+				["at0005"] = <
+					text = <"Liver">
+					description = <"The subject wishes to donate their liver.">
+				>
+				["at0006"] = <
+					text = <"Pancreas">
+					description = <"The subject wishes to donate their pancreas.">
+				>
+				["at0007"] = <
+					text = <"Small bowel">
+					description = <"The subject wishes to donate their small bowel.">
+				>
+				["at0008"] = <
+					text = <"Lungs">
+					description = <"The subject wishes to donate their lungs.">
+				>
+				["at0009"] = <
+					text = <"Corneas">
+					description = <"The subject wishes to donate their corneas.">
+				>
+				["at0011"] = <
+					text = <"Tissue">
+					description = <"The subject wishes to donate tissue.">
+				>
+				["at0012"] = <
+					text = <"All organs">
+					description = <"Statement whether the subject wishes to donate all organs.">
+				>
+				["at0013"] = <
+					text = <"On NHS Organ Donor register">
+					description = <"Statement whether the subject is on the NHS Organ Donor register.">
+				>
+				["at0014"] = <
+					text = <"Preference">
+					description = <"Subject's preference regarding organ donation.">
+				>
+				["at0015"] = <
+					text = <"Opted in">
+					description = <"The subject has explicitly opted in to donate their organs.">
+				>
+				["at0016"] = <
+					text = <"Opted out">
+					description = <"The subject has explicitly opted out from organ donation.">
+				>
+				["at0017"] = <
+					text = <"Not stated or not known">
+					description = <"The subject has not stated whether they wish to donate their organs or their preference is not known.">
+				>
+			>
+		>
+	>

@@ -1,0 +1,178 @@
+﻿archetype (adl_version=1.4; uid=04f6df60-2b00-422d-8ae8-701995c1d064)
+	openEHR-EHR-OBSERVATION.ichom_lpc_comorbidities.v0
+
+concept
+	[at0000]	-- ICHOM LPC Dataset Patient-reported co-morbidities
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2016-08-08">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Local archetype to capture patient reported co-morbidities in the ICHOM LPC dataset.">
+			use = <"For use in ICHOM LPC dataset for reporting patient-reported co-morbidities.">
+			keywords = <"ICHOM", "Co-morbidities", "patient-reported", "prostate", "cancer", "questionnaire">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"4B25FFE49ACEE206F7B6D33F981102AC">
+		["build_uid"] = <"34fd9ec4-48c9-4073-8462-5253eee8d1a1">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- ICHOM LPC Dataset Patient-reported co-morbidities
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..1} matches {	-- Point in time
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..*} matches {	-- Co-morbidities
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0005, 	-- 0 = No other diseases
+													at0006, 	-- 1 = Heart disease
+													at0007, 	-- 2 = High blood pressure
+													at0008, 	-- 3 = Leg pain when walking due to poor circulation
+													at0009, 	-- 4 = Lung disease
+													at0010, 	-- 5 = Diabetes
+													at0011, 	-- 6 = Kidney disease
+													at0012, 	-- 7 = Liver disease
+													at0013, 	-- 8 = Problems caused by stroke
+													at0014, 	-- 9 = Disease of the nervous system
+													at0015, 	-- 10 = Other cancer (within the last 5 years)
+													at0016, 	-- 11 = Depression
+													at0017]	-- 12 = Arthritis
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0018] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0019] occurrences matches {0..*} matches {	-- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"ICHOM LPC Dataset Patient-reported co-morbidities">
+					description = <"Patient reported co-morbidities.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Point in time">
+					description = <"A specific date and/or time which may be explicitly defined in a template or at run-time.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Co-morbidities">
+					description = <"Patient reported co-morbidities.">
+					comment = <"Suggested questionnaire question: Have you been told by a doctor that you have any of the following?">
+				>
+				["at0005"] = <
+					text = <"0 = No other diseases">
+					description = <"Patient reports no other diseases.">
+				>
+				["at0006"] = <
+					text = <"1 = Heart disease">
+					description = <"Patient reports heart disease (for example angina, heart attack, or heart failure).">
+				>
+				["at0007"] = <
+					text = <"2 = High blood pressure">
+					description = <"Patient reports high blood pressure.">
+				>
+				["at0008"] = <
+					text = <"3 = Leg pain when walking due to poor circulation">
+					description = <"Patient reports leg pain when walking due to poor circulation.">
+				>
+				["at0009"] = <
+					text = <"4 = Lung disease">
+					description = <"Patient reports lung disease (for example asthma, chronic bronchitis, or emphysema).">
+				>
+				["at0010"] = <
+					text = <"5 = Diabetes">
+					description = <"Patient reports diabetes.">
+				>
+				["at0011"] = <
+					text = <"6 = Kidney disease">
+					description = <"Patient reports kidney disease.">
+				>
+				["at0012"] = <
+					text = <"7 = Liver disease">
+					description = <"Patient reports liver disease.">
+				>
+				["at0013"] = <
+					text = <"8 = Problems caused by stroke">
+					description = <"Patient reports problems caused by stroke.">
+				>
+				["at0014"] = <
+					text = <"9 = Disease of the nervous system">
+					description = <"Patient reports disease of the nervous system (for example Parkinson’s disease or multiple sclerosis).">
+				>
+				["at0015"] = <
+					text = <"10 = Other cancer (within the last 5 years)">
+					description = <"Patient reports other cancer within last 5 years.">
+				>
+				["at0016"] = <
+					text = <"11 = Depression">
+					description = <"Patient reports depression.">
+				>
+				["at0017"] = <
+					text = <"12 = Arthritis">
+					description = <"Patient reports arthritis.">
+				>
+				["at0018"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0019"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental infomation or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+			>
+		>
+	>

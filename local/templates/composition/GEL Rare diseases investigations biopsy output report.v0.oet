@@ -1,0 +1,734 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>af3d18e1-cf68-4328-905f-a207d62501d8</id>
+  <name>GEL Rare diseases investigations biopsy output report.v0</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose />
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.adhoc.v1 and name/value='Imaging diagnostics']/items[openEHR-EHR-SECTION.adhoc.v1 and name/value='Echocardiogram']/items[openEHR-EHR-OBSERVATION.imaging_exam_uk.v0]/protocol[at0025]/items[openEHR-EHR-CLUSTER.fetal_imaging_gel.v0]/items[at0001]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>GEL::298686.1 and GEL::30850.1 (either SNOMED CT concept or free text string)</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.adhoc.v1 and name/value='Non-imaging diagnostics']/items[openEHR-EHR-SECTION.adhoc.v1 and name/value='Ocular metrics']/items[openEHR-EHR-SECTION.adhoc.v1 and name/value='Ocular pressure']/items[openEHR-EHR-OBSERVATION.intraocular_pressure.v0 and name/value='Intraocular pressure right']/data[at0001]/events[at0002]/data[at0003]/items[at0042]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>GEL::28713.1</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.adhoc.v1 and name/value='Non-imaging diagnostics']/items[openEHR-EHR-SECTION.adhoc.v1 and name/value='Ocular metrics']/items[openEHR-EHR-SECTION.adhoc.v1 and name/value='Ocular pressure']/items[openEHR-EHR-OBSERVATION.intraocular_pressure.v0 and name/value='Intraocular pressure right']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.multimedia.v1]/items[at0002]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>GEL::29501.2</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.adhoc.v1 and name/value='Non-imaging diagnostics']/items[openEHR-EHR-SECTION.adhoc.v1 and name/value='Ocular metrics']/items[openEHR-EHR-SECTION.adhoc.v1 and name/value='Ocular pressure']/items[openEHR-EHR-OBSERVATION.intraocular_pressure.v0 and name/value='Intraocular pressure right']/data[at0001]/events[at0002]/data[at0003]/items[at0061]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>GEL::29524.1</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.adhoc.v1 and name/value='Non-imaging diagnostics']/items[openEHR-EHR-SECTION.adhoc.v1 and name/value='Ocular metrics']/items[openEHR-EHR-SECTION.adhoc.v1 and name/value='Ocular pressure']/items[openEHR-EHR-OBSERVATION.intraocular_pressure.v0 and name/value='Intraocular pressure right']/protocol[at0068]/items[at0046]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>GEL::34819.1</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.adhoc.v1 and name/value='Non-imaging diagnostics']/items[openEHR-EHR-SECTION.adhoc.v1 and name/value='Ocular metrics']/items[openEHR-EHR-SECTION.adhoc.v1 and name/value='Visual acuity']/items[openEHR-EHR-OBSERVATION.visual_acuity.v1 and name/value='Visual acuity right']/data[at0001]/events[at0134]/data[at0003]/items[at0053 and name/value='Right eye']/items[at0028]/items[at0056]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>GEL::28734.1</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.adhoc.v1 and name/value='Non-imaging diagnostics']/items[openEHR-EHR-SECTION.adhoc.v1 and name/value='Ocular metrics']/items[openEHR-EHR-SECTION.adhoc.v1 and name/value='Visual acuity']/items[openEHR-EHR-OBSERVATION.visual_acuity.v1 and name/value='Visual acuity right']/data[at0001]/events[at0134]/data[at0003]/items[at0054]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>GEL::29524.1</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.adhoc.v1 and name/value='Non-imaging diagnostics']/items[openEHR-EHR-SECTION.adhoc.v1 and name/value='Ocular metrics']/items[openEHR-EHR-SECTION.adhoc.v1 and name/value='Visual acuity']/items[openEHR-EHR-OBSERVATION.visual_acuity.v1 and name/value='Visual acuity right']/data[at0001]/events[at0134]/data[at0003]/items[at0053 and name/value='Left eye']/items[at0028]/items[at0056]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>GEL::28735.1</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.adhoc.v1 and name/value='Non-imaging diagnostics']/items[openEHR-EHR-SECTION.adhoc.v1 and name/value='Ocular metrics']/items[openEHR-EHR-SECTION.adhoc.v1 and name/value='Visual acuity']/items[openEHR-EHR-OBSERVATION.visual_acuity.v1 and name/value='Visual acuity right']/protocol[at0020]/items[openEHR-EHR-CLUSTER.non_imaging_analytical_technique_gel.v0]/items[at0001]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>GEL::34834.1</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.adhoc.v1 and name/value='Non-imaging diagnostics']/items[openEHR-EHR-SECTION.adhoc.v1 and name/value='Ocular metrics']/items[openEHR-EHR-SECTION.adhoc.v1 and name/value='Visual acuity']/items[openEHR-EHR-OBSERVATION.visual_acuity.v1 and name/value='Visual acuity right']/protocol[at0020]/items[openEHR-EHR-CLUSTER.multimedia.v1]/items[at0002]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>GEL::29501.2</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.adhoc.v1 and name/value='Biopsy']/items[openEHR-EHR-OBSERVATION.laboratory_test.v0]/protocol[at0004]/items[openEHR-EHR-CLUSTER.analytical_technique_gel.v0]/items[at0001]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>GEL::29500.2</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.adhoc.v1 and name/value='Biopsy']/items[openEHR-EHR-OBSERVATION.laboratory_test.v0]/protocol[at0004]/items[openEHR-EHR-CLUSTER.patient_status_gel.v0]/items[at0001]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>GEL::34004.1</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.adhoc.v1 and name/value='Biopsy']/items[openEHR-EHR-OBSERVATION.laboratory_test.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0057]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>GEL::29524.1</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.adhoc.v1 and name/value='Biopsy']/items[openEHR-EHR-OBSERVATION.laboratory_test.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0005]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>GEL::29735.1 and GEL::30851.1 and GEL::29499.2</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.adhoc.v1 and name/value='Biopsy']/items[openEHR-EHR-OBSERVATION.laboratory_test.v0]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.histopathology_findings.v0]/items[at0012]/items[at0005 and name/value='Renal biopsy']/items[at0008]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>GEL::33617.1</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.adhoc.v1 and name/value='Biopsy']/items[openEHR-EHR-OBSERVATION.laboratory_test.v0]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.histopathology_findings.v0]/items[at0012]/items[at0005 and name/value='Nasal cilia']/items[at0008]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>GEL::33624.1</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.adhoc.v1 and name/value='Biopsy']/items[openEHR-EHR-OBSERVATION.laboratory_test.v0]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.histopathology_findings.v0]/items[at0012]/items[at0005 and name/value='Renal biopsy']/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0]/items[at0002 and name/value='C1q immunostain']/items[at0001]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>GEL::30165.1</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.adhoc.v1 and name/value='Biopsy']/items[openEHR-EHR-OBSERVATION.laboratory_test.v0]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.histopathology_findings.v0]/items[at0012]/items[at0005 and name/value='Renal biopsy']/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0]/items[at0002 and name/value='C3 immunostain']/items[at0001]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>GEL::30166.1</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.adhoc.v1 and name/value='Biopsy']/items[openEHR-EHR-OBSERVATION.laboratory_test.v0]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.histopathology_findings.v0]/items[at0012]/items[at0005 and name/value='Renal biopsy']/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0]/items[at0002 and name/value='Congo red']/items[at0001]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>GEL::30167.1</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.adhoc.v1 and name/value='Biopsy']/items[openEHR-EHR-OBSERVATION.laboratory_test.v0]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.histopathology_findings.v0]/items[at0012]/items[at0005 and name/value='Renal biopsy']/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0]/items[at0002 and name/value='Electron dense deposit']/items[at0001]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>GEL::30168.1</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.adhoc.v1 and name/value='Biopsy']/items[openEHR-EHR-OBSERVATION.laboratory_test.v0]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.histopathology_findings.v0]/items[at0012]/items[at0005 and name/value='Renal biopsy']/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0]/items[at0002 and name/value='Glomerular basement membrane morphology']/items[at0001]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>GEL::30169.1</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.adhoc.v1 and name/value='Biopsy']/items[openEHR-EHR-OBSERVATION.laboratory_test.v0]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.histopathology_findings.v0]/items[at0012]/items[at0005 and name/value='Renal biopsy']/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0]/items[at0002 and name/value='IgA immunostain']/items[at0001]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>GEL::30170.1</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.adhoc.v1 and name/value='Biopsy']/items[openEHR-EHR-OBSERVATION.laboratory_test.v0]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.histopathology_findings.v0]/items[at0012]/items[at0005 and name/value='Renal biopsy']/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0]/items[at0002 and name/value='IgG immunostain']/items[at0001]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>GEL::30171.1</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.adhoc.v1 and name/value='Biopsy']/items[openEHR-EHR-OBSERVATION.laboratory_test.v0]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.histopathology_findings.v0]/items[at0012]/items[at0005 and name/value='Renal biopsy']/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0]/items[at0002 and name/value='IgM immunostain']/items[at0001]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>GEL::30172.1</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.adhoc.v1 and name/value='Biopsy']/items[openEHR-EHR-OBSERVATION.laboratory_test.v0]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.histopathology_findings.v0]/items[at0012]/items[at0005 and name/value='Renal biopsy']/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0]/items[at0002 and name/value='Podocyte foot process effacement']/items[at0001]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>GEL::30173.1</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.adhoc.v1 and name/value='Biopsy']/items[openEHR-EHR-OBSERVATION.laboratory_test.v0]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.histopathology_findings.v0]/items[at0012]/items[at0005 and name/value='Renal biopsy']/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0]/items[at0002 and name/value='Tubular basement membrane morphology']/items[at0001]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>GEL::30174.1</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.adhoc.v1 and name/value='Biopsy']/items[openEHR-EHR-OBSERVATION.laboratory_test.v0]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.histopathology_findings.v0]/items[at0012]/items[at0005 and name/value='Renal biopsy']/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0]/items[at0002 and name/value='Tubulointerstitial infiltrate']/items[at0001]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>GEL::30175.1</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.adhoc.v1 and name/value='Biopsy']/items[openEHR-EHR-OBSERVATION.laboratory_test.v0]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.histopathology_findings.v0]/items[at0012]/items[at0005 and name/value='Renal biopsy']/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0]/items[at0002 and name/value='Protein deposition']/items[at0001]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>GEL::30849.1</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.adhoc.v1 and name/value='Biopsy']/items[openEHR-EHR-OBSERVATION.laboratory_test.v0]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.histopathology_findings.v0]/items[at0012]/items[at0005 and name/value='Nasal cilia']/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0]/items[at0002 and name/value='Ciliary beat frequency']/items[at0001]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>GEL::28763.1</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.adhoc.v1 and name/value='Biopsy']/items[openEHR-EHR-OBSERVATION.laboratory_test.v0]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.histopathology_findings.v0]/items[at0012]/items[at0005 and name/value='Nasal cilia']/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0]/items[at0002 and name/value='Other ciliary abnormality']/items[at0001]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>GEL::31284.1</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.adhoc.v1 and name/value='Biopsy']/items[openEHR-EHR-OBSERVATION.laboratory_test.v0]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.histopathology_findings.v0]/items[at0012]/items[at0005 and name/value='Nasal cilia']/items[openEHR-EHR-CLUSTER.laboratory_test_panel.v0]/items[at0002]/items[at0001]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>GEL::31284.1</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.adhoc.v1 and name/value='Biopsy']/items[openEHR-EHR-OBSERVATION.laboratory_test.v0]/protocol[at0004]/items[openEHR-EHR-CLUSTER.multimedia.v1]/items[at0002]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>GEL::29501.2</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.adhoc.v1 and name/value='Biopsy']/items[openEHR-EHR-OBSERVATION.laboratory_test.v0]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.histopathology_findings.v0]/items[at0012]/items[at0005 and name/value='Nasal cilia']/items[at0010]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>GEL::29642.1</value>
+      </item>
+      <item>
+        <key>Notes.Comment</key>
+        <value>Biopsy findings</value>
+      </item>
+    </items>
+  </annotations>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.report.v1" concept_name="Report" name="GEL Rare disease investigations biopsy">
+    <Content xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.adhoc.v1" concept_name="Ad hoc heading" max="1" path="/content" name="General biopsy">
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.laboratory_test.v0" concept_name="Laboratory test" path="/items">
+        <Rule path="/data[at0001]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]" hide_on_form="true">
+          <eventConstraint>
+            <allowedType>PointInTime</allowedType>
+          </eventConstraint>
+        </Rule>
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]" name="Biopsy procedure">
+          <constraint xsi:type="textConstraint">
+            <includedValues>Biopsy of peripheral nerve</includedValues>
+            <includedValues>Biopsy of peritoneum</includedValues>
+            <includedValues>Biopsy of skin and/or subcutaneous tissue</includedValues>
+            <includedValues>Biopsy of skin for fibroblast culture</includedValues>
+            <includedValues>Biopsy or scrape of nasal cilia</includedValues>
+            <includedValues>Biopsy of skeletal muscle</includedValues>
+            <includedValues>Bone marrow biopsy, needle or trocar</includedValues>
+            <includedValues>Kidney biopsy</includedValues>
+            <includedValues>Transplant kidney biopsy</includedValues>
+            <includedValues>Other</includedValues>
+          </constraint>
+        </Rule>
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0073]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0075]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0077]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0100]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0057]" name="Assessment">
+          <constraint xsi:type="textConstraint">
+            <includedValues>Normal</includedValues>
+            <includedValues>Unknown</includedValues>
+            <includedValues>Abnormal relevant</includedValues>
+            <includedValues>Abnormal unknown relevance</includedValues>
+          </constraint>
+        </Rule>
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0098]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0101]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/state[at0112]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]/state[at0112]/items[at0113]" max="0" />
+        <Rule path="/protocol[at0004]" hide_on_form="true" />
+        <Rule path="/protocol[at0004]/items[at0068]" max="0" />
+        <Rule path="/protocol[at0004]/items[at0094]" max="0" />
+        <Rule path="/protocol[at0004]/items[at0111]" max="0" />
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.histopathology_findings.v0" concept_name="Histopathology findings" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true">
+          <Rule path="/items[at0012]" hide_on_form="true">
+            <nameConstraint>
+              <excludedValues>local::at0001</excludedValues>
+              <excludedValues>local::at0002</excludedValues>
+              <excludedValues>local::at0003</excludedValues>
+            </nameConstraint>
+          </Rule>
+          <Rule path="/items[at0012]/items[at0005]" hide_on_form="true" />
+          <Rule path="/items[at0012]/items[at0005]/items[at0006]" max="0" />
+          <Rule path="/items[at0012]/items[at0005]/items[at0008]" max="0" />
+          <Rule path="/items[at0012]/items[at0005]/items[at0014]" max="1" name="Report file" />
+          <Rule path="/items[at0012]/items[at0011]" max="0" />
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" path="/items[at0012]/items[at0005]/items[at0009]" hide_on_form="true">
+            <Rule path="/items[at0002]" hide_on_form="true" />
+            <Rule path="/items[at0002]/items[at0001]">
+              <constraint xsi:type="multipleConstraint">
+                <includedTypes>Text</includedTypes>
+              </constraint>
+            </Rule>
+            <Rule path="/items[at0002]/items[at0003]" max="0" />
+            <Rule path="/items[at0002]/items[at0004]" max="0" />
+            <Rule path="/items[at0002]/items[at0005]" max="0" />
+            <Rule path="/items[at0002]/items[at0006]" max="0" />
+          </Items>
+        </Items>
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.analytical_technique_gel.v0" concept_name="Analytical technique GEL" max="1" path="/protocol[at0004]/items[at0110]" name="Analysis type" hide_on_form="true">
+          <Rule path="/items[at0001]" name="Analysis type">
+            <constraint xsi:type="textConstraint">
+              <includedValues>Light Microscopy</includedValues>
+              <includedValues>Immunohistochemistry</includedValues>
+              <includedValues>Electron Microscopy</includedValues>
+              <includedValues>Biochemistry</includedValues>
+              <includedValues>Respiratory chain enzyme analysis</includedValues>
+            </constraint>
+          </Rule>
+        </Items>
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.patient_status_gel.v0" concept_name="Patient Status GEL" max="1" path="/protocol[at0004]/items[at0117]" name="Patient Status" hide_on_form="true" />
+      </Item>
+    </Content>
+    <Content xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.adhoc.v1" concept_name="Ad hoc heading" max="1" path="/content" name="Renal biopsy">
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.laboratory_test.v0" concept_name="Laboratory test" path="/items">
+        <Rule path="/data[at0001]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]" hide_on_form="true">
+          <eventConstraint>
+            <allowedType>PointInTime</allowedType>
+          </eventConstraint>
+        </Rule>
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]" name="Biopsy procedure">
+          <constraint xsi:type="textConstraint">
+            <includedValues>Kidney biopsy</includedValues>
+            <includedValues>Other</includedValues>
+          </constraint>
+        </Rule>
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0073]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0075]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0077]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0100]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0057]" name="Assessment">
+          <constraint xsi:type="textConstraint">
+            <includedValues>Normal</includedValues>
+            <includedValues>Unknown</includedValues>
+            <includedValues>Abnormal relevant</includedValues>
+            <includedValues>Abnormal unknown relevance</includedValues>
+          </constraint>
+        </Rule>
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0098]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0101]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]" max="1" name="Report file" />
+        <Rule path="/data[at0001]/events[at0002]/state[at0112]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]/state[at0112]/items[at0113]" max="0" />
+        <Rule path="/protocol[at0004]" hide_on_form="true" />
+        <Rule path="/protocol[at0004]/items[at0068]" max="0" />
+        <Rule path="/protocol[at0004]/items[at0094]" max="0" />
+        <Rule path="/protocol[at0004]/items[at0111]" max="0" />
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.histopathology_findings.v0" concept_name="Histopathology findings" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true">
+          <Rule path="/items[at0012]" hide_on_form="true">
+            <nameConstraint>
+              <excludedValues>local::at0001</excludedValues>
+              <excludedValues>local::at0002</excludedValues>
+              <excludedValues>local::at0003</excludedValues>
+            </nameConstraint>
+          </Rule>
+          <Rule path="/items[at0012]/items[at0005]" hide_on_form="true" />
+          <Rule path="/items[at0012]/items[at0005]/items[at0006]" max="0" />
+          <Rule path="/items[at0012]/items[at0005]/items[at0008]" max="0" />
+          <Rule path="/items[at0012]/items[at0005]/items[at0014]" max="0" />
+          <Rule path="/items[at0012]/items[at0011]" max="0" />
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" max="1" path="/items[at0012]/items[at0005]/items[at0009]" name="Renal biopsy" hide_on_form="true">
+            <Rule path="/items[at0002]" max="1" hide_on_form="true" name="C1q immunostain" />
+            <Rule path="/items[at0002 and name/value='C1q immunostain']/items[at0001]" name="C1q immunostain result">
+              <constraint xsi:type="multipleConstraint">
+                <includedTypes>Text</includedTypes>
+              </constraint>
+            </Rule>
+            <Rule path="/items[at0002 and name/value='C1q immunostain']/items[at0003]" max="0" />
+            <Rule path="/items[at0002 and name/value='C1q immunostain']/items[at0004]" max="0" />
+            <Rule path="/items[at0002 and name/value='C1q immunostain']/items[at0005]" max="0" />
+            <Rule path="/items[at0002 and name/value='C1q immunostain']/items[at0006]" max="0" />
+            <Rule path="/items[at0002]" max="1" hide_on_form="true" clone="true" name="C3 immunostain" />
+            <Rule path="/items[at0002 and name/value='C3 immunostain']/items[at0001]" name="C3 immunostain result">
+              <constraint xsi:type="multipleConstraint">
+                <includedTypes>Text</includedTypes>
+              </constraint>
+            </Rule>
+            <Rule path="/items[at0002 and name/value='C3 immunostain']/items[at0003]" max="0" />
+            <Rule path="/items[at0002 and name/value='C3 immunostain']/items[at0004]" max="0" />
+            <Rule path="/items[at0002 and name/value='C3 immunostain']/items[at0005]" max="0" />
+            <Rule path="/items[at0002 and name/value='C3 immunostain']/items[at0006]" max="0" />
+            <Rule path="/items[at0002]" max="1" hide_on_form="true" clone="true" name="Congo red" />
+            <Rule path="/items[at0002 and name/value='Congo red']/items[at0001]" name="Congo red result">
+              <constraint xsi:type="multipleConstraint">
+                <includedTypes>Text</includedTypes>
+              </constraint>
+            </Rule>
+            <Rule path="/items[at0002 and name/value='Congo red']/items[at0003]" max="0" />
+            <Rule path="/items[at0002 and name/value='Congo red']/items[at0004]" max="0" />
+            <Rule path="/items[at0002 and name/value='Congo red']/items[at0005]" max="0" />
+            <Rule path="/items[at0002 and name/value='Congo red']/items[at0006]" max="0" />
+            <Rule path="/items[at0002]" max="1" hide_on_form="true" clone="true" name="Electron dense deposit" />
+            <Rule path="/items[at0002 and name/value='Electron dense deposit']/items[at0001]" name="Electron dense deposit result">
+              <constraint xsi:type="multipleConstraint">
+                <includedTypes>Text</includedTypes>
+              </constraint>
+            </Rule>
+            <Rule path="/items[at0002 and name/value='Electron dense deposit']/items[at0003]" max="0" />
+            <Rule path="/items[at0002 and name/value='Electron dense deposit']/items[at0004]" max="0" />
+            <Rule path="/items[at0002 and name/value='Electron dense deposit']/items[at0005]" max="0" />
+            <Rule path="/items[at0002 and name/value='Electron dense deposit']/items[at0006]" max="0" />
+            <Rule path="/items[at0002]" max="1" hide_on_form="true" clone="true" name="Glomerular basement membrane morphology" />
+            <Rule path="/items[at0002 and name/value='Glomerular basement membrane morphology']/items[at0001]" name="Glomerular basement membrane morphology result">
+              <constraint xsi:type="multipleConstraint">
+                <includedTypes>Text</includedTypes>
+              </constraint>
+            </Rule>
+            <Rule path="/items[at0002 and name/value='Glomerular basement membrane morphology']/items[at0003]" max="0" />
+            <Rule path="/items[at0002 and name/value='Glomerular basement membrane morphology']/items[at0004]" max="0" />
+            <Rule path="/items[at0002 and name/value='Glomerular basement membrane morphology']/items[at0005]" max="0" />
+            <Rule path="/items[at0002 and name/value='Glomerular basement membrane morphology']/items[at0006]" max="0" />
+            <Rule path="/items[at0002]" max="1" hide_on_form="true" clone="true" name="IgA immunostain" />
+            <Rule path="/items[at0002 and name/value='IgA immunostain']/items[at0001]" name="IgA immunostain result">
+              <constraint xsi:type="multipleConstraint">
+                <includedTypes>Text</includedTypes>
+              </constraint>
+            </Rule>
+            <Rule path="/items[at0002 and name/value='IgA immunostain']/items[at0003]" max="0" />
+            <Rule path="/items[at0002 and name/value='IgA immunostain']/items[at0004]" max="0" />
+            <Rule path="/items[at0002 and name/value='IgA immunostain']/items[at0005]" max="0" />
+            <Rule path="/items[at0002 and name/value='IgA immunostain']/items[at0006]" max="0" />
+            <Rule path="/items[at0002]" max="1" hide_on_form="true" clone="true" name="IgG immunostain" />
+            <Rule path="/items[at0002 and name/value='IgG immunostain']/items[at0001]" name="IgG immunostain result">
+              <constraint xsi:type="multipleConstraint">
+                <includedTypes>Text</includedTypes>
+              </constraint>
+            </Rule>
+            <Rule path="/items[at0002 and name/value='IgG immunostain']/items[at0003]" max="0" />
+            <Rule path="/items[at0002 and name/value='IgG immunostain']/items[at0004]" max="0" />
+            <Rule path="/items[at0002 and name/value='IgG immunostain']/items[at0005]" max="0" />
+            <Rule path="/items[at0002 and name/value='IgG immunostain']/items[at0006]" max="0" />
+            <Rule path="/items[at0002]" max="1" hide_on_form="true" clone="true" name="IgM immunostain" />
+            <Rule path="/items[at0002 and name/value='IgM immunostain']/items[at0001]" name="IgM immunostain result">
+              <constraint xsi:type="multipleConstraint">
+                <includedTypes>Text</includedTypes>
+              </constraint>
+            </Rule>
+            <Rule path="/items[at0002 and name/value='IgM immunostain']/items[at0003]" max="0" />
+            <Rule path="/items[at0002 and name/value='IgM immunostain']/items[at0004]" max="0" />
+            <Rule path="/items[at0002 and name/value='IgM immunostain']/items[at0005]" max="0" />
+            <Rule path="/items[at0002 and name/value='IgM immunostain']/items[at0006]" max="0" />
+            <Rule path="/items[at0002]" max="1" hide_on_form="true" clone="true" name="Podocyte foot process effacement" />
+            <Rule path="/items[at0002 and name/value='Podocyte foot process effacement']/items[at0001]" name="Podocyte foot process effacement result">
+              <constraint xsi:type="multipleConstraint">
+                <includedTypes>Text</includedTypes>
+              </constraint>
+            </Rule>
+            <Rule path="/items[at0002 and name/value='Podocyte foot process effacement']/items[at0003]" max="0" />
+            <Rule path="/items[at0002 and name/value='Podocyte foot process effacement']/items[at0004]" max="0" />
+            <Rule path="/items[at0002 and name/value='Podocyte foot process effacement']/items[at0005]" max="0" />
+            <Rule path="/items[at0002 and name/value='Podocyte foot process effacement']/items[at0006]" max="0" />
+            <Rule path="/items[at0002]" max="1" hide_on_form="true" clone="true" name="Tubular basement membrane morphology" />
+            <Rule path="/items[at0002 and name/value='Tubular basement membrane morphology']/items[at0001]" name="Tubular basement membrane morphology result">
+              <constraint xsi:type="multipleConstraint">
+                <includedTypes>Text</includedTypes>
+              </constraint>
+            </Rule>
+            <Rule path="/items[at0002 and name/value='Tubular basement membrane morphology']/items[at0003]" max="0" />
+            <Rule path="/items[at0002 and name/value='Tubular basement membrane morphology']/items[at0004]" max="0" />
+            <Rule path="/items[at0002 and name/value='Tubular basement membrane morphology']/items[at0005]" max="0" />
+            <Rule path="/items[at0002 and name/value='Tubular basement membrane morphology']/items[at0006]" max="0" />
+            <Rule path="/items[at0002]" max="1" hide_on_form="true" clone="true" name="Tubulointerstitial infiltrate" />
+            <Rule path="/items[at0002 and name/value='Tubulointerstitial infiltrate']/items[at0001]" name="Tubulointerstitial infiltrate result">
+              <constraint xsi:type="multipleConstraint">
+                <includedTypes>Text</includedTypes>
+              </constraint>
+            </Rule>
+            <Rule path="/items[at0002 and name/value='Tubulointerstitial infiltrate']/items[at0003]" max="0" />
+            <Rule path="/items[at0002 and name/value='Tubulointerstitial infiltrate']/items[at0004]" max="0" />
+            <Rule path="/items[at0002 and name/value='Tubulointerstitial infiltrate']/items[at0005]" max="0" />
+            <Rule path="/items[at0002 and name/value='Tubulointerstitial infiltrate']/items[at0006]" max="0" />
+            <Rule path="/items[at0002]" max="1" hide_on_form="true" clone="true" name="Protein deposition" />
+            <Rule path="/items[at0002 and name/value='Protein deposition']/items[at0001]" name="Protein deposition result">
+              <constraint xsi:type="multipleConstraint">
+                <includedTypes>Text</includedTypes>
+              </constraint>
+            </Rule>
+            <Rule path="/items[at0002 and name/value='Protein deposition']/items[at0003]" max="0" />
+            <Rule path="/items[at0002 and name/value='Protein deposition']/items[at0004]" max="0" />
+            <Rule path="/items[at0002 and name/value='Protein deposition']/items[at0005]" max="0" />
+            <Rule path="/items[at0002 and name/value='Protein deposition']/items[at0006]" max="0" />
+          </Items>
+        </Items>
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.analytical_technique_gel.v0" concept_name="Analytical technique GEL" max="1" path="/protocol[at0004]/items[at0110]" name="Analysis type" hide_on_form="true">
+          <Rule path="/items[at0001]" name="Analysis type">
+            <constraint xsi:type="textConstraint">
+              <includedValues>Light Microscopy</includedValues>
+              <includedValues>Immunohistochemistry</includedValues>
+              <includedValues>Electron Microscopy</includedValues>
+              <includedValues>Biochemistry</includedValues>
+              <includedValues>Respiratory chain enzyme analysis</includedValues>
+            </constraint>
+          </Rule>
+        </Items>
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.patient_status_gel.v0" concept_name="Patient Status GEL" max="1" path="/protocol[at0004]/items[at0117]" name="Patient Status" hide_on_form="true" />
+      </Item>
+    </Content>
+    <Content xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.adhoc.v1" concept_name="Ad hoc heading" max="1" path="/content" name="Nasal cilia imaging">
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.laboratory_test.v0" concept_name="Laboratory test" path="/items">
+        <Rule path="/data[at0001]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]" hide_on_form="true">
+          <eventConstraint>
+            <allowedType>PointInTime</allowedType>
+          </eventConstraint>
+        </Rule>
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]" name="Biopsy procedure">
+          <constraint xsi:type="textConstraint">
+            <includedValues>Biopsy or scrape of nasal cilia</includedValues>
+            <includedValues>Other</includedValues>
+          </constraint>
+        </Rule>
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0073]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0075]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0077]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0100]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0057]" name="Assessment">
+          <constraint xsi:type="textConstraint">
+            <includedValues>Normal</includedValues>
+            <includedValues>Unknown</includedValues>
+            <includedValues>Abnormal relevant</includedValues>
+            <includedValues>Abnormal unknown relevance</includedValues>
+          </constraint>
+        </Rule>
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0098]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0101]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/state[at0112]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]/state[at0112]/items[at0113]" max="0" />
+        <Rule path="/protocol[at0004]" hide_on_form="true" />
+        <Rule path="/protocol[at0004]/items[at0068]" max="0" />
+        <Rule path="/protocol[at0004]/items[at0094]" max="0" />
+        <Rule path="/protocol[at0004]/items[at0111]" max="0" />
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.histopathology_findings.v0" concept_name="Histopathology findings" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true">
+          <Rule path="/items[at0012]" hide_on_form="true">
+            <nameConstraint>
+              <excludedValues>local::at0001</excludedValues>
+              <excludedValues>local::at0002</excludedValues>
+              <excludedValues>local::at0003</excludedValues>
+            </nameConstraint>
+          </Rule>
+          <Rule path="/items[at0012]/items[at0005]" hide_on_form="true" />
+          <Rule path="/items[at0012]/items[at0005]/items[at0006]" max="0" />
+          <Rule path="/items[at0012]/items[at0005]/items[at0008]" max="0" />
+          <Rule path="/items[at0012]/items[at0005]/items[at0014]" max="1" name="Report file" />
+          <Rule path="/items[at0012]/items[at0011]" max="0" />
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" max="1" path="/items[at0012]/items[at0005]/items[at0009]" name="Nasal Cilia" hide_on_form="true">
+            <Rule path="/items[at0002]" max="1" hide_on_form="true" name="Ciliary beat frequency" />
+            <Rule path="/items[at0002 and name/value='Ciliary beat frequency']/items[at0001]" name="Ciliary beat frequency">
+              <constraint xsi:type="quantityConstraint">
+                <includedUnits>Hz</includedUnits>
+              </constraint>
+            </Rule>
+            <Rule path="/items[at0002 and name/value='Ciliary beat frequency']/items[at0003]" max="0" />
+            <Rule path="/items[at0002 and name/value='Ciliary beat frequency']/items[at0004]" max="0" />
+            <Rule path="/items[at0002 and name/value='Ciliary beat frequency']/items[at0005]" max="0" />
+            <Rule path="/items[at0002 and name/value='Ciliary beat frequency']/items[at0006]" max="0" />
+            <Rule path="/items[at0002]" hide_on_form="true" clone="true" name="Laboratory result" />
+            <Rule path="/items[at0002 and name/value='Laboratory result']/items[at0001]" name="Other ciliary abnormality">
+              <constraint xsi:type="multipleConstraint">
+                <includedTypes>Text</includedTypes>
+              </constraint>
+            </Rule>
+            <Rule path="/items[at0002 and name/value='Laboratory result']/items[at0003]" max="0" />
+            <Rule path="/items[at0002 and name/value='Laboratory result']/items[at0004]" max="0" />
+            <Rule path="/items[at0002 and name/value='Laboratory result']/items[at0005]" max="0" />
+            <Rule path="/items[at0002 and name/value='Laboratory result']/items[at0006]" max="0" />
+          </Items>
+        </Items>
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.analytical_technique_gel.v0" concept_name="Analytical technique GEL" max="1" path="/protocol[at0004]/items[at0110]" name="Analysis type" hide_on_form="true">
+          <Rule path="/items[at0001]" name="Analysis type">
+            <constraint xsi:type="textConstraint">
+              <includedValues>Light Microscopy</includedValues>
+              <includedValues>Immunohistochemistry</includedValues>
+              <includedValues>Electron Microscopy</includedValues>
+              <includedValues>Biochemistry</includedValues>
+              <includedValues>Respiratory chain enzyme analysis</includedValues>
+            </constraint>
+          </Rule>
+        </Items>
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.patient_status_gel.v0" concept_name="Patient Status GEL" max="1" path="/protocol[at0004]/items[at0117]" name="Patient Status" hide_on_form="true" />
+      </Item>
+    </Content>
+    <Context>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.participant_gel.v0" concept_name="Participant GEL" max="1" path="/context/other_context[at0001]/items[at0006]" name="Participant">
+        <Rule path="/items[at0015]" min="1" />
+      </Items>
+      <Rule path="/context/other_context[at0001]" hide_on_form="true" />
+      <Rule path="/context/other_context[at0001]/items[at0002]" max="0" />
+      <Rule path="/context/other_context[at0001]/items[at0005]" max="0" />
+      <hide_on_form>true</hide_on_form>
+    </Context>
+  </definition>
+  <view>
+    <constraints path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.adhoc.v1 and name/value='Imaging diagnostics']/items[openEHR-EHR-SECTION.adhoc.v1 and name/value='Heart/liver Iron measurement']/items[openEHR-EHR-OBSERVATION.imaging_exam_uk.v0]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.heart_liver_iron_gel.v0]/items[at0008]/value/normal_range">
+      <items id="VisibleInView">
+        <value>normal_range</value>
+      </items>
+    </constraints>
+    <constraints path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.adhoc.v1 and name/value='Imaging diagnostics']/items[openEHR-EHR-SECTION.adhoc.v1 and name/value='Heart/liver Iron measurement']/items[openEHR-EHR-OBSERVATION.imaging_exam_uk.v0]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.heart_liver_iron_gel.v0]/items[at0009]/value/normal_range">
+      <items id="VisibleInView">
+        <value>normal_range</value>
+      </items>
+    </constraints>
+  </view>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-COMPOSITION.report.v1">
+    <digest id="MD5-CAM-1.0.1">FD053BE0456D849CACD864F274EED32E</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.participant_gel.v0">
+    <digest id="MD5-CAM-1.0.1">C4E628BB6ADBA4F6337F58CF5322B4EE</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-SECTION.adhoc.v1">
+    <digest id="MD5-CAM-1.0.1">833221C23E2B25AD3CB9B0B78EE33740</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.laboratory_test.v0">
+    <digest id="MD5-CAM-1.0.1">64F4898018F4D87C7D8ADAF36558AAF7</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.histopathology_findings.v0">
+    <digest id="MD5-CAM-1.0.1">F5408FC3E4BD84ED2B04A074072F5EA1</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0">
+    <digest id="MD5-CAM-1.0.1">4609D4C2AA596C22113E03DFFBB7737C</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.analytical_technique_gel.v0">
+    <digest id="MD5-CAM-1.0.1">4F94402371CC74C6C5653BFDEEAD8937</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.patient_status_gel.v0">
+    <digest id="MD5-CAM-1.0.1">11EC92CBBFCE026E990A6B3A70925C1F</digest>
+  </integrity_checks>
+</template>

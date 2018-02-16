@@ -1,0 +1,367 @@
+﻿archetype (adl_version=1.4; uid=074e56ad-9a94-4826-a32d-8c28eb977f39)
+	openEHR-EHR-EVALUATION.recommendation-respect.v0
+specialise
+	openEHR-EHR-EVALUATION.recommendation.v1
+
+concept
+	[at0000.1]	-- ReSPECT clinical recommendation
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["es-ar"] = <
+			language = <[ISO_639-1::es-ar]>
+			author = <
+				["name"] = <"Alan March">
+				["organisation"] = <"Hospital Universitario Austral, Buenos Aires, Argentina">
+				["email"] = <"alandmarch@gmail.com">
+				["alandmarch@gmail.com"] = <"alandmarch@gmail.com">
+			>
+		>
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			author = <
+				["name"] = <"Bjørn Grøva">
+				["organisation"] = <"Direktoratet for e-helse">
+				["email"] = <"bjorn.grova@ehelse.no">
+			>
+		>
+		["pt-br"] = <
+			language = <[ISO_639-1::pt-br]>
+			author = <
+				["name"] = <"Vladimir Pizzo">
+				["organisation"] = <"Hospital Sirio Libanes, Brazil">
+				["email"] = <"vladimir.pizzo@hsl.org.br">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Heather Leslie">
+		["organisation"] = <"Ocean Informatics">
+		["email"] = <"heather.leslie@oceaninformatics.com">
+		["date"] = <"2013-02-14">
+	>
+	details = <
+		["es-ar"] = <
+			language = <[ISO_639-1::es-ar]>
+			purpose = <"Para el registro de una sugerencia, consejo o propuesta para el manejo clínico en un momento determinado.">
+			use = <"Utilícese para registrar una sugerencia, consejo o propuesta para el manejo clínico en un momento específico.
+
+El caso de uso previsto se vincula a permitir el registro por parte del clínico de una o mas recomendaciones, en un mento específico en el tiempo. Por ejemplo, como un componente de las conclusiones a las que se ha arribado como parte de una consutla clínica.">
+			keywords = <"consejo", "propuesta", "sugerencia">
+			misuse = <"">
+			copyright = <"© openEHR Foundation, Clinical Models UK">
+		>
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			purpose = <"Anvendes for å registrere et forslag, et råd eller en anmodning om klinisk oppfølging på et spesifikt tidspunkt.">
+			use = <"Anvendes for å registrere et forslag, et råd eller en anmodning om klinisk oppfølging på et spesifikt tidspunkt.
+
+Arketypen er ment å understøtte klinikere som dokumenterer en eller flere anbefalinger på et spesifikt tidspunkt.
+Anbefalingen kan for eksempel benyttes som en del av dokumentasjonen av konklusjonene som trekkes i forbindelse med en klinisk konsultasjon.">
+			keywords = <"råd", "forslag", "anmodning", "tilråde", "tilrådning", "instruks">
+			misuse = <"">
+			copyright = <"© openEHR Foundation, Clinical Models UK">
+		>
+		["pt-br"] = <
+			language = <[ISO_639-1::pt-br]>
+			purpose = <"Registrar uma sugestão, conselho ou proposta de manejo clínico num tempo específico.">
+			use = <"Utilizar para registrar uma sugestão, conselho ou proposta de manejo clínico num tempo específico.
+
+O caso de uso pretendido é apoiar o registro clínico de uma recomendação, ou recomendações, num ponto específico no tempo.
+Por exemplo, como um componente das conclusões tiradas como parte de uma consulta clínica.">
+			keywords = <"conselho", "proposta", "sugestão">
+			misuse = <"">
+			copyright = <"© openEHR Foundation, Clinical Models UK">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record the summary of agreed and realistic clinical recommendations for emergency care and treatment in the context of the ReSPECT process.">
+			use = <"Use to record a summary of agreed and realistic clinical recommendations for emergency care and treatment as part of the ReSPECT process.">
+			keywords = <"advice", "proposal", "suggestion">
+			misuse = <"">
+			copyright = <"© openEHR Foundation, Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <"Koray Atalag, University of Auckland, New Zealand", "Silje Ljosland Bakke, Nasjonal IKT HF, Norway (openEHR Editor)", "Lars Bitsch-Larsen, Haukeland University hospital, Norway", "Einar Fosse, National Centre for Integrated Care and Telemedicine, Norway", "Sam Heard, Ocean Informatics, Australia", "Shinji Kobayashi, Kyoto University, Japan", "Heather Leslie, Ocean Informatics, Australia (openEHR Editor)", "Ian McNicoll, freshEHR Clinical Informatics, United Kingdom (openEHR Editor)", "Andrej Orel, Marand d.o.o., Slovenia", "Anne Pauline Anderssen, Helse Nord RHF, Norway", "Vebjørn Arntzen, Oslo universitetssykehus HF, Norway", "Bente Gjelsvik, Helse Bergen, Norway", "Kristian Heldal, Telemark Hospital Trust, Norway", "Hilde Hollås, Norway", "Lars Morgan Karlsen, DIPS ASA, Norway", "Hallvard Lærum, Oslo Universitetssykehus HF, Norway", "Tanja Riise, Nasjonal IKT HF, Norway", "John Tore Valand, Haukeland Universitetssjukehus, Norway (Nasjonal IKT redaktør)">
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Heather Leslie, Ocean Informatics, heather.leslie@oceaninformatics.com">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"E2268C8091910EEAA7907DFC142352FB">
+		["build_uid"] = <"2bc5748e-e9cf-43a3-83e5-6f7fa126e066">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	EVALUATION[at0000.1] matches {	-- ReSPECT clinical recommendation
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002.1] occurrences matches {0..1} matches {	-- Focus
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0.6, 	-- Life-sustaining treatment
+									at0.7]	-- Symptom control
+								}
+							}
+						}
+					}
+					ELEMENT[at0003.1] occurrences matches {0..*} matches {	-- Clinical guidance on interventions
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0004] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0005] occurrences matches {0..*} matches {	-- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0.6"] = <
+					text = <"Life-sustaining treatment">
+					description = <"Focus on life-sustaining treatment.">
+				>
+				["at0.7"] = <
+					text = <"Symptom control">
+					description = <"Focus on symptom control.">
+				>
+				["at0000"] = <
+					text = <"Recommendation">
+					description = <"A suggestion, advice or proposal for clinical management.">
+				>
+				["at0000.1"] = <
+					text = <"ReSPECT clinical recommendation">
+					description = <"Summary of agreed and realistic clinical recommendations for emergency care and treatment.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Recommendation">
+					description = <"Narrative description of the recommendation.">
+					comment = <"May be coded, using a terminology, if required.">
+				>
+				["at0002.1"] = <
+					text = <"Focus">
+					description = <"Focus on life-sustaining treatment or symptom control according to clinical guidance on specific interventions specified below.">
+				>
+				["at0003"] = <
+					text = <"Rationale">
+					description = <"Justifications for the recommendation.">
+				>
+				["at0003.1"] = <
+					text = <"Clinical guidance on interventions">
+					description = <"Clinician's guidance on specific interventions that may or may not be wanted or be clinically appropriate, including being taken or admitted to hospital +/- receiving life support.">
+					comment = <"This includes but is not restricted to the following:
+1 Admission to hospital
+2 Admission to Intensive Care
+3 Non-invasive ventilation
+4 Invasive Ventilation
+5 Oral Antibiotics
+6 Intravenous antibiotics ">
+				>
+				["at0004"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0005"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local content or to align with other reference models/formalisms.">
+					comment = <"For example: local information requirements or additional metadata to align with FHIR or CIMI equivalents.">
+				>
+			>
+		>
+		["es-ar"] = <
+			items = <
+				["at0.6"] = <
+					text = <"*Life-sustaining treatment(en)">
+					description = <"*Focus on life-sustaining treatment.(en)">
+				>
+				["at0.7"] = <
+					text = <"*Symptom control(en)">
+					description = <"*Focus on symptom control.(en)">
+				>
+				["at0000"] = <
+					text = <"Recomendación">
+					description = <"Una sugerencia, consejo o propuesta para el manejo clínico.">
+				>
+				["at0000.1"] = <
+					text = <"*ReSPECT clinical recommendation(en)">
+					description = <"*Summary of agreed and realistic clinical recommendations for emergency care and treatment.(en)">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Recomendación">
+					description = <"Descripción narrativa de la recomendación">
+					comment = <"Puede ser codificada mediante una terminología si así se lo requiere.">
+				>
+				["at0002.1"] = <
+					text = <"*! - Recommendation(en)">
+					description = <"*Narrative description of the recommendation.(en)">
+				>
+				["at0003"] = <
+					text = <"*Rationale(en)">
+					description = <"*Justifications for the recommendation.(en)">
+				>
+				["at0003.1"] = <
+					text = <"*Clinical guidance on interventions(en)">
+					description = <"*Clinician's guidance on specific interventions that may or may not be wanted or be clinically appropriate, including being taken or admitted to hospital +/- receiving life support.(en)">
+					comment = <"*This includes but is not restricted to the following:
+1 Admission to hospital
+2 Admission to Intensive Care
+3 Non-invasive ventilation
+4 Invasive Ventilation
+5 Oral Antibiotics
+6 Intravenous antibiotics (en)">
+				>
+				["at0004"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0005"] = <
+					text = <"Extensión">
+					description = <"Información adicional requerida para representar contenido local o para alineamiento con otros modelos de referencia o formalismos.">
+					comment = <"Por ejemplo: requerimientos locales de información o metadatos adicionales para el alineamiento con equivalentes FHIR o CIMI.">
+				>
+			>
+		>
+		["pt-br"] = <
+			items = <
+				["at0.6"] = <
+					text = <"*Life-sustaining treatment(en)">
+					description = <"*Focus on life-sustaining treatment.(en)">
+				>
+				["at0.7"] = <
+					text = <"*Symptom control(en)">
+					description = <"*Focus on symptom control.(en)">
+				>
+				["at0000"] = <
+					text = <"Recomendação">
+					description = <"Uma sugestão, conselho ou proposta para manejo clínico.">
+				>
+				["at0000.1"] = <
+					text = <"*ReSPECT clinical recommendation(en)">
+					description = <"*Summary of agreed and realistic clinical recommendations for emergency care and treatment.(en)">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Recomendação">
+					description = <"Descrição narrativa da recomendação.">
+					comment = <"Pode ser codificada, utilizando terminologia, se necessário.">
+				>
+				["at0002.1"] = <
+					text = <"*! - Recommendation(en)">
+					description = <"*Narrative description of the recommendation.(en)">
+				>
+				["at0003"] = <
+					text = <"*Rationale(en)">
+					description = <"*Justifications for the recommendation.(en)">
+				>
+				["at0003.1"] = <
+					text = <"*Clinical guidance on interventions(en)">
+					description = <"*Clinician's guidance on specific interventions that may or may not be wanted or be clinically appropriate, including being taken or admitted to hospital +/- receiving life support.(en)">
+					comment = <"*This includes but is not restricted to the following:
+1 Admission to hospital
+2 Admission to Intensive Care
+3 Non-invasive ventilation
+4 Invasive Ventilation
+5 Oral Antibiotics
+6 Intravenous antibiotics (en)">
+				>
+				["at0004"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0005"] = <
+					text = <"Extensão">
+					description = <"Informação adicional necessária para capturar conteúdo local ou para alinhar com outros modelos de referência/formalismos.">
+					comment = <"Por exemplo: necessidades de informação local ou metadados adicionais para alinhar com equivalentes CIMI ou FHIR.">
+				>
+			>
+		>
+		["nb"] = <
+			items = <
+				["at0.6"] = <
+					text = <"*Life-sustaining treatment(en)">
+					description = <"*Focus on life-sustaining treatment.(en)">
+				>
+				["at0.7"] = <
+					text = <"*Symptom control(en)">
+					description = <"*Focus on symptom control.(en)">
+				>
+				["at0000"] = <
+					text = <"Anbefaling">
+					description = <"Et forslag, råd eller anmodning om klinisk oppfølging.">
+				>
+				["at0000.1"] = <
+					text = <"*ReSPECT clinical recommendation(en)">
+					description = <"*Summary of agreed and realistic clinical recommendations for emergency care and treatment.(en)">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Anbefaling">
+					description = <"Fritekstbeskrivelse av anbefalingen.">
+					comment = <"Det bør om mulig benyttes terminologi for å angi anbefaling.">
+				>
+				["at0002.1"] = <
+					text = <"*! - Recommendation(en)">
+					description = <"*Narrative description of the recommendation.(en)">
+				>
+				["at0003"] = <
+					text = <"Begrunnelse">
+					description = <"Begrunnelse for anbefalingen.">
+				>
+				["at0003.1"] = <
+					text = <"*Clinical guidance on interventions(en)">
+					description = <"*Clinician's guidance on specific interventions that may or may not be wanted or be clinically appropriate, including being taken or admitted to hospital +/- receiving life support.(en)">
+					comment = <"*This includes but is not restricted to the following:
+1 Admission to hospital
+2 Admission to Intensive Care
+3 Non-invasive ventilation
+4 Invasive Ventilation
+5 Oral Antibiotics
+6 Intravenous antibiotics (en)">
+				>
+				["at0004"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0005"] = <
+					text = <"Utvidelse">
+					description = <"Ytterligere informasjon som trengs for å kunne registrere lokalt definert innhold eller for å tilpasse til andre referansemodeller/formalismer.">
+					comment = <"For eksempel lokale informasjonsbehov eller ytterligere metadata for å kunne tilpasse til tilsvarende konsepter i FHIR eller CIMI.">
+				>
+			>
+		>
+	>

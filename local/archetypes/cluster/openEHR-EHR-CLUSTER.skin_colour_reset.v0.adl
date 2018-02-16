@@ -1,0 +1,98 @@
+﻿archetype (adl_version=1.4; uid=251fb681-f4ec-4078-943f-e346529e8085)
+	openEHR-EHR-CLUSTER.skin_colour_reset.v0
+
+concept
+	[at0000]	-- Skin colour RESET
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2016-03-28">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For recording of skin colour in the context of an unscheduled clinical assessment.">
+			use = <"Use to record skin colour.">
+			misuse = <"Not to be used to record any other skin characteristics.">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"65CC79721C37F4456CF7119BA859A77E">
+		["build_uid"] = <"7816561d-e2fb-4cd1-a56b-602c3f71940e">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Skin colour RESET
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- Skin colour
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0002, 	-- Flushed
+							at0003, 	-- Normal
+							at0004, 	-- Pale
+							at0005, 	-- Mild mottling
+							at0006, 	-- Moderate mottling
+							at0007]	-- Severe mottling
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Skin colour RESET">
+					description = <"Skin colour in an unscheduled clinical assessment.">
+				>
+				["at0001"] = <
+					text = <"Skin colour">
+					description = <"Coded description of the colour or complexion of the skin.">
+				>
+				["at0002"] = <
+					text = <"Flushed">
+					description = <"The skin complexion appears flushed.">
+				>
+				["at0003"] = <
+					text = <"Normal">
+					description = <"The skin complexion appears normal.">
+				>
+				["at0004"] = <
+					text = <"Pale">
+					description = <"The skin complexion appears pale.">
+				>
+				["at0005"] = <
+					text = <"Mild mottling">
+					description = <"The skin complexion appears mildy mottled.">
+				>
+				["at0006"] = <
+					text = <"Moderate mottling">
+					description = <"The skin complexion appears moderately mottled.">
+				>
+				["at0007"] = <
+					text = <"Severe mottling">
+					description = <"The skin complexion appears severely mottled.">
+				>
+			>
+		>
+	>

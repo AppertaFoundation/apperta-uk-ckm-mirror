@@ -1,0 +1,188 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>8db6bdf2-7f9b-4dcc-ad49-453002d4ba4f</id>
+  <name>DiADeM Assessment.v1</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose>Use to record DiADeM assessment. The tools have been developed for Clinicians who have a good primary care knowledge of dementia/depression and delirium to enable them to make a diagnosis of Advanced Dementia in a care home setting.</purpose>
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.encounter.v1" concept_name="Encounter" name="DiADeM Assessment">
+    <Content xsi:type="ADMIN_ENTRY" archetype_id="openEHR-EHR-ADMIN_ENTRY.key_contacts.v1" concept_name="Key contacts" path="/content">
+      <Rule path="/data[at0001]" hide_on_form="true" />
+      <Rule path="/data[at0001]/items[at0018]/items[at0032]" max="0" />
+      <Rule path="/data[at0001]/items[at0018]/items[at0025]" max="0" />
+      <Rule path="/data[at0001]/items[at0018]/items[at0017]" max="0" />
+      <Rule path="/data[at0001]/items[at0014]" max="1" name="GP" />
+      <Rule path="/data[at0001]/items[at0014]/items[at0034]" max="0" />
+      <Rule path="/data[at0001]/items[at0014]/items[at0030]" default="GP" />
+      <Rule path="/data[at0001]/items[at0014]/items[at0017]" max="0" />
+      <Rule path="/data[at0001]/items[at0008]" max="0" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.individual_personal_uk.v1" concept_name="Individual's personal demographics (UK)" max="1" path="/data[at0001]/items[at0018]/items[at0013]" name="Carer" hide_on_form="true">
+        <Rule path="/items[at0016]" max="0" />
+        <Rule path="/items[at0007]" max="0" />
+        <Rule path="/items[at0017]" max="0" />
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.person_name.v1" concept_name="Person name" max="1" path="/items[at0013]" hide_on_form="true">
+          <Rule path="/items[at0006]" max="0" />
+          <Rule path="/items[at0022]" max="0" />
+          <Rule path="/items[at0001]" name="Carer name" />
+          <Rule path="/items[at0002]" max="0" />
+          <Rule path="/items[at0014]" max="0" />
+        </Items>
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.telecom_uk.v1" concept_name="Telecom details (UK)" path="/items[at0015]" hide_on_form="true">
+          <Rule path="/items[at0002]" name="Carer telephone" />
+          <Rule path="/items[at0003]" max="0" />
+          <Rule path="/items[at0020]" max="0" />
+          <Rule path="/items[at0021]" max="0" />
+        </Items>
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.individual_professional.v1" concept_name="Individual professional demographics (UK)" max="1" path="/data[at0001]/items[at0014]/items[at0015]">
+        <Rule path="/items[at0006]" max="0" />
+        <Rule path="/items[at0005]" max="0" />
+        <Rule path="/items[at0012]" max="0" />
+        <Rule path="/items[at0011]" max="0" />
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.person_name.v1" concept_name="Person name" max="1" path="/items[at0015]" hide_on_form="true">
+          <Rule path="/items[at0006]" max="0" />
+          <Rule path="/items[at0022]" max="0" />
+          <Rule path="/items[at0001]" name="GP name" />
+          <Rule path="/items[at0002]" max="0" />
+          <Rule path="/items[at0014]" max="0" />
+        </Items>
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.telecom_uk.v1" concept_name="Telecom details (UK)" max="1" path="/items[at0017]" name="Email" hide_on_form="true">
+          <Rule path="/items[at0002]" name="GP email" />
+          <Rule path="/items[at0003]" max="0" />
+          <Rule path="/items[at0020]" max="0" />
+          <Rule path="/items[at0021]" max="0" />
+        </Items>
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.organisation.v1" concept_name="Organisation" path="/items[at0018]">
+          <Rule path="/items[at0001]" name="GP Practice name" />
+          <Rule path="/items[at0011]" max="0" />
+          <Rule path="/items[at0005]" max="0" />
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.telecom_uk.v1" concept_name="Telecom details (UK)" max="1" path="/items[at0009]" name="Organisation telecom">
+            <Rule path="/items[at0002]" name="GP telephone" />
+            <Rule path="/items[at0003]" max="0" />
+            <Rule path="/items[at0020]" max="0" />
+            <Rule path="/items[at0021]" max="0" />
+          </Items>
+        </Items>
+      </Items>
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.yhscn_diadem_assessment.v0" concept_name="YHSCN - DiADeM assessment" max="1" path="/content">
+      <Rule path="/data[at0001]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.six_cit_assessment.v0" concept_name="6 CIT Assessment" max="1" path="/content">
+      <Rule path="/data[at0001]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0029]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0029]/items[at0030]" max="0" />
+      <Rule path="/protocol[at0031]" hide_on_form="true" />
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.gpcog_screening_test.v0" concept_name="GPCOG screening test" max="1" path="/content">
+      <Rule path="/data[at0001]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0004]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0004]/items[at0005]" max="0" />
+      <Rule path="/protocol[at0006]" hide_on_form="true" />
+    </Content>
+    <Context>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.individual_professional_uk.v1" concept_name="Individual professional demographics (UK)" max="1" path="/context/other_context[at0001]/items[at0002]" name="Composer details" hide_on_form="true">
+        <Rule path="/items[at0006]" max="0" />
+        <Rule path="/items[at0005]" max="0" />
+        <Rule path="/items[at0012]" name="Assessor team" />
+        <Rule path="/items[at0011]" max="0" />
+      </Items>
+      <Rule path="/context/other_context[at0001]" hide_on_form="true" />
+      <hide_on_form>true</hide_on_form>
+    </Context>
+  </definition>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-COMPOSITION.encounter.v1">
+    <digest id="MD5-CAM-1.0.1">4DF6B3DE1A7F7899B4F88A97FED974E7</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.individual_professional_uk.v1">
+    <digest id="MD5-CAM-1.0.1">5E3BA5FF089BD92C10C27A1F8B14B31D</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-ADMIN_ENTRY.key_contacts.v1">
+    <digest id="MD5-CAM-1.0.1">251E7D812F0FCF8C54EAC3867A1B9F31</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.individual_personal_uk.v1">
+    <digest id="MD5-CAM-1.0.1">1FBD3A0D0A53F016CEE38900DC482B1F</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.person_name.v1">
+    <digest id="MD5-CAM-1.0.1">2D8CF370D3AEC6DDC6F9847963051B89</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.telecom_uk.v1">
+    <digest id="MD5-CAM-1.0.1">A5BF845541EBF8160EAC1B51A67104B4</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.individual_professional.v1">
+    <digest id="MD5-CAM-1.0.1">D8FF4CD54F4850A1A914AAEBA3A6FEDF</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.organisation.v1">
+    <digest id="MD5-CAM-1.0.1">B932A22934CC38489610A47273A86DA8</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.yhscn_diadem_assessment.v0">
+    <digest id="MD5-CAM-1.0.1">6BBC5997C18A320FA8FCE31BF2958A21</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.six_cit_assessment.v0">
+    <digest id="MD5-CAM-1.0.1">089BF08253D467A2040D166189CFFA04</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.gpcog_screening_test.v0">
+    <digest id="MD5-CAM-1.0.1">541EFF994F69A7ED42E543C62C75E494</digest>
+  </integrity_checks>
+</template>

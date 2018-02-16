@@ -1,0 +1,66 @@
+﻿archetype (adl_version=1.4; uid=38c0dd9d-6fc1-4338-8861-90b8453620dc)
+	openEHR-EHR-CLUSTER.episode_details_northproms.v0
+
+concept
+	[at0000]	-- Episode details Northumbria Orthopaedic PROMS
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2017-11-06">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the capture of episode information in the context of the Northumbria Orthopaedic PROMs registry.">
+			use = <"Use to record episode details, such as a unique identifier, in the context of Northumbria PROMs registry. 
+
+This cluster archetype is intended to be used in the composition context slot.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"5F483D9FE5344C3EF8AE7641861A8CF3">
+		["build_uid"] = <"d5b3cbab-eba9-48d9-bfe1-6393ec0f2d84">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Episode details Northumbria Orthopaedic PROMS
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- Episode identifier
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Episode details Northumbria Orthopaedic PROMS">
+					description = <"Local cluster to capture episode details for the Northumbria Orthopaedic PROMS registry.">
+				>
+				["at0001"] = <
+					text = <"Episode identifier">
+					description = <"Unique identifier for the episode.">
+				>
+			>
+		>
+	>

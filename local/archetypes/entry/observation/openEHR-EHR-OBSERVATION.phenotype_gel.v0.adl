@@ -1,0 +1,355 @@
+﻿archetype (adl_version=1.4; uid=39745200-e865-4675-b3fb-4853af82fa1c)
+	openEHR-EHR-OBSERVATION.phenotype_gel.v0
+
+concept
+	[at0000]	-- Phenotype GEL
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2017-03-14">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the recording and reporting of phenotype details as part of the Genomics England datasets.">
+			use = <"Use the capture the phenotype statement details and related information in the context of Genomics England datasets.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"F603C93A514F67A1D123D45A65711EAC">
+		["build_uid"] = <"0fc7d203-059a-4df4-992c-01820e05baf8">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Phenotype GEL
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..1} matches {	-- Point in time
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									allow_archetype CLUSTER[at0005] occurrences matches {0..*} matches {	-- Clinical assessment letter
+										include
+											archetype_id/value matches {/openEHR-EHR-CLUSTER\.multimedia(-[a-zA-Z0-9_]+)*\.v1/}
+									}
+									CLUSTER[at0004] occurrences matches {0..*} matches {	-- Statement
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0006] occurrences matches {0..1} matches {	-- Phenotype identifier
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0007] occurrences matches {0..1} matches {	-- Phenotype present
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0008, 	-- Yes
+															at0009, 	-- No
+															at0010]	-- Unknown
+														}
+													}
+												}
+											}
+											ELEMENT[at0011] occurrences matches {0..1} matches {	-- Phenotype description
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0012] occurrences matches {0..1} matches {	-- HPO build number
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0013] occurrences matches {0..1} matches {	-- Phenotype progression modifier
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0014, 	-- Progressive
+															at0015]	-- Nonprogressive
+														}
+													}
+												}
+											}
+											ELEMENT[at0016] occurrences matches {0..1} matches {	-- Phenotype laterality modifier
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0017, 	-- Right
+															at0018, 	-- Unilateral
+															at0019, 	-- Bilateral
+															at0020]	-- Left
+														}
+													}
+												}
+											}
+											ELEMENT[at0021] occurrences matches {0..1} matches {	-- Phenotype spatial pattern modifier
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0022, 	-- Distal
+															at0023, 	-- Generalised
+															at0024, 	-- Localised
+															at0025]	-- Proximal
+														}
+													}
+												}
+											}
+											ELEMENT[at0026] occurrences matches {0..1} matches {	-- Phenotype onset modifier
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0027, 	-- Embryonal onset
+															at0028, 	-- Fetal onset
+															at0029, 	-- Neonatal onset
+															at0030, 	-- Infantile onset
+															at0031, 	-- Childhood onset
+															at0032, 	-- Juvenile onset
+															at0033, 	-- Young adult onset
+															at0034, 	-- Late onset
+															at0035]	-- Middle age onset
+														}
+													}
+												}
+											}
+											ELEMENT[at0036] occurrences matches {0..1} matches {	-- Phenotype severity modifier
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0037, 	-- Borderline
+															at0038, 	-- Mild
+															at0039, 	-- Moderate
+															at0040, 	-- Severe
+															at0041]	-- Profound
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0042] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0043] occurrences matches {0..*} matches {	-- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Phenotype GEL">
+					description = <"The phenotype reporting details for the Genomics England datasets.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Point in time">
+					description = <"A specific date and/or time which may be explicitly defined in a template or at run-time.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Statement">
+					description = <"The details of the specified phenotypic abnormality.">
+				>
+				["at0005"] = <
+					text = <"Clinical assessment letter">
+					description = <"The details of clinical assessment letters related to the specified phenotypic abnormality.">
+				>
+				["at0006"] = <
+					text = <"Phenotype identifier">
+					description = <"The identity of the statement in the Human Phenotype Ontology.">
+				>
+				["at0007"] = <
+					text = <"Phenotype present">
+					description = <"Statement about the presence of the specified phenotypic abnormality.">
+				>
+				["at0008"] = <
+					text = <"Yes">
+					description = <"The phenotypic abnormality is present.">
+				>
+				["at0009"] = <
+					text = <"No">
+					description = <"The phenotypic abnormality is not present.">
+				>
+				["at0010"] = <
+					text = <"Unknown">
+					description = <"It is not known whether the phenotypic abnormality is present.">
+				>
+				["at0011"] = <
+					text = <"Phenotype description">
+					description = <"Human Phenotype Ontology description of the specified phenotypic abnormality.">
+				>
+				["at0012"] = <
+					text = <"HPO build number">
+					description = <"The build number of the Human Phenotype Ontology used for the classification of the specified phenotypic abnormality.">
+				>
+				["at0013"] = <
+					text = <"Phenotype progression modifier">
+					description = <"The progression of the specified phenotypic abnormality.">
+				>
+				["at0014"] = <
+					text = <"Progressive">
+					description = <"The reported phenotype is progressive.">
+				>
+				["at0015"] = <
+					text = <"Nonprogressive">
+					description = <"The reported phenotype is nonprogressive.">
+				>
+				["at0016"] = <
+					text = <"Phenotype laterality modifier">
+					description = <"The localisation with respect to the side of the body of the specified phenotypic abnormality.">
+				>
+				["at0017"] = <
+					text = <"Right">
+					description = <"The phenotypic abnormality is present on the right side of the body.">
+				>
+				["at0018"] = <
+					text = <"Unilateral">
+					description = <"The phenotypic abnormality is present on one side of the body.">
+				>
+				["at0019"] = <
+					text = <"Bilateral">
+					description = <"The phenotypic abnormality is present on both sides of the body.">
+				>
+				["at0020"] = <
+					text = <"Left">
+					description = <"The phenotypic abnormality is present on the left side of the body.">
+				>
+				["at0021"] = <
+					text = <"Phenotype spatial pattern modifier">
+					description = <"The pattern by which the phenotype affects on or more regions of the body.">
+				>
+				["at0022"] = <
+					text = <"Distal">
+					description = <"The spatial pattern of the phenotypic abnormality is distal.">
+				>
+				["at0023"] = <
+					text = <"Generalised">
+					description = <"The spatial pattern of the phenotypic abnormality is generalised.">
+				>
+				["at0024"] = <
+					text = <"Localised">
+					description = <"The spatial pattern of the phenotypic abnormality is localised.">
+				>
+				["at0025"] = <
+					text = <"Proximal">
+					description = <"The spatial pattern of the phenotypic abnormality is proximal.">
+				>
+				["at0026"] = <
+					text = <"Phenotype onset modifier">
+					description = <"The age group in which disease manifestations appear.">
+					comment = <"Comment: Adolescent is defined by WHO as a person between 10-19 years of age.">
+				>
+				["at0027"] = <
+					text = <"Embryonal onset">
+					description = <"Onset of disease at up to 8 weeks of gestation.">
+				>
+				["at0028"] = <
+					text = <"Fetal onset">
+					description = <"Onset prior to birth but after 8 weeks of gestation.">
+				>
+				["at0029"] = <
+					text = <"Neonatal onset">
+					description = <"Onset of signs or symptoms of disease within the first 28 days of life.">
+				>
+				["at0030"] = <
+					text = <"Infantile onset">
+					description = <"Onset of signs or symptoms of disease between 28 days to one year of life.">
+				>
+				["at0031"] = <
+					text = <"Childhood onset">
+					description = <"Onset of disease at the age of between 1 and 5 years.">
+				>
+				["at0032"] = <
+					text = <"Juvenile onset">
+					description = <"Onset of signs or symptoms of disease between the age of 5 and 15 years.">
+				>
+				["at0033"] = <
+					text = <"Young adult onset">
+					description = <"Onset of disease at the age of between 16 and 40 years.">
+				>
+				["at0034"] = <
+					text = <"Late onset">
+					description = <"A type of adult onset with onset of symptoms after the age of 60 years.">
+				>
+				["at0035"] = <
+					text = <"Middle age onset">
+					description = <"A type of adult onset with onset of symptoms at the age of 40 to 60 years.">
+				>
+				["at0036"] = <
+					text = <"Phenotype severity modifier">
+					description = <"The intensity or degree of the manifestation.">
+				>
+				["at0037"] = <
+					text = <"Borderline">
+					description = <"The manifestation of the phenotypic abnormality is borderline.">
+				>
+				["at0038"] = <
+					text = <"Mild">
+					description = <"The manifestation of the phenotypic abnormality is mild.">
+				>
+				["at0039"] = <
+					text = <"Moderate">
+					description = <"The manifestation of the phenotypic abnormality is moderate.">
+				>
+				["at0040"] = <
+					text = <"Severe">
+					description = <"The manifestation of the phenotypic abnormality is severe.">
+				>
+				["at0041"] = <
+					text = <"Profound">
+					description = <"The manifestation of the phenotypic abnormality is profound.">
+				>
+				["at0042"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0043"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental infomation or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+			>
+		>
+	>

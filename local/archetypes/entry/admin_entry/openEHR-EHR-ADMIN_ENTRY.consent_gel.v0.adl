@@ -1,0 +1,228 @@
+﻿archetype (adl_version=1.4; uid=010ed47b-b07f-4431-a7c2-b804aa531135)
+	openEHR-EHR-ADMIN_ENTRY.consent_gel.v0
+
+concept
+	[at0000]	-- Consent Details GEL
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2016-12-20">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the recording and reporting of consent details for Genomics England Rare diseases and cancer datasets.">
+			use = <"Use to record and report consent details, such as the date, the name and version of the consent / assent form, the person taking consent and a particular consent question and answer, participant information sheets and any other consent materials, as part of the Genomics England Rare diseases and cancer datasets.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"6CA81632005EAC7BE24136717E918C44">
+		["build_uid"] = <"39e9189f-dbd9-44a9-8ae3-0c99a140d68a">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	ADMIN_ENTRY[at0000] matches {	-- Consent Details GEL
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Date of consent
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					ELEMENT[at0003] occurrences matches {0..1} matches {	-- Name and version of consent form
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {	-- Consent given?
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+					ELEMENT[at0007] occurrences matches {0..1} matches {	-- Filename of consent form
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0006] occurrences matches {0..1} matches {	-- Copy of consent form
+						value matches {
+							DV_MULTIMEDIA matches {
+								media_type matches {[openEHR::518]}
+							}
+						}
+					}
+					ELEMENT[at0008] occurrences matches {0..1} matches {	-- Person taking consent
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0009] occurrences matches {0..1} matches {	-- Name and version of participant information sheet
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0011] occurrences matches {0..20} matches {	-- Consent question
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+					ELEMENT[at0015] occurrences matches {0..1} matches {	-- Name and version of assent form (cancer)
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0021] occurrences matches {0..1} matches {	-- Filename of assent form
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0022] occurrences matches {0..1} matches {	-- Copy of assent form
+						value matches {
+							DV_MULTIMEDIA matches {
+								media_type matches {[openEHR::518]}
+							}
+						}
+					}
+					ELEMENT[at0023] occurrences matches {0..*} matches {	-- Additional consent materials (cancer)
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0024] occurrences matches {0..1} matches {	-- Health related additional findings (cancer)
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+					ELEMENT[at0025] occurrences matches {0..1} matches {	-- Reproductive additional findings (cancer)
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0026, 	-- Yes
+									at0027, 	-- No
+									at0028]	-- Not relevant
+								}
+							}
+						}
+					}
+					allow_archetype CLUSTER[at0029] occurrences matches {0..*} matches {	-- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Consent Details GEL">
+					description = <"Consent details for Genomics England Rare diseases and cancer datasets.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Date of consent">
+					description = <"The date when the consent was given.">
+				>
+				["at0003"] = <
+					text = <"Name and version of consent form">
+					description = <"The name and version of the consent form used.">
+				>
+				["at0005"] = <
+					text = <"Consent given?">
+					description = <"Statement whether consent was given.">
+				>
+				["at0006"] = <
+					text = <"Copy of consent form">
+					description = <"The uploaded PDF copy of the consent form.">
+				>
+				["at0007"] = <
+					text = <"Filename of consent form">
+					description = <"The filename of the uploaded PDF copy of the consent form.">
+				>
+				["at0008"] = <
+					text = <"Person taking consent">
+					description = <"The full name of the person taking the consent.">
+				>
+				["at0009"] = <
+					text = <"Name and version of participant information sheet">
+					description = <"The name and version of the participant information sheet used.">
+				>
+				["at0011"] = <
+					text = <"Consent question">
+					description = <"A particular question on the consent form.">
+					comment = <"Rename to the exact question at template or runtime.">
+				>
+				["at0015"] = <
+					text = <"Name and version of assent form (cancer)">
+					description = <"The name and version of the assent form used.">
+				>
+				["at0021"] = <
+					text = <"Filename of assent form">
+					description = <"The filename of the uploaded PDF copy of the assentform.">
+				>
+				["at0022"] = <
+					text = <"Copy of assent form">
+					description = <"The uploaded PDF copy of the assent form.">
+				>
+				["at0023"] = <
+					text = <"Additional consent materials (cancer)">
+					description = <"Additional consent materials used.">
+				>
+				["at0024"] = <
+					text = <"Health related additional findings (cancer)">
+					description = <"Health-related additional findings: Does the participant want these looked for and fed back to their clinical team?">
+				>
+				["at0025"] = <
+					text = <"Reproductive additional findings (cancer)">
+					description = <"Reproductive additional findings: Does the participant want these looked for and fed back to their clinical team?">
+				>
+				["at0026"] = <
+					text = <"Yes">
+					description = <"The participant wants reproductive additional findings looked for and fed back to clinical team.">
+				>
+				["at0027"] = <
+					text = <"No">
+					description = <"The participant does not want reproductive additional findings looked for and fed back to clinical team.">
+				>
+				["at0028"] = <
+					text = <"Not relevant">
+					description = <"The question about reproductive additional findings is not relevant to the participant.">
+				>
+				["at0029"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental infomation or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+			>
+		>
+	>

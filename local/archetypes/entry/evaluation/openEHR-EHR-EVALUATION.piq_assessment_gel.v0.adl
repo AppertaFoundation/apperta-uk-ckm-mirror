@@ -1,0 +1,112 @@
+﻿archetype (adl_version=1.4; uid=f352948f-0850-471d-adc9-62572bb7c5dd)
+	openEHR-EHR-EVALUATION.piq_assessment_gel.v0
+
+concept
+	[at0000]	-- Performance Intelligence Quotient Assessment GEL
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2016-11-23">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For recording Performance Intelligence Quotient Assessment data as part of the Genomics England Rare Diseases dataset.">
+			use = <"To record the Performance Intelligence Quotient Assessment result and method in the Performance Measures section of the Genomics England Rare Diseases dataset.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"EDB0035DA8D5D9943A0D5DA1EA62B6B1">
+		["build_uid"] = <"998881f4-4ced-4de2-9818-c6c41c7aa92b">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Performance Intelligence Quotient Assessment GEL
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- PIQ score
+						value matches {
+							DV_COUNT matches {
+								magnitude matches {|0..200|}
+							}
+						}
+					}
+					ELEMENT[at0003] occurrences matches {0..1} matches {	-- PIQ assessment method
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..1} matches {	-- Clinical interpretation
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0005] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0006] occurrences matches {0..*} matches {	-- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Performance Intelligence Quotient Assessment GEL">
+					description = <"A local archetype to capture Performance Intelligence Quotient Assessment for Genomics England Rare Diseases dataset.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"PIQ score">
+					description = <"The Performance Intelligence Quotient score as an integer.">
+				>
+				["at0003"] = <
+					text = <"PIQ assessment method">
+					description = <"The method used to calculate the Performance Intelligence Quotient score.">
+					comment = <"For example Wechsler Adult Intelligence Scale.">
+				>
+				["at0004"] = <
+					text = <"Clinical interpretation">
+					description = <"Narrative clinical interpretation of assessment.">
+				>
+				["at0005"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0006"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental infomation or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+			>
+		>
+	>

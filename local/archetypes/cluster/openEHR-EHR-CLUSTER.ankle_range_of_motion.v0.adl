@@ -1,0 +1,379 @@
+﻿archetype (adl_version=1.4; uid=4e4f6a0c-8829-47a8-be2e-b4db52ea47da)
+	openEHR-EHR-CLUSTER.ankle_range_of_motion.v0
+
+concept
+	[at0000]	-- Ankle range of motion
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Jamila Chihab">
+		["organisation"] = <"University College London">
+		["email"] = <"chihab.j@gmail.com">
+		["date"] = <"2017-01-24">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Measurement of active and passive ankle range of movement and comparison with the non-injured foot.">
+			use = <"Use to record the active and passive ankle range of movement of injured and non-injured foot, during plantar flexion, dorsi-flexion, inversion and eversion.">
+			keywords = <"Plantar flexion", "Dorsiflexion", "Inversion", "Eversion", "Ankle range of movement">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <"Hildegard Franke, freshEHR Clinical Informatics, United Kingdom", "Matthew Darlison, University College London, UK", "Ibtissam M. Saab, Beirut Arab University, Lebanon">
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["references"] = <"Granado, M. and Matlick, D. (2016). Clinical review-Ankle Sprain. 1st ed. Cinahl Information Systems, pp.1-9.
+
+Quinn, L., Gordon, J. and Quinn, L. (2010). Documentation for rehabilitation. 1st ed. Maryland Heights, Mo.: Saunders/Elsevier.">
+		["current_contact"] = <"Jamila Chihab, <chihab.j@gmail.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"2286C7D1F2BBC04FD7E554269ABB1EEC">
+		["build_uid"] = <"d7ab08aa-a5b9-40f3-954b-44dc08e1c077">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Ankle range of motion
+		items cardinality matches {1..*; unordered} matches {
+			CLUSTER[at0002] occurrences matches {0..1} matches {	-- Active ROM of injured ankle
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0003] occurrences matches {0..1} matches {	-- Plantar flexion
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::497]>
+								list = <
+									["1"] = <
+										units = <"°">
+										magnitude = <|0.0..20.0|>
+										precision = <|0|>
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..1} matches {	-- Dorsiflexion
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::497]>
+								list = <
+									["1"] = <
+										units = <"°">
+										magnitude = <|0.0..45.0|>
+										precision = <|0|>
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {	-- Inversion
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::497]>
+								list = <
+									["1"] = <
+										units = <"°">
+										magnitude = <|0.0..40.0|>
+										precision = <|0|>
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0006] occurrences matches {0..1} matches {	-- Eversion
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::497]>
+								list = <
+									["1"] = <
+										units = <"°">
+										magnitude = <|0.0..20.0|>
+										precision = <|0|>
+									>
+								>
+							>
+						}
+					}
+				}
+			}
+			CLUSTER[at0007] occurrences matches {0..1} matches {	-- Active ROM of non-injured ankle
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0008] occurrences matches {0..1} matches {	-- Plantar flexion
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::497]>
+								list = <
+									["1"] = <
+										units = <"°">
+										magnitude = <|0.0..20.0|>
+										precision = <|0|>
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0009] occurrences matches {0..1} matches {	-- Dorsiflexion
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::497]>
+								list = <
+									["1"] = <
+										units = <"°">
+										magnitude = <|0.0..45.0|>
+										precision = <|0|>
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0010] occurrences matches {0..1} matches {	-- Inversion
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::497]>
+								list = <
+									["1"] = <
+										units = <"°">
+										magnitude = <|0.0..40.0|>
+										precision = <|0|>
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0011] occurrences matches {0..1} matches {	-- Eversion
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::497]>
+								list = <
+									["1"] = <
+										units = <"°">
+										magnitude = <|0.0..20.0|>
+										precision = <|0|>
+									>
+								>
+							>
+						}
+					}
+				}
+			}
+			CLUSTER[at0012] occurrences matches {0..1} matches {	-- Passive ROM of injured ankle
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0013] occurrences matches {0..1} matches {	-- Plantar flexion
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::497]>
+								list = <
+									["1"] = <
+										units = <"°">
+										magnitude = <|0.0..20.0|>
+										precision = <|0|>
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0014] occurrences matches {0..1} matches {	-- Dorsiflexion
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::497]>
+								list = <
+									["1"] = <
+										units = <"°">
+										magnitude = <|0.0..45.0|>
+										precision = <|0|>
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0015] occurrences matches {0..1} matches {	-- Inversion
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::497]>
+								list = <
+									["1"] = <
+										units = <"°">
+										magnitude = <|>=40.0|>
+										precision = <|0|>
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0016] occurrences matches {0..1} matches {	-- Eversion
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::497]>
+								list = <
+									["1"] = <
+										units = <"°">
+										magnitude = <|0.0..20.0|>
+										precision = <|0|>
+									>
+								>
+							>
+						}
+					}
+				}
+			}
+			CLUSTER[at0017] occurrences matches {0..1} matches {	-- Passive ROM of non-injured ankle
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0018] occurrences matches {0..1} matches {	-- Plantar flexion
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::497]>
+								list = <
+									["1"] = <
+										units = <"°">
+										magnitude = <|0.0..20.0|>
+										precision = <|0|>
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0019] occurrences matches {0..1} matches {	-- Dorsiflexion
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::497]>
+								list = <
+									["1"] = <
+										units = <"°">
+										magnitude = <|0.0..45.0|>
+										precision = <|0|>
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0020] occurrences matches {0..1} matches {	-- Inversion
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::497]>
+								list = <
+									["1"] = <
+										units = <"°">
+										magnitude = <|0.0..40.0|>
+										precision = <|0|>
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0021] occurrences matches {0..1} matches {	-- Eversion
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::497]>
+								list = <
+									["1"] = <
+										units = <"°">
+										magnitude = <|0.0..20.0|>
+										precision = <|0|>
+									>
+								>
+							>
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Ankle range of motion">
+					description = <"Measurment of active and passive of ankle range of movement and compare it with the non injured foot.">
+				>
+				["at0002"] = <
+					text = <"Active ROM of injured ankle">
+					description = <"Measurement of active range of motion (ROM) of the injured ankle.">
+				>
+				["at0003"] = <
+					text = <"Plantar flexion">
+					description = <"Measurement of active plantar flexion (ROM) of the injured ankle.">
+				>
+				["at0004"] = <
+					text = <"Dorsiflexion">
+					description = <"Measurement of active dorsiflexion (ROM) of the injured ankle.">
+				>
+				["at0005"] = <
+					text = <"Inversion">
+					description = <"Measurement of active inversion (ROM) of the injured ankle.">
+				>
+				["at0006"] = <
+					text = <"Eversion">
+					description = <"Measurement of active eversion (ROM) of the injured ankle.">
+				>
+				["at0007"] = <
+					text = <"Active ROM of non-injured ankle">
+					description = <"Measurement of active range of motion (ROM) of the non-injured ankle.">
+				>
+				["at0008"] = <
+					text = <"Plantar flexion">
+					description = <"Measurement of active plantar flexion (ROM) of the non-injured ankle.">
+				>
+				["at0009"] = <
+					text = <"Dorsiflexion">
+					description = <"Measurement of active dorsiflexion (ROM) of the non-injured ankle.">
+				>
+				["at0010"] = <
+					text = <"Inversion">
+					description = <"Measurement of active inversion (ROM) of the non-injured ankle.">
+				>
+				["at0011"] = <
+					text = <"Eversion">
+					description = <"Measurement of active eversion (ROM) of the non-injured ankle.">
+				>
+				["at0012"] = <
+					text = <"Passive ROM of injured ankle">
+					description = <"Measurement of passive range of motion (ROM) of the injured ankle.">
+				>
+				["at0013"] = <
+					text = <"Plantar flexion">
+					description = <"Measurement of passive plantar flexion (ROM) of the injured ankle.">
+				>
+				["at0014"] = <
+					text = <"Dorsiflexion">
+					description = <"Measurement of passive dorsiflexion (ROM) of the injured ankle.">
+				>
+				["at0015"] = <
+					text = <"Inversion">
+					description = <"Measurement of passive inversion (ROM) of the injured ankle.">
+				>
+				["at0016"] = <
+					text = <"Eversion">
+					description = <"Measurement of passive eversion (ROM) of the injured ankle.">
+				>
+				["at0017"] = <
+					text = <"Passive ROM of non-injured ankle">
+					description = <"Measurement of passive range of motion (ROM) of the non-injured ankle.">
+				>
+				["at0018"] = <
+					text = <"Plantar flexion">
+					description = <"Measurement of passive plantar flexion (ROM) of the non-injured ankle.">
+				>
+				["at0019"] = <
+					text = <"Dorsiflexion">
+					description = <"Measurement of passive dorsiflexion (ROM) of the non-injured ankle.">
+				>
+				["at0020"] = <
+					text = <"Inversion">
+					description = <"Measurement of passive inversion (ROM) of the non-injured ankle.">
+				>
+				["at0021"] = <
+					text = <"Eversion">
+					description = <"Measurement of passive eversion (ROM) of the non-injured ankle.">
+				>
+			>
+		>
+	>

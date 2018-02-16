@@ -1,0 +1,415 @@
+﻿archetype (adl_version=1.4; uid=0e8f036f-cb0c-4f9f-8aaa-2d6cab5f4810)
+	openEHR-EHR-EVALUATION.injury_ucl.v0
+
+concept
+	[at0000]	-- Injury Details UCL
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Jamila Chihab">
+		["organisation"] = <"University College London">
+		["email"] = <"chihab.j@gmail.com">
+		["date"] = <"2017-01-24">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the recording of injury details specific to an ankle sprain injury dataset based on a physiotherapy guideline.">
+			use = <"Use to record the location and date of the injury occurred and how the injury occured. 
+
+Use to record whether the patient received instant medical care.
+
+Use to record the utilisation of PRICE (Protection, Rest, Ice, Compression, Elevation).
+
+Use to record whether patient is receiving instant, current and past medical management. 
+
+Use to record type of medical management received; whether ankle has responded to treatment and how medication is effectively controlling symptoms.">
+			keywords = <"Injury details", "Medical management", "Symptoms", "PRICE">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <"Hildegard Franke, freshEHR Clinical Informatics, UK", "Matthew Darlison, University College London, UK", "Ibtissam M. Saab, Beirut Arab University, Lebanon">
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["references"] = <"Granado, M. and Matlick, D. (2016). Clinical review-Ankle Sprain. 1st ed. Cinahl Information Systems, pp.1-9.">
+		["current_contact"] = <"Jamila Chihab, <chihab.j@gmail.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"8002C6ECC81170F4EAB6AF00C63C6529">
+		["build_uid"] = <"c273ff59-e0f1-4812-a62d-d8eee1693545">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Injury Details UCL
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Location
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0003, 	-- Left ankle
+									at0004]	-- Right Ankle
+								}
+							}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {	-- Date
+						value matches {
+							DV_DATE matches {*}
+						}
+					}
+					ELEMENT[at0013] occurrences matches {0..1} matches {	-- How did injury occur?
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0014, 	-- Inversion injury
+									at0015]	-- Eversion injury
+								}
+							}
+						}
+					}
+					CLUSTER[at0018] occurrences matches {0..1} matches {	-- Instant medical care
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0006] matches {	-- Yes or no
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							ELEMENT[at0011] occurrences matches {0..1} matches {	-- PRICE?
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							ELEMENT[at0012] occurrences matches {0..1} matches {	-- Acupuncture?
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+						}
+					}
+					CLUSTER[at0017] occurrences matches {0..1} matches {	-- Current medical management
+						items cardinality matches {3..*; unordered} matches {
+							ELEMENT[at0016] matches {	-- Yes or no
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							ELEMENT[at0007] occurrences matches {0..*} matches {	-- Type
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0008, 	-- Bracing
+											at0009, 	-- Weight bearing restrictions
+											at0010]	-- Injections
+										}
+									}
+								}
+							}
+							ELEMENT[at0019] matches {	-- Responded to treatment?
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0020, 	-- Improved
+											at0021]	-- Not improved
+										}
+									}
+								}
+							}
+							ELEMENT[at0022] occurrences matches {0..1} matches {	-- On medication?
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0023, 	-- Acetaminophen
+											at0024, 	-- Topical ketoprofen
+											at0025]	-- None
+										}
+									}
+								}
+							}
+							ELEMENT[at0026] matches {	-- Medication controlling symptoms?
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							allow_archetype CLUSTER[at0035] occurrences matches {0..*} matches {	-- PRICE utilitsation
+								include
+									archetype_id/value matches {/.*/}
+							}
+							ELEMENT[at0036] occurrences matches {0..1} matches {	-- Acupuncture?
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							CLUSTER[at0042] occurrences matches {0..1} matches {	-- Past medical management
+								items cardinality matches {1..*; unordered} matches {
+									ELEMENT[at0043] occurrences matches {0..1} matches {	-- Yes or no
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0040] occurrences matches {0..1} matches {	-- Type
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0044, 	-- Bracing
+													at0045, 	-- Weight bearing restriction
+													at0046]	-- Injections
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					CLUSTER[at0037] occurrences matches {0..1} matches {	-- Past history of same diagnosis
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0039] occurrences matches {0..1} matches {	-- Yes or no
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							ELEMENT[at0047] occurrences matches {0..1} matches {	-- Report of previous twisting ankle?
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							ELEMENT[at0051] occurrences matches {0..1} matches {	-- History of other lower extermity dysfunction, injury, or surgery?
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							ELEMENT[at0053] occurrences matches {0..1} matches {	-- Lower extremity dysfunction
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0054] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0056] occurrences matches {0..*} matches {	-- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Injury Details UCL">
+					description = <"The details of the injury for ankle sprain assessment UCL project.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Location">
+					description = <"The location of the injury.">
+				>
+				["at0003"] = <
+					text = <"Left ankle">
+					description = <"The injury is located at the left ankle.">
+				>
+				["at0004"] = <
+					text = <"Right Ankle">
+					description = <"The injury is located at the right ankle.">
+				>
+				["at0005"] = <
+					text = <"Date">
+					description = <"The date on which the injury occurred.">
+				>
+				["at0006"] = <
+					text = <"Yes or no">
+					description = <"Did the patient receive instant medical care?">
+					comment = <"UI guidance: Yes display PRICE and Acupuncture options, No does not.">
+				>
+				["at0007"] = <
+					text = <"Type">
+					description = <"Type of medical management received.">
+				>
+				["at0008"] = <
+					text = <"Bracing">
+					description = <"Patient is receiving bracing.">
+				>
+				["at0009"] = <
+					text = <"Weight bearing restrictions">
+					description = <"The patient is receiving weight bearing restrictions.">
+				>
+				["at0010"] = <
+					text = <"Injections">
+					description = <"The patient is receiving injections.">
+				>
+				["at0011"] = <
+					text = <"PRICE?">
+					description = <"Statement whether the patient has utilised PRICE.">
+				>
+				["at0012"] = <
+					text = <"Acupuncture?">
+					description = <"Statement whether the patient received acupuncture.">
+				>
+				["at0013"] = <
+					text = <"How did injury occur?">
+					description = <"How did the injury occur?">
+				>
+				["at0014"] = <
+					text = <"Inversion injury">
+					description = <"The injury was an inversion.">
+				>
+				["at0015"] = <
+					text = <"Eversion injury">
+					description = <"The injury was an eversion.">
+				>
+				["at0016"] = <
+					text = <"Yes or no">
+					description = <"Statement whether patient is receiving current medical management.">
+					comment = <"UI Guidance: Yes will display the Type option in the UI, No will not.">
+				>
+				["at0017"] = <
+					text = <"Current medical management">
+					description = <"Details of the patient's current medical care and which type and effectiveness.">
+				>
+				["at0018"] = <
+					text = <"Instant medical care">
+					description = <"Details of the patient's instant medical care at the time of the injury.">
+				>
+				["at0019"] = <
+					text = <"Responded to treatment?">
+					description = <"Assessment of whether ankle is responding to treatment.">
+				>
+				["at0020"] = <
+					text = <"Improved">
+					description = <"The ankle has improved following treatment.">
+				>
+				["at0021"] = <
+					text = <"Not improved">
+					description = <"The ankle has not improved following treatment.">
+				>
+				["at0022"] = <
+					text = <"On medication?">
+					description = <"Is patient using medication for current illness or injury, and if so, which medication.">
+				>
+				["at0023"] = <
+					text = <"Acetaminophen">
+					description = <"Patient takes acetaminophen to reduce pain.">
+				>
+				["at0024"] = <
+					text = <"Topical ketoprofen">
+					description = <"Patient uses topical ketoprofen to reduce pain and swelling.">
+				>
+				["at0025"] = <
+					text = <"None">
+					description = <"Patient is not using medication for current illness or injury.">
+				>
+				["at0026"] = <
+					text = <"Medication controlling symptoms?">
+					description = <"Statement whether the medication is effectively controlling symptoms.">
+				>
+				["at0035"] = <
+					text = <"PRICE utilitsation">
+					description = <"Details of PRICE utilisation if any.">
+				>
+				["at0036"] = <
+					text = <"Acupuncture?">
+					description = <"Statement whether the patient is currently receiving acupuncture treatment.">
+				>
+				["at0037"] = <
+					text = <"Past history of same diagnosis">
+					description = <"Details of patient's past history of a similar diagnosis.">
+				>
+				["at0039"] = <
+					text = <"Yes or no">
+					description = <"Statement whether patient had past similar injury.">
+				>
+				["at0040"] = <
+					text = <"Type">
+					description = <"Type of medical management received.">
+				>
+				["at0042"] = <
+					text = <"Past medical management">
+					description = <"Details of patient's past medical management.">
+				>
+				["at0043"] = <
+					text = <"Yes or no">
+					description = <"Statement whether patient received past medical management.">
+				>
+				["at0044"] = <
+					text = <"Bracing">
+					description = <"Patient had received bracing in the past.">
+				>
+				["at0045"] = <
+					text = <"Weight bearing restriction">
+					description = <"Patient had weight bearing restriction.">
+				>
+				["at0046"] = <
+					text = <"Injections">
+					description = <"Patient had received injections.">
+				>
+				["at0047"] = <
+					text = <"Report of previous twisting ankle?">
+					description = <"Statement whether the patient has reported an episode of twisting his/her ankle.">
+				>
+				["at0051"] = <
+					text = <"History of other lower extermity dysfunction, injury, or surgery?">
+					description = <"Statement whether patient had lower extremity dysfunction, injury or surgery.">
+				>
+				["at0053"] = <
+					text = <"Lower extremity dysfunction">
+					description = <"Types of lower extremity dysfunction.">
+				>
+				["at0054"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0056"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental infomation or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+			>
+		>
+	>

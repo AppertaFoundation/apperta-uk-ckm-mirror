@@ -1,0 +1,333 @@
+﻿archetype (adl_version=1.4; uid=37f49613-6688-4afb-9bc0-0a6242c3a435)
+	openEHR-EHR-OBSERVATION.family_gel.v0
+
+concept
+	[at0000]	-- Family details GEL
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2016-12-20">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the recording of family details in the Genomics England Rare diseases dataset.">
+			use = <"Use to record family details such as parents' ethnicity, family history of specific diseases and other relevant ancestry information as part of the Genomics England Rare diseases dataset.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"FA41BB4DC908137D13DD1D22DB5E840C">
+		["build_uid"] = <"47b325ee-8a32-42f8-b3d7-1395f7837e6e">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Family details GEL
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..1} matches {	-- Point in time
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0067] occurrences matches {0..1} matches {	-- Out of area recruitment
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0010] occurrences matches {0..1} matches {	-- Maternal family history of breast and/or ovarian cancer
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0011, 	-- Yes
+													at0012, 	-- No
+													at0013]	-- Unknown
+												}
+											}
+										}
+									}
+									ELEMENT[at0014] occurrences matches {0..1} matches {	-- Maternal family history of colorectal cancer
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0015, 	-- Yes
+													at0016, 	-- No
+													at0017]	-- Unknown
+												}
+											}
+										}
+									}
+									ELEMENT[at0018] occurrences matches {0..1} matches {	-- Maternal family history of IHD or stroke
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0019, 	-- Yes
+													at0020, 	-- No
+													at0021]	-- Unknown
+												}
+											}
+										}
+									}
+									ELEMENT[at0022] occurrences matches {0..1} matches {	-- Maternal family history of endocrine tumours
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0023, 	-- Yes
+													at0024, 	-- No
+													at0025]	-- Unknown
+												}
+											}
+										}
+									}
+									ELEMENT[at0026] occurrences matches {0..1} matches {	-- Paternal family history of breast and/or ovarian cancer
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0027, 	-- Yes
+													at0028, 	-- No
+													at0029]	-- Unknown
+												}
+											}
+										}
+									}
+									ELEMENT[at0030] occurrences matches {0..1} matches {	-- Paternal family history of colorectal cancer
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0031, 	-- Yes
+													at0032, 	-- No
+													at0033]	-- Unknown
+												}
+											}
+										}
+									}
+									ELEMENT[at0034] occurrences matches {0..1} matches {	-- Paternal family history of IHD or stroke
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0035, 	-- Yes
+													at0036, 	-- No
+													at0037]	-- Unknown
+												}
+											}
+										}
+									}
+									ELEMENT[at0038] occurrences matches {0..1} matches {	-- Paternal family history of endocrine tumours
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0039, 	-- Yes
+													at0040, 	-- No
+													at0041]	-- Unknown
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0042] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0043] occurrences matches {0..*} matches {	-- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Family details GEL">
+					description = <"Family details for Genomics England Rare diseases dataset.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Point in time">
+					description = <"A specific date and/or time which may be explicitly defined in a template or at run-time.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0010"] = <
+					text = <"Maternal family history of breast and/or ovarian cancer">
+					description = <"Statement of whether there is any maternal family history of breast cancer and/or ovarian cancer.">
+				>
+				["at0011"] = <
+					text = <"Yes">
+					description = <"There is a maternal family history of breast and/or ovarian cancer.">
+				>
+				["at0012"] = <
+					text = <"No">
+					description = <"There is no maternal family history of breast and/or ovarian cancer.">
+				>
+				["at0013"] = <
+					text = <"Unknown">
+					description = <"It is not known whether there is a maternal family history of breast and/or ovarian cancer.">
+				>
+				["at0014"] = <
+					text = <"Maternal family history of colorectal cancer">
+					description = <"Statement of whether there is any maternal family history of colorectal cancer.">
+				>
+				["at0015"] = <
+					text = <"Yes">
+					description = <"There is a maternal family history of colorectal cancer.">
+				>
+				["at0016"] = <
+					text = <"No">
+					description = <"There is no maternal family history of colorectal cancer.">
+				>
+				["at0017"] = <
+					text = <"Unknown">
+					description = <"It is not known whether there is a maternal family history of colorectal cancer.">
+				>
+				["at0018"] = <
+					text = <"Maternal family history of IHD or stroke">
+					description = <"Statement of whether there is any maternal family history of ischaemic heart disease or stroke.">
+				>
+				["at0019"] = <
+					text = <"Yes">
+					description = <"There is a maternal family history of ischaemic heart disease or stroke.">
+				>
+				["at0020"] = <
+					text = <"No">
+					description = <"There is no maternal family history of ischaemic heart disease or stroke.">
+				>
+				["at0021"] = <
+					text = <"Unknown">
+					description = <"It is not known whether there is any maternal family history of ischaemic heart disease or stroke.">
+				>
+				["at0022"] = <
+					text = <"Maternal family history of endocrine tumours">
+					description = <"Statement of whether there is any maternal family history of endocrine tumours.">
+				>
+				["at0023"] = <
+					text = <"Yes">
+					description = <"There is a maternal family history of endocrine tumours.">
+				>
+				["at0024"] = <
+					text = <"No">
+					description = <"There is no maternal family history of endocrine tumours.">
+				>
+				["at0025"] = <
+					text = <"Unknown">
+					description = <"It is not known whether there is a maternal family history of endocrine tumours.">
+				>
+				["at0026"] = <
+					text = <"Paternal family history of breast and/or ovarian cancer">
+					description = <"Statement of whether there is any paternal family history of breast cancer and/or ovarian cancer.">
+				>
+				["at0027"] = <
+					text = <"Yes">
+					description = <"There is a paternal family history of breast and/or ovarian cancer.">
+				>
+				["at0028"] = <
+					text = <"No">
+					description = <"There is no paternal family history of breast and/or ovarian cancer.">
+				>
+				["at0029"] = <
+					text = <"Unknown">
+					description = <"It is not known whether there is a paternal family history of breast and/or ovarian cancer.">
+				>
+				["at0030"] = <
+					text = <"Paternal family history of colorectal cancer">
+					description = <"Statement of whether there is any paternal family history of colorectal cancer.">
+				>
+				["at0031"] = <
+					text = <"Yes">
+					description = <"There is a paternal family history of colorectal cancer.">
+				>
+				["at0032"] = <
+					text = <"No">
+					description = <"There is no paternal family history of colorectal cancer.">
+				>
+				["at0033"] = <
+					text = <"Unknown">
+					description = <"It is not known whether there is a paternal family history of colorectal cancer.">
+				>
+				["at0034"] = <
+					text = <"Paternal family history of IHD or stroke">
+					description = <"Statement of whether there is any paternal family history of ischaemic heart disease or stroke.">
+				>
+				["at0035"] = <
+					text = <"Yes">
+					description = <"There is a paternal family history of ischaemic heart disease or stroke.">
+				>
+				["at0036"] = <
+					text = <"No">
+					description = <"There is no paternal family history of ischaemic heart disease or stroke.">
+				>
+				["at0037"] = <
+					text = <"Unknown">
+					description = <"It is not known whether there is any paternal family history of ischaemic heart disease or stroke.">
+				>
+				["at0038"] = <
+					text = <"Paternal family history of endocrine tumours">
+					description = <"Statement of whether there is any paternal family history of endocrine tumours.">
+				>
+				["at0039"] = <
+					text = <"Yes">
+					description = <"There is a paternal family history of endocrine tumours.">
+				>
+				["at0040"] = <
+					text = <"No">
+					description = <"There is no paternal family history of endocrine tumours.">
+				>
+				["at0041"] = <
+					text = <"Unknown">
+					description = <"It is not known whether there is a paternal family history of endocrine tumours.">
+				>
+				["at0042"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0043"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental infomation or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+				["at0067"] = <
+					text = <"Out of area recruitment">
+					description = <"Flag if a relative of the proband is recruited out of area.">
+				>
+			>
+		>
+	>

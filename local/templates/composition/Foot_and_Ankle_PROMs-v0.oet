@@ -1,0 +1,966 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>758a04dd-b318-41dd-833f-dd035309867a</id>
+  <name>Foot_and_Ankle_PROMs-v0</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose />
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.aofas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0028]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>AOFAS- P1</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.aofas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0043]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>AOFAS-F3</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.aofas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0038]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>AOFAS-F2</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.aos_score.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0010]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>AOS COFAS-P2</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.aos_score.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0009]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>AOS COFAS-P1</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.moxfq.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0008]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>MOXFQ-1</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.moxfq.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0014]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>MOXFQ-2</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.moxfq.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0020]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>MOXFQ3</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.aofas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0033]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>AOFAS-F1</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.aos_score.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0011]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>AOS COFAS P3</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.aos_score.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0012]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>AOS COFAS-P4</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.aos_score.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0013]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>AOS COFAS-P5</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.aos_score.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0014]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>AOS-COFAS-P6</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.aos_score.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0015]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>AOS COFAS-P7</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.aos_score.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0016]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>AOS COFAS-P8</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.aos_score.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0017]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>AOS COFAS-P9</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.aos_score.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0019]/items[at0020]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>AOS COFAS-D1</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.aos_score.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0019]/items[at0021]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>AOS COFAS-D2</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.aos_score.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0019]/items[at0022]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>AOS COFAS-D3</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.aos_score.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0019]/items[at0023]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>AOS COFAS-D4</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.aos_score.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0019]/items[at0024]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>AOS COFAS-D5</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.aos_score.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0019]/items[at0025]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>AOS-COFAS-D6</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.aos_score.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0019]/items[at0026]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>AOS COFAS-D7</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.aos_score.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0019]/items[at0027]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>AOS COFAS-D8</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.aos_score.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0019]/items[at0028]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>AOS COFAS-D9</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.atrs.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0008]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>ATRS-1</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.atrs.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0009]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>ATRS-2</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.atrs.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0010]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>ATRS-3</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.atrs.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0011]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>ATRS-4</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.atrs.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0012]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>ATRS-5</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.atrs.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0013]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>ATRS-6</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.atrs.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0014]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>ATRS-7</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.atrs.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0015]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>ATRS-8</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.atrs.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0016]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>ATRS-9</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.atrs.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0017]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>ATRS-10</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.moxfq.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0026]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>MOXFQ-4</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.moxfq.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0032]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>MOXFQ-5</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.moxfq.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0038]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>MOXFQ-6</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.moxfq.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0044]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>MOXFQ-7</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.moxfq.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0050]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>MOXFQ-8</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.moxfq.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0056]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>MOXFQ-9</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.moxfq.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0062]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>MOXFQ10</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.moxfq.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0068]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>MOXFQ-11</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.moxfq.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0074]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>MOXFQ-12</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.moxfq.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0080]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>MOXFQ-13</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.moxfq.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0086]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>MOXFQ-14</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.moxfq.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0092]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>MOXFQ-15</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.moxfq.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0098]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>MOXFQ-16</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.safas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0122]/items[at0005]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>SAFAS-S1</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.safas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0122]/items[at0012]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>SAFAS-S2</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.safas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0122]/items[at0018]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>SAFAS-S3</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.safas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0122]/items[at0010]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>SAFAS-S4</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.safas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0122]/items[at0026]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>SAFAS-S5</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.safas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0122]/items[at0031]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>SAFAS-S6</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.safas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0122]/items[at0038]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>SAFAS-S7</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.safas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0122]/items[at0050]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>SAFAS-S8</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.safas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0122]/items[at0056]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>SAFAS-S9</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.safas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0123]/items[at0062]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>SAFAS-P1</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.safas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0123]/items[at0068]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>SAFAS-P2</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.safas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0123]/items[at0074]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>SAFAS-P3</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.safas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0123]/items[at0080]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>SAFAS-P4</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.safas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0123]/items[at0086]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>SAFAS-P5</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.safas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0123]/items[at0092]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>SAFAS-P6</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.safas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0123]/items[at0098]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>SAFAS-P7</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.safas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0123]/items[at0104]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>SAFAS-P8</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.safas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0123]/items[at0110]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>SAFAS-P9</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.safas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0123]/items[at0116]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>SAFAS-P10</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.safas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0123]/items[at0124]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>SAFAS-P11</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.safas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0123]/items[at0130]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>SAFAS-P12</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.safas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0123]/items[at0136]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>SAFAS-P13</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.safas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0142]/items[at0143]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>SAFAS-DL1</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.safas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0142]/items[at0149]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>SAFAS-DL2</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.safas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0142]/items[at0155]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>SAFAS-DL3</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.safas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0142]/items[at0161]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>SAFAS-DL4</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.safas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0142]/items[at0167]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>SAFAS-DL5</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.safas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0142]/items[at0173]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>SAFAS-DL6</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.safas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0142]/items[at0179]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>SAFAS-DL7</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.safas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0142]/items[at0185]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>SAFAS-DL8</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.safas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0191]/items[at0192]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>SAFAS-S1</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.safas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0191]/items[at0198]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>SAFAS-S2</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.safas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0191]/items[at0204]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>SAFAS-S3</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.safas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0191]/items[at0210]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>SAFAS-S4</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.safas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0191]/items[at0216]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>SAFAS-S5</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.safas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0191]/items[at0222]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>SAFAS-S6</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.safas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0191]/items[at0228]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>SAFAS-S7</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.safas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0191]/items[at0234]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>SAFAS-S8</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.safas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0191]/items[at0240]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>SAFAS-S9</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.safas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0191]/items[at0246]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>SAFAS-S10</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.safas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0191]/items[at0252]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>SAFAS-S11</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.safas.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0191]/items[at0258]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>SAFAS-S12</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.visaa.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0004]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>VISAA-1</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.visaa.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0016]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>VISAA-2</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.visaa.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0017]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>VISAA-3</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.visaa.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0018]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>VISAA-4</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.visaa.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0019]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>VISAA-5</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.visaa.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0020]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>VISAA-6</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.visaa.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0021]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>VISAA-7</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.visaa.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0026]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>VISAA-8a</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.visaa.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0032]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>VISAA-8b</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.visaa.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0038]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>VISAA-8c</value>
+      </item>
+    </items>
+  </annotations>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.report.v1" concept_name="Report" name="Foot and ankle PROMs">
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.aofas.v0" concept_name="AOFAS Score" path="/content">
+      <Rule path="/data[at0001]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0006]" hide_on_form="true" />
+      <Rule path="/protocol[at0004]" hide_on_form="true" />
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.aos_score.v0" concept_name="Ankle Osteoarthritis Score" path="/content">
+      <Rule path="/data[at0001]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0006]" hide_on_form="true" />
+      <Rule path="/protocol[at0004]" hide_on_form="true" />
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.atrs.v0" concept_name="ATRS Score" path="/content">
+      <Rule path="/data[at0001]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0006]" hide_on_form="true" />
+      <Rule path="/protocol[at0004]" hide_on_form="true" />
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.moxfq.v0" concept_name="MOXFQ Score" path="/content">
+      <Rule path="/data[at0001]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0004]" hide_on_form="true" />
+      <Rule path="/protocol[at0005]" hide_on_form="true" />
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.story.v1" concept_name="Story/History" max="1" path="/content" name="Pain VAS">
+      <Rule path="/data[at0001]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]" hide_on_form="true">
+        <eventConstraint>
+          <allowedType>PointInTime</allowedType>
+        </eventConstraint>
+      </Rule>
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]" max="0" />
+      <Rule path="/protocol[at0007]" hide_on_form="true" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.pain_vas.v0" concept_name="Pain VAS" path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]" />
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.safas.v0" concept_name="SAFAS Score" path="/content">
+      <Rule path="/data[at0001]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0004]" hide_on_form="true" />
+      <Rule path="/protocol[at0011]" hide_on_form="true" />
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.visaa.v0" concept_name="VISA-A questionnaire" path="/content">
+      <Rule path="/data[at0001]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0046]" hide_on_form="true" />
+      <Rule path="/protocol[at0048]" hide_on_form="true" />
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.foot_and_ankle_outcome.v0" concept_name="Foot and ankle outcome" path="/content">
+      <Rule path="/data[at0001]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0004]" hide_on_form="true" />
+      <Rule path="/protocol[at0005]" hide_on_form="true" />
+    </Content>
+    <Context>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.episode_details_northproms.v0" concept_name="Episode details Northumbria Orthopaedic PROMS" max="1" path="/context/other_context[at0001]/items[at0006]" name="Episode details" />
+      <Rule path="/context/other_context[at0001]" hide_on_form="true" />
+      <Rule path="/context/other_context[at0001]/items[at0002]" max="0" />
+      <Rule path="/context/other_context[at0001]/items[at0005]" max="0" />
+      <hide_on_form>true</hide_on_form>
+    </Context>
+  </definition>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-COMPOSITION.report.v1">
+    <digest id="MD5-CAM-1.0.1">1DA7D8EDC23CF1B673C05E6E8FE28EB1</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.episode_details_northproms.v0">
+    <digest id="MD5-CAM-1.0.1">5F483D9FE5344C3EF8AE7641861A8CF3</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.aofas.v0">
+    <digest id="MD5-CAM-1.0.1">15F3F798FEAD832164609AC430843C76</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.aos_score.v0">
+    <digest id="MD5-CAM-1.0.1">EA3E4DC6B15742FB71A0DC5ADB78B63A</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.atrs.v0">
+    <digest id="MD5-CAM-1.0.1">47A9D1B448528B96631A7A68885D9D11</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.moxfq.v0">
+    <digest id="MD5-CAM-1.0.1">90D23C4494D9E69F6D4519A399CFDB4B</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.story.v1">
+    <digest id="MD5-CAM-1.0.1">1A6AFF556A3135480517C4E830985332</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.pain_vas.v0">
+    <digest id="MD5-CAM-1.0.1">1019D8BBB744A0EF5524223458710948</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.safas.v0">
+    <digest id="MD5-CAM-1.0.1">6FFD1F244B9D521028304196AF8502C2</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.visaa.v0">
+    <digest id="MD5-CAM-1.0.1">AD72FFBC053D76F93027DCD541E8BA3E</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.foot_and_ankle_outcome.v0">
+    <digest id="MD5-CAM-1.0.1">1127718A2C62682BF5CFD4A01BDEF409</digest>
+  </integrity_checks>
+</template>

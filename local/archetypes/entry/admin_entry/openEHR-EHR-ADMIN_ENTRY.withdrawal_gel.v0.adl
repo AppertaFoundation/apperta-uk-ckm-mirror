@@ -1,0 +1,131 @@
+﻿archetype (adl_version=1.4; uid=d788fd1c-5057-41c8-b5b0-0f3bff913d50)
+	openEHR-EHR-ADMIN_ENTRY.withdrawal_gel.v0
+
+concept
+	[at0000]	-- Withdrawal GEL
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2017-01-11">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the recording of details of withdrawal from Genomics England participation for use in both cancer and rare diseases datasets.">
+			use = <"Use to record withdrawal details such as form used, type of withdrawal and person reporting withdrawal as part of Genomics England cancer and rare diseases datasets.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"69820993C9B9D160949D59665F17108C">
+		["build_uid"] = <"989c1177-f3e8-457e-a483-574bee2d450f">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	ADMIN_ENTRY[at0000] matches {	-- Withdrawal GEL
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0010] occurrences matches {0..1} matches {	-- Date of withdrawal
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Withdrawal form
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..1} matches {	-- Name and version of withdrawal form
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0006] occurrences matches {0..1} matches {	-- Withdrawal option
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0007, 	-- Full withdrawal
+									at0008]	-- Partial withdrawal
+								}
+							}
+						}
+					}
+					ELEMENT[at0009] occurrences matches {0..1} matches {	-- Person reporting withdrawal
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0011] occurrences matches {0..*} matches {	-- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Withdrawal GEL">
+					description = <"Local archetype to capture details of withdrawal from Genomics England participation for both cancer and rare diseases datasets.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Withdrawal form">
+					description = <"Filename of uploaded copy of scanned withdrawal form pdf.">
+				>
+				["at0004"] = <
+					text = <"Name and version of withdrawal form">
+					description = <"Name and version of the withdrawal form used.">
+				>
+				["at0006"] = <
+					text = <"Withdrawal option">
+					description = <"Type of withdrawal requested.">
+				>
+				["at0007"] = <
+					text = <"Full withdrawal">
+					description = <"Option 2 withdrawal with no further use of data.">
+				>
+				["at0008"] = <
+					text = <"Partial withdrawal">
+					description = <"Option 1 withdrawal with no further contact.">
+				>
+				["at0009"] = <
+					text = <"Person reporting withdrawal">
+					description = <"Full name of person reporting withdrawal.">
+				>
+				["at0010"] = <
+					text = <"Date of withdrawal">
+					description = <"Date of withdrawal of consent.">
+				>
+				["at0011"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental infomation or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+			>
+		>
+	>

@@ -1,0 +1,235 @@
+﻿archetype (adl_version=1.4; uid=d85f4081-c34f-4402-84f3-b0ccea5221e0)
+	openEHR-EHR-OBSERVATION.yhscn_diadem_assessment.v0
+
+concept
+	[at0000]	-- YHSCN - DiADeM assessment
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2016-02-26">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Local archetype for Yorkshire and the Humber Clinical Networks Dementia Management. This archetype forms part of the DiADeM (Diagnosing Advanced Dementia Mandate for care home settings) Tool.">
+			use = <"Local use by Yorkshire and the Humber Clinical Networks for their dementia management programme.">
+			keywords = <"diadem", "dementia">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <"Ian McNicoll, freshEHR Clinical Informatics Ltd.", ...>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"6BBC5997C18A320FA8FCE31BF2958A21">
+		["build_uid"] = <"ea406ef1-20ec-4d84-9ce2-43007ec4c543">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- YHSCN - DiADeM assessment
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..1} matches {	-- Point in time
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Functional impairment
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0006, 	-- True
+													at0005]	-- False
+												}
+											}
+										}
+									}
+									ELEMENT[at0007] occurrences matches {0..1} matches {	-- Corroborating history
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0011, 	-- True
+													at0010]	-- False
+												}
+											}
+										}
+									}
+									ELEMENT[at0008] occurrences matches {0..1} matches {	-- Investigations
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0012, 	-- True
+													at0013, 	-- False
+													at0023]	-- Not done
+												}
+											}
+										}
+									}
+									ELEMENT[at0024] occurrences matches {0..1} matches {	-- Reason why bloods not done
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0009] occurrences matches {0..1} matches {	-- Exclusion criteria
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0014, 	-- True
+													at0015]	-- False
+												}
+											}
+										}
+									}
+									ELEMENT[at0022] occurrences matches {0..1} matches {	-- Interpretation
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0029, 	-- Diagnosis of dementia likely
+													at0030]	-- Diagnosis of dementia uncertain
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	terminologies_available = <"RCD99", "RCDSY_1999", "ICD10_1998">
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"YHSCN - DiADeM assessment">
+					description = <"Additional clinical information used to complete DiADeM assessment.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Point in time">
+					description = <"A specific date and/or time which may be explicitly defined in a template or at run-time.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Functional impairment">
+					description = <"The patient is no longer fully independent in relation to basic activities of daily living, washing, dressing, feeding and 
+attending to own continence needs.">
+					comment = <"The requirement of prompting or supervision of staff constitutes a loss of full independence.">
+				>
+				["at0005"] = <
+					text = <"False">
+					description = <"The patient is fully independent in relation to basic activities of daily living.">
+				>
+				["at0006"] = <
+					text = <"True">
+					description = <"The patient is no longer fully independent in relation to the basic activities of daily living.">
+				>
+				["at0007"] = <
+					text = <"Corroborating history">
+					description = <"History of gradual cognitive decline (typically for the last few years) is confirmed by care staff, relatives and medical records.">
+					comment = <"Staff/relatives confirm that in their opinion the patient consistently demonstrates both functional and cognitive 
+impairment.">
+				>
+				["at0008"] = <
+					text = <"Investigations">
+					description = <"Dementia screening bloods are normal (where clinically appropriate and patient consents to bloods).">
+					comment = <"If patient lacks capacity to consent to bloods, a best interest decision must be made and documented accordingly.
+ NB. If intracranial pathology (e.g. subdural haematoma, cerebral tumour) is suspected, referral for a brain scan may be appropriate. Otherwise where dementia is advanced, differential diagnosis is unlikely to affect patient management & a brain scan is unnecessary.">
+				>
+				["at0009"] = <
+					text = <"Exclusion criteria">
+					description = <"An acute underlying cause to explain confusion i.e. delirium (acute confusional state) has been excluded. Also confirmation whether mood disorder or psychosis is also confirmed or excluded.">
+				>
+				["at0010"] = <
+					text = <"False">
+					description = <"History of gradual cognitive decline is not confirmed by staff, relatives and medical records.">
+				>
+				["at0011"] = <
+					text = <"True">
+					description = <"History of gradual cognitive decline is confirmed by staff, relatives and medical records.">
+				>
+				["at0012"] = <
+					text = <"True">
+					description = <"Blood tests screening for other causes are normal.">
+				>
+				["at0013"] = <
+					text = <"False">
+					description = <"Blood tests indicate other causes.">
+				>
+				["at0014"] = <
+					text = <"True">
+					description = <"Acute underlying causes to explain confusion have been excluded.">
+				>
+				["at0015"] = <
+					text = <"False">
+					description = <"There are acute underlying causes to explain confusion.">
+				>
+				["at0022"] = <
+					text = <"Interpretation">
+					description = <"The overall interpretation of the assessment, i.e. a coded statement of whether the assessment indicates a likely diagnosis of dementia or not.">
+				>
+				["at0023"] = <
+					text = <"Not done">
+					description = <"Blood tests screening for other causes have not been done.">
+				>
+				["at0024"] = <
+					text = <"Reason why bloods not done">
+					description = <"Narrative statement why screening blood tests have not been done, e.g. patient declined or clinically inappropriate.">
+				>
+				["at0029"] = <
+					text = <"Diagnosis of dementia likely">
+					description = <"The assessment indicates that a diagnosis of dementia is likely.">
+				>
+				["at0030"] = <
+					text = <"Diagnosis of dementia uncertain">
+					description = <"The assessment indicates that a diagnosis of dementia is uncertain and may require further assessment.">
+				>
+			>
+		>
+	>
+	term_bindings = <
+		["RCD99"] = <
+			items = <
+				["at0023"] = <[RCD99::XaZQq]>
+				["at0029"] = <[RCD99::XE1Z6]>
+				["at0030"] = <[RCD99::XaaBD]>
+			>
+		>
+		["RCDSY_1999"] = <
+			items = <
+				["at0029"] = <[RCDSY_1999::Eu02z]>
+			>
+		>
+		["ICD10_1998"] = <
+			items = <
+				["at0029"] = <[ICD10_1998::F03]>
+			>
+		>
+	>

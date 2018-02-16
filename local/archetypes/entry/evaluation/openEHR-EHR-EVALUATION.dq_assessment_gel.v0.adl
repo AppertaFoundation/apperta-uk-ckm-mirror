@@ -1,0 +1,140 @@
+﻿archetype (adl_version=1.4; uid=0e133d46-7074-4305-8fad-abb653b59e2a)
+	openEHR-EHR-EVALUATION.dq_assessment_gel.v0
+
+concept
+	[at0000]	-- Development Quotient Assessment GEL
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2016-11-23">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For recording Development Quotient Assessment data as part of the Genomics England Rare Diseases dataset.">
+			use = <"To record the Development Quotient Assessment result and method in the Performance Measures section of the Genomics England Rare Diseases dataset.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"898B4D20B2D8BEFDAE63E08227EB442A">
+		["build_uid"] = <"2e8a8330-f24c-4754-84bd-c34b5ff5d01c">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Development Quotient Assessment GEL
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- DQ score
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::380]>
+								list = <
+									["1"] = <
+										units = <"1">
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0008] occurrences matches {0..1} matches {	-- Clinical interpretation
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0009] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0010] occurrences matches {0..*} matches {	-- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+					ELEMENT[at0011] occurrences matches {0..1} matches {	-- DQ Assessment method
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0012, 	-- Griffiths
+									at0013, 	-- WISC-3
+									at0014, 	-- WPPSI
+									at0015]	-- Bayley
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Development Quotient Assessment GEL">
+					description = <"A local archetype to capture Development Quotient Assessment for Genomics England Rare Diseases dataset.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"DQ score">
+					description = <"The Development Quotient score as a numeric value.">
+				>
+				["at0008"] = <
+					text = <"Clinical interpretation">
+					description = <"Narrative interpretation of assessment.">
+				>
+				["at0009"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0010"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental infomation or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+				["at0011"] = <
+					text = <"DQ Assessment method">
+					description = <"The method used to calculate the Development Quotient score.">
+				>
+				["at0012"] = <
+					text = <"Griffiths">
+					description = <"Griffiths Mental Development scales.">
+				>
+				["at0013"] = <
+					text = <"WISC-3">
+					description = <"Wechsler Intelligence Scales for Children.">
+				>
+				["at0014"] = <
+					text = <"WPPSI">
+					description = <"Wechsler Preschool and Primary Scale of Intelligence.">
+				>
+				["at0015"] = <
+					text = <"Bayley">
+					description = <"Bayley Scales of infant and toddler development.">
+				>
+			>
+		>
+	>

@@ -1,0 +1,132 @@
+﻿archetype (adl_version=1.4; uid=1fe80b5b-394b-488f-81b0-28856a0ce463)
+	openEHR-EHR-EVALUATION.romberg_test.v0
+
+concept
+	[at0000]	-- Romberg test
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Jamila Chihab">
+		["organisation"] = <"University College of London (UCL)">
+		["email"] = <"chihab.j@gmail.com">
+		["date"] = <"2017-01-24">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the recording of details of the Romberg test of balance.">
+			use = <"Use to record whether patient is able to maintain balance statically with open and closed eyes.">
+			keywords = <"Balance statically", "Romberg Test", "Gait balance">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <"Hildegard Franke, freshEHR Clinical Informatics, UK", "Matthew Darlison, University College London, UK", "Ibtissam M. Saab, Beirut Arab University, Lebanon">
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["references"] = <"Granado, M. and Matlick, D. (2016). Clinical review-Ankle Sprain. 1st ed. Cinahl Information Systems, pp.1-9.
+
+Physio-pedia.com. (2017). Romberg Test - Physiopedia, universal access to physiotherapy knowledge.. [online] Available at: http://www.physio-pedia.com/Romberg_Test [Accessed 24 Jan. 2017].">
+		["current_contact"] = <"Jamila Chihab, <chihab.j@gmail.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"361A80C0DFC320B0573CA93618B61B87">
+		["build_uid"] = <"900f8bb0-31d7-492f-914b-f606644247fc">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Romberg test
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Romberg test with eyes open
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0003, 	-- Positive
+									at0004]	-- Negative
+								}
+							}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {	-- Romberg test with eyes closed
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0006, 	-- Positive
+									at0007]	-- Negative
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0008] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0010] occurrences matches {0..*} matches {	-- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Romberg test">
+					description = <"The Romberg test of balance.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Romberg test with eyes open">
+					description = <"Assess whether patient is able to maintain balance statically with open eyes.">
+				>
+				["at0003"] = <
+					text = <"Positive">
+					description = <"Patient is able to maintain balance statically with open eyes.">
+				>
+				["at0004"] = <
+					text = <"Negative">
+					description = <"Patient is unable to maintain balance statically with open eyes.">
+				>
+				["at0005"] = <
+					text = <"Romberg test with eyes closed">
+					description = <"Assess whether patient is able to maintain balance statically with closed eyes.">
+				>
+				["at0006"] = <
+					text = <"Positive">
+					description = <"Patient is able to maintain balance statically with closed eyes.">
+				>
+				["at0007"] = <
+					text = <"Negative">
+					description = <"Patient is unable to maintain balance statically with closed eyes.">
+				>
+				["at0008"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0010"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental infomation or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+			>
+		>
+	>

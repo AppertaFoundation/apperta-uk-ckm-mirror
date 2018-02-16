@@ -1,0 +1,146 @@
+﻿archetype (adl_version=1.4; uid=e281e1a0-a16b-4ee2-8630-b558824e83b9)
+	openEHR-EHR-OBSERVATION.foot_and_ankle_outcome.v0
+
+concept
+	[at0000]	-- Foot and ankle outcome
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2017-10-25">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the capture and reporting of patient-reported outcome from foot and ankle surgery as part of a PROM relating to foot and ankle surgery.">
+			use = <"Use to record patient-reported outcome from foot and ankle surgery.">
+			keywords = <"foot, ankle, outcome", ...>
+			misuse = <"">
+			copyright = <"© openEHR Foundation, Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"1127718A2C62682BF5CFD4A01BDEF409">
+		["build_uid"] = <"3bee036e-e9af-4dff-9682-138296efd051">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Foot and ankle outcome
+		data matches {
+			HISTORY[at0001] matches {	-- History
+				events cardinality matches {1..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..1} matches {	-- Point in time
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0008] occurrences matches {0..1} matches {	-- Foot and ankle outcome
+										value matches {
+											1|[local::at0012], 	-- Poor
+											2|[local::at0011], 	-- Fair
+											3|[local::at0010], 	-- Good
+											4|[local::at0009]  	-- Excellent
+										}
+									}
+								}
+							}
+						}
+						state matches {
+							ITEM_TREE[at0004] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0007] occurrences matches {0..*} matches {	-- Confounding factors
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0005] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0006] occurrences matches {0..1} matches {	-- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	terminologies_available = <"en", ...>
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Foot and ankle outcome">
+					description = <"Foot and ankle outcome from surgery as reported by patient.">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Point in time">
+					description = <"A specific date and/or time which may be explicitly defined in a template or at run-time.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0005"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0006"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental infomation or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+				["at0007"] = <
+					text = <"Confounding factors">
+					description = <"Record any issues or factors that may impact on the score or interpretation.">
+				>
+				["at0008"] = <
+					text = <"Foot and ankle outcome">
+					description = <"Patient-reported outcome of most recent foot or ankle surgery.">
+				>
+				["at0009"] = <
+					text = <"Excellent">
+					description = <"Outcome from surgery is perceived to be excellent.">
+				>
+				["at0010"] = <
+					text = <"Good">
+					description = <"Outcome from surgery is perceived to be good.">
+				>
+				["at0011"] = <
+					text = <"Fair">
+					description = <"Outcome from surgery is perceived to be fair.">
+				>
+				["at0012"] = <
+					text = <"Poor">
+					description = <"Outcome from surgery is perceived to be poor.">
+				>
+			>
+		>
+	>

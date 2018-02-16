@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>6ed81384-6331-4104-9ad1-3567f5d822ed</id>
+  <name>GEL Cancer diagnosis output report.v0</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose />
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.report.v1" concept_name="Report" name="GEL Cancer diagnosis">
+    <Content xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v1" concept_name="Problem/Diagnosis" path="/content">
+      <Rule path="/data[at0001]/items[at0002]" name="Diagnosis" />
+      <Rule path="/data[at0001]/items[at0009]" max="0" />
+      <Rule path="/data[at0001]/items[at0012]" max="0" />
+      <Rule path="/data[at0001]/items[at0077]" max="0" />
+      <Rule path="/data[at0001]/items[at0003]" max="0" />
+      <Rule path="/data[at0001]/items[at0005]" max="0" />
+      <Rule path="/data[at0001]/items[at0072]" max="0" />
+      <Rule path="/data[at0001]/items[at0030]" max="0" />
+      <Rule path="/data[at0001]/items[at0073]" max="0" />
+      <Rule path="/data[at0001]/items[at0069]" max="0" />
+      <Rule path="/protocol[at0032]" hide_on_form="true" />
+      <Rule path="/protocol[at0032]/items[at0070]" max="0" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.tumour_id_gel.v0" concept_name="Tumour ID GEL" max="1" path="/data[at0001]/items[at0043]" name="Tumour ID" hide_on_form="true" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.clinical_evidence.v1" concept_name="Clinical evidence" max="1" path="/data[at0001]/items[at0043]" hide_on_form="true">
+        <Rule path="/items[at0003]" min="1" name="Base of diagnosis">
+          <constraint xsi:type="textConstraint">
+            <includedValues>0 Death Certificate</includedValues>
+            <includedValues>1 Diagnosis made before death but without evidence</includedValues>
+            <includedValues>2 Clinical investigation including all diagnostic techniques</includedValues>
+            <includedValues>4 Specific tumour markers</includedValues>
+            <includedValues>5 Cytology</includedValues>
+            <includedValues>6 Histology of metastasis</includedValues>
+            <includedValues>7 Histology of primary tumour</includedValues>
+            <includedValues>9 Unknown</includedValues>
+          </constraint>
+        </Rule>
+        <Rule path="/items[at0004]" max="0" />
+        <Rule path="/items[at0005]" max="0" />
+        <Rule path="/items[at0006]" max="0" />
+        <Rule path="/items[at0022]" max="0" />
+        <Rule path="/items[at0001]" max="0" />
+        <Rule path="/items[at0023]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.cancer_diagnosis_gel.v0" concept_name="Cancer diagnosis GEL" max="1" path="/data[at0001]/items[at0043]" name="Cancer diagnosis" hide_on_form="true" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.tnm_stage_clinical.v0" concept_name="TNM stage - clinical" max="1" path="/data[at0001]/items[at0043]" name="Integrated TNM">
+        <Rule path="/items[at0001]" name="Integrated T" />
+        <Rule path="/items[at0002]" name="Integrated N" />
+        <Rule path="/items[at0003]" name="Integrated M" />
+        <Rule path="/items[at0005]" name="Grading at diagnosis">
+          <constraint xsi:type="textConstraint">
+            <includedValues>GX Grade of differentiation is not appropriate or cannot be assessed</includedValues>
+            <includedValues>G1 Well differentiated</includedValues>
+            <includedValues>G2 Moderately differentiated</includedValues>
+            <includedValues>G3 Poorly differentiated</includedValues>
+            <includedValues>G4 Undifferentiated / anaplastic</includedValues>
+          </constraint>
+        </Rule>
+        <Rule path="/items[at0004]" max="0" />
+        <Rule path="/items[at0011]" max="0" />
+        <Rule path="/items[at0012]" max="0" />
+        <Rule path="/items[at0014]" max="0" />
+        <Rule path="/items[at0006]" max="0" />
+        <Rule path="/items[at0007]" name="Integrated Stage grouping" />
+        <Rule path="/items[at0008]" max="0" />
+        <Rule path="/items[at0009]" max="0" />
+        <Rule path="/items[at0010]" max="0" />
+        <Rule path="/items[at0015]" max="0" />
+        <Rule path="/items[at0016]" max="0" />
+        <Rule path="/items[at0013]" max="0" />
+        <Rule path="/items[at0017]" name="Integrated TNM Edition" />
+      </Items>
+    </Content>
+    <Context>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.participant_gel.v0" concept_name="Participant GEL" max="1" path="/context/other_context[at0001]/items[at0006]" name="Participant" hide_on_form="true">
+        <Rule path="/items[at0017]" max="0" />
+      </Items>
+      <Rule path="/context/other_context[at0001]" hide_on_form="true" />
+      <Rule path="/context/other_context[at0001]/items[at0002]" max="0" />
+      <Rule path="/context/other_context[at0001]/items[at0005]" max="0" />
+      <hide_on_form>true</hide_on_form>
+    </Context>
+  </definition>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-COMPOSITION.report.v1">
+    <digest id="MD5-CAM-1.0.1">FD053BE0456D849CACD864F274EED32E</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.participant_gel.v0">
+    <digest id="MD5-CAM-1.0.1">C4E628BB6ADBA4F6337F58CF5322B4EE</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v1">
+    <digest id="MD5-CAM-1.0.1">6110E221A71B0A223ACDF7184471D1C8</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.tumour_id_gel.v0">
+    <digest id="MD5-CAM-1.0.1">A3A885984BB3A9B99C735BF1588A04AC</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.clinical_evidence.v1">
+    <digest id="MD5-CAM-1.0.1">52198AD4C599F2623F6AED6D982654E1</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.cancer_diagnosis_gel.v0">
+    <digest id="MD5-CAM-1.0.1">224A986E05282545D614FF0C23F44F03</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.tnm_stage_clinical.v0">
+    <digest id="MD5-CAM-1.0.1">79F227E401FA72D5C779748F9C04CBEA</digest>
+  </integrity_checks>
+</template>

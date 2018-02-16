@@ -1,0 +1,119 @@
+﻿archetype (adl_version=1.4; uid=1060bf74-3f68-4d1f-a824-605318c5c43c)
+	openEHR-EHR-EVALUATION.six_min_walk.v0
+
+concept
+	[at0000]	-- Six minute walk test
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Jamila Chihab">
+		["organisation"] = <"University College London">
+		["email"] = <"chihab.j@gmail.com">
+		["date"] = <"2017-01-24">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record the measurements recorded during a Timed Six Minute Walk test, normally as part of the ankle sprain suite of tests.">
+			use = <"Use to record the measurements recorded during a Timed Six Minute Walk test. 
+
+Reocrd the distance of the patient when walking the six minute test, in which patient is directed to cover as much distance as possible. 
+
+Assistive devices (in general, customary walking devices) may be used when doing this task. The test should only be administred by a suitably trained person.">
+			keywords = <"Six Minute Walk Test", "Distance", "Walk">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <"Hildegard Franke, freshEHR Clinical Informatics, UK", "Matthew Darlison, University College London, UK", "Ibtissam M. Saab, Beirut Arab University, Lebanon">
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["references"] = <"Granado, M. and Matlick, D. (2016). Clinical review-Ankle Sprain. 1st ed. Cinahl Information Systems, pp.1-9.
+
+Physio-pedia.com. (2017). Six Minute Walk Test / 6 Minute Walk Test - Physiopedia, universal access to physiotherapy knowledge.. [online] Available at: http://www.physio-pedia.com/Six_Minute_Walk_Test_/_6_Minute_Walk_Test [Accessed 24 Jan. 2017].">
+		["current_contact"] = <"Jamila Chihab, <chihab.j@gmail.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"546327289F0131934CD399E0047B44B0">
+		["build_uid"] = <"13c7df81-a411-4660-9c55-98e77e94cdbe">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Six minute walk test
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Needed?
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..1} matches {	-- Distance
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::122]>
+								list = <
+									["1"] = <
+										units = <"m">
+										magnitude = <|>=0.0|>
+										precision = <|1|>
+									>
+								>
+							>
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0005] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0007] occurrences matches {0..*} matches {	-- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Six minute walk test">
+					description = <"The measurements recorded during a Timed Six Minute Walk test, normally as part of the ankle sprain suite of tests.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Needed?">
+					description = <"Statement whether the six-minute walk test needed.">
+				>
+				["at0004"] = <
+					text = <"Distance">
+					description = <"If walk test is needed, distance walked in 6 minutes.">
+				>
+				["at0005"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0007"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental infomation or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+			>
+		>
+	>

@@ -1,0 +1,164 @@
+﻿archetype (adl_version=1.4; uid=fa7cfe05-c299-4dfd-94f1-28e43b581376)
+	openEHR-EHR-CLUSTER.family_prevalence_extension_gel.v0
+
+concept
+	[at0000]	-- Family prevalence extension GEL
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2017-02-13">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the recording and reporting of additional family prevalance details not available elsewhere in the context of the Genomics England datasets.">
+			use = <"To record pattern, penetrance and group type as part of the pedigree data in the Genomics England datasets.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"52F530D5DC76031D8A1AD09448D28EBA">
+		["build_uid"] = <"2ba679ca-996a-4dd2-9120-b32ecbb541ef">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Family prevalence extension GEL
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- Pattern
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0002, 	-- Single Unknown
+							at0003, 	-- Single Isolated
+							at0004, 	-- Multiple Sibs Not Parents
+							at0005]	-- Multiple Not All Sibs
+						}
+					}
+				}
+			}
+			ELEMENT[at0006] occurrences matches {0..1} matches {	-- Penetrance
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0007, 	-- Yes
+							at0008, 	-- No
+							at0009]	-- Unknown
+						}
+					}
+				}
+			}
+			ELEMENT[at0010] occurrences matches {0..1} matches {	-- Group type
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0011, 	-- 1:Trio with Mother AND Father
+							at0012, 	-- 2:Trio with Mother OR Father AND other biological relative
+							at0013, 	-- 3:Trio with other biological relatives
+							at0014, 	-- 4:Duo with Mother OR Father
+							at0015, 	-- 5:Duo with other biological relative
+							at0016, 	-- 6:Families with more than 3 participants
+							at0017]	-- 7:Singleton
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Family prevalence extension GEL">
+					description = <"Additional family prevalence details for Genomics England datasets.">
+				>
+				["at0001"] = <
+					text = <"Pattern">
+					description = <"The pattern of affected family members.">
+				>
+				["at0002"] = <
+					text = <"Single Unknown">
+					description = <"Single affected person with unknown family history.">
+				>
+				["at0003"] = <
+					text = <"Single Isolated">
+					description = <"Single isolated case of disease with unaffected parent.">
+				>
+				["at0004"] = <
+					text = <"Multiple Sibs Not Parents">
+					description = <"Multiple affected full siblings with unaffected parents.">
+				>
+				["at0005"] = <
+					text = <"Multiple Not All Sibs">
+					description = <"Multiple affected related individuals, not all of whom are full siblings.">
+				>
+				["at0006"] = <
+					text = <"Penetrance">
+					description = <"Statement about the penetrance of the disease, i.e. is there any indication that the disease is not fully penetrant.">
+				>
+				["at0007"] = <
+					text = <"Yes">
+					description = <"There is an indication that the disease is not fully penetrant.">
+				>
+				["at0008"] = <
+					text = <"No">
+					description = <"There is no indication that the disease is not fully penetrant.">
+				>
+				["at0009"] = <
+					text = <"Unknown">
+					description = <"It is not known whether the disease is fully penetrant.">
+				>
+				["at0010"] = <
+					text = <"Group type">
+					description = <"The type of family group used.">
+				>
+				["at0011"] = <
+					text = <"1:Trio with Mother AND Father">
+					description = <"The family group is a trio with mother and father.">
+				>
+				["at0012"] = <
+					text = <"2:Trio with Mother OR Father AND other biological relative">
+					description = <"The family group is a trio with either mother or father and another biological relative.">
+				>
+				["at0013"] = <
+					text = <"3:Trio with other biological relatives">
+					description = <"The family group is a trio with other biological relatives, not mother or father.">
+				>
+				["at0014"] = <
+					text = <"4:Duo with Mother OR Father">
+					description = <"The family gorup is a duo with either mother or father.">
+				>
+				["at0015"] = <
+					text = <"5:Duo with other biological relative">
+					description = <"The family group is a duo with another biological relative.">
+				>
+				["at0016"] = <
+					text = <"6:Families with more than 3 participants">
+					description = <"The family group consists of more than 3 participants.">
+				>
+				["at0017"] = <
+					text = <"7:Singleton">
+					description = <"The family group consists of just a singleton.">
+				>
+			>
+		>
+	>

@@ -1,0 +1,73 @@
+﻿archetype (adl_version=1.4; uid=3c719738-6ca8-41af-93f0-d84f8821e8a8)
+	openEHR-EHR-CLUSTER.disease_group_rd_gel.v0
+
+concept
+	[at0000]	-- Disease group rare diseases GEL
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2017-01-11">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the recording of disease group and disease subgroup in the Genomics England Rare diseases dataset.">
+			use = <"Use to record disease group and subgroup according to the Model Catalogue in the Genomics England Rare diseases dataset. It is expected that the values for each of the two data points are populated from a local terminology reflecting the Model Catalogue https://gelmc.extge.co.uk/#/.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"BE9B85834043A2778B99A2DF28A597E7">
+		["build_uid"] = <"85952c30-8183-4243-842e-bc6481d7554a">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Disease group rare diseases GEL
+		items cardinality matches {2..*; unordered} matches {
+			ELEMENT[at0001] matches {	-- Disease group
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {1..*} matches {	-- Disease subgroup
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Disease group rare diseases GEL">
+					description = <"Local cluster to capture disease group and disease subgroup in Genomics England Rare diseases dataset.">
+				>
+				["at0001"] = <
+					text = <"Disease group">
+					description = <"The disease group according to the Genomics England Model Catalogue.">
+				>
+				["at0002"] = <
+					text = <"Disease subgroup">
+					description = <"The disease subgroup according to the Genomics England Model Catalogue.">
+				>
+			>
+		>
+	>

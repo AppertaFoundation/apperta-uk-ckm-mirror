@@ -1,0 +1,178 @@
+﻿archetype (adl_version=1.4; uid=e1720c54-69e7-400c-bc0e-df1175edd4c1)
+	openEHR-EHR-OBSERVATION.later_pregnancy_borders.v0
+
+concept
+	[at0000]	-- 24 weeks and after NHS Borders
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2016-07-27">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Local archetype for the Safe Assessment Form to Evaluate Risks (SAFER) Chart used by NHS Borders maternity care.">
+			use = <"To be used as part of risk assessment in pregnancy for maternity care from 24 weeks onwards.">
+			keywords = <"SAFER", "pregnancy", "maternity", "risk">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"FB91114D35E14EBE5CA41636D4C90002">
+		["build_uid"] = <"131055e0-6cc5-44e7-89b2-6f7df5a05e84">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- 24 weeks and after NHS Borders
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..1} matches {	-- Point in time
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Positive Group B Strep in HVS
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0005, 	-- Yes
+													at0006, 	-- No
+													at0007, 	-- No previous test
+													at0008]	-- Don't know
+												}
+											}
+										}
+									}
+									ELEMENT[at0009] occurrences matches {0..1} matches {	-- Cigarettes per day at 24 weeks
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::382]>
+												list = <
+													["1"] = <
+														units = <"1/d">
+														magnitude = <|>=0.0|>
+														precision = <|0|>
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0010] occurrences matches {0..1} matches {	-- Gestational diabetes this pregnancy
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0011, 	-- Yes
+													at0012, 	-- No
+													at0013]	-- Don't know
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0014] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0015] occurrences matches {0..*} matches {	-- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"24 weeks and after NHS Borders">
+					description = <"Details of ante-natal care 24 weeks and after for SAFER Chart.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Point in time">
+					description = <"Specified point in time which may be explicitly defined in a template or at run-time.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Positive Group B Strep in HVS">
+					description = <"Statement whether the patient has had a positive Group B streptococcal result in a high vaginal swab in the current pregnancy.">
+				>
+				["at0005"] = <
+					text = <"Yes">
+					description = <"The patient has had a positive Group B streptococcal result in a high vaginal swab in this pregnancy.">
+				>
+				["at0006"] = <
+					text = <"No">
+					description = <"The patient has not had a positive Group B streptococcal result in a high vaginal swab in this pregnancy.">
+				>
+				["at0007"] = <
+					text = <"No previous test">
+					description = <"The patient has not had a previous test for positive Group B strep in HVS in this pregnancy.">
+				>
+				["at0008"] = <
+					text = <"Don't know">
+					description = <"It is not known whether the patient has had a positive Group B streptococcal result in a high vaginal swab in this pregnancy.">
+				>
+				["at0009"] = <
+					text = <"Cigarettes per day at 24 weeks">
+					description = <"Number of cigarettes smoked per day at 24 weeks pregnancy.">
+				>
+				["at0010"] = <
+					text = <"Gestational diabetes this pregnancy">
+					description = <"Statement whether the patient is suffering from gestational diabetes in this pregnancy.">
+				>
+				["at0011"] = <
+					text = <"Yes">
+					description = <"The patient is suffering from gestational diabetes in this pregnancy.">
+				>
+				["at0012"] = <
+					text = <"No">
+					description = <"The patient is not suffering from gestational diabetes in this pregnancy.">
+				>
+				["at0013"] = <
+					text = <"Don't know">
+					description = <"It is not known whether the patient is suffering from gestational diabetes in this pregnancy.">
+				>
+				["at0014"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0015"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental infomation or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+			>
+		>
+	>

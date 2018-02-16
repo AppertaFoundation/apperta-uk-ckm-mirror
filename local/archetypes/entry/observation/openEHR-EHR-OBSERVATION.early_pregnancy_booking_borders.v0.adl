@@ -1,0 +1,819 @@
+﻿archetype (adl_version=1.4; uid=8ebdc61b-d712-4147-885b-9f675c971398)
+	openEHR-EHR-OBSERVATION.early_pregnancy_booking_borders.v0
+
+concept
+	[at0000]	-- Early pregnancy and booking NHS Borders
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2016-07-27">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Local archetype for SAFER (Safe Assessment Form to Evaluate Risks) Chart for NHS Border maternity care.">
+			use = <"To be used for NHS Borders maternity care in the context of SAFER Chart.">
+			keywords = <"pregnancy", "booking", "maternity", "risk", "SAFER">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"B6111BC4B3E414F7FF03F67EA2BCB2A2">
+		["build_uid"] = <"705fc97b-d95a-43c1-8c39-197849f3a252">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Early pregnancy and booking NHS Borders
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..1} matches {	-- Point in time
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Thrombophilia
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0005, 	-- No
+													at0006, 	-- Yes, but not known which one
+													at0007, 	-- Heterozygous for Factor V Leiden
+													at0008, 	-- Prothrombin Genene Mutation
+													at0009, 	-- Antithrombin deficiency
+													at0010, 	-- Protein C or Deficiency
+													at0011, 	-- Homozygous for Factor V Leiden
+													at0012]	-- Other
+												}
+											}
+										}
+									}
+									ELEMENT[at0013] occurrences matches {0..1} matches {	-- Personal history of VTE
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0014, 	-- No
+													at0015, 	-- Single VTE related to surgery
+													at0016]	-- VTE(s) not related to surgery
+												}
+											}
+										}
+									}
+									ELEMENT[at0017] occurrences matches {0..1} matches {	-- Family history of DVT
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0018, 	-- No
+													at0019, 	-- Yes
+													at0020]	-- Don't know
+												}
+											}
+										}
+									}
+									ELEMENT[at0021] occurrences matches {0..1} matches {	-- Parity
+										value matches {
+											DV_COUNT matches {
+												magnitude matches {|>=0|}
+											}
+										}
+									}
+									ELEMENT[at0022] occurrences matches {0..*} matches {	-- Medical co-morbidity
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0023, 	-- No
+													at0024, 	-- Cancer
+													at0025, 	-- Heart failure
+													at0027, 	-- Active SLE
+													at0026, 	-- Crohn's
+													at0028, 	-- Ulcerative colitis
+													at0029, 	-- Inflammatory polyarthropathy
+													at0030, 	-- Nephrotic syndrome
+													at0031, 	-- Type 1 DM with nephropathy
+													at0032, 	-- Sickle cell disease
+													at0033]	-- Current IVDU
+												}
+											}
+										}
+									}
+									ELEMENT[at0034] occurrences matches {0..1} matches {	-- Current bed rest >=24 hours
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0035, 	-- No
+													at0036, 	-- Yes
+													at0037]	-- Don't know
+												}
+											}
+										}
+									}
+									ELEMENT[at0038] occurrences matches {0..1} matches {	-- Gross varicose veins
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0039, 	-- No
+													at0040, 	-- Yes
+													at0041]	-- Don't know
+												}
+											}
+										}
+									}
+									ELEMENT[at0042] occurrences matches {0..1} matches {	-- Multiple pregnancy
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0043, 	-- No
+													at0044, 	-- Yes
+													at0045]	-- Don't know
+												}
+											}
+										}
+									}
+									ELEMENT[at0046] occurrences matches {0..1} matches {	-- Maternal bleeding disorder
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0047, 	-- No
+													at0048, 	-- Yes
+													at0049]	-- Don't know
+												}
+											}
+										}
+									}
+									ELEMENT[at0050] occurrences matches {0..1} matches {	-- Previous PPH >1000mls
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0051, 	-- No
+													at0052, 	-- Yes
+													at0053]	-- Don't know
+												}
+											}
+										}
+									}
+									ELEMENT[at0054] occurrences matches {0..1} matches {	-- Family origin
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0055, 	-- Caucasian
+													at0056, 	-- Asian
+													at0057, 	-- Black Caribbean
+													at0058, 	-- Middle Eastern
+													at0059]	-- Other
+												}
+											}
+										}
+									}
+									ELEMENT[at0060] occurrences matches {0..1} matches {	-- Previous gestational diabetes
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0061, 	-- No
+													at0062, 	-- Yes
+													at0063]	-- Don't know
+												}
+											}
+										}
+									}
+									ELEMENT[at0064] occurrences matches {0..1} matches {	-- Family history of diabetes
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0065, 	-- No
+													at0066, 	-- Yes
+													at0067]	-- Don't know
+												}
+											}
+										}
+									}
+									ELEMENT[at0068] occurrences matches {0..1} matches {	-- Previous baby >4.5kg
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0069, 	-- No
+													at0070, 	-- Yes
+													at0071]	-- Don't know
+												}
+											}
+										}
+									}
+									ELEMENT[at0072] occurrences matches {0..1} matches {	-- Previous baby with IUGR
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0073, 	-- No
+													at0074, 	-- Yes
+													at0075]	-- Don't know
+												}
+											}
+										}
+									}
+									ELEMENT[at0076] occurrences matches {0..1} matches {	-- CO level at booking
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::507]>
+												list = <
+													["1"] = <
+														units = <"%">
+														magnitude = <|0.0..100.0|>
+														precision = <|2|>
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0077] occurrences matches {0..1} matches {	-- Current hyperemesis
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0078, 	-- No
+													at0079, 	-- Yes
+													at0080]	-- Don't know
+												}
+											}
+										}
+									}
+									ELEMENT[at0081] occurrences matches {0..1} matches {	-- Current IV drug user
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0082, 	-- No
+													at0083, 	-- Yes
+													at0084]	-- Don't know
+												}
+											}
+										}
+									}
+									ELEMENT[at0085] occurrences matches {0..1} matches {	-- Current infection
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0086, 	-- No
+													at0087, 	-- Yes
+													at0088]	-- Don't know
+												}
+											}
+										}
+									}
+									ELEMENT[at0089] occurrences matches {0..1} matches {	-- Mother or father <2.5kg at birth
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0090, 	-- No
+													at0091, 	-- Yes
+													at0092]	-- Don't know
+												}
+											}
+										}
+									}
+									ELEMENT[at0093] occurrences matches {0..1} matches {	-- Previous pre-eclampsia
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0094, 	-- No
+													at0095, 	-- Yes
+													at0096]	-- Don't know
+												}
+											}
+										}
+									}
+									ELEMENT[at0097] occurrences matches {0..1} matches {	-- IVF pregnancy
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0098, 	-- No
+													at0099, 	-- Yes
+													at0100]	-- Don't know
+												}
+											}
+										}
+									}
+									ELEMENT[at0101] occurrences matches {0..1} matches {	-- Fibroids
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0102, 	-- No
+													at0103, 	-- Yes
+													at0104]	-- Don't know
+												}
+											}
+										}
+									}
+									ELEMENT[at0105] occurrences matches {0..1} matches {	-- Heavy bleeding in early pregnancy
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0106, 	-- No
+													at0107, 	-- Yes
+													at0108]	-- Don't know
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0109] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0110] occurrences matches {0..*} matches {	-- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Early pregnancy and booking NHS Borders">
+					description = <"Early pregrnancy and booking details for SAFER Chart.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Point in time">
+					description = <"Specified point in time which may be explicitly defined in a template or at run-time.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Thrombophilia">
+					description = <"Statement whether patient has thrombophilia and which type where required.">
+				>
+				["at0005"] = <
+					text = <"No">
+					description = <"The patient does not have thrombophilia.">
+				>
+				["at0006"] = <
+					text = <"Yes, but not known which one">
+					description = <"The patient has thrombophilia, but it is not known which type.">
+				>
+				["at0007"] = <
+					text = <"Heterozygous for Factor V Leiden">
+					description = <"The patient has thrombophilia of type Heterozygous for Factor V Leiden.">
+				>
+				["at0008"] = <
+					text = <"Prothrombin Genene Mutation">
+					description = <"The patient has thrombophilia of type Prothrombin Genene Mutation.">
+				>
+				["at0009"] = <
+					text = <"Antithrombin deficiency">
+					description = <"The patient has thrombophilia of type Antithrombin deficiency.">
+				>
+				["at0010"] = <
+					text = <"Protein C or Deficiency">
+					description = <"The patient has thrombophilia of type Protein C or Deficiency.">
+				>
+				["at0011"] = <
+					text = <"Homozygous for Factor V Leiden">
+					description = <"The patient has thrombophilia of type Homozygous for Factor V Leiden.">
+				>
+				["at0012"] = <
+					text = <"Other">
+					description = <"The patient has another type of thrombophilia.">
+				>
+				["at0013"] = <
+					text = <"Personal history of VTE">
+					description = <"Statement whether the patient has a personal history of Venous thrombo-embolism and whether this was related to surgery or not.">
+				>
+				["at0014"] = <
+					text = <"No">
+					description = <"The patient does not have a personal history of VTE.">
+				>
+				["at0015"] = <
+					text = <"Single VTE related to surgery">
+					description = <"The patient has had a single VTE related to surgery.">
+				>
+				["at0016"] = <
+					text = <"VTE(s) not related to surgery">
+					description = <"The patient has had one or more VTEs not related to surgery.">
+				>
+				["at0017"] = <
+					text = <"Family history of DVT">
+					description = <"Statement whether the patient has a family of unprovoked or oestrogen provoked Venous thrombo-embolism in first degree relative.">
+				>
+				["at0018"] = <
+					text = <"No">
+					description = <"The patient does not have a family history of DVT.">
+				>
+				["at0019"] = <
+					text = <"Yes">
+					description = <"The patient has a family history of DVT.">
+				>
+				["at0020"] = <
+					text = <"Don't know">
+					description = <"It is not known whether the patient has a family history of DVT.">
+				>
+				["at0021"] = <
+					text = <"Parity">
+					description = <"Number of pregnancies >24 weeks.">
+				>
+				["at0022"] = <
+					text = <"Medical co-morbidity">
+					description = <"Description of medical co-morbidity/ies such as active Crohn's or ulcerative colitis or nephrotic syndrome.">
+				>
+				["at0023"] = <
+					text = <"No">
+					description = <"The patient has no medical co-morbidities.">
+				>
+				["at0024"] = <
+					text = <"Cancer">
+					description = <"The patient has cancer.">
+				>
+				["at0025"] = <
+					text = <"Heart failure">
+					description = <"The patient has heart failure.">
+				>
+				["at0026"] = <
+					text = <"Crohn's">
+					description = <"The patient has Crohn's.">
+				>
+				["at0027"] = <
+					text = <"Active SLE">
+					description = <"The patient has active systemic lupus erythematosus.">
+				>
+				["at0028"] = <
+					text = <"Ulcerative colitis">
+					description = <"The patient has ulcerative colitis.">
+				>
+				["at0029"] = <
+					text = <"Inflammatory polyarthropathy">
+					description = <"The patient has inflammatory polyarthropathy.">
+				>
+				["at0030"] = <
+					text = <"Nephrotic syndrome">
+					description = <"The patient has nephrotic syndrome.">
+				>
+				["at0031"] = <
+					text = <"Type 1 DM with nephropathy">
+					description = <"The patient has type 1 diabetes mellitus with nephropathy.">
+				>
+				["at0032"] = <
+					text = <"Sickle cell disease">
+					description = <"The patient has sickle cell disease.">
+				>
+				["at0033"] = <
+					text = <"Current IVDU">
+					description = <"The patient is a current intravenous drug user.">
+				>
+				["at0034"] = <
+					text = <"Current bed rest >=24 hours">
+					description = <"Statement whether the patient has had bed rest for 24 hours or more.">
+				>
+				["at0035"] = <
+					text = <"No">
+					description = <"The patient has not had current bed rest for 24 hours or more.">
+				>
+				["at0036"] = <
+					text = <"Yes">
+					description = <"The patient has had current bed rest for 24 hours or more.">
+				>
+				["at0037"] = <
+					text = <"Don't know">
+					description = <"It is not known whether the patient has had current bed rest for 24 hours or more.">
+				>
+				["at0038"] = <
+					text = <"Gross varicose veins">
+					description = <"Statement whether the patient suffers from gross varicose veins.">
+				>
+				["at0039"] = <
+					text = <"No">
+					description = <"The patient does not suffer from gross varicose veins.">
+				>
+				["at0040"] = <
+					text = <"Yes">
+					description = <"The patient suffers from gross varicose veins.">
+				>
+				["at0041"] = <
+					text = <"Don't know">
+					description = <"It is not known whether the patient suffers from gross varicose veins.">
+				>
+				["at0042"] = <
+					text = <"Multiple pregnancy">
+					description = <"Statement whether the current pregnancy is a multiple pregnancy.">
+				>
+				["at0043"] = <
+					text = <"No">
+					description = <"The current pregnancy is not a multiple pregnancy.">
+				>
+				["at0044"] = <
+					text = <"Yes">
+					description = <"The current pregnancy is a multiple pregnancy.">
+				>
+				["at0045"] = <
+					text = <"Don't know">
+					description = <"It is not known whether the current pregnancy is a multiple pregnancy.">
+				>
+				["at0046"] = <
+					text = <"Maternal bleeding disorder">
+					description = <"Statement whether the patient suffers from a bleeding disorder such as von Willebrands disease or haemophilia.">
+				>
+				["at0047"] = <
+					text = <"No">
+					description = <"The patient does not suffer from a bleeding disorder.">
+				>
+				["at0048"] = <
+					text = <"Yes">
+					description = <"The patient suffers from a bleeding disorder.">
+				>
+				["at0049"] = <
+					text = <"Don't know">
+					description = <"It is not known whether the patient suffers from a bleeding disorder.">
+				>
+				["at0050"] = <
+					text = <"Previous PPH >1000mls">
+					description = <"Statement whether the patient has suffered a previous post-partum haemorrhage of more than 1000mls.">
+				>
+				["at0051"] = <
+					text = <"No">
+					description = <"The patient has not suffered a previous post-partum haemorrhage.">
+				>
+				["at0052"] = <
+					text = <"Yes">
+					description = <"The patient has suffered a previous post-partum haemorrhage.">
+				>
+				["at0053"] = <
+					text = <"Don't know">
+					description = <"It is not known whether the patient has suffered a previous post-partum haemorrhage.">
+				>
+				["at0054"] = <
+					text = <"Family origin">
+					description = <"Statement about the patient's family origin.">
+				>
+				["at0055"] = <
+					text = <"Caucasian">
+					description = <"The patient is of Caucasian origin.">
+				>
+				["at0056"] = <
+					text = <"Asian">
+					description = <"The patient is of Asian origin.">
+				>
+				["at0057"] = <
+					text = <"Black Caribbean">
+					description = <"The patient is of Black Caribbean origin.">
+				>
+				["at0058"] = <
+					text = <"Middle Eastern">
+					description = <"The patient is of Middle Eastern origin.">
+				>
+				["at0059"] = <
+					text = <"Other">
+					description = <"The patient is of other origin.">
+				>
+				["at0060"] = <
+					text = <"Previous gestational diabetes">
+					description = <"Statement whether the patient has suffered from a previous episode of gestational diabetes.">
+				>
+				["at0061"] = <
+					text = <"No">
+					description = <"The patient has not suffered from gestational diabetes previously.">
+				>
+				["at0062"] = <
+					text = <"Yes">
+					description = <"The patient has suffered from gestational diabetes previously.">
+				>
+				["at0063"] = <
+					text = <"Don't know">
+					description = <"It is not known whether the patient has suffered from gestational diabetes previously.">
+				>
+				["at0064"] = <
+					text = <"Family history of diabetes">
+					description = <"Statement whether the patient has a family history of diabetes.">
+				>
+				["at0065"] = <
+					text = <"No">
+					description = <"The patient does not have a family history of diabetes.">
+				>
+				["at0066"] = <
+					text = <"Yes">
+					description = <"The patient has a family history of diabetes.">
+				>
+				["at0067"] = <
+					text = <"Don't know">
+					description = <"It is not know whether the patient has a family history of diabetes.">
+				>
+				["at0068"] = <
+					text = <"Previous baby >4.5kg">
+					description = <"Statement whether the patient has had a previous baby heavier than 4.5kg.">
+				>
+				["at0069"] = <
+					text = <"No">
+					description = <"The patient has not had a previous baby heavier than 4.5kg at birth.">
+				>
+				["at0070"] = <
+					text = <"Yes">
+					description = <"The patient has had a previous baby heavier than 4.5kg at birth.">
+				>
+				["at0071"] = <
+					text = <"Don't know">
+					description = <"It is not known whether the patient has had a previous baby heavier than 4.5kg at birth.">
+				>
+				["at0072"] = <
+					text = <"Previous baby with IUGR">
+					description = <"Statement whether the patient has had a previous baby with intrauterine growth restriction.">
+				>
+				["at0073"] = <
+					text = <"No">
+					description = <"The patient has not had a previous baby with intrauterine growth restriction.">
+				>
+				["at0074"] = <
+					text = <"Yes">
+					description = <"The patient has had a previous baby with intrauterine growth restriction.">
+				>
+				["at0075"] = <
+					text = <"Don't know">
+					description = <"It is not known whether the patient has had a previous baby with intrauterine growth restriction.">
+				>
+				["at0076"] = <
+					text = <"CO level at booking">
+					description = <"Quantity of carbon monoxide in blood at time of booking.">
+				>
+				["at0077"] = <
+					text = <"Current hyperemesis">
+					description = <"Statement whether the patient currently suffers from hyperemesis.">
+				>
+				["at0078"] = <
+					text = <"No">
+					description = <"The patient does not currently suffer from hyperemesis.">
+				>
+				["at0079"] = <
+					text = <"Yes">
+					description = <"The patient currently suffers from hyperemesis.">
+				>
+				["at0080"] = <
+					text = <"Don't know">
+					description = <"It is not known whether the patient currently suffers from hyperemesis.">
+				>
+				["at0081"] = <
+					text = <"Current IV drug user">
+					description = <"Statement whether the patient is a current intravenous drug user.">
+				>
+				["at0082"] = <
+					text = <"No">
+					description = <"The patient is not a current intravenous drug user.">
+				>
+				["at0083"] = <
+					text = <"Yes">
+					description = <"The patient is a current intravenous drug user.">
+				>
+				["at0084"] = <
+					text = <"Don't know">
+					description = <"It is not known whether the patient is a current intravenous drug user.">
+				>
+				["at0085"] = <
+					text = <"Current infection">
+					description = <"Statement whether the patient currently suffers from an infection.">
+				>
+				["at0086"] = <
+					text = <"No">
+					description = <"The patient does not currently suffer from an infection.">
+				>
+				["at0087"] = <
+					text = <"Yes">
+					description = <"The patient currently suffers from an infection.">
+				>
+				["at0088"] = <
+					text = <"Don't know">
+					description = <"It is not known whether the patient currently suffers from an infection.">
+				>
+				["at0089"] = <
+					text = <"Mother or father <2.5kg at birth">
+					description = <"Statement whether the mother or father of the fetus in the current pregnancy weighed less than 2.5kg at birth.">
+				>
+				["at0090"] = <
+					text = <"No">
+					description = <"Neither mother nor father weighed less than 2.5kg at birth.">
+				>
+				["at0091"] = <
+					text = <"Yes">
+					description = <"Either mother or father or both weighed less than 2.5kg at birth.">
+				>
+				["at0092"] = <
+					text = <"Don't know">
+					description = <"It is not known whether the mother or father weighed less than 2.5kg at birth.">
+				>
+				["at0093"] = <
+					text = <"Previous pre-eclampsia">
+					description = <"Statement whether the patient previously suffered from pre-eclampsia.">
+				>
+				["at0094"] = <
+					text = <"No">
+					description = <"The patient did not previously suffer from pre-eclampsia.">
+				>
+				["at0095"] = <
+					text = <"Yes">
+					description = <"The patient previously suffered from pre-eclampsia.">
+				>
+				["at0096"] = <
+					text = <"Don't know">
+					description = <"It is not known whether the patient previously suffered from pre-eclampsia.">
+				>
+				["at0097"] = <
+					text = <"IVF pregnancy">
+					description = <"Statement whether the current pregnancy was achieved by in-vitro fertilisation.">
+				>
+				["at0098"] = <
+					text = <"No">
+					description = <"This pregnancy was not achieved by IVF.">
+				>
+				["at0099"] = <
+					text = <"Yes">
+					description = <"This pregnancy was achieved by IVF.">
+				>
+				["at0100"] = <
+					text = <"Don't know">
+					description = <"It is not known whether this pregnancy was achieved by IVF.">
+				>
+				["at0101"] = <
+					text = <"Fibroids">
+					description = <"Statement whether the patient suffers from fibroids.">
+				>
+				["at0102"] = <
+					text = <"No">
+					description = <"The patient does not suffer from fibroids.">
+				>
+				["at0103"] = <
+					text = <"Yes">
+					description = <"The patient suffers from fibroids.">
+				>
+				["at0104"] = <
+					text = <"Don't know">
+					description = <"It is not known whether the patient suffers from fibroids.">
+				>
+				["at0105"] = <
+					text = <"Heavy bleeding in early pregnancy">
+					description = <"Statement whether the patient suffered from heavy bleeding in early pregnancy.">
+				>
+				["at0106"] = <
+					text = <"No">
+					description = <"The patient did not suffer from heavy bleeding in early pregnancy.">
+				>
+				["at0107"] = <
+					text = <"Yes">
+					description = <"The patient suffered from heavy bleeding in early pregnancy.">
+				>
+				["at0108"] = <
+					text = <"Don't know">
+					description = <"It is not known whether the patient suffered from heavy bleeding in early pregnancy.">
+				>
+				["at0109"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0110"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental infomation or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+			>
+		>
+	>

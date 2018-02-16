@@ -1,0 +1,207 @@
+﻿archetype (adl_version=1.4; uid=637cf93c-a583-4bc3-b962-6523aa59e939)
+	openEHR-EHR-EVALUATION.ichom_lpc_treatment_modalities.v0
+
+concept
+	[at0000]	-- ICHOM LPC treatment modalities
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2016-08-08">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Local summary archetype to describe treatment modalities used in ICHOM LPC dataset.">
+			use = <"Use to capture summary information about treatment modalities in conjunction with procedure archetypes to describe more detailed information about treatment modalities.">
+			keywords = <"modality", "ICHOM", "treatment">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"02748E7994E659683F6E7DD7693B258D">
+		["build_uid"] = <"55f1a006-3610-4f4c-b453-baaaa1c77239">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- ICHOM LPC treatment modalities
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..*} matches {	-- Primary treatment modalities used
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0003, 	-- Watchful waiting
+									at0004, 	-- Active surveillance
+									at0005, 	-- Radical prostatectomy
+									at0006, 	-- External beam radiation therapy
+									at0007, 	-- Brachytherapy
+									at0008, 	-- Androgen deprivation therapy
+									at0009, 	-- Focal therapy
+									at0010]	-- Other
+								}
+							}
+						}
+					}
+					ELEMENT[at0019] occurrences matches {0..1} matches {	-- Salvage treatment initiated within last year?
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+					ELEMENT[at0012] occurrences matches {0..*} matches {	-- Salvage treatment modalities used
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0013, 	-- Radical prostatectomy
+									at0014, 	-- External beam radiation therapy
+									at0015, 	-- Brachytherapy
+									at0016, 	-- Androgen deprivation therapy
+									at0017, 	-- Focal therapy
+									at0018]	-- Other
+								}
+							}
+						}
+					}
+					ELEMENT[at0011] occurrences matches {0..1} matches {	-- Type of focal therapy
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0020] occurrences matches {0..*} matches {	-- Other treatment modality
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0021] occurrences matches {0..1} matches {	-- Primary treatment start date
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					ELEMENT[at0022] occurrences matches {0..1} matches {	-- Primary treatment stop date
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"ICHOM LPC treatment modalities">
+					description = <"Description of treatment modalities.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Primary treatment modalities used">
+					description = <"Indication of the primary treatment modalities used for the patient.">
+				>
+				["at0003"] = <
+					text = <"Watchful waiting">
+					description = <"Primary treatment modality is watchful waiting.">
+				>
+				["at0004"] = <
+					text = <"Active surveillance">
+					description = <"Primary treatment modality is active surveillance.">
+				>
+				["at0005"] = <
+					text = <"Radical prostatectomy">
+					description = <"Primary treatment modality is radical prostatectomy.">
+				>
+				["at0006"] = <
+					text = <"External beam radiation therapy">
+					description = <"Primary treatment modality or treatment modality adjuvant following surgery is external beam therapy.">
+				>
+				["at0007"] = <
+					text = <"Brachytherapy">
+					description = <"Primary treatment modality is brachytherapy.">
+				>
+				["at0008"] = <
+					text = <"Androgen deprivation therapy">
+					description = <"Primary treatment modality is androgen deprivation therapy.">
+				>
+				["at0009"] = <
+					text = <"Focal therapy">
+					description = <"Primary treatment modality is focal therapy.">
+				>
+				["at0010"] = <
+					text = <"Other">
+					description = <"Primary treatment modality is other.">
+				>
+				["at0011"] = <
+					text = <"Type of focal therapy">
+					description = <"Narrative description of type of focal therapy used for patient.">
+				>
+				["at0012"] = <
+					text = <"Salvage treatment modalities used">
+					description = <"Indication of salvage treatment modalities used for patient in last year.">
+				>
+				["at0013"] = <
+					text = <"Radical prostatectomy">
+					description = <"Salvage treatment modality is radical prostatectomy.">
+				>
+				["at0014"] = <
+					text = <"External beam radiation therapy">
+					description = <"Salvage treatment modality is external beam radiation therapy.">
+				>
+				["at0015"] = <
+					text = <"Brachytherapy">
+					description = <"Salvage treatment modality is brachytherapy.">
+				>
+				["at0016"] = <
+					text = <"Androgen deprivation therapy">
+					description = <"Salvage treatment modality is androgen deprivation therapy.">
+				>
+				["at0017"] = <
+					text = <"Focal therapy">
+					description = <"Salvage treatment modality is focal therapy.">
+				>
+				["at0018"] = <
+					text = <"Other">
+					description = <"Salvage treatment modality is other.">
+				>
+				["at0019"] = <
+					text = <"Salvage treatment initiated within last year?">
+					description = <"Indication whether the patient has undergone salvage therapy in the last year.">
+				>
+				["at0020"] = <
+					text = <"Other treatment modality">
+					description = <"Narrative description of other treatment modality used for patient.">
+				>
+				["at0021"] = <
+					text = <"Primary treatment start date">
+					description = <"Date when primary treatment was started.">
+				>
+				["at0022"] = <
+					text = <"Primary treatment stop date">
+					description = <"Date when primary treatment was stopped.">
+				>
+			>
+		>
+	>

@@ -1,0 +1,216 @@
+﻿archetype (adl_version=1.4; uid=da7997be-478f-4aad-bbe6-5081a7d7ea45)
+	openEHR-EHR-CLUSTER.imaging_location_gel.v0
+
+concept
+	[at0000]	-- Imaging location GEL
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2017-01-24">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the capture and reporting of imaging region and system as part of the Genomics England datasets.">
+			use = <"Use to record region and system of imaging examinations in the Genomics England datasets. This local cluster archetype is intended to be plugged into the anatomical location slot of the imaging examination observation archetype.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"C87D85DC0528DD26F1F4B16687AE788B">
+		["build_uid"] = <"82e272bd-c3d2-4d5f-9b95-fc125e4a9d80">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Imaging location GEL
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- Region
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0003, 	-- Abdominal
+							at0004, 	-- Head
+							at0005, 	-- Heart
+							at0006, 	-- Inner ear
+							at0007, 	-- Limb
+							at0008, 	-- Liver
+							at0009, 	-- Neck
+							at0010, 	-- Outer ear
+							at0011, 	-- Pelvic
+							at0012, 	-- Spine
+							at0013, 	-- Thoracic
+							at0014, 	-- Whole body
+							at0015, 	-- None
+							at0016]	-- Unknown
+						}
+					}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {	-- System
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0017, 	-- Auditory
+							at0018, 	-- Cardiovascular
+							at0019, 	-- Digestive
+							at0020, 	-- Endocrine
+							at0021, 	-- Genitourinary
+							at0022, 	-- Haematological
+							at0023, 	-- Lymphatic
+							at0024, 	-- Lymphoreticular
+							at0025, 	-- Musculoskeletal
+							at0026, 	-- Nervous
+							at0027, 	-- Respiratory
+							at0028, 	-- Visual
+							at0029]	-- Unknown
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Imaging location GEL">
+					description = <"Local cluster to capture imaging region and system for Genomics England datasets.">
+				>
+				["at0001"] = <
+					text = <"Region">
+					description = <"The region of the body where the imaging examination was performed.">
+				>
+				["at0002"] = <
+					text = <"System">
+					description = <"The body system where the imaging examination was performed.">
+				>
+				["at0003"] = <
+					text = <"Abdominal">
+					description = <"The imaging examination was performed on the abdominal body region.">
+				>
+				["at0004"] = <
+					text = <"Head">
+					description = <"The imaging examination was performed on the head body region.">
+				>
+				["at0005"] = <
+					text = <"Heart">
+					description = <"The imaging examination was performed on the heart body region.">
+				>
+				["at0006"] = <
+					text = <"Inner ear">
+					description = <"The imaging examination was performed on the inner ear body region.">
+				>
+				["at0007"] = <
+					text = <"Limb">
+					description = <"The imaging examination was performed on the limb body region.">
+				>
+				["at0008"] = <
+					text = <"Liver">
+					description = <"The imaging examination was performed on the liver body region.">
+				>
+				["at0009"] = <
+					text = <"Neck">
+					description = <"The imaging examination was performed on the neck body region.">
+				>
+				["at0010"] = <
+					text = <"Outer ear">
+					description = <"The imaging examination was performed on the outer ear body region.">
+				>
+				["at0011"] = <
+					text = <"Pelvic">
+					description = <"The imaging examination was performed on the pelvic body region.">
+				>
+				["at0012"] = <
+					text = <"Spine">
+					description = <"The imaging examination was performed on the spine body region.">
+				>
+				["at0013"] = <
+					text = <"Thoracic">
+					description = <"The imaging examination was performed on the thoracic body region.">
+				>
+				["at0014"] = <
+					text = <"Whole body">
+					description = <"The imaging examination was performed on the whole body.">
+				>
+				["at0015"] = <
+					text = <"None">
+					description = <"The imaging examination was performed on a non-specified body region.">
+				>
+				["at0016"] = <
+					text = <"Unknown">
+					description = <"The body region where the imaging examination was performed is unknown.">
+				>
+				["at0017"] = <
+					text = <"Auditory">
+					description = <"The imaging examination was performed on the auditory body system.">
+				>
+				["at0018"] = <
+					text = <"Cardiovascular">
+					description = <"The imaging examination was performed on the cardiovascular body system.">
+				>
+				["at0019"] = <
+					text = <"Digestive">
+					description = <"The imaging examination was performed on the digestive body system.">
+				>
+				["at0020"] = <
+					text = <"Endocrine">
+					description = <"The imaging examination was performed on the endocrine body system.">
+				>
+				["at0021"] = <
+					text = <"Genitourinary">
+					description = <"The imaging examination was performed on the genitourinary body system.">
+				>
+				["at0022"] = <
+					text = <"Haematological">
+					description = <"The imaging examination was performed on the haematological body system.">
+				>
+				["at0023"] = <
+					text = <"Lymphatic">
+					description = <"The imaging examination was performed on the lymphatic body system.">
+				>
+				["at0024"] = <
+					text = <"Lymphoreticular">
+					description = <"The imaging examination was performed on the lymphoreticular body system.">
+				>
+				["at0025"] = <
+					text = <"Musculoskeletal">
+					description = <"The imaging examination was performed on the musculoskeletal body system.">
+				>
+				["at0026"] = <
+					text = <"Nervous">
+					description = <"The imaging examination was performed on the nervous body system.">
+				>
+				["at0027"] = <
+					text = <"Respiratory">
+					description = <"The imaging examination was performed on the respiratory body system.">
+				>
+				["at0028"] = <
+					text = <"Visual">
+					description = <"The imaging examination was performed on the visual body system.">
+				>
+				["at0029"] = <
+					text = <"Unknown">
+					description = <"The body system where the imaging examination was performed is unknown.">
+				>
+			>
+		>
+	>

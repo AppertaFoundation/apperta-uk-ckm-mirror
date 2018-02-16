@@ -1,0 +1,279 @@
+﻿archetype (adl_version=1.4; uid=14304f91-58ff-4cea-9696-a7f82f49a954)
+	openEHR-EHR-EVALUATION.mmt8.v0
+
+concept
+	[at0000]	-- MMT8 Assessment
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2016-11-23">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the recording of results of the MMT8 (Manual Muscle testing - 8 muscle groups) assessment.">
+			use = <"Use to record the gradings for manual muscle testing - 8 muscle groups.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["references"] = <"https://www.niehs.nih.gov/research/resources/assets/docs/mmt8_grading_and_testing_procedures_for_the_abbreviated_8_muscle_groups_508.pdf">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"6998DA2A14F82A71961365BC7E50C644">
+		["build_uid"] = <"abc40ee7-6e22-4f19-b889-a18c3c1272d2">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- MMT8 Assessment
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Deltoid sitting (AG)
+						value matches {
+							DV_COUNT matches {
+								magnitude matches {|0..10|}
+							}
+						}
+					}
+					ELEMENT[at0003] occurrences matches {0..1} matches {	-- Deltoid supine (GE)
+						value matches {
+							DV_COUNT matches {
+								magnitude matches {|0..10|}
+							}
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..1} matches {	-- Biceps sitting (AG)
+						value matches {
+							DV_COUNT matches {
+								magnitude matches {|0..10|}
+							}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {	-- Biceps sidelying (GE)
+						value matches {
+							DV_COUNT matches {
+								magnitude matches {|0..10|}
+							}
+						}
+					}
+					ELEMENT[at0006] occurrences matches {0..1} matches {	-- Wrist extensor sitting (AG)
+						value matches {
+							DV_COUNT matches {
+								magnitude matches {|0..10|}
+							}
+						}
+					}
+					ELEMENT[at0007] occurrences matches {0..1} matches {	-- Wrist extensor neutral (GE)
+						value matches {
+							DV_COUNT matches {
+								magnitude matches {|0..10|}
+							}
+						}
+					}
+					ELEMENT[at0008] occurrences matches {0..1} matches {	-- Quadriceps sitting (AG)
+						value matches {
+							DV_COUNT matches {
+								magnitude matches {|0..10|}
+							}
+						}
+					}
+					ELEMENT[at0009] occurrences matches {0..1} matches {	-- Quadriceps sidelying (GE)
+						value matches {
+							DV_COUNT matches {
+								magnitude matches {|0..10|}
+							}
+						}
+					}
+					ELEMENT[at0010] occurrences matches {0..1} matches {	-- Ankle dorsiflexors sitting (AG)
+						value matches {
+							DV_COUNT matches {
+								magnitude matches {|0..10|}
+							}
+						}
+					}
+					ELEMENT[at0011] occurrences matches {0..1} matches {	-- Ankle dorsiflexors sidelying (GE)
+						value matches {
+							DV_COUNT matches {
+								magnitude matches {|0..10|}
+							}
+						}
+					}
+					ELEMENT[at0012] occurrences matches {0..1} matches {	-- Neck flexors supine (AG)
+						value matches {
+							DV_COUNT matches {
+								magnitude matches {|0..10|}
+							}
+						}
+					}
+					ELEMENT[at0013] occurrences matches {0..1} matches {	-- Neck flexors sidelying (GE)
+						value matches {
+							DV_COUNT matches {
+								magnitude matches {|0..10|}
+							}
+						}
+					}
+					ELEMENT[at0014] occurrences matches {0..1} matches {	-- Gluteus medius sidelying (AG)
+						value matches {
+							DV_COUNT matches {
+								magnitude matches {|0..10|}
+							}
+						}
+					}
+					ELEMENT[at0015] occurrences matches {0..1} matches {	-- Gluteus medius supine (GE)
+						value matches {
+							DV_COUNT matches {
+								magnitude matches {|0..10|}
+							}
+						}
+					}
+					ELEMENT[at0016] occurrences matches {0..1} matches {	-- Gluteus maximus prone (AG)
+						value matches {
+							DV_COUNT matches {
+								magnitude matches {|0..10|}
+							}
+						}
+					}
+					ELEMENT[at0017] occurrences matches {0..1} matches {	-- Gluteus maximus sidelying (GE)
+						value matches {
+							DV_COUNT matches {
+								magnitude matches {|0..10|}
+							}
+						}
+					}
+					ELEMENT[at0018] occurrences matches {0..1} matches {	-- Total score
+						value matches {
+							DV_COUNT matches {
+								magnitude matches {|0..80|}
+							}
+						}
+					}
+					ELEMENT[at0019] occurrences matches {0..1} matches {	-- Clinical interpretation
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0020] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0021] occurrences matches {0..*} matches {	-- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"MMT8 Assessment">
+					description = <"Manual Muscle Testing (8 muscle groups) Assessment.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Deltoid sitting (AG)">
+					description = <"Grading of deltoid muscle group with patient in sitting (anti-gravity) position.">
+				>
+				["at0003"] = <
+					text = <"Deltoid supine (GE)">
+					description = <"Grading of deltoid muscle group with patient in supine (gravity-eliminated) position (for weaker patients only).">
+				>
+				["at0004"] = <
+					text = <"Biceps sitting (AG)">
+					description = <"Grading of biceps muscle group with patient in sitting (anti-gravity) position.">
+				>
+				["at0005"] = <
+					text = <"Biceps sidelying (GE)">
+					description = <"Grading of biceps muscle group with patient in sidelying (gravity-eliminated) position (used for weaker patients only).">
+				>
+				["at0006"] = <
+					text = <"Wrist extensor sitting (AG)">
+					description = <"Grading of wrist extensor muscle group with patient in sitting (anti-gravity) position.">
+				>
+				["at0007"] = <
+					text = <"Wrist extensor neutral (GE)">
+					description = <"Grading of wrist extensor muscle group with patient in neutral (gravity-eliminated) position (used for weaker patients only).">
+				>
+				["at0008"] = <
+					text = <"Quadriceps sitting (AG)">
+					description = <"Grading of quadriceps muscle group with patient in sitting (anti-gravity) position.">
+				>
+				["at0009"] = <
+					text = <"Quadriceps sidelying (GE)">
+					description = <"Grading of quadriceps muscle group with patient in sidelying (gravity-eliminated) position used for weaker patients only).">
+				>
+				["at0010"] = <
+					text = <"Ankle dorsiflexors sitting (AG)">
+					description = <"Grading of ankle dorsiflexors muscle group with patient in sitting (anti-gravity) position.">
+				>
+				["at0011"] = <
+					text = <"Ankle dorsiflexors sidelying (GE)">
+					description = <"Grading of ankle dorsiflexor muscle group with patient in sidelying (gravity-eliminated) position (used for weaker patients only).">
+				>
+				["at0012"] = <
+					text = <"Neck flexors supine (AG)">
+					description = <"Grading of neck flexors muscle group with patient in supine (anti-gravity) position.">
+				>
+				["at0013"] = <
+					text = <"Neck flexors sidelying (GE)">
+					description = <"Grading of neck flexor muscle group with patient in sidelying (gravity-eliminated) position (used for weaker patients only).">
+				>
+				["at0014"] = <
+					text = <"Gluteus medius sidelying (AG)">
+					description = <"Grading of gluteus medius muscle group with patient in sidelying (anti-gravity) position.">
+				>
+				["at0015"] = <
+					text = <"Gluteus medius supine (GE)">
+					description = <"Grading of gluteus medius muscle group with patient in supine (gravity-eliminated) position (used for weaker patients only).">
+				>
+				["at0016"] = <
+					text = <"Gluteus maximus prone (AG)">
+					description = <"Grading of gluteus maximus muscle group with patient in prone (anti-gravity) position.">
+				>
+				["at0017"] = <
+					text = <"Gluteus maximus sidelying (GE)">
+					description = <"Grading of gluteus maximus muscle group with patient in sidelying (gravity-eliminated) position (used for weaker patients only).">
+				>
+				["at0018"] = <
+					text = <"Total score">
+					description = <"The total score from all 8 muscles groups, counting each muscle group only once, either in anti-gravity position (AG) or gravity-eliminated position (GE).">
+				>
+				["at0019"] = <
+					text = <"Clinical interpretation">
+					description = <"Narrative interpretation of assessment.">
+				>
+				["at0020"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0021"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental infomation or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+			>
+		>
+	>

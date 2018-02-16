@@ -1,0 +1,178 @@
+﻿archetype (adl_version=1.4; uid=0dbb78fe-1a67-42a4-8643-0d69a8e57bea)
+	openEHR-EHR-OBSERVATION.cardiac_drug_challenge_gel.v0
+
+concept
+	[at0000]	-- Cardiac drug challenge GEL
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2016-11-24">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For recording details of cardiac drug challenge test in Genomics England Rare Diseases dataset.">
+			use = <"Use to record details of cardiac challenge tests as part of Genomics England Rare Diseases dataset.
+
+The 'patient status' slot is intended to be filled with a local cluster archetype designed for this purpose. The archetype also contains a 'challenge details 'slot to enable the capture of particular challenge tests such as sodium channel blocker challenge or epinephrine challenge.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"90AC1844A631FC55BFA93D6D1D782237">
+		["build_uid"] = <"37dc8c85-c8d0-45ff-8b16-70afb04c316b">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Cardiac drug challenge GEL
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..1} matches {	-- Point in time
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									allow_archetype CLUSTER[at0007] occurrences matches {0..*} matches {	-- Challenge details
+										include
+											archetype_id/value matches {/.*/}
+									}
+									ELEMENT[at0010] occurrences matches {0..1} matches {	-- Assessment
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0011, 	-- Normal
+													at0012, 	-- Unknown
+													at0013, 	-- Abnormal relevant
+													at0014]	-- Abnormal unknown relevance
+												}
+											}
+										}
+									}
+									ELEMENT[at0015] occurrences matches {0..1} matches {	-- Premature termination
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0017, 	-- Yes
+													at0018, 	-- No
+													at0019]	-- Unknown
+												}
+											}
+										}
+									}
+									ELEMENT[at0016] occurrences matches {0..1} matches {	-- Reason for premature termination
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0008] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0009] occurrences matches {0..*} matches {	-- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Cardiac drug challenge GEL">
+					description = <"Local archetype to capture cardiac drug challenge results for Genomics England Rare Diseases dataset.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Point in time">
+					description = <"A specific date and/or time which may be explicitly defined in a template or at run-time.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0007"] = <
+					text = <"Challenge details">
+					description = <"Cardiac drug challenge test details.">
+				>
+				["at0008"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0009"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental infomation or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+				["at0010"] = <
+					text = <"Assessment">
+					description = <"Assessment of findings and clinical significance.">
+				>
+				["at0011"] = <
+					text = <"Normal">
+					description = <"The assessment of findings and clinical significance is normal.">
+				>
+				["at0012"] = <
+					text = <"Unknown">
+					description = <"The assessment of findings and clinical significance is unknown or no results are available.">
+				>
+				["at0013"] = <
+					text = <"Abnormal relevant">
+					description = <"The assessment of findings and clinical significance indicates an abnormality relevant to the patient's condition.">
+				>
+				["at0014"] = <
+					text = <"Abnormal unknown relevance">
+					description = <"The assessment of findings and clinical significance indicates an abnormality of unknown relevance to the patient's condition.">
+				>
+				["at0015"] = <
+					text = <"Premature termination">
+					description = <"Statement whether drug challenge test was terminated prematurely.">
+				>
+				["at0016"] = <
+					text = <"Reason for premature termination">
+					description = <"Narrative description of reason why drug challenge test was terminated prematurely.">
+				>
+				["at0017"] = <
+					text = <"Yes">
+					description = <"The drug challenge test was terminated prematurely.">
+				>
+				["at0018"] = <
+					text = <"No">
+					description = <"The drug challenge was not terminated prematurely.">
+				>
+				["at0019"] = <
+					text = <"Unknown">
+					description = <"It is not known whether the drug challenge test was terminated prematurely.">
+				>
+			>
+		>
+	>

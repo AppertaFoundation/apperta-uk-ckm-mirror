@@ -1,0 +1,345 @@
+﻿archetype (adl_version=1.4; uid=5cc75ab5-e07a-4315-865b-61cd3fd7e060)
+	openEHR-EHR-OBSERVATION.post_natal_borders.v0
+
+concept
+	[at0000]	-- Post natal NHS Borders
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2016-07-27">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Local archetype to support Safe Assessment Form to Evaluate Risks (SAFER) Chart used in NHS Borders maternity care.">
+			use = <"To be used for capturing post natal details as part of SAFER Chart for maternity care used in NHS Borders.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"800C3E24F2A3E9B5BF3CC74E91CDA9D5">
+		["build_uid"] = <"bd4bb473-de74-43d8-bd10-e81c02d2e15e">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Post natal NHS Borders
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..1} matches {	-- Point in time
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Elective caesarean section
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0005, 	-- Yes
+													at0006, 	-- No
+													at0007]	-- Don't know
+												}
+											}
+										}
+									}
+									ELEMENT[at0008] occurrences matches {0..1} matches {	-- Emergency caesarean section
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0016, 	-- Yes
+													at0017, 	-- No
+													at0018]	-- Don't know
+												}
+											}
+										}
+									}
+									ELEMENT[at0009] occurrences matches {0..1} matches {	-- Operative vaginal delivery
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0019, 	-- Yes
+													at0020, 	-- No
+													at0021]	-- Don't know
+												}
+											}
+										}
+									}
+									ELEMENT[at0010] occurrences matches {0..1} matches {	-- SVD / breech
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0022, 	-- Yes
+													at0023, 	-- No
+													at0024]	-- Don't know
+												}
+											}
+										}
+									}
+									ELEMENT[at0011] occurrences matches {0..1} matches {	-- Baby >4kg
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0025, 	-- Yes
+													at0026, 	-- No
+													at0027]	-- Don't know
+												}
+											}
+										}
+									}
+									ELEMENT[at0012] occurrences matches {0..1} matches {	-- Active labour >24 hours
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0028, 	-- Yes
+													at0029, 	-- No
+													at0030]	-- Don't know
+												}
+											}
+										}
+									}
+									ELEMENT[at0013] occurrences matches {0..1} matches {	-- Post-partum haemorrhage >1000mls
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0031, 	-- Yes
+													at0032, 	-- No
+													at0033]	-- Don't know
+												}
+											}
+										}
+									}
+									ELEMENT[at0014] occurrences matches {0..1} matches {	-- Retained placenta
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0034, 	-- Yes
+													at0035, 	-- No
+													at0036]	-- Don't know
+												}
+											}
+										}
+									}
+									ELEMENT[at0015] occurrences matches {0..1} matches {	-- Stillbirth this pregnancy
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0037, 	-- Yes
+													at0038]	-- No
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0039] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0040] occurrences matches {0..*} matches {	-- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Post natal NHS Borders">
+					description = <"Post natal details for SAFER Chart.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Point in time">
+					description = <"Specified point in time which may be explicitly defined in a template or at run-time.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Elective caesarean section">
+					description = <"Statement whether the patient has undergone an elective caesarean section.">
+				>
+				["at0005"] = <
+					text = <"Yes">
+					description = <"The patient has undergone an elective caesarean section.">
+				>
+				["at0006"] = <
+					text = <"No">
+					description = <"The patient has not undergone an elective caesarean section.">
+				>
+				["at0007"] = <
+					text = <"Don't know">
+					description = <"It is not known whether the patient has undergone an elective caesarean section.">
+				>
+				["at0008"] = <
+					text = <"Emergency caesarean section">
+					description = <"Statement whether the patient has undergone an emergency caesarean section.">
+				>
+				["at0009"] = <
+					text = <"Operative vaginal delivery">
+					description = <"Statement whether the patient has undergone an operative vaginal delivery.">
+				>
+				["at0010"] = <
+					text = <"SVD / breech">
+					description = <"Statement whether the patient has undergone a spontaneous vaginal delivery or a breech delivery.">
+				>
+				["at0011"] = <
+					text = <"Baby >4kg">
+					description = <"Statement whether the baby weighed more than 4kg at birth.">
+				>
+				["at0012"] = <
+					text = <"Active labour >24 hours">
+					description = <"Statement whether the active labour lasted for more than 24 hours.">
+				>
+				["at0013"] = <
+					text = <"Post-partum haemorrhage >1000mls">
+					description = <"Statement whether the patient suffered a post-partum haemorrhage of more than 1000mls.">
+				>
+				["at0014"] = <
+					text = <"Retained placenta">
+					description = <"Statement whether the patient experienced a retained placenta for more than 30 mins.">
+				>
+				["at0015"] = <
+					text = <"Stillbirth this pregnancy">
+					description = <"Statement whether this pregnancy resulted in a stillbirth.">
+				>
+				["at0016"] = <
+					text = <"Yes">
+					description = <"The patient has undergone an emergency caesarean section.">
+				>
+				["at0017"] = <
+					text = <"No">
+					description = <"The patient has not undergone an emergency caesarean section.">
+				>
+				["at0018"] = <
+					text = <"Don't know">
+					description = <"It is not known whether the patient has undergone an emergency caesarean section.">
+				>
+				["at0019"] = <
+					text = <"Yes">
+					description = <"The patient has undergone an operative vaginal delivery.">
+				>
+				["at0020"] = <
+					text = <"No">
+					description = <"The patient has not undergone an operative vaginal delivery.">
+				>
+				["at0021"] = <
+					text = <"Don't know">
+					description = <"It is not known whether the patient has undergone an operative vaginal delivery.">
+				>
+				["at0022"] = <
+					text = <"Yes">
+					description = <"The patient has undergone a a spontaneous vaginal delivery or a breech delivery.">
+				>
+				["at0023"] = <
+					text = <"No">
+					description = <"The patient has not undergone aa spontaneous vaginal delivery or a breech delivery.">
+				>
+				["at0024"] = <
+					text = <"Don't know">
+					description = <"It is not known whether the patient has undergonea a spontaneous vaginal delivery or a breech delivery.">
+				>
+				["at0025"] = <
+					text = <"Yes">
+					description = <"The baby weighed more than 4kg at birth.">
+				>
+				["at0026"] = <
+					text = <"No">
+					description = <"The baby did not weigh more than 4kg at birth.">
+				>
+				["at0027"] = <
+					text = <"Don't know">
+					description = <"It is not known whether the baby weighed more than 4kg at birth.">
+				>
+				["at0028"] = <
+					text = <"Yes">
+					description = <"Active labour lasted for more than 24 hours.">
+				>
+				["at0029"] = <
+					text = <"No">
+					description = <"Active labour did not last for more than 24 hours.">
+				>
+				["at0030"] = <
+					text = <"Don't know">
+					description = <"It is not known whether active labour lasted for more than 24 hours.">
+				>
+				["at0031"] = <
+					text = <"Yes">
+					description = <"The patient suffered a post-partum haemorrhage of more than 1000mls.">
+				>
+				["at0032"] = <
+					text = <"No">
+					description = <"The patient did not suffer a post-partum haemorrhage of more than 1000mls.">
+				>
+				["at0033"] = <
+					text = <"Don't know">
+					description = <"It is not known whether the patient suffered a post-partum haemorrhage of more than 1000mls.">
+				>
+				["at0034"] = <
+					text = <"Yes">
+					description = <"The patient experienced a retained placenta for more than 30 mins.">
+				>
+				["at0035"] = <
+					text = <"No">
+					description = <"The patient did not experience a retained placenta for more than 30 mins.">
+				>
+				["at0036"] = <
+					text = <"Don't know">
+					description = <"It is not known whether the patient experienced a retained placenta for more than 30 mins.">
+				>
+				["at0037"] = <
+					text = <"Yes">
+					description = <"This pregnancy resulted in a stillbirth.">
+				>
+				["at0038"] = <
+					text = <"No">
+					description = <"This pregnancy did not result in a stillbirth.">
+				>
+				["at0039"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0040"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental infomation or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+			>
+		>
+	>

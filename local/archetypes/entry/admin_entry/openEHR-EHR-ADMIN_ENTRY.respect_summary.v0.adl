@@ -1,0 +1,89 @@
+﻿archetype (adl_version=1.4; uid=36e3007c-49e8-4b8a-859f-f0f66c561426)
+	openEHR-EHR-ADMIN_ENTRY.respect_summary.v0
+
+concept
+	[at0000]	-- ReSPECT summary
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2017-08-30">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the recording of summary information in the ReSPECT plan.">
+			use = <"Use to record reasons for preferences and recommendations for ReSPECT plan. Also use slot to capture interpreter needs.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"42B6229D24EED33B6F2F91135E0B4841">
+		["build_uid"] = <"8f6cd910-cc28-4dea-aceb-2345d1e2a0c2">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	ADMIN_ENTRY[at0000] matches {	-- ReSPECT summary
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Narrative summary
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0004] occurrences matches {0..*} matches {	-- Interpreter required
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.interpreter_details(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {	-- Other communication needs
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"ReSPECT summary">
+					description = <"Summary information for ReSPECT.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Narrative summary">
+					description = <"This field is intended to capture relevant summary information about diagnoses, reasons for preferences and recommendations in a narrative format. It is envisaged that some of this information can be derived from more structured data, but this field allows the capture of a shared understanding between patient and clinician of the most important diagnoses and social factors, and it should act as a quick overview or snapshot which could be used for example in an emergency situation to gain a quick understanding of the most relevant information for this patient.">
+				>
+				["at0004"] = <
+					text = <"Interpreter required">
+					description = <"Interpreter details where required.">
+				>
+				["at0005"] = <
+					text = <"Other communication needs">
+					description = <"Details of other communication needs such as communication aids.">
+				>
+			>
+		>
+	>

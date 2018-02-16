@@ -1,0 +1,256 @@
+﻿archetype (adl_version=1.4; uid=2cae920a-6ad1-4bd1-92af-f2b58cead455)
+	openEHR-EHR-CLUSTER.peripheral_pulse.v0
+
+concept
+	[at0000]	-- Peripheral pulse
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2017-01-31">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the recording of peripheral pulse assessment.">
+			use = <"Use to record peripheral pulse findings and characteristics.
+
+This archetype is intended to be used inside a physical examination observation. Use the run-time constraint in the top level cluster to define the specific pulse.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"D02FBCEC4825245A5C8004929D688526">
+		["build_uid"] = <"fa0310d2-09f7-4dab-9c0e-47a7ff38c20b">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Peripheral pulse
+		items cardinality matches {1..*; unordered} matches {
+			CLUSTER[at0001] occurrences matches {0..*} matches {	-- Peripheral pulse
+				name matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0038, 	-- Dorsalis pedis
+							at0015, 	-- Femoral
+							at0022, 	-- Peroneal
+							at0029, 	-- Popliteal
+							at0008]	-- Posterior tibial
+						}
+					}
+				}
+				items cardinality matches {1..*; unordered} matches {
+					CLUSTER[at0004] occurrences matches {0..*} matches {	-- Side
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0002] occurrences matches {0..1} matches {	-- Side examined
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0043, 	-- Right
+											at0044]	-- Left
+										}
+									}
+								}
+							}
+							ELEMENT[at0003] occurrences matches {0..1} matches {	-- Amplitude
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0040, 	-- Bounding
+											at0041, 	-- Increased
+											at0042, 	-- Normal
+											at0045, 	-- Weak
+											at0046]	-- Absent or non-palpable
+										}
+									}
+								}
+							}
+							ELEMENT[at0005] occurrences matches {0..1} matches {	-- Rate
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::382]>
+										list = <
+											["1"] = <
+												units = <"1/min">
+												magnitude = <|>=0.0|>
+												precision = <|1|>
+											>
+										>
+									>
+								}
+							}
+							ELEMENT[at0039] occurrences matches {0..1} matches {	-- Bruits
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0048, 	-- Present
+											at0049]	-- Absent
+										}
+									}
+								}
+							}
+						}
+					}
+					ELEMENT[at0007] occurrences matches {0..1} matches {	-- Symmetry
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0050, 	-- Symmetrical or similar
+									at0051]	-- Asymmetrical or dissimilar
+								}
+							}
+						}
+					}
+					ELEMENT[at0036] occurrences matches {0..1} matches {	-- Interpretation
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0037] occurrences matches {0..1} matches {	-- Comment
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			allow_archetype CLUSTER[at0052] occurrences matches {0..*} matches {	-- Not examined
+				include
+					archetype_id/value matches {/openEHR-EHR-CLUSTER\.exclusion_exam(-[a-zA-Z0-9_]+)*\.v1/}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Peripheral pulse">
+					description = <"Examination of peripheral pulse.">
+				>
+				["at0001"] = <
+					text = <"Peripheral pulse">
+					description = <"Type of peripheral pulse measured.">
+				>
+				["at0002"] = <
+					text = <"Side examined">
+					description = <"Identification of side examined for peripheral pulse.">
+				>
+				["at0003"] = <
+					text = <"Amplitude">
+					description = <"Amplitude of peripheral pulse.">
+				>
+				["at0004"] = <
+					text = <"Side">
+					description = <"Findings of peripheral pulse examination by side (right or left).">
+				>
+				["at0005"] = <
+					text = <"Rate">
+					description = <"The pulse rate in beats per minute.">
+				>
+				["at0007"] = <
+					text = <"Symmetry">
+					description = <"Statement about the symmetry of left and right pulses.">
+				>
+				["at0008"] = <
+					text = <"Posterior tibial">
+					description = <"Posterior tibial pulse.">
+				>
+				["at0015"] = <
+					text = <"Femoral">
+					description = <"Femoral artery pulse.">
+				>
+				["at0022"] = <
+					text = <"Peroneal">
+					description = <"Peroneal pulse.">
+				>
+				["at0029"] = <
+					text = <"Popliteal">
+					description = <"Popliteal pulse.">
+				>
+				["at0036"] = <
+					text = <"Interpretation">
+					description = <"Single word, phrase or brief description that represents the clinical meaning and significance of the pulse findings.">
+				>
+				["at0037"] = <
+					text = <"Comment">
+					description = <"Additional narrative about the pulse findings, not captured in other fields.">
+				>
+				["at0038"] = <
+					text = <"Dorsalis pedis">
+					description = <"Dorsalis pedis pulse.">
+				>
+				["at0039"] = <
+					text = <"Bruits">
+					description = <"Statement about the presence or absence of bruits.">
+				>
+				["at0040"] = <
+					text = <"Bounding">
+					description = <"The strength of the pulse beat is bounding.">
+				>
+				["at0041"] = <
+					text = <"Increased">
+					description = <"The strength of the pulse beat is increased.">
+				>
+				["at0042"] = <
+					text = <"Normal">
+					description = <"The strength of the pulse beat is norrmal.">
+				>
+				["at0043"] = <
+					text = <"Right">
+					description = <"The examined pulse is on the right side.">
+				>
+				["at0044"] = <
+					text = <"Left">
+					description = <"The examined pulse is on the left side.">
+				>
+				["at0045"] = <
+					text = <"Weak">
+					description = <"The strength of the pulse beat is weak.">
+				>
+				["at0046"] = <
+					text = <"Absent or non-palpable">
+					description = <"The pulse beat is absent or the strength of the pulse beat is not palpable.">
+				>
+				["at0048"] = <
+					text = <"Present">
+					description = <"Bruits are present.">
+				>
+				["at0049"] = <
+					text = <"Absent">
+					description = <"Bruits are absent.">
+				>
+				["at0050"] = <
+					text = <"Symmetrical or similar">
+					description = <"The pulses on both sides are symmetrical or similar.">
+				>
+				["at0051"] = <
+					text = <"Asymmetrical or dissimilar">
+					description = <"The pulses on both sides are asymmetrical or dissimilar.">
+				>
+				["at0052"] = <
+					text = <"Not examined">
+					description = <"Details to explicitly record that this examination was not performed.">
+				>
+			>
+		>
+	>

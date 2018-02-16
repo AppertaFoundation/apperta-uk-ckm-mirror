@@ -1,0 +1,228 @@
+﻿archetype (adl_version=1.4; uid=19f8583b-e5df-4f2f-9aa3-f962b255b2f6)
+	openEHR-EHR-OBSERVATION.remora_weekly.v0
+
+concept
+	[at0000]	-- REMORA weekly question set
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Mark Greenhalgh">
+		["organisation"] = <"Operon Limited, UK">
+		["email"] = <"mark@operon.systems">
+		["date"] = <"2016-10-28">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Collection of weekly subject data in REMORA study.">
+			use = <"Used to capture weekly subject data in the REMORA study. It is assumed that employment status (yes / no) refers to status: employed / not employed.">
+			keywords = <"remora", "rheumatoid arthritis">
+			misuse = <"Not for use outside the scope of the REMORA study.">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <"Hildegard Franke", ...>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["references"] = <"The study description can be found at: http://acrabstracts.org/abstract/identifying-key-variables-for-inclusion-in-asmartphone-app-to-support-clinical-care-and-research-in-patients-with-rheumatoid-arthritis/">
+		["current_contact"] = <"Mark Greenhalgh">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"9232D63910ED73F29D109D4DEAD3D161">
+		["build_uid"] = <"f7665a01-e1d9-403c-a151-8eb9b99ddb23">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- REMORA weekly question set
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..1} matches {	-- Point in time
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Number of tender joints
+										value matches {
+											DV_COUNT matches {
+												magnitude matches {|>=0|}
+											}
+										}
+									}
+									ELEMENT[at0005] occurrences matches {0..1} matches {	-- Number of swollen joints
+										value matches {
+											DV_COUNT matches {
+												magnitude matches {|>=0|}
+											}
+										}
+									}
+									ELEMENT[at0006] occurrences matches {0..1} matches {	-- Global assessment of wellbeing
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::380]>
+												list = <
+													["1"] = <
+														units = <"1">
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0007] occurrences matches {0..1} matches {	-- Employment status
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0008, 	-- Employed
+													at0009]	-- Not employed
+												}
+											}
+										}
+									}
+									ELEMENT[at0010] occurrences matches {0..1} matches {	-- Impact on hours worked
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::380]>
+												list = <
+													["1"] = <
+														units = <"1">
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0011] occurrences matches {0..1} matches {	-- Experienced a flare
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0012, 	-- Yes
+													at0013]	-- No
+												}
+											}
+										}
+									}
+									ELEMENT[at0014] occurrences matches {0..1} matches {	-- Description of flare
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+						state matches {
+							ITEM_TREE[at0021] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0022] occurrences matches {0..*} matches {	-- Confounding factors
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0015] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0016] occurrences matches {0..*} matches {	-- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"REMORA weekly question set">
+					description = <"The weekly question set for REMORA study.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Point in time">
+					description = <"Specified point in time which may be explicitly defined in a template or at run-time.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Number of tender joints">
+					description = <"The number of tender joints.">
+				>
+				["at0005"] = <
+					text = <"Number of swollen joints">
+					description = <"The number of swollen joints.">
+				>
+				["at0006"] = <
+					text = <"Global assessment of wellbeing">
+					description = <"A numeric representation of a point along a visual 10-point scale.">
+				>
+				["at0007"] = <
+					text = <"Employment status">
+					description = <"State of employment represented by the response to the question \"Is the subject employed?\" where \"Yes\" = employed and \"No\" = not employed.">
+				>
+				["at0008"] = <
+					text = <"Employed">
+					description = <"The subject is employed.">
+				>
+				["at0009"] = <
+					text = <"Not employed">
+					description = <"The subject is not employed.">
+				>
+				["at0010"] = <
+					text = <"Impact on hours worked">
+					description = <"A numeric value representing the impact on hours worked.">
+				>
+				["at0011"] = <
+					text = <"Experienced a flare">
+					description = <"Records whether the subject has experienced a flare or not.">
+				>
+				["at0012"] = <
+					text = <"Yes">
+					description = <"The subject has experienced a flare.">
+				>
+				["at0013"] = <
+					text = <"No">
+					description = <"The subject has not experienced a flare.">
+				>
+				["at0014"] = <
+					text = <"Description of flare">
+					description = <"A textual narrative providing a description of a flare.">
+				>
+				["at0015"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0016"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"For example: local information requirements or additional metadata to align with FHIR or CIMI equivalents.">
+				>
+				["at0021"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0022"] = <
+					text = <"Confounding factors">
+					description = <"Any issues or factors that may impact upon the assessment.">
+				>
+			>
+		>
+	>

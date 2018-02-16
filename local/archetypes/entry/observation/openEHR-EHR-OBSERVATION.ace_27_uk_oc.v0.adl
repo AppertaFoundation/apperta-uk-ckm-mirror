@@ -1,0 +1,745 @@
+﻿archetype (adl_version=1.4; uid=2f9d1f33-3c46-4024-afb8-7fe74136ea34)
+	openEHR-EHR-OBSERVATION.ace_27_uk_oc.v0
+
+concept
+	[at0000]	-- ACE-27 UK Co-morbidities
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2016-08-09">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Capture co-morbidity information from the National Cancer Dataset.">
+			use = <"For use in any dataset which requires co-morbidity information based on the Adult Co-morbidity Evaluation (ACE-27) UK values.
+The form was developed as an extract from the National Cancer Dataset v4.0. We acknowledge that the intellectual property rights remain with Washington University in St. Louis, Campus Box 8013, 660 So. Euclid Avenue, St Louis MO 63110. It originates from and was developed with the permission of Washington University in St Louis.">
+			keywords = <"ACE-27", "co-morbidities", "cancer">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["references"] = <"Adult Co-morbidity Evaluation (ACE-27) UK Values, cited 09-Aug-2016 http://digital.nhs.uk/catalogue/PUB14257/clin-audi-supp-prog-head-neck-dahn-12-13-rep18.pdf">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"CAE462922B59D1B88C1FF78A4F48899A">
+		["build_uid"] = <"07eb9f2e-53a5-42f9-a20f-cec7e5f4f3d1">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- ACE-27 UK Co-morbidities
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..1} matches {	-- Point in time
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Myocardial infarct
+										value matches {
+											1|[local::at0005], 	-- Grade 1 mild decompensation
+											2|[local::at0006], 	-- Grade 2 moderate decompensation
+											3|[local::at0007]  	-- Grade 3 severe decompensation
+										}
+									}
+									ELEMENT[at0008] occurrences matches {0..1} matches {	-- Angina/coronary artery disease
+										value matches {
+											1|[local::at0009], 	-- Grade 1 mild decompensation
+											2|[local::at0010], 	-- Grade 2 moderate decompensation
+											3|[local::at0011]  	-- Grade 3 severe decompensation
+										}
+									}
+									ELEMENT[at0012] occurrences matches {0..1} matches {	-- Congestive heart failure (CHF)
+										value matches {
+											1|[local::at0013], 	-- Grade 1 mild decompensation
+											2|[local::at0014], 	-- Grade 2 moderate decompensation
+											3|[local::at0015]  	-- Grade 3 severe decompensation
+										}
+									}
+									ELEMENT[at0016] occurrences matches {0..1} matches {	-- Arrhythmias
+										value matches {
+											1|[local::at0017], 	-- Grade 1 mild decompensation
+											2|[local::at0018], 	-- Grade 2 moderate decompensation
+											3|[local::at0019]  	-- Grade 3 severe decompensation
+										}
+									}
+									ELEMENT[at0020] occurrences matches {0..1} matches {	-- Hypertension
+										value matches {
+											1|[local::at0021], 	-- Grade 1 mild decompensation
+											2|[local::at0022], 	-- Grade 2 moderate decompensation
+											3|[local::at0023]  	-- Grade 3 severe decompensation
+										}
+									}
+									ELEMENT[at0024] occurrences matches {0..1} matches {	-- Venous disease
+										value matches {
+											1|[local::at0025], 	-- Grade 1 mild decompensation
+											2|[local::at0026], 	-- Grade 2 moderate decompensation
+											3|[local::at0027]  	-- Grade 3 severe decompensation
+										}
+									}
+									ELEMENT[at0028] occurrences matches {0..1} matches {	-- Peripheral arterial disease
+										value matches {
+											1|[local::at0029], 	-- Grade 1 mild decompensation
+											2|[local::at0030], 	-- Grade 2 moderate decompensation
+											3|[local::at0031]  	-- Grade 3 severe decompensation
+										}
+									}
+									ELEMENT[at0032] occurrences matches {0..1} matches {	-- Respiratory system disease
+										value matches {
+											1|[local::at0033], 	-- Grade 1 mild decompensation
+											2|[local::at0034], 	-- Grade 2 moderate decompensation
+											3|[local::at0035]  	-- Grade 3 severe decompensation
+										}
+									}
+									ELEMENT[at0036] occurrences matches {0..1} matches {	-- Hepatic disease
+										value matches {
+											1|[local::at0037], 	-- Grade 1 mild decompensation
+											2|[local::at0038], 	-- Grade 2 moderate decompensation
+											3|[local::at0039]  	-- Grade 3 severe decompensation
+										}
+									}
+									ELEMENT[at0040] occurrences matches {0..1} matches {	-- Stomach/intestine disease
+										value matches {
+											1|[local::at0041], 	-- Grade 1 mild decompensation
+											2|[local::at0042], 	-- Grade 2 moderate decompensation
+											3|[local::at0043]  	-- Grade 3 severe decompensation
+										}
+									}
+									ELEMENT[at0044] occurrences matches {0..1} matches {	-- Pancreatic disease
+										value matches {
+											1|[local::at0045], 	-- Grade 1 mild decompensation
+											2|[local::at0046], 	-- Grade 2 moderate decompensation
+											3|[local::at0047]  	-- Grade 3 severe decompensation
+										}
+									}
+									ELEMENT[at0048] occurrences matches {0..1} matches {	-- End-stage renal disease
+										value matches {
+											1|[local::at0049], 	-- Grade 1 mild decompensation
+											2|[local::at0050], 	-- Grade 2 moderate decompensation
+											3|[local::at0051]  	-- Grade 3 severe decompensation
+										}
+									}
+									ELEMENT[at0052] occurrences matches {0..1} matches {	-- Diabetes
+										value matches {
+											1|[local::at0053], 	-- Grade 1 mild decompensation
+											2|[local::at0054], 	-- Grade 2 moderate decompensation
+											3|[local::at0055]  	-- Grade 3 severe decompensation
+										}
+									}
+									ELEMENT[at0056] occurrences matches {0..1} matches {	-- Stroke
+										value matches {
+											1|[local::at0057], 	-- Grade 1 mild decompensation
+											2|[local::at0058], 	-- Grade 2 moderate decompensation
+											3|[local::at0059]  	-- Grade 3 severe decompensation
+										}
+									}
+									ELEMENT[at0060] occurrences matches {0..1} matches {	-- Dementia
+										value matches {
+											1|[local::at0061], 	-- Grade 1 mild decompensation
+											2|[local::at0062], 	-- Grade 2 moderate decompensation
+											3|[local::at0063]  	-- Grade 3 severe decompensation
+										}
+									}
+									ELEMENT[at0064] occurrences matches {0..1} matches {	-- Paralysis
+										value matches {
+											1|[local::at0065], 	-- Grade 1 mild decompensation
+											2|[local::at0066], 	-- Grade 2 moderate decompensation
+											3|[local::at0067]  	-- Grade 3 severe decompensation
+										}
+									}
+									ELEMENT[at0068] occurrences matches {0..1} matches {	-- Neuromuscular disease
+										value matches {
+											1|[local::at0069], 	-- Grade 1 mild decompensation
+											2|[local::at0070], 	-- Grade 2 moderate decompensation
+											3|[local::at0071]  	-- Grade 3 severe decompensation
+										}
+									}
+									ELEMENT[at0072] occurrences matches {0..1} matches {	-- Psychiatric illness
+										value matches {
+											1|[local::at0073], 	-- Grade 1 mild decompensation
+											2|[local::at0074], 	-- Grade 2 moderate decompensation
+											3|[local::at0075]  	-- Grade 3 severe decompensation
+										}
+									}
+									ELEMENT[at0076] occurrences matches {0..1} matches {	-- Rheumatologic disorder
+										value matches {
+											1|[local::at0077], 	-- Grade 1 mild decompensation
+											2|[local::at0078], 	-- Grade 2 moderate decompensation
+											3|[local::at0079]  	-- Grade 3 severe decompensation
+										}
+									}
+									ELEMENT[at0080] occurrences matches {0..1} matches {	-- AIDS
+										value matches {
+											1|[local::at0081], 	-- Grade 1 mild decompensation
+											2|[local::at0082], 	-- Grade 2 moderate decompensation
+											3|[local::at0083]  	-- Grade 3 severe decompensation
+										}
+									}
+									ELEMENT[at0084] occurrences matches {0..1} matches {	-- Solid tumour including melanoma
+										value matches {
+											1|[local::at0085], 	-- Grade 1 mild decompensation
+											2|[local::at0086], 	-- Grade 2 moderate decompensation
+											3|[local::at0087]  	-- Grade 3 severe decompensation
+										}
+									}
+									ELEMENT[at0088] occurrences matches {0..1} matches {	-- Leukaemia and myeloma
+										value matches {
+											1|[local::at0089], 	-- Grade 1 mild decompensation
+											2|[local::at0090], 	-- Grade 2 moderate decompensation
+											3|[local::at0091]  	-- Grade 3 severe decompensation
+										}
+									}
+									ELEMENT[at0092] occurrences matches {0..1} matches {	-- Lymphoma
+										value matches {
+											1|[local::at0093], 	-- Grade 1 mild decompensation
+											2|[local::at0094], 	-- Grade 2 moderate decompensation
+											3|[local::at0095]  	-- Grade 3 severe decompensation
+										}
+									}
+									ELEMENT[at0096] occurrences matches {0..1} matches {	-- Alcohol abuse
+										value matches {
+											1|[local::at0097], 	-- Grade 1 mild decompensation
+											2|[local::at0098], 	-- Grade 2 moderate decompensation
+											3|[local::at0099]  	-- Grade 3 severe decompensation
+										}
+									}
+									ELEMENT[at0100] occurrences matches {0..1} matches {	-- Illicit drug abuse
+										value matches {
+											1|[local::at0101], 	-- Grade 1 mild decompensation
+											2|[local::at0102], 	-- Grade 2 moderate decompensation
+											3|[local::at0103]  	-- Grade 3 severe decompensation
+										}
+									}
+									ELEMENT[at0104] occurrences matches {0..1} matches {	-- Obesity
+										value matches {2|[local::at0105]}		-- Grade 2 moderate decompensation
+									}
+									ELEMENT[at0106] occurrences matches {0..1} matches {	-- Overall co-morbidity score
+										value matches {
+											0|[local::at0107], 	-- None
+											1|[local::at0108], 	-- Grade 1
+											2|[local::at0109], 	-- Grade 2
+											3|[local::at0110], 	-- Grade 3
+											9|[local::at0111]  	-- Unknown
+										}
+									}
+									ELEMENT[at0114] occurrences matches {0..1} matches {	-- Comment
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0112] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0113] occurrences matches {0..*} matches {	-- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"ACE-27 UK Co-morbidities">
+					description = <"Adult Co-morbidity Evaluation (ACE-27) UK.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Point in time">
+					description = <"A specific date and/or time which may be explicitly defined in a template or at run-time.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Myocardial infarct">
+					description = <"Statement about decompensation status of myocardial infarct.">
+				>
+				["at0005"] = <
+					text = <"Grade 1 mild decompensation">
+					description = <"Old MI by ECG only, age undetermined.">
+				>
+				["at0006"] = <
+					text = <"Grade 2 moderate decompensation">
+					description = <"MI > 6 months ago.">
+				>
+				["at0007"] = <
+					text = <"Grade 3 severe decompensation">
+					description = <"MI ≤ 6 months.">
+				>
+				["at0008"] = <
+					text = <"Angina/coronary artery disease">
+					description = <"Statement about decompensation status of angina or coronary artery disease.">
+				>
+				["at0009"] = <
+					text = <"Grade 1 mild decompensation">
+					description = <"ECG or stress test evidence or catheterization evidence of coronary disease without symptoms or Angina pectoris not requiring hospitalization or CABG or PTCA (>6 mos.) or Coronary stent (>6 mos.).">
+				>
+				["at0010"] = <
+					text = <"Grade 2 moderate decompensation">
+					description = <"Chronic exertional angina or recent (≤ 6 months) Coronary Artery Bypass Graft (CABG) or Percutaneous Transluminal Coronary Angioplasty (PTCA) or recent (≤ 6 months) coronary stent.">
+				>
+				["at0011"] = <
+					text = <"Grade 3 severe decompensation">
+					description = <"Unstable angina.">
+				>
+				["at0012"] = <
+					text = <"Congestive heart failure (CHF)">
+					description = <"Statement about decompensation status of congestive heart failure (CHF).">
+				>
+				["at0013"] = <
+					text = <"Grade 1 mild decompensation">
+					description = <"CHF with dyspnea which has responded to treatment or exertional dyspnea or paroxysmal nocturnal dyspnea (PND).">
+				>
+				["at0014"] = <
+					text = <"Grade 2 moderate decompensation">
+					description = <"Hospitalized for CHF >6 months prior or CHF with dyspnea which limits activities.">
+				>
+				["at0015"] = <
+					text = <"Grade 3 severe decompensation">
+					description = <"Hospitalized for CHF within past 6 months or ejection fraction < 20 per cent.">
+				>
+				["at0016"] = <
+					text = <"Arrhythmias">
+					description = <"Statement about decompensation status of arrhythmias.">
+				>
+				["at0017"] = <
+					text = <"Grade 1 mild decompensation">
+					description = <"Sick sinus syndrome.">
+				>
+				["at0018"] = <
+					text = <"Grade 2 moderate decompensation">
+					description = <"Ventricular arrhythmia > 6 months or chronic atrial fibrillation or flutter or pacemaker.">
+				>
+				["at0019"] = <
+					text = <"Grade 3 severe decompensation">
+					description = <"Ventricular arrhythmia ≤ 6 months.">
+				>
+				["at0020"] = <
+					text = <"Hypertension">
+					description = <"Statement about decompensation status of hypertension.">
+				>
+				["at0021"] = <
+					text = <"Grade 1 mild decompensation">
+					description = <"DBP 90-114 mm Hg while not taking antihypertensive medications or DBP <90 mm Hg while taking antihypertensive medications or hypertension, not otherwise specified.">
+				>
+				["at0022"] = <
+					text = <"Grade 2 moderate decompensation">
+					description = <"DBP 115-129 mm Hg or DBP 90-114 mm Hg while taking antihypertensive medications or secondary cardiovascular symptoms: vertigo, epistaxis, headaches.">
+				>
+				["at0023"] = <
+					text = <"Grade 3 severe decompensation">
+					description = <"DBP>130 mm Hg or severe malignant papilledema or other eye changes or encephalopathy.">
+				>
+				["at0024"] = <
+					text = <"Venous disease">
+					description = <"Statement about decompensation status of venous disease.">
+				>
+				["at0025"] = <
+					text = <"Grade 1 mild decompensation">
+					description = <"Old DVT no longer treated with
+Coumadin or Heparin.">
+				>
+				["at0026"] = <
+					text = <"Grade 2 moderate decompensation">
+					description = <"DVT controlled with Coumadin or
+heparin or old PE > 6 months.">
+				>
+				["at0027"] = <
+					text = <"Grade 3 severe decompensation">
+					description = <"Recent PE (≤ 6 mos.) or use of venous filter for PE’s.">
+				>
+				["at0028"] = <
+					text = <"Peripheral arterial disease">
+					description = <"Statement about decompensation status of peripheral arterial disease.">
+				>
+				["at0029"] = <
+					text = <"Grade 1 mild decompensation">
+					description = <"Intermittent claudication or untreated thoracic or abdominal aneurysm (< 6 cm) or s/p abdominal or thoracic aortic aneurysm repair.">
+				>
+				["at0030"] = <
+					text = <"Grade 2 moderate decompensation">
+					description = <"Bypass or amputation for gangrene or arterial insufficiency > 6 months ago or chronic insufficiency.">
+				>
+				["at0031"] = <
+					text = <"Grade 3 severe decompensation">
+					description = <"Bypass or amputation for gangrene or arterial insufficiency < 6 months ago or untreated thoracic or abdominal aneurysm (>6 cm).">
+				>
+				["at0032"] = <
+					text = <"Respiratory system disease">
+					description = <"Statement about decompensation status of respiratory system disease.">
+				>
+				["at0033"] = <
+					text = <"Grade 1 mild decompensation">
+					description = <"Restrictive Lung Disease or COPD (chronic bronchitis, emphysema, or asthma) with dyspnea which has responded to treatment or FEV1 (66 per cent-80 per cent).">
+				>
+				["at0034"] = <
+					text = <"Grade 2 moderate decompensation">
+					description = <"Restrictive Lung Disease or COPD (chronic bronchitis, emphysema, or asthma) with dyspnea which limits activities or FEV1 (51 per cent-65 per cent).">
+				>
+				["at0035"] = <
+					text = <"Grade 3 severe decompensation">
+					description = <"Marked pulmonary insufficiency or restrictive lung disease or COPD with dyspnea at rest despite treatment or chronic supplemental O2 or CO2 retention (pCO2 > 6.7 kPa) or Baseline pO2 < 6.7 kPa or FEV1 (< 50 per cent).">
+				>
+				["at0036"] = <
+					text = <"Hepatic disease">
+					description = <"Statement about decompensation status of hepatic disease.">
+				>
+				["at0037"] = <
+					text = <"Grade 1 mild decompensation">
+					description = <"Chronic hepatitis or cirrhosis without portal hypertension or acute hepatitis without cirrhosis or chronic liver disease manifested on biopsy or persistently elevated bilirubin (>51mmol/l).">
+				>
+				["at0038"] = <
+					text = <"Grade 2 moderate decompensation">
+					description = <"Chronic hepatitis, cirrhosis, portal
+hypertension with moderate
+symptoms “compensated hepatic
+failure”.">
+				>
+				["at0039"] = <
+					text = <"Grade 3 severe decompensation">
+					description = <"Portal hypertension and/or
+esophageal bleeding ≤ 6 mos.
+(Encephalopathy, Ascites, Jaundice
+with Total Bilirubin > 34mmol/l).">
+				>
+				["at0040"] = <
+					text = <"Stomach/intestine disease">
+					description = <"Statement about decompensation statement of stomach or intestinal disease.">
+				>
+				["at0041"] = <
+					text = <"Grade 1 mild decompensation">
+					description = <"Diagnosis of ulcers treated with meds or chronic malabsorption syndrome or inflammatory bowel disease (IBD) on meds or h/o with complications and/or surgery.">
+				>
+				["at0042"] = <
+					text = <"Grade 2 moderate decompensation">
+					description = <"Ulcers requiring surgery or transfusion
+of < 6 units of blood.">
+				>
+				["at0043"] = <
+					text = <"Grade 3 severe decompensation">
+					description = <"Recent ulcers ≤ 6 months requiring ≥
+6 units of blood transfusion.">
+				>
+				["at0044"] = <
+					text = <"Pancreatic disease">
+					description = <"Statement about decompensation status of pancreatic disease.">
+				>
+				["at0045"] = <
+					text = <"Grade 1 mild decompensation">
+					description = <"Chronic pancreatitis w/o
+complications.">
+				>
+				["at0046"] = <
+					text = <"Grade 2 moderate decompensation">
+					description = <"Uncomplicated acute pancreatitis or chronic pancreatitis with minor complications (malabsorption, impaired glucose tolerance, or GI bleeding).">
+				>
+				["at0047"] = <
+					text = <"Grade 3 severe decompensation">
+					description = <"Acute or chronic pancreatitis with
+major complications (phlegmon,
+abscess, or pseudocyst).">
+				>
+				["at0048"] = <
+					text = <"End-stage renal disease">
+					description = <"Statement about decompensation status of end-stage renal disease.">
+				>
+				["at0049"] = <
+					text = <"Grade 1 mild decompensation">
+					description = <"Chronic Renal Insufficiency with
+creatinine 177-265umol/l.">
+				>
+				["at0050"] = <
+					text = <"Grade 2 moderate decompensation">
+					description = <"Chronic renal insufficiency with creatinine > 265 umol/l or chronic dialysis.">
+				>
+				["at0051"] = <
+					text = <"Grade 3 severe decompensation">
+					description = <"Creatinine > 265 umol/l with multi-organ failure, shock, or sepsis or acute dialysis.">
+				>
+				["at0052"] = <
+					text = <"Diabetes">
+					description = <"Statement about decompensation status of diabetes.">
+					comment = <"Code the comorbid ailments with the (*) in both the Endocrine system and other organ systems if applicable.">
+				>
+				["at0053"] = <
+					text = <"Grade 1 mild decompensation">
+					description = <"AODM controlled by oral agents only.">
+				>
+				["at0054"] = <
+					text = <"Grade 2 moderate decompensation">
+					description = <"IDDM without complications or poorly controlled AODM.">
+				>
+				["at0055"] = <
+					text = <"Grade 3 severe decompensation">
+					description = <"Hospitalization ≤ 6 months for DKA or diabetes causing end-organ failure, i.e. retinopathy and/or neuropathy and/or nephropathy* and/or coronary disease* or peripheral arterial disease*.">
+				>
+				["at0056"] = <
+					text = <"Stroke">
+					description = <"Statement about decompensation status of stroke.">
+				>
+				["at0057"] = <
+					text = <"Grade 1 mild decompensation">
+					description = <"Stroke with no residual or past or recent TIA.">
+				>
+				["at0058"] = <
+					text = <"Grade 2 moderate decompensation">
+					description = <"Old stroke with neurologic residual.">
+				>
+				["at0059"] = <
+					text = <"Grade 3 severe decompensation">
+					description = <"Acute stroke with significant
+neurologic deficit.">
+				>
+				["at0060"] = <
+					text = <"Dementia">
+					description = <"Statement about decompensation status of dementia.">
+				>
+				["at0061"] = <
+					text = <"Grade 1 mild decompensation">
+					description = <"Mild dementia (can take care of self).">
+				>
+				["at0062"] = <
+					text = <"Grade 2 moderate decompensation">
+					description = <"Moderate dementia (not completely self-sufficient, needs supervising).">
+				>
+				["at0063"] = <
+					text = <"Grade 3 severe decompensation">
+					description = <"Severe dementia requiring full support for activities of daily living.">
+				>
+				["at0064"] = <
+					text = <"Paralysis">
+					description = <"Statement about decompensation status of paralysis.">
+				>
+				["at0065"] = <
+					text = <"Grade 1 mild decompensation">
+					description = <"Paraplegia or hemiplegia, ambulatory and providing most of self care.">
+				>
+				["at0066"] = <
+					text = <"Grade 2 moderate decompensation">
+					description = <"Paraplegia or hemiplegia requiring wheelchair, able to do some self care.">
+				>
+				["at0067"] = <
+					text = <"Grade 3 severe decompensation">
+					description = <"Paraplegia or hemiplegia requiring full support for activities of daily living.">
+				>
+				["at0068"] = <
+					text = <"Neuromuscular disease">
+					description = <"Statement about decompensation status of neuromuscular disease.">
+				>
+				["at0069"] = <
+					text = <"Grade 1 mild decompensation">
+					description = <"MS, Parkinson’s, Myasthenia Gravis, or other chronic neuromuscular disorder, but ambulatory and providing most of self care.">
+				>
+				["at0070"] = <
+					text = <"Grade 2 moderate decompensation">
+					description = <"MS, Parkinson’s, Myasthenia Gravis, or other chronic neuromuscular disorder, but able to do some self care.">
+				>
+				["at0071"] = <
+					text = <"Grade 3 severe decompensation">
+					description = <"MS, Parkinson’s, Myasthenia Gravis, or other chronic neuromuscular disorder and requiring full support for activities of daily living.">
+				>
+				["at0072"] = <
+					text = <"Psychiatric illness">
+					description = <"Statement about decompensation status of psychiatric illness.">
+				>
+				["at0073"] = <
+					text = <"Grade 1 mild decompensation">
+					description = <"Major depression or bipolar disorder controlled w/ medication.">
+				>
+				["at0074"] = <
+					text = <"Grade 2 moderate decompensation">
+					description = <"Major depression or bipolar disorder uncontrolled or schizophrenia controlled w/ meds.">
+				>
+				["at0075"] = <
+					text = <"Grade 3 severe decompensation">
+					description = <"Recent suicidal attempt or active schizophrenia.">
+				>
+				["at0076"] = <
+					text = <"Rheumatologic disorder">
+					description = <"Statement about decompensation status of rheumatologic disorders (incl. rheumatoid arthritis, systemic lupus, mixed connective tissue disorder, polymyositis, rheumatic polymyositis).">
+				>
+				["at0077"] = <
+					text = <"Grade 1 mild decompensation">
+					description = <"Connective Tissue Disorder on NSAIDS or no treatment.">
+				>
+				["at0078"] = <
+					text = <"Grade 2 moderate decompensation">
+					description = <"Connective Tissue Disorder on steroids or immunosuppressant medications.">
+				>
+				["at0079"] = <
+					text = <"Grade 3 severe decompensation">
+					description = <"Connective Tissue Disorder with secondary end-organ failure (renal, cardiac, CNS).">
+				>
+				["at0080"] = <
+					text = <"AIDS">
+					description = <"Statement about decompensation status of AIDS (should not be considered a co-morbidity for Kaposi’s Sarcoma or Non-Hodgkin’s Lymphoma).">
+				>
+				["at0081"] = <
+					text = <"Grade 1 mild decompensation">
+					description = <"Asymptomatic HIV+ patient or HIV+ w/o h/o AIDS defining illness. CD4+ > 200μL.">
+				>
+				["at0082"] = <
+					text = <"Grade 2 moderate decompensation">
+					description = <"HIV+ with h/o defining illness. CD4+ < 200/μL.">
+				>
+				["at0083"] = <
+					text = <"Grade 3 severe decompensation">
+					description = <"Fulminant AIDS w/KS, MAI, PCP (AIDS defining illness).">
+				>
+				["at0084"] = <
+					text = <"Solid tumour including melanoma">
+					description = <"Statement about decompensation status of solid tumour including melanoma  (excluding cutaneous basal cell Ca., cutaneous SCCA, carcinoma in-situ, and intraepithelial neoplasm).">
+				>
+				["at0085"] = <
+					text = <"Grade 1 mild decompensation">
+					description = <"Any controlled solid tumor without documented metastases, but initially diagnosed and treated > 5 years ago.">
+				>
+				["at0086"] = <
+					text = <"Grade 2 moderate decompensation">
+					description = <"Any controlled solid tumor without documented metastases, but initially diagnosed and treated within the last 5 years.">
+				>
+				["at0087"] = <
+					text = <"Grade 3 severe decompensation">
+					description = <"Uncontrolled cancer or newly diagnosed but not yet treated or metastatic solid tumor.">
+				>
+				["at0088"] = <
+					text = <"Leukaemia and myeloma">
+					description = <"Statement about decompensation status of leukaemia and myeloma.">
+				>
+				["at0089"] = <
+					text = <"Grade 1 mild decompensation">
+					description = <"H/o leukemia or myeloma with last Rx > 1 yr prior.">
+				>
+				["at0090"] = <
+					text = <"Grade 2 moderate decompensation">
+					description = <"1st remission or new dx <1yr or chronic suppressive therapy.">
+				>
+				["at0091"] = <
+					text = <"Grade 3 severe decompensation">
+					description = <"Relapse or disease out of control.">
+				>
+				["at0092"] = <
+					text = <"Lymphoma">
+					description = <"Statement about decompensation status of lymphoma.">
+				>
+				["at0093"] = <
+					text = <"Grade 1 mild decompensation">
+					description = <"H/o lymphoma w/ last Rx >1 yr prior.">
+				>
+				["at0094"] = <
+					text = <"Grade 2 moderate decompensation">
+					description = <"1st remission or new dx <1yr or chronic suppressive therapy.">
+				>
+				["at0095"] = <
+					text = <"Grade 3 severe decompensation">
+					description = <"Relapse.">
+				>
+				["at0096"] = <
+					text = <"Alcohol abuse">
+					description = <"Statement about decompensation status of alcohol abuse (must be accompanied by social, behavioural or medical complications).">
+				>
+				["at0097"] = <
+					text = <"Grade 1 mild decompensation">
+					description = <"H/o alcohol abuse but not presently drinking.">
+				>
+				["at0098"] = <
+					text = <"Grade 2 moderate decompensation">
+					description = <"Active alcohol abuse with social, behavioral, or medical complications.">
+				>
+				["at0099"] = <
+					text = <"Grade 3 severe decompensation">
+					description = <"Delirium tremens.">
+				>
+				["at0100"] = <
+					text = <"Illicit drug abuse">
+					description = <"Statement about decompensation status of illicit drug abuse (must be accompanied by social, behavioural or medical complications).">
+				>
+				["at0101"] = <
+					text = <"Grade 1 mild decompensation">
+					description = <"H/o substance abuse but not presently using.">
+				>
+				["at0102"] = <
+					text = <"Grade 2 moderate decompensation">
+					description = <"Active substance abuse with social, behavioral, or medical complications.">
+				>
+				["at0103"] = <
+					text = <"Grade 3 severe decompensation">
+					description = <"Acute withdrawal syndrome.">
+				>
+				["at0104"] = <
+					text = <"Obesity">
+					description = <"Statement about decompensation status of obesity.">
+				>
+				["at0105"] = <
+					text = <"Grade 2 moderate decompensation">
+					description = <"Morbid obesity, i.e. BMI>38.">
+				>
+				["at0106"] = <
+					text = <"Overall co-morbidity score">
+					description = <"Statement about overall co-morbidity score, allowing for none and unknown as well as mild, moderate and severe.">
+				>
+				["at0107"] = <
+					text = <"None">
+					description = <"No co-morbidities.">
+				>
+				["at0108"] = <
+					text = <"Grade 1">
+					description = <"Mild co-morbidities.">
+				>
+				["at0109"] = <
+					text = <"Grade 2">
+					description = <"Moderate co-morbidities.">
+				>
+				["at0110"] = <
+					text = <"Grade 3">
+					description = <"Severe co-morbidities.">
+				>
+				["at0111"] = <
+					text = <"Unknown">
+					description = <"Co-morbidity status is unknown.">
+				>
+				["at0112"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0113"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental infomation or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+				["at0114"] = <
+					text = <"Comment">
+					description = <"Optinal narrative comment about any other relevant information.">
+				>
+			>
+		>
+	>

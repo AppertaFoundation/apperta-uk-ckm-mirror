@@ -1,0 +1,772 @@
+﻿archetype (adl_version=1.4; uid=e6aed128-190d-43df-8ba1-b70ca153c755)
+	openEHR-EHR-EVALUATION.muscle_strength.v0
+
+concept
+	[at0000]	-- Muscle strength assessment
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Jamila Chihab">
+		["organisation"] = <"University College London">
+		["email"] = <"chihab.j@gmail.com">
+		["date"] = <"2017-01-24">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For recording isotonic and isokinetic muscle strength assessment of injured and non-injured side.">
+			use = <"Use to record muscle strength isotonic of injured and non-injured side during plantar flexion, dorsiflexion, inversion and eversion movement. (scale ranging from 0, 1, 2, 3, 4, and 5).
+
+Use to record muscle strength isokinetic of injured and non-injured side during plantar flexion, dorsiflexion, inversion and eversion movement. ( (scale ranging from 0, 1, 2, 3, 4, and 5).">
+			keywords = <"Isotonic muscle strength", "Isokinetic muscle strength", "Plantar flexion", "Dorsiflexion", "Inversion", "Eversion">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <"Hildegard Franke, freshEHR Clinical informatics, UK", "Matthew Darlison, University College London, UK", "Ibtissam M. Saab, Beirut Arab University, Lebanon">
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["references"] = <"1- Granado, M. and Matlick, D. (2016). Clinical review-Ankle Sprain. 1st ed. Cinahl Information Systems, pp.1-9.
+
+2- Anon (2017) Muscle Strength - Physiopedia, universal access to physiotherapy knowledge.. [Online]. 2017. Physio-pedia.com. Available from: http://www.physio-pedia.com/Muscle_Strength [Accessed: 30 January 2017].">
+		["current_contact"] = <"Jamila Chihab, <chihab.j@gmail.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"60A5585AE0209BA0FEAC5AC67F13361C">
+		["build_uid"] = <"f6b1b8ce-c8ff-4b6d-8b7b-32a905327c32">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Muscle strength assessment
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					CLUSTER[at0002] occurrences matches {0..1} matches {	-- Isotonic strength testing of injured side
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0004] occurrences matches {0..*} matches {	-- Plantar flexion
+								value matches {
+									0|[local::at0129], 	-- No contraction
+									1|[local::at0130], 	-- Flicker of movement
+									2|[local::at0131], 	-- Through full range actively with gravity counterbalanced
+									3|[local::at0132], 	-- Through full range actively against gravity
+									4|[local::at0133], 	-- Through full range actively against some resistance
+									5|[local::at0134]  	-- Through full range actively against strong resistance
+								}
+							}
+							ELEMENT[at0025] occurrences matches {0..1} matches {	-- Dorsiflexion
+								value matches {
+									0|[local::at0135], 	-- No contraction
+									1|[local::at0136], 	-- Flicker of movement
+									2|[local::at0137], 	-- Through full range actively with gravity counterbalanced
+									3|[local::at0138], 	-- Through full range actively against gravity
+									4|[local::at0139], 	-- Through full range actively against some resistance
+									5|[local::at0140]  	-- Through full range actively against strong resistance
+								}
+							}
+							ELEMENT[at0038] occurrences matches {0..1} matches {	-- Inversion
+								value matches {
+									0|[local::at0141], 	-- No contraction
+									1|[local::at0142], 	-- Flicker of movement
+									2|[local::at0143], 	-- Through full range actively with gravity counterbalanced
+									3|[local::at0144], 	-- Through full range actively against gravity
+									4|[local::at0145], 	-- Through full range actively against some resistance
+									5|[local::at0146]  	-- Through full range actively against strong resistance
+								}
+							}
+							ELEMENT[at0051] occurrences matches {0..1} matches {	-- Eversion
+								value matches {
+									0|[local::at0147], 	-- No contraction
+									1|[local::at0148], 	-- Flicker of movement
+									2|[local::at0149], 	-- Through full range actively with gravity counterbalanced
+									3|[local::at0150], 	-- Through full range actively against gravity
+									4|[local::at0151], 	-- Through full range actively against some resistance
+									5|[local::at0152]  	-- Through full range actively against strong resistance
+								}
+							}
+							ELEMENT[at0227] occurrences matches {0..1} matches {	-- Total score isotonic strength injured side
+								value matches {
+									DV_COUNT matches {
+										magnitude matches {|0..20|}
+									}
+								}
+							}
+						}
+					}
+					CLUSTER[at0064] occurrences matches {0..1} matches {	-- Isotonic strength testing of non-injured side
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0065] occurrences matches {0..1} matches {	-- Plantar flexion
+								value matches {
+									0|[local::at0153], 	-- No contraction
+									1|[local::at0154], 	-- Flicker of movement
+									2|[local::at0155], 	-- Through full range actively with gravity counterbalanced
+									3|[local::at0156], 	-- Through full range actively against gravity
+									4|[local::at0157], 	-- Through full range actively against some resistance
+									5|[local::at0158]  	-- Through full range actively against strong resistance
+								}
+							}
+							ELEMENT[at0078] occurrences matches {0..1} matches {	-- Dorsiflexion
+								value matches {
+									0|[local::at0159], 	-- No contraction
+									1|[local::at0160], 	-- Flicker of movement
+									2|[local::at0161], 	-- Through full range actively with gravity counterbalanced
+									3|[local::at0162], 	-- Through full range actively against gravity
+									4|[local::at0163], 	-- Through full range actively against some resistance
+									5|[local::at0164]  	-- Through full range actively against strong resistance
+								}
+							}
+							ELEMENT[at0091] occurrences matches {0..1} matches {	-- Inversion
+								value matches {
+									0|[local::at0171], 	-- No contraction
+									1|[local::at0172], 	-- Flicker of movement
+									2|[local::at0173], 	-- Through full range actively with gravity counterbalanced
+									3|[local::at0174], 	-- Through full range actively against gravity
+									4|[local::at0175], 	-- Through full range actively against some resistance
+									5|[local::at0176]  	-- Through full range actively against strong resistance
+								}
+							}
+							ELEMENT[at0104] occurrences matches {0..1} matches {	-- Eversion
+								value matches {
+									0|[local::at0177], 	-- No contraction
+									1|[local::at0178], 	-- Flicker of movement
+									2|[local::at0179], 	-- Through full range actively with gravity counterbalanced
+									3|[local::at0180], 	-- Through full range actively against gravity
+									4|[local::at0181], 	-- Through full range actively against some resistance
+									5|[local::at0182]  	-- Through full range actively against strong resistance
+								}
+							}
+							ELEMENT[at0228] occurrences matches {0..1} matches {	-- Total score isotonic strength non-injured side
+								value matches {
+									DV_COUNT matches {
+										magnitude matches {|0..20|}
+									}
+								}
+							}
+						}
+					}
+					CLUSTER[at0117] occurrences matches {0..1} matches {	-- Isokinetic strength testing of injured side
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0118] occurrences matches {0..1} matches {	-- Plantar flexion
+								value matches {
+									0|[local::at0166], 	-- No contraction
+									1|[local::at0167], 	-- Flicker of movement
+									2|[local::at0168], 	-- Through full range actively with gravity counterbalanced
+									3|[local::at0169], 	-- Through full range actively against gravity
+									4|[local::at0170], 	-- Through full range actively against some resistance
+									5|[local::at0225]  	-- Through full range actively against strong resistance
+								}
+							}
+							ELEMENT[at0119] occurrences matches {0..1} matches {	-- Dorsiflexion
+								value matches {
+									0|[local::at0183], 	-- No contraction
+									1|[local::at0184], 	-- Flicker of movement
+									2|[local::at0185], 	-- Through full range actively with gravity counterbalanced
+									3|[local::at0186], 	-- Through full range actively against gravity
+									4|[local::at0187], 	-- Through full range actively against some resistance
+									5|[local::at0188]  	-- Through full range actively against strong resistance
+								}
+							}
+							ELEMENT[at0120] occurrences matches {0..1} matches {	-- Inversion
+								value matches {
+									0|[local::at0189], 	-- No contraction
+									1|[local::at0190], 	-- Flicker of movement
+									2|[local::at0191], 	-- Through full range actively with gravity counterbalanced
+									3|[local::at0192], 	-- Through full range actively against gravity
+									4|[local::at0193], 	-- Through full range actively against some resistance
+									5|[local::at0194]  	-- Through full range actively against strong resistance
+								}
+							}
+							ELEMENT[at0121] occurrences matches {0..1} matches {	-- Eversion
+								value matches {
+									0|[local::at0195], 	-- No contraction
+									1|[local::at0196], 	-- Flicker of movement
+									2|[local::at0197], 	-- Through full range actively with gravity counterbalanced
+									3|[local::at0198], 	-- Through full range actively against gravity
+									4|[local::at0199], 	-- Through full range actively against some resistance
+									5|[local::at0200]  	-- Through full range actively against strong resistance
+								}
+							}
+							ELEMENT[at0229] occurrences matches {0..1} matches {	-- Total score isokinetic strength injured side
+								value matches {
+									DV_COUNT matches {
+										magnitude matches {|0..20|}
+									}
+								}
+							}
+						}
+					}
+					CLUSTER[at0122] occurrences matches {0..1} matches {	-- Isokinetic strength testing of non-injured side
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0123] occurrences matches {0..1} matches {	-- Plantar flexion
+								value matches {
+									0|[local::at0201], 	-- No contraction
+									1|[local::at0202], 	-- Flicker of movement
+									2|[local::at0203], 	-- Through full range actively with gravity counterbalanced
+									3|[local::at0204], 	-- Through full range actively against gravity
+									4|[local::at0205], 	-- Through full range actively against some resistance
+									5|[local::at0206]  	-- Through full range actively against strong resistance
+								}
+							}
+							ELEMENT[at0124] occurrences matches {0..1} matches {	-- Dorsiflexion
+								value matches {
+									0|[local::at0207], 	-- No contraction
+									1|[local::at0208], 	-- Flicker of movement
+									2|[local::at0209], 	-- Through full range actively with gravity counterbalanced
+									3|[local::at0210], 	-- Through full range actively against gravity
+									4|[local::at0211], 	-- Through full range actively against some resistance
+									5|[local::at0212]  	-- Through full range actively against strong resistance
+								}
+							}
+							ELEMENT[at0125] occurrences matches {0..1} matches {	-- Inversion
+								value matches {
+									0|[local::at0213], 	-- No contraction
+									1|[local::at0214], 	-- Flicker of movement
+									2|[local::at0215], 	-- Through full range actively with gravity counterbalanced
+									3|[local::at0216], 	-- Through full range actively against gravity
+									4|[local::at0217], 	-- Through full range actively against some resistance
+									5|[local::at0218]  	-- Through full range actively against strong resistance
+								}
+							}
+							ELEMENT[at0126] occurrences matches {0..1} matches {	-- Eversion
+								value matches {
+									0|[local::at0219], 	-- No contraction
+									1|[local::at0220], 	-- Flicker of movement
+									2|[local::at0221], 	-- Through full range actively with gravity counterbalanced
+									3|[local::at0222], 	-- Through full range actively against gravity
+									4|[local::at0223], 	-- Through full range actively against some resistance
+									5|[local::at0224]  	-- Through full range actively against strong resistance
+								}
+							}
+							ELEMENT[at0230] occurrences matches {0..1} matches {	-- Total score isokinetic strength non-injured side
+								value matches {
+									DV_COUNT matches {
+										magnitude matches {|0..20|}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0127] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0226] occurrences matches {0..*} matches {	-- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Muscle strength assessment">
+					description = <"Isotonic and isokinetic muscle strength of injured and non-injured side in the context of ankle injury.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Isotonic strength testing of injured side">
+					description = <"Assessment of isotonic muscle strength of injured side.">
+				>
+				["at0004"] = <
+					text = <"Plantar flexion">
+					description = <"Assessement of isotonic muscle strength of the injured side, during plantar flexion movement.">
+				>
+				["at0025"] = <
+					text = <"Dorsiflexion">
+					description = <"Assessement of isotonic muscle strength of the injured side, during dorsiflexion movement.">
+				>
+				["at0038"] = <
+					text = <"Inversion">
+					description = <"Assessement of isotonic muscle strength of the injured side, during Inversion movement.">
+				>
+				["at0051"] = <
+					text = <"Eversion">
+					description = <"Assessement of isotonic muscle strength of the injured side, during eversion movement.">
+				>
+				["at0064"] = <
+					text = <"Isotonic strength testing of non-injured side">
+					description = <"Assessment of isotonic muscle strength of non-injured side.">
+				>
+				["at0065"] = <
+					text = <"Plantar flexion">
+					description = <"Assessement of isotonic muscle strength of the non-injured side, during plantar flexion movement.">
+				>
+				["at0078"] = <
+					text = <"Dorsiflexion">
+					description = <"Assessement of isotonic muscle strength of the non-injured side, during dorsiflexion movement.">
+				>
+				["at0091"] = <
+					text = <"Inversion">
+					description = <"Assessement of isotonic muscle strength of the injured side, during Inversion movement.">
+				>
+				["at0104"] = <
+					text = <"Eversion">
+					description = <"Assessement of isotonic muscle strength of the injured side, during eversion movement.">
+				>
+				["at0117"] = <
+					text = <"Isokinetic strength testing of injured side">
+					description = <"Assessment of isokinetic muscle strength of injured side.">
+				>
+				["at0118"] = <
+					text = <"Plantar flexion">
+					description = <"Assessement of isokinetic muscle strength of the injured side, during plantar flexion movement.">
+				>
+				["at0119"] = <
+					text = <"Dorsiflexion">
+					description = <"Assessement of isokinetic muscle strength of the injured side, during dorsiflexion movement.">
+				>
+				["at0120"] = <
+					text = <"Inversion">
+					description = <"Assessement of isokinetic muscle strength of the injured side, during Inversion movement.">
+				>
+				["at0121"] = <
+					text = <"Eversion">
+					description = <"Assessement of isokinetic muscle strength of the injured side, during eversion movement.">
+				>
+				["at0122"] = <
+					text = <"Isokinetic strength testing of non-injured side">
+					description = <"Assessment of isokinetic muscle strength of non-injured side.">
+				>
+				["at0123"] = <
+					text = <"Plantar flexion">
+					description = <"Assessement of isokinetic muscle strength of the non-injured side, during plantar flexion movement.">
+				>
+				["at0124"] = <
+					text = <"Dorsiflexion">
+					description = <"Assessement of isokinetic muscle strength of the non-injured side, during dorsiflexion movement.">
+				>
+				["at0125"] = <
+					text = <"Inversion">
+					description = <"Assessement of isokinetic muscle strength of the non-injured side, during Inversion movement.">
+				>
+				["at0126"] = <
+					text = <"Eversion">
+					description = <"Assessement of isokinetic muscle strength of the non-injured side, during eversion movement.">
+				>
+				["at0127"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0129"] = <
+					text = <"No contraction">
+					description = <"Patient is not able to do any contraction.">
+				>
+				["at0130"] = <
+					text = <"Flicker of movement">
+					description = <"Only a trace or flicker of movement is seen or felt in the muscle.">
+				>
+				["at0131"] = <
+					text = <"Through full range actively with gravity counterbalanced">
+					description = <"Patient is able to do plantar flexion in full range with gravity counterbalanced.">
+				>
+				["at0132"] = <
+					text = <"Through full range actively against gravity">
+					description = <"Patient is able to do full plantar flexion against gravity.">
+				>
+				["at0133"] = <
+					text = <"Through full range actively against some resistance">
+					description = <"Patient is able to do full plantar flexion against some resistance.">
+				>
+				["at0134"] = <
+					text = <"Through full range actively against strong resistance">
+					description = <"Patient is able to do full plantar flexion against strong resistance.">
+				>
+				["at0135"] = <
+					text = <"No contraction">
+					description = <"Patient is not able to do any contraction.">
+				>
+				["at0136"] = <
+					text = <"Flicker of movement">
+					description = <"Only a trace or flicker of movement is seen or felt in the muscle.">
+				>
+				["at0137"] = <
+					text = <"Through full range actively with gravity counterbalanced">
+					description = <"Patient is able to do dorsiflexion in full range with gravity counterbalanced.">
+				>
+				["at0138"] = <
+					text = <"Through full range actively against gravity">
+					description = <"Patient is able to do full dorsiflexion against gravity.">
+				>
+				["at0139"] = <
+					text = <"Through full range actively against some resistance">
+					description = <"Patient is able to do full dorsiflexion against some resistance.">
+				>
+				["at0140"] = <
+					text = <"Through full range actively against strong resistance">
+					description = <"Patient is able to do full dorsiflexion against strong resistance.">
+				>
+				["at0141"] = <
+					text = <"No contraction">
+					description = <"Patient is not able to do any contraction.">
+				>
+				["at0142"] = <
+					text = <"Flicker of movement">
+					description = <"Only a trace or flicker of movement is seen or felt in the muscle.">
+				>
+				["at0143"] = <
+					text = <"Through full range actively with gravity counterbalanced">
+					description = <"Patient is able to do inversion in full range with gravity counterbalanced.">
+				>
+				["at0144"] = <
+					text = <"Through full range actively against gravity">
+					description = <"Patient is able to do full inversion against gravity.">
+				>
+				["at0145"] = <
+					text = <"Through full range actively against some resistance">
+					description = <"Patient is able to do full inversion against some resistance.">
+				>
+				["at0146"] = <
+					text = <"Through full range actively against strong resistance">
+					description = <"Patient is able to do full inversion against strong resistance.">
+				>
+				["at0147"] = <
+					text = <"No contraction">
+					description = <"Patient is not able to do any contraction.">
+				>
+				["at0148"] = <
+					text = <"Flicker of movement">
+					description = <"Only a trace or flicker of movement is seen or felt in the muscle.">
+				>
+				["at0149"] = <
+					text = <"Through full range actively with gravity counterbalanced">
+					description = <"Patient is able to do eversion in full range with gravity counterbalanced.">
+				>
+				["at0150"] = <
+					text = <"Through full range actively against gravity">
+					description = <"Patient is able to do full eversion against gravity.">
+				>
+				["at0151"] = <
+					text = <"Through full range actively against some resistance">
+					description = <"Patient is able to do full eversion against some resistance.">
+				>
+				["at0152"] = <
+					text = <"Through full range actively against strong resistance">
+					description = <"Patient is able to do full eversion against strong resistance.">
+				>
+				["at0153"] = <
+					text = <"No contraction">
+					description = <"Patient is not able to do any contraction.">
+				>
+				["at0154"] = <
+					text = <"Flicker of movement">
+					description = <"Only a trace or flicker of movement is seen or felt in the muscle.">
+				>
+				["at0155"] = <
+					text = <"Through full range actively with gravity counterbalanced">
+					description = <"Patient is able to do plantar flexion in full range with gravity counterbalanced.">
+				>
+				["at0156"] = <
+					text = <"Through full range actively against gravity">
+					description = <"Patient is able to do full plantar flexion against gravity.">
+				>
+				["at0157"] = <
+					text = <"Through full range actively against some resistance">
+					description = <"Patient is able to do full plantar flexion against some resistance.">
+				>
+				["at0158"] = <
+					text = <"Through full range actively against strong resistance">
+					description = <"Patient is able to do full plantar flexion against strong resistance.">
+				>
+				["at0159"] = <
+					text = <"No contraction">
+					description = <"Patient is not able to do any contraction.">
+				>
+				["at0160"] = <
+					text = <"Flicker of movement">
+					description = <"Only a trace or flicker of movement is seen or felt in the muscle.">
+				>
+				["at0161"] = <
+					text = <"Through full range actively with gravity counterbalanced">
+					description = <"Patient is able to do dorsiflexion in full range with gravity counterbalanced.">
+				>
+				["at0162"] = <
+					text = <"Through full range actively against gravity">
+					description = <"Patient is able to do full dorsiflexion against gravity.">
+				>
+				["at0163"] = <
+					text = <"Through full range actively against some resistance">
+					description = <"Patient is able to do full dorsiflexion against some resistance.">
+				>
+				["at0164"] = <
+					text = <"Through full range actively against strong resistance">
+					description = <"Patient is able to do full dorsiflexion against strong resistance.">
+				>
+				["at0166"] = <
+					text = <"No contraction">
+					description = <"Patient is not able to do any contraction.">
+				>
+				["at0167"] = <
+					text = <"Flicker of movement">
+					description = <"Only a trace or flicker of movement is seen or felt in the muscle.">
+				>
+				["at0168"] = <
+					text = <"Through full range actively with gravity counterbalanced">
+					description = <"Patient is able to do plantar flexion in full range with gravity counterbalanced.">
+				>
+				["at0169"] = <
+					text = <"Through full range actively against gravity">
+					description = <"Patient is able to do full plantar flexion against gravity.">
+				>
+				["at0170"] = <
+					text = <"Through full range actively against some resistance">
+					description = <"Patient is able to do full plantar flexion against some resistance.">
+				>
+				["at0171"] = <
+					text = <"No contraction">
+					description = <"Patient is not able to do any contraction.">
+				>
+				["at0172"] = <
+					text = <"Flicker of movement">
+					description = <"Only a trace or flicker of movement is seen or felt in the muscle.">
+				>
+				["at0173"] = <
+					text = <"Through full range actively with gravity counterbalanced">
+					description = <"Patient is able to do inversion in full range with gravity counterbalanced.">
+				>
+				["at0174"] = <
+					text = <"Through full range actively against gravity">
+					description = <"Patient is able to do full inversion against gravity.">
+				>
+				["at0175"] = <
+					text = <"Through full range actively against some resistance">
+					description = <"Patient is able to do full inversion against some resistance.">
+				>
+				["at0176"] = <
+					text = <"Through full range actively against strong resistance">
+					description = <"Patient is able to do full inversion against strong resistance.">
+				>
+				["at0177"] = <
+					text = <"No contraction">
+					description = <"Patient is not able to do any contraction.">
+				>
+				["at0178"] = <
+					text = <"Flicker of movement">
+					description = <"Only a trace or flicker of movement is seen or felt in the muscle.">
+				>
+				["at0179"] = <
+					text = <"Through full range actively with gravity counterbalanced">
+					description = <"Patient is able to do eversion in full range with gravity counterbalanced.">
+				>
+				["at0180"] = <
+					text = <"Through full range actively against gravity">
+					description = <"Patient is able to do full eversion against gravity.">
+				>
+				["at0181"] = <
+					text = <"Through full range actively against some resistance">
+					description = <"Patient is able to do full eversion against some resistance.">
+				>
+				["at0182"] = <
+					text = <"Through full range actively against strong resistance">
+					description = <"Patient is able to do full eversion against strong resistance.">
+				>
+				["at0183"] = <
+					text = <"No contraction">
+					description = <"Patient is not able to do any contraction.">
+				>
+				["at0184"] = <
+					text = <"Flicker of movement">
+					description = <"Only a trace or flicker of movement is seen or felt in the muscle.">
+				>
+				["at0185"] = <
+					text = <"Through full range actively with gravity counterbalanced">
+					description = <"Patient is able to do dorsiflexion in full range with gravity counterbalanced.">
+				>
+				["at0186"] = <
+					text = <"Through full range actively against gravity">
+					description = <"Patient is able to do full dorsiflexion against gravity.">
+				>
+				["at0187"] = <
+					text = <"Through full range actively against some resistance">
+					description = <"Patient is able to do full dorsiflexion against some resistance.">
+				>
+				["at0188"] = <
+					text = <"Through full range actively against strong resistance">
+					description = <"Patient is able to do full dorsiflexion against strong resistance.">
+				>
+				["at0189"] = <
+					text = <"No contraction">
+					description = <"Patient is not able to do any contraction.">
+				>
+				["at0190"] = <
+					text = <"Flicker of movement">
+					description = <"Only a trace or flicker of movement is seen or felt in the muscle.">
+				>
+				["at0191"] = <
+					text = <"Through full range actively with gravity counterbalanced">
+					description = <"Patient is able to do inversion in full range with gravity counterbalanced.">
+				>
+				["at0192"] = <
+					text = <"Through full range actively against gravity">
+					description = <"Patient is able to do full inversion against gravity.">
+				>
+				["at0193"] = <
+					text = <"Through full range actively against some resistance">
+					description = <"Patient is able to do full inversion against some resistance.">
+				>
+				["at0194"] = <
+					text = <"Through full range actively against strong resistance">
+					description = <"Patient is able to do full inversion against strong resistance.">
+				>
+				["at0195"] = <
+					text = <"No contraction">
+					description = <"Patient is not able to do any contraction.">
+				>
+				["at0196"] = <
+					text = <"Flicker of movement">
+					description = <"Only a trace or flicker of movement is seen or felt in the muscle.">
+				>
+				["at0197"] = <
+					text = <"Through full range actively with gravity counterbalanced">
+					description = <"Patient is able to do eversion in full range with gravity counterbalanced.">
+				>
+				["at0198"] = <
+					text = <"Through full range actively against gravity">
+					description = <"Patient is able to do full eversion against gravity.">
+				>
+				["at0199"] = <
+					text = <"Through full range actively against some resistance">
+					description = <"Patient is able to do full eversion against some resistance.">
+				>
+				["at0200"] = <
+					text = <"Through full range actively against strong resistance">
+					description = <"Patient is able to do full eversion against strong resistance.">
+				>
+				["at0201"] = <
+					text = <"No contraction">
+					description = <"Patient is not able to do any contraction.">
+				>
+				["at0202"] = <
+					text = <"Flicker of movement">
+					description = <"Only a trace or flicker of movement is seen or felt in the muscle.">
+				>
+				["at0203"] = <
+					text = <"Through full range actively with gravity counterbalanced">
+					description = <"Patient is able to do plantar flexion in full range with gravity counterbalanced.">
+				>
+				["at0204"] = <
+					text = <"Through full range actively against gravity">
+					description = <"Patient is able to do full plantar flexion against gravity.">
+				>
+				["at0205"] = <
+					text = <"Through full range actively against some resistance">
+					description = <"Patient is able to do full plantar flexion against some resistance.">
+				>
+				["at0206"] = <
+					text = <"Through full range actively against strong resistance">
+					description = <"Patient is able to do full plantar flexion against strong resistance.">
+				>
+				["at0207"] = <
+					text = <"No contraction">
+					description = <"Patient is not able to do any contraction.">
+				>
+				["at0208"] = <
+					text = <"Flicker of movement">
+					description = <"Only a trace or flicker of movement is seen or felt in the muscle.">
+				>
+				["at0209"] = <
+					text = <"Through full range actively with gravity counterbalanced">
+					description = <"Patient is able to do dorsiflexion in full range with gravity counterbalanced.">
+				>
+				["at0210"] = <
+					text = <"Through full range actively against gravity">
+					description = <"Patient is able to do full dorsiflexion against gravity.">
+				>
+				["at0211"] = <
+					text = <"Through full range actively against some resistance">
+					description = <"Patient is able to do full dorsiflexion against some resistance.">
+				>
+				["at0212"] = <
+					text = <"Through full range actively against strong resistance">
+					description = <"Patient is able to do full dorsiflexion against strong resistance.">
+				>
+				["at0213"] = <
+					text = <"No contraction">
+					description = <"Patient is not able to do any contraction.">
+				>
+				["at0214"] = <
+					text = <"Flicker of movement">
+					description = <"Only a trace or flicker of movement is seen or felt in the muscle.">
+				>
+				["at0215"] = <
+					text = <"Through full range actively with gravity counterbalanced">
+					description = <"Patient is able to do inversion in full range with gravity counterbalanced.">
+				>
+				["at0216"] = <
+					text = <"Through full range actively against gravity">
+					description = <"Patient is able to do full inversion against gravity.">
+				>
+				["at0217"] = <
+					text = <"Through full range actively against some resistance">
+					description = <"Patient is able to do full inversion against some resistance.">
+				>
+				["at0218"] = <
+					text = <"Through full range actively against strong resistance">
+					description = <"Patient is able to do full inversion against strong resistance.">
+				>
+				["at0219"] = <
+					text = <"No contraction">
+					description = <"Patient is not able to do any contraction.">
+				>
+				["at0220"] = <
+					text = <"Flicker of movement">
+					description = <"Only a trace or flicker of movement is seen or felt in the muscle.">
+				>
+				["at0221"] = <
+					text = <"Through full range actively with gravity counterbalanced">
+					description = <"Patient is able to do eversion in full range with gravity counterbalanced.">
+				>
+				["at0222"] = <
+					text = <"Through full range actively against gravity">
+					description = <"Patient is able to do full eversion against gravity.">
+				>
+				["at0223"] = <
+					text = <"Through full range actively against some resistance">
+					description = <"Patient is able to do full eversion against some resistance.">
+				>
+				["at0224"] = <
+					text = <"Through full range actively against strong resistance">
+					description = <"Patient is able to do full eversion against strong resistance.">
+				>
+				["at0225"] = <
+					text = <"Through full range actively against strong resistance">
+					description = <"Patient is able to do full plantar flexion against strong resistance.">
+				>
+				["at0226"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental infomation or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+				["at0227"] = <
+					text = <"Total score isotonic strength injured side">
+					description = <"Total score from individual assessments of isotonic strength on injured side.">
+				>
+				["at0228"] = <
+					text = <"Total score isotonic strength non-injured side">
+					description = <"Total score from individual assessments of isotonic strength on non-injured side.">
+				>
+				["at0229"] = <
+					text = <"Total score isokinetic strength injured side">
+					description = <"Total score from individual assessments of isokinetic strength on injured side.">
+				>
+				["at0230"] = <
+					text = <"Total score isokinetic strength non-injured side">
+					description = <"Total score from individual assessments of isokinetic strength on non-injured side.">
+				>
+			>
+		>
+	>

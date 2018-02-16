@@ -1,0 +1,288 @@
+﻿archetype (adl_version=1.4; uid=5ed99315-7409-405e-ba02-2a23d865a1a3)
+	openEHR-EHR-OBSERVATION.ocular_malformation_metrics_gel.v0
+
+concept
+	[at0000]	-- Ocular Malformation Metric GEL
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2016-08-17">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the recording of ocular malformation metrics as part of a genomics dataset.">
+			use = <"Use to record ocular malformation metrics in each eye.">
+			keywords = <"ocular", "malformation", "corneal", "keratometry", "gonioscopy">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"09E580039BA3D2FC972B4EEE19EB7CDC">
+		["build_uid"] = <"b2ceffb4-8456-412f-a1c8-bd075def11a7">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Ocular Malformation Metric GEL
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..1} matches {	-- Point in time
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									CLUSTER[at0025] occurrences matches {0..*} matches {	-- Per eye
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0012] occurrences matches {0..1} matches {	-- Eye examined
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0013, 	-- Left eye
+															at0014]	-- Right eye
+														}
+													}
+												}
+											}
+											ELEMENT[at0006] occurrences matches {0..1} matches {	-- Axial length
+												value matches {
+													C_DV_QUANTITY <
+														property = <[openehr::122]>
+														list = <
+															["1"] = <
+																units = <"mm">
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0007] occurrences matches {0..1} matches {	-- Central corneal thickness
+												value matches {
+													C_DV_QUANTITY <
+														property = <[openehr::122]>
+														list = <
+															["1"] = <
+																units = <"micron">
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0008] occurrences matches {0..1} matches {	-- Corneal diameter
+												value matches {
+													C_DV_QUANTITY <
+														property = <[openehr::122]>
+														list = <
+															["1"] = <
+																units = <"mm">
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0009] occurrences matches {0..1} matches {	-- Keratometry
+												value matches {
+													C_DV_QUANTITY <
+														property = <[openehr::685]>
+														list = <
+															["1"] = <
+																units = <"dioptre">
+															>
+														>
+													>
+												}
+											}
+										}
+									}
+									ELEMENT[at0015] occurrences matches {0..1} matches {	-- Gonioscopy result
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0016, 	-- Normal
+													at0017, 	-- Abnormal relevant
+													at0018, 	-- Abnormal unknown relevance
+													at0019]	-- Unknown
+												}
+											}
+										}
+									}
+									ELEMENT[at0026] occurrences matches {0..1} matches {	-- Assessment
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0027, 	-- Normal
+													at0028, 	-- Unknown
+													at0029, 	-- Abnormal relevant
+													at0030]	-- Abnormal unknown relevance
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+						state matches {
+							ITEM_TREE[at0022] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0024] occurrences matches {0..*} matches {	-- Confounding factors
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0020] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0021] occurrences matches {0..1} matches {	-- Technique or protocol
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0023] occurrences matches {0..*} matches {	-- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Ocular Malformation Metric GEL">
+					description = <"Ocular malformation metrics used in GEL dataset for North Thames Genomic Medicine Centre.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Point in time">
+					description = <"A specific date and/or time which may be explicitly defined in a template or at run-time.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0006"] = <
+					text = <"Axial length">
+					description = <"Measurement of axial length in millimetres.">
+				>
+				["at0007"] = <
+					text = <"Central corneal thickness">
+					description = <"Measurement of central corneal thickness in micrometers.">
+				>
+				["at0008"] = <
+					text = <"Corneal diameter">
+					description = <"Measurement of corneal diameter in millimetres.">
+				>
+				["at0009"] = <
+					text = <"Keratometry">
+					description = <"Measurement of corneal curvatures in dioptres.">
+				>
+				["at0012"] = <
+					text = <"Eye examined">
+					description = <"The eye which is being examined.">
+				>
+				["at0013"] = <
+					text = <"Left eye">
+					description = <"The measurement refers to the left eye.">
+				>
+				["at0014"] = <
+					text = <"Right eye">
+					description = <"The measurement refers to the right eye.">
+				>
+				["at0015"] = <
+					text = <"Gonioscopy result">
+					description = <"Statement about the result of the gonioscopy examination.">
+				>
+				["at0016"] = <
+					text = <"Normal">
+					description = <"The gonioscopy result is normal.">
+				>
+				["at0017"] = <
+					text = <"Abnormal relevant">
+					description = <"An abnormality of clinical relevance to the patient’s condition.">
+				>
+				["at0018"] = <
+					text = <"Abnormal unknown relevance">
+					description = <"An abnormality of unknown clinical relevance to the patient’s condition.">
+				>
+				["at0019"] = <
+					text = <"Unknown">
+					description = <"No gonioscopy results are available.">
+				>
+				["at0020"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0021"] = <
+					text = <"Technique or protocol">
+					description = <"If relevant please state non-imaging analytic technique or protocol used for the test.">
+				>
+				["at0022"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0023"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental infomation or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+				["at0024"] = <
+					text = <"Confounding factors">
+					description = <"Record any issues or factors that may impact on the assessment.">
+				>
+				["at0025"] = <
+					text = <"Per eye">
+					description = <"Grouping of findings by eye.">
+				>
+				["at0026"] = <
+					text = <"Assessment">
+					description = <"Assessment of findings and clinical significance.">
+				>
+				["at0027"] = <
+					text = <"Normal">
+					description = <"The assessment of findings and clinical significance is normal.">
+				>
+				["at0028"] = <
+					text = <"Unknown">
+					description = <"The assessment of findings and clinical significance is unknown or no results are available.">
+				>
+				["at0029"] = <
+					text = <"Abnormal relevant">
+					description = <"The assessment of findings and clinical significance indicates an abnormality relevant to the patient's condition.">
+				>
+				["at0030"] = <
+					text = <"Abnormal unknown relevance">
+					description = <"The assessment of findings and clinical significance indicates an abnormality of unknown relevance to the patient's condition.">
+				>
+			>
+		>
+	>

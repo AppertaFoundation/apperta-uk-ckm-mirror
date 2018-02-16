@@ -1,0 +1,165 @@
+﻿archetype (adl_version=1.4; uid=865c537f-3706-4ad0-a759-a7671e8fb44d)
+	openEHR-EHR-CLUSTER.radiotherapy_detail_gel.v0
+
+concept
+	[at0000]	-- Radiotherapy detail GEL
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2017-03-16">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the recording and reporting of radiotherapy details as part of Genomics England cancer dataset.">
+			use = <"To record radiotherapy details in the context of Genomics England cancer dataset interventions. This archetype is intended to be used inside a procedure archetype to enable more details to be captured.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"07931DA4C3B5A782E449ED514C56F5BB">
+		["build_uid"] = <"6974622c-6bd1-4d92-96e5-fd9c9ebfb18b">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Radiotherapy detail GEL
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- Brachytherapy type
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0002, 	-- BI
+							at0003, 	-- BC
+							at0004, 	-- BT
+							at0005]	-- US
+						}
+					}
+				}
+			}
+			ELEMENT[at0006] occurrences matches {0..1} matches {	-- External beam type
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0007, 	-- IMRT
+							at0008, 	-- Stereotactic
+							at0009, 	-- 2DXRT
+							at0010, 	-- 3DXRT
+							at0011, 	-- 4DRXT
+							at0012, 	-- Electrons
+							at0013]	-- Protons
+						}
+					}
+				}
+			}
+			ELEMENT[at0014] occurrences matches {0..1} matches {	-- Fractions
+				value matches {
+					DV_COUNT matches {
+						magnitude matches {|>=0|}
+					}
+				}
+			}
+			ELEMENT[at0015] occurrences matches {0..1} matches {	-- Total dose
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::380]>
+						list = <
+							["1"] = <
+								units = <"1">
+								magnitude = <|0.0..999.99|>
+								precision = <|2|>
+							>
+						>
+					>
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Radiotherapy detail GEL">
+					description = <"Local cluster to capture radiotherapy details for Genomics England Cancer dataset.">
+				>
+				["at0001"] = <
+					text = <"Brachytherapy type">
+					description = <"The type of brachytherapy used.">
+				>
+				["at0002"] = <
+					text = <"BI">
+					description = <"The type of brachytherapy is interstitial.">
+				>
+				["at0003"] = <
+					text = <"BC">
+					description = <"The type of brachytherapy is intra-cavity.">
+				>
+				["at0004"] = <
+					text = <"BT">
+					description = <"The type of brachytherapy is not otherwise specified.">
+				>
+				["at0005"] = <
+					text = <"US">
+					description = <"The type of brachytherapy is unsealed source.">
+				>
+				["at0006"] = <
+					text = <"External beam type">
+					description = <"The type of external beam used.">
+				>
+				["at0007"] = <
+					text = <"IMRT">
+					description = <"The type of external beam therapy is intensity modulated radiation therapy.">
+				>
+				["at0008"] = <
+					text = <"Stereotactic">
+					description = <"The type of external beam therapy is stereotactic.">
+				>
+				["at0009"] = <
+					text = <"2DXRT">
+					description = <"The type of external beam therapy is two-dimensional radiation therapy.">
+				>
+				["at0010"] = <
+					text = <"3DXRT">
+					description = <"The type of external beam therapy is three-dimensional radiation therapy.">
+				>
+				["at0011"] = <
+					text = <"4DRXT">
+					description = <"The type of external beam therapy is four-dimensional radiation therapy.">
+				>
+				["at0012"] = <
+					text = <"Electrons">
+					description = <"The type of external beam therapy is electron beam therapy.">
+				>
+				["at0013"] = <
+					text = <"Protons">
+					description = <"The type of external beam therapy is proton beam therapy.">
+				>
+				["at0014"] = <
+					text = <"Fractions">
+					description = <"The total number of Fractions or hyperfraction delivered as part of a RADIOTHERAPY PRESCRIPTION.">
+				>
+				["at0015"] = <
+					text = <"Total dose">
+					description = <"The total prescribed absorbed radiation dose, measured in Grays, given to the ICRU Reference Point for the whole prescription.">
+				>
+			>
+		>
+	>

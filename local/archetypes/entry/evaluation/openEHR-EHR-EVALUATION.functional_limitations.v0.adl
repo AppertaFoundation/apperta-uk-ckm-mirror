@@ -1,0 +1,291 @@
+﻿archetype (adl_version=1.4; uid=0abddc68-c214-42d9-a142-23d95d50cfbc)
+	openEHR-EHR-EVALUATION.functional_limitations.v0
+
+concept
+	[at0000]	-- Functional limitations
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Jamila Chihab">
+		["organisation"] = <"University College London">
+		["email"] = <"chihab.j@gmail.com">
+		["date"] = <"2017-01-24">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Stating if patient has any functional limitation. Asking patient whether he/she has any adaptive equipment and states the type.">
+			use = <"Record if adaptive equipment is in place.
+
+Record whether the patient properly use assistive equipment or adaptive devices and specify type of equipment.
+
+Record if equipment properly used and fits patients.">
+			keywords = <"Adaptive equipment", "Functional limitation", "Assistive equipment">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <"Hildegard Franke, freshEHR Clinical Informatics, UK", "Matthew Darlison, University College London, UK", "Ibtissam M. Saab, Beirut Arab University, Lebanon">
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["references"] = <"Granado, M. and Matlick, D. (2016). Clinical review-Ankle Sprain. 1st ed. Cinahl Information Systems, pp.1-9.">
+		["current_contact"] = <"Jamila Chihab, <chihab.j@gmail.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"4A7FC382A67E0443D84A801E04882936">
+		["build_uid"] = <"161d4c88-9cfe-476b-a936-47a2939c667d">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Functional limitations
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0007] occurrences matches {0..1} matches {	-- Functional limitation present?
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+					ELEMENT[at0008] occurrences matches {0..*} matches {	-- Pre-existing limitation
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0009, 	-- Usual work activities
+									at0010, 	-- Usual recreational activities
+									at0011, 	-- Getting into or out of the bath
+									at0012, 	-- Walking between rooms
+									at0013, 	-- Putting on shoes or socks
+									at0014, 	-- Squatting
+									at0015, 	-- Lifting an object
+									at0016, 	-- Performing light activities
+									at0017, 	-- Performing heavy activities
+									at0018, 	-- Getting into or out of a car
+									at0019, 	-- Walking 2 blocks
+									at0020, 	-- Walking a mile
+									at0021, 	-- Going up or down 10 stairs
+									at0022, 	-- Standing 1 hour
+									at0023, 	-- Sitting for 1 hour
+									at0024, 	-- Running on even ground
+									at0025, 	-- Running on uneven ground
+									at0026, 	-- Making sharp turns while running fast
+									at0027, 	-- Hopping
+									at0028]	-- Rolling over in bed
+								}
+							}
+						}
+					}
+					CLUSTER[at0029] occurrences matches {0..*} matches {	-- Adaptive equipment
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0031] occurrences matches {0..1} matches {	-- Type of adaptive equipment
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0032, 	-- Cane
+											at0033, 	-- Forearm
+											at0034, 	-- Auxillary crutches
+											at0035, 	-- Walker
+											at0036]	-- Wheelchair
+										}
+									}
+								}
+							}
+							ELEMENT[at0030] occurrences matches {0..1} matches {	-- In place?
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							ELEMENT[at0048] occurrences matches {0..1} matches {	-- Properly use
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							ELEMENT[at0050] occurrences matches {0..1} matches {	-- Fit the patient
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0051] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0053] occurrences matches {0..*} matches {	-- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Functional limitations">
+					description = <"Evaluation of functional limitations in the context of ankle sprain assessment.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0007"] = <
+					text = <"Functional limitation present?">
+					description = <"Statement whether patient has any functional limitation.">
+				>
+				["at0008"] = <
+					text = <"Pre-existing limitation">
+					description = <"Type of pre-existing limitation.">
+				>
+				["at0009"] = <
+					text = <"Usual work activities">
+					description = <"Patient has limitations in ability to perform usual work, housework or school activities.">
+				>
+				["at0010"] = <
+					text = <"Usual recreational activities">
+					description = <"Patient has limitations in ability to perform usual hobbies, recreational or sporting activities.">
+				>
+				["at0011"] = <
+					text = <"Getting into or out of the bath">
+					description = <"Patient has limitations in ability to get into or out of the bath.">
+				>
+				["at0012"] = <
+					text = <"Walking between rooms">
+					description = <"Patient has limitations in ability to walk between rooms.">
+				>
+				["at0013"] = <
+					text = <"Putting on shoes or socks">
+					description = <"Patient has limitations in ability to put on his/her shoes or socks.">
+				>
+				["at0014"] = <
+					text = <"Squatting">
+					description = <"Patient has limitations in ability to squat.">
+				>
+				["at0015"] = <
+					text = <"Lifting an object">
+					description = <"Patient has limitations in ability to lift an object, like a bag of groceries from the floor.">
+				>
+				["at0016"] = <
+					text = <"Performing light activities">
+					description = <"Patient has limitations in ablity to perform light activities around the home.">
+				>
+				["at0017"] = <
+					text = <"Performing heavy activities">
+					description = <"Patient has imitations in ablity to perform heavy activities around the home.">
+				>
+				["at0018"] = <
+					text = <"Getting into or out of a car">
+					description = <"Patient has limitations in ability to get into or out of a car.">
+				>
+				["at0019"] = <
+					text = <"Walking 2 blocks">
+					description = <"Patient has limitations in ability to walk 2 blocks.">
+				>
+				["at0020"] = <
+					text = <"Walking a mile">
+					description = <"Patient has limitations in ability to walk a mile.">
+				>
+				["at0021"] = <
+					text = <"Going up or down 10 stairs">
+					description = <"Patient has limitation in ablity to go up or down 10 stairs (about 1 flight of stairs).">
+				>
+				["at0022"] = <
+					text = <"Standing 1 hour">
+					description = <"Patient has limitations in ability to stand 1 hour.">
+				>
+				["at0023"] = <
+					text = <"Sitting for 1 hour">
+					description = <"Patient has limitations in ability to sit for 1 hour.">
+				>
+				["at0024"] = <
+					text = <"Running on even ground">
+					description = <"Patient has limitations in ability to run on even ground.">
+				>
+				["at0025"] = <
+					text = <"Running on uneven ground">
+					description = <"Patient has limitations in ability to run on uneven ground.">
+				>
+				["at0026"] = <
+					text = <"Making sharp turns while running fast">
+					description = <"Patient has limitations in ability to make sharp turns while running fast.">
+				>
+				["at0027"] = <
+					text = <"Hopping">
+					description = <"Patient has limitations in ability to hop.">
+				>
+				["at0028"] = <
+					text = <"Rolling over in bed">
+					description = <"Patient has limitations in ability to roll over in bed.">
+				>
+				["at0029"] = <
+					text = <"Adaptive equipment">
+					description = <"Details of adaptive equipment in place and type. Record details for each item of adaptive equipment used.">
+				>
+				["at0030"] = <
+					text = <"In place?">
+					description = <"Statement whether the patient has any adaptive equipment already in place.">
+				>
+				["at0031"] = <
+					text = <"Type of adaptive equipment">
+					description = <"Type of adaptive equipment already used by patient.">
+				>
+				["at0032"] = <
+					text = <"Cane">
+					description = <"Patient uses a cane.">
+				>
+				["at0033"] = <
+					text = <"Forearm">
+					description = <"Patient uses forearm.">
+				>
+				["at0034"] = <
+					text = <"Auxillary crutches">
+					description = <"Patient uses auxillary crutches.">
+				>
+				["at0035"] = <
+					text = <"Walker">
+					description = <"Patient uses a walker.">
+				>
+				["at0036"] = <
+					text = <"Wheelchair">
+					description = <"Patient uses a wheelchair.">
+				>
+				["at0048"] = <
+					text = <"Properly use">
+					description = <"Statement whether the patient properly uses assistive equipment or adaptive devices.">
+				>
+				["at0050"] = <
+					text = <"Fit the patient">
+					description = <"Statement whether the assistive equipment or adaptive device fits the patient.">
+				>
+				["at0051"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0053"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental infomation or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+			>
+		>
+	>

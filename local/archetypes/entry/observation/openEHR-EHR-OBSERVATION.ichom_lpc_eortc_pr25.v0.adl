@@ -1,0 +1,330 @@
+﻿archetype (adl_version=1.4; uid=2ba018a9-2ce1-4a32-9bb6-873b50eabfc0)
+	openEHR-EHR-OBSERVATION.ichom_lpc_eortc_pr25.v0
+
+concept
+	[at0000]	-- ICHOM LPC EORTC-PR25 libido questionnaire
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2016-08-05">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"The archetype is intended to capture questionnaire and score information for the EORTC-PR25 (European Organisation for Research and Treatment of Cancer). The questionnaire is prostate cancer specific.">
+			use = <"For use in reporting on prostate cancer outcomes.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"0A7E79932BCA6E080A085E6FE80E868F">
+		["build_uid"] = <"f6977968-77e9-4f88-b7a9-d2877de257fe">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- ICHOM LPC EORTC-PR25 libido questionnaire
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- 1 Interest in sex
+										value matches {
+											0|[local::at0005], 	-- Not at all
+											1|[local::at0006], 	-- A little
+											2|[local::at0007], 	-- Quite a bit
+											3|[local::at0008]  	-- Very much
+										}
+									}
+									ELEMENT[at0009] occurrences matches {0..1} matches {	-- 2 Utilitisation of sexual medications/devices
+										value matches {
+											0|[local::at0010], 	-- No
+											1|[local::at0011]  	-- Yes
+										}
+									}
+									ELEMENT[at0012] occurrences matches {0..1} matches {	-- 3a Viagra or another pill
+										value matches {
+											0|[local::at0013], 	-- Not tried
+											1|[local::at0014], 	-- Tried, not helpful
+											2|[local::at0015], 	-- Helped, not using now
+											3|[local::at0016], 	-- Helped and using sometimes
+											4|[local::at0017]  	-- Helped and using always
+										}
+									}
+									ELEMENT[at0018] occurrences matches {0..1} matches {	-- 3b Muse
+										value matches {
+											0|[local::at0019], 	-- Not tried
+											1|[local::at0020], 	-- Tried, not helpful
+											2|[local::at0021], 	-- Helped, not using now
+											3|[local::at0022], 	-- Helped and using sometimes
+											4|[local::at0023]  	-- Helped and using always
+										}
+									}
+									ELEMENT[at0024] occurrences matches {0..1} matches {	-- 3c Penile injection therapy
+										value matches {
+											0|[local::at0025], 	-- Not tried
+											1|[local::at0026], 	-- Tried, not helpful
+											2|[local::at0027], 	-- Helped, not using now
+											3|[local::at0028], 	-- Helped and using sometimes
+											4|[local::at0029]  	-- Helped and using always
+										}
+									}
+									ELEMENT[at0030] occurrences matches {0..1} matches {	-- 3d Vacuum erection device
+										value matches {
+											0|[local::at0031], 	-- Not tried
+											1|[local::at0032], 	-- Tried, not helpful
+											2|[local::at0033], 	-- Helped, not using now
+											3|[local::at0034], 	-- Helped and using sometimes
+											4|[local::at0035]  	-- Helped and using always
+										}
+									}
+									ELEMENT[at0036] occurrences matches {0..1} matches {	-- 3e Other medication/device
+										value matches {
+											0|[local::at0037], 	-- Not tried
+											1|[local::at0038], 	-- Tried, not helpful
+											2|[local::at0039], 	-- Helped, not using now
+											3|[local::at0040], 	-- Helped and using sometimes
+											4|[local::at0041]  	-- Helped and using always
+										}
+									}
+									ELEMENT[at0042] occurrences matches {0..1} matches {	-- Total score
+										value matches {
+											DV_COUNT matches {
+												magnitude matches {|0..17|}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0043] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0044] occurrences matches {0..*} matches {	-- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"ICHOM LPC EORTC-PR25 libido questionnaire">
+					description = <"Questionnaire and score designed to measure patient-reported sexual activity details.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"A specific date and/or time which may be explicitly defined in a template or at run-time.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"1 Interest in sex">
+					description = <"Patient reported statement about interest in sex in the past 4 weeks.">
+					comment = <"Original questionnaire question: During the last 4 weeks, to what extent were you interested in sex?">
+				>
+				["at0005"] = <
+					text = <"Not at all">
+					description = <"Patient has not been interested in sex at all.">
+				>
+				["at0006"] = <
+					text = <"A little">
+					description = <"Patient has been a little interested in sex.">
+				>
+				["at0007"] = <
+					text = <"Quite a bit">
+					description = <"Patient has been quite a bit interested in sex.">
+				>
+				["at0008"] = <
+					text = <"Very much">
+					description = <"Patient has been very much interested in sex.">
+				>
+				["at0009"] = <
+					text = <"2 Utilitisation of sexual medications/devices">
+					description = <"Patient reported statement about utilisation of sexual medications/devices.">
+					comment = <"Original questionnaire question: Have you used any medications or devices to aid or improve erections?">
+				>
+				["at0010"] = <
+					text = <"No">
+					description = <"Patient has not been using sexual medications/devices.">
+				>
+				["at0011"] = <
+					text = <"Yes">
+					description = <"Patient has been using sexual medications/devices.">
+				>
+				["at0012"] = <
+					text = <"3a Viagra or another pill">
+					description = <"Patient reported statement on utilisation of viagra or another pill.">
+					comment = <"Original questionnaire question: For each of the following medicines or devices, please indicate whether or not you have tried or currently use it to improve your erections:  a. Viagra or another pill">
+				>
+				["at0013"] = <
+					text = <"Not tried">
+					description = <"Patient has not tried using Viagra or another pill.">
+				>
+				["at0014"] = <
+					text = <"Tried, not helpful">
+					description = <"Patient tried using Viagra or another pill, but did not find it helpful.">
+				>
+				["at0015"] = <
+					text = <"Helped, not using now">
+					description = <"Patient found Viagra or another pill helpful, but is not using it now.">
+				>
+				["at0016"] = <
+					text = <"Helped and using sometimes">
+					description = <"Patient found Viagra or another pill helpful and is using it sometimes.">
+				>
+				["at0017"] = <
+					text = <"Helped and using always">
+					description = <"Patient found Viagra or another pill helpful and is using it always.">
+				>
+				["at0018"] = <
+					text = <"3b Muse">
+					description = <"Patient reported statement on utilisation of Muse (intra-urethral alprostadil suppository).">
+					comment = <"For each of the following medicines or devices, please indicate whether or not you have tried or currently use it to improve your erections: b. Muse (intra-urethral alprostadil suppository)
+">
+				>
+				["at0019"] = <
+					text = <"Not tried">
+					description = <"Patient has not tried using Muse.">
+				>
+				["at0020"] = <
+					text = <"Tried, not helpful">
+					description = <"Patient has tried Muse, but didn't find it helpful.">
+				>
+				["at0021"] = <
+					text = <"Helped, not using now">
+					description = <"Patient found Muse helpful, but is not using it now.">
+				>
+				["at0022"] = <
+					text = <"Helped and using sometimes">
+					description = <"Patient found Muse helpful and is using it sometimes.">
+				>
+				["at0023"] = <
+					text = <"Helped and using always">
+					description = <"Patient found Muse helpful and is using it always.">
+				>
+				["at0024"] = <
+					text = <"3c Penile injection therapy">
+					description = <"Patient reported statement about utilisation of penile injection therapy (such as caverject).">
+					comment = <"For each of the following medicines or devices, please indicate whether or not you have tried or currently use it to improve your erections: c. Penile injection therapy (such as caverject).
+">
+				>
+				["at0025"] = <
+					text = <"Not tried">
+					description = <"Patient has not tried penile injection therapy.">
+				>
+				["at0026"] = <
+					text = <"Tried, not helpful">
+					description = <"Patient has tried penile injection therapy, but did not find it helpful.">
+				>
+				["at0027"] = <
+					text = <"Helped, not using now">
+					description = <"Patient found penile injection therapy helpful, but is not using it now.">
+				>
+				["at0028"] = <
+					text = <"Helped and using sometimes">
+					description = <"Patient found penile injection therrapy helpful and is using it sometimes.">
+				>
+				["at0029"] = <
+					text = <"Helped and using always">
+					description = <"Patient found penile injection therapy helpful and is using it always.">
+				>
+				["at0030"] = <
+					text = <"3d Vacuum erection device">
+					description = <"Patient reported statement about the utilisation of a vacuum erection device (such as erect-aid).">
+					comment = <"For each of the following medicines or devices, please indicate whether or not you have tried or currently use it to improve your erections: d. Vacuum erection device (such as erect-aid).
+">
+				>
+				["at0031"] = <
+					text = <"Not tried">
+					description = <"Patient has not tried a vacuum erection device.">
+				>
+				["at0032"] = <
+					text = <"Tried, not helpful">
+					description = <"Patient has tried a vacuum erection device, but did not find it helpful.">
+				>
+				["at0033"] = <
+					text = <"Helped, not using now">
+					description = <"Patient found a vacuum erection device helpful but is not using it now.">
+				>
+				["at0034"] = <
+					text = <"Helped and using sometimes">
+					description = <"Patient found a vacuum erection device helpful and is using it sometimes.">
+				>
+				["at0035"] = <
+					text = <"Helped and using always">
+					description = <"Patient found a vacuum erection device helpful and is using it always.">
+				>
+				["at0036"] = <
+					text = <"3e Other medication/device">
+					description = <"Patient reported statement about utilisation of other medication or device.">
+					comment = <"For each of the following medicines or devices, please indicate whether or not you have tried or currently use it to improve your erections: e. Other medication/device.">
+				>
+				["at0037"] = <
+					text = <"Not tried">
+					description = <"Patient has not tried other medication or device.">
+				>
+				["at0038"] = <
+					text = <"Tried, not helpful">
+					description = <"Patient has tried other medication or device, but did not find it helpful.">
+				>
+				["at0039"] = <
+					text = <"Helped, not using now">
+					description = <"Patient found other medication or device helpful, but is not using it now.">
+				>
+				["at0040"] = <
+					text = <"Helped and using sometimes">
+					description = <"Patient found other medication or device helpful and is using it sometimes.">
+				>
+				["at0041"] = <
+					text = <"Helped and using always">
+					description = <"Patient found other medication or device helpful and is using it always.">
+				>
+				["at0042"] = <
+					text = <"Total score">
+					description = <"Total score calculated as sum of individual scores.">
+				>
+				["at0043"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0044"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local content or to align with other reference models/formalisms.">
+					comment = <"e.g. Local information requirements or additional metadata to align with FHIR or CIMI equivalents.">
+				>
+			>
+		>
+	>

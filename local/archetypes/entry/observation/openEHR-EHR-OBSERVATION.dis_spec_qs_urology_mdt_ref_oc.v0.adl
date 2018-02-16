@@ -1,0 +1,242 @@
+﻿archetype (adl_version=1.4; uid=0b61aa81-1f5e-4f08-a575-7482410f99c0)
+	openEHR-EHR-OBSERVATION.dis_spec_qs_urology_mdt_ref_oc.v0
+
+concept
+	[at0000]	-- Disease specific questions for Urology Cancer MDT referral
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2016-08-11">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Capture disease-specific information in Urology cancer MDT referral in openCancer.">
+			use = <"For use in openCancer urology MDT referral.">
+			keywords = <"disease-specific", "urology cancer", "MDT", "referral">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"0B2B2DDDF87E3556F0DCF4764BF44ACA">
+		["build_uid"] = <"da3b49ac-f398-4c63-ba9a-e8d639895173">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Disease specific questions for Urology Cancer MDT referral
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..1} matches {	-- Point in time
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Previous active surveillance
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0006] occurrences matches {0..*} matches {	-- Type of biopsy (current)
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0007, 	-- Systematic TRUS
+													at0008, 	-- Targeted TRUS
+													at0009, 	-- Systematic transperineal
+													at0010]	-- Targeted transperineal
+												}
+											}
+										}
+									}
+									ELEMENT[at0005] occurrences matches {0..1} matches {	-- Previous TURP
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0011] occurrences matches {0..1} matches {	-- Previous negative prostate biopsy
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0012] occurrences matches {0..1} matches {	-- Previous abdominal surgery or mesh hernia
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0013] occurrences matches {0..1} matches {	-- History of schistosomiasis
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0014] occurrences matches {0..1} matches {	-- History of multiple UTIs
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0015] occurrences matches {0..1} matches {	-- History of HPV
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0016] occurrences matches {0..1} matches {	-- History of maldescent or torsion
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0017] occurrences matches {0..1} matches {	-- History of hearing loss
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0018] occurrences matches {0..1} matches {	-- History of lung disease
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0019] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0020] occurrences matches {0..*} matches {	-- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Disease specific questions for Urology Cancer MDT referral">
+					description = <"Disease-specific questions urology cancer MDT referral in openCancer.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Point in time">
+					description = <"A specific date and/or time which may be explicitly defined in a template or at run-time.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Previous active surveillance">
+					description = <"Statement of whether previous active surveillance for prostate cancer has taken place.">
+				>
+				["at0005"] = <
+					text = <"Previous TURP">
+					description = <"Statement of whether patient has had previous TURP.">
+				>
+				["at0006"] = <
+					text = <"Type of biopsy (current)">
+					description = <"Description of biopsy or biopsies that have been performed for the current presentation.">
+				>
+				["at0007"] = <
+					text = <"Systematic TRUS">
+					description = <"The biopsy type is systematic TRUS.">
+				>
+				["at0008"] = <
+					text = <"Targeted TRUS">
+					description = <"The biopsy type is targeted TRUS.">
+				>
+				["at0009"] = <
+					text = <"Systematic transperineal">
+					description = <"The biopsy type is systematic transperineal.">
+				>
+				["at0010"] = <
+					text = <"Targeted transperineal">
+					description = <"The biopsy type is targeted transperineal.">
+				>
+				["at0011"] = <
+					text = <"Previous negative prostate biopsy">
+					description = <"Statement of whether patient has had previous negative prostate biopsy.">
+				>
+				["at0012"] = <
+					text = <"Previous abdominal surgery or mesh hernia">
+					description = <"Statement of whether patient has had previous abdominal surgery or mesh hernias.">
+				>
+				["at0013"] = <
+					text = <"History of schistosomiasis">
+					description = <"Statement of whether the patient has a history of schistosomiasis.">
+				>
+				["at0014"] = <
+					text = <"History of multiple UTIs">
+					description = <"Statement of whether the patient has a history of multiple UTIs.">
+				>
+				["at0015"] = <
+					text = <"History of HPV">
+					description = <"Statement of whether the patient has a history of HPV.">
+				>
+				["at0016"] = <
+					text = <"History of maldescent or torsion">
+					description = <"Statement of whether the patient has a history of testicular maldescent or torsion.">
+				>
+				["at0017"] = <
+					text = <"History of hearing loss">
+					description = <"Statement of whether the patient has a history of hearing loss.">
+				>
+				["at0018"] = <
+					text = <"History of lung disease">
+					description = <"Statement of whether the patient has a history of lung disease.">
+				>
+				["at0019"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0020"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental infomation or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+			>
+		>
+	>

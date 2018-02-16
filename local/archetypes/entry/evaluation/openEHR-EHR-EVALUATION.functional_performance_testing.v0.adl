@@ -1,0 +1,586 @@
+﻿archetype (adl_version=1.4; uid=b97612c5-2be0-4bd0-8403-ea41bb1c2535)
+	openEHR-EHR-EVALUATION.functional_performance_testing.v0
+
+concept
+	[at0000]	-- Functional performance testing (RTP)
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Jamila Chihab">
+		["organisation"] = <"University College London">
+		["email"] = <"chihab.j@gmail.com">
+		["date"] = <"2017-01-24">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To measure the dynamic balance performance that provides a significant indicator to athletes and physically active individuals to return to play and physically active individuals.">
+			use = <"Use to record the assessment of phyical performance, to identify athletes at greater risk for lower extremity injury.
+
+Use to record the patient's ability of maintaining single-leg stance with eyes opened and closed.
+
+Use to record the ability of individuals performing lateral and forward hop test.">
+			keywords = <"Star Exurcsion Test", "Functional performance", "Fingers-foot measurement", "Dynamic balance", "Single-leg stance maintenance">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <"Hildegard Franke, freshEHR Clinical Informatics, UK", "Matthew Darlison, University College London, UK", "Ibtissam M. Saab, Beirut Arab University, Lebanon">
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["references"] = <"Granado, M. and Matlick, D. (2016). Clinical review-Ankle Sprain. 1st ed. Cinahl Information Systems, pp.1-9.
+
+Physio-pedia.com. (2017). Star Excursion Balance Test - Physiopedia, universal access to physiotherapy knowledge.. [online] Available at: http://www.physio-pedia.com/Star_Excursion_Balance_Test [Accessed 24 Jan. 2017].
+
+Richie DH, Izadi FE. Return to play after an ankle sprain: Guideline for the podiatric physician. Clin Podiatr med Surg. 2015;32(2):195-215. doi:10.1016/j.cpm.2014.11.003. (GI).
+
+Gribble PA, Hertel J, Plisky P. Using the Star Excursion Balance Test to assess dynamic postural-control deficits and outcomes in lower extremity injury: A literature and systematic review. J Athl Train. 2012;47(3):339-357. doi:10.4085/1062-6050-47.3.08. (R)
+
+Doherty C, Bleakley C, Hertel J, Caulfield B, Ryan J, Delahunt E. Dynamic balance deficits 6 months following first-time acute lateral ankle sprain: A laboratory analysis. J Orthop Sports Phys Ther. 2015;45(8):626-633. doi:10.2519/jospt.2015.5653. (RCT)">
+		["current_contact"] = <"Jamila Chihab, <chihab.j@gmail.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"648006B9961FE47CF7158A2959F88F3C">
+		["build_uid"] = <"27e1d877-796d-426f-9149-429835958666">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Functional performance testing (RTP)
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					CLUSTER[at0030] occurrences matches {0..1} matches {	-- Dynamic balance
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0004] occurrences matches {0..1} matches {	-- Star excursion balance test done
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							ELEMENT[at0005] occurrences matches {0..*} matches {	-- Star excursion test result
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0006, 	-- 1. Anterior
+											at0007, 	-- 2. Anteromedial
+											at0008, 	-- 3. Medial
+											at0009, 	-- 4. Pesteromedial
+											at0010, 	-- 5. Posterior
+											at0011, 	-- 6. Posterolateral
+											at0012, 	-- 7. Lateral
+											at0013]	-- 8. Anterolateral
+										}
+									}
+								}
+							}
+							ELEMENT[at0014] occurrences matches {0..1} matches {	-- Patient able to reach each foot?
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							ELEMENT[at0015] occurrences matches {0..1} matches {	-- Constraints to ability to reach each foot
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0016, 	-- Touching down heavily
+											at0017, 	-- Making contact with the ground
+											at0018]	-- Coming to rest
+										}
+									}
+								}
+							}
+							ELEMENT[at0020] occurrences matches {0..1} matches {	-- Distance injured side
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::122]>
+										list = <
+											["1"] = <
+												units = <"cm">
+												magnitude = <|>=0.0|>
+											>
+										>
+									>
+								}
+							}
+							ELEMENT[at0021] occurrences matches {0..1} matches {	-- Distance of sound side
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::122]>
+										list = <
+											["1"] = <
+												units = <"cm">
+												magnitude = <|>=0.0|>
+											>
+										>
+									>
+								}
+							}
+							ELEMENT[at0022] occurrences matches {0..1} matches {	-- Distance difference present?
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							ELEMENT[at0023] occurrences matches {0..1} matches {	-- Distance difference
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::122]>
+										list = <
+											["1"] = <
+												units = <"cm">
+												magnitude = <|>=0.0|>
+											>
+										>
+									>
+								}
+							}
+							ELEMENT[at0024] occurrences matches {0..1} matches {	-- Less hip flexion?
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							ELEMENT[at0025] occurrences matches {0..1} matches {	-- Less Knee flexion?
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							ELEMENT[at0026] occurrences matches {0..1} matches {	-- Less ankle dorsiflexion?
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+						}
+					}
+					CLUSTER[at0031] occurrences matches {0..1} matches {	-- Ability to maintain single-leg stance
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0029] occurrences matches {0..1} matches {	-- Left leg with eyes open?
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							ELEMENT[at0032] occurrences matches {0..1} matches {	-- Duration
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::128]>
+										list = <
+											["1"] = <
+												units = <"s">
+												magnitude = <|>=0.0|>
+											>
+											["2"] = <
+												units = <"min">
+												magnitude = <|>=0.0|>
+											>
+										>
+									>
+								}
+							}
+							ELEMENT[at0033] occurrences matches {0..1} matches {	-- Right leg with eyes open?
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							ELEMENT[at0034] occurrences matches {0..1} matches {	-- Duration
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::128]>
+										list = <
+											["1"] = <
+												units = <"s">
+												magnitude = <|>=0.0|>
+											>
+											["2"] = <
+												units = <"min">
+												magnitude = <|>=0.0|>
+											>
+										>
+									>
+								}
+							}
+							ELEMENT[at0035] occurrences matches {0..1} matches {	-- Left leg with eyes closed?
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							ELEMENT[at0036] occurrences matches {0..1} matches {	-- Duration
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::128]>
+										list = <
+											["1"] = <
+												units = <"s">
+												magnitude = <|>=0.0|>
+											>
+											["2"] = <
+												units = <"min">
+												magnitude = <|>=0.0|>
+											>
+										>
+									>
+								}
+							}
+							ELEMENT[at0037] occurrences matches {0..1} matches {	-- Right leg with eyes closed?
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							ELEMENT[at0038] occurrences matches {0..1} matches {	-- Duration
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::128]>
+										list = <
+											["1"] = <
+												units = <"min">
+												magnitude = <|>=0.0|>
+											>
+											["2"] = <
+												units = <"s">
+												magnitude = <|>=0.0|>
+											>
+										>
+									>
+								}
+							}
+						}
+					}
+					ELEMENT[at0057] occurrences matches {0..1} matches {	-- Anterior drawer test done
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+					ELEMENT[at0058] occurrences matches {0..1} matches {	-- Talar tilt test
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+					ELEMENT[at0059] occurrences matches {0..1} matches {	-- Squeeze test
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+					CLUSTER[at0060] occurrences matches {0..1} matches {	-- Lateral and forward hop test
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0042] occurrences matches {0..1} matches {	-- Lateral hops test-3 hops
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0043, 	-- Successful
+											at0044]	-- Unsuccessful
+										}
+									}
+								}
+							}
+							ELEMENT[at0045] occurrences matches {0..1} matches {	-- Forward hops test-3 hops
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0046, 	-- Successful
+											at0047]	-- Unsuccessful
+										}
+									}
+								}
+							}
+							ELEMENT[at0048] occurrences matches {0..1} matches {	-- Heel rocker test-10 times
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0049, 	-- Successful
+											at0050, 	-- Unsuccessful
+											at0051]	-- Foot lags behind
+										}
+									}
+								}
+							}
+							ELEMENT[at0052] occurrences matches {0..1} matches {	-- Jumping
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0053, 	-- Normal kinematics
+											at0054, 	-- Altered kinematics
+											at0055, 	-- Reduction of ankle plantar flexion
+											at0056]	-- Altered preparatory movement
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0061] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0064] occurrences matches {0..*} matches {	-- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Functional performance testing (RTP)">
+					description = <"Functional performance testing related to balance in the context of ankle sprain assessments.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Star excursion balance test done">
+					description = <"Statement whether the patient is able or not able to do the star excursion test.">
+				>
+				["at0005"] = <
+					text = <"Star excursion test result">
+					description = <"Position the patient is able to turn.">
+				>
+				["at0006"] = <
+					text = <"1. Anterior">
+					description = <"Patient is able to do anterior movement.">
+				>
+				["at0007"] = <
+					text = <"2. Anteromedial">
+					description = <"Patient is able to do anteromedial movement.">
+				>
+				["at0008"] = <
+					text = <"3. Medial">
+					description = <"Patient is able to do medial movement.">
+				>
+				["at0009"] = <
+					text = <"4. Pesteromedial">
+					description = <"Pateint is able to do posteromedial movement.">
+				>
+				["at0010"] = <
+					text = <"5. Posterior">
+					description = <"Patient is able to do posterior movement.">
+				>
+				["at0011"] = <
+					text = <"6. Posterolateral">
+					description = <"Patient is able to do posterolateral movement.">
+				>
+				["at0012"] = <
+					text = <"7. Lateral">
+					description = <"Patient is able to do lateral movement.">
+				>
+				["at0013"] = <
+					text = <"8. Anterolateral">
+					description = <"Patient is able to do anterolateral movement.">
+				>
+				["at0014"] = <
+					text = <"Patient able to reach each foot?">
+					description = <"State whether the patient is able to reach each foot during single-injured leg stance.">
+				>
+				["at0015"] = <
+					text = <"Constraints to ability to reach each foot">
+					description = <"Description of constraints to ability to reach each foot.">
+				>
+				["at0016"] = <
+					text = <"Touching down heavily">
+					description = <"Patient is not able to reach each foot without touching down heavily.">
+				>
+				["at0017"] = <
+					text = <"Making contact with the ground">
+					description = <"Patient is not able to reach each foot without making contact with the ground.">
+				>
+				["at0018"] = <
+					text = <"Coming to rest">
+					description = <"Patient is not able to reach each foot without coming to rest.">
+				>
+				["at0020"] = <
+					text = <"Distance injured side">
+					description = <"The length fingers-foot of injured sideduring single -leg stance, when patient is not able to reach foot without coming to rest.">
+				>
+				["at0021"] = <
+					text = <"Distance of sound side">
+					description = <"The length fingers-foot of sound side during single -leg stance, when patient is not able to reach foot without coming to rest.">
+				>
+				["at0022"] = <
+					text = <"Distance difference present?">
+					description = <"Statement whether distance fingers-foot is different between both sides (ipsi and controlateral).">
+				>
+				["at0023"] = <
+					text = <"Distance difference">
+					description = <"Distance difference in centimetres.">
+				>
+				["at0024"] = <
+					text = <"Less hip flexion?">
+					description = <"Statement whether less hip flexion is associated during fingers-foot measurement.">
+				>
+				["at0025"] = <
+					text = <"Less Knee flexion?">
+					description = <"Statement whether less knee flexion is associated during fingers-foot measurement.">
+				>
+				["at0026"] = <
+					text = <"Less ankle dorsiflexion?">
+					description = <"Statement whether less ankle dorsiflexion is associated during fingers-foot measurement.">
+				>
+				["at0029"] = <
+					text = <"Left leg with eyes open?">
+					description = <"Statement whether the patient is able to maintain left single leg with eyes open.">
+				>
+				["at0030"] = <
+					text = <"Dynamic balance">
+					description = <"Stating the ability of patient to perform dynamic balance during multiple functions.">
+				>
+				["at0031"] = <
+					text = <"Ability to maintain single-leg stance">
+					description = <"Details of assessing  the patient's ability of maintaining single-leg stance with eyes opened and closed.">
+				>
+				["at0032"] = <
+					text = <"Duration">
+					description = <"Duration of the patient's left single-leg stance with eyes open.">
+				>
+				["at0033"] = <
+					text = <"Right leg with eyes open?">
+					description = <"Statement whether the patient is able to maintain right single leg with eyes open.">
+				>
+				["at0034"] = <
+					text = <"Duration">
+					description = <"Measurement of the patient endurance during right single-leg stance with eyes open.">
+				>
+				["at0035"] = <
+					text = <"Left leg with eyes closed?">
+					description = <"Statement whether the patient is able to maintain left single leg with eyes closed.">
+				>
+				["at0036"] = <
+					text = <"Duration">
+					description = <"Measurement of the patient endurance during left single-leg stance with eyes closed.">
+				>
+				["at0037"] = <
+					text = <"Right leg with eyes closed?">
+					description = <"Statement whether the patient is able to maintain right single leg with eyes closed.">
+				>
+				["at0038"] = <
+					text = <"Duration">
+					description = <"Measurement of the patient endurance during right single-leg stance with eyes closed.">
+				>
+				["at0042"] = <
+					text = <"Lateral hops test-3 hops">
+					description = <"Statement about the ability of the patient to do 3 lateral hops successfully or unsuccessfully.">
+				>
+				["at0043"] = <
+					text = <"Successful">
+					description = <"Patient is successful in doing 3 lateral hops.">
+				>
+				["at0044"] = <
+					text = <"Unsuccessful">
+					description = <"Patient is unsuccessful in doing 3 lateral hops.">
+				>
+				["at0045"] = <
+					text = <"Forward hops test-3 hops">
+					description = <"Statement about the ability of the patient to do 3 forward hops successfully or unsuccessfully.">
+				>
+				["at0046"] = <
+					text = <"Successful">
+					description = <"Patient is successful in doing 3  forward hops.">
+				>
+				["at0047"] = <
+					text = <"Unsuccessful">
+					description = <"Patient is unsuccessful in doing 3 forward hops.">
+				>
+				["at0048"] = <
+					text = <"Heel rocker test-10 times">
+					description = <"Statement about the ability of the patient to do 10 heel rockers successfully or unsuccessfully.">
+				>
+				["at0049"] = <
+					text = <"Successful">
+					description = <"Patient is able to raise the toes repeatedly off the ground until full exhaustion.">
+				>
+				["at0050"] = <
+					text = <"Unsuccessful">
+					description = <"Patient is unable to raise the toes repeatedly off the ground until full exhaustion.">
+				>
+				["at0051"] = <
+					text = <"Foot lags behind">
+					description = <"The patient is able to do heel rockers but the injured foot lags behind.">
+				>
+				["at0052"] = <
+					text = <"Jumping">
+					description = <"Assessment of the patient's ability to jump and description of kinematics alteration and normality.">
+				>
+				["at0053"] = <
+					text = <"Normal kinematics">
+					description = <"Patient is able to jump with normal kinematics and landing strategies.">
+				>
+				["at0054"] = <
+					text = <"Altered kinematics">
+					description = <"Patient is able to jump with altered kinematics and landing strategies.">
+				>
+				["at0055"] = <
+					text = <"Reduction of ankle plantar flexion">
+					description = <"Patient compensates by increasing the hip flexion during the jump.">
+				>
+				["at0056"] = <
+					text = <"Altered preparatory movement">
+					description = <"Patient has altered preparatory movement.">
+				>
+				["at0057"] = <
+					text = <"Anterior drawer test done">
+					description = <"Statement whether the anterior drawer test was done.">
+				>
+				["at0058"] = <
+					text = <"Talar tilt test">
+					description = <"Statement whether the talar tilt test was done.">
+				>
+				["at0059"] = <
+					text = <"Squeeze test">
+					description = <"Statement whether the squeeze test was done.">
+				>
+				["at0060"] = <
+					text = <"Lateral and forward hop test">
+					description = <"Details of assessing the ability of patient to perform lateral and forward hop test.">
+				>
+				["at0061"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0064"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental infomation or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+			>
+		>
+	>

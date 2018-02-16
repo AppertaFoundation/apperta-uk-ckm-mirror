@@ -1,0 +1,279 @@
+﻿archetype (adl_version=1.4; uid=d2c618a8-757f-4305-886c-bdecdea76b52)
+	openEHR-EHR-OBSERVATION.maternity_admission_borders.v0
+
+concept
+	[at0000]	-- Maternity admission NHS Borders
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2016-07-27">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Local archetype to support Safe Assessment Form to Evaluate Risks (SAFER) Chart in NHS Borders maternity care.">
+			use = <"To be used for capturing admission details in maternity care as part of the SAFER Chart used in NHS Borders.">
+			keywords = <"maternity", "admission", "SAFER", "risk">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"72AE47AFBD04B4D99D4CE431601DA384">
+		["build_uid"] = <"a728a8c8-02a0-420a-94ea-5f16d18d51c0">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Maternity admission NHS Borders
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..1} matches {	-- Point in time
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Pre-eclampsia
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0005, 	-- Yes
+													at0006]	-- No
+												}
+											}
+										}
+									}
+									ELEMENT[at0007] occurrences matches {0..1} matches {	-- Most recent Hb
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::119]>
+												list = <
+													["1"] = <
+														units = <"gm/l">
+														magnitude = <|>=0.0|>
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0008] occurrences matches {0..1} matches {	-- Recurrent APHs
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0009, 	-- Yes
+													at0010, 	-- No
+													at0011]	-- Don't know
+												}
+											}
+										}
+									}
+									ELEMENT[at0012] occurrences matches {0..1} matches {	-- Induction of labour
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0013, 	-- Yes
+													at0014, 	-- No
+													at0015]	-- Don't know
+												}
+											}
+										}
+									}
+									ELEMENT[at0016] occurrences matches {0..1} matches {	-- Abruption
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0017, 	-- Yes
+													at0018, 	-- No
+													at0019]	-- Don't know
+												}
+											}
+										}
+									}
+									ELEMENT[at0020] occurrences matches {0..1} matches {	-- Praevia / accreta
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0021, 	-- Yes
+													at0022, 	-- No
+													at0023]	-- Don't know
+												}
+											}
+										}
+									}
+									ELEMENT[at0024] occurrences matches {0..1} matches {	-- Pyrexia in labour
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0025, 	-- Yes
+													at0026, 	-- No
+													at0027]	-- Don't know
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0028] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0029] occurrences matches {0..*} matches {	-- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Maternity admission NHS Borders">
+					description = <"Details of maternity admission for SAFER Chart.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Point in time">
+					description = <"Specified point in time which may be explicitly defined in a template or at run-time.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Pre-eclampsia">
+					description = <"Statement whether the patient is suffering from pre-eclampsia on admission.">
+				>
+				["at0005"] = <
+					text = <"Yes">
+					description = <"The patient is suffering from pre-eclampsia on admission.">
+				>
+				["at0006"] = <
+					text = <"No">
+					description = <"The patient is not suffering from pre-eclampsia on admission.">
+				>
+				["at0007"] = <
+					text = <"Most recent Hb">
+					description = <"Details of most recent haemoglobin result.">
+				>
+				["at0008"] = <
+					text = <"Recurrent APHs">
+					description = <"Statement whether the patient is suffering from recurrent ante-partum haemorrhages.">
+				>
+				["at0009"] = <
+					text = <"Yes">
+					description = <"The patient is suffering from recurrent ante-partum haemorrhages.">
+				>
+				["at0010"] = <
+					text = <"No">
+					description = <"The patient is not suffering from recurrent ante-partum haemorrhages.">
+				>
+				["at0011"] = <
+					text = <"Don't know">
+					description = <"It is not known whether the patient is suffering from recurrent ante-partum haemorrhages.">
+				>
+				["at0012"] = <
+					text = <"Induction of labour">
+					description = <"Statement whether the patient has undergone induction of labour.">
+				>
+				["at0013"] = <
+					text = <"Yes">
+					description = <"The patient has undergone induction of labour.">
+				>
+				["at0014"] = <
+					text = <"No">
+					description = <"The patient has not undergone induction of labour.">
+				>
+				["at0015"] = <
+					text = <"Don't know">
+					description = <"It is not known whether the patient has undergone induction of labour.">
+				>
+				["at0016"] = <
+					text = <"Abruption">
+					description = <"Statement whether the patient has suffered a placental abruption.">
+				>
+				["at0017"] = <
+					text = <"Yes">
+					description = <"The patient has suffered a placental abruption.">
+				>
+				["at0018"] = <
+					text = <"No">
+					description = <"The patient has not suffered a placental abruption.">
+				>
+				["at0019"] = <
+					text = <"Don't know">
+					description = <"It is not known whether the patient has suffered a placental abruption.">
+				>
+				["at0020"] = <
+					text = <"Praevia / accreta">
+					description = <"Statement whether the patient is suffering from placenta praevia or accreta.">
+				>
+				["at0021"] = <
+					text = <"Yes">
+					description = <"The patient is suffering from placenta praevia or accreta.">
+				>
+				["at0022"] = <
+					text = <"No">
+					description = <"The patient is not suffering from placenta praevia or accreta.">
+				>
+				["at0023"] = <
+					text = <"Don't know">
+					description = <"It is not known whether the patient is suffering from placenta praevia or accreta.">
+				>
+				["at0024"] = <
+					text = <"Pyrexia in labour">
+					description = <"Statement whether the patient is suffering from pyrexia in labour, i.e. a body temperature of more than 38 degrees Celsius.">
+				>
+				["at0025"] = <
+					text = <"Yes">
+					description = <"The patient is suffering from pyrexia in labour.">
+				>
+				["at0026"] = <
+					text = <"No">
+					description = <"The patient is not suffering from pyrexia in labour.">
+				>
+				["at0027"] = <
+					text = <"Don't know">
+					description = <"It is not known whether the patient is suffering from pyrexia in labour.">
+				>
+				["at0028"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0029"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental infomation or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+			>
+		>
+	>

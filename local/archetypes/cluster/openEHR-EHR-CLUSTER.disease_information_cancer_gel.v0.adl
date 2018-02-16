@@ -1,0 +1,1181 @@
+﻿archetype (adl_version=1.4; uid=0e86ef5a-1ab4-40f6-b740-837bdf825008)
+	openEHR-EHR-CLUSTER.disease_information_cancer_gel.v0
+
+concept
+	[at0000]	-- Disease Information Cancer GEL
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2017-01-11">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the recording of disease type and disease subtype in the Genomics England Cancer dataset.">
+			use = <"Use to record disease type and subtype according to the Model Catalogue in the Genomics England cancer dataset. It is expected that the values for each of the two data points are populated from a local terminology reflecting the Model Catalogue https://gelmc.extge.co.uk/#/.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"3CB4ACED4309D5E687FEC5D2AC759D86">
+		["build_uid"] = <"9e5a5934-cf48-4d05-81e0-505f5b3db155">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Disease Information Cancer GEL
+		items cardinality matches {2..*; unordered} matches {
+			ELEMENT[at0001] matches {	-- Disease type
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0003, 	-- Adult glioma
+							at0004, 	-- Bladder
+							at0005, 	-- Breast
+							at0006, 	-- Carcinoma of Unknown Primary
+							at0007, 	-- Childhood
+							at0008, 	-- Colorectal
+							at0009, 	-- Endometrial carcinoma
+							at0010, 	-- Haematology oncology
+							at0011, 	-- Hepatopancreatobiliary
+							at0012, 	-- Lung
+							at0013, 	-- Malignant melanoma
+							at0014, 	-- Nasopharyngeal
+							at0015, 	-- Oral oropharyngeal
+							at0016, 	-- Ovarian
+							at0017, 	-- Prostate
+							at0018, 	-- Renal
+							at0019, 	-- Sarcoma
+							at0020, 	-- Sinonasal
+							at0021, 	-- Testicular germ cell tumours
+							at0022]	-- Upper gastrointestinal
+						}
+					}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {1..*} matches {	-- Disease subtype
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0023, 	-- (ALL) Acute lymphoblastic leukaemia
+							at0024, 	-- (AML) Acute myeloid Leukaemia
+							at0025, 	-- Chronic lymphocytic leukaemia
+							at0026, 	-- Adnar cell carcinoma
+							at0027, 	-- Acral lentiginous
+							at0028, 	-- Adamantinoma of bone
+							at0029, 	-- Adenocarcinoma
+							at0030, 	-- Adenoid cystic carcinoma
+							at0031, 	-- Alveolar soft part sarcoma
+							at0032, 	-- Anaplastic astrocytoma
+							at0033, 	-- Anaplastic ependymoma
+							at0034, 	-- Anaplastic ganglioglioma
+							at0035, 	-- Anaplastic oligodendroglioma
+							at0036, 	-- Anaplastic oligoastrocytoma
+							at0037, 	-- Angiomatoid fibrous histiocytoma
+							at0038, 	-- Angiosarcoma
+							at0039, 	-- Anorectal mucosal melanoma
+							at0040, 	-- Atypical teratoid rhabdoid tumours
+							at0041, 	-- Betel nut-induced oral cancer
+							at0042, 	-- Biliary adenocarcinoma
+							at0043, 	-- Biliary adenosquamous carcinoma
+							at0044, 	-- Biliary squamous cell carcinoma
+							at0045, 	-- Burkitt lymphoma
+							at0046, 	-- Cancer not confirmed (pathology indeterminate)
+							at0047, 	-- Pathology indeterminate – cancer NOS (non-carcinoma, lymphoma , sarcoma etc)
+							at0048, 	-- Pathology indeterminate – carcinoma  NOS (Not otherwise specified)
+							at0049, 	-- Carcinosarcoma
+							at0050, 	-- Central neurocytoma
+							at0051, 	-- Childhood other
+							at0052, 	-- Cholangiocarcinoma
+							at0053, 	-- Chordoma
+							at0054, 	-- Choriocarcinoma
+							at0055, 	-- Chromophobe
+							at0056, 	-- Chronic myeloid leukaemia
+							at0057, 	-- Classical seminoma
+							at0058, 	-- Clear cell
+							at0059, 	-- Clear cell adenocarcinoma
+							at0060, 	-- CNS primitive neuroectodermal tumors
+							at0061, 	-- Collecting duct
+							at0062, 	-- Combined HCC-cholangiocarcinoma
+							at0063, 	-- Conjunctival melanoma
+							at0064, 	-- Conventional chondrosarcoma
+							at0065, 	-- Dedifferentiated chondrosarcoma
+							at0066, 	-- Dedifferentiated liposarcoma
+							at0067, 	-- Dermal sarcoma
+							at0068, 	-- Desmoplastic melanoma
+							at0069, 	-- Desmoplastic round cell sarcoma
+							at0070, 	-- Diffuse astrocytoma
+							at0071, 	-- Diffuse large B-cell lymphoma
+							at0072, 	-- Ductal
+							at0073, 	-- Dysgerminomas
+							at0074, 	-- Embryonal carcinoma
+							at0075, 	-- Embryonal tumour with multilayered rosettes
+							at0076, 	-- Endodermal sinus
+							at0077, 	-- Endometrioid adenocarcinoma
+							at0078, 	-- Ependymoma
+							at0079, 	-- Epithelioid angiosarcoma
+							at0080, 	-- Extracranial rhabdoid tumour
+							at0081, 	-- Extraskeletal chondrosarcoma
+							at0082, 	-- Extraskeletal chordoma
+							at0083, 	-- Extraventricular neurocytoma
+							at0084, 	-- Fibrillary astrocytoma
+							at0085, 	-- Fibrolamellar HCC
+							at0086, 	-- Gangliocytoma
+							at0087, 	-- Ganglioglioma
+							at0088, 	-- Gastric adenocarcinoma
+							at0089, 	-- Gastric carcinoma with lymphoid stroma
+							at0090, 	-- Gemistocytic astrocytoma
+							at0091, 	-- Genital mucosal melanoma
+							at0092, 	-- Germ cell tumour
+							at0093, 	-- Germinoma
+							at0094, 	-- Giant cell glioblastoma
+							at0095, 	-- Glioblastoma
+							at0096, 	-- Gliomatosis cerebri
+							at0097, 	-- Gliosarcoma
+							at0098, 	-- Gnathic bone
+							at0099, 	-- Granulosa cell tumour
+							at0100, 	-- Granulosa theca
+							at0101, 	-- Haematological malignancy unclassified
+							at0102, 	-- HCC acinar
+							at0103, 	-- HCC compact
+							at0104, 	-- HCC trabecular
+							at0105, 	-- Hepatocellular carcinoma
+							at0106, 	-- Hepatoid adenocarcinoma
+							at0107, 	-- High grade endometrial stromal sarcoma
+							at0108, 	-- High grade lymphoma NOS
+							at0109, 	-- High grade serous carcinoma
+							at0110, 	-- HPV negative oropharyngeal cancer
+							at0111, 	-- HPV positive oropharyngeal cancer
+							at0112, 	-- Intimal sarcoma
+							at0113, 	-- Inverted papilloma
+							at0114, 	-- IPMN with invasive carcinoma
+							at0115, 	-- Large cell
+							at0116, 	-- Leiomyosarcoma from all sites
+							at0117, 	-- Lentigo maligna
+							at0118, 	-- Leydig cell tumour
+							at0119, 	-- Lobular
+							at0120, 	-- Low grade endometrial stromal sarcoma'
+							at0121, 	-- Low grade fibromyxoid sarcoma
+							at0122, 	-- Low grade serous adenocarcinoma
+							at0123, 	-- Lymphoepithelioma-like HCC
+							at0124, 	-- Malignant peripheral nerve sheath tumour
+							at0125, 	-- Malignant rhabdoid tumour
+							at0126, 	-- MCN with invasive carcinoma
+							at0127, 	-- Mediastinal B-cell lymphoma
+							at0128, 	-- Medullary
+							at0129, 	-- Medulloblastoma (CLA)
+							at0130, 	-- Medulloblastoma (DN)
+							at0131, 	-- Medulloblastoma (LCA)
+							at0132, 	-- Medulloblastoma (MBEN)
+							at0133, 	-- Medulloblastoma (medullomyoblastoma)
+							at0134, 	-- Medulloblastoma (melanotic)
+							at0135, 	-- Medulloblastoma (NOS)
+							at0136, 	-- Melanoma
+							at0137, 	-- Mesenchymal
+							at0138, 	-- Mesothelioma
+							at0139, 	-- Mixed germ cell tumour
+							at0140, 	-- Mixed tumour type
+							at0141, 	-- Mucinous carcinoma
+							at0142, 	-- Multiple myeloma
+							at0143, 	-- Myelodysplastic syndrome (high risk)
+							at0144, 	-- Myoepithelioma / Malignant myoepithelioma
+							at0145, 	-- Myxofibrosarcoma
+							at0146, 	-- Myxoid liposarcoma
+							at0147, 	-- Myxoinflammatory fibroblastic sarcoma
+							at0148, 	-- Myxopapillary ependymoma
+							at0149, 	-- Nasopharyngeal carcinoma Type I
+							at0150, 	-- Nasopharyngeal carcinoma Type II
+							at0151, 	-- Nasopharyngeal carcinoma Type III
+							at0152, 	-- Neuroblastoma (INPC)
+							at0153, 	-- Neuroblastoma (NOS)
+							at0154, 	-- Neuroendocrine
+							at0155, 	-- Neuroendocrine carcinoma
+							at0156, 	-- Nodular
+							at0157, 	-- Non specified renal carcinoma
+							at0158, 	-- Not available
+							at0159, 	-- Oligoastrocytoma
+							at0160, 	-- Oligodendroglioma
+							at0161, 	-- Oncocytic
+							at0162, 	-- Orbital
+							at0163, 	-- Oromucosal melanoma
+							at0164, 	-- Ossifying fibromyxoid tumour
+							at0165, 	-- Other
+							at0166, 	-- Paediatric malignant glioma
+							at0167, 	-- Pancreatic adenocarcinoma
+							at0168, 	-- Pancreatic adenosquamous carcinoma
+							at0169, 	-- Pancreatic neuroendocrine carcinoma
+							at0170, 	-- Papillary
+							at0171, 	-- Papillary tumour of the pineal region
+							at0172, 	-- Papillary Type 1
+							at0173, 	-- Papillary Type 2
+							at0174, 	-- Pilocytic astrocytoma
+							at0175, 	-- Pilomyxoid astrocytoma
+							at0176, 	-- Pineal tumour of intermediate differentiation
+							at0177, 	-- Pineoblastoma
+							at0178, 	-- Pineocytoma
+							at0179, 	-- Pleomorphic sarcoma
+							at0180, 	-- Pleomorphic xanthoastrocytoma
+							at0181, 	-- Poorly cohesive including signet ring cell type
+							at0182, 	-- Primary CNS
+							at0183, 	-- Primary conventional osteosarcoma
+							at0184, 	-- Primitive neuroectodermal tumour
+							at0185, 	-- Protoplasmic astrocytoma
+							at0186, 	-- Pseudomyogenic haemangioemdothelioma
+							at0187, 	-- Rare sarcoma entities
+							at0188, 	-- Rhabdomyosarcoma
+							at0189, 	-- Sarcoma NOS
+							at0190, 	-- Sarcomatoid carcinoma
+							at0191, 	-- Sarcomatoid HCC
+							at0192, 	-- Schirrous HCC
+							at0193, 	-- Sclerosing epithelioid fibrosarcoma
+							at0194, 	-- Serous carcinoma
+							at0195, 	-- Serous cystadenocarcinoma
+							at0196, 	-- Sertoli cell tumour
+							at0197, 	-- Sertoli-Leydig
+							at0198, 	-- Small cell
+							at0199, 	-- Small cell carcinoma (including hypercalcaemic type)
+							at0200, 	-- Spermatocytic Seminoma
+							at0201, 	-- Spitz
+							at0202, 	-- Squamous cell
+							at0203, 	-- Stromal tumour
+							at0204, 	-- Subependymal giant cell astrocytoma
+							at0205, 	-- Subependymoma
+							at0206, 	-- Superficial spreading
+							at0207, 	-- Synovial sarcoma - monophasic and biphasic
+							at0208, 	-- Teratoma (immature)
+							at0209, 	-- Teratoma (mature)
+							at0210, 	-- Teratoma differentiated
+							at0211, 	-- Teratoma undifferentiated
+							at0212, 	-- Teratoma with malignant transformation
+							at0213, 	-- Transitional cell carcinoma
+							at0214, 	-- Tubular / cribform
+							at0215, 	-- Undifferentiated carcinoma
+							at0216, 	-- Undifferentiated HCC
+							at0217, 	-- Undifferentiated uterine sarcoma
+							at0218, 	-- Unknown
+							at0219, 	-- Urothelial (in situ)
+							at0220, 	-- Urothelial (invasive)
+							at0221, 	-- Uveal melanoma
+							at0222]	-- Yolk sac tumour
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Disease Information Cancer GEL">
+					description = <"Local cluster to capture disease type and disease subtype in Genomics England Cancer dataset.">
+				>
+				["at0001"] = <
+					text = <"Disease type">
+					description = <"The disease type according to the Genomics England Model Catalogue.">
+				>
+				["at0002"] = <
+					text = <"Disease subtype">
+					description = <"The disease subtype according to the Genomics England Model Catalogue.">
+				>
+				["at0003"] = <
+					text = <"Adult glioma">
+					description = <"Adult Glioma.">
+				>
+				["at0004"] = <
+					text = <"Bladder">
+					description = <"Bladder.">
+				>
+				["at0005"] = <
+					text = <"Breast">
+					description = <"Breast.">
+				>
+				["at0006"] = <
+					text = <"Carcinoma of Unknown Primary">
+					description = <"Carcinoma of Unknown Primary.">
+				>
+				["at0007"] = <
+					text = <"Childhood">
+					description = <"Childhood.">
+				>
+				["at0008"] = <
+					text = <"Colorectal">
+					description = <"Colorectal.">
+				>
+				["at0009"] = <
+					text = <"Endometrial carcinoma">
+					description = <"Endometrial Carcinoma.">
+				>
+				["at0010"] = <
+					text = <"Haematology oncology">
+					description = <"Haematology Oncology.">
+				>
+				["at0011"] = <
+					text = <"Hepatopancreatobiliary">
+					description = <"Hepatopancreatobiliary.">
+				>
+				["at0012"] = <
+					text = <"Lung">
+					description = <"Lung.">
+				>
+				["at0013"] = <
+					text = <"Malignant melanoma">
+					description = <"Malignant Melanoma.">
+				>
+				["at0014"] = <
+					text = <"Nasopharyngeal">
+					description = <"Nasopharyngeal.">
+				>
+				["at0015"] = <
+					text = <"Oral oropharyngeal">
+					description = <"Oral or Oropharyngeal.">
+				>
+				["at0016"] = <
+					text = <"Ovarian">
+					description = <"Ovarian.">
+				>
+				["at0017"] = <
+					text = <"Prostate">
+					description = <"Prostate.">
+				>
+				["at0018"] = <
+					text = <"Renal">
+					description = <"Renal.">
+				>
+				["at0019"] = <
+					text = <"Sarcoma">
+					description = <"Sarcoma.">
+				>
+				["at0020"] = <
+					text = <"Sinonasal">
+					description = <"Sinonasal.">
+				>
+				["at0021"] = <
+					text = <"Testicular germ cell tumours">
+					description = <"Testicular Germ Cell Tumours.">
+				>
+				["at0022"] = <
+					text = <"Upper gastrointestinal">
+					description = <"Upper Gastrointestinal.">
+				>
+				["at0023"] = <
+					text = <"(ALL) Acute lymphoblastic leukaemia">
+					description = <"(ALL) Acute lymphoblastic leukaemia.">
+				>
+				["at0024"] = <
+					text = <"(AML) Acute myeloid Leukaemia">
+					description = <"(AML) Acute myeloid Leukaemia.">
+				>
+				["at0025"] = <
+					text = <"Chronic lymphocytic leukaemia">
+					description = <"Chronic lymphocytic leukaemia.">
+				>
+				["at0026"] = <
+					text = <"Adnar cell carcinoma">
+					description = <"Adnar cell carcinoma.">
+				>
+				["at0027"] = <
+					text = <"Acral lentiginous">
+					description = <"Acral lentiginous.">
+				>
+				["at0028"] = <
+					text = <"Adamantinoma of bone">
+					description = <"Adamantinoma of bone.">
+				>
+				["at0029"] = <
+					text = <"Adenocarcinoma">
+					description = <"Adenocarcinoma.">
+				>
+				["at0030"] = <
+					text = <"Adenoid cystic carcinoma">
+					description = <"Adenoid cystic carcinoma.">
+				>
+				["at0031"] = <
+					text = <"Alveolar soft part sarcoma">
+					description = <"Alveolar soft part sarcoma.">
+				>
+				["at0032"] = <
+					text = <"Anaplastic astrocytoma">
+					description = <"Anaplastic astrocytoma.">
+				>
+				["at0033"] = <
+					text = <"Anaplastic ependymoma">
+					description = <"Anaplastic ependymoma.">
+				>
+				["at0034"] = <
+					text = <"Anaplastic ganglioglioma">
+					description = <"Anaplastic ganglioglioma.">
+				>
+				["at0035"] = <
+					text = <"Anaplastic oligodendroglioma">
+					description = <"Anaplastic oligodendroglioma.">
+				>
+				["at0036"] = <
+					text = <"Anaplastic oligoastrocytoma">
+					description = <"Anaplastic oligoastrocytoma.">
+				>
+				["at0037"] = <
+					text = <"Angiomatoid fibrous histiocytoma">
+					description = <"Angiomatoid fibrous histiocytoma.">
+				>
+				["at0038"] = <
+					text = <"Angiosarcoma">
+					description = <"Angiosarcoma.">
+				>
+				["at0039"] = <
+					text = <"Anorectal mucosal melanoma">
+					description = <"Anorectal mucosal melanoma.">
+				>
+				["at0040"] = <
+					text = <"Atypical teratoid rhabdoid tumours">
+					description = <"Atypical teratoid rhabdoid tumours.">
+				>
+				["at0041"] = <
+					text = <"Betel nut-induced oral cancer">
+					description = <"Betel nut-induced oral cancer.">
+				>
+				["at0042"] = <
+					text = <"Biliary adenocarcinoma">
+					description = <"Biliary adenocarcinoma.">
+				>
+				["at0043"] = <
+					text = <"Biliary adenosquamous carcinoma">
+					description = <"Biliary adenosquamous carcinoma.">
+				>
+				["at0044"] = <
+					text = <"Biliary squamous cell carcinoma">
+					description = <"Biliary squamous cell carcinoma.">
+				>
+				["at0045"] = <
+					text = <"Burkitt lymphoma">
+					description = <"Burkitt lymphoma.">
+				>
+				["at0046"] = <
+					text = <"Cancer not confirmed (pathology indeterminate)">
+					description = <"Cancer not confirmed (pathology indeterminate).">
+				>
+				["at0047"] = <
+					text = <"Pathology indeterminate – cancer NOS (non-carcinoma, lymphoma , sarcoma etc)">
+					description = <"Pathology indeterminate – cancer NOS (non-carcinoma, lymphoma , sarcoma etc).">
+				>
+				["at0048"] = <
+					text = <"Pathology indeterminate – carcinoma  NOS (Not otherwise specified)">
+					description = <"Pathology indeterminate – carcinoma  NOS (Not otherwise specified).">
+				>
+				["at0049"] = <
+					text = <"Carcinosarcoma">
+					description = <"Carcinosarcoma.">
+				>
+				["at0050"] = <
+					text = <"Central neurocytoma">
+					description = <"Central neurocytoma.">
+				>
+				["at0051"] = <
+					text = <"Childhood other">
+					description = <"Childhood other.">
+				>
+				["at0052"] = <
+					text = <"Cholangiocarcinoma">
+					description = <"Cholangiocarcinoma.">
+				>
+				["at0053"] = <
+					text = <"Chordoma">
+					description = <"Chordoma.">
+				>
+				["at0054"] = <
+					text = <"Choriocarcinoma">
+					description = <"Choriocarcinoma.">
+				>
+				["at0055"] = <
+					text = <"Chromophobe">
+					description = <"Chromophobe.">
+				>
+				["at0056"] = <
+					text = <"Chronic myeloid leukaemia">
+					description = <"Chronic myeloid leukaemia.">
+				>
+				["at0057"] = <
+					text = <"Classical seminoma">
+					description = <"Classical seminoma.">
+				>
+				["at0058"] = <
+					text = <"Clear cell">
+					description = <"Clear cell.">
+				>
+				["at0059"] = <
+					text = <"Clear cell adenocarcinoma">
+					description = <"Clear cell adenocarcinoma.">
+				>
+				["at0060"] = <
+					text = <"CNS primitive neuroectodermal tumors">
+					description = <"CNS primitive neuroectodermal tumors.">
+				>
+				["at0061"] = <
+					text = <"Collecting duct">
+					description = <"Collecting duct.">
+				>
+				["at0062"] = <
+					text = <"Combined HCC-cholangiocarcinoma">
+					description = <"Combined HCC-cholangiocarcinoma.">
+				>
+				["at0063"] = <
+					text = <"Conjunctival melanoma">
+					description = <"Conjunctival melanoma.">
+				>
+				["at0064"] = <
+					text = <"Conventional chondrosarcoma">
+					description = <"Conventional chondrosarcoma.">
+				>
+				["at0065"] = <
+					text = <"Dedifferentiated chondrosarcoma">
+					description = <"Dedifferentiated chondrosarcoma.">
+				>
+				["at0066"] = <
+					text = <"Dedifferentiated liposarcoma">
+					description = <"Dedifferentiated liposarcoma.">
+				>
+				["at0067"] = <
+					text = <"Dermal sarcoma">
+					description = <"Dermal sarcoma.">
+				>
+				["at0068"] = <
+					text = <"Desmoplastic melanoma">
+					description = <"Desmoplastic melanoma.">
+				>
+				["at0069"] = <
+					text = <"Desmoplastic round cell sarcoma">
+					description = <"Desmoplastic round cell sarcoma.">
+				>
+				["at0070"] = <
+					text = <"Diffuse astrocytoma">
+					description = <"Diffuse astrocytoma.">
+				>
+				["at0071"] = <
+					text = <"Diffuse large B-cell lymphoma">
+					description = <"Diffuse large B-cell lymphoma.">
+				>
+				["at0072"] = <
+					text = <"Ductal">
+					description = <"Ductal.">
+				>
+				["at0073"] = <
+					text = <"Dysgerminomas">
+					description = <"Dysgerminomas.">
+				>
+				["at0074"] = <
+					text = <"Embryonal carcinoma">
+					description = <"Embryonal carcinoma.">
+				>
+				["at0075"] = <
+					text = <"Embryonal tumour with multilayered rosettes">
+					description = <"Embryonal tumour with multilayered rosettes.">
+				>
+				["at0076"] = <
+					text = <"Endodermal sinus">
+					description = <"Endodermal sinus.">
+				>
+				["at0077"] = <
+					text = <"Endometrioid adenocarcinoma">
+					description = <"Endometrioid adenocarcinoma.">
+				>
+				["at0078"] = <
+					text = <"Ependymoma">
+					description = <"Ependymoma.">
+				>
+				["at0079"] = <
+					text = <"Epithelioid angiosarcoma">
+					description = <"Epithelioid angiosarcoma.">
+				>
+				["at0080"] = <
+					text = <"Extracranial rhabdoid tumour">
+					description = <"Extracranial rhabdoid tumour.">
+				>
+				["at0081"] = <
+					text = <"Extraskeletal chondrosarcoma">
+					description = <"Extraskeletal chondrosarcoma.">
+				>
+				["at0082"] = <
+					text = <"Extraskeletal chordoma">
+					description = <"Extraskeletal chordoma.">
+				>
+				["at0083"] = <
+					text = <"Extraventricular neurocytoma">
+					description = <"Extraventricular neurocytoma.">
+				>
+				["at0084"] = <
+					text = <"Fibrillary astrocytoma">
+					description = <"Fibrillary astrocytoma.">
+				>
+				["at0085"] = <
+					text = <"Fibrolamellar HCC">
+					description = <"Fibrolamellar HCC.">
+				>
+				["at0086"] = <
+					text = <"Gangliocytoma">
+					description = <"Gangliocytoma.">
+				>
+				["at0087"] = <
+					text = <"Ganglioglioma">
+					description = <"Ganglioglioma.">
+				>
+				["at0088"] = <
+					text = <"Gastric adenocarcinoma">
+					description = <"Gastric adenocarcinoma.">
+				>
+				["at0089"] = <
+					text = <"Gastric carcinoma with lymphoid stroma">
+					description = <"Gastric carcinoma with lymphoid stroma.">
+				>
+				["at0090"] = <
+					text = <"Gemistocytic astrocytoma">
+					description = <"Gemistocytic astrocytoma.">
+				>
+				["at0091"] = <
+					text = <"Genital mucosal melanoma">
+					description = <"Genital mucosal melanoma.">
+				>
+				["at0092"] = <
+					text = <"Germ cell tumour">
+					description = <"Germ cell tumour.">
+				>
+				["at0093"] = <
+					text = <"Germinoma">
+					description = <"Germinoma.">
+				>
+				["at0094"] = <
+					text = <"Giant cell glioblastoma">
+					description = <"Giant cell glioblastoma.">
+				>
+				["at0095"] = <
+					text = <"Glioblastoma">
+					description = <"Glioblastoma.">
+				>
+				["at0096"] = <
+					text = <"Gliomatosis cerebri">
+					description = <"Gliomatosis cerebri.">
+				>
+				["at0097"] = <
+					text = <"Gliosarcoma">
+					description = <"Gliosarcoma.">
+				>
+				["at0098"] = <
+					text = <"Gnathic bone">
+					description = <"Gnathic bone.">
+				>
+				["at0099"] = <
+					text = <"Granulosa cell tumour">
+					description = <"Granulosa cell tumour.">
+				>
+				["at0100"] = <
+					text = <"Granulosa theca">
+					description = <"Granulosa theca.">
+				>
+				["at0101"] = <
+					text = <"Haematological malignancy unclassified">
+					description = <"Haematological malignancy unclassified.">
+				>
+				["at0102"] = <
+					text = <"HCC acinar">
+					description = <"HCC acinar.">
+				>
+				["at0103"] = <
+					text = <"HCC compact">
+					description = <"HCC compact.">
+				>
+				["at0104"] = <
+					text = <"HCC trabecular">
+					description = <"HCC trabecular.">
+				>
+				["at0105"] = <
+					text = <"Hepatocellular carcinoma">
+					description = <"Hepatocellular carcinoma.">
+				>
+				["at0106"] = <
+					text = <"Hepatoid adenocarcinoma">
+					description = <"Hepatoid adenocarcinoma.">
+				>
+				["at0107"] = <
+					text = <"High grade endometrial stromal sarcoma">
+					description = <"High grade endometrial stromal sarcoma.">
+				>
+				["at0108"] = <
+					text = <"High grade lymphoma NOS">
+					description = <"High grade lymphoma NOS.">
+				>
+				["at0109"] = <
+					text = <"High grade serous carcinoma">
+					description = <"High grade serous carcinoma.">
+				>
+				["at0110"] = <
+					text = <"HPV negative oropharyngeal cancer">
+					description = <"HPV negative oropharyngeal cancer.">
+				>
+				["at0111"] = <
+					text = <"HPV positive oropharyngeal cancer">
+					description = <"HPV positive oropharyngeal cancer.">
+				>
+				["at0112"] = <
+					text = <"Intimal sarcoma">
+					description = <"Intimal sarcoma.">
+				>
+				["at0113"] = <
+					text = <"Inverted papilloma">
+					description = <"Inverted papilloma.">
+				>
+				["at0114"] = <
+					text = <"IPMN with invasive carcinoma">
+					description = <"IPMN with invasive carcinoma.">
+				>
+				["at0115"] = <
+					text = <"Large cell">
+					description = <"Large cell.">
+				>
+				["at0116"] = <
+					text = <"Leiomyosarcoma from all sites">
+					description = <"Leiomyosarcoma from all sites.">
+				>
+				["at0117"] = <
+					text = <"Lentigo maligna">
+					description = <"Lentigo maligna.">
+				>
+				["at0118"] = <
+					text = <"Leydig cell tumour">
+					description = <"Leydig cell tumour.">
+				>
+				["at0119"] = <
+					text = <"Lobular">
+					description = <"Lobular.">
+				>
+				["at0120"] = <
+					text = <"Low grade endometrial stromal sarcoma'">
+					description = <"Low grade endometrial stromal sarcoma'.">
+				>
+				["at0121"] = <
+					text = <"Low grade fibromyxoid sarcoma">
+					description = <"Low grade fibromyxoid sarcoma.">
+				>
+				["at0122"] = <
+					text = <"Low grade serous adenocarcinoma">
+					description = <"Low grade serous adenocarcinoma.">
+				>
+				["at0123"] = <
+					text = <"Lymphoepithelioma-like HCC">
+					description = <"Lymphoepithelioma-like HCC.">
+				>
+				["at0124"] = <
+					text = <"Malignant peripheral nerve sheath tumour">
+					description = <"Malignant peripheral nerve sheath tumour.">
+				>
+				["at0125"] = <
+					text = <"Malignant rhabdoid tumour">
+					description = <"Malignant rhabdoid tumour.">
+				>
+				["at0126"] = <
+					text = <"MCN with invasive carcinoma">
+					description = <"MCN with invasive carcinoma.">
+				>
+				["at0127"] = <
+					text = <"Mediastinal B-cell lymphoma">
+					description = <"Mediastinal B-cell lymphoma.">
+				>
+				["at0128"] = <
+					text = <"Medullary">
+					description = <"Medullary.">
+				>
+				["at0129"] = <
+					text = <"Medulloblastoma (CLA)">
+					description = <"Medulloblastoma (CLA).">
+				>
+				["at0130"] = <
+					text = <"Medulloblastoma (DN)">
+					description = <"Medulloblastoma (DN).">
+				>
+				["at0131"] = <
+					text = <"Medulloblastoma (LCA)">
+					description = <"Medulloblastoma (LCA).">
+				>
+				["at0132"] = <
+					text = <"Medulloblastoma (MBEN)">
+					description = <"Medulloblastoma (MBEN).">
+				>
+				["at0133"] = <
+					text = <"Medulloblastoma (medullomyoblastoma)">
+					description = <"Medulloblastoma (medullomyoblastoma).">
+				>
+				["at0134"] = <
+					text = <"Medulloblastoma (melanotic)">
+					description = <"Medulloblastoma (melanotic).">
+				>
+				["at0135"] = <
+					text = <"Medulloblastoma (NOS)">
+					description = <"Medulloblastoma (NOS).">
+				>
+				["at0136"] = <
+					text = <"Melanoma">
+					description = <"Melanoma.">
+				>
+				["at0137"] = <
+					text = <"Mesenchymal">
+					description = <"Mesenchymal.">
+				>
+				["at0138"] = <
+					text = <"Mesothelioma">
+					description = <"Mesothelioma.">
+				>
+				["at0139"] = <
+					text = <"Mixed germ cell tumour">
+					description = <"Mixed germ cell tumour.">
+				>
+				["at0140"] = <
+					text = <"Mixed tumour type">
+					description = <"Mixed tumour type.">
+				>
+				["at0141"] = <
+					text = <"Mucinous carcinoma">
+					description = <"Mucinous carcinoma.">
+				>
+				["at0142"] = <
+					text = <"Multiple myeloma">
+					description = <"Multiple myeloma.">
+				>
+				["at0143"] = <
+					text = <"Myelodysplastic syndrome (high risk)">
+					description = <"Myelodysplastic syndrome (high risk).">
+				>
+				["at0144"] = <
+					text = <"Myoepithelioma / Malignant myoepithelioma">
+					description = <"Myoepithelioma / Malignant myoepithelioma.">
+				>
+				["at0145"] = <
+					text = <"Myxofibrosarcoma">
+					description = <"Myxofibrosarcoma.">
+				>
+				["at0146"] = <
+					text = <"Myxoid liposarcoma">
+					description = <"Myxoid liposarcoma.">
+				>
+				["at0147"] = <
+					text = <"Myxoinflammatory fibroblastic sarcoma">
+					description = <"Myxoinflammatory fibroblastic sarcoma.">
+				>
+				["at0148"] = <
+					text = <"Myxopapillary ependymoma">
+					description = <"Myxopapillary ependymoma.">
+				>
+				["at0149"] = <
+					text = <"Nasopharyngeal carcinoma Type I">
+					description = <"Nasopharyngeal carcinoma Type I.">
+				>
+				["at0150"] = <
+					text = <"Nasopharyngeal carcinoma Type II">
+					description = <"Nasopharyngeal carcinoma Type II.">
+				>
+				["at0151"] = <
+					text = <"Nasopharyngeal carcinoma Type III">
+					description = <"Nasopharyngeal carcinoma Type III.">
+				>
+				["at0152"] = <
+					text = <"Neuroblastoma (INPC)">
+					description = <"Neuroblastoma (INPC).">
+				>
+				["at0153"] = <
+					text = <"Neuroblastoma (NOS)">
+					description = <"Neuroblastoma (NOS).">
+				>
+				["at0154"] = <
+					text = <"Neuroendocrine">
+					description = <"Neuroendocrine.">
+				>
+				["at0155"] = <
+					text = <"Neuroendocrine carcinoma">
+					description = <"Neuroendocrine carcinoma.">
+				>
+				["at0156"] = <
+					text = <"Nodular">
+					description = <"Nodular.">
+				>
+				["at0157"] = <
+					text = <"Non specified renal carcinoma">
+					description = <"Non specified renal carcinoma.">
+				>
+				["at0158"] = <
+					text = <"Not available">
+					description = <"Not available.">
+				>
+				["at0159"] = <
+					text = <"Oligoastrocytoma">
+					description = <"Oligoastrocytoma.">
+				>
+				["at0160"] = <
+					text = <"Oligodendroglioma">
+					description = <"Oligodendroglioma.">
+				>
+				["at0161"] = <
+					text = <"Oncocytic">
+					description = <"Oncocytic.">
+				>
+				["at0162"] = <
+					text = <"Orbital">
+					description = <"Orbital.">
+				>
+				["at0163"] = <
+					text = <"Oromucosal melanoma">
+					description = <"Oromucosal melanoma.">
+				>
+				["at0164"] = <
+					text = <"Ossifying fibromyxoid tumour">
+					description = <"Ossifying fibromyxoid tumour.">
+				>
+				["at0165"] = <
+					text = <"Other">
+					description = <"Other.">
+				>
+				["at0166"] = <
+					text = <"Paediatric malignant glioma">
+					description = <"Paediatric malignant glioma.">
+				>
+				["at0167"] = <
+					text = <"Pancreatic adenocarcinoma">
+					description = <"Pancreatic adenocarcinoma.">
+				>
+				["at0168"] = <
+					text = <"Pancreatic adenosquamous carcinoma">
+					description = <"Pancreatic adenosquamous carcinoma.">
+				>
+				["at0169"] = <
+					text = <"Pancreatic neuroendocrine carcinoma">
+					description = <"Pancreatic neuroendocrine carcinoma.">
+				>
+				["at0170"] = <
+					text = <"Papillary">
+					description = <"Papillary.">
+				>
+				["at0171"] = <
+					text = <"Papillary tumour of the pineal region">
+					description = <"Papillary tumour of the pineal region.">
+				>
+				["at0172"] = <
+					text = <"Papillary Type 1">
+					description = <"Papillary Type 1.">
+				>
+				["at0173"] = <
+					text = <"Papillary Type 2">
+					description = <"Papillary Type 2.">
+				>
+				["at0174"] = <
+					text = <"Pilocytic astrocytoma">
+					description = <"Pilocytic astrocytoma.">
+				>
+				["at0175"] = <
+					text = <"Pilomyxoid astrocytoma">
+					description = <"Pilomyxoid astrocytoma.">
+				>
+				["at0176"] = <
+					text = <"Pineal tumour of intermediate differentiation">
+					description = <"Pineal tumour of intermediate differentiation.">
+				>
+				["at0177"] = <
+					text = <"Pineoblastoma">
+					description = <"Pineoblastoma.">
+				>
+				["at0178"] = <
+					text = <"Pineocytoma">
+					description = <"Pineocytoma.">
+				>
+				["at0179"] = <
+					text = <"Pleomorphic sarcoma">
+					description = <"Pleomorphic sarcoma.">
+				>
+				["at0180"] = <
+					text = <"Pleomorphic xanthoastrocytoma">
+					description = <"Pleomorphic xanthoastrocytoma.">
+				>
+				["at0181"] = <
+					text = <"Poorly cohesive including signet ring cell type">
+					description = <"Poorly cohesive including signet ring cell type.">
+				>
+				["at0182"] = <
+					text = <"Primary CNS">
+					description = <"Primary CNS.">
+				>
+				["at0183"] = <
+					text = <"Primary conventional osteosarcoma">
+					description = <"Primary conventional osteosarcoma.">
+				>
+				["at0184"] = <
+					text = <"Primitive neuroectodermal tumour">
+					description = <"Primitive neuroectodermal tumour.">
+				>
+				["at0185"] = <
+					text = <"Protoplasmic astrocytoma">
+					description = <"Protoplasmic astrocytoma.">
+				>
+				["at0186"] = <
+					text = <"Pseudomyogenic haemangioemdothelioma">
+					description = <"Pseudomyogenic haemangioemdothelioma.">
+				>
+				["at0187"] = <
+					text = <"Rare sarcoma entities">
+					description = <"Rare sarcoma entities.">
+				>
+				["at0188"] = <
+					text = <"Rhabdomyosarcoma">
+					description = <"Rhabdomyosarcoma.">
+				>
+				["at0189"] = <
+					text = <"Sarcoma NOS">
+					description = <"Sarcoma NOS.">
+				>
+				["at0190"] = <
+					text = <"Sarcomatoid carcinoma">
+					description = <"Sarcomatoid carcinoma.">
+				>
+				["at0191"] = <
+					text = <"Sarcomatoid HCC">
+					description = <"Sarcomatoid HCC.">
+				>
+				["at0192"] = <
+					text = <"Schirrous HCC">
+					description = <"Schirrous HCC.">
+				>
+				["at0193"] = <
+					text = <"Sclerosing epithelioid fibrosarcoma">
+					description = <"Sclerosing epithelioid fibrosarcoma.">
+				>
+				["at0194"] = <
+					text = <"Serous carcinoma">
+					description = <"Serous carcinoma.">
+				>
+				["at0195"] = <
+					text = <"Serous cystadenocarcinoma">
+					description = <"Serous cystadenocarcinoma.">
+				>
+				["at0196"] = <
+					text = <"Sertoli cell tumour">
+					description = <"Sertoli cell tumour.">
+				>
+				["at0197"] = <
+					text = <"Sertoli-Leydig">
+					description = <"Sertoli-Leydig.">
+				>
+				["at0198"] = <
+					text = <"Small cell">
+					description = <"Small cell.">
+				>
+				["at0199"] = <
+					text = <"Small cell carcinoma (including hypercalcaemic type)">
+					description = <"Small cell carcinoma (including hypercalcaemic type).">
+				>
+				["at0200"] = <
+					text = <"Spermatocytic Seminoma">
+					description = <"Spermatocytic Seminoma.">
+				>
+				["at0201"] = <
+					text = <"Spitz">
+					description = <"Spitz.">
+				>
+				["at0202"] = <
+					text = <"Squamous cell">
+					description = <"Squamous cell.">
+				>
+				["at0203"] = <
+					text = <"Stromal tumour">
+					description = <"Stromal tumour.">
+				>
+				["at0204"] = <
+					text = <"Subependymal giant cell astrocytoma">
+					description = <"Subependymal giant cell astrocytoma.">
+				>
+				["at0205"] = <
+					text = <"Subependymoma">
+					description = <"Subependymoma.">
+				>
+				["at0206"] = <
+					text = <"Superficial spreading">
+					description = <"Superficial spreading.">
+				>
+				["at0207"] = <
+					text = <"Synovial sarcoma - monophasic and biphasic">
+					description = <"Synovial sarcoma - monophasic and biphasic.">
+				>
+				["at0208"] = <
+					text = <"Teratoma (immature)">
+					description = <"Teratoma (immature).">
+				>
+				["at0209"] = <
+					text = <"Teratoma (mature)">
+					description = <"Teratoma (mature).">
+				>
+				["at0210"] = <
+					text = <"Teratoma differentiated">
+					description = <"Teratoma differentiated.">
+				>
+				["at0211"] = <
+					text = <"Teratoma undifferentiated">
+					description = <"Teratoma undifferentiated.">
+				>
+				["at0212"] = <
+					text = <"Teratoma with malignant transformation">
+					description = <"Teratoma with malignant transformation.">
+				>
+				["at0213"] = <
+					text = <"Transitional cell carcinoma">
+					description = <"Transitional cell carcinoma.">
+				>
+				["at0214"] = <
+					text = <"Tubular / cribform">
+					description = <"Tubular / cribform.">
+				>
+				["at0215"] = <
+					text = <"Undifferentiated carcinoma">
+					description = <"Undifferentiated carcinoma.">
+				>
+				["at0216"] = <
+					text = <"Undifferentiated HCC">
+					description = <"Undifferentiated HCC.">
+				>
+				["at0217"] = <
+					text = <"Undifferentiated uterine sarcoma">
+					description = <"Undifferentiated uterine sarcoma.">
+				>
+				["at0218"] = <
+					text = <"Unknown">
+					description = <"Unknown.">
+				>
+				["at0219"] = <
+					text = <"Urothelial (in situ)">
+					description = <"Urothelial (in situ).">
+				>
+				["at0220"] = <
+					text = <"Urothelial (invasive)">
+					description = <"Urothelial (invasive).">
+				>
+				["at0221"] = <
+					text = <"Uveal melanoma">
+					description = <"Uveal melanoma.">
+				>
+				["at0222"] = <
+					text = <"Yolk sac tumour">
+					description = <"Yolk sac tumour.">
+				>
+			>
+		>
+	>

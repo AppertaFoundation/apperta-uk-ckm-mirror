@@ -1,0 +1,305 @@
+﻿archetype (adl_version=1.4; uid=f80cfa89-3987-4f84-9e65-6bdc3721c671)
+	openEHR-EHR-OBSERVATION.ichom_lpc_complications.v0
+
+concept
+	[at0000]	-- ICHOM LPC Complication
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2016-08-08">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Local archetype to capture acute complications of treatment, such as Clavien grade and CTCAE grade.">
+			use = <"For use in ICHOM LPC dataset to capture details of acute complications of treatment.">
+			keywords = <"complication", "clavien", "ICHOM", "prostate", "cancer">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"39793F9A6BE6E916077821384644B121">
+		["build_uid"] = <"2099b598-3a1d-4b58-a061-00bc448e41a0">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- ICHOM LPC Complication
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..1} matches {	-- Point in time
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Clavien complication
+										value matches {
+											0|[local::at0005], 	-- No
+											1|[local::at0006], 	-- Yes, Grade 3
+											2|[local::at0007]  	-- Yes, Grade 4
+										}
+									}
+									ELEMENT[at0008] occurrences matches {0..1} matches {	-- CTCAE Grade 3 or 4 complication
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0010] occurrences matches {0..*} matches {	-- CTCAE domain and grade
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0011, 	-- 0 = No grade 3 or 4 toxicity
+													at0012, 	-- 1 = Fatigue grade 3
+													at0013, 	-- 2 = Fatigue grade 4
+													at0014, 	-- 3 = Dermatitis grade 3
+													at0015, 	-- 4 = Dermatitis grade 4
+													at0016, 	-- 5 = Diarrhea grade 3
+													at0017, 	-- 6 = Diarrhea grade 4
+													at0018, 	-- 7 = Abdominal pain grade 3
+													at0019, 	-- 8 = Abdominal pain grade 4
+													at0020, 	-- 9 = Rectal mucositis grade 3
+													at0021, 	-- 10 = Rectal mucositis grade 4
+													at0022, 	-- 11 = Proctitis grade 3
+													at0023, 	-- 12 = Proctitis grade 4
+													at0024, 	-- 13 = Hot flashes grade 3
+													at0025, 	-- 14 = Hot flashes grade 4
+													at0026, 	-- 15 = Cystitis non-infective grade 3
+													at0027, 	-- 16 = Cystitis non-infective grade 4
+													at0028, 	-- 17 = Urinary retention grade 3
+													at0029, 	-- 18 = Urinary retention grade 4
+													at0030, 	-- 19 = Other grade 3 (free text)
+													at0031]	-- 20 = Other grade 4 (free text)
+												}
+											}
+										}
+									}
+									allow_archetype CLUSTER[at0009] occurrences matches {0..*} matches {	-- CTCAE domain and grade
+										include
+											archetype_id/value matches {/.*/}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0032] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0033] occurrences matches {0..*} matches {	-- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"ICHOM LPC Complication">
+					description = <"Acute complications of treatment.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Point in time">
+					description = <"A specific date and/or time which may be explicitly defined in a template or at run-time.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Clavien complication">
+					description = <"Indication whether patient experienced a Clavien grade III-V complication.">
+				>
+				["at0005"] = <
+					text = <"No">
+					description = <"Patient did not experience Grade 3 or 4 complication.">
+				>
+				["at0006"] = <
+					text = <"Yes, Grade 3">
+					description = <"Patient experienced Grade 3 complication.">
+				>
+				["at0007"] = <
+					text = <"Yes, Grade 4">
+					description = <"Patient experienced Grade 4 complication.">
+				>
+				["at0008"] = <
+					text = <"CTCAE Grade 3 or 4 complication">
+					description = <"Indication whether the patient experienced a CTCAE grade 3 or 4 complication during treatment with radiation therapy or within the first 6 months following the completion of radiation therapy.">
+				>
+				["at0009"] = <
+					text = <"CTCAE domain and grade">
+					description = <"Statement of CTCAE domain and grade if complication was experienced.">
+					comment = <"The CTCAE defines Grade 3 and 4 complications for the following categories as follows:   
+Fatigue
+  - Grade 1: Fatigue relieved by rest
+  - Grade 2: Fatigue not relieved by rest; limiting instrumental ADL
+  - Grade 3: Fatigue not relieved by rest, limiting self care ADL
+  - Grade 4: N/A
+Dermatitis radiation
+  - Grade 1: Faint erythema or dry desquamation
+  - Grade 2: Moderate to brisk erythema; patchy moist desquamation, mostly confined to skin folds and creases; moderate edema
+  - Grade 3: Moist desquamation in areas other than skin folds and creases; bleeding induced by minor trauma or abrasion
+  - Grade 4: Life-threatening consequences; skin necrosis or ulceration of full thickness dermis; spontaneous bleeding from involved site; skin graft indicated
+Diarrhea
+  - Grade 1: Increase of <4 stools per day over baseline; mild increase in ostomy output compared to baseline
+  - Grade 2: Increase of 4 - 6 stools per day over baseline; moderate increase in ostomy output compared to baseline
+  - Grade 3: Increase of >=7 stools per day over baseline; incontinence; hospitalization indicated; severe increase in ostomy output compared to baseline; limiting self care ADL
+  - Grade 4: Life-threatening consequences; urgent intervention indicated
+Abdominal pain
+  - Grade 1: Mild pain
+  - Grade 2: Moderate pain; limiting instrumental ADL
+  - Grade 3: Severe pain; limiting self care ADL
+  - Grade 4: N/A
+Rectal mucositis
+  - Grade 1: Asymptomatic or mild symptoms; intervention not indicated
+  - Grade 2: Symptomatic; medical intervention indicated; limiting instrumental ADL
+  - Grade 3: Severe symptoms; limiting self care ADL
+  - Grade 4: Life-threatening consequences; urgent operative intervention indicated
+Proctitis
+  - Grade 1: Rectal discomfort, intervention not indicated
+  - Grade 2: Symptoms (e.g., rectal discomfort, passing blood or mucus); medical intervention indicated; limiting instrumental ADL
+  - Grade 3: Severe symptoms; fecal urgency or stool incontinence; limiting self care ADL
+  - Grade 4: Life-threatening consequences; urgent intervention indicated
+Hot flashes
+  - Grade 1: Mild symptoms; intervention not indicated
+  - Grade 2: Moderate symptoms; limiting instrumental ADL
+  - Grade 3: Severe symptoms; limiting self care ADL
+  - Grade 4: N/A
+Cystitis non-infective
+  - Grade 1: Microscopic hematuria; minimal increase in frequency, urgency, dysuria, or nocturia; new onset of incontinence
+  - Grade 2: Moderate hematuria; moderate increase in frequency, urgency, dysuria, nocturia or incontinence; urinary catheter placement or bladder irrigation indicated; limiting instrumental ADL
+  - Grade 3: Gross hematuria; transfusion, IV medications or hospitalization indicated; elective endoscopic, radiologic or operative intervention indicated
+  - Grade 4: Life-threatening consequences; urgent radiologic or operative intervention indicated
+Urinary retention
+  - Grade 1: Urinary, suprapubic or intermittent catheter placement not indicated; able to void with some residual
+  - Grade 2: Placement of urinary, suprapubic or intermittent catheter placement indicated; medication indicated
+  - Grade 3: Elective operative or radiologic intervention indicated; substantial loss of affected kidney function or mass
+  - Grade 4: Life-threatening consequences; organ failure; urgent operative intervention indicated.">
+				>
+				["at0010"] = <
+					text = <"CTCAE domain and grade">
+					description = <"Statement about CTCAE domain and grade experienced during radiation therapy.">
+				>
+				["at0011"] = <
+					text = <"0 = No grade 3 or 4 toxicity">
+					description = <"Patient has not experienced grade 3 or 4 toxicity.">
+				>
+				["at0012"] = <
+					text = <"1 = Fatigue grade 3">
+					description = <"Patient has experienced grade 3 fatigue.">
+				>
+				["at0013"] = <
+					text = <"2 = Fatigue grade 4">
+					description = <"Patient has experienced grade 4 fatigue.">
+				>
+				["at0014"] = <
+					text = <"3 = Dermatitis grade 3">
+					description = <"Patient has experienced grade 3 dermatitis.">
+				>
+				["at0015"] = <
+					text = <"4 = Dermatitis grade 4">
+					description = <"Patient has experienced grade 4 dermatitis.">
+				>
+				["at0016"] = <
+					text = <"5 = Diarrhea grade 3">
+					description = <"Patient has experienced grade 3 diarrhoea.">
+				>
+				["at0017"] = <
+					text = <"6 = Diarrhea grade 4">
+					description = <"Patient has experienced grade 4 diarrhoea.">
+				>
+				["at0018"] = <
+					text = <"7 = Abdominal pain grade 3">
+					description = <"Patient has experienced grade 3 abdominal pain.">
+				>
+				["at0019"] = <
+					text = <"8 = Abdominal pain grade 4">
+					description = <"Patient has experienced grade 4 abdominal pain.">
+				>
+				["at0020"] = <
+					text = <"9 = Rectal mucositis grade 3">
+					description = <"Patient has experienced grade 3 rectal mucositis.">
+				>
+				["at0021"] = <
+					text = <"10 = Rectal mucositis grade 4">
+					description = <"Patient has experienced grade 4 rectal mucositis.">
+				>
+				["at0022"] = <
+					text = <"11 = Proctitis grade 3">
+					description = <"Patient has experienced grade 3 proctitis.">
+				>
+				["at0023"] = <
+					text = <"12 = Proctitis grade 4">
+					description = <"Patient has experienced grade 4 proctitis.">
+				>
+				["at0024"] = <
+					text = <"13 = Hot flashes grade 3">
+					description = <"Patient has experienced grade 3 hot flushes.">
+				>
+				["at0025"] = <
+					text = <"14 = Hot flashes grade 4">
+					description = <"Patient has experienced grade 5 hot flushes.">
+				>
+				["at0026"] = <
+					text = <"15 = Cystitis non-infective grade 3">
+					description = <"Patient has experienced grade 3 non-infective cystitis.">
+				>
+				["at0027"] = <
+					text = <"16 = Cystitis non-infective grade 4">
+					description = <"Patient has experienced grade 4 non-infective cystitis.">
+				>
+				["at0028"] = <
+					text = <"17 = Urinary retention grade 3">
+					description = <"Patient has experienced grade 3 urinary retention.">
+				>
+				["at0029"] = <
+					text = <"18 = Urinary retention grade 4">
+					description = <"Patient has experienced grade 4 urinary retention.">
+				>
+				["at0030"] = <
+					text = <"19 = Other grade 3 (free text)">
+					description = <"Patient has experienced other grade 3.">
+				>
+				["at0031"] = <
+					text = <"20 = Other grade 4 (free text)">
+					description = <"Patient has experienced other grade 4.">
+				>
+				["at0032"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0033"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental infomation or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+			>
+		>
+	>

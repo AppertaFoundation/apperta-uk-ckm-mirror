@@ -1,0 +1,128 @@
+﻿archetype (adl_version=1.4; uid=22b01199-2c43-42bc-a30c-89e661b4f0af)
+	openEHR-EHR-CLUSTER.ankle_posture.v0
+
+concept
+	[at0000]	-- Ankle Posture
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Jamila Chihab">
+		["organisation"] = <"University College London">
+		["email"] = <"chihab.j@gmail.com">
+		["date"] = <"2017-01-24">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Assess patient's ankle or foot position during full weight bearing, standing and non-weight bearing.">
+			use = <"Use to record the bilateral symmetry and asymmetry of the foot during full weight bearing.
+
+Use to record any compensation standing on injured foot, in  addition to any deviation during non-weight bearing.">
+			keywords = <"Ankle posture", "Ankle deviation", "Ankle symmetry", "Ankle asymmetry">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <"Hildegard Franke, freshEHR Clinical Informatics, UK", "Matthew Darlison, University College London, UK", "Ibtissam M. Saab, Beirut Arab University, Lebanon">
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["references"] = <"Granado, M. and Matlick, D. (2016). Clinical review-Ankle Sprain. 1st ed. Cinahl Information Systems, pp.1-9.">
+		["current_contact"] = <"Jamila Chihab, <chihab.j@gmail.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"39E7D8CBAC67BDD704B79E071BB9311F">
+		["build_uid"] = <"78f3e3f5-01e8-417c-924e-ca49c68ff70d">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Ankle Posture
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- During full weight-bearing
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0002, 	-- Symmetry
+							at0003]	-- Asymmetry
+						}
+					}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {	-- Loading of injured foot
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0006, 	-- Compensation loading
+							at0007]	-- Normal loading
+						}
+					}
+				}
+			}
+			ELEMENT[at0008] occurrences matches {0..*} matches {	-- During non-weight bearing
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0009, 	-- Subtalar neutral
+							at0010]	-- Subtalar deviation
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Ankle Posture">
+					description = <"Assess patient's ankle or foot position during full weight bearing, loading and non-weight bearing.">
+				>
+				["at0001"] = <
+					text = <"During full weight-bearing">
+					description = <"Assess bilateral symmetry of ankle or foot position, during full weight bearing.">
+				>
+				["at0002"] = <
+					text = <"Symmetry">
+					description = <"Both ankle are in symmetry.">
+				>
+				["at0003"] = <
+					text = <"Asymmetry">
+					description = <"No symmetry of ankle position.">
+				>
+				["at0004"] = <
+					text = <"Loading of injured foot">
+					description = <"Assess patient's ankle or foot position while loading injured foot in standing.">
+				>
+				["at0006"] = <
+					text = <"Compensation loading">
+					description = <"Patient compensates during loading of injured foot.">
+				>
+				["at0007"] = <
+					text = <"Normal loading">
+					description = <"Patient is able to load injured foot normally.">
+				>
+				["at0008"] = <
+					text = <"During non-weight bearing">
+					description = <"Assess patient's ankle or foot position, during non-weight bearing.">
+				>
+				["at0009"] = <
+					text = <"Subtalar neutral">
+					description = <"No deviation of subtalar.">
+				>
+				["at0010"] = <
+					text = <"Subtalar deviation">
+					description = <"There is deviation of subtalar.">
+				>
+			>
+		>
+	>

@@ -1,0 +1,137 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-ADMIN_ENTRY.consent_to_share_spire_test.v1
+
+concept
+	[at0000]	-- Consent to share healthcare information
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"HANDIHealth,UK">
+		["email"] = <"ian@handihealth.org">
+		["date"] = <"2015-05-07">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record consent to share information with a third-party organisation.">
+			use = <"">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"Initial">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"F556925D5B6A83F424D050804AE76F6F">
+	>
+
+definition
+	ADMIN_ENTRY[at0000] matches {	-- Consent to share healthcare information
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0010] occurrences matches {0..1} matches {	-- Date of consent
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Consent status
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0007, 	-- Consent given
+									at0008]	-- Consent declined
+								}
+							}
+						}
+					}
+					ELEMENT[at0003] occurrences matches {0..1} matches {	-- Extract service
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0006] occurrences matches {0..1} matches {	-- Consent type
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0011, 	-- Derived
+									at0012]	-- Explicit
+								}
+							}
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..1} matches {	-- Project
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {	-- Project link
+						value matches {
+							DV_URI matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Consent to share healthcare information">
+					description = <"Patient-facing record of consent to share information with third party agencies.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Consent status">
+					description = <"Current status of the patient consent.">
+				>
+				["at0003"] = <
+					text = <"Extract service">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Project">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Project link">
+					description = <"Link to the project webpage.">
+				>
+				["at0006"] = <
+					text = <"Consent type">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Consent given">
+					description = <"Consent has been given.">
+				>
+				["at0008"] = <
+					text = <"Consent declined">
+					description = <"The patient has declined consent for the extract service">
+				>
+				["at0010"] = <
+					text = <"Date of consent">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Derived">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Explicit">
+					description = <"*">
+				>
+			>
+		>
+	>

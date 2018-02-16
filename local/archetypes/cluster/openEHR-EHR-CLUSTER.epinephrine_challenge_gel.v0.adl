@@ -1,0 +1,215 @@
+﻿archetype (adl_version=1.4; uid=7bfd20cc-d39b-48a6-b954-19de9b6a1d0f)
+	openEHR-EHR-CLUSTER.epinephrine_challenge_gel.v0
+
+concept
+	[at0000]	-- Epinephrine challenge GEL
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2017-01-11">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the recording of epinephrine challenge test results as part of the Genomics England Rare Diseases dataset.">
+			use = <"Use to record the details of the epinephrine challenge test (a cardiac drug challenge test in the Genomics England Rare Diseases dataset).
+
+This archetype is intended to be used in conjunction with the 'cardiac drug challenge' observation archetype.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"EBF2875A1AB20314FF5F150912511867">
+		["build_uid"] = <"c5880dcf-e3d2-4797-9b2b-6747f4ec6d53">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Epinephrine challenge GEL
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- Technique
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {	-- Protocol
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0003, 	-- Shimizu
+							at0004, 	-- Mayo Clinic
+							at0005]	-- Other
+						}
+					}
+				}
+			}
+			ELEMENT[at0011] occurrences matches {0..1} matches {	-- Diagnostic QT prolongation
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0012, 	-- Yes
+							at0013, 	-- No
+							at0014]	-- Unknown
+						}
+					}
+				}
+			}
+			ELEMENT[at0015] occurrences matches {0..1} matches {	-- Diagnostic polymorphic VT
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0016, 	-- Yes
+							at0017, 	-- No
+							at0018]	-- Unknown
+						}
+					}
+				}
+			}
+			ELEMENT[at0019] occurrences matches {0..1} matches {	-- Diagnostic bidirectional VT
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0020, 	-- Yes
+							at0021, 	-- No
+							at0022]	-- Unknown
+						}
+					}
+				}
+			}
+			ELEMENT[at0023] occurrences matches {0..1} matches {	-- Diagnostic VPB burden
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0024, 	-- Yes
+							at0025, 	-- No
+							at0026]	-- Unknown
+						}
+					}
+				}
+			}
+			ELEMENT[at0027] occurrences matches {0..1} matches {	-- Diagnostic VPB frequency
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Epinephrine challenge GEL">
+					description = <"Local archetype to capture details of epinephrine challenge test result in the Genomics England Rare Diseases dataset.">
+				>
+				["at0001"] = <
+					text = <"Technique">
+					description = <"The non-imaging analytical technique used.">
+				>
+				["at0002"] = <
+					text = <"Protocol">
+					description = <"The protocol used for the challenge.">
+				>
+				["at0003"] = <
+					text = <"Shimizu">
+					description = <"The Shimizu protocol was used for the challenge.">
+				>
+				["at0004"] = <
+					text = <"Mayo Clinic">
+					description = <"The Mayo Clinic protocol was used for the challenge.">
+				>
+				["at0005"] = <
+					text = <"Other">
+					description = <"A protocol other than Shimizu or Mayo Clinic was used for the challenge.">
+				>
+				["at0011"] = <
+					text = <"Diagnostic QT prolongation">
+					description = <"Statement whether diagnostic QT prolongation was observed.">
+				>
+				["at0012"] = <
+					text = <"Yes">
+					description = <"Diagnostic QT prolognation was observed.">
+				>
+				["at0013"] = <
+					text = <"No">
+					description = <"Diagnostic QT prolongation was not observed.">
+				>
+				["at0014"] = <
+					text = <"Unknown">
+					description = <"It is not known whether diagnostic QT prolongation was observed.">
+				>
+				["at0015"] = <
+					text = <"Diagnostic polymorphic VT">
+					description = <"Statement whether diagnostic polymorphic VT was observed.">
+				>
+				["at0016"] = <
+					text = <"Yes">
+					description = <"Diagnostic polymorphic VT was observed.">
+				>
+				["at0017"] = <
+					text = <"No">
+					description = <"Diagnostic polymorphic VT was not observed.">
+				>
+				["at0018"] = <
+					text = <"Unknown">
+					description = <"It is not known whether diagnostic polymorphic VT was observed.">
+				>
+				["at0019"] = <
+					text = <"Diagnostic bidirectional VT">
+					description = <"Statement whether diagnostic bidirectional VT was observed.">
+				>
+				["at0020"] = <
+					text = <"Yes">
+					description = <"Diagnostic bidirectional VT was observed.">
+				>
+				["at0021"] = <
+					text = <"No">
+					description = <"Diagnostic bidirectional VT was not observed.">
+				>
+				["at0022"] = <
+					text = <"Unknown">
+					description = <"It is not known whether diagnostic bidirectional VT was observed.">
+				>
+				["at0023"] = <
+					text = <"Diagnostic VPB burden">
+					description = <"Statement whether diagnostic VPB burden was observed.">
+				>
+				["at0024"] = <
+					text = <"Yes">
+					description = <"Diagnostic VPB burden was observed.">
+				>
+				["at0025"] = <
+					text = <"No">
+					description = <"Diagnostic VPB burden was not observed.">
+				>
+				["at0026"] = <
+					text = <"Unknown">
+					description = <"It is not known whether diagnostic VPB burden was observed.">
+				>
+				["at0027"] = <
+					text = <"Diagnostic VPB frequency">
+					description = <"Description of VPB frequency.">
+				>
+			>
+		>
+	>

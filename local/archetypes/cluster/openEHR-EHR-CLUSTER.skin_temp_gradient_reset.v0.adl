@@ -1,0 +1,88 @@
+﻿archetype (adl_version=1.4; uid=2ba4a438-2217-4704-b0ee-cf015c177e6d)
+	openEHR-EHR-CLUSTER.skin_temp_gradient_reset.v0
+
+concept
+	[at0000]	-- Skin temperature gradient RESET
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2016-03-28">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For recording skin temperature gradient details in the context of an unscheduled clinical assessment.">
+			use = <"Use to record skin temperature gradient details.">
+			misuse = <"Not to be used for recording whole body temperature - use OBSERVATION.body_temperature.v1.">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"D03E64A52CAE5DEFA075700B3D84AA32">
+		["build_uid"] = <"84e92673-e581-49f1-9358-400c1e8cdf24">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Skin temperature gradient RESET
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- Skin temperature gradient
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0002, 	-- Warm to toes
+							at0003, 	-- Warm to ankle
+							at0004, 	-- Warm to mid lower leg
+							at0005]	-- Warm to knee
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Skin temperature gradient RESET">
+					description = <"Skin temperature gradient in unscheduled care assessment.">
+				>
+				["at0001"] = <
+					text = <"Skin temperature gradient">
+					description = <"Location of where warmth can be observed in lower leg.">
+				>
+				["at0002"] = <
+					text = <"Warm to toes">
+					description = <"The skin is warm as far as the toes.">
+				>
+				["at0003"] = <
+					text = <"Warm to ankle">
+					description = <"The skin is warm as far as the ankle.">
+				>
+				["at0004"] = <
+					text = <"Warm to mid lower leg">
+					description = <"The skin is warm as far as the mid lower leg.">
+				>
+				["at0005"] = <
+					text = <"Warm to knee">
+					description = <"The skin is warm as far as the knee.">
+				>
+			>
+		>
+	>

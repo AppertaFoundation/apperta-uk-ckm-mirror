@@ -1,0 +1,158 @@
+﻿archetype (adl_version=1.4; uid=01d16123-2b47-450a-8379-b4b271c32c7a)
+	openEHR-EHR-CLUSTER.prostate_cancer_pathology_gel.v0
+
+concept
+	[at0000]	-- Prostate cancer pathology GEL
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics UK">
+		["email"] = <"ian@freshehr.com">
+		["date"] = <"2017-04-10">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record prostate cancer pathology details aligned with Genomics England Cancer dataset.">
+			use = <"Use to record prostate cancer pathology details in the context of the Genomics England Cancer dataset where these details are not captured elsewhere.
+
+This cluster is intended to be used inside a Laboratory test observation.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"BB14C537DF81296490905A1BBC30BF95">
+		["build_uid"] = <"a0530aad-f406-4469-b223-b13608ad9cb6">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Prostate cancer pathology GEL
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- Perineural invasion
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0006, 	-- Yes
+							at0007, 	-- No
+							at0008, 	-- Not Assessable
+							at0009]	-- Not Known
+						}
+					}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {	-- Organ confined
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0010, 	-- Yes
+							at0011, 	-- No
+							at0012]	-- Not applicable
+						}
+					}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {	-- Seminal vesicles invasion
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0013, 	-- Yes
+							at0014, 	-- No
+							at0015]	-- Not applicable
+						}
+					}
+				}
+			}
+			ELEMENT[at0005] occurrences matches {0..1} matches {	-- TURP tumour percentage
+				value matches {
+					DV_PROPORTION matches {
+						numerator matches {|0.0..100.0|}
+						is_integral matches {False}
+						type matches {2}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Prostate cancer pathology GEL">
+					description = <"Prostate cancer pathology details aligned with GEL Cancer dataset.">
+				>
+				["at0001"] = <
+					text = <"Perineural invasion">
+					description = <"Is there perineural invasion (invasion into perineurium of nerve bundles - PNI).">
+				>
+				["at0002"] = <
+					text = <"Seminal vesicles invasion">
+					description = <"If prostatectomy was performed, is there  invasion into Seminal Vesicles?">
+				>
+				["at0004"] = <
+					text = <"Organ confined">
+					description = <"If prostatectomy was performed, is the tumour confined to the prostate?">
+				>
+				["at0005"] = <
+					text = <"TURP tumour percentage">
+					description = <"For Transurethral resection of prostate (TURP) only, what percentage of tumour is clinically unsuspected tumour.">
+				>
+				["at0006"] = <
+					text = <"Yes">
+					description = <"Pathology shows perineural invasion.">
+				>
+				["at0007"] = <
+					text = <"No">
+					description = <"Pathology does not show perineural invasion.">
+				>
+				["at0008"] = <
+					text = <"Not Assessable">
+					description = <"The presence or absence of perineural invasion is not assessable.">
+				>
+				["at0009"] = <
+					text = <"Not Known">
+					description = <"It is not known whether perineural invasion is present or not.">
+				>
+				["at0010"] = <
+					text = <"Yes">
+					description = <"The tumour is confined to the prostate.">
+				>
+				["at0011"] = <
+					text = <"No">
+					description = <"The tumour is not confined to the prostate.">
+				>
+				["at0012"] = <
+					text = <"Not applicable">
+					description = <"This question is not applicable, e.g. because prostatectomy was not performed.">
+				>
+				["at0013"] = <
+					text = <"Yes">
+					description = <"There is invasion into seminal vesicles.">
+				>
+				["at0014"] = <
+					text = <"No">
+					description = <"There is no invasion into seminal vesicles.">
+				>
+				["at0015"] = <
+					text = <"Not applicable">
+					description = <"This question is not applicable, e.g. because prostatectomy was not performed.">
+				>
+			>
+		>
+	>

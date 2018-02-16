@@ -1,0 +1,651 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>56ca2f71-2a08-45f2-8617-3158505e36fe</id>
+  <name>OpenCancer Urology MDT Referral Form.v1</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose>Intended to represent the dataset for the openCancer urology cancer MDT referral form.</purpose>
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.request.v1" concept_name="Request for service" name="MDT referral">
+    <Content xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.adhoc.v1" concept_name="Ad hoc heading" max="1" path="/content" name="General">
+      <Item xsi:type="INSTRUCTION" archetype_id="openEHR-EHR-INSTRUCTION.request.v0" concept_name="Service request" max="1" path="/items" name="Cancer MDT - urology referral">
+        <Rule path="/activities[at0001]" hide_on_form="true" />
+        <Rule path="/activities[at0001]/description[at0009]" hide_on_form="true" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0121]" default="Urology" name="MDT meeting" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0148]" max="0" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0135]" name="Specific questions for MDT" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0062]" name="Reason for referral">
+          <constraint xsi:type="textConstraint">
+            <includedValues>Diagnosis and staging</includedValues>
+            <includedValues>Management during or following treatment</includedValues>
+          </constraint>
+        </Rule>
+        <Rule path="/activities[at0001]/description[at0009]/items[at0064]" name="Clinical details" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0065]" max="0" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0068]" name="MDT review priority">
+          <constraint xsi:type="textConstraint">
+            <includedValues>Standard</includedValues>
+            <includedValues>Urgent</includedValues>
+            <includedValues>Target 31/62</includedValues>
+          </constraint>
+        </Rule>
+        <Rule path="/activities[at0001]/description[at0009]/items[at0040]" name="Specific date for MDT review" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0145]" max="0" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0144]" max="0" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0147]" max="0" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0076]" max="0" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0078]" max="0" />
+        <Rule path="/protocol[at0008]" hide_on_form="true" />
+        <Rule path="/protocol[at0008]/items[at0010]" max="0" />
+        <Rule path="/protocol[at0008]/items[at0011]" max="0" />
+        <Rule path="/protocol[at0008]/items[at0127]" max="0" />
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.urology_ref_details_oc.v0" concept_name="Cancer MDT referral details" path="/activities[at0001]/description[at0009]/items[at0132]" />
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.individual_professional_uk.v1" concept_name="Individual professional demographics (UK)" path="/protocol[at0008]/items[at0141]">
+          <Rule path="/items[at0006]" max="0" />
+          <Rule path="/items[at0005]" max="0" />
+          <Rule path="/items[at0012]" max="0" />
+          <Rule path="/items[at0011]" max="0" />
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.person_name.v1" concept_name="Person name" max="1" path="/items[at0015]" hide_on_form="true">
+            <Rule path="/items[at0006]" max="0" />
+            <Rule path="/items[at0022]" max="0" />
+            <Rule path="/items[at0001]" name="Requested by" />
+            <Rule path="/items[at0002]" max="0" />
+            <Rule path="/items[at0014]" max="0" />
+          </Items>
+        </Items>
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.individual_professional.v1" concept_name="Individual professional demographics (UK)" path="/protocol[at0008]/items[at0142]">
+          <Rule path="/items[at0006]" name="Responsible consultant speciality" />
+          <Rule path="/items[at0005]" max="0" />
+          <Rule path="/items[at0012]" max="0" />
+          <Rule path="/items[at0011]" max="0" />
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.person_name.v1" concept_name="Person name" max="1" path="/items[at0015]" hide_on_form="true">
+            <Rule path="/items[at0006]" max="0" />
+            <Rule path="/items[at0022]" max="0" />
+            <Rule path="/items[at0001]" name="Responsible consultant name" />
+            <Rule path="/items[at0002]" max="0" />
+            <Rule path="/items[at0014]" max="0" />
+          </Items>
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.telecom_uk.v1" concept_name="Telecom details (UK)" path="/items[at0017]" hide_on_form="true">
+            <Rule path="/items[at0002]" name="Responsible consultant contact details" />
+            <Rule path="/items[at0003]" max="0" />
+            <Rule path="/items[at0020]" name="Contact Method">
+              <constraint xsi:type="textConstraint">
+                <includedValues>Phone</includedValues>
+                <includedValues>Email</includedValues>
+                <includedValues>Fax</includedValues>
+              </constraint>
+            </Rule>
+            <Rule path="/items[at0021]" max="0" />
+          </Items>
+        </Items>
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.organisation.v1" concept_name="Organisation" path="/protocol[at0008]/items[at0142]">
+          <Rule path="/items[at0001]" name="Referring Hospital" />
+          <Rule path="/items[at0005]" max="0" />
+        </Items>
+      </Item>
+      <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v1" concept_name="Problem/Diagnosis" path="/items">
+        <Rule path="/data[at0001]" hide_on_form="true" />
+        <Rule path="/data[at0001]/items[at0002]" name="Primary tumour site">
+          <constraint xsi:type="textConstraint">
+            <includedValues>Kidney</includedValues>
+            <includedValues>Ureter</includedValues>
+            <includedValues>Bladder</includedValues>
+            <includedValues>Urethra</includedValues>
+            <includedValues>Prostate</includedValues>
+            <includedValues>Penis</includedValues>
+            <includedValues>Testicle/paratesticular</includedValues>
+            <includedValues>Non-urological primary</includedValues>
+            <includedValues>Carcinoma of unknown primary, presumed urological</includedValues>
+          </constraint>
+        </Rule>
+        <Rule path="/data[at0001]/items[at0009]" max="0" />
+        <Rule path="/data[at0001]/items[at0012]" max="0" />
+        <Rule path="/data[at0001]/items[at0077]" max="0" />
+        <Rule path="/data[at0001]/items[at0003]" max="0" />
+        <Rule path="/data[at0001]/items[at0005]" max="0" />
+        <Rule path="/data[at0001]/items[at0072]" max="0" />
+        <Rule path="/data[at0001]/items[at0030]" max="0" />
+        <Rule path="/data[at0001]/items[at0073]" max="0" />
+        <Rule path="/data[at0001]/items[at0069]" max="0" />
+        <Rule path="/protocol[at0032]" hide_on_form="true" />
+        <Rule path="/protocol[at0032]/items[at0070]" max="0" />
+      </Item>
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.ecog.v0" concept_name="ECOG Performance Status" path="/items">
+        <Rule path="/data[at0001]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]" hide_on_form="true">
+          <eventConstraint>
+            <allowedType>PointInTime</allowedType>
+          </eventConstraint>
+        </Rule>
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+        <Rule path="/protocol[at0011]" hide_on_form="true" />
+      </Item>
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.ace_27_uk_oc.v0" concept_name="ACE-27 UK Co-morbidities" path="/items">
+        <Rule path="/data[at0001]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+        <Rule path="/protocol[at0112]" hide_on_form="true" />
+      </Item>
+      <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.clinical_synopsis.v1" concept_name="Clinical Synopsis" path="/items">
+        <Rule path="/data[at0001]" hide_on_form="true" />
+        <Rule path="/data[at0001]/items[at0002]" name="Other relevant history, not captured in the ACE-27 scoring system" />
+      </Item>
+      <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.family_history.v1" concept_name="Family History" path="/items">
+        <Rule path="/data[at0001]" hide_on_form="true" />
+        <Rule path="/data[at0001]/items[at0002]" name="Relevant family history" />
+        <Rule path="/data[at0001]/items[at0003]" max="0" />
+        <Rule path="/protocol[at0025]" hide_on_form="true" />
+        <Rule path="/protocol[at0025]/items[at0026]" max="0" />
+      </Item>
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.imaging_exam.v1" concept_name="Imaging examination result" path="/items">
+        <Rule path="/data[at0001]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]" hide_on_form="true">
+          <eventConstraint>
+            <allowedType>PointInTime</allowedType>
+          </eventConstraint>
+        </Rule>
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]" default="Imaging result" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]">
+          <constraint xsi:type="textConstraint">
+            <includedValues>CT</includedValues>
+            <includedValues>MRI</includedValues>
+            <includedValues>Nuclear medicine</includedValues>
+            <includedValues>PET</includedValues>
+            <includedValues>Ultrasound</includedValues>
+            <includedValues>Plain X-ray</includedValues>
+            <includedValues>Other</includedValues>
+          </constraint>
+        </Rule>
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0007]" hide_on_form="true">
+          <constraint xsi:type="textConstraint">
+            <excludedValues>local::at0009</excludedValues>
+            <excludedValues>local::at0010</excludedValues>
+            <excludedValues>local::at0012</excludedValues>
+            <excludedValues>local::at0013</excludedValues>
+          </constraint>
+        </Rule>
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0024]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0014]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0008]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0015]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0020]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0021]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0022]" max="0" />
+        <Rule path="/protocol[at0025]/items[at0027]" max="0" />
+        <Rule path="/protocol[at0025]/items[at0042]" max="0" />
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.organisation.v1" concept_name="Organisation" path="/protocol[at0025]/items[at0026]">
+          <Rule path="/items[at0001]" name="Location for external scans" />
+          <Rule path="/items[at0011]" max="0" />
+          <Rule path="/items[at0005]" max="0" />
+        </Items>
+      </Item>
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.laboratory_test-histopathology.v0" concept_name="Histopathology test" path="/items">
+        <Rule path="/data[at0001]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]" hide_on_form="true">
+          <eventConstraint>
+            <allowedType>PointInTime</allowedType>
+          </eventConstraint>
+        </Rule>
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]" default="Pathology result" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0077]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0073]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0075]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0100]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0.118]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0057]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0098]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/state[at0112]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]/state[at0112]/items[at0113]" max="0" />
+        <Rule path="/protocol[at0004]/items[at0068]" max="0" />
+        <Rule path="/protocol[at0004]/items[at0094]" max="0" />
+        <Rule path="/protocol[at0004]/items[at0111]" max="0" />
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.specimen.v0" concept_name="Specimen" path="/data[at0001]/events[at0002]/data[at0003]/items[at0065]">
+          <Rule path="/items[at0029]">
+            <constraint xsi:type="textConstraint">
+              <includedValues>Biopsy</includedValues>
+              <includedValues>Resection</includedValues>
+              <includedValues>Cytology</includedValues>
+              <includedValues>Marrow</includedValues>
+              <includedValues>Other</includedValues>
+            </constraint>
+          </Rule>
+          <Rule path="/items[at0015]" max="0" />
+          <Rule path="/items[at0008]" max="0" />
+          <Rule path="/items[at0007]" max="0" />
+          <Rule path="/items[at0079]" max="0" />
+          <Rule path="/items[at0005]" max="0" />
+          <Rule path="/items[at0067]" max="0" />
+          <Rule path="/items[at0070]" max="0" />
+          <Rule path="/items[at0080]" max="0" />
+          <Rule path="/items[at0039]" max="0" />
+          <Rule path="/items[at0046]" max="0" />
+          <Rule path="/items[at0081]" max="0" />
+        </Items>
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.organisation.v1" concept_name="Organisation" path="/protocol[at0004]/items[at0017]">
+          <Rule path="/items[at0001]" name="Location" />
+          <Rule path="/items[at0011]" max="0" />
+          <Rule path="/items[at0005]" max="0" />
+        </Items>
+      </Item>
+    </Content>
+    <Content xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.adhoc.v1" concept_name="Ad hoc heading" max="1" path="/content" name="Disease specific questions">
+      <Item xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.adhoc.v1" concept_name="Ad hoc heading" max="1" path="/items" name="Prostate">
+        <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.laboratory_test.v0" concept_name="Laboratory test" path="/items">
+          <Rule path="/data[at0001]" hide_on_form="true" />
+          <Rule path="/data[at0001]/events[at0002]" hide_on_form="true">
+            <eventConstraint>
+              <allowedType>PointInTime</allowedType>
+            </eventConstraint>
+          </Rule>
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]" name="PSA" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0073]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0075]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0077]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0100]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0057]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0098]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0101]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/state[at0112]" hide_on_form="true" />
+          <Rule path="/data[at0001]/events[at0002]/state[at0112]/items[at0113]" max="0" />
+          <Rule path="/protocol[at0004]" hide_on_form="true" />
+          <Rule path="/protocol[at0004]/items[at0068]" max="0" />
+          <Rule path="/protocol[at0004]/items[at0094]" max="0" />
+          <Rule path="/protocol[at0004]/items[at0111]" max="0" />
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true">
+            <Rule path="/items[at0002]" hide_on_form="true" />
+            <Rule path="/items[at0002]/items[at0001]" name="PSA result">
+              <constraint xsi:type="multipleConstraint">
+                <includedTypes>Quantity</includedTypes>
+              </constraint>
+            </Rule>
+            <Rule path="/items[at0002]/items[at0003]" max="0" />
+            <Rule path="/items[at0002]/items[at0004]" max="0" />
+            <Rule path="/items[at0002]/items[at0005]" max="0" />
+            <Rule path="/items[at0002]/items[at0006]" max="0" />
+          </Items>
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.dimensions.v1" concept_name="Dimensions" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true">
+            <Rule path="/items[at0001]" max="0" />
+            <Rule path="/items[at0002]" max="0" />
+            <Rule path="/items[at0003]" max="0" />
+            <Rule path="/items[at0004]" max="0" />
+            <Rule path="/items[at0005]" max="0" />
+            <Rule path="/items[at0006]" name="Prostate volume">
+              <constraint xsi:type="quantityConstraint">
+                <excludedUnits>in3</excludedUnits>
+                <excludedUnits>ft3</excludedUnits>
+                <excludedUnits>cc</excludedUnits>
+                <excludedUnits>mm3</excludedUnits>
+              </constraint>
+            </Rule>
+          </Items>
+        </Item>
+        <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.i_pss_prostate_score.v0" concept_name="I-PSS Prostate Score" path="/items">
+          <Rule path="/data[at0001]" hide_on_form="true" />
+          <Rule path="/data[at0001]/events[at0002]" hide_on_form="true" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0013]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0020]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0028]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0035]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0042]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0049]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0056]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/state[at0074]" hide_on_form="true" />
+          <Rule path="/data[at0001]/events[at0002]/state[at0074]/items[at0075]" max="0" />
+          <Rule path="/protocol[at0072]" hide_on_form="true" />
+        </Item>
+        <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.body_mass_index.v1" concept_name="Body mass index" path="/items">
+          <Rule path="/data[at0001]" hide_on_form="true" />
+          <Rule path="/data[at0001]/events[at0002]" hide_on_form="true">
+            <eventConstraint>
+              <allowedType>PointInTime</allowedType>
+            </eventConstraint>
+          </Rule>
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+          <Rule path="/protocol[at0005]" hide_on_form="true" />
+          <Rule path="/protocol[at0005]/items[at0006]" max="0" />
+          <Rule path="/protocol[at0005]/items[at0010]" max="0" />
+          <Rule path="/protocol[at0005]/items[at0011]" max="0" />
+        </Item>
+        <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.dis_spec_qs_urology_mdt_ref_oc.v0" concept_name="Disease specific questions for Urology Cancer MDT referral" path="/items" hide_on_form="true">
+          <Rule path="/data[at0001]" hide_on_form="true" />
+          <Rule path="/data[at0001]/events[at0002]" hide_on_form="true" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0013]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0014]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0015]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0016]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0017]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0018]" max="0" />
+          <Rule path="/protocol[at0019]" hide_on_form="true" />
+        </Item>
+      </Item>
+      <Item xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.adhoc.v1" concept_name="Ad hoc heading" max="1" path="/items" name="Kidney">
+        <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.laboratory_test.v0" concept_name="Laboratory test" path="/items">
+          <Rule path="/data[at0001]" hide_on_form="true" />
+          <Rule path="/data[at0001]/events[at0002]" hide_on_form="true">
+            <eventConstraint>
+              <allowedType>PointInTime</allowedType>
+            </eventConstraint>
+          </Rule>
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]" name="eGFR/GFR" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0073]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0075]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0077]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0100]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0057]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0098]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0101]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/state[at0112]" hide_on_form="true" />
+          <Rule path="/data[at0001]/events[at0002]/state[at0112]/items[at0113]" max="0" />
+          <Rule path="/protocol[at0004]" hide_on_form="true" />
+          <Rule path="/protocol[at0004]/items[at0068]" max="0" />
+          <Rule path="/protocol[at0004]/items[at0094]" max="0" />
+          <Rule path="/protocol[at0004]/items[at0111]" max="0" />
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true">
+            <Rule path="/items[at0002]" hide_on_form="true" />
+            <Rule path="/items[at0002]/items[at0001]" name="eGFR/GFR result">
+              <constraint xsi:type="multipleConstraint">
+                <includedTypes>Quantity</includedTypes>
+              </constraint>
+            </Rule>
+            <Rule path="/items[at0002]/items[at0003]" max="0" />
+            <Rule path="/items[at0002]/items[at0004]" max="0" />
+            <Rule path="/items[at0002]/items[at0005]" max="0" />
+            <Rule path="/items[at0002]/items[at0006]" max="0" />
+          </Items>
+        </Item>
+        <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.dis_spec_qs_urology_mdt_ref_oc.v0" concept_name="Disease specific questions for Urology Cancer MDT referral" path="/items" hide_on_form="true">
+          <Rule path="/data[at0001]" hide_on_form="true" />
+          <Rule path="/data[at0001]/events[at0002]" hide_on_form="true" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0011]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0013]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0014]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0015]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0016]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0017]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0018]" max="0" />
+          <Rule path="/protocol[at0019]" hide_on_form="true" />
+        </Item>
+      </Item>
+      <Item xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.adhoc.v1" concept_name="Ad hoc heading" max="1" path="/items" name="Ureter">
+        <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.laboratory_test.v0" concept_name="Laboratory test" path="/items">
+          <Rule path="/data[at0001]" hide_on_form="true" />
+          <Rule path="/data[at0001]/events[at0002]" hide_on_form="true">
+            <eventConstraint>
+              <allowedType>PointInTime</allowedType>
+            </eventConstraint>
+          </Rule>
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]" name="eGFR/GFR" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0073]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0075]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0077]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0100]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0057]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0098]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0101]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/state[at0112]" hide_on_form="true" />
+          <Rule path="/data[at0001]/events[at0002]/state[at0112]/items[at0113]" max="0" />
+          <Rule path="/protocol[at0004]" hide_on_form="true" />
+          <Rule path="/protocol[at0004]/items[at0068]" max="0" />
+          <Rule path="/protocol[at0004]/items[at0094]" max="0" />
+          <Rule path="/protocol[at0004]/items[at0111]" max="0" />
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true">
+            <Rule path="/items[at0002]" hide_on_form="true" />
+            <Rule path="/items[at0002]/items[at0001]" name="eGFR/GFR result">
+              <constraint xsi:type="multipleConstraint">
+                <includedTypes>Quantity</includedTypes>
+              </constraint>
+            </Rule>
+            <Rule path="/items[at0002]/items[at0003]" max="0" />
+            <Rule path="/items[at0002]/items[at0004]" max="0" />
+            <Rule path="/items[at0002]/items[at0005]" max="0" />
+            <Rule path="/items[at0002]/items[at0006]" max="0" />
+          </Items>
+        </Item>
+        <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.dis_spec_qs_urology_mdt_ref_oc.v0" concept_name="Disease specific questions for Urology Cancer MDT referral" path="/items" hide_on_form="true">
+          <Rule path="/data[at0001]" hide_on_form="true" />
+          <Rule path="/data[at0001]/events[at0002]" hide_on_form="true" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0011]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0013]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0014]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0015]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0016]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0017]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0018]" max="0" />
+          <Rule path="/protocol[at0019]" hide_on_form="true" />
+        </Item>
+      </Item>
+      <Item xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.adhoc.v1" concept_name="Ad hoc heading" max="1" path="/items" name="Bladder">
+        <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.laboratory_test.v0" concept_name="Laboratory test" path="/items">
+          <Rule path="/data[at0001]" hide_on_form="true" />
+          <Rule path="/data[at0001]/events[at0002]" hide_on_form="true">
+            <eventConstraint>
+              <allowedType>PointInTime</allowedType>
+            </eventConstraint>
+          </Rule>
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]" name="eGFR/GFR" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0073]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0075]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0077]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0100]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0057]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0098]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0101]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/state[at0112]" hide_on_form="true" />
+          <Rule path="/data[at0001]/events[at0002]/state[at0112]/items[at0113]" max="0" />
+          <Rule path="/protocol[at0004]" hide_on_form="true" />
+          <Rule path="/protocol[at0004]/items[at0068]" max="0" />
+          <Rule path="/protocol[at0004]/items[at0094]" max="0" />
+          <Rule path="/protocol[at0004]/items[at0111]" max="0" />
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true">
+            <Rule path="/items[at0002]" hide_on_form="true" />
+            <Rule path="/items[at0002]/items[at0001]" name="eGFR/GFR result">
+              <constraint xsi:type="multipleConstraint">
+                <includedTypes>Quantity</includedTypes>
+              </constraint>
+            </Rule>
+            <Rule path="/items[at0002]/items[at0003]" max="0" />
+            <Rule path="/items[at0002]/items[at0004]" max="0" />
+            <Rule path="/items[at0002]/items[at0005]" max="0" />
+            <Rule path="/items[at0002]/items[at0006]" max="0" />
+          </Items>
+        </Item>
+        <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.dis_spec_qs_urology_mdt_ref_oc.v0" concept_name="Disease specific questions for Urology Cancer MDT referral" path="/items" hide_on_form="true">
+          <Rule path="/data[at0001]" hide_on_form="true" />
+          <Rule path="/data[at0001]/events[at0002]" hide_on_form="true" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0011]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0015]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0016]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0017]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0018]" max="0" />
+          <Rule path="/protocol[at0019]" hide_on_form="true" />
+        </Item>
+      </Item>
+      <Item xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.adhoc.v1" concept_name="Ad hoc heading" max="1" path="/items" name="Penile">
+        <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.dis_spec_qs_urology_mdt_ref_oc.v0" concept_name="Disease specific questions for Urology Cancer MDT referral" path="/items" hide_on_form="true">
+          <Rule path="/data[at0001]" hide_on_form="true" />
+          <Rule path="/data[at0001]/events[at0002]" hide_on_form="true" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0011]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0012]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0013]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0014]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0016]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0017]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0018]" max="0" />
+          <Rule path="/protocol[at0019]" hide_on_form="true" />
+        </Item>
+      </Item>
+      <Item xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.adhoc.v1" concept_name="Ad hoc heading" max="1" path="/items" name="Testicle/paratesticular">
+        <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.dis_spec_qs_urology_mdt_ref_oc.v0" concept_name="Disease specific questions for Urology Cancer MDT referral" path="/items" hide_on_form="true">
+          <Rule path="/data[at0001]" hide_on_form="true" />
+          <Rule path="/data[at0001]/events[at0002]" hide_on_form="true" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0011]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0012]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0013]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0014]" max="0" />
+          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0015]" max="0" />
+          <Rule path="/protocol[at0019]" hide_on_form="true" />
+        </Item>
+      </Item>
+    </Content>
+    <Context>
+      <Rule path="/context/other_context[at0001]" hide_on_form="true" />
+      <hide_on_form>true</hide_on_form>
+    </Context>
+  </definition>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-COMPOSITION.request.v1">
+    <digest id="MD5-CAM-1.0.1">359240E886E60B5DF8FF06904482F72E</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-SECTION.adhoc.v1">
+    <digest id="MD5-CAM-1.0.1">833221C23E2B25AD3CB9B0B78EE33740</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-INSTRUCTION.request.v0">
+    <digest id="MD5-CAM-1.0.1">C181B6C9E379899299B8FB6559E37388</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.urology_ref_details_oc.v0">
+    <digest id="MD5-CAM-1.0.1">EF3C07F7D8C7C5F737206A5BC05EFA5B</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.individual_professional_uk.v1">
+    <digest id="MD5-CAM-1.0.1">5E3BA5FF089BD92C10C27A1F8B14B31D</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.person_name.v1">
+    <digest id="MD5-CAM-1.0.1">2D8CF370D3AEC6DDC6F9847963051B89</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.individual_professional.v1">
+    <digest id="MD5-CAM-1.0.1">D8FF4CD54F4850A1A914AAEBA3A6FEDF</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.telecom_uk.v1">
+    <digest id="MD5-CAM-1.0.1">A5BF845541EBF8160EAC1B51A67104B4</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.organisation.v1">
+    <digest id="MD5-CAM-1.0.1">B932A22934CC38489610A47273A86DA8</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v1">
+    <digest id="MD5-CAM-1.0.1">88AF7BC619F0DF958D2F00293756F398</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.ecog.v0">
+    <digest id="MD5-CAM-1.0.1">704EE67567722F1168ACA068A425082D</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.ace_27_uk_oc.v0">
+    <digest id="MD5-CAM-1.0.1">CAE462922B59D1B88C1FF78A4F48899A</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.clinical_synopsis.v1">
+    <digest id="MD5-CAM-1.0.1">2D066E7C501C2DAEC625DEE2ECD81DF4</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.family_history.v1">
+    <digest id="MD5-CAM-1.0.1">0074A03F125EAEFA8BEE39CBAF7EE3A0</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.imaging_exam.v1">
+    <digest id="MD5-CAM-1.0.1">E115450A8DA092A0431A3D9777634573</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.laboratory_test-histopathology.v0">
+    <digest id="MD5-CAM-1.0.1">5D4C5CFDABE14897E91B4F3FD7B774A3</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.specimen.v0">
+    <digest id="MD5-CAM-1.0.1">328C511116FD83D7F25973284D8D9F60</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.laboratory_test.v0">
+    <digest id="MD5-CAM-1.0.1">64F4898018F4D87C7D8ADAF36558AAF7</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0">
+    <digest id="MD5-CAM-1.0.1">4609D4C2AA596C22113E03DFFBB7737C</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.dimensions.v1">
+    <digest id="MD5-CAM-1.0.1">B14424CBA9C103AF726A1081BCA771B4</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.i_pss_prostate_score.v0">
+    <digest id="MD5-CAM-1.0.1">D41D91DE24B031E2F569B1DB28F91205</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.body_mass_index.v1">
+    <digest id="MD5-CAM-1.0.1">361412E9CC6A4FE18B28D7869FA3B28A</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.dis_spec_qs_urology_mdt_ref_oc.v0">
+    <digest id="MD5-CAM-1.0.1">0B2B2DDDF87E3556F0DCF4764BF44ACA</digest>
+  </integrity_checks>
+</template>

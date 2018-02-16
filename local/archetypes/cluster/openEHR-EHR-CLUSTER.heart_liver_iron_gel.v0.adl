@@ -1,0 +1,156 @@
+﻿archetype (adl_version=1.4; uid=353eb89f-2919-4c28-a5bc-bff8fd49bb12)
+	openEHR-EHR-CLUSTER.heart_liver_iron_gel.v0
+
+concept
+	[at0000]	-- Heart or liver iron measurement GEL
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2017-01-24">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the capture and reporting of imaging details for heart or liver iron measurements in the context of Genomics England datasets.">
+			use = <"Use to record details of heart or liver iron measurements as part of imaging examinations in the Genomics England datasets. This cluster is intended to be used inside an imaging examination observation archetype.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"C603D0980456602A264294A621CC2E22">
+		["build_uid"] = <"7f83215c-298d-4310-b5c4-a57b3f5522ca">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Heart or liver iron measurement GEL
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- Ferriscan result
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::124]>
+						list = <
+							["1"] = <
+								units = <"gm">
+								magnitude = <|>=0.0|>
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {	-- T2*MRI liver result interpretation
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0004, 	-- Normal
+							at0003, 	-- Unknown
+							at0005, 	-- Abnormal relevant
+							at0006]	-- Abnormal unknown relevance
+						}
+					}
+				}
+			}
+			ELEMENT[at0007] occurrences matches {0..1} matches {	-- T2*MRI heart result interpretation
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0004, 	-- Normal
+							at0005, 	-- Abnormal relevant
+							at0006, 	-- Abnormal unknown relevance
+							at0007]	-- T2*MRI heart result interpretation
+						}
+					}
+				}
+			}
+			ELEMENT[at0008] occurrences matches {0..1} matches {	-- T2*MRI liver result
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::128]>
+						list = <
+							["1"] = <
+								units = <"millisec">
+								magnitude = <|>=0.0|>
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0009] occurrences matches {0..1} matches {	-- T2*MRI heart result
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::128]>
+						list = <
+							["1"] = <
+								units = <"millisec">
+								magnitude = <|>=0.0|>
+							>
+						>
+					>
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Heart or liver iron measurement GEL">
+					description = <"Local cluster to capture heart or liver iron measurements as part of Genomics England datasets.">
+				>
+				["at0001"] = <
+					text = <"Ferriscan result">
+					description = <"Measurement of liver iron concentration in grams.">
+				>
+				["at0002"] = <
+					text = <"T2*MRI liver result interpretation">
+					description = <"Interpretation of iron quantification in liver by T2*MRI.">
+				>
+				["at0003"] = <
+					text = <"Unknown">
+					description = <"No results are available.">
+				>
+				["at0004"] = <
+					text = <"Normal">
+					description = <"The result is normal.">
+				>
+				["at0005"] = <
+					text = <"Abnormal relevant">
+					description = <"The result shows an abnormality of clinical relevance to the patient's condition.">
+				>
+				["at0006"] = <
+					text = <"Abnormal unknown relevance">
+					description = <"The result shows an abnormality of unknown clinical relevance to the patient's condition.">
+				>
+				["at0007"] = <
+					text = <"T2*MRI heart result interpretation">
+					description = <"Interpretation of iron quantification in heart by T2*MRI.">
+				>
+				["at0008"] = <
+					text = <"T2*MRI liver result">
+					description = <"The T2*MRI liver result as a time interval in milliseconds.">
+				>
+				["at0009"] = <
+					text = <"T2*MRI heart result">
+					description = <"The T2*MRI heart result as a time interval in milliseconds.">
+				>
+			>
+		>
+	>
