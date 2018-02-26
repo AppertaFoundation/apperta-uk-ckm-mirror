@@ -89,6 +89,7 @@
       <Rule path="/protocol[at0008]/items[at0011]" max="0" />
       <Rule path="/protocol[at0008]/items[at0127]" max="0" />
       <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.care_plan_performance_status_gel.v0" concept_name="Care plan performance status GEL" max="1" path="/activities[at0001]/description[at0009]/items[at0132]" name="Care plan performance status" hide_on_form="true" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.cancer_care_plan_gel.v0" concept_name="Cancer care plan GEL" max="1" path="/activities[at0001]/description[at0009]/items[at0132]" name="Cancer care plan" />
     </Content>
     <Content xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v1" concept_name="Problem/Diagnosis" path="/content">
       <Rule path="/data[at0001]" hide_on_form="true" />
@@ -151,6 +152,9 @@
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.care_plan_performance_status_gel.v0">
     <digest id="MD5-CAM-1.0.1">AFB4E1A17EDA6CA290E2C57C060C5C52</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.cancer_care_plan_gel.v0">
+    <digest id="MD5-CAM-1.0.1">AB2A13D1CF81524530101AF9830EFC8E</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v1">
     <digest id="MD5-CAM-1.0.1">6110E221A71B0A223ACDF7184471D1C8</digest>
