@@ -1,0 +1,178 @@
+﻿archetype (adl_version=1.4; uid=1dfcf652-793b-41e9-8787-fd4eec6e0776)
+	openEHR-EHR-CLUSTER.upper_gi_staging_gel.v0
+
+concept
+	[at0000]	-- Upper GI staging GEL
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2017-09-27">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the capture and reporting of specific GI cancer staging details in the context of GEL cancer datasets.">
+			use = <"Use to record specific GI cancer staging details as part of GEL cancer datasets.
+
+This cluster archetype is intended to be used in the Test findings slot in a laboratory test result observation archetype or in the Specific details slot of a problem diagnosis evaluation archetype.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"0F5E07B19C49EE8BAA384F720AF96D54">
+		["build_uid"] = <"6c78b3e4-b053-405c-a7ab-57080a174bd6">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Upper GI staging GEL
+		items cardinality matches {1..*; unordered} matches {
+			allow_archetype CLUSTER[at0001] occurrences matches {0..*} matches {	-- BCLC stage
+				include
+					archetype_id/value matches {/.*/}
+			}
+			allow_archetype CLUSTER[at0002] occurrences matches {0..*} matches {	-- Child-Pugh score
+				include
+					archetype_id/value matches {/.*/}
+			}
+			ELEMENT[at0003] occurrences matches {0..1} matches {	-- Portal invasion
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0004, 	-- Y Present
+							at0005, 	-- N Not present
+							at0006]	-- 9 Not known
+						}
+					}
+				}
+			}
+			ELEMENT[at0007] occurrences matches {0..1} matches {	-- Number of lesions
+				value matches {
+					DV_COUNT matches {
+						magnitude matches {|>=0|}
+					}
+				}
+			}
+			ELEMENT[at0008] occurrences matches {0..1} matches {	-- Pancreatic clinical stage
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0009, 	-- 10 Localised and resectable
+							at0010, 	-- 20 Borderline resectable
+							at0011, 	-- 30 Unresectable locally advanced or metastatic
+							at0012, 	-- 31 Unresectable locally advanced
+							at0013]	-- 32 Unresectable metastatic
+						}
+					}
+				}
+			}
+			ELEMENT[at0014] occurrences matches {0..1} matches {	-- Transarterial chemoembolisation
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0015, 	-- Y Yes
+							at0016, 	-- N No
+							at0017]	-- 9 Not known
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Upper GI staging GEL">
+					description = <"Details of specific upper GI cancer staging in the context of GEL cancer datasets.">
+				>
+				["at0001"] = <
+					text = <"BCLC stage">
+					description = <"Barcelona clinic liver cancer stage.">
+				>
+				["at0002"] = <
+					text = <"Child-Pugh score">
+					description = <"Child-Pugh score.">
+				>
+				["at0003"] = <
+					text = <"Portal invasion">
+					description = <"Statement about portal invasion.">
+				>
+				["at0004"] = <
+					text = <"Y Present">
+					description = <"Findings indicate that portal invasion is present.">
+				>
+				["at0005"] = <
+					text = <"N Not present">
+					description = <"Findings indicate that portal invasion is not present.">
+				>
+				["at0006"] = <
+					text = <"9 Not known">
+					description = <"It is not known whether portal invasion is present.">
+				>
+				["at0007"] = <
+					text = <"Number of lesions">
+					description = <"Number of lesions as per radiological findings.">
+				>
+				["at0008"] = <
+					text = <"Pancreatic clinical stage">
+					description = <"Details of clinical stage for pancreatic cancer.">
+				>
+				["at0009"] = <
+					text = <"10 Localised and resectable">
+					description = <"Stage is deemed to be localised and resectable.">
+				>
+				["at0010"] = <
+					text = <"20 Borderline resectable">
+					description = <"Stage is deemed to be borderline resectable.">
+				>
+				["at0011"] = <
+					text = <"30 Unresectable locally advanced or metastatic">
+					description = <"Stage is deemed to be unresectable (locally advanced or metastatic).">
+				>
+				["at0012"] = <
+					text = <"31 Unresectable locally advanced">
+					description = <"Stage is deemed to be unresectable (locally advanced).">
+				>
+				["at0013"] = <
+					text = <"32 Unresectable metastatic">
+					description = <"Stage is deemed to be unresectable (metastatic).">
+				>
+				["at0014"] = <
+					text = <"Transarterial chemoembolisation">
+					description = <"Statement about transarterial chemoembolisation.">
+				>
+				["at0015"] = <
+					text = <"Y Yes">
+					description = <"Transarterial chemoembolisation is deemed to be present.">
+				>
+				["at0016"] = <
+					text = <"N No">
+					description = <"Transarterial chemoembolisation is not deemed to be present.">
+				>
+				["at0017"] = <
+					text = <"9 Not known">
+					description = <"It is not known whether transarterial chemoembolisation is present.">
+				>
+			>
+		>
+	>
