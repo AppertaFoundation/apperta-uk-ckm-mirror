@@ -1,0 +1,358 @@
+﻿archetype (adl_version=1.4; uid=609c596d-084b-483a-9663-ada4593171aa)
+	openEHR-EHR-CLUSTER.cns_surgery_gel.v0
+
+concept
+	[at0000]	-- CNS surgery GEL
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2017-09-27">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the capture and reporting of specific surgery details for CNS cancer in the context of GEL cancer datasets.">
+			use = <"Use to record specific surgery details for CNS cancer as part of the GEL cancer dataset.
+
+This cluster archetype is intended to be used in the Procedure details slot of the procedure action archetype.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"8CEDD49A85309FA840FF5B77452D3840">
+		["build_uid"] = <"7d77e0c4-4eb6-4d12-a16c-8fe0b4431d2c">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- CNS surgery GEL
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- Tumour location
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0002, 	-- 01 Frontal lobe
+							at0003, 	-- 02 Temporal lobe
+							at0004, 	-- 03 Parietal lobe
+							at0005, 	-- 04 Occipital lobe
+							at0006, 	-- 05 Pineal region
+							at0007, 	-- 06 Hypothalamic
+							at0008, 	-- 07 Basal ganglia or thalamic
+							at0009, 	-- 08 Cerebellar
+							at0010, 	-- 09 Midbrain
+							at0011, 	-- 10 Pons
+							at0012, 	-- 11 Medulla
+							at0013, 	-- 12 Fourth ventricle
+							at0014, 	-- 13 Third ventricle
+							at0015, 	-- 14 Lateral ventricle
+							at0016, 	-- 15 Parasagittal or parafalcine dura
+							at0017, 	-- 16 Posterior fossa convexity dura
+							at0018, 	-- 17 Convexity dura
+							at0019, 	-- 18 Petrous temporal bone
+							at0020, 	-- 19 Orbital roof
+							at0021, 	-- 20 Skull vault
+							at0022, 	-- 21 Scalp
+							at0023, 	-- 22 Anterior cranial fossa
+							at0024, 	-- 23 Middle cranial fossa
+							at0025, 	-- 25 Infratemporal fossa
+							at0026, 	-- 26 Pterygopalatine fossa
+							at0027, 	-- 27 Anterior clinoid dura
+							at0028, 	-- 28 Sphenoid wing dura
+							at0029, 	-- 29 Subfrontal dura
+							at0030, 	-- 30 Suprasellar dura
+							at0031, 	-- 31 Clival dura
+							at0032, 	-- 32 Cavernous sinus
+							at0033, 	-- 33 Cerebellopontine angle
+							at0034, 	-- 34 Jugular bulb
+							at0035, 	-- 35 Venous angle dura
+							at0036, 	-- 36 Foramen magnum
+							at0037, 	-- 37 Cervical intramedullary
+							at0038, 	-- 38 Cervical intradural
+							at0039, 	-- 39 Cervical extradural
+							at0040, 	-- 40 Cervical bony
+							at0041, 	-- 41 Thoracic intramedullary
+							at0042, 	-- 42 Thoracic intradural
+							at0043, 	-- 43 Thoracic extradural
+							at0044, 	-- 44 Thoracic bony
+							at0045, 	-- 45 Lumbar intramedullary
+							at0046, 	-- 46 Lumbar intradural
+							at0047, 	-- 47 Lumbar extradural
+							at0048, 	-- 48 Lumbar bony
+							at0049]	-- 98 Other
+						}
+					}
+				}
+			}
+			ELEMENT[at0050] occurrences matches {0..1} matches {	-- Excision or procedure type
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0051, 	-- 1 Limited less than 50 percent
+							at0052, 	-- 2 Partial 50 to 69 percent
+							at0053, 	-- 3 Subtotal 70 to 95 percent
+							at0054, 	-- 4 Total macroscopic
+							at0055, 	-- 5 Extent uncertain
+							at0056, 	-- 6 CSF division procedure
+							at0057]	-- 9 Not known
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"CNS surgery GEL">
+					description = <"Specific surgery details for CNS cancer in the context of GEL cancer datasets.">
+				>
+				["at0001"] = <
+					text = <"Tumour location">
+					description = <"Specific tumour location of CNS tumour.">
+				>
+				["at0002"] = <
+					text = <"01 Frontal lobe">
+					description = <"The lesion is located in the frontal lobe.">
+				>
+				["at0003"] = <
+					text = <"02 Temporal lobe">
+					description = <"The lesion is located in the temporal lobe.">
+				>
+				["at0004"] = <
+					text = <"03 Parietal lobe">
+					description = <"The lesion is located in the parietal lobe.">
+				>
+				["at0005"] = <
+					text = <"04 Occipital lobe">
+					description = <"The lesion is located in the occipital lobe.">
+				>
+				["at0006"] = <
+					text = <"05 Pineal region">
+					description = <"The lesion is located in the pineal region.">
+				>
+				["at0007"] = <
+					text = <"06 Hypothalamic">
+					description = <"The lesion is located in the hypothalamic area.">
+				>
+				["at0008"] = <
+					text = <"07 Basal ganglia or thalamic">
+					description = <"The lesion is located in the basal ganglia or thalamic area.">
+				>
+				["at0009"] = <
+					text = <"08 Cerebellar">
+					description = <"The lesion is located in the cerebellar area.">
+				>
+				["at0010"] = <
+					text = <"09 Midbrain">
+					description = <"The lesion is located in the midbrain.">
+				>
+				["at0011"] = <
+					text = <"10 Pons">
+					description = <"The lesion is located in the pons.">
+				>
+				["at0012"] = <
+					text = <"11 Medulla">
+					description = <"The lesion is located in the medulla.">
+				>
+				["at0013"] = <
+					text = <"12 Fourth ventricle">
+					description = <"The lesion is located in the fourth ventricle.">
+				>
+				["at0014"] = <
+					text = <"13 Third ventricle">
+					description = <"The lesion is located in the third ventricle.">
+				>
+				["at0015"] = <
+					text = <"14 Lateral ventricle">
+					description = <"The lesion is located in the lateral ventricle.">
+				>
+				["at0016"] = <
+					text = <"15 Parasagittal or parafalcine dura">
+					description = <"The lesion is located in the parasagittal or parafalcine dura.">
+				>
+				["at0017"] = <
+					text = <"16 Posterior fossa convexity dura">
+					description = <"The lesion is located in the posterior fossa convexity dura.">
+				>
+				["at0018"] = <
+					text = <"17 Convexity dura">
+					description = <"The lesion is located in the convexity dura.">
+				>
+				["at0019"] = <
+					text = <"18 Petrous temporal bone">
+					description = <"The lesion is located in the petrous temporal bone.">
+				>
+				["at0020"] = <
+					text = <"19 Orbital roof">
+					description = <"The lesion is located in the orbital roof.">
+				>
+				["at0021"] = <
+					text = <"20 Skull vault">
+					description = <"The lesion is located in the skull vault.">
+				>
+				["at0022"] = <
+					text = <"21 Scalp">
+					description = <"The lesion is located in the scalp.">
+				>
+				["at0023"] = <
+					text = <"22 Anterior cranial fossa">
+					description = <"The lesion is located in the anterior cranial fossa.">
+				>
+				["at0024"] = <
+					text = <"23 Middle cranial fossa">
+					description = <"The lesion is located in the middle cranial fossa.">
+				>
+				["at0025"] = <
+					text = <"25 Infratemporal fossa">
+					description = <"The lesion is located in the infratemporal fossa.">
+				>
+				["at0026"] = <
+					text = <"26 Pterygopalatine fossa">
+					description = <"The lesion is located in the pterygopalatine fossa.">
+				>
+				["at0027"] = <
+					text = <"27 Anterior clinoid dura">
+					description = <"The lesion is located in the anterior clinoid dura.">
+				>
+				["at0028"] = <
+					text = <"28 Sphenoid wing dura">
+					description = <"The lesion is located in the sphenoid wing dura.">
+				>
+				["at0029"] = <
+					text = <"29 Subfrontal dura">
+					description = <"The lesion is located in the subfrontal dura.">
+				>
+				["at0030"] = <
+					text = <"30 Suprasellar dura">
+					description = <"The lesion is located in the suprasellar dura.">
+				>
+				["at0031"] = <
+					text = <"31 Clival dura">
+					description = <"The lesion is located in the clival dura.">
+				>
+				["at0032"] = <
+					text = <"32 Cavernous sinus">
+					description = <"The lesion is located in the cavernous sinus.">
+				>
+				["at0033"] = <
+					text = <"33 Cerebellopontine angle">
+					description = <"The lesion is located in the cerebellopontine angle.">
+				>
+				["at0034"] = <
+					text = <"34 Jugular bulb">
+					description = <"The lesion is located in the jugular bulb.">
+				>
+				["at0035"] = <
+					text = <"35 Venous angle dura">
+					description = <"The lesion is located in the venous angle dura.">
+				>
+				["at0036"] = <
+					text = <"36 Foramen magnum">
+					description = <"The lesion is located in the foramen magnum.">
+				>
+				["at0037"] = <
+					text = <"37 Cervical intramedullary">
+					description = <"The lesion is located in the cervical intramedullary.">
+				>
+				["at0038"] = <
+					text = <"38 Cervical intradural">
+					description = <"The lesion is located in the cervical intradural.">
+				>
+				["at0039"] = <
+					text = <"39 Cervical extradural">
+					description = <"The lesion is located in the cervical extradural.">
+				>
+				["at0040"] = <
+					text = <"40 Cervical bony">
+					description = <"The lesion is located in the cervical bony.">
+				>
+				["at0041"] = <
+					text = <"41 Thoracic intramedullary">
+					description = <"The lesion is located in the thoracid intramedullary.">
+				>
+				["at0042"] = <
+					text = <"42 Thoracic intradural">
+					description = <"The lesion is located in the thoracic intradural.">
+				>
+				["at0043"] = <
+					text = <"43 Thoracic extradural">
+					description = <"The lesion is located in the thoracic extradural.">
+				>
+				["at0044"] = <
+					text = <"44 Thoracic bony">
+					description = <"The lesion is located in the thoracic bony.">
+				>
+				["at0045"] = <
+					text = <"45 Lumbar intramedullary">
+					description = <"The lesion is located in the lumbar intramedullary.">
+				>
+				["at0046"] = <
+					text = <"46 Lumbar intradural">
+					description = <"The lesion is located in the lumbar intradural.">
+				>
+				["at0047"] = <
+					text = <"47 Lumbar extradural">
+					description = <"The lesion is located in the lumbar extradural.">
+				>
+				["at0048"] = <
+					text = <"48 Lumbar bony">
+					description = <"The lesion is located in the lumbar bony.">
+				>
+				["at0049"] = <
+					text = <"98 Other">
+					description = <"The lesion is located in another area.">
+				>
+				["at0050"] = <
+					text = <"Excision or procedure type">
+					description = <"Details of excision or procedure type of CNS cancer.">
+				>
+				["at0051"] = <
+					text = <"1 Limited less than 50 percent">
+					description = <"Excision is limited at less than 50 percent.">
+				>
+				["at0052"] = <
+					text = <"2 Partial 50 to 69 percent">
+					description = <"Excision is partial at 50 to 69 percent.">
+				>
+				["at0053"] = <
+					text = <"3 Subtotal 70 to 95 percent">
+					description = <"Excision is subtotal at 70 to 95 percent.">
+				>
+				["at0054"] = <
+					text = <"4 Total macroscopic">
+					description = <"Excision is total macroscopic.">
+				>
+				["at0055"] = <
+					text = <"5 Extent uncertain">
+					description = <"The extent of the excision is uncertain.">
+				>
+				["at0056"] = <
+					text = <"6 CSF division procedure">
+					description = <"The procedure type is CSF division procedure.">
+				>
+				["at0057"] = <
+					text = <"9 Not known">
+					description = <"The procedure type is not known.">
+				>
+			>
+		>
+	>
