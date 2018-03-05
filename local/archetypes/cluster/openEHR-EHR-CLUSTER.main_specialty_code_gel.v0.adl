@@ -1,0 +1,66 @@
+﻿archetype (adl_version=1.4; uid=40e2edea-b569-4cbd-9962-d73c3334e8c4)
+	openEHR-EHR-CLUSTER.main_specialty_code_gel.v0
+
+concept
+	[at0000]	-- Main specialty code GEL
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2017-10-23">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the capture and reporting of main specialty code in Cancer Interventions in Genomics England dataset.">
+			use = <"Use to record main speciality code in Cancer Interventions in the Genomics England dataset.
+
+This cluster archetype is intended to be used in a Details slot in relevant entry archetypes such as Procedure action and Medication order.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"AA58C2C386B3E0F75CFEBE30CA7921B2">
+		["build_uid"] = <"49d25d86-0cb1-42b5-9e21-7733bacfd207">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Main specialty code GEL
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- Main specialty code
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Main specialty code GEL">
+					description = <"Main speciality code in Cancer interventions in Genomics England dataset.">
+				>
+				["at0001"] = <
+					text = <"Main specialty code">
+					description = <"Main specialty code as a string.">
+				>
+			>
+		>
+	>
