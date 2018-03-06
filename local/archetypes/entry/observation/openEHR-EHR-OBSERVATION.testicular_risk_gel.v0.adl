@@ -1,0 +1,137 @@
+﻿archetype (adl_version=1.4; uid=2ca4c2e3-3b55-48a0-a9d9-5d0bb7574074)
+	openEHR-EHR-OBSERVATION.testicular_risk_gel.v0
+
+concept
+	[at0000]	-- Testicular cancer risk factors GEL
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2017-09-14">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the capture and recording of testicular cancer risk factors in the context of GEL cancer datasets.">
+			use = <"Use to record testicular cancer risk factors as part of GEL cancer datasets.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"27EAC7B96A6549883D81006523F7EDC7">
+		["build_uid"] = <"ecb58f90-48b3-4329-bbdd-082cf79f684c">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Testicular cancer risk factors GEL
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..1} matches {	-- Point in time
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0006] occurrences matches {0..1} matches {	-- Cryptorchidism
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0007, 	-- Yes
+													at0008, 	-- No
+													at0009]	-- Unknown
+												}
+											}
+										}
+									}
+									ELEMENT[at0010] occurrences matches {0..1} matches {	-- Cryptorchidism correction age
+										value matches {
+											DV_DURATION matches {
+												value matches {PY/|>=P0Y|}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0004] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0005] occurrences matches {0..*} matches {	-- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Testicular cancer risk factors GEL">
+					description = <"Testicular cancer risk factors in the context of GEL cancer dataset.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Point in time">
+					description = <"A specific date and/or time which may be explicitly defined in a template or at run-time.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0005"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental infomation or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+				["at0006"] = <
+					text = <"Cryptorchidism">
+					description = <"Presence or history of cryptorchidism (the absence of one or both testes from the scrotum).">
+				>
+				["at0007"] = <
+					text = <"Yes">
+					description = <"The subject currently suffers from or has a history of cryptorchidism.">
+				>
+				["at0008"] = <
+					text = <"No">
+					description = <"The subject doesn't suffer from and doesn't have a history of cryptorchidism.">
+				>
+				["at0009"] = <
+					text = <"Unknown">
+					description = <"It is not known whether the subject suffers from or has a history of cryptorchidism.">
+				>
+				["at0010"] = <
+					text = <"Cryptorchidism correction age">
+					description = <"If subject has a history of cryptorchidism, age at its correction in years.">
+				>
+			>
+		>
+	>
