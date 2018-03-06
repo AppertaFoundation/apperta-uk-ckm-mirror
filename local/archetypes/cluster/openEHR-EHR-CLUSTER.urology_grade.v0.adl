@@ -1,0 +1,90 @@
+﻿archetype (adl_version=1.4; uid=819b919c-290c-4cf9-88ea-e055364e9aa2)
+	openEHR-EHR-CLUSTER.urology_grade.v0
+
+concept
+	[at0000]	-- Urology grade
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2017-09-26">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the capture and reporting of urology tumour grade for bladder cancer.">
+			use = <"Use to record urology tumour grade for bladder cancer.
+
+This cluster archetype is intended to be used in the Test findings slot in a laboratory test result observation archetype.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"2F7FEE8E655E255802A87309AF4D941A">
+		["build_uid"] = <"ed7dc4d1-eb93-4c7d-abfb-28d095724cc5">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Urology grade
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- Tumour grade
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0002, 	-- Low
+							at0003, 	-- High
+							at0004, 	-- PUNLMP
+							at0005]	-- X Not applicable
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Urology grade">
+					description = <"Urology tumour grade for bladder tumour.">
+				>
+				["at0001"] = <
+					text = <"Tumour grade">
+					description = <"The tumour grade for bladder cancer.">
+				>
+				["at0002"] = <
+					text = <"Low">
+					description = <"The tumour grade is deemed to be low.">
+				>
+				["at0003"] = <
+					text = <"High">
+					description = <"The tumour grade is deemed to be high.">
+				>
+				["at0004"] = <
+					text = <"PUNLMP">
+					description = <"The tumour grade is deemed to be PUNLMP (Papillary Urothelial Neoplasm of Low Maligant Potential).">
+				>
+				["at0005"] = <
+					text = <"X Not applicable">
+					description = <"Tumour grading is not applicable.">
+				>
+			>
+		>
+	>
