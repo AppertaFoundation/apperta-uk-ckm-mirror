@@ -1,0 +1,293 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>c9654d75-b50f-4cba-9516-6ad4d6663e33</id>
+  <name>GEL Cancer risk factor assessment output report.v0</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose />
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.adhoc.v1 and name/value='General risk factors']/items[openEHR-EHR-OBSERVATION.height.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0004]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>GEL::4531</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.adhoc.v1 and name/value='General risk factors']/items[openEHR-EHR-OBSERVATION.body_weight.v1]/data[at0002]/events[at0003]/data[at0001]/items[at0004]">
+    <items>
+      <item>
+        <key>Notes.Authors Note</key>
+        <value>GEL::14760</value>
+      </item>
+    </items>
+  </annotations>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.report.v1" concept_name="Report" name="GEL Cancer risk factor assessment">
+    <Content xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.adhoc.v1" concept_name="Ad hoc heading" max="1" path="/content" name="General risk factors">
+      <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.tobacco_smoking_summary.v1" concept_name="Tobacco smoking summary" path="/items">
+        <Rule path="/data[at0001]/items[at0089]" max="0" />
+        <Rule path="/data[at0001]/items[at0043]" name="Smoking">
+          <constraint xsi:type="textConstraint">
+            <includedValues>1 Current smoker</includedValues>
+            <includedValues>2 Ex smoker</includedValues>
+            <includedValues>3 Non-smoker - history unknown</includedValues>
+            <includedValues>4 Never smoked</includedValues>
+            <includedValues>Z Not Stated (PERSON asked but declined to provide a response)</includedValues>
+            <includedValues>9 Unknown</includedValues>
+          </constraint>
+        </Rule>
+        <Rule path="/data[at0001]/items[at0015]" max="0" />
+        <Rule path="/data[at0001]/items[at0080]" max="0" />
+        <Rule path="/data[at0001]/items[at0029]" max="0" />
+        <Rule path="/data[at0001]/items[at0016]" max="0" />
+        <Rule path="/data[at0001]/items[at0074]" max="0" />
+        <Rule path="/data[at0001]/items[at0019]" max="0" />
+        <Rule path="/protocol[at0021]" hide_on_form="true" />
+        <Rule path="/protocol[at0021]/items[at0071]" max="0" />
+        <Rule path="/protocol[at0021]/items[at0085]" max="0" />
+        <Rule path="/protocol[at0021]/items[at0075]" max="0" />
+        <Rule path="/protocol[at0021]/items[at0076]" max="0" />
+        <Rule path="/protocol[at0021]/items[at0079]" max="0" />
+        <Rule path="/protocol[at0021]/items[at0072]" max="0" />
+        <Rule path="/protocol[at0021]/items[at0022]" max="0" />
+      </Item>
+      <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.alcohol_use_summary.v0" concept_name="Alcohol use summary" path="/items">
+        <Rule path="/data[at0001]/items[at0089]" max="0" />
+        <Rule path="/data[at0001]/items[at0043]" max="0" />
+        <Rule path="/data[at0001]/items[at0015]" max="0" />
+        <Rule path="/data[at0001]/items[at0080]" max="0" />
+        <Rule path="/data[at0001]/items[at0097]" max="0" />
+        <Rule path="/data[at0001]/items[at0029]" hide_on_form="true" />
+        <Rule path="/data[at0001]/items[at0029]/items[at0052]" max="0" />
+        <Rule path="/data[at0001]/items[at0029]/items[at0053]" max="0" />
+        <Rule path="/data[at0001]/items[at0029]/items[at0064]" hide_on_form="true" />
+        <Rule path="/data[at0001]/items[at0029]/items[at0064]/items[at0081]" max="0" />
+        <Rule path="/data[at0001]/items[at0029]/items[at0064]/items[at0013]" max="0" />
+        <Rule path="/data[at0001]/items[at0029]/items[at0064]/items[at0082]" max="0" />
+        <Rule path="/data[at0001]/items[at0029]/items[at0064]/items[at0030]" max="0" />
+        <Rule path="/data[at0001]/items[at0029]/items[at0064]/items[at0065]" max="0" />
+        <Rule path="/data[at0001]/items[at0029]/items[at0064]/items[at0025]" max="0" />
+        <Rule path="/data[at0001]/items[at0029]/items[at0064]/items[at0087]" max="0" />
+        <Rule path="/data[at0001]/items[at0029]/items[at0014]" max="0" />
+        <Rule path="/data[at0001]/items[at0029]/items[at0069]" max="0" />
+        <Rule path="/data[at0001]/items[at0016]" max="0" />
+        <Rule path="/data[at0001]/items[at0019]" max="0" />
+        <Rule path="/protocol[at0021]" hide_on_form="true" />
+        <Rule path="/protocol[at0021]/items[at0071]" max="0" />
+        <Rule path="/protocol[at0021]/items[at0085]" max="0" />
+        <Rule path="/protocol[at0021]/items[at0075]" max="0" />
+        <Rule path="/protocol[at0021]/items[at0076]" max="0" />
+        <Rule path="/protocol[at0021]/items[at0079]" max="0" />
+        <Rule path="/protocol[at0021]/items[at0103]" max="0" />
+        <Rule path="/protocol[at0021]/items[at0104]" max="0" />
+        <Rule path="/protocol[at0021]/items[at0022]" max="0" />
+      </Item>
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.height.v1" concept_name="Height/Length" path="/items">
+        <Rule path="/data[at0001]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]" hide_on_form="true">
+          <eventConstraint>
+            <allowedType>PointInTime</allowedType>
+          </eventConstraint>
+        </Rule>
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]" name="Height">
+          <constraint xsi:type="quantityConstraint">
+            <excludedUnits>in</excludedUnits>
+          </constraint>
+        </Rule>
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0018]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/state[at0013]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]/state[at0013]/items[at0014]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/state[at0013]/items[at0019]" max="0" />
+        <Rule path="/protocol[at0007]" hide_on_form="true" />
+      </Item>
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.body_weight.v1" concept_name="Body weight" path="/items">
+        <Rule path="/data[at0002]" hide_on_form="true" />
+        <Rule path="/data[at0002]/events[at0003]" hide_on_form="true">
+          <eventConstraint>
+            <allowedType>PointInTime</allowedType>
+          </eventConstraint>
+        </Rule>
+        <Rule path="/data[at0002]/events[at0003]/data[at0001]" hide_on_form="true" />
+        <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at0004]">
+          <constraint xsi:type="quantityConstraint">
+            <excludedUnits>lb</excludedUnits>
+          </constraint>
+        </Rule>
+        <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at0024]" max="0" />
+        <Rule path="/data[at0002]/events[at0003]/state[at0008]" hide_on_form="true" />
+        <Rule path="/data[at0002]/events[at0003]/state[at0008]/items[at0009]" max="0" />
+        <Rule path="/data[at0002]/events[at0003]/state[at0008]/items[at0025]" max="0" />
+        <Rule path="/protocol[at0015]" hide_on_form="true" />
+      </Item>
+    </Content>
+    <Content xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.adhoc.v1" concept_name="Ad hoc heading" max="1" path="/content" name="Cancer specific risk factors">
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.ovarian_risk_gel.v0" concept_name="Ovarian cancer risk factors GEL" max="1" path="/items" name="Ovarian cancer risk factors">
+        <Rule path="/data[at0001]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+        <Rule path="/protocol[at0004]" hide_on_form="true" />
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.female_cancer_risk_gel.v0" concept_name="Female cancer risk factors GEL" path="/data[at0001]/events[at0002]/data[at0003]/items[at0031]" hide_on_form="true" />
+      </Item>
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.breast_risk_gel.v0" concept_name="Breast cancer risk factors GEL" max="1" path="/items" name="Breast cancer risk factors">
+        <Rule path="/data[at0001]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+        <Rule path="/protocol[at0004]" hide_on_form="true" />
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.female_cancer_risk_gel.v0" concept_name="Female cancer risk factors GEL" path="/data[at0001]/events[at0002]/data[at0003]/items[at0037]" hide_on_form="true" />
+      </Item>
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.glioma_risk_gel.v0" concept_name="Glioma risk factors GEL" max="1" path="/items" name="Glioma risk factors">
+        <Rule path="/data[at0001]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+        <Rule path="/protocol[at0004]" hide_on_form="true" />
+      </Item>
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.endometrial_risk_gel.v0" concept_name="Endometrial cancer risk factors GEL" max="1" path="/items" name="Endometrial cancer risk factors">
+        <Rule path="/data[at0001]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+        <Rule path="/protocol[at0004]" hide_on_form="true" />
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.female_cancer_risk_gel.v0" concept_name="Female cancer risk factors GEL" path="/data[at0001]/events[at0002]/data[at0003]/items[at0038]" hide_on_form="true">
+          <Rule path="/items[at0011]" max="0" />
+          <Rule path="/items[at0029]" max="0" />
+          <Rule path="/items[at0030]" max="0" />
+        </Items>
+      </Item>
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.renal_risk_gel.v0" concept_name="Renal cancer risk factors GEL" max="1" path="/items" name="Renal cancer risk factors">
+        <Rule path="/data[at0001]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+        <Rule path="/protocol[at0004]" hide_on_form="true" />
+      </Item>
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.melanoma_risk_gel.v0" concept_name="Malignant melanoma risk factors GEL" max="1" path="/items" name="Malignant melanoma risk factors">
+        <Rule path="/data[at0001]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+        <Rule path="/protocol[at0004]" hide_on_form="true" />
+      </Item>
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.testicular_risk_gel.v0" concept_name="Testicular cancer risk factors GEL" max="1" path="/items" name="Testicular cancer risk factors">
+        <Rule path="/data[at0001]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+        <Rule path="/protocol[at0004]" hide_on_form="true" />
+      </Item>
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.hpb_risk_gel.v0" concept_name="HPB cancer risk factors GEL" max="1" path="/items" name="HPB cancer risk factors">
+        <Rule path="/data[at0001]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+        <Rule path="/protocol[at0004]" hide_on_form="true" />
+      </Item>
+    </Content>
+    <Context>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.participant_gel.v0" concept_name="Participant GEL" max="1" path="/context/other_context[at0001]/items[at0006]" name="Participant">
+        <Rule path="/items[at0017]" max="0" />
+      </Items>
+      <Rule path="/context/other_context[at0001]" hide_on_form="true" />
+      <Rule path="/context/other_context[at0001]/items[at0002]" max="0" />
+      <Rule path="/context/other_context[at0001]/items[at0005]" max="0" />
+      <hide_on_form>true</hide_on_form>
+    </Context>
+  </definition>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-COMPOSITION.report.v1">
+    <digest id="MD5-CAM-1.0.1">FD053BE0456D849CACD864F274EED32E</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.participant_gel.v0">
+    <digest id="MD5-CAM-1.0.1">C4E628BB6ADBA4F6337F58CF5322B4EE</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-SECTION.adhoc.v1">
+    <digest id="MD5-CAM-1.0.1">833221C23E2B25AD3CB9B0B78EE33740</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.tobacco_smoking_summary.v1">
+    <digest id="MD5-CAM-1.0.1">1DE50594541F685A320C1FC666097C1E</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.alcohol_use_summary.v0">
+    <digest id="MD5-CAM-1.0.1">E629756190AAC0AC71991FACBE761729</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.height.v1">
+    <digest id="MD5-CAM-1.0.1">A4240F6ED2E696597510DB5385D3E4B4</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.body_weight.v1">
+    <digest id="MD5-CAM-1.0.1">00796FC78634E1F9B128CBDEE62B825D</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.ovarian_risk_gel.v0">
+    <digest id="MD5-CAM-1.0.1">D3634DEAF93C92676D70B4265C989B57</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.female_cancer_risk_gel.v0">
+    <digest id="MD5-CAM-1.0.1">981BB81EDDF73D7C0214757E5055E127</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.breast_risk_gel.v0">
+    <digest id="MD5-CAM-1.0.1">7CB3B131356CC90D4F84548F8A35E2F1</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.glioma_risk_gel.v0">
+    <digest id="MD5-CAM-1.0.1">EDD6AF839F6084EFC2939AB1AC0BABCC</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.endometrial_risk_gel.v0">
+    <digest id="MD5-CAM-1.0.1">B43CD815312CE15E2BA98702F10DC620</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.renal_risk_gel.v0">
+    <digest id="MD5-CAM-1.0.1">1EB227344DF9CE8436334562B65BDC0D</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.melanoma_risk_gel.v0">
+    <digest id="MD5-CAM-1.0.1">9DFE3077F5945AF957118A40D10E0F36</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.testicular_risk_gel.v0">
+    <digest id="MD5-CAM-1.0.1">27EAC7B96A6549883D81006523F7EDC7</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.hpb_risk_gel.v0">
+    <digest id="MD5-CAM-1.0.1">8C10A12AC90A0E384CD88E14F97742DE</digest>
+  </integrity_checks>
+</template>
