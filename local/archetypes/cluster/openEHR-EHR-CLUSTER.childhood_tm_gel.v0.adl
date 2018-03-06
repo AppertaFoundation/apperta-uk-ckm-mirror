@@ -1,0 +1,235 @@
+﻿archetype (adl_version=1.4; uid=373b553f-9149-45b6-92aa-b3729fbf8fce)
+	openEHR-EHR-CLUSTER.childhood_tm_gel.v0
+
+concept
+	[at0000]	-- Childhood cancer tumour markers GEL
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2017-09-14">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the capture and reporting of childhood cancer tumour markers in the context of GEL cancer datasets.">
+			use = <"Use to record childhood cancer tumour markers as part of GEL cancer dataset investigations.
+
+This cluster archetype is intended to be used in the Test findings slot in a laboratory test observation.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"CAEBAFA3A4C83B421A866DCA4537BBAF">
+		["build_uid"] = <"a68f88e5-c715-489f-904c-b4f018b4b6db">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Childhood cancer tumour markers GEL
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- Molecular subgroup
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0002, 	-- Not tested
+							at0003, 	-- SHH
+							at0004, 	-- WNT
+							at0005, 	-- Non-SHH
+							at0006]	-- Non-WNT
+						}
+					}
+				}
+			}
+			ELEMENT[at0007] occurrences matches {0..1} matches {	-- TP53
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0008, 	-- Not tested
+							at0009, 	-- Wild type
+							at0010]	-- Mutant
+						}
+					}
+				}
+			}
+			ELEMENT[at0011] occurrences matches {0..1} matches {	-- MYC
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0012, 	-- Not tested
+							at0013, 	-- Amplified
+							at0014]	-- Non amplified
+						}
+					}
+				}
+			}
+			ELEMENT[at0015] occurrences matches {0..1} matches {	-- MYCN
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0016, 	-- Not tested
+							at0017, 	-- Amplified
+							at0018]	-- Non amplified
+						}
+					}
+				}
+			}
+			ELEMENT[at0019] occurrences matches {0..1} matches {	-- ALK
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0020, 	-- Not tested
+							at0021, 	-- Wild type
+							at0022]	-- Mutant
+						}
+					}
+				}
+			}
+			ELEMENT[at0023] occurrences matches {0..1} matches {	-- Chromosomal abnormality
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0024, 	-- Not tested
+							at0025, 	-- Segmental
+							at0026]	-- Non segmental
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Childhood cancer tumour markers GEL">
+					description = <"Childhood cancer tumour markers in the context of GEL cancer datasets.">
+				>
+				["at0001"] = <
+					text = <"Molecular subgroup">
+					description = <"Result of testing for molecular subgroup (medulloblastoma).">
+				>
+				["at0002"] = <
+					text = <"Not tested">
+					description = <"Molecular subgroup testing was not performed.">
+				>
+				["at0003"] = <
+					text = <"SHH">
+					description = <"Testing indicates Sonic Hedgehog subgroup.">
+				>
+				["at0004"] = <
+					text = <"WNT">
+					description = <"Testing indicates WNT subgroup.">
+				>
+				["at0005"] = <
+					text = <"Non-SHH">
+					description = <"Testing indicates Non-SHH subgroup.">
+				>
+				["at0006"] = <
+					text = <"Non-WNT">
+					description = <"Testing indicates Non-WNT subgroup.">
+				>
+				["at0007"] = <
+					text = <"TP53">
+					description = <"Result of testing for TP53 (medulloblastoma) tumour marker.">
+				>
+				["at0008"] = <
+					text = <"Not tested">
+					description = <"Testing for TP53 tumour marker has not been performed.">
+				>
+				["at0009"] = <
+					text = <"Wild type">
+					description = <"Testing for TP53 tumour marker indicates wild type.">
+				>
+				["at0010"] = <
+					text = <"Mutant">
+					description = <"Testing for TP53 tumour marker indicates mutant.">
+				>
+				["at0011"] = <
+					text = <"MYC">
+					description = <"Result of testing for MYC tumour marker (medulloblastoma and neuroblastoma).">
+				>
+				["at0012"] = <
+					text = <"Not tested">
+					description = <"Testing for MYC has not been performed.">
+				>
+				["at0013"] = <
+					text = <"Amplified">
+					description = <"Testing for MYC indicates amplified.">
+				>
+				["at0014"] = <
+					text = <"Non amplified">
+					description = <"Testing for MYC indicates non-amplified.">
+				>
+				["at0015"] = <
+					text = <"MYCN">
+					description = <"Result of testing for MYCN tumour marker (medulloblastoma and neuroblastoma).">
+				>
+				["at0016"] = <
+					text = <"Not tested">
+					description = <"Testing for MYCN has not been performed.">
+				>
+				["at0017"] = <
+					text = <"Amplified">
+					description = <"Testing for MYCN indicates amplified.">
+				>
+				["at0018"] = <
+					text = <"Non amplified">
+					description = <"Testing for MYCN indicates non-amplified.">
+				>
+				["at0019"] = <
+					text = <"ALK">
+					description = <"Result of testing for Anaplastic lymphoma kinase (ALK) tumour marker (neublastoma).">
+				>
+				["at0020"] = <
+					text = <"Not tested">
+					description = <"Testing for ALK tumour marker has not been performed.">
+				>
+				["at0021"] = <
+					text = <"Wild type">
+					description = <"Testing for ALK tumour marker indicates wild type.">
+				>
+				["at0022"] = <
+					text = <"Mutant">
+					description = <"Testing for ALK tumour marker indicates mutant.">
+				>
+				["at0023"] = <
+					text = <"Chromosomal abnormality">
+					description = <"Result of testing for chromosomal abnormality (neuroblastoma).">
+				>
+				["at0024"] = <
+					text = <"Not tested">
+					description = <"Testing for chromosomal abnormality has not been performed.">
+				>
+				["at0025"] = <
+					text = <"Segmental">
+					description = <"Testing for chromosomal abnormality indicates segmental.">
+				>
+				["at0026"] = <
+					text = <"Non segmental">
+					description = <"Testing for chromosomal abnormality indicates non segmental.">
+				>
+			>
+		>
+	>
