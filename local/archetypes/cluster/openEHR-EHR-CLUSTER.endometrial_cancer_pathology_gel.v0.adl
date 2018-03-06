@@ -1,0 +1,197 @@
+﻿archetype (adl_version=1.4; uid=ba68f3c9-0d30-4c5f-9c29-d21ddbe49685)
+	openEHR-EHR-CLUSTER.endometrial_cancer_pathology_gel.v0
+
+concept
+	[at0000]	-- Endometrial cancer pathology GEL
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2017-09-26">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the capture and reporting of specific cancer pathology details for endometrial cancer in the context of GEL cancer datasets.">
+			use = <"Use to record specific endometrial cancer pathology details as part of GEL cancer datasets.
+
+This cluster archetype is intended to be used in the Test findings slot in a laboratory test result observation archetype.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"31775F83B4A721D14765C955483F0766">
+		["build_uid"] = <"5772496c-2b52-47b3-8212-1ef22e3f333d">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Endometrial cancer pathology GEL
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- Involvement of cervical stroma
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0002, 	-- Y Yes
+							at0003, 	-- N No
+							at0004, 	-- X Not assessable
+							at0005]	-- 9 Not known
+						}
+					}
+				}
+			}
+			ELEMENT[at0006] occurrences matches {0..1} matches {	-- Distance to serosa
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::122]>
+						list = <
+							["1"] = <
+								units = <"mm">
+								magnitude = <|>=0.0|>
+								precision = <|0|>
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0007] occurrences matches {0..1} matches {	-- Parametrium involvement
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0008, 	-- Y Yes
+							at0009, 	-- N No
+							at0010, 	-- X Not assessable
+							at0011]	-- 9 Not known
+						}
+					}
+				}
+			}
+			ELEMENT[at0012] occurrences matches {0..1} matches {	-- Peritoneal washings
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0013, 	-- 1 Positive
+							at0014, 	-- 2 Negative
+							at0015]	-- X Not sent or not assessable
+						}
+					}
+				}
+			}
+			ELEMENT[at0016] occurrences matches {0..1} matches {	-- Myometrial invasion
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0017, 	-- 1 None
+							at0018, 	-- 2 Less than 50 percent
+							at0019]	-- 3 Greater than or equal to 50 percent
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Endometrial cancer pathology GEL">
+					description = <"Specific cancer pathology for endometrial cancer in the context of GEL cancer datasets.">
+				>
+				["at0001"] = <
+					text = <"Involvement of cervical stroma">
+					description = <"Details of involvement of cervical stroma.">
+				>
+				["at0002"] = <
+					text = <"Y Yes">
+					description = <"Pathology findings indicate that cervical stroma is involved.">
+				>
+				["at0003"] = <
+					text = <"N No">
+					description = <"Pathology findings indicate that cervical stroma is not involved.">
+				>
+				["at0004"] = <
+					text = <"X Not assessable">
+					description = <"Cervical stroma involvement is not assessable from pathological findings.">
+				>
+				["at0005"] = <
+					text = <"9 Not known">
+					description = <"It is not known from pathology findings whether cervical stroma is involved.">
+				>
+				["at0006"] = <
+					text = <"Distance to serosa">
+					description = <"Distance in mm to serosa.">
+				>
+				["at0007"] = <
+					text = <"Parametrium involvement">
+					description = <"Details of parametrium involvement.">
+				>
+				["at0008"] = <
+					text = <"Y Yes">
+					description = <"Pathology findings indicate that the parametrium is involved.">
+				>
+				["at0009"] = <
+					text = <"N No">
+					description = <"Pathology findings indicate that the parametrium is not involved.">
+				>
+				["at0010"] = <
+					text = <"X Not assessable">
+					description = <"Parametrium involvement is not assessable from the pathology findings.">
+				>
+				["at0011"] = <
+					text = <"9 Not known">
+					description = <"It is not known from the pathology findings whether the parametrium is involved.">
+				>
+				["at0012"] = <
+					text = <"Peritoneal washings">
+					description = <"Details of findings of peritoneal washings.">
+				>
+				["at0013"] = <
+					text = <"1 Positive">
+					description = <"Pathological findings of peritoneal washings are positive.">
+				>
+				["at0014"] = <
+					text = <"2 Negative">
+					description = <"Pathology findings of peritoneal washings are negative.">
+				>
+				["at0015"] = <
+					text = <"X Not sent or not assessable">
+					description = <"Peritoneal washings were not sent or the findings are not assessable.">
+				>
+				["at0016"] = <
+					text = <"Myometrial invasion">
+					description = <"Details of findings of myometrial invasion.">
+				>
+				["at0017"] = <
+					text = <"1 None">
+					description = <"Pathology findings indicate that there is no myometrial invasion.">
+				>
+				["at0018"] = <
+					text = <"2 Less than 50 percent">
+					description = <"Pathology findings indicate that there is a less than 50 percent myometrial invasion.">
+				>
+				["at0019"] = <
+					text = <"3 Greater than or equal to 50 percent">
+					description = <"Pathology findings indicate that there is a greater than or equal to 50 percent myometrial invasion.">
+				>
+			>
+		>
+	>
