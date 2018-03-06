@@ -1,0 +1,159 @@
+﻿archetype (adl_version=1.4; uid=dc492d99-41d4-4db7-8816-1b4f3bbbe860)
+	openEHR-EHR-CLUSTER.kidney_cancer_pathology_gel.v0
+
+concept
+	[at0000]	-- Kidney cancer pathology GEL
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2017-09-27">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the capture and reporting of specific kidney cancer pathology details in the context of GEL cancer datasets.">
+			use = <"Use to record specific kidney cancer pathology details as part of GEL cancer datasets.
+
+This cluster archetype is intended to be used in the Test findings slot in a laboratory test result observation archetype.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"B1DDD558AB26500390E1EF545885D76A">
+		["build_uid"] = <"d94ed0fa-72f3-476d-8a36-11541edc375e">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Kidney cancer pathology GEL
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- Renal vein tumour
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0002, 	-- Yes
+							at0003, 	-- No
+							at0004]	-- Uncertain
+						}
+					}
+				}
+			}
+			ELEMENT[at0005] occurrences matches {0..1} matches {	-- Perinephric fat invasion
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0006, 	-- Yes
+							at0007, 	-- No
+							at0008]	-- Uncertain
+						}
+					}
+				}
+			}
+			ELEMENT[at0009] occurrences matches {0..1} matches {	-- Adrenal invasion
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0010, 	-- Yes
+							at0011]	-- No
+						}
+					}
+				}
+			}
+			ELEMENT[at0012] occurrences matches {0..1} matches {	-- Gerotas fascia invasion
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0013, 	-- Yes
+							at0014]	-- No
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Kidney cancer pathology GEL">
+					description = <"Specific kidney cancer pathology details in the context of GEL cancer datasets.">
+				>
+				["at0001"] = <
+					text = <"Renal vein tumour">
+					description = <"Statement about whether the tumour is a renal vein tumour.">
+				>
+				["at0002"] = <
+					text = <"Yes">
+					description = <"Pathology findings indicate renal vein tumour.">
+				>
+				["at0003"] = <
+					text = <"No">
+					description = <"Pathology findings indicate no renal vein tumour.">
+				>
+				["at0004"] = <
+					text = <"Uncertain">
+					description = <"It is uncertain from the pathology findings whether there is a renal vein tumour.">
+				>
+				["at0005"] = <
+					text = <"Perinephric fat invasion">
+					description = <"Statement about perinephric fat invasion.">
+				>
+				["at0006"] = <
+					text = <"Yes">
+					description = <"Pathology findings indicate that there is perinephric fat invasion.">
+				>
+				["at0007"] = <
+					text = <"No">
+					description = <"Pathology findings indicate that there is no perinephric fat invasion.">
+				>
+				["at0008"] = <
+					text = <"Uncertain">
+					description = <"It is uncertain from the pathology findings whether there is perinephric fat invasion.">
+				>
+				["at0009"] = <
+					text = <"Adrenal invasion">
+					description = <"Statement about adrenal invasion.">
+				>
+				["at0010"] = <
+					text = <"Yes">
+					description = <"Pathology findings indicate adrenal invasion.">
+				>
+				["at0011"] = <
+					text = <"No">
+					description = <"Pathology findings indicate no adrenal invasion.">
+				>
+				["at0012"] = <
+					text = <"Gerotas fascia invasion">
+					description = <"Statement about Gerotas fascia invasion.">
+				>
+				["at0013"] = <
+					text = <"Yes">
+					description = <"Pathology findings indicate Gerotas fascia invasion.">
+				>
+				["at0014"] = <
+					text = <"No">
+					description = <"Pathology findings indicate no Gerotas fascia invasion.">
+				>
+			>
+		>
+	>
