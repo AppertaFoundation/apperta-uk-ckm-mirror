@@ -1,0 +1,219 @@
+﻿archetype (adl_version=1.4; uid=55732ac9-e175-43b9-9730-531e9c12cb1d)
+	openEHR-EHR-OBSERVATION.ovarian_risk_gel.v0
+
+concept
+	[at0000]	-- Ovarian cancer risk factors GEL
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2017-09-14">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the capture and reporting of ovarian cancer risk factors in the context of the GEL cancer dataset.">
+			use = <"Use to record ovarian cancer risk factors as part of the GEL cancer dataset.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"D3634DEAF93C92676D70B4265C989B57">
+		["build_uid"] = <"da4a2da4-8001-42aa-8ae9-c5c901413e60">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Ovarian cancer risk factors GEL
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..1} matches {	-- Point in time
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0012] occurrences matches {0..1} matches {	-- Endometriosis
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0013, 	-- Positive
+													at0014, 	-- Negative
+													at0015]	-- Unknown
+												}
+											}
+										}
+									}
+									ELEMENT[at0016] occurrences matches {0..1} matches {	-- Previous tubal ligation
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0017, 	-- Yes
+													at0018, 	-- No
+													at0019]	-- Unknown
+												}
+											}
+										}
+									}
+									ELEMENT[at0020] occurrences matches {0..1} matches {	-- Use of IUD
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0021, 	-- Yes
+													at0022, 	-- No
+													at0023]	-- Unknown
+												}
+											}
+										}
+									}
+									ELEMENT[at0024] occurrences matches {0..1} matches {	-- Use of NSAIDs
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0025, 	-- Yes
+													at0026, 	-- No
+													at0027]	-- Unknown
+												}
+											}
+										}
+									}
+									allow_archetype CLUSTER[at0031] occurrences matches {0..*} matches {	-- Common cancer risk factors
+										include
+											archetype_id/value matches {/openEHR-EHR-CLUSTER\.female_cancer_risk_gel(-[a-zA-Z0-9_]+)*\.v0/}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0004] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0005] occurrences matches {0..*} matches {	-- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Ovarian cancer risk factors GEL">
+					description = <"Ovarian cancer risk factors in the context of GEL cancer dataset.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Point in time">
+					description = <"A specific date and/or time which may be explicitly defined in a template or at run-time.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0005"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental infomation or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+				["at0012"] = <
+					text = <"Endometriosis">
+					description = <"Statement whether a medical diagnosis of endometriosis has been made.">
+				>
+				["at0013"] = <
+					text = <"Positive">
+					description = <"A medical diagnosis of endometriosis has been made.">
+				>
+				["at0014"] = <
+					text = <"Negative">
+					description = <"A medical diagnosis of endometriosis has not been made.">
+				>
+				["at0015"] = <
+					text = <"Unknown">
+					description = <"It is not known whether a medical diagnosis of endometriosis has been made.">
+				>
+				["at0016"] = <
+					text = <"Previous tubal ligation">
+					description = <"Statement whether the subject has had a previous tubal ligation.">
+				>
+				["at0017"] = <
+					text = <"Yes">
+					description = <"The subject has had a previous tubal ligation.">
+				>
+				["at0018"] = <
+					text = <"No">
+					description = <"The subject has not had a previous tubal ligation.">
+				>
+				["at0019"] = <
+					text = <"Unknown">
+					description = <"It is not known whether the subject has had a previous tubal ligation.">
+				>
+				["at0020"] = <
+					text = <"Use of IUD">
+					description = <"Statement whether the subject is using or used an intrauterine device.">
+				>
+				["at0021"] = <
+					text = <"Yes">
+					description = <"The subject is using or used an intrauterine device.">
+				>
+				["at0022"] = <
+					text = <"No">
+					description = <"The subject is not using and did not use an intrauterine device.">
+				>
+				["at0023"] = <
+					text = <"Unknown">
+					description = <"It is not known whether the subject is using or used an intrauterine device.">
+				>
+				["at0024"] = <
+					text = <"Use of NSAIDs">
+					description = <"Statement whether the subject has had any episode of chronic use of NSAIDs.">
+					comment = <"Any episode of chronic use = NSAIDS used more than half the days of the week, more than half the weeks of the year for over 1 year.">
+				>
+				["at0025"] = <
+					text = <"Yes">
+					description = <"The subject has had at least one episode of chronic use of NSAIDs.">
+				>
+				["at0026"] = <
+					text = <"No">
+					description = <"The subject has not had any episode of chronic use of NSAIDs.">
+				>
+				["at0027"] = <
+					text = <"Unknown">
+					description = <"It is not known whether the subject has had any episode of chronic use of NSAIDs.">
+				>
+				["at0031"] = <
+					text = <"Common cancer risk factors">
+					description = <"Common female cancer risk factors shared between ovarian, breast and endometrial cancers.">
+				>
+			>
+		>
+	>
