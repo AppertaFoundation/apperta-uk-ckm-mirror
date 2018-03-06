@@ -1,0 +1,80 @@
+﻿archetype (adl_version=1.4; uid=b03219e3-c7ba-48d1-bbff-5815e6022267)
+	openEHR-EHR-CLUSTER.ovarian_serous_grade.v0
+
+concept
+	[at0000]	-- Ovarian serous grade
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2017-09-26">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the capture and reporting of tumour grade for ovarian serous tumour.">
+			use = <"Use to record ovarian serous tumour grade.
+
+This archetype in intended to be used in the Test findings slot in a laboratory test result observation archetype.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"26F0BA6078A48C0FA40933177C2590E2">
+		["build_uid"] = <"b5d15e1c-d134-483b-8ee1-df0cf5211cf8">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Ovarian serous grade
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- Tumour grade
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0002, 	-- High
+							at0003]	-- Low
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Ovarian serous grade">
+					description = <"Tumour grade for ovarian serous tumour.">
+				>
+				["at0001"] = <
+					text = <"Tumour grade">
+					description = <"Specify the grade of the tumour.  For serous tumours specify whether High or Low grade, as per RCPath dataset. Note that this data item relates to COSD GY7150, however 'I' =Intermediate is not applicable for serous tumours.">
+				>
+				["at0002"] = <
+					text = <"High">
+					description = <"Tumour grade is deemed to be high.">
+				>
+				["at0003"] = <
+					text = <"Low">
+					description = <"Tumour grade is deemed to be low.">
+				>
+			>
+		>
+	>
