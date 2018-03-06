@@ -1,0 +1,168 @@
+﻿archetype (adl_version=1.4; uid=d0d7d9cb-9e4a-4adc-9791-9cdac6a264b6)
+	openEHR-EHR-OBSERVATION.melanoma_risk_gel.v0
+
+concept
+	[at0000]	-- Malignant melanoma risk factors GEL
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2017-09-14">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the capture and reporting of malignant melanoma risk factors in the context of GEL cancer datasets.">
+			use = <"Use to record malignant melanoma risk factors as part of GEL cancer datasets.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"9DFE3077F5945AF957118A40D10E0F36">
+		["build_uid"] = <"c179473e-219d-4010-87c9-68bc504f8043">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Malignant melanoma risk factors GEL
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..1} matches {	-- Point in time
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0006] occurrences matches {0..1} matches {	-- Childhood chronic exposure
+										value matches {
+											DV_DURATION matches {
+												value matches {PY/|P0Y..P15Y|}
+											}
+										}
+									}
+									ELEMENT[at0007] occurrences matches {0..1} matches {	-- Sunbed use age
+										value matches {
+											DV_DURATION matches {
+												value matches {PY/|>=P0Y|}
+											}
+										}
+									}
+									ELEMENT[at0008] occurrences matches {0..1} matches {	-- Skin type
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0009, 	-- I Always burns, never tans
+													at0010, 	-- II Usually burns, tans minimally
+													at0011, 	-- III Sometimes mild burn, tans uniformly
+													at0012, 	-- IV Burns minimally, always tans well
+													at0013, 	-- V Very rarely burns, tans very easily
+													at0014, 	-- VI Never burns, never tans
+													at0015]	-- Unknown
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0004] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0005] occurrences matches {0..*} matches {	-- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Malignant melanoma risk factors GEL">
+					description = <"Malignant melanoma risk factors in the context of GEL cancer datasets.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Point in time">
+					description = <"A specific date and/or time which may be explicitly defined in a template or at run-time.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0005"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental infomation or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+				["at0006"] = <
+					text = <"Childhood chronic exposure">
+					description = <"Number of years spent by the subject living in a country with high UV light between 0 and15 years.">
+				>
+				["at0007"] = <
+					text = <"Sunbed use age">
+					description = <"Age in years when subject first started using sunbeds.">
+				>
+				["at0008"] = <
+					text = <"Skin type">
+					description = <"Description of skin type with regard to burning and tanning when exposed to the sun.">
+				>
+				["at0009"] = <
+					text = <"I Always burns, never tans">
+					description = <"The subject always burns and never tans when exposed to the sun.">
+				>
+				["at0010"] = <
+					text = <"II Usually burns, tans minimally">
+					description = <"The subject usually burns and tans minimally when exposed to the sun.">
+				>
+				["at0011"] = <
+					text = <"III Sometimes mild burn, tans uniformly">
+					description = <"The subject sometimes experiences mild burn and tans uniformly when exposed to the sun.">
+				>
+				["at0012"] = <
+					text = <"IV Burns minimally, always tans well">
+					description = <"The subject burns minimally and always tans well when exposed to the sun.">
+				>
+				["at0013"] = <
+					text = <"V Very rarely burns, tans very easily">
+					description = <"The subject very rarely burns and tans very easily when exposed to the sun.">
+				>
+				["at0014"] = <
+					text = <"VI Never burns, never tans">
+					description = <"The subject never burns and never tans.">
+				>
+				["at0015"] = <
+					text = <"Unknown">
+					description = <"The subject's skin type with regard to burning and tanning is unknown.">
+				>
+			>
+		>
+	>
