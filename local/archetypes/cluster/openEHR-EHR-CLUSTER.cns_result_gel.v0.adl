@@ -1,0 +1,430 @@
+﻿archetype (adl_version=1.4; uid=931efb64-bc65-4d86-9de7-379b0430b863)
+	openEHR-EHR-CLUSTER.cns_result_gel.v0
+
+concept
+	[at0000]	-- CNS imaging result GEL
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2018-03-06">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the capture and reporting of central nervous system imaging results in the context of GEL cancer datasets.">
+			use = <"Use to record CNS imaging result details as part of GEL cancer datasets.
+
+This cluster archetype is intended to be used in the Imaging result slot of an Imaging examination result observation.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"0AC45F840CA069DE2E76F4F91EF0DBBF">
+		["build_uid"] = <"63cbfe80-2f88-4ef6-8497-1f62cecb5d07">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- CNS imaging result GEL
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- Lesion location
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0002, 	-- 01 Frontal lobe
+							at0003, 	-- 02 Temporal lobe
+							at0004, 	-- 03 Parietal lobe
+							at0005, 	-- 04 Occipital lobe
+							at0006, 	-- 05 Pineal region
+							at0007, 	-- 06 Hypothalamic
+							at0008, 	-- 07 Basal ganglia or thalamic
+							at0009, 	-- 08 Cerebellar
+							at0010, 	-- 09 Midbrain
+							at0011, 	-- 10 Pons
+							at0012, 	-- 11 Medulla
+							at0013, 	-- 12 Fourth ventricle
+							at0014, 	-- 13 Third ventricle
+							at0015, 	-- 14 Lateral ventricle
+							at0016, 	-- 15 Parasagittal or parafalcine dura
+							at0017, 	-- 16 Posterior fossa convexity dura
+							at0018, 	-- 17 Convexity dura
+							at0019, 	-- 18 Petrous temporal bone
+							at0020, 	-- 19 Orbital roof
+							at0021, 	-- 20 Skull vault
+							at0022, 	-- 21 Scalp
+							at0023, 	-- 22 Anterior cranial fossa
+							at0024, 	-- 23 Middle cranial fossa
+							at0025, 	-- 25 Infratemporal fossa
+							at0026, 	-- 26 Pterygopalatine fossa
+							at0027, 	-- 27 Anterior clinoid dura
+							at0028, 	-- 28 Sphenoid wing dura
+							at0029, 	-- 29 Subfrontal dura
+							at0030, 	-- 30 Suprasellar dura
+							at0031, 	-- 31 Clival dura
+							at0032, 	-- 32 Cavernous sinus
+							at0033, 	-- 33 Cerebellopontine angle
+							at0034, 	-- 34 Jugular bulb
+							at0035, 	-- 35 Venous angle dura
+							at0036, 	-- 36 Foramen magnum
+							at0037, 	-- 37 Cervical intramedullary
+							at0038, 	-- 38 Cervical intradural
+							at0039, 	-- 39 Cervical extradural
+							at0040, 	-- 40 Cervical bony
+							at0041, 	-- 41 Thoracic intramedullary
+							at0042, 	-- 42 Thoracic intradural
+							at0043, 	-- 43 Thoracic extradural
+							at0044, 	-- 44 Thoracic bony
+							at0045, 	-- 45 Lumbar intramedullary
+							at0046, 	-- 46 Lumbar intradural
+							at0047, 	-- 47 Lumbar extradural
+							at0048, 	-- 48 Lumbar bony
+							at0049]	-- 98 Other
+						}
+					}
+				}
+			}
+			ELEMENT[at0050] occurrences matches {0..1} matches {	-- Number of lesions
+				value matches {
+					DV_COUNT matches {
+						magnitude matches {|>=0|}
+					}
+				}
+			}
+			ELEMENT[at0051] occurrences matches {0..1} matches {	-- Principal diagnostic imaging type
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0052, 	-- 1 CT Scan
+							at0053, 	-- 2 MRI Scan
+							at0054]	-- 3 PET Scan
+						}
+					}
+				}
+			}
+			ELEMENT[at0055] occurrences matches {0..1} matches {	-- Feature of largest lesion
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0056, 	-- 01 Contrast-enhancement
+							at0057, 	-- 02 Calcification
+							at0058, 	-- 03 Mass effect
+							at0059, 	-- 04 Hydrocephalus
+							at0060, 	-- 05 Haemorrhage
+							at0061, 	-- 06 Cystic or multi-cystic
+							at0062, 	-- 07 Dural tail
+							at0063, 	-- 08 Brain oedema
+							at0064, 	-- 09 Cord signal change
+							at0065]	-- 10 Cord compression
+						}
+					}
+				}
+			}
+			ELEMENT[at0066] occurrences matches {0..1} matches {	-- Lesion size
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::122]>
+						list = <
+							["1"] = <
+								units = <"mm">
+								magnitude = <|0.0..9999.99|>
+								precision = <|2|>
+							>
+						>
+					>
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"CNS imaging result GEL">
+					description = <"Central nervous system imaging result in the context of GEL cancer datasets.">
+				>
+				["at0001"] = <
+					text = <"Lesion location">
+					description = <"The radiological location of the central nervous system lesion.">
+				>
+				["at0002"] = <
+					text = <"01 Frontal lobe">
+					description = <"The lesion is located in the frontal lobe.">
+				>
+				["at0003"] = <
+					text = <"02 Temporal lobe">
+					description = <"The lesion is located in the temporal lobe.">
+				>
+				["at0004"] = <
+					text = <"03 Parietal lobe">
+					description = <"The lesion is located in the parietal lobe.">
+				>
+				["at0005"] = <
+					text = <"04 Occipital lobe">
+					description = <"The lesion is located in the occipital lobe.">
+				>
+				["at0006"] = <
+					text = <"05 Pineal region">
+					description = <"The lesion is located in the pineal region.">
+				>
+				["at0007"] = <
+					text = <"06 Hypothalamic">
+					description = <"The lesion is located in the hypothalamic area.">
+				>
+				["at0008"] = <
+					text = <"07 Basal ganglia or thalamic">
+					description = <"The lesion is located in the basal ganglia or thalamic area.">
+				>
+				["at0009"] = <
+					text = <"08 Cerebellar">
+					description = <"The lesion is located in the cerebellar area.">
+				>
+				["at0010"] = <
+					text = <"09 Midbrain">
+					description = <"The lesion is located in the midbrain.">
+				>
+				["at0011"] = <
+					text = <"10 Pons">
+					description = <"The lesion is located in the pons.">
+				>
+				["at0012"] = <
+					text = <"11 Medulla">
+					description = <"The lesion is located in the medulla.">
+				>
+				["at0013"] = <
+					text = <"12 Fourth ventricle">
+					description = <"The lesion is located in the fourth ventricle.">
+				>
+				["at0014"] = <
+					text = <"13 Third ventricle">
+					description = <"The lesion is located in the third ventricle.">
+				>
+				["at0015"] = <
+					text = <"14 Lateral ventricle">
+					description = <"The lesion is located in the lateral ventricle.">
+				>
+				["at0016"] = <
+					text = <"15 Parasagittal or parafalcine dura">
+					description = <"The lesion is located in the parasagittal or parafalcine dura.">
+				>
+				["at0017"] = <
+					text = <"16 Posterior fossa convexity dura">
+					description = <"The lesion is located in the posterior fossa convexity dura.">
+				>
+				["at0018"] = <
+					text = <"17 Convexity dura">
+					description = <"The lesion is located in the convexity dura.">
+				>
+				["at0019"] = <
+					text = <"18 Petrous temporal bone">
+					description = <"The lesion is located in the petrous temporal bone.">
+				>
+				["at0020"] = <
+					text = <"19 Orbital roof">
+					description = <"The lesion is located in the orbital roof.">
+				>
+				["at0021"] = <
+					text = <"20 Skull vault">
+					description = <"The lesion is located in the skull vault.">
+				>
+				["at0022"] = <
+					text = <"21 Scalp">
+					description = <"The lesion is located in the scalp.">
+				>
+				["at0023"] = <
+					text = <"22 Anterior cranial fossa">
+					description = <"The lesion is located in the anterior cranial fossa.">
+				>
+				["at0024"] = <
+					text = <"23 Middle cranial fossa">
+					description = <"The lesion is located in the middle cranial fossa.">
+				>
+				["at0025"] = <
+					text = <"25 Infratemporal fossa">
+					description = <"The lesion is located in the infratemporal fossa.">
+				>
+				["at0026"] = <
+					text = <"26 Pterygopalatine fossa">
+					description = <"The lesion is located in the pterygopalatine fossa.">
+				>
+				["at0027"] = <
+					text = <"27 Anterior clinoid dura">
+					description = <"The lesion is located in the anterior clinoid dura.">
+				>
+				["at0028"] = <
+					text = <"28 Sphenoid wing dura">
+					description = <"The lesion is located in the sphenoid wing dura.">
+				>
+				["at0029"] = <
+					text = <"29 Subfrontal dura">
+					description = <"The lesion is located in the subfrontal dura.">
+				>
+				["at0030"] = <
+					text = <"30 Suprasellar dura">
+					description = <"The lesion is located in the suprasellar dura.">
+				>
+				["at0031"] = <
+					text = <"31 Clival dura">
+					description = <"The lesion is located in the clival dura.">
+				>
+				["at0032"] = <
+					text = <"32 Cavernous sinus">
+					description = <"The lesion is located in the cavernous sinus.">
+				>
+				["at0033"] = <
+					text = <"33 Cerebellopontine angle">
+					description = <"The lesion is located in the cerebellopontine angle.">
+				>
+				["at0034"] = <
+					text = <"34 Jugular bulb">
+					description = <"The lesion is located in the jugular bulb.">
+				>
+				["at0035"] = <
+					text = <"35 Venous angle dura">
+					description = <"The lesion is located in the venous angle dura.">
+				>
+				["at0036"] = <
+					text = <"36 Foramen magnum">
+					description = <"The lesion is located in the foramen magnum.">
+				>
+				["at0037"] = <
+					text = <"37 Cervical intramedullary">
+					description = <"The lesion is located in the cervical intramedullary.">
+				>
+				["at0038"] = <
+					text = <"38 Cervical intradural">
+					description = <"The lesion is located in the cervical intradural.">
+				>
+				["at0039"] = <
+					text = <"39 Cervical extradural">
+					description = <"The lesion is located in the cervical extradural.">
+				>
+				["at0040"] = <
+					text = <"40 Cervical bony">
+					description = <"The lesion is located in the cervical bony.">
+				>
+				["at0041"] = <
+					text = <"41 Thoracic intramedullary">
+					description = <"The lesion is located in the thoracid intramedullary.">
+				>
+				["at0042"] = <
+					text = <"42 Thoracic intradural">
+					description = <"The lesion is located in the thoracic intradural.">
+				>
+				["at0043"] = <
+					text = <"43 Thoracic extradural">
+					description = <"The lesion is located in the thoracic extradural.">
+				>
+				["at0044"] = <
+					text = <"44 Thoracic bony">
+					description = <"The lesion is located in the thoracic bony.">
+				>
+				["at0045"] = <
+					text = <"45 Lumbar intramedullary">
+					description = <"The lesion is located in the lumbar intramedullary.">
+				>
+				["at0046"] = <
+					text = <"46 Lumbar intradural">
+					description = <"The lesion is located in the lumbar intradural.">
+				>
+				["at0047"] = <
+					text = <"47 Lumbar extradural">
+					description = <"The lesion is located in the lumbar extradural.">
+				>
+				["at0048"] = <
+					text = <"48 Lumbar bony">
+					description = <"The lesion is located in the lumbar bony.">
+				>
+				["at0049"] = <
+					text = <"98 Other">
+					description = <"The lesion is located in another area.">
+				>
+				["at0050"] = <
+					text = <"Number of lesions">
+					description = <"The number of lesions on radiological examination.">
+				>
+				["at0051"] = <
+					text = <"Principal diagnostic imaging type">
+					description = <"Principal diagnostic imaging type used for the CNS imaging examination.">
+				>
+				["at0052"] = <
+					text = <"1 CT Scan">
+					description = <"The principal diagnostic imaging type is CT scan.">
+				>
+				["at0053"] = <
+					text = <"2 MRI Scan">
+					description = <"The principal diagnostic imaging type is MRI scan.">
+				>
+				["at0054"] = <
+					text = <"3 PET Scan">
+					description = <"The principal diagnostic imaging type is PET scan.">
+				>
+				["at0055"] = <
+					text = <"Feature of largest lesion">
+					description = <"Feature of largest lesion on CNS imaging examination.">
+				>
+				["at0056"] = <
+					text = <"01 Contrast-enhancement">
+					description = <"The feature of the largest lesion is contrast-enhancement.">
+				>
+				["at0057"] = <
+					text = <"02 Calcification">
+					description = <"The feature of the largest lesion is calcification.">
+				>
+				["at0058"] = <
+					text = <"03 Mass effect">
+					description = <"The feature of the largest lesion is mass effect.">
+				>
+				["at0059"] = <
+					text = <"04 Hydrocephalus">
+					description = <"The feature of the largest lesion is hydrocephalus.">
+				>
+				["at0060"] = <
+					text = <"05 Haemorrhage">
+					description = <"The feature of the largest lesion is haemorrhage.">
+				>
+				["at0061"] = <
+					text = <"06 Cystic or multi-cystic">
+					description = <"The feature of the largest lesion is cystic or multi-cystic.">
+				>
+				["at0062"] = <
+					text = <"07 Dural tail">
+					description = <"The feature of the largest lesion is dural tail.">
+				>
+				["at0063"] = <
+					text = <"08 Brain oedema">
+					description = <"The feature of the largest lesion is brain oedema.">
+				>
+				["at0064"] = <
+					text = <"09 Cord signal change">
+					description = <"The feature of the largest lesion is cord signal change.">
+				>
+				["at0065"] = <
+					text = <"10 Cord compression">
+					description = <"The feature of the largest lesion is cord compression.">
+				>
+				["at0066"] = <
+					text = <"Lesion size">
+					description = <"Radiological estimate in millimetres of the maximum diameter of the tumour measured prior to treatment (largest lesion if more than one).  Record as \"0\" to indicate not assessable for diffuse tumours (e.g. gliomatosis cerebri).">
+				>
+			>
+		>
+	>
