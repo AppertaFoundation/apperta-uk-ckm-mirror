@@ -1,0 +1,156 @@
+﻿archetype (adl_version=1.4; uid=331c985e-9a1b-4a06-b54a-2e3106b5e4d0)
+	openEHR-EHR-CLUSTER.lung_cancer_pathology_gel.v0
+
+concept
+	[at0000]	-- Lung cancer pathology GEL
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2017-09-27">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the capture and reporting of specific lung cancer pathology details in the context of GEL cancer datasets.">
+			use = <"Use to record specific lung cancer pathology details as part of GEL cancer datasets.
+
+This cluster archetype is intended to be used in the Test findings slot in a laboratory test result observation archetype.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"510D08FBC0862DD2A0DB17BCBAD8ECCC">
+		["build_uid"] = <"ce7eaab5-c820-4091-ac47-da08806c597d">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Lung cancer pathology GEL
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- Pleural invasion
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0002, 	-- 1 No pleural invasion
+							at0003, 	-- 2 Visceral pleura only
+							at0004, 	-- 3 Parietal pleura and or chest wall
+							at0005]	-- 4 Mediastinal pleura
+						}
+					}
+				}
+			}
+			ELEMENT[at0006] occurrences matches {0..1} matches {	-- Malignant pleural invasion
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0007, 	-- Y Yes
+							at0008, 	-- N No
+							at0009]	-- 9 Not known
+						}
+					}
+				}
+			}
+			ELEMENT[at0010] occurrences matches {0..1} matches {	-- Satellite tumour nodules location
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0011, 	-- 1 Separate tumour nodules in same lobe
+							at0012, 	-- 2 Separate tumour nodules in a different ipsilateral lobe
+							at0013, 	-- 3 Separate tumour nodules in a contralateral lobe
+							at0014, 	-- 4 No separate tumour nodules
+							at0015]	-- 9 Not known
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Lung cancer pathology GEL">
+					description = <"Specific lung cancer pathology details in the context of GEL cancer dataset.">
+				>
+				["at0001"] = <
+					text = <"Pleural invasion">
+					description = <"Details of the extent of pleural invasion.">
+				>
+				["at0002"] = <
+					text = <"1 No pleural invasion">
+					description = <"Pathology findings indicate no pleural invasion.">
+				>
+				["at0003"] = <
+					text = <"2 Visceral pleura only">
+					description = <"Pathology findings indicate invasion of visceral pleura only.">
+				>
+				["at0004"] = <
+					text = <"3 Parietal pleura and or chest wall">
+					description = <"Pathology findings indicate invasion of parietal pleura/chest wall.">
+				>
+				["at0005"] = <
+					text = <"4 Mediastinal pleura">
+					description = <"Pathology findings indicate invasion of mediastinal pleura.">
+				>
+				["at0006"] = <
+					text = <"Malignant pleural invasion">
+					description = <"Statement about malignant pleural invasion.">
+				>
+				["at0007"] = <
+					text = <"Y Yes">
+					description = <"Pathology findings indicate malignant pleural invasion.">
+				>
+				["at0008"] = <
+					text = <"N No">
+					description = <"Pathology findings indicate no malignant pleural invasion.">
+				>
+				["at0009"] = <
+					text = <"9 Not known">
+					description = <"It is not known from the pathology findings whether there is malignant pleural invasion.">
+				>
+				["at0010"] = <
+					text = <"Satellite tumour nodules location">
+					description = <"Details of satellite tumour nodules location.">
+				>
+				["at0011"] = <
+					text = <"1 Separate tumour nodules in same lobe">
+					description = <"Pathology findings indicate separate tumour nodules in same lobe.">
+				>
+				["at0012"] = <
+					text = <"2 Separate tumour nodules in a different ipsilateral lobe">
+					description = <"Pathology findings indicate separate tumour nodules in a different ipsilateral lobe.">
+				>
+				["at0013"] = <
+					text = <"3 Separate tumour nodules in a contralateral lobe">
+					description = <"Pathology findings indicate separate tumour nodules in a contralateral lobe.">
+				>
+				["at0014"] = <
+					text = <"4 No separate tumour nodules">
+					description = <"Pathology findings indicate no separate tumour nodules.">
+				>
+				["at0015"] = <
+					text = <"9 Not known">
+					description = <"Location or presence of satellite tumour nodules is not known from the pathology findings.">
+				>
+			>
+		>
+	>
