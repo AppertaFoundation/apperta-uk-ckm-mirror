@@ -1,0 +1,545 @@
+﻿archetype (adl_version=1.4; uid=d05f0782-be71-4e74-bf3a-ce866a70f887)
+	openEHR-EHR-CLUSTER.cns_cancer_pathology_gel.v0
+
+concept
+	[at0000]	-- CNS cancer pathology GEL
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2017-09-26">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the capture and reporting of specific cancer pathology details for CNS cancer in the context of the GEL cancer datasets.">
+			use = <"Use to record specific cancer pathology details for CNS cancer as part of GEL cancer datasets.
+
+This cluster archetype is intended to be used in the Test findings slot in a laboratory test result observation archetype.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"00C27FEF89606ADC0213529B73AD8664">
+		["build_uid"] = <"b71c16b9-dd9f-4149-89ea-b02d3c39f345">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- CNS cancer pathology GEL
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- Molecular diagnostic code
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0002, 	-- 01
+							at0003, 	-- 02
+							at0004, 	-- 03
+							at0005, 	-- 04
+							at0006, 	-- 05
+							at0007, 	-- 06
+							at0008, 	-- 07
+							at0009, 	-- 08
+							at0010, 	-- 09
+							at0011, 	-- 10
+							at0012, 	-- 11
+							at0013, 	-- 12
+							at0014, 	-- 13
+							at0015, 	-- 14
+							at0016, 	-- 15
+							at0017, 	-- 16
+							at0018, 	-- 17
+							at0019, 	-- 18
+							at0020, 	-- 19
+							at0021, 	-- 20
+							at0022, 	-- 21
+							at0023, 	-- 22
+							at0024, 	-- 23
+							at0025, 	-- 24
+							at0026, 	-- 25
+							at0027, 	-- 26
+							at0028, 	-- 27
+							at0029, 	-- 28
+							at0030, 	-- 29
+							at0031, 	-- 30
+							at0032, 	-- 31
+							at0033, 	-- 32
+							at0034, 	-- 33
+							at0035, 	-- 34
+							at0036, 	-- 35
+							at0037, 	-- 36
+							at0038, 	-- 37
+							at0039, 	-- 38
+							at0040, 	-- 39
+							at0041, 	-- 40
+							at0042, 	-- 41
+							at0043, 	-- 42
+							at0044, 	-- 43
+							at0045, 	-- 44
+							at0046, 	-- 45
+							at0047, 	-- 46
+							at0048, 	-- 47
+							at0049, 	-- 48
+							at0050, 	-- 49
+							at0051, 	-- 50
+							at0052, 	-- 51
+							at0053, 	-- 52
+							at0054, 	-- 53
+							at0055, 	-- 54
+							at0056, 	-- 55
+							at0057, 	-- 56
+							at0058, 	-- 57
+							at0059, 	-- 58
+							at0060, 	-- 59
+							at0061, 	-- 60
+							at0062, 	-- 61
+							at0063, 	-- 62
+							at0064, 	-- 63
+							at0065, 	-- 64
+							at0066, 	-- 65
+							at0067, 	-- 66
+							at0068, 	-- 67
+							at0069, 	-- 68
+							at0070, 	-- 69
+							at0071, 	-- 70
+							at0072, 	-- 71
+							at0073, 	-- 72
+							at0074, 	-- 73
+							at0075, 	-- 74
+							at0076, 	-- 75
+							at0077, 	-- 76
+							at0078, 	-- 77
+							at0079, 	-- 78
+							at0080, 	-- 79
+							at0081, 	-- 80
+							at0082, 	-- 81
+							at0083, 	-- 82
+							at0084, 	-- 83
+							at0085, 	-- 84
+							at0086, 	-- 85
+							at0087, 	-- 86
+							at0088, 	-- 87
+							at0089, 	-- 88
+							at0090, 	-- 89
+							at0091, 	-- 90
+							at0092, 	-- 91
+							at0093, 	-- 92
+							at0094, 	-- 93
+							at0095, 	-- 98
+							at0096]	-- 99
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"CNS cancer pathology GEL">
+					description = <"Specific cancer pathology details for CNS cancer in the context of GEL cancer datasets.">
+				>
+				["at0001"] = <
+					text = <"Molecular diagnostic code">
+					description = <"Chromosomal or genetic markers associated with the brain tumour.  This may involve selection of more than one values for each tumour.">
+				>
+				["at0002"] = <
+					text = <"01">
+					description = <"Evidence of IDH1 or IDH2 mutation.">
+				>
+				["at0003"] = <
+					text = <"02">
+					description = <"Evidence of methylation of the MGMT gene CpG island.">
+				>
+				["at0004"] = <
+					text = <"03">
+					description = <"Evidence of total loss of 1p and 19q.">
+				>
+				["at0005"] = <
+					text = <"04">
+					description = <"Evidence of KIAA 1549-BRAF fusion gene.">
+				>
+				["at0006"] = <
+					text = <"05">
+					description = <"Other.">
+				>
+				["at0007"] = <
+					text = <"06">
+					description = <"Evidence of ALK rearrangement.">
+				>
+				["at0008"] = <
+					text = <"07">
+					description = <"Evidence of native ALK.">
+				>
+				["at0009"] = <
+					text = <"08">
+					description = <"Evidence of ATRX mutation.">
+				>
+				["at0010"] = <
+					text = <"09">
+					description = <"Evidence of wt ATRX.">
+				>
+				["at0011"] = <
+					text = <"10">
+					description = <"Evidence of BRAF V600E mutation.">
+				>
+				["at0012"] = <
+					text = <"11">
+					description = <"Evidence of wt BRAF.">
+				>
+				["at0013"] = <
+					text = <"12">
+					description = <"Evidence of KIAA1549-BRAF fusion.">
+				>
+				["at0014"] = <
+					text = <"13">
+					description = <"Evidence of BRAF/RAF1 mutations, or fusions involving genes other than KIAA1549.">
+				>
+				["at0015"] = <
+					text = <"14">
+					description = <"Evidence of C11orf95-RELA fusion.">
+				>
+				["at0016"] = <
+					text = <"15">
+					description = <"Evidence of native C11orf95 and RELA.">
+				>
+				["at0017"] = <
+					text = <"16">
+					description = <"Evidence of amplification or fusion of C19MC locus (chr.19q13.42).">
+				>
+				["at0018"] = <
+					text = <"17">
+					description = <"Evidence of unaltered C19MC locus (chr.19q13.42).">
+				>
+				["at0019"] = <
+					text = <"18">
+					description = <"Evidence of CDK4/6 amplification.">
+				>
+				["at0020"] = <
+					text = <"19">
+					description = <"Evidence of CDK4/6 normal copy number.">
+				>
+				["at0021"] = <
+					text = <"20">
+					description = <"Evidence of CDKN2A locus homozygous deletion.">
+				>
+				["at0022"] = <
+					text = <"21">
+					description = <"Evidence of CDKN2A locus normal copy number.">
+				>
+				["at0023"] = <
+					text = <"22">
+					description = <"Evidence of CCND1/2/3 amplification.">
+				>
+				["at0024"] = <
+					text = <"23">
+					description = <"Evidence of CCND1/2/3 normal copy number.">
+				>
+				["at0025"] = <
+					text = <"24">
+					description = <"Evidence of CTNNB1 mutation.">
+				>
+				["at0026"] = <
+					text = <"25">
+					description = <"Evidence of wt CTNNB1.">
+				>
+				["at0027"] = <
+					text = <"26">
+					description = <"Evidence of amplification of EGFR.">
+				>
+				["at0028"] = <
+					text = <"27">
+					description = <"Evidence of mutation / rearrangement of EGFR.">
+				>
+				["at0029"] = <
+					text = <"28">
+					description = <"Evidence of unaltered EGFR.">
+				>
+				["at0030"] = <
+					text = <"29">
+					description = <"Evidence of EWSR1-FLI1 fusion.">
+				>
+				["at0031"] = <
+					text = <"30">
+					description = <"Evidence of native EWSR1 and FLI1.">
+				>
+				["at0032"] = <
+					text = <"31">
+					description = <"Evidence of FGFR1 mutation / rearrangement / fusion.">
+				>
+				["at0033"] = <
+					text = <"32">
+					description = <"Evidence of unaltered FGFR1.">
+				>
+				["at0034"] = <
+					text = <"33">
+					description = <"Evidence of H3F3A/H3F3B (H3.3) K27M mutation.">
+				>
+				["at0035"] = <
+					text = <"34">
+					description = <"Evidence of H3F3A/H3F3B (H3.3) wt K27.">
+				>
+				["at0036"] = <
+					text = <"35">
+					description = <"Evidence of H3F3A/H3F3B (H3.3) G34R/V mutation.">
+				>
+				["at0037"] = <
+					text = <"36">
+					description = <"Evidence of H3F3A/H3F3B (H3.3) wt G34.">
+				>
+				["at0038"] = <
+					text = <"37">
+					description = <"Evidence of HIST1H3B K27M mutation.">
+				>
+				["at0039"] = <
+					text = <"38">
+					description = <"Evidence of HIST1H3B wt K27.">
+				>
+				["at0040"] = <
+					text = <"39">
+					description = <"Evidence of HIST1H3C K27M mutation.">
+				>
+				["at0041"] = <
+					text = <"40">
+					description = <"Evidence of HIST1H3C wt K27.">
+				>
+				["at0042"] = <
+					text = <"41">
+					description = <"Evidence of ID2 amplification.">
+				>
+				["at0043"] = <
+					text = <"42">
+					description = <"Evidence of ID2 normal copy number.">
+				>
+				["at0044"] = <
+					text = <"43">
+					description = <"IDH1 (codon 132) or IDH2 (codon 172) mutation identified.">
+				>
+				["at0045"] = <
+					text = <"44">
+					description = <"IDH1 (codon 132) and IDH2 (codon 172) wt confirmed.">
+				>
+				["at0046"] = <
+					text = <"45">
+					description = <"Evidence of KLF4 K409Q and TRAF7 mutations.">
+				>
+				["at0047"] = <
+					text = <"46">
+					description = <"Evidence of wt KLF4 and TRAF7.">
+				>
+				["at0048"] = <
+					text = <"47">
+					description = <"Evidence of MAP2K1 mutation.">
+				>
+				["at0049"] = <
+					text = <"48">
+					description = <"Evidence of wt MAP2K1.">
+				>
+				["at0050"] = <
+					text = <"49">
+					description = <"Evidence of MET amplification.">
+				>
+				["at0051"] = <
+					text = <"50">
+					description = <"Evidence of MET normal copy number.">
+				>
+				["at0052"] = <
+					text = <"51">
+					description = <"Evidence of significant MGMT promoter methylation.">
+				>
+				["at0053"] = <
+					text = <"52">
+					description = <"Evidence of unmethylated MGMT promoter.">
+				>
+				["at0054"] = <
+					text = <"53">
+					description = <"Evidence of MYC/MYCN amplification.">
+				>
+				["at0055"] = <
+					text = <"54">
+					description = <"Evidence of MYC/MYCN normal copy number.">
+				>
+				["at0056"] = <
+					text = <"55">
+					description = <"Evidence of NF1 biallelic loss / mutation.">
+				>
+				["at0057"] = <
+					text = <"56">
+					description = <"Evidence of unaltered NF1.">
+				>
+				["at0058"] = <
+					text = <"57">
+					description = <"Evidence of NF2 biallelic loss / mutation.">
+				>
+				["at0059"] = <
+					text = <"58">
+					description = <"Evidence of unaltered NF2.">
+				>
+				["at0060"] = <
+					text = <"59">
+					description = <"Evidence of NKTR fusions.">
+				>
+				["at0061"] = <
+					text = <"60">
+					description = <"Evidence of native NKTR.">
+				>
+				["at0062"] = <
+					text = <"61">
+					description = <"Evidence of PTEN biallelic loss / mutation.">
+				>
+				["at0063"] = <
+					text = <"62">
+					description = <"Evidence of unaltered PTEN.">
+				>
+				["at0064"] = <
+					text = <"63">
+					description = <"Evidence of SDHB or SDHD mutation.">
+				>
+				["at0065"] = <
+					text = <"64">
+					description = <"Evidence of wt SDHB and SDHD.">
+				>
+				["at0066"] = <
+					text = <"65">
+					description = <"Evidence of SHH pathway activation.">
+				>
+				["at0067"] = <
+					text = <"66">
+					description = <"Evidence of normal SHH pathway.">
+				>
+				["at0068"] = <
+					text = <"67">
+					description = <"Evidence of inactivation of SMARCB1 (INI1).">
+				>
+				["at0069"] = <
+					text = <"68">
+					description = <"Evidence of wt SMARCB1 (INI1).">
+				>
+				["at0070"] = <
+					text = <"69">
+					description = <"Evidence of inactivation of SMARCA4.">
+				>
+				["at0071"] = <
+					text = <"70">
+					description = <"Evidence of wt SMARCA4.">
+				>
+				["at0072"] = <
+					text = <"71">
+					description = <"Evidence of TERT promotor mutation.">
+				>
+				["at0073"] = <
+					text = <"72">
+					description = <"Evidence of wt TERT promotor.">
+				>
+				["at0074"] = <
+					text = <"73">
+					description = <"Evidence  of TP53 mutation.">
+				>
+				["at0075"] = <
+					text = <"74">
+					description = <"Evidence of wt TP53.">
+				>
+				["at0076"] = <
+					text = <"75">
+					description = <"Evidence of TSC1 or TSC2 mutation.">
+				>
+				["at0077"] = <
+					text = <"76">
+					description = <"Evidence of wt TSC1 and TSC2.">
+				>
+				["at0078"] = <
+					text = <"77">
+					description = <"Evidence of VHL mutation.">
+				>
+				["at0079"] = <
+					text = <"78">
+					description = <"Evidence of wt VHL gene.">
+				>
+				["at0080"] = <
+					text = <"79">
+					description = <"Evidence of WNT pathway activation.">
+				>
+				["at0081"] = <
+					text = <"80">
+					description = <"Evidence of normal WNT pathway.">
+				>
+				["at0082"] = <
+					text = <"81">
+					description = <"Evidence of WWTR1-CAMTA1 fusion.">
+				>
+				["at0083"] = <
+					text = <"82">
+					description = <"Evidence of native WWTR1 and CAMTA1.">
+				>
+				["at0084"] = <
+					text = <"83">
+					description = <"Evidence of codeletion of chr.1p and chr.19q.">
+				>
+				["at0085"] = <
+					text = <"84">
+					description = <"Evidence of total chr.1p loss but normal copy number of chr.19q.">
+				>
+				["at0086"] = <
+					text = <"85">
+					description = <"Evidence of normal copy number of both chr.1p and chr.19q.">
+				>
+				["at0087"] = <
+					text = <"86">
+					description = <"Evidence of monosomy chr.6.">
+				>
+				["at0088"] = <
+					text = <"87">
+					description = <"Evidence of chr.6 normal copy number.">
+				>
+				["at0089"] = <
+					text = <"88">
+					description = <"Evidence of polysomy chr.7.">
+				>
+				["at0090"] = <
+					text = <"89">
+					description = <"Evidence of chr.7 normal copy number.">
+				>
+				["at0091"] = <
+					text = <"90">
+					description = <"Evidence of loss of chr.10 or chr.10q.">
+				>
+				["at0092"] = <
+					text = <"91">
+					description = <"Evidence of chr.10 normal copy number.">
+				>
+				["at0093"] = <
+					text = <"92">
+					description = <"Evidence of loss of chr.22 or chr.22q.">
+				>
+				["at0094"] = <
+					text = <"93">
+					description = <"Evidence of chr.22 or chr.22q normal copy number.">
+				>
+				["at0095"] = <
+					text = <"98">
+					description = <"Other.">
+				>
+				["at0096"] = <
+					text = <"99">
+					description = <"Not Known (Not Recorded).">
+				>
+			>
+		>
+	>
