@@ -1,0 +1,271 @@
+﻿archetype (adl_version=1.4; uid=956e9b63-da64-4f0a-a574-c8db698956b0)
+	openEHR-EHR-CLUSTER.breast_cancer_pathology_gel.v0
+
+concept
+	[at0000]	-- Breast cancer pathology GEL
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2018-03-06">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the capture and reporting of specific breast cancer pathology details in the context of GEL cancer datasets.">
+			use = <"Use to record specific breast cancer pathology details as part of the GEL cancer datasets.
+
+This cluster archetype is intended to be used in the Test findings slot in a laboratory test result observation archetype.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"9E2AA5B73B477C5E2F0FF76344F3578B">
+		["build_uid"] = <"447085f2-a857-4d95-a418-3ad4a3f910f2">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Breast cancer pathology GEL
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- Core biopsy breast
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0002, 	-- B1 Normal
+							at0003, 	-- B2 Benign
+							at0004, 	-- B3 Uncertain malignant potential
+							at0005, 	-- B4 Suspicious
+							at0006, 	-- B5a Malignant In situ
+							at0007, 	-- B5b Malignant invasive
+							at0008]	-- B5c Malignant not assessable
+						}
+					}
+				}
+			}
+			ELEMENT[at0009] occurrences matches {0..1} matches {	-- Core biopsy node
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0010, 	-- B1 Normal
+							at0011, 	-- B2 Benign
+							at0012, 	-- B3 Uncertain malignant potential
+							at0013, 	-- B4 Suspicious
+							at0014]	-- B5 Malignant
+						}
+					}
+				}
+			}
+			ELEMENT[at0015] occurrences matches {0..1} matches {	-- Cytology node
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0016, 	-- C1 Inadequate or unsatisfactory specimen
+							at0017, 	-- C2 Benign
+							at0018, 	-- C3 Uncertain
+							at0019, 	-- C4 Suspicious of malignancy
+							at0020]	-- C5 Malignant
+						}
+					}
+				}
+			}
+			allow_archetype CLUSTER[at0021] occurrences matches {0..*} matches {	-- ER Allred score
+				include
+					archetype_id/value matches {/.*/}
+			}
+			allow_archetype CLUSTER[at0022] occurrences matches {0..*} matches {	-- PR Allred score
+				include
+					archetype_id/value matches {/.*/}
+			}
+			ELEMENT[at0023] occurrences matches {0..1} matches {	-- HER2 status
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0024, 	-- P Positive
+							at0025, 	-- N Negative
+							at0026, 	-- B Borderline
+							at0027]	-- X Not performed
+						}
+					}
+				}
+			}
+			ELEMENT[at0028] occurrences matches {0..1} matches {	-- HER2 ISH status
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0029, 	-- Positive
+							at0030]	-- Negative
+						}
+					}
+				}
+			}
+			ELEMENT[at0031] occurrences matches {0..1} matches {	-- Distance to margin
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::122]>
+						list = <
+							["1"] = <
+								units = <"mm">
+								magnitude = <|>=0.0|>
+								precision = <|1|>
+							>
+						>
+					>
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Breast cancer pathology GEL">
+					description = <"Specific breast cancer pathology details in the context of the GEL cancer dataset.">
+				>
+				["at0001"] = <
+					text = <"Core biopsy breast">
+					description = <"Details of findings of core biopsy of breast.">
+				>
+				["at0002"] = <
+					text = <"B1 Normal">
+					description = <"Core biopsy findings of breast are deemed to be normal.">
+				>
+				["at0003"] = <
+					text = <"B2 Benign">
+					description = <"Core biopsy findings of breast are deemed to be benign.">
+				>
+				["at0004"] = <
+					text = <"B3 Uncertain malignant potential">
+					description = <"Core biopsy findings of breast are deemed to be uncertain with malignant potential.">
+				>
+				["at0005"] = <
+					text = <"B4 Suspicious">
+					description = <"Core biopsy findings of breast are deemed to be suspicious.">
+				>
+				["at0006"] = <
+					text = <"B5a Malignant In situ">
+					description = <"Core biopsy findings of breast are deemed to be malignant in situ.">
+				>
+				["at0007"] = <
+					text = <"B5b Malignant invasive">
+					description = <"Core biopsy findings of breast are deemed to be malignant invasive.">
+				>
+				["at0008"] = <
+					text = <"B5c Malignant not assessable">
+					description = <"Core biopsy findings of breast are deemed to be malignant not assessable.">
+				>
+				["at0009"] = <
+					text = <"Core biopsy node">
+					description = <"Details of findings of core biopsy of nodes.">
+				>
+				["at0010"] = <
+					text = <"B1 Normal">
+					description = <"Core biopsy findings of nodes are deemed to be normal.">
+				>
+				["at0011"] = <
+					text = <"B2 Benign">
+					description = <"Core biopsy findings of nodes are deemed to be benign.">
+				>
+				["at0012"] = <
+					text = <"B3 Uncertain malignant potential">
+					description = <"Core biopsy findings of nodes are deemed to be uncertain with malignant potential.">
+				>
+				["at0013"] = <
+					text = <"B4 Suspicious">
+					description = <"Core biopsy findings of nodes are deemed to be suspicious.">
+				>
+				["at0014"] = <
+					text = <"B5 Malignant">
+					description = <"Core biopsy findings of breast are deemed to be malignant.">
+				>
+				["at0015"] = <
+					text = <"Cytology node">
+					description = <"Details of findings of cytology of nodes.">
+				>
+				["at0016"] = <
+					text = <"C1 Inadequate or unsatisfactory specimen">
+					description = <"FIndings of cytology of nodes indicated an inadequate or unsatisfactory specimen.">
+				>
+				["at0017"] = <
+					text = <"C2 Benign">
+					description = <"Cytology of nodes findings are deemed to be benign.">
+				>
+				["at0018"] = <
+					text = <"C3 Uncertain">
+					description = <"Cytology of nodes findings are deemed to be uncertain.">
+				>
+				["at0019"] = <
+					text = <"C4 Suspicious of malignancy">
+					description = <"Cytology of nodes findings are deemed to be suspicious of malignancy.">
+				>
+				["at0020"] = <
+					text = <"C5 Malignant">
+					description = <"Cytology of nodes findings are deemed to be malignant.">
+				>
+				["at0021"] = <
+					text = <"ER Allred score">
+					description = <"ER Allred score.">
+				>
+				["at0022"] = <
+					text = <"PR Allred score">
+					description = <"PR Allred score.">
+				>
+				["at0023"] = <
+					text = <"HER2 status">
+					description = <"Details of HER2 status.">
+				>
+				["at0024"] = <
+					text = <"P Positive">
+					description = <"HER2 status is positive.">
+				>
+				["at0025"] = <
+					text = <"N Negative">
+					description = <"HER2 status is negative.">
+				>
+				["at0026"] = <
+					text = <"B Borderline">
+					description = <"HER2 status is borderline.">
+				>
+				["at0027"] = <
+					text = <"X Not performed">
+					description = <"HER2 status assessment was not performed.">
+				>
+				["at0028"] = <
+					text = <"HER2 ISH status">
+					description = <"Result of the ISH (in-situ hybridization) test.">
+				>
+				["at0029"] = <
+					text = <"Positive">
+					description = <"Result of HER2 ISH test is positive.">
+				>
+				["at0030"] = <
+					text = <"Negative">
+					description = <"Result of HER2 ISH test is negative.">
+				>
+				["at0031"] = <
+					text = <"Distance to margin">
+					description = <"Distance to closest relevant margin (mm). Distance to nearest margin whether invasive or non invasive.">
+				>
+			>
+		>
+	>
