@@ -1,0 +1,144 @@
+﻿archetype (adl_version=1.4; uid=416936cd-e511-4267-9be5-1f5457fc4a8f)
+	openEHR-EHR-OBSERVATION.breast_risk_gel.v0
+
+concept
+	[at0000]	-- Breast cancer risk factors GEL
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2017-09-14">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the capture and reporting of breast cancer risk factors in the context of the GEL cancer dataset.">
+			use = <"Use to record breast cancer risk factors as part of the GEL cancer dataset.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"7CB3B131356CC90D4F84548F8A35E2F1">
+		["build_uid"] = <"d8492924-b4c1-4aad-addc-69c59af65b15">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Breast cancer risk factors GEL
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..1} matches {	-- Point in time
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0031] occurrences matches {0..1} matches {	-- Breast density
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0032, 	-- BIRADS 0
+													at0033, 	-- BIRADS 1
+													at0034, 	-- BIRADS 2
+													at0035, 	-- BIRADS 3
+													at0036]	-- BIRADS 4
+												}
+											}
+										}
+									}
+									allow_archetype CLUSTER[at0037] occurrences matches {0..*} matches {	-- Common cancer risk factors
+										include
+											archetype_id/value matches {/openEHR-EHR-CLUSTER\.female_cancer_risk_gel(-[a-zA-Z0-9_]+)*\.v0/}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0004] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0005] occurrences matches {0..*} matches {	-- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Breast cancer risk factors GEL">
+					description = <"Breast cancer risk factors in the context of GEL cancer dataset.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Point in time">
+					description = <"A specific date and/or time which may be explicitly defined in a template or at run-time.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0005"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental infomation or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+				["at0031"] = <
+					text = <"Breast density">
+					description = <"Description of breast density according to BIRADS classification.">
+				>
+				["at0032"] = <
+					text = <"BIRADS 0">
+					description = <"Additional imaging evaluation and/or comparison to prior mammogram is needed.">
+				>
+				["at0033"] = <
+					text = <"BIRADS 1">
+					description = <"Glandular tissue is less than 25%.">
+				>
+				["at0034"] = <
+					text = <"BIRADS 2">
+					description = <"Scattered fibroglandular densities  (25-50%).">
+				>
+				["at0035"] = <
+					text = <"BIRADS 3">
+					description = <"Heterogeneously dense (50-75%).">
+				>
+				["at0036"] = <
+					text = <"BIRADS 4">
+					description = <"Extremely dense breast (75-100%).">
+				>
+				["at0037"] = <
+					text = <"Common cancer risk factors">
+					description = <"Common female cancer risk factors shared between ovarian, breast and endometrial cancer.">
+				>
+			>
+		>
+	>
