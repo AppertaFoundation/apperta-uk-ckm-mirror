@@ -1,0 +1,117 @@
+﻿archetype (adl_version=1.4; uid=8097a0d9-403f-40ff-9cad-cfd80b7e32c6)
+	openEHR-EHR-OBSERVATION.endometrial_risk_gel.v0
+
+concept
+	[at0000]	-- Endometrial cancer risk factors GEL
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2017-09-14">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the capture and reporting of endometrial cancer risk factors in the context of the GEL cancer dataset.">
+			use = <"Use to record endometrial cancer risk factors as part of the GEL cancer dataset.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"B43CD815312CE15E2BA98702F10DC620">
+		["build_uid"] = <"bec3d6aa-ea40-40f8-b1f9-88ad1970fa77">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Endometrial cancer risk factors GEL
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..1} matches {	-- Point in time
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0037] occurrences matches {0..1} matches {	-- Tamoxifen use age
+										value matches {
+											DV_DURATION matches {
+												value matches {PY/|>=P0Y|}
+											}
+										}
+									}
+									allow_archetype CLUSTER[at0038] occurrences matches {0..*} matches {	-- Common cancer risk factors
+										include
+											archetype_id/value matches {/openEHR-EHR-CLUSTER\.female_cancer_risk_gel(-[a-zA-Z0-9_]+)*\.v0/}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0004] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0005] occurrences matches {0..*} matches {	-- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Endometrial cancer risk factors GEL">
+					description = <"Endometrial cancer risk factors in the context of GEL cancer dataset.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Point in time">
+					description = <"A specific date and/or time which may be explicitly defined in a template or at run-time.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0005"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental infomation or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+				["at0037"] = <
+					text = <"Tamoxifen use age">
+					description = <"If treated with tamoxifen, subject age years at which treatment started.">
+				>
+				["at0038"] = <
+					text = <"Common cancer risk factors">
+					description = <"Common female cancer risk factors shared between ovarian, breast and endometrial cancers.">
+				>
+			>
+		>
+	>
