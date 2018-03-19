@@ -31,28 +31,6 @@ description
 		["date"] = <"2017-02-16">
 	>
 	details = <
-		["en"] = <
-			language = <[ISO_639-1::en]>
-			purpose = <"To record an overall statement of exclusion about all Problem/diagnosis, Family history, Medications, Procedures, Adverse reactions or other clinical item that are either not currently present, or have not been present in the past.">
-			use = <"Use to record an overall statement of exclusion about all Problem/diagnosis, Family history, Medications, Procedures, Adverse reactions or other clinical item that are either not currently present, or have not been present in the past.
-
-This archetype has been specifically designed to make a clear and unambiguous statement of an overall exclusion of a type of clinical item from the health record. This approach is used in preference to relying on flags or terminology to express negation.
-
-Each global statement should be recorded in a separate instance - for example a separate instance for a statement about medications and another for adverse reactions.
-
-The 'Global statement' data element allows for recording of a single Global statement. The different Global statements listed in the \"Global statement' run-time name constraint identifies the the different global exclusions. This name constraint can be applied during template modelling or at run-time within a software application.
-
-Please note that exclusion statements can only be considered to be current and accurate at the point-in-time of recording. It is possible for a record to be able to state that an individual has NO KNOWN history of any problems or diagnoses (using an exclusion statement) at the same consultation as recording the evidence of their first experience of a problem or diagnosis (using the EVALUATION.problem_diagnosis archetype). In future record statements, the individual may have a KNOWN history of the problem or diagnosis recorded in their problem list.">
-			keywords = <"exclusion, negation, rule out, rule-out, r/o, absence", ...>
-			misuse = <"Not to be used to record the exclusion of a specific problem/diagnosis, medication, procedure, family history, adverse reaction or other clinical item - use the EVALUATION.exclusion_specific archetype for this purpose.
-
-Not to be used to record the exclusion of any component of a physical examination - use the CLUSTER.exclusion_exam archetype within an appropriate OBSERVATION or CLUSTER archetype.
-
-Not to be used to record the exclusion of symptoms use the CLUSTER.exclusion_symptom archetype within an appropriate OBSERVATION or CLUSTER archetype.
-
-Not to be used to record the absence of information - use the EVALUATION.absense archetype for this purpose.">
-			copyright = <"© Nasjonal IKT HF, openEHR Foundation">
-		>
 		["nb"] = <
 			language = <[ISO_639-1::nb]>
 			purpose = <"For å registrere et overordnet eksklusjonsutsagn om alle problemer/diagnoser, familiære sykdommer, legemidler, prosedyrer, overfølsomheter eller andre kliniske konsepter som ikke er tilstede hos et individ, enten i nåtid eller fortid.">
@@ -96,6 +74,28 @@ Não deve ser usado para registrar a exclusão de sintomas, use o arquétipo CLU
 
 Não deve ser usado para registrar a ausência de informações - use o arquétipo EVALUATION.absense para este fim.">
 		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record an overall statement of exclusion about all Problem/diagnosis, Family history, Medications, Procedures, Adverse reactions or other clinical item that are either not currently present, or have not been present in the past.">
+			use = <"Use to record an overall statement of exclusion about all Problem/diagnosis, Family history, Medications, Procedures, Adverse reactions or other clinical item that are either not currently present, or have not been present in the past.
+
+This archetype has been specifically designed to make a clear and unambiguous statement of an overall exclusion of a type of clinical item from the health record. This approach is used in preference to relying on flags or terminology to express negation.
+
+Each global statement should be recorded in a separate instance - for example a separate instance for a statement about medications and another for adverse reactions.
+
+The 'Global statement' data element allows for recording of a single Global statement. The different Global statements listed in the \"Global statement' run-time name constraint identifies the the different global exclusions. This name constraint can be applied during template modelling or at run-time within a software application.
+
+Please note that exclusion statements can only be considered to be current and accurate at the point-in-time of recording. It is possible for a record to be able to state that an individual has NO KNOWN history of any problems or diagnoses (using an exclusion statement) at the same consultation as recording the evidence of their first experience of a problem or diagnosis (using the EVALUATION.problem_diagnosis archetype). In future record statements, the individual may have a KNOWN history of the problem or diagnosis recorded in their problem list.">
+			keywords = <"exclusion, negation, rule out, rule-out, r/o, absence", ...>
+			misuse = <"Not to be used to record the exclusion of a specific problem/diagnosis, medication, procedure, family history, adverse reaction or other clinical item - use the EVALUATION.exclusion_specific archetype for this purpose.
+
+Not to be used to record the exclusion of any component of a physical examination - use the CLUSTER.exclusion_exam archetype within an appropriate OBSERVATION or CLUSTER archetype.
+
+Not to be used to record the exclusion of symptoms use the CLUSTER.exclusion_symptom archetype within an appropriate OBSERVATION or CLUSTER archetype.
+
+Not to be used to record the absence of information - use the EVALUATION.absense archetype for this purpose.">
+			copyright = <"© Nasjonal IKT HF, openEHR Foundation">
+		>
 	>
 	lifecycle_state = <"published">
 	other_contributors = <"Tomas Alme, DIPS ASA, Norway", "Vebjørn Arntzen, Oslo universitetssykehus HF, Norway (Nasjonal IKT redaktør)", "Silje Ljosland Bakke, Nasjonal IKT HF, Norway (openEHR Editor)", "Kristian Berg, Universitetssykehuset Nord Norge, Norway", "SumanBhusan Bhattacharyya, Sudisa Consultancy Services, India", "Bjørn Christensen, Helse Bergen HF, Norway", "Lisbeth Dahlhaug, Helse Midt - Norge IT, Norway", "Heather Grain, Llewelyn Grain Informatics, Australia", "Annette Hole Sjøborg, DIPS ASA, Norway", "Hilde Hollås, DIPS ASA, Norway", "Evelyn Hovenga, EJSH Consulting, Australia", "Tom Jarl Jakobsen, Helse Bergen, Norway", "Hanne Joensen, Helse- bergen HUS, Norway", "Lars Morgan Karlsen, DIPS ASA, Norway", "Heather Leslie, Ocean Health Systems, Australia (openEHR Editor)", "Hallvard Lærum, Direktoratet for e-helse, Norway", "Ian McNicoll, freshEHR Clinical Informatics, United Kingdom (openEHR Editor)", "Bjørn Næss, DIPS ASA, Norway", "Andrej Orel, Marand d.o.o., Slovenia", "Arild Stangeland, Helse Bergen, Norway", "Norwegian Review Summary, Nasjonal IKT HF, Norway", "Nyree Taylor, Ocean Informatics, Australia", "Pål Thorberg, DIPS ASA, Norway", "Lene Thoresen, St. Olavs Hospital, Norway", "John Tore Valand, Haukeland Universitetssjukehus, Norway (Nasjonal IKT redaktør)">
@@ -109,8 +109,8 @@ Exclusion statement, Deprecated Archetype [Internet]. openEHR Foundation, openEH
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
 		["MD5-CAM-1.0.1"] = <"CBD3F597907DCC9BE51553069E405BB1">
-		["build_uid"] = <"8f1f1418-78dc-45a0-8941-a3e8f3bafc9c">
-		["revision"] = <"1.0.1">
+		["build_uid"] = <"3db350ac-df24-4677-a5d1-c350660b880e">
+		["revision"] = <"1.1.1">
 	>
 
 definition
