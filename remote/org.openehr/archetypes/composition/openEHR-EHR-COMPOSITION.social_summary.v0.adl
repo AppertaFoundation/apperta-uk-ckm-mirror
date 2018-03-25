@@ -1,5 +1,5 @@
-﻿archetype (adl_version=1.4)
-	openEHR-EHR-COMPOSITION.social_summary.v1
+﻿archetype (adl_version=1.4; uid=8b0073a3-2bb7-4f39-98e8-7c8d44e87d87)
+	openEHR-EHR-COMPOSITION.social_summary.v0
 
 concept
 	[at0000]	-- Social Summary
@@ -8,8 +8,8 @@ language
 description
 	original_author = <
 		["name"] = <"Heather Leslie">
-		["organisation"] = <"Ocean Informatics">
-		["email"] = <"heather.leslie@oceaninformatics.com">
+		["organisation"] = <"Atomica Informatics, Australia">
+		["email"] = <"heather.leslie@atomicainformatics.com">
 		["date"] = <"2013-06-12">
 	>
 	details = <
@@ -33,14 +33,21 @@ The intent of this COMPOSITION is for use as a persistent summary, however it ha
 Initial design of this archetype was funded by the Hearing Health project, Northern Territory, Australia.">
 			keywords = <"social", "family", "education", "occupation", "environment", "housing", "finances">
 			misuse = <"">
-			copyright = <"© National E-Health Transition Authority">
+			copyright = <"© Australian Digital Health Agency, openEHR Foundation">
 		>
 	>
-	lifecycle_state = <"CommitteeDraft">
+	lifecycle_state = <"in_development">
 	other_contributors = <>
 	other_details = <
-		["current_contact"] = <"Heather Leslie, Ocean Informatics, heather.leslie@oceaninformatics.com">
-		["MD5-CAM-1.0.1"] = <"7AED75B8F5E4C8FFE8881F343C581DD6">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["references"] = <"Derived from: Social Summary, Draft archetype [Internet]. Australian Digital Health Agency (NEHTA), ADHA Clinical Knowledge Manager. Authored: 2013Jun 12. Available at: http://dcm.nehta.org.au/ckm#showArchetype_1013.1.1324_2 (discontinued)">
+		["current_contact"] = <"Dr Heather Leslie, Atomica Informatics, Australia<heather.leslie@atomicainformatics.com>">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"2BE70A8D1C92475DFB77F9FD4AF450F2">
+		["build_uid"] = <"7971a608-f4f4-4644-a32f-bbc34e156cf4">
+		["revision"] = <"0.0.1-alpha">
 	>
 
 definition
@@ -71,7 +78,6 @@ definition
 			}
 		}
 	}
-
 
 
 
