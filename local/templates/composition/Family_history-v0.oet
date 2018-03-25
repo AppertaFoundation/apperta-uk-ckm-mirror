@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>26a0e773-daee-4227-8371-c081f34a1c0b</id>
+  <name>Family_history-v0</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose />
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.family_history.v1" concept_name="Family History">
+    <Content xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.family_history.v2" concept_name="Family history" path="/content[at0001]">
+      <Rule path="/data[at0001]" hide_on_form="true" />
+      <Rule path="/data[at0001]/items[at0003]/items[at0020]" max="0" />
+      <Rule path="/data[at0001]/items[at0003]/items[at0005]" max="0" />
+      <Rule path="/data[at0001]/items[at0003]/items[at0058]" max="0" />
+      <Rule path="/protocol[at0025]" hide_on_form="true" />
+    </Content>
+    <Content xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.exclusion_global.v1" concept_name="Exclusion - global" path="/content[at0002]">
+      <Rule path="/data[at0001]" hide_on_form="true" />
+      <Rule path="/data[at0001]/items[at0002]">
+        <nameConstraint>
+          <excludedValues>local::at0003</excludedValues>
+          <excludedValues>local::at0005</excludedValues>
+          <excludedValues>local::at0006</excludedValues>
+          <excludedValues>local::at0007</excludedValues>
+        </nameConstraint>
+      </Rule>
+      <Rule path="/protocol[at0008]" hide_on_form="true" />
+    </Content>
+    <Content xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.exclusion_specific.v1" concept_name="Exclusion - specific" path="/content[at0002]">
+      <Rule path="/data[at0001]" hide_on_form="true" />
+      <Rule path="/data[at0001]/items[at0003]">
+        <nameConstraint>
+          <excludedValues>local::at0008</excludedValues>
+          <excludedValues>local::at0006</excludedValues>
+          <excludedValues>local::at0004</excludedValues>
+          <excludedValues>local::at0007</excludedValues>
+        </nameConstraint>
+      </Rule>
+      <Rule path="/protocol[at0009]" hide_on_form="true" />
+    </Content>
+    <Content xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.absence.v1" concept_name="Absence of Information" path="/content[at0002]">
+      <Rule path="/data[at0001]" hide_on_form="true" />
+      <Rule path="/data[at0001]/items[at0002]" default="No information for family history" />
+      <Rule path="/protocol[at0003]" hide_on_form="true" />
+    </Content>
+    <Context>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.xds_metadata.v0" concept_name="XDS Metadata" path="/context/other_context[at0003]/items[at0004]" />
+      <Rule path="/context/other_context[at0003]" hide_on_form="true" />
+      <hide_on_form>true</hide_on_form>
+    </Context>
+  </definition>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-COMPOSITION.family_history.v1">
+    <digest id="MD5-CAM-1.0.1">F5E7D64BFB84798E0FB3E568C4AC7E4A</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.xds_metadata.v0">
+    <digest id="MD5-CAM-1.0.1">B2538EC96A6545E2E6F04CE532DA36E3</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.family_history.v2">
+    <digest id="MD5-CAM-1.0.1">9C5F2B93C53BFD0F2D9D5F9020883DAB</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.exclusion_global.v1">
+    <digest id="MD5-CAM-1.0.1">CBD3F597907DCC9BE51553069E405BB1</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.exclusion_specific.v1">
+    <digest id="MD5-CAM-1.0.1">A3949EA37D876F7A93B6DB742E9D6F38</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.absence.v1">
+    <digest id="MD5-CAM-1.0.1">608F256B2279433C062DFA7CAA847D41</digest>
+  </integrity_checks>
+</template>
