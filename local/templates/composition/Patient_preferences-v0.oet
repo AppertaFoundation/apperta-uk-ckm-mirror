@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>26b1e6bf-2189-4b33-83ca-ee4757baff94</id>
+  <name>Patient_preferences-v0</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose />
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.report.v1" concept_name="Report" name="Patient preferences">
+    <Content xsi:type="ADMIN_ENTRY" archetype_id="openEHR-EHR-ADMIN_ENTRY.organ_donation_preferences.v0" concept_name="Organ donation preferences" path="/content">
+      <Rule path="/data[at0001]" hide_on_form="true" />
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.story.v1" concept_name="Story/History" path="/content" hide_on_form="true">
+      <Rule path="/data[at0001]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]" hide_on_form="true">
+        <eventConstraint>
+          <allowedType>PointInTime</allowedType>
+        </eventConstraint>
+      </Rule>
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]" max="0" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.religion.v1" concept_name="Religious affiliation" path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.interpreter_details_uk.v0" concept_name="Interpreter details UK" path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]">
+        <Rule path="/items[at0009]" max="0" />
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.language.v0" concept_name="Language" path="/items[at0031]">
+          <Rule path="/items[at0002]" max="0" />
+          <Rule path="/items[at0003]" max="0" />
+          <Rule path="/items[at0004]" max="0" />
+        </Items>
+      </Items>
+    </Content>
+    <Content xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.adhoc.v1" concept_name="Ad hoc heading" max="1" path="/content" name="Empty list info">
+      <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.absence.v1" concept_name="Absence of Information" path="/items">
+        <Rule path="/data[at0001]" hide_on_form="true" />
+        <Rule path="/data[at0001]/items[at0002]" default="No information for patient preferences" />
+        <Rule path="/protocol[at0003]" hide_on_form="true" />
+      </Item>
+    </Content>
+    <Context>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.xds_metadata.v0" concept_name="XDS Metadata" path="/context/other_context[at0001]/items[at0006]">
+        <Rule path="/items[at0003]" default="SNOMED-CT::822761000000108::Patient preferences record" />
+      </Items>
+      <Rule path="/context/other_context[at0001]" hide_on_form="true" />
+      <Rule path="/context/other_context[at0001]/items[at0002]" max="0" />
+      <Rule path="/context/other_context[at0001]/items[at0005]" max="0" />
+      <hide_on_form>true</hide_on_form>
+    </Context>
+  </definition>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-COMPOSITION.report.v1">
+    <digest id="MD5-CAM-1.0.1">1DA7D8EDC23CF1B673C05E6E8FE28EB1</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.xds_metadata.v0">
+    <digest id="MD5-CAM-1.0.1">B2538EC96A6545E2E6F04CE532DA36E3</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-ADMIN_ENTRY.organ_donation_preferences.v0">
+    <digest id="MD5-CAM-1.0.1">9600D96AB99E8C64E6BAC82A2C40AE05</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.story.v1">
+    <digest id="MD5-CAM-1.0.1">1A6AFF556A3135480517C4E830985332</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.religion.v1">
+    <digest id="MD5-CAM-1.0.1">51835D3E2EEFFCA0AEF6953E6314BDF6</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.interpreter_details_uk.v0">
+    <digest id="MD5-CAM-1.0.1">1D746F24E18DE29D56F6442204353C22</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.language.v0">
+    <digest id="MD5-CAM-1.0.1">5E10897327D9590987FEC03C74491D10</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-SECTION.adhoc.v1">
+    <digest id="MD5-CAM-1.0.1">833221C23E2B25AD3CB9B0B78EE33740</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.absence.v1">
+    <digest id="MD5-CAM-1.0.1">608F256B2279433C062DFA7CAA847D41</digest>
+  </integrity_checks>
+</template>
