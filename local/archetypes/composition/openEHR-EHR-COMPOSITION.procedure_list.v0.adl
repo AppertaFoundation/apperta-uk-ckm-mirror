@@ -25,7 +25,7 @@ language
 	>
 description
 	original_author = <
-		["name"] = <"Hildegard Franke">
+		["name"] = <"Hildegard McNicoll">
 		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
 		["email"] = <"hildi@freshehr.com">
 		["date"] = <"2018-03-30">
@@ -92,12 +92,12 @@ This archetype is usually managed as a persistent list, however there are situat
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
 		["custodian_organisation"] = <"UK Clinical Models">
 		["references"] = <"Derived from: <Add reference to original resource here>">
-		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["current_contact"] = <"Hildegard McNicoll freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
 		["original_namespace"] = <"uk.org.clinicalmodels">
 		["original_publisher"] = <"UK Clinical Models">
 		["custodian_namespace"] = <"uk.org.clinicalmodels">
 		["MD5-CAM-1.0.1"] = <"204DF39E7926CCFBC0F4008E3FB749C4">
-		["build_uid"] = <"c528115f-6aa8-4a7e-9a16-3067670fe89d">
+		["build_uid"] = <"39aca099-076b-4125-982c-c9034d07011b">
 		["revision"] = <"0.0.1-alpha">
 	>
 
