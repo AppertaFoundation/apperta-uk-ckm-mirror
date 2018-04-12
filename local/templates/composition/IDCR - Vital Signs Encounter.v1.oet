@@ -85,6 +85,7 @@
         <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0046]" max="0" />
         <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0039]" max="0" />
         <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0040]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0019]" max="0" />
         <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0058]" max="0" />
         <Rule path="/data[at0001]/events[at0002]/state[at0014]" hide_on_form="true" />
         <Rule path="/data[at0001]/events[at0002]/state[at0014]/items[at0016]" max="0" />
@@ -125,9 +126,12 @@
           </eventConstraint>
         </Rule>
         <Rule path="/data[at0002]/events[at0003]/data[at0001]" hide_on_form="true" />
+        <Rule path="/data[at0002]/events[at0003]/state[at0029]" hide_on_form="true" />
         <Rule path="/data[at0002]/events[at0003]/state[at0029]/items[at0030]" max="0" />
         <Rule path="/data[at0002]/events[at0003]/state[at0029]/items[at0041]" max="0" />
         <Rule path="/data[at0002]/events[at0003]/state[at0029]/items[at0065]" max="0" />
+        <Rule path="/protocol[at0020]" hide_on_form="true" />
+        <Rule path="/protocol[at0020]/items[at0021]" max="0" />
       </Item>
       <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.blood_pressure.v1" concept_name="Blood Pressure" max="1" path="/items[at0001]">
         <Rule path="/data[at0001]" hide_on_form="true" />
