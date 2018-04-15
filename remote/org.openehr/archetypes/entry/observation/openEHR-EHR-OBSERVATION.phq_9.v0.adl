@@ -1,8 +1,8 @@
-﻿archetype (adl_version=1.4)
-	openEHR-EHR-OBSERVATION.phq.v1
+﻿archetype (adl_version=1.4; uid=4b04a62d-4bc1-4b14-8dfa-f6fb55c155ba)
+	openEHR-EHR-OBSERVATION.phq_9.v0
 
 concept
-	[at0000]	-- Patient Health Questionnaire (PHQ)
+	[at0000]	-- Patient Health Questionnaire-9 (PHQ-9)
 language
 	original_language = <[ISO_639-1::en]>
 description
@@ -15,8 +15,8 @@ description
 	details = <
 		["en"] = <
 			language = <[ISO_639-1::en]>
-			purpose = <"To record the results of the Patient Health Questionnaire (PHQ) and it's subset assessments - currently scope is limited to the PHQ-2 and PHQ-9. Questions for PHQ-4, PHQ-15, PHQ-SADS, GAD-7, Brief PHQ to be added in future.">
-			use = <"Use to record the results of the Patient Health Questionnaire (PHQ) and it's subset assessments. The current archetype only has data elements required for the PHQ-2 and PHQ-9.
+			purpose = <"To record the results of the Patient Health Questionnaire-9 (PHQ-9) and its subset assessment PHQ-2.">
+			use = <"Use to record the results of the Patient Health Questionnaire-9 (PHQ-9) and its subset assessment PHQ-2.
 
 The archetype has been designed such that the actual PHQ questions are recorded as the Description for each questionnaire data element. The data element name is a pragmatic description that is indicative of the question intent.
 
@@ -25,19 +25,28 @@ The original PHQ‐9 tool was developed by Drs. Robert L. Spitzer, Janet B.W. Wi
 The Australian indigenous adaptation for the PHQ-9 subset assessing mood was developed by Dr. Alex Brown, Baker IDI Heart and Diabetes Institute, Alice Springs, 2009. The adapted questions are expressed within the Comments area for each questionnaire data element. Used with permission.">
 			keywords = <"screening", "depression", "mood", "assessment", "mental health">
 			misuse = <"">
-			copyright = <"© National E-Health Transition Authority">
+			copyright = <"© Northern Territory Department of Health (Australia), openEHR Foundation">
 		>
 	>
-	lifecycle_state = <"CommitteeDraft">
+	lifecycle_state = <"in_development">
 	other_contributors = <>
 	other_details = <
-		["references"] = <"Kroenke K, Spitzer RL, Williams JB. The Patient Health Questionnaire-2: validity of a two-item depression screener. Med Care. 2003 Nov; 41(11):1284-92. PubMed PMID: 14583691.">
-		["current_contact"] = <"Heather Leslie, Ocean Informatics, heather.leslie@oceaninformatics.com">
-		["MD5-CAM-1.0.1"] = <"4057C5F592253F45CCE292CD37A37E82">
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["references"] = <"Derived from: Patient Health Questionnaire (PHQ), Draft archetype [Internet]. Australian Digital Health Agency (NEHTA), ADHA Clinical Knowledge Manager. Authored: 2013 Jun 14. Available at: http://dcm.nehta.org.au/ckm#showArchetype_1013.1.1321_1 (discontinued).
+
+Kroenke K, Spitzer RL, Williams JB. The Patient Health Questionnaire-2: validity of a two-item depression screener. Med Care. 2003 Nov; 41(11):1284-92. PubMed PMID: 14583691.">
+		["current_contact"] = <"Heather Leslie, Atomica Informatics, Australia<heather.leslie@atomicainformatics.com>">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"F6DD4F42CB848B80595FE754471B0549">
+		["build_uid"] = <"5f6da774-d002-4187-80b4-43acfa80e96f">
+		["revision"] = <"0.0.1-alpha">
 	>
 
 definition
-	OBSERVATION[at0000] matches {	-- Patient Health Questionnaire (PHQ)
+	OBSERVATION[at0000] matches {	-- Patient Health Questionnaire-9 (PHQ-9)
 		data matches {
 			HISTORY[at0001] matches {	-- Event Series
 				events cardinality matches {1..*; unordered} matches {
@@ -155,13 +164,12 @@ definition
 
 
 
-
 ontology
 	term_definitions = <
 		["en"] = <
 			items = <
 				["at0000"] = <
-					text = <"Patient Health Questionnaire (PHQ)">
+					text = <"Patient Health Questionnaire-9 (PHQ-9)">
 					description = <"Screening questionnaire for mental health that can be used by health professionals or self-reported by individuals.">
 				>
 				["at0001"] = <

@@ -1,16 +1,15 @@
-﻿archetype (adl_version=1.4)
-	openEHR-EHR-EVALUATION.nutrition_summary.v1
+﻿archetype (adl_version=1.4; uid=a74ebb80-82ef-4dec-b861-b8cf676b56db)
+	openEHR-EHR-EVALUATION.nutrition_summary.v0
 
 concept
-	[at0000]	-- Nutrition Summary
+	[at0000]	-- Nutrition summary
 language
 	original_language = <[ISO_639-1::en]>
 description
 	original_author = <
 		["name"] = <"Hugh Leslie">
 		["organisation"] = <"Ocean Informatics">
-		["email"] = <"hugh.leslie@oceaninformatics.com">
-		["date"] = <"17/12/2010">
+		["date"] = <"2010-12-17">
 	>
 	details = <
 		["en"] = <
@@ -19,17 +18,26 @@ description
 			use = <"Use to record an overview of the nutritional status of an individual, as assessed by a clinician.">
 			keywords = <"nutrition", "obese", "overweight", "underweight", "malnourished">
 			misuse = <"Not to be used to record measurements such as weight, height or Body Mass Index. Use specific archetypes to record these measurements - OBSERVATION.weight, OBSERVATION.height and OBSERVATION.body_mass_index.">
-			copyright = <"© 2010 NEHTA">
+			copyright = <"© Australian Digital Health Agency, openEHR Foundation">
 		>
 	>
-	lifecycle_state = <"CommitteeDraft">
+	lifecycle_state = <"in_development">
 	other_contributors = <"Stephen Chu, NEHTA, Australia", ...>
 	other_details = <
-		["MD5-CAM-1.0.1"] = <"84C2A0159856F573A01ABE90DAC4850E">
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["references"] = <"Derived from: Derived from: Nutrition summary, Draft archetype [Internet]. Australian Digital Health Agency (NEHTA), ADHA Clinical Knowledge Manager. Authored: 2010 Dec 17. Available at: http://dcm.nehta.org.au/ckm#showArchetype_1013.1.931_1 (discontinued).">
+		["current_contact"] = <"Heather Leslie, Atomica Informatics, Australia<heather.leslie@atomicainformatics.com>">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"1FC48C2A2851CB8936AE4AB273638A22">
+		["build_uid"] = <"ee096872-73d6-4130-a8a6-a178281489cf">
+		["revision"] = <"0.0.1-alpha">
 	>
 
 definition
-	EVALUATION[at0000] matches {	-- Nutrition Summary
+	EVALUATION[at0000] matches {	-- Nutrition summary
 		data matches {
 			ITEM_TREE[at0001] matches {	-- Tree
 				items cardinality matches {0..*; unordered} matches {
@@ -73,13 +81,12 @@ definition
 
 
 
-
 ontology
 	term_definitions = <
 		["en"] = <
 			items = <
 				["at0000"] = <
-					text = <"Nutrition Summary">
+					text = <"Nutrition summary">
 					description = <"Summary of the nutritional status of an individual, as assessed by a clinician.">
 				>
 				["at0001"] = <
