@@ -59,8 +59,9 @@ CGAS, Draft Archetype [Internet]. Nasjonal IKT, Nasjonal IKT Clinical Knowledge 
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
 		["MD5-CAM-1.0.1"] = <"CAEC2A993FFA595D368F7B2C29CF3499">
-		["build_uid"] = <"59c97632-a118-4035-95b4-ee297f061712">
-		["revision"] = <"1.0.0">
+		["build_uid"] = <"57d4fba4-ea32-42b9-9480-4054316c6db1">
+		["ip_acknowledgements"] = <"This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomedct or info@snomed.org.">
+		["revision"] = <"1.0.1">
 	>
 
 definition
@@ -102,6 +103,7 @@ definition
 			}
 		}
 	}
+
 
 
 

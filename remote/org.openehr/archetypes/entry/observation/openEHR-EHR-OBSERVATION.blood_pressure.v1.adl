@@ -24,7 +24,7 @@ language
 			language = <[ISO_639-1::sv]>
 			author = <
 				["name"] = <"Kirsi Poikela">
-				["organisation"] = <"Tieto Sweden Healthcare & Welfare AB">
+				["organisation"] = <"Tieto Sweden AB">
 				["email"] = <"ext.kirsi.poikela@tieto.com">
 			>
 		>
@@ -146,13 +146,15 @@ In diesem Fall sollte der OBSERVATION.intravascular_pressure Archetyp bzw. desse
 		["sv"] = <
 			language = <[ISO_639-1::sv]>
 			purpose = <"Att mäta en individs systemiska arteriella blodtryck.">
-			use = <"Används för att mäta alla systemiskt arteriella blodtryck, oavsett vilka metoder som använts och var på kroppen mätningen gjordes. Arketypen är avsedd för blodtrycksmätningar i alla vårdscenarion- t.ex. egen mätning i hemmet med blodtrycksmätare; en akutbedömning av det systoliska blodtrycket med hjälp av palpation och en blodtrycksmätare; mätningar gjorda vid vårdkonsultationer eller stresstest; och en serie mätningar med en blodtrycksmaskin på Intensivvårdsavdelningen. 
-Det finns en gedigen statlig modell som stödjer tolkningen av mätningar genom identifiering av patientens ställning, övning, påverkande faktorer och vinkel på tippbräda vid undersökning. Namngivna händelser har begränsats till ett genomsnitt under en 24-timmarsperiod, men mallar kan ytterligare avgränsa standardinställningen 'ospecificerad händelse' för att möta specifika krav på blodtrycksmätningar, såsom mätning av Blodtryck vid specifika tidpunkter eller i ett tidsintervallsområde (+/- matematiska funktioner).
+			use = <"Används för att mäta alla systemiskt arteriella blodtryck, oavsett vilka metoder som använts och var på kroppen mätningen gjordes. Arketypen är avsedd för blodtrycksmätningar i alla vårdscenarion exemelvis för egna mätningar i hemmet med blodtrycksmätare, för akutbedömningar av det systoliska blodtrycket med hjälp av palpation och en blodtrycksmätare, för mätningar gjorda vid vårdkonsultationer eller stresstest, för seriemätningar med blodtrycksmaskiner på Intensivvårdsavdelningar.
+Det finns en gedigen statlig modell som stödjer tolkningen av mätningar genom identifiering av patientens ställning, övning, påverkande faktorer och vinkel på tippbräda vid undersökning. Namngivna händelser har begränsats till ett genomsnitt under en 24-timmarsperiod, men mallar kan ytterligare avgränsa standardinställningen i \"Ospecificerad händelse\" för att möta specifika krav på blodtrycksmätningar, exempelvis mätningar av blodtryck vid specifika tidpunkter eller i ett tidsintervall med matematiska funktioner.
 ">
-			keywords = <"observationer", "mätning", "blodtryck?", "vitalparametrar", "medelartärtryck", "pulstryck", "systoliskt", "diastoliskt", "RR", "NIBP">
-			misuse = <"Används inte för intravenöst tryck.
-Används inte för mätning av arteriellt blodtryck som INTE är ett surrogat för artärtryck i systemcirkulationen, t.ex. specifik mätning av höger Lungartärtryck.
-Använd OBSERVATION.intravascular_pressure och relaterade specialiseringar i dessa båda situationer.">
+			keywords = <"observationer", "mätning", "blodtryck", "vitaltecken", "medelartärtryck", "pulstryck", "systoliskt", "diastoliskt", "RR", "NIBP">
+			misuse = <"Ska inte användas för intravenöst tryck.
+
+Ska inte användas för mätning av arteriellt blodtryck som INTE är ett surrogat för artärtryck i systemcirkulationen eller för specifika mätningar som exempelvis höger lungartärtryck.
+
+Använd i dessa fall istället OBSERVATION.intravascular_pressure och relaterade specialiseringsarketyper.">
 		>
 		["ko"] = <
 			language = <[ISO_639-1::ko]>
@@ -317,9 +319,10 @@ Perloff D, Grim C, Flack J, Frohlich ED, Hill M, McDonald M, Morgenstern BZ. Hum
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"7341F7E8A07ACE883A5F541BA79F2B95">
-		["build_uid"] = <"68040aab-98da-4b3c-a93c-c91df19b05f8">
-		["revision"] = <"1.1.1">
+		["MD5-CAM-1.0.1"] = <"22A191BEDF72D9313D07EFFF596014C4">
+		["build_uid"] = <"e2658603-a9d2-4178-82c5-04d487beb837">
+		["ip_acknowledgements"] = <"This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomedct or info@snomed.org.">
+		["revision"] = <"1.1.2">
 	>
 
 definition
@@ -587,6 +590,7 @@ definition
 			}
 		}
 	}
+
 
 
 
@@ -3822,7 +3826,7 @@ ontology
 			items = <
 				["at0000"] = <
 					text = <"Blodtryck">
-					description = <"Lokal mätning av artärblodtrycket som är ett surrogat för artärtryck i systemcirkulationen. Vanligtvis refererar användningen av termen 'blodtryck' till mätningen av brakialartärtrycket i överarmen.">
+					description = <"Den lokala mätningen av artärblodtrycket som är ett surrogat för artärtryck i systemcirkulationen. Vanligtvis refererar användningen av termen blodtryck till mätningen av brakialartärtrycket i överarmen.">
 				>
 				["at0001"] = <
 					text = <"Anamnes">
@@ -3834,15 +3838,15 @@ ontology
 				>
 				["at0004"] = <
 					text = <"Systoliskt">
-					description = <"Högsta systemiskt arteriella blodtrycket uppmätt i systoliska- eller under sammandragningsfasen av hjärtcykeln.">
+					description = <"Det högsta systemiskt arteriella blodtrycket uppmätt systoliskt eller under sammandragningsfasen av hjärtcykeln.">
 				>
 				["at0005"] = <
 					text = <"Diastoliskt">
-					description = <"Minsta systemiskt arteriella blodtrycket - uppmätt i diastoliskt eller i hjärtcykelns avslappningsfas.">
+					description = <"Det minsta systemiskt arteriella blodtrycket uppmätt diastoliskt eller i hjärtcykelns avslappningsfas.">
 				>
 				["at0006"] = <
 					text = <"Ospecificerad händelse">
-					description = <"Standardval, händelse i ospecificerad tidpunkt eller tidsintervall som tydligt kan definieras i en mall eller vid körning av program.">
+					description = <"Standardval, händelse i ospecificerad tidpunkt eller tidsintervall som explicit kan definieras i en mall eller vid körning av program.">
 				>
 				["at0007"] = <
 					text = <"Tree">
@@ -3850,7 +3854,7 @@ ontology
 				>
 				["at0008"] = <
 					text = <"Ställning">
-					description = <"Patientens kroppställning under mätningen.">
+					description = <"Individens kroppställning under mätningen.">
 				>
 				["at0011"] = <
 					text = <"Träd">
@@ -3863,10 +3867,10 @@ ontology
 				>
 				["at0014"] = <
 					text = <"Mätplats">
-					description = <"Enkel beskrivning av plats på kroppen där blodtrycket mäts.">
+					description = <"Beskrivning av anatomiskt plats där blodtrycket mäts.">
 				>
 				["at0015"] = <
-					text = <"Lår vuxen">
+					text = <"Vuxet lår">
 					description = <"En lårmanschett för vuxna.">
 				>
 				["at0016"] = <
@@ -3879,23 +3883,23 @@ ontology
 				>
 				["at0025"] = <
 					text = <"Höger arm">
-					description = <"Personens högra arm.">
+					description = <"Individens högra arm.">
 				>
 				["at0026"] = <
 					text = <"Vänster arm">
-					description = <"Personens vänstra arm.">
+					description = <"Individens vänstra arm.">
 				>
 				["at0027"] = <
 					text = <"Höger lår">
-					description = <"Personens högra lår.">
+					description = <"Individens högra lår.">
 				>
 				["at0028"] = <
 					text = <"Vänster lår">
-					description = <"Personens vänstra lår.">
+					description = <"Individens vänstra lår.">
 				>
 				["at0033"] = <
 					text = <"Kommentar">
-					description = <"Ytterligare beskrivning av mätningen, som inte beskrivits i andra fält.">
+					description = <"Ytterligare beskrivning av mätningen som inte beskrivits i andra fält.">
 				>
 				["at1000"] = <
 					text = <"Stående">
@@ -3903,7 +3907,7 @@ ontology
 				>
 				["at1001"] = <
 					text = <"Sittande">
-					description = <"Sittande ställning (exempelvis på en säng eller stol) under blodtrycksmätningen.">
+					description = <"Sittande ställning under blodtrycksmätningen, exempelvis på en säng eller stol.">
 				>
 				["at1002"] = <
 					text = <"Halvliggande">
@@ -3915,12 +3919,12 @@ ontology
 				>
 				["at1005"] = <
 					text = <"Lutning">
-					description = <"Lutning på huvuddelen av ytan som personen ligger på vid tidpunkten för mätningen.">
+					description = <"Lutning på ytan av huvuddelen som personen ligger på vid tidpunkten för mätningen.">
 					comment = <"OBS: '°' är en giltig UCUM-enhet. Använd \"deg\" som den rätta enheten.">
 				>
 				["at1006"] = <
 					text = <"Medelartärtryck">
-					description = <"Det genomsnittliga artärtrycket som inträffar under hela hjärtsammandragningen och avslappningscykeln.">
+					description = <"Det genomsnittliga artärtrycket som inträffar under hela hjärtsammandragningen och under avslappningscykeln.">
 				>
 				["at1007"] = <
 					text = <"Pulstryck">
@@ -3932,7 +3936,7 @@ ontology
 				>
 				["at1009"] = <
 					text = <"Pediatrisk/Barn">
-					description = <"En manschett som passar ett barn eller vuxen med smal arm.">
+					description = <"En manschett som passar barn eller vuxna med smala armar.">
 				>
 				["at1010"] = <
 					text = <"Diastoliskt effektmått">
@@ -3948,7 +3952,7 @@ ontology
 				>
 				["at1014"] = <
 					text = <"Liggande med lutning till vänster">
-					description = <"Liggande platt ställning med viss lateral lutning, vanligtvis mot vänster sida. Krävs vanligtvis i graviditetens sista trimester för att lindra aortokaval kompression.">
+					description = <"Liggande platt ställning med viss lateral lutning, vanligtvis mot vänster sida. Den krävs vanligtvis i graviditetens sista trimester för att lindra aortokaval kompression.">
 				>
 				["at1018"] = <
 					text = <"Spädbarn">
@@ -3956,15 +3960,15 @@ ontology
 				>
 				["at1019"] = <
 					text = <"Nyfödd">
-					description = <"En manschett som används på en nyfödd, om manschetten anses vara av lämplig storlek till den nyföddas mognads och födelsevikt.">
+					description = <"En manschett som används på nyfödda, om manschetten anses vara av lämplig storlek till den nyföddas mognads- och födelsevikt.">
 				>
 				["at1020"] = <
 					text = <"Höger handled">
-					description = <"Personens högra handled.">
+					description = <"Individens högra handled.">
 				>
 				["at1021"] = <
 					text = <"Vänster handled">
-					description = <"Personens vänstra handled.">
+					description = <"Individens vänstra handled.">
 				>
 				["at1025"] = <
 					text = <"Utrustning">
@@ -3972,27 +3976,27 @@ ontology
 				>
 				["at1026"] = <
 					text = <"Höger vrist">
-					description = <"Personens högra vrist.">
+					description = <"Individens högra vrist.">
 				>
 				["at1030"] = <
 					text = <"Ansträngning">
-					description = <"Detaljer om fysisk aktivitet som utförts vid tidpunkten av blodtrycksmätningen.">
+					description = <"Detaljer om den fysiska aktiviteten som utförts vid tidpunkten av blodtrycksmätningen.">
 				>
 				["at1031"] = <
 					text = <"Vänster vrist">
-					description = <"Personens vänstra vrist.">
+					description = <"Individens vänstra vrist.">
 				>
 				["at1032"] = <
 					text = <"Finger">
-					description = <"Personens finger.">
+					description = <"Individens finger.">
 				>
 				["at1033"] = <
 					text = <"Lokalisering">
 					description = <"Plats på kroppen där blodtrycket mäts.">
-					comment = <"Använd \"Plats för mätning\" för att välja ett inställt värde eller valet fritext. Använd fältet för 'Strukturerad mätplats' för att registrera ovanliga platser, såsom intraarteriella kateterplatser. \"Särskild plats\" har avlägsnats.">
+					comment = <"Använd \"Mätplats\" för att välja ett inställt värde eller fritext. Använd fältet 'Strukturerad mätplats' för att registrera ovanliga platser exempelvis intraarteriella kateterplatser. \"Särskild plats\" har avlägsnats.">
 				>
 				["at1034"] = <
-					text = <"X - Specifik plats">
+					text = <"X Specifik plats">
 					description = <"Datakomponenten är borttagen, ersattes av fritext i fältet \" Mätplats\".">
 				>
 				["at1035"] = <
@@ -4005,11 +4009,11 @@ ontology
 				>
 				["at1037"] = <
 					text = <"Palpation">
-					description = <"Metod för att mäta blodtrycket externt med hjälp av palpation (vanligtvis av brakiala eller radiella artärer).">
+					description = <"Metod för att mäta blodtrycket externt med hjälp av palpation, vanligtvis av brakiala eller radiella artärer.">
 				>
 				["at1038"] = <
 					text = <"Formel för medelartärtryck">
-					description = <"Formel som används för att beräkna medelartärtrycket (om det är registrerat).">
+					description = <"Formel som används för att beräkna medelartärtrycket (om det finns registrerat).">
 				>
 				["at1039"] = <
 					text = <"Blodtrycksmaskin">
@@ -4020,12 +4024,12 @@ ontology
 					description = <"Metod för att mäta blodtrycket intravenöst dvs. genom att penetrera huden och mäta inuti blodkärlen.">
 				>
 				["at1042"] = <
-					text = <"24 tim blodtrycksmätning">
+					text = <"24 timmars blodtrycksmätning">
 					description = <"Beräkning av det genomsnittliga blodtrycket under en 24-timmarsperiod.">
 				>
 				["at1043"] = <
 					text = <"Vakenhet">
-					description = <"Vakenhet - stöder tolkningen av 24-timmars ambulatoriska blodtrycksregistreringar.">
+					description = <"Vakenhet som stöder tolkningen av 24-timmars ambulatoriska blodtrycksmätningar.">
 				>
 				["at1044"] = <
 					text = <"Alert och vaken">
@@ -4037,11 +4041,11 @@ ontology
 				>
 				["at1051"] = <
 					text = <"Tå">
-					description = <"Personens tå.">
+					description = <"Individens tå.">
 				>
 				["at1052"] = <
 					text = <"Påverkande faktorer">
-					description = <"Kommentera och registrera andra tillfälliga faktorer som kan påverka blodtrycksmätningen, exempelvis ångestnivå eller \"vitrockseffekt\"; smärta eller feber; förändringar i lufttryck etc.">
+					description = <"Andra faktorer som kan påverka blodtrycksmätningen, exempelvis ångestnivå, \"vitrockseffekt\", smärta, feber eller förändringar i lufttryck mm.">
 				>
 				["at1053"] = <
 					text = <"Intraarteriell">
@@ -4049,20 +4053,20 @@ ontology
 				>
 				["at1054"] = <
 					text = <"Formel för systoliskt tryck">
-					description = <"Formel som används för att beräkna det systoliska trycket från medelartärtrycket (om det är registrerat).">
+					description = <"Formel som används för att beräkna det systoliska trycket från medelartärtrycket (om det finns registrerat).">
 				>
 				["at1055"] = <
 					text = <"Formel för diastoliskt tryck">
-					description = <"Formel som används för att beräkna det diastoliska trycket från medelartärtrycket (om det är registrerat).">
+					description = <"Formel som används för att beräkna det diastoliska trycket från medelartärtrycket (om det finns registrerat).">
 				>
 				["at1057"] = <
 					text = <"Strukturerad mätplats">
 					description = <"Strukturerad anatomisk plats där mätningen gjordes.">
 				>
 				["at1058"] = <
-					text = <"Övrig information">
-					description = <"Ytterligare information krävs för att fånga en lokal kontext eller för att kunna anpassa sig till andra referensmodeller/formalismer.">
-					comment = <"Exempelvis: Uppgifter om en lokal sjukhusavdelning eller ytterligare metadata för att anpassa sig till FHIR- eller CIMI-ekvivalenter.">
+					text = <"Extra information">
+					description = <"Ytterligare information som krävs för att fånga lokal kontext eller för anpassning till andra referensmodeller och formalismer.">
+					comment = <"Exempelvis uppgifter om en lokal sjukhusavdelning eller ytterligare metadata för anpassning till FHIR- eller CIMI-motsvarigheter.">
 				>
 			>
 		>
