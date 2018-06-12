@@ -51,8 +51,8 @@ HSCIC Data Dictionary Person Class http://www.datadictionary.nhs.uk/data_diction
 		["original_namespace"] = <"uk.org.clinicalmodels">
 		["original_publisher"] = <"UK Clinical Models">
 		["custodian_namespace"] = <"uk.org.clinicalmodels">
-		["MD5-CAM-1.0.1"] = <"C2648CD219E74A4EE58F0C81CE611B7A">
-		["build_uid"] = <"d34d6fb8-2b78-4f05-99a4-6e6fc2dd9d61">
+		["MD5-CAM-1.0.1"] = <"25FDCE0F8625D002A93C1185D20AA45F">
+		["build_uid"] = <"63a02780-8d34-4ed9-8633-dd0b924a9d32">
 		["revision"] = <"0.0.1-alpha">
 	>
 
@@ -61,7 +61,7 @@ definition
 		items cardinality matches {1..*; unordered} matches {
 			allow_archetype CLUSTER[at0013] occurrences matches {0..1} matches {	-- Name
 				include
-					archetype_id/value matches {/openEHR-EHR-CLUSTER\.person_name\.v1/}
+					archetype_id/value matches {/openEHR-EHR-CLUSTER\.person_name(-[a-zA-Z0-9_]+)*\.v0|openEHR-EHR-CLUSTER\.person_name(-[a-zA-Z0-9_]+)*\.v1|openEHR-EHR-CLUSTER\.person_name_isa(-[a-zA-Z0-9_]+)*\.v0|openEHR-EHR-CLUSTER\.person_name_isa(-[a-zA-Z0-9_]+)*\.v1/}
 				exclude
 					archetype_id/value matches {/.*/}
 			}
