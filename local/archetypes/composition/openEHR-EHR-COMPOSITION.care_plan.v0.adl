@@ -1,0 +1,114 @@
+﻿archetype (adl_version=1.4; uid=8d322b9d-6965-465e-b493-1d2706c2fa4a)
+	openEHR-EHR-COMPOSITION.care_plan.v0
+
+concept
+	[at0000]	-- Care plan UK
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2018-06-12">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To provide the composition framework to capture all aspects of a care plan.">
+			use = <"Use to provide a framework to support the recording of all aspects of a care plan to be carried out over a period of time.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard McNicoll, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"9B424E0E2A81348AB86507840BA5DCA3">
+		["build_uid"] = <"c55e1a0d-734a-44bc-b00d-d71fbecd0143">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	COMPOSITION[at0000] matches {	-- Care plan UK
+		category matches {
+			DV_CODED_TEXT matches {
+				defining_code matches {[openehr::433]}
+			}
+		}
+		context matches {
+			EVENT_CONTEXT matches {
+				other_context matches {
+					ITEM_TREE[at0001] matches {	-- Tree
+						items cardinality matches {0..*; unordered} matches {
+							allow_archetype CLUSTER[at0003] occurrences matches {0..*} matches {	-- Local context
+								include
+									archetype_id/value matches {/.*/}
+							}
+						}
+					}
+				}
+			}
+		}
+		content cardinality matches {1..*; unordered} matches {
+			allow_archetype ADMIN_ENTRY[at0002] occurrences matches {0..*} matches {	-- Plan Management
+				include
+					archetype_id/value matches {/.*/}
+			}
+			allow_archetype ADMIN_ENTRY[at0004] occurrences matches {0..*} matches {	-- Key contacts
+				include
+					archetype_id/value matches {/.*/}
+			}
+			allow_archetype SECTION[at0005] occurrences matches {0..*} matches {	-- End of Life Record
+				include
+					archetype_id/value matches {/.*/}
+			}
+			allow_archetype SECTION[at0006] occurrences matches {0..*} matches {	-- Other
+				include
+					archetype_id/value matches {/.*/}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Care plan UK">
+					description = <"Framework to support the recording of care plan details.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Plan Management">
+					description = <"Details of plan management.">
+				>
+				["at0003"] = <
+					text = <"Local context">
+					description = <"Local context details.">
+				>
+				["at0004"] = <
+					text = <"Key contacts">
+					description = <"Details of key contacts.">
+				>
+				["at0005"] = <
+					text = <"End of Life Record">
+					description = <"Details of End of Life record.">
+				>
+				["at0006"] = <
+					text = <"Other">
+					description = <"Any other relevant care plan details.">
+				>
+			>
+		>
+	>
