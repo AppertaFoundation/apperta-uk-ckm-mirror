@@ -1,4 +1,4 @@
-﻿archetype (adl_version=1.4)
+﻿archetype (adl_version=1.4; uid=0317d781-f1e4-43f1-8cc0-41a148470d40)
 	openEHR-EHR-EVALUATION.adverse_reaction_uk.v1
 
 concept
@@ -29,9 +29,11 @@ It should not be used to record 'absence' statements such as \"No information av
 			copyright = <"© Clinical Models UK">
 		>
 	>
-	lifecycle_state = <"Published">
+	lifecycle_state = <"in_development">
 	other_contributors = <"Steve Bentley, HSCIC, United Kingdom", "Colin Brown, SCIMP, United Kingdom", "Rachel Clements, Cegedim Rx Ltd, United Kingdom", "Richard Cottrell, NHS Ayrshire and Arran, United Kingdom", "Leo Fogarty, GP2GP project, NHS England", "Gurminder Khamba, NHS CFH, United Kingdom", "Heather Leslie, Ocean Informatics, Australia", "Dawn MacDermid, United Kingdom", "Ian McNicoll, Ocean Informatics, United Kingdom (Editor)", "Barry Melia, NHS Lothian, United Kingdom", "Paul Miller, SCIMP, United Kingdom (Editor)", "Sam Patel, NHS Lanarkshire, United Kingdom", "Mike Robinson, INPS, United Kingdom", "Laura Sato, Health and Social Care Information Centre, United Kingdom", "Ian Thompson, SCIMP, United Kingdom (Editor)", "John Thomson, NHS Grampian, United Kingdom", "John Williams, GP2GP, United Kingdom (Editor)">
 	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
 		["references"] = <"NHS Scotland SCI-XML schema http://www.sci.scot.nhs.uk/products/gateway/gate_down_xml.htm
 NWIS Wales SCI-XML schema
 HSCIC England  NHS Message Implementation Guidance, http://www.uktcregistration.nss.cfh.nhs.uk/trud3/
@@ -41,7 +43,11 @@ openEHR draft 'Adverse Reaction' archetype http://www.openehr.org/ckm/#showArche
 ISB England, Representation in Electronic Patient Records of Allergic Reactions, Adverse Reactions, and Intolerance of Pharmaceutical Products http://www.isb.nhs.uk/documents/isb-1582/amd-24-2011/1582242011npfitepdb.pdf
 RCP London, Standards for the clinical structure and content of patient records, http://www.rcplondon.ac.uk/sites/default/files/standards-for-the-clinical-structure-and-content-of-patient-records.pdf
 RCP London, Standards for core clinical information, http://www.rcplondon.ac.uk/sites/default/files/core_clinical_headings_for_electronic_health_records_v1.4.pdf">
-		["MD5-CAM-1.0.1"] = <"7B4C23C53B0DB170B8D24F1888FA2A97">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"E3F65A7EB6E3F44A7AF5928310293B26">
+		["build_uid"] = <"fb40de06-bef3-4846-b9d8-0cae11d159a0">
 	>
 
 definition
