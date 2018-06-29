@@ -1,0 +1,234 @@
+﻿archetype (adl_version=1.4; uid=bdd5c785-e9b7-4d05-9ecd-b8913c63a924)
+	openEHR-EHR-CLUSTER.interpreter_requirements.v0
+
+concept
+	[at0000]	-- Interpreter requirements
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			author = <
+				["name"] = <"John Tore Valand">
+				["organisation"] = <"Helse Bergen HF, Norway">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Heather Leslie">
+		["organisation"] = <"Ocean Informatics">
+		["email"] = <"heather.leslie@oceaninformatics.com">
+		["date"] = <"2015-05-04">
+	>
+	details = <
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			purpose = <"For å registrere detaljer om individets tolkebehov i kommunikasjon.">
+			use = <"Brukes for å registrere detaljer om individets tolkebehov i kommunikasjon.
+
+Denne arketypen er utviklet for bruk i en hvilken som helst ENTRY- eller CLUSTER-arketype for å gi kontekst enten til en forespørsel om tolk, en tolkning som er gjennomført eller for å gi en varig oversikt over individets behov for tolk.
+
+Brukes for å registrere en strukturert forespørsel etter tolk som en del av en henvisning, for eksempel ved å benytte SLOT'et \"Pasientens behov\" i arketypen INSTRUCTION.request (Helsetjenesterekvirering).
+
+Brukes for å gi en varig oversikt over individets behov for tolk ved benytte SLOTet \"Detaljer\" i arketypen EVALUATION.social_summary (Sosialanamnese).">
+			keywords = <"tolk", "språk">
+			misuse = <"">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record requirements and preferences for appropriate interpretation to assist with a clinical activity.">
+			use = <"Use to record requirements and preferences for appropriate interpretation of an individual's usual way of communicating, to assist with a clinical activity.
+
+This archetype is specifically designed to be nested within the 'Patient requirements' SLOT in the INSTRUCTION.service_request archetype but could be used within other INSTRUCTION archetypes which require participation of an interpreter.">
+			keywords = <"interpreter", "language", "translator", "sign", "signing">
+			misuse = <"">
+			copyright = <"© openEHR Foundation, Nasjonal IKT HF">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <"John Tore Valand, Helse Bergen HF, Norway", ...>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"Nasjonal IKT">
+		["references"] = <"Avgrenet fra: Interpreter Details, Draft Archetype [Internet]. openEHR Foundation, openEHR Clinical Knowledge Manager [cited: 2017-02-10]. Available from: http://openehr.org/ckm/#showArchetype_1013.1.1972">
+		["current_contact"] = <"Heather Leslie, Ocean Informatics<heather.leslie@oceaninformatics.com>">
+		["original_namespace"] = <"no.nasjonalikt">
+		["original_publisher"] = <"Nasjonal IKT">
+		["custodian_namespace"] = <"no.nasjonalikt">
+		["MD5-CAM-1.0.1"] = <"4E9AC4DE1939D8CEE203AD02FF28F2D7">
+		["build_uid"] = <"5f6b581e-05d1-4e4e-a818-9aa2c117da58">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Interpreter requirements
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0009] occurrences matches {0..*} matches {	-- Preferred method
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0010, 	-- Face-to-face
+							at0011, 	-- Audiovisual
+							at0012]	-- Audio
+						}
+					}
+					DV_TEXT matches {*}
+				}
+			}
+			allow_archetype CLUSTER[at0031] occurrences matches {0..1} matches {	-- Preferred language
+				include
+					archetype_id/value matches {/openEHR-EHR-CLUSTER\.language(-[a-zA-Z0-9_]+)*\.v0/}
+			}
+			allow_archetype CLUSTER[at0032] occurrences matches {0..*} matches {	-- Other language
+				include
+					archetype_id/value matches {/openEHR-EHR-CLUSTER\.language(-[a-zA-Z0-9_]+)*\.v0/}
+			}
+			ELEMENT[at0033] occurrences matches {0..1} matches {	-- Professional required
+				value matches {
+					DV_BOOLEAN matches {
+						value matches {True}
+					}
+				}
+			}
+			ELEMENT[at0027] occurrences matches {0..1} matches {	-- Preferred gender
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0028, 	-- Male
+							at0029]	-- Female
+						}
+					}
+				}
+			}
+			allow_archetype CLUSTER[at0004] occurrences matches {0..*} matches {	-- Proposed interpreter
+				include
+					archetype_id/value matches {/openEHR-EHR-CLUSTER\.organisation(-[a-zA-Z0-9_]+)*\.v0|openEHR-EHR-CLUSTER\.person_name(-[a-zA-Z0-9_]+)*\.v0|openEHR-EHR-CLUSTER\.individual_professional(-[a-zA-Z0-9_]+)*\.v0/}
+			}
+			ELEMENT[at0003] occurrences matches {0..1} matches {	-- Comment
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Interpreter requirements">
+					description = <"Requirements and preferences for appropriate interpretation to assist with a clinical activity.">
+				>
+				["at0003"] = <
+					text = <"Comment">
+					description = <"Additional narrative description about the requirements for the interpretation not captured in other fields.">
+				>
+				["at0004"] = <
+					text = <"Proposed interpreter">
+					description = <"Identification of the interpreter that is proposed for the interpretation.">
+				>
+				["at0009"] = <
+					text = <"Preferred method">
+					description = <"The preferred method to be used for the interpretation.">
+				>
+				["at0010"] = <
+					text = <"Face-to-face">
+					description = <"Physical attendence of the interpreter.">
+				>
+				["at0011"] = <
+					text = <"Audiovisual">
+					description = <"Remote video and audio interpretation.">
+				>
+				["at0012"] = <
+					text = <"Audio">
+					description = <"Audio interpretation.">
+				>
+				["at0027"] = <
+					text = <"Preferred gender">
+					description = <"The preferred gender of the interpreter.">
+				>
+				["at0028"] = <
+					text = <"Male">
+					description = <"A male interpreter is preferred.">
+				>
+				["at0029"] = <
+					text = <"Female">
+					description = <"A female interpreter is preferred.">
+				>
+				["at0031"] = <
+					text = <"Preferred language">
+					description = <"The preferred language and mode for the interpretation.">
+				>
+				["at0032"] = <
+					text = <"Other language">
+					description = <"Alternative languages and/or modes for the interpretation.">
+				>
+				["at0033"] = <
+					text = <"Professional required">
+					description = <"Indication that only a professional interpreter is appropriate.">
+				>
+			>
+		>
+		["nb"] = <
+			items = <
+				["at0000"] = <
+					text = <"*Interpreter requirements(en)">
+					description = <"*Requirements and preferences for appropriate interpretation to assist with a clinical activity.(en)">
+				>
+				["at0003"] = <
+					text = <"*Comment(en)">
+					description = <"*Additional narrative description about the requirements for the interpretation not captured in other fields.(en)">
+				>
+				["at0004"] = <
+					text = <"*Proposed interpreter(en)">
+					description = <"*Identification of the interpreter that is proposed for the interpretation.(en)">
+				>
+				["at0009"] = <
+					text = <"*Preferred method(en)">
+					description = <"*The preferred method to be used for the interpretation.(en)">
+				>
+				["at0010"] = <
+					text = <"*Face-to-face(en)">
+					description = <"*Physical attendence of the interpreter.(en)">
+				>
+				["at0011"] = <
+					text = <"*Audiovisual(en)">
+					description = <"*Remote video and audio interpretation.(en)">
+				>
+				["at0012"] = <
+					text = <"*Audio(en)">
+					description = <"*Audio interpretation.(en)">
+				>
+				["at0027"] = <
+					text = <"*Preferred gender(en)">
+					description = <"*The preferred gender of the interpreter.(en)">
+				>
+				["at0028"] = <
+					text = <"*Male(en)">
+					description = <"*A male interpreter is preferred.(en)">
+				>
+				["at0029"] = <
+					text = <"*Female(en)">
+					description = <"*A female interpreter is preferred.(en)">
+				>
+				["at0031"] = <
+					text = <"*Preferred language(en)">
+					description = <"*The preferred language and mode for the interpretation.(en)">
+				>
+				["at0032"] = <
+					text = <"*Other language(en)">
+					description = <"*Alternative languages and/or modes for the interpretation.(en)">
+				>
+				["at0033"] = <
+					text = <"*Professional required(en)">
+					description = <"*Indication that only a professional interpreter is appropriate.(en)">
+				>
+			>
+		>
+	>
