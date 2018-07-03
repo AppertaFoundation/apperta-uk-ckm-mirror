@@ -1,0 +1,196 @@
+﻿archetype (adl_version=1.4; uid=4cd0c01e-7dd0-45fc-a04b-603df8bdc6c2)
+	openEHR-EHR-OBSERVATION.cam_reset.v0
+
+concept
+	[at0000]	-- CAM assessment RESET
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2016-05-17">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Local archetype for RESET (Rapid response based Emergency Structured Exam Tool) to capture confusion assessment method (CAM) for diagnosing delirium.">
+			use = <"Use for RESET project for CAM method for diagnosing delirium.">
+			misuse = <"Not to be used outside the scope of the RESET project.">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["references"] = <"Reference
+1. Inouye SK, van Dyck CH, Alessi CA et al. Clarifying confusion: the Confusion Assessment Method. A new
+method for detection of delirium. Ann Intern Med 1990; 113: 941–948.  (http://www.guysandstthomas.nhs.uk/resources/our-services/acute-medicine-gi-surgery/elderly-care/cam-diagnostic-algorithm.pdf).
+
+2. Madeleine Purchas, Dr Neil Pollard, Dr Fiona Boyd (Update) June 2015:  Clinical Guidelines for the Management of Delirium in Adults 
+(http://www.rcht.nhs.uk/DocumentsLibrary/RoyalCornwallHospitalsTrust/Clinical/DementiaAndEldercare/GuidelineForTheManagementOfDelerium.pdf).">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"5EA7CE7307F767F031EBE3CDA8B98DF9">
+		["build_uid"] = <"13ad3d9a-95bb-4c3a-8871-ad7e4c89d60f">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- CAM assessment RESET
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..1} matches {	-- Point in time
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- F1 (1) Evidence of acute change
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0005] occurrences matches {0..1} matches {	-- F1 (2) Fluctuating
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0006] occurrences matches {0..1} matches {	-- F2 (3) Inattention
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0007] occurrences matches {0..1} matches {	-- F3 (4) Disorganised thinking
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0008] occurrences matches {0..1} matches {	-- F4 (5) Altered level of consciousness
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0009, 	-- Alert (normal)
+													at0010, 	-- Vigilant (hyperalert)
+													at0011, 	-- Lethargic (drowsy/easily aroused)
+													at0012, 	-- Stupor (difficult to arouse)
+													at0013]	-- Coma (unarousable)
+												}
+											}
+										}
+									}
+									ELEMENT[at0014] occurrences matches {0..1} matches {	-- Delirium diagnosis
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"CAM assessment RESET">
+					description = <"CAM Assessment for RESET.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Point in time">
+					description = <"Point in time event.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"F1 (1) Evidence of acute change">
+					description = <"Feature 1 Acute onset and fluctuating course. 
+This feature is usually obtained from a family member or nurse and is shown by positive
+responses to the following questions:
+1. Is there evidence of an acute change in mental status from the patient’s baseline?">
+				>
+				["at0005"] = <
+					text = <"F1 (2) Fluctuating">
+					description = <"Feature 1 Acute onset and fluctuating course. 
+This feature is usually obtained from a family member or nurse and is shown by positive
+responses to the following questions:      2. Did the (abnormal) behaviour fluctuate during the day, that is, tend to come and go, or
+increase or decrease in severity?">
+				>
+				["at0006"] = <
+					text = <"F2 (3) Inattention">
+					description = <"Feature 2 Inattention. 
+This feature is usually obtained by interacting with the patient, but may also be reported by
+family members or staff and is shown by a positive response to the following question:
+3. Did the patient have difficulty focusing attention, for example being easily distractible or
+having difficulty keeping track of what was being said?">
+				>
+				["at0007"] = <
+					text = <"F3 (4) Disorganised thinking">
+					description = <"Feature 3 Disorganised thinking
+. This feature is usually obtained by interacting with the patient, but may also be reported by
+family members or staff and is shown by a positive response to the following question:
+4. ‘Was the patient’s thinking disorganised or incoherent, such as rambling or irrelevant
+conversation, unclear or illogical flow of ideas, or unpredictable switching from subject to 
+subject?’.">
+				>
+				["at0008"] = <
+					text = <"F4 (5) Altered level of consciousness">
+					description = <"Feature 4 Altered level of consciousness. 
+This feature is obtained by observing the patient and is shown by any answer other than
+‘alert’ to the following question:
+5. Overall, how would you rate this patient’s level of consciousness?">
+				>
+				["at0009"] = <
+					text = <"Alert (normal)">
+					description = <"The patient's level of consciousness is considered to be alert / normal.">
+				>
+				["at0010"] = <
+					text = <"Vigilant (hyperalert)">
+					description = <"The patient's level of consciousness is considered to be vigilant / hyperalert.">
+				>
+				["at0011"] = <
+					text = <"Lethargic (drowsy/easily aroused)">
+					description = <"The patient's level of consciousness is considered to be lethargic / drowsy / easily aroused.">
+				>
+				["at0012"] = <
+					text = <"Stupor (difficult to arouse)">
+					description = <"The patient's level of consciousness is considered to be stuporous / difficult to arouse.">
+				>
+				["at0013"] = <
+					text = <"Coma (unarousable)">
+					description = <"The patient's level of consciousness is considered to be comatose / unarousable.">
+				>
+				["at0014"] = <
+					text = <"Delirium diagnosis">
+					description = <"If CAM assessment has Yes for F1 (1), F1 (2), F2 and either Yes for F3 or indicating shifting consciousness for F4, a diagnosis of delirium can be confirmed.">
+				>
+			>
+		>
+	>
