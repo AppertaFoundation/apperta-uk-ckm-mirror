@@ -1,0 +1,212 @@
+﻿archetype (adl_version=1.4; uid=066470e5-c293-4b1c-8523-1d5c760f50fb)
+	openEHR-EHR-OBSERVATION.breathing_assessment_reset.v0
+
+concept
+	[at0000]	-- Breathing assessment RESET
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2016-03-04">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Breathing assessment for local use in RESET project.">
+			use = <"Local archetype for use in RESET project.">
+			keywords = <"RESET", "breathing", "assessment">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <"Teresa Ross", "Brendan O'Brien", "Alexander Davey", "Andrew Patton">
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"BA6EA477FCD1F1227555E535A527187F">
+		["build_uid"] = <"886956fe-92b7-465c-b66b-df5fe110468f">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Breathing assessment RESET
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..1} matches {	-- Point in time
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Symmetry
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0005, 	-- symmetrical
+													at0006, 	-- R < L
+													at0007]	-- L < R
+												}
+											}
+										}
+									}
+									ELEMENT[at0008] occurrences matches {0..1} matches {	-- Volume
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0009, 	-- Normal
+													at0010, 	-- Shallow
+													at0011]	-- Deep
+												}
+											}
+										}
+									}
+									ELEMENT[at0012] occurrences matches {0..1} matches {	-- Pattern/Effort
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0013, 	-- Normal WOB
+													at0014, 	-- Increased WOB +
+													at0015, 	-- Increased WOB ++
+													at0016, 	-- Increased WOB +++
+													at0017]	-- Tiring
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+						state matches {
+							ITEM_TREE[at0020] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0021] occurrences matches {0..1} matches {	-- Confounding factors
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0018] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0019] occurrences matches {0..*} matches {	-- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Breathing assessment RESET">
+					description = <"Breathing assessment.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Point in time">
+					description = <"A specific date and/or time which may be explicitly defined in a template or at run-time.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Symmetry">
+					description = <"This is the Symmetry element.">
+				>
+				["at0005"] = <
+					text = <"symmetrical">
+					description = <"Ventilation is symmetrical.">
+				>
+				["at0006"] = <
+					text = <"R < L">
+					description = <"Ventilation is not symmetrical with right less than left.">
+				>
+				["at0007"] = <
+					text = <"L < R">
+					description = <"Ventilation is not symmetrical with left less than right.">
+				>
+				["at0008"] = <
+					text = <"Volume">
+					description = <"This is the volume element.">
+				>
+				["at0009"] = <
+					text = <"Normal">
+					description = <"Normal breathing volume.">
+				>
+				["at0010"] = <
+					text = <"Shallow">
+					description = <"Shallow breathing volume.">
+				>
+				["at0011"] = <
+					text = <"Deep">
+					description = <"Deep breathing volume.">
+				>
+				["at0012"] = <
+					text = <"Pattern/Effort">
+					description = <"This is the pattern element.">
+				>
+				["at0013"] = <
+					text = <"Normal WOB">
+					description = <"Nromal workoff breathing.">
+				>
+				["at0014"] = <
+					text = <"Increased WOB +">
+					description = <"Increased workoff breathing plus.">
+				>
+				["at0015"] = <
+					text = <"Increased WOB ++">
+					description = <"Increased workoff breathing plus plus.">
+				>
+				["at0016"] = <
+					text = <"Increased WOB +++">
+					description = <"Increased workoff breathing plus plus plus.">
+				>
+				["at0017"] = <
+					text = <"Tiring">
+					description = <"Tiring.">
+				>
+				["at0018"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0019"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental infomation or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+				["at0020"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0021"] = <
+					text = <"Confounding factors">
+					description = <"Record any issues or factors that may impact on the assessment.">
+				>
+			>
+		>
+	>
