@@ -127,29 +127,6 @@
         <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.skin_temp_gradient_reset.v0" concept_name="Skin temperature gradient RESET" path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]" />
         <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.capillary_refill_time.v0" concept_name="Capillary refill" path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]" />
       </Item>
-      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.fluid_output.v0" concept_name="Fluid Output" path="/items">
-        <Rule path="/data[at0001]" hide_on_form="true" />
-        <Rule path="/data[at0001]/events[at0002]" max="0" />
-        <Rule path="/data[at0001]/events[at0039]" hide_on_form="true" />
-        <Rule path="/data[at0001]/events[at0039]/data[at0003]" hide_on_form="true" />
-        <Rule path="/data[at0001]/events[at0039]/data[at0003]/items[at0036]" default="Urine" />
-        <Rule path="/data[at0001]/events[at0039]/data[at0003]/items[at0032]" max="0" />
-        <Rule path="/protocol[at0008]" hide_on_form="true" />
-        <Rule path="/protocol[at0008]/items[at0031]" max="0" />
-        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.daily_timing.v0" concept_name="Daily timing" path="/data[at0001]/events[at0039]/data[at0003]/items[at0038]" hide_on_form="true">
-          <Rule path="/items[at0003]" max="0" />
-          <Rule path="/items[at0014]">
-            <constraint xsi:type="multipleConstraint">
-              <includedTypes>Duration</includedTypes>
-            </constraint>
-          </Rule>
-          <Rule path="/items[at0004]" max="0" />
-          <Rule path="/items[at0026]" max="0" />
-          <Rule path="/items[at0023]" max="0" />
-          <Rule path="/items[at0024]" max="0" />
-          <Rule path="/items[at0025]" max="0" />
-        </Items>
-      </Item>
       <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.body_weight.v1" concept_name="Body weight" path="/items">
         <Rule path="/data[at0002]" hide_on_form="true" />
         <Rule path="/data[at0002]/events[at0003]" hide_on_form="true">
@@ -164,7 +141,7 @@
         <Rule path="/data[at0002]/events[at0003]/state[at0008]/items[at0025]" max="0" />
         <Rule path="/protocol[at0015]" hide_on_form="true" />
       </Item>
-      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.avpu_reset.v0" concept_name="AVPU RESET" path="/items">
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.avpu.v0" concept_name="AVPU" path="/items">
         <Rule path="/data[at0001]" hide_on_form="true" />
         <Rule path="/data[at0001]/events[at0002]" hide_on_form="true">
           <eventConstraint>
@@ -172,7 +149,9 @@
           </eventConstraint>
         </Rule>
         <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
-        <Rule path="/data[at0001]/events[at0002]/state[at0009]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0012]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/state[at0013]" hide_on_form="true" />
+        <Rule path="/protocol[at0009]" hide_on_form="true" />
       </Item>
       <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.story.v1" concept_name="Story/History" max="1" path="/items" name="Story/History #1" hide_on_form="true">
         <Rule path="/data[at0001]" hide_on_form="true" />
@@ -209,11 +188,34 @@
           <Rule path="/items[at0023]" max="0" />
         </Items>
       </Item>
-      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.fluid_balance.v0" concept_name="Fluid Balance" path="/items">
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.fluid_input.v1" concept_name="Fluid input" path="/items">
+        <Rule path="/data[at0001]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]" hide_on_form="true">
+          <eventConstraint>
+            <allowedType>PointInTime</allowedType>
+          </eventConstraint>
+        </Rule>
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+        <Rule path="/protocol[at0008]" hide_on_form="true" />
+        <Rule path="/protocol[at0008]/items[at0031]" max="0" />
+      </Item>
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.fluid_output.v1" concept_name="Fluid output" path="/items">
+        <Rule path="/data[at0001]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]" hide_on_form="true">
+          <eventConstraint>
+            <allowedType>PointInTime</allowedType>
+          </eventConstraint>
+        </Rule>
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+        <Rule path="/protocol[at0008]" hide_on_form="true" />
+        <Rule path="/protocol[at0008]/items[at0031]" max="0" />
+      </Item>
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.fluid_balance.v1" concept_name="Fluid balance" path="/items">
         <Rule path="/data[at0001]" hide_on_form="true" />
         <Rule path="/data[at0001]/events[at0002]" hide_on_form="true" />
-        <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
         <Rule path="/data[at0001]/events[at0008]" max="0" />
+        <Rule path="/protocol[at0009]" hide_on_form="true" />
+        <Rule path="/protocol[at0009]/items[at0010]" max="0" />
       </Item>
     </Content>
     <Content xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.adhoc.v1" concept_name="Ad hoc heading" max="1" path="/content" name="Pathophysiological risk / red flag">
@@ -232,31 +234,11 @@
         <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0009]" max="0" />
         <Rule path="/data[at0001]/events[at0002]/state[at0022]" hide_on_form="true" />
         <Rule path="/data[at0001]/events[at0002]/state[at0022]/items[at0056]" max="0" />
-      </Item>
-      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.indirect_oximetry.v1" concept_name="Indirect Oximetry" path="/items">
-        <Rule path="/data[at0001]" hide_on_form="true" />
-        <Rule path="/data[at0001]/events[at0002]" hide_on_form="true">
-          <eventConstraint>
-            <allowedType>PointInTime</allowedType>
-          </eventConstraint>
-        </Rule>
-        <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
-        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0044]" max="0" />
-        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0045]" max="0" />
-        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0046]" max="0" />
-        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0039]" max="0" />
-        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0040]" max="0" />
-        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0019]" max="0" />
-        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0058]" max="0" />
-        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0036]" max="0" />
-        <Rule path="/data[at0001]/events[at0002]/state[at0014]" hide_on_form="true" />
-        <Rule path="/data[at0001]/events[at0002]/state[at0014]/items[at0057]" max="0" />
-        <Rule path="/data[at0001]/events[at0002]/state[at0014]/items[at0016]" max="0" />
-        <Rule path="/protocol[at0007]" hide_on_form="true" />
-        <Rule path="/protocol[at0007]/items[at0009]" max="0" />
-        <Rule path="/protocol[at0007]/items[at0020]" max="0" />
-        <Rule path="/protocol[at0007]/items[at0037]" max="0" />
-        <Rule path="/protocol[at0007]/items[at0038]" max="0" />
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.inspired_oxygen.v1" concept_name="Inspired oxygen" path="/data[at0001]/events[at0002]/state[at0022]/items[at0055]">
+          <Rule path="/items[at0053]" max="0" />
+          <Rule path="/items[at0057]" max="0" />
+          <Rule path="/items[at0054]" max="0" />
+        </Items>
       </Item>
       <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.body_temperature.v1" concept_name="Body temperature" path="/items">
         <Rule path="/data[at0002]" hide_on_form="true" />
@@ -327,6 +309,22 @@
         <Rule path="/protocol[at0032]" hide_on_form="true" />
         <Rule path="/protocol[at0032]/items[at0070]" max="0" />
       </Item>
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.ecg.v0" concept_name="ECG test result" path="/items">
+        <Rule path="/data[at0001]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]" hide_on_form="true">
+          <eventConstraint>
+            <allowedType>PointInTime</allowedType>
+          </eventConstraint>
+        </Rule>
+        <Rule path="/data[at0001]/events[at0002]/data[at0005]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0005]/items[at0006]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0005]/items[at0027]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/state[at0077]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]/state[at0077]/items[at0079]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/state[at0077]/items[at0078]" max="0" />
+        <Rule path="/protocol[at0003]" hide_on_form="true" />
+        <Rule path="/protocol[at0003]/items[at0025]" max="0" />
+      </Item>
     </Content>
     <Content xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.adhoc.v1" concept_name="Ad hoc heading" max="1" path="/content" name="Point of care tests">
       <Item xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.adhoc.v1" concept_name="Ad hoc heading" max="1" path="/items" name="Arterial Blood Gases">
@@ -346,21 +344,13 @@
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0057]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0098]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0101]" max="0" />
-          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/state[at0112]" hide_on_form="true" />
           <Rule path="/data[at0001]/events[at0002]/state[at0112]/items[at0113]" max="0" />
           <Rule path="/protocol[at0004]" hide_on_form="true" />
           <Rule path="/protocol[at0004]/items[at0068]" max="0" />
           <Rule path="/protocol[at0004]/items[at0094]" max="0" />
           <Rule path="/protocol[at0004]/items[at0111]" max="0" />
-          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true">
-            <Rule path="/items[at0002]" hide_on_form="true" />
-            <Rule path="/items[at0002]/items[at0001]" name="ABG - Hb Result" />
-            <Rule path="/items[at0002]/items[at0003]" max="0" />
-            <Rule path="/items[at0002]/items[at0004]" max="0" />
-            <Rule path="/items[at0002]/items[at0005]" max="0" />
-            <Rule path="/items[at0002]/items[at0006]" max="0" />
-          </Items>
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true" />
         </Item>
         <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.laboratory_test.v0" concept_name="Laboratory test" max="1" path="/items" name="ABG - Hct">
           <Rule path="/data[at0001]" hide_on_form="true" />
@@ -378,21 +368,13 @@
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0057]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0098]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0101]" max="0" />
-          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/state[at0112]" hide_on_form="true" />
           <Rule path="/data[at0001]/events[at0002]/state[at0112]/items[at0113]" max="0" />
           <Rule path="/protocol[at0004]" hide_on_form="true" />
           <Rule path="/protocol[at0004]/items[at0068]" max="0" />
           <Rule path="/protocol[at0004]/items[at0094]" max="0" />
           <Rule path="/protocol[at0004]/items[at0111]" max="0" />
-          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true">
-            <Rule path="/items[at0002]" hide_on_form="true" />
-            <Rule path="/items[at0002]/items[at0001]" name="ABG - Hct result" />
-            <Rule path="/items[at0002]/items[at0003]" max="0" />
-            <Rule path="/items[at0002]/items[at0004]" max="0" />
-            <Rule path="/items[at0002]/items[at0005]" max="0" />
-            <Rule path="/items[at0002]/items[at0006]" max="0" />
-          </Items>
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true" />
         </Item>
         <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.laboratory_test.v0" concept_name="Laboratory test" max="1" path="/items" name="ABG - Glucose">
           <Rule path="/data[at0001]" hide_on_form="true" />
@@ -410,21 +392,13 @@
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0057]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0098]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0101]" max="0" />
-          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/state[at0112]" hide_on_form="true" />
           <Rule path="/data[at0001]/events[at0002]/state[at0112]/items[at0113]" max="0" />
           <Rule path="/protocol[at0004]" hide_on_form="true" />
           <Rule path="/protocol[at0004]/items[at0068]" max="0" />
           <Rule path="/protocol[at0004]/items[at0094]" max="0" />
           <Rule path="/protocol[at0004]/items[at0111]" max="0" />
-          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true">
-            <Rule path="/items[at0002]" hide_on_form="true" />
-            <Rule path="/items[at0002]/items[at0001]" name="ABG - Glucose result" />
-            <Rule path="/items[at0002]/items[at0003]" max="0" />
-            <Rule path="/items[at0002]/items[at0004]" max="0" />
-            <Rule path="/items[at0002]/items[at0005]" max="0" />
-            <Rule path="/items[at0002]/items[at0006]" max="0" />
-          </Items>
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true" />
         </Item>
         <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.laboratory_test.v0" concept_name="Laboratory test" max="1" path="/items" name="ABG - Lactate">
           <Rule path="/data[at0001]" hide_on_form="true" />
@@ -442,21 +416,13 @@
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0057]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0098]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0101]" max="0" />
-          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/state[at0112]" hide_on_form="true" />
           <Rule path="/data[at0001]/events[at0002]/state[at0112]/items[at0113]" max="0" />
           <Rule path="/protocol[at0004]" hide_on_form="true" />
           <Rule path="/protocol[at0004]/items[at0068]" max="0" />
           <Rule path="/protocol[at0004]/items[at0094]" max="0" />
           <Rule path="/protocol[at0004]/items[at0111]" max="0" />
-          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true">
-            <Rule path="/items[at0002]" hide_on_form="true" />
-            <Rule path="/items[at0002]/items[at0001]" name="ABG - Lactate result" />
-            <Rule path="/items[at0002]/items[at0003]" max="0" />
-            <Rule path="/items[at0002]/items[at0004]" max="0" />
-            <Rule path="/items[at0002]/items[at0005]" max="0" />
-            <Rule path="/items[at0002]/items[at0006]" max="0" />
-          </Items>
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true" />
         </Item>
         <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.laboratory_test.v0" concept_name="Laboratory test" max="1" path="/items" name="ABG - BE">
           <Rule path="/data[at0001]" hide_on_form="true" />
@@ -474,21 +440,13 @@
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0057]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0098]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0101]" max="0" />
-          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/state[at0112]" hide_on_form="true" />
           <Rule path="/data[at0001]/events[at0002]/state[at0112]/items[at0113]" max="0" />
           <Rule path="/protocol[at0004]" hide_on_form="true" />
           <Rule path="/protocol[at0004]/items[at0068]" max="0" />
           <Rule path="/protocol[at0004]/items[at0094]" max="0" />
           <Rule path="/protocol[at0004]/items[at0111]" max="0" />
-          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true">
-            <Rule path="/items[at0002]" hide_on_form="true" />
-            <Rule path="/items[at0002]/items[at0001]" name="ABG - BE result" />
-            <Rule path="/items[at0002]/items[at0003]" max="0" />
-            <Rule path="/items[at0002]/items[at0004]" max="0" />
-            <Rule path="/items[at0002]/items[at0005]" max="0" />
-            <Rule path="/items[at0002]/items[at0006]" max="0" />
-          </Items>
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true" />
         </Item>
         <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.laboratory_test.v0" concept_name="Laboratory test" max="1" path="/items" name="ABG - HCO3">
           <Rule path="/data[at0001]" hide_on_form="true" />
@@ -506,21 +464,13 @@
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0057]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0098]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0101]" max="0" />
-          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/state[at0112]" hide_on_form="true" />
           <Rule path="/data[at0001]/events[at0002]/state[at0112]/items[at0113]" max="0" />
           <Rule path="/protocol[at0004]" hide_on_form="true" />
           <Rule path="/protocol[at0004]/items[at0068]" max="0" />
           <Rule path="/protocol[at0004]/items[at0094]" max="0" />
           <Rule path="/protocol[at0004]/items[at0111]" max="0" />
-          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true">
-            <Rule path="/items[at0002]" hide_on_form="true" />
-            <Rule path="/items[at0002]/items[at0001]" name="ABG - HCO3 result" />
-            <Rule path="/items[at0002]/items[at0003]" max="0" />
-            <Rule path="/items[at0002]/items[at0004]" max="0" />
-            <Rule path="/items[at0002]/items[at0005]" max="0" />
-            <Rule path="/items[at0002]/items[at0006]" max="0" />
-          </Items>
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true" />
         </Item>
         <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.laboratory_test.v0" concept_name="Laboratory test" max="1" path="/items" name="ABG - pH">
           <Rule path="/data[at0001]" hide_on_form="true" />
@@ -538,21 +488,13 @@
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0057]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0098]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0101]" max="0" />
-          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/state[at0112]" hide_on_form="true" />
           <Rule path="/data[at0001]/events[at0002]/state[at0112]/items[at0113]" max="0" />
           <Rule path="/protocol[at0004]" hide_on_form="true" />
           <Rule path="/protocol[at0004]/items[at0068]" max="0" />
           <Rule path="/protocol[at0004]/items[at0094]" max="0" />
           <Rule path="/protocol[at0004]/items[at0111]" max="0" />
-          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true">
-            <Rule path="/items[at0002]" hide_on_form="true" />
-            <Rule path="/items[at0002]/items[at0001]" name="ABG - ph result" />
-            <Rule path="/items[at0002]/items[at0003]" max="0" />
-            <Rule path="/items[at0002]/items[at0004]" max="0" />
-            <Rule path="/items[at0002]/items[at0005]" max="0" />
-            <Rule path="/items[at0002]/items[at0006]" max="0" />
-          </Items>
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true" />
         </Item>
         <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.laboratory_test.v0" concept_name="Laboratory test" max="1" path="/items" name="ABG - PO2">
           <Rule path="/data[at0001]" hide_on_form="true" />
@@ -570,21 +512,13 @@
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0057]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0098]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0101]" max="0" />
-          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/state[at0112]" hide_on_form="true" />
           <Rule path="/data[at0001]/events[at0002]/state[at0112]/items[at0113]" max="0" />
           <Rule path="/protocol[at0004]" hide_on_form="true" />
           <Rule path="/protocol[at0004]/items[at0068]" max="0" />
           <Rule path="/protocol[at0004]/items[at0094]" max="0" />
           <Rule path="/protocol[at0004]/items[at0111]" max="0" />
-          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true">
-            <Rule path="/items[at0002]" hide_on_form="true" />
-            <Rule path="/items[at0002]/items[at0001]" name="ABG - PO2 result" />
-            <Rule path="/items[at0002]/items[at0003]" max="0" />
-            <Rule path="/items[at0002]/items[at0004]" max="0" />
-            <Rule path="/items[at0002]/items[at0005]" max="0" />
-            <Rule path="/items[at0002]/items[at0006]" max="0" />
-          </Items>
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true" />
         </Item>
         <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.laboratory_test.v0" concept_name="Laboratory test" max="1" path="/items" name="ABG - PCO2">
           <Rule path="/data[at0001]" hide_on_form="true" />
@@ -602,21 +536,13 @@
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0057]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0098]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0101]" max="0" />
-          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/state[at0112]" hide_on_form="true" />
           <Rule path="/data[at0001]/events[at0002]/state[at0112]/items[at0113]" max="0" />
           <Rule path="/protocol[at0004]" hide_on_form="true" />
           <Rule path="/protocol[at0004]/items[at0068]" max="0" />
           <Rule path="/protocol[at0004]/items[at0094]" max="0" />
           <Rule path="/protocol[at0004]/items[at0111]" max="0" />
-          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true">
-            <Rule path="/items[at0002]" hide_on_form="true" />
-            <Rule path="/items[at0002]/items[at0001]" name="ABG - PCO2 result" />
-            <Rule path="/items[at0002]/items[at0003]" max="0" />
-            <Rule path="/items[at0002]/items[at0004]" max="0" />
-            <Rule path="/items[at0002]/items[at0005]" max="0" />
-            <Rule path="/items[at0002]/items[at0006]" max="0" />
-          </Items>
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true" />
         </Item>
       </Item>
       <Item xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.adhoc.v1" concept_name="Ad hoc heading" max="1" path="/items" name="Venous Blood Gases">
@@ -636,21 +562,13 @@
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0057]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0098]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0101]" max="0" />
-          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/state[at0112]" hide_on_form="true" />
           <Rule path="/data[at0001]/events[at0002]/state[at0112]/items[at0113]" max="0" />
           <Rule path="/protocol[at0004]" hide_on_form="true" />
           <Rule path="/protocol[at0004]/items[at0068]" max="0" />
           <Rule path="/protocol[at0004]/items[at0094]" max="0" />
           <Rule path="/protocol[at0004]/items[at0111]" max="0" />
-          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true">
-            <Rule path="/items[at0002]" hide_on_form="true" />
-            <Rule path="/items[at0002]/items[at0001]" name="VBG - Hb result" />
-            <Rule path="/items[at0002]/items[at0003]" max="0" />
-            <Rule path="/items[at0002]/items[at0004]" max="0" />
-            <Rule path="/items[at0002]/items[at0005]" max="0" />
-            <Rule path="/items[at0002]/items[at0006]" max="0" />
-          </Items>
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true" />
         </Item>
         <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.laboratory_test.v0" concept_name="Laboratory test" max="1" path="/items" name="VBG - Hct">
           <Rule path="/data[at0001]" hide_on_form="true" />
@@ -668,21 +586,13 @@
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0057]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0098]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0101]" max="0" />
-          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/state[at0112]" hide_on_form="true" />
           <Rule path="/data[at0001]/events[at0002]/state[at0112]/items[at0113]" max="0" />
           <Rule path="/protocol[at0004]" hide_on_form="true" />
           <Rule path="/protocol[at0004]/items[at0068]" max="0" />
           <Rule path="/protocol[at0004]/items[at0094]" max="0" />
           <Rule path="/protocol[at0004]/items[at0111]" max="0" />
-          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true">
-            <Rule path="/items[at0002]" hide_on_form="true" />
-            <Rule path="/items[at0002]/items[at0001]" name="VBG - Hct result" />
-            <Rule path="/items[at0002]/items[at0003]" max="0" />
-            <Rule path="/items[at0002]/items[at0004]" max="0" />
-            <Rule path="/items[at0002]/items[at0005]" max="0" />
-            <Rule path="/items[at0002]/items[at0006]" max="0" />
-          </Items>
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true" />
         </Item>
         <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.laboratory_test.v0" concept_name="Laboratory test" max="1" path="/items" name="VBG - Glucose">
           <Rule path="/data[at0001]" hide_on_form="true" />
@@ -700,21 +610,13 @@
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0057]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0098]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0101]" max="0" />
-          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/state[at0112]" hide_on_form="true" />
           <Rule path="/data[at0001]/events[at0002]/state[at0112]/items[at0113]" max="0" />
           <Rule path="/protocol[at0004]" hide_on_form="true" />
           <Rule path="/protocol[at0004]/items[at0068]" max="0" />
           <Rule path="/protocol[at0004]/items[at0094]" max="0" />
           <Rule path="/protocol[at0004]/items[at0111]" max="0" />
-          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true">
-            <Rule path="/items[at0002]" hide_on_form="true" />
-            <Rule path="/items[at0002]/items[at0001]" name="VBG - glucose result" />
-            <Rule path="/items[at0002]/items[at0003]" max="0" />
-            <Rule path="/items[at0002]/items[at0004]" max="0" />
-            <Rule path="/items[at0002]/items[at0005]" max="0" />
-            <Rule path="/items[at0002]/items[at0006]" max="0" />
-          </Items>
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true" />
         </Item>
         <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.laboratory_test.v0" concept_name="Laboratory test" max="1" path="/items" name="VBG - Lactate">
           <Rule path="/data[at0001]" hide_on_form="true" />
@@ -732,21 +634,13 @@
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0057]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0098]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0101]" max="0" />
-          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/state[at0112]" hide_on_form="true" />
           <Rule path="/data[at0001]/events[at0002]/state[at0112]/items[at0113]" max="0" />
           <Rule path="/protocol[at0004]" hide_on_form="true" />
           <Rule path="/protocol[at0004]/items[at0068]" max="0" />
           <Rule path="/protocol[at0004]/items[at0094]" max="0" />
           <Rule path="/protocol[at0004]/items[at0111]" max="0" />
-          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true">
-            <Rule path="/items[at0002]" hide_on_form="true" />
-            <Rule path="/items[at0002]/items[at0001]" name="VBG - lactate result" />
-            <Rule path="/items[at0002]/items[at0003]" max="0" />
-            <Rule path="/items[at0002]/items[at0004]" max="0" />
-            <Rule path="/items[at0002]/items[at0005]" max="0" />
-            <Rule path="/items[at0002]/items[at0006]" max="0" />
-          </Items>
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true" />
         </Item>
         <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.laboratory_test.v0" concept_name="Laboratory test" max="1" path="/items" name="VBG - BE">
           <Rule path="/data[at0001]" hide_on_form="true" />
@@ -764,21 +658,13 @@
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0057]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0098]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0101]" max="0" />
-          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/state[at0112]" hide_on_form="true" />
           <Rule path="/data[at0001]/events[at0002]/state[at0112]/items[at0113]" max="0" />
           <Rule path="/protocol[at0004]" hide_on_form="true" />
           <Rule path="/protocol[at0004]/items[at0068]" max="0" />
           <Rule path="/protocol[at0004]/items[at0094]" max="0" />
           <Rule path="/protocol[at0004]/items[at0111]" max="0" />
-          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true">
-            <Rule path="/items[at0002]" hide_on_form="true" />
-            <Rule path="/items[at0002]/items[at0001]" name="VBG - BE result" />
-            <Rule path="/items[at0002]/items[at0003]" max="0" />
-            <Rule path="/items[at0002]/items[at0004]" max="0" />
-            <Rule path="/items[at0002]/items[at0005]" max="0" />
-            <Rule path="/items[at0002]/items[at0006]" max="0" />
-          </Items>
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true" />
         </Item>
         <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.laboratory_test.v0" concept_name="Laboratory test" max="1" path="/items" name="VBG - HCO3">
           <Rule path="/data[at0001]" hide_on_form="true" />
@@ -796,21 +682,13 @@
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0057]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0098]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0101]" max="0" />
-          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/state[at0112]" hide_on_form="true" />
           <Rule path="/data[at0001]/events[at0002]/state[at0112]/items[at0113]" max="0" />
           <Rule path="/protocol[at0004]" hide_on_form="true" />
           <Rule path="/protocol[at0004]/items[at0068]" max="0" />
           <Rule path="/protocol[at0004]/items[at0094]" max="0" />
           <Rule path="/protocol[at0004]/items[at0111]" max="0" />
-          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true">
-            <Rule path="/items[at0002]" hide_on_form="true" />
-            <Rule path="/items[at0002]/items[at0001]" name="VBG - HCO3 result" />
-            <Rule path="/items[at0002]/items[at0003]" max="0" />
-            <Rule path="/items[at0002]/items[at0004]" max="0" />
-            <Rule path="/items[at0002]/items[at0005]" max="0" />
-            <Rule path="/items[at0002]/items[at0006]" max="0" />
-          </Items>
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true" />
         </Item>
         <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.laboratory_test.v0" concept_name="Laboratory test" max="1" path="/items" name="VBG - pH">
           <Rule path="/data[at0001]" hide_on_form="true" />
@@ -828,21 +706,13 @@
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0057]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0098]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0101]" max="0" />
-          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/state[at0112]" hide_on_form="true" />
           <Rule path="/data[at0001]/events[at0002]/state[at0112]/items[at0113]" max="0" />
           <Rule path="/protocol[at0004]" hide_on_form="true" />
           <Rule path="/protocol[at0004]/items[at0068]" max="0" />
           <Rule path="/protocol[at0004]/items[at0094]" max="0" />
           <Rule path="/protocol[at0004]/items[at0111]" max="0" />
-          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true">
-            <Rule path="/items[at0002]" hide_on_form="true" />
-            <Rule path="/items[at0002]/items[at0001]" name="VBG - ph result" />
-            <Rule path="/items[at0002]/items[at0003]" max="0" />
-            <Rule path="/items[at0002]/items[at0004]" max="0" />
-            <Rule path="/items[at0002]/items[at0005]" max="0" />
-            <Rule path="/items[at0002]/items[at0006]" max="0" />
-          </Items>
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true" />
         </Item>
         <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.laboratory_test.v0" concept_name="Laboratory test" max="1" path="/items" name="VBG - PO2">
           <Rule path="/data[at0001]" hide_on_form="true" />
@@ -860,21 +730,13 @@
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0057]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0098]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0101]" max="0" />
-          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/state[at0112]" hide_on_form="true" />
           <Rule path="/data[at0001]/events[at0002]/state[at0112]/items[at0113]" max="0" />
           <Rule path="/protocol[at0004]" hide_on_form="true" />
           <Rule path="/protocol[at0004]/items[at0068]" max="0" />
           <Rule path="/protocol[at0004]/items[at0094]" max="0" />
           <Rule path="/protocol[at0004]/items[at0111]" max="0" />
-          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true">
-            <Rule path="/items[at0002]" hide_on_form="true" />
-            <Rule path="/items[at0002]/items[at0001]" name="VBG - PO2 result" />
-            <Rule path="/items[at0002]/items[at0003]" max="0" />
-            <Rule path="/items[at0002]/items[at0004]" max="0" />
-            <Rule path="/items[at0002]/items[at0005]" max="0" />
-            <Rule path="/items[at0002]/items[at0006]" max="0" />
-          </Items>
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true" />
         </Item>
         <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.laboratory_test.v0" concept_name="Laboratory test" max="1" path="/items" name="VBG - PCO2">
           <Rule path="/data[at0001]" hide_on_form="true" />
@@ -892,39 +754,14 @@
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0057]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0098]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0101]" max="0" />
-          <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]" max="0" />
           <Rule path="/data[at0001]/events[at0002]/state[at0112]" hide_on_form="true" />
           <Rule path="/data[at0001]/events[at0002]/state[at0112]/items[at0113]" max="0" />
           <Rule path="/protocol[at0004]" hide_on_form="true" />
           <Rule path="/protocol[at0004]/items[at0068]" max="0" />
           <Rule path="/protocol[at0004]/items[at0094]" max="0" />
           <Rule path="/protocol[at0004]/items[at0111]" max="0" />
-          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true">
-            <Rule path="/items[at0002]" hide_on_form="true" />
-            <Rule path="/items[at0002]/items[at0001]" name="VBG - PCO2 result" />
-            <Rule path="/items[at0002]/items[at0003]" max="0" />
-            <Rule path="/items[at0002]/items[at0004]" max="0" />
-            <Rule path="/items[at0002]/items[at0005]" max="0" />
-            <Rule path="/items[at0002]/items[at0006]" max="0" />
-          </Items>
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0" concept_name="Laboratory test panel" path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" hide_on_form="true" />
         </Item>
-      </Item>
-      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.ecg.v1" concept_name="ECG recording" path="/items">
-        <Rule path="/data[at0001]" hide_on_form="true" />
-        <Rule path="/data[at0001]/events[at0002]" hide_on_form="true">
-          <eventConstraint>
-            <allowedType>PointInTime</allowedType>
-          </eventConstraint>
-        </Rule>
-        <Rule path="/data[at0001]/events[at0002]/data[at0005]" hide_on_form="true" />
-        <Rule path="/data[at0001]/events[at0002]/data[at0005]/items[at0006]" max="0" />
-        <Rule path="/data[at0001]/events[at0002]/data[at0005]/items[at0027]" max="0" />
-        <Rule path="/data[at0001]/events[at0002]/data[at0005]/items[at0010]" max="0" />
-        <Rule path="/data[at0001]/events[at0002]/state[at0077]" hide_on_form="true" />
-        <Rule path="/data[at0001]/events[at0002]/state[at0077]/items[at0079]" max="0" />
-        <Rule path="/data[at0001]/events[at0002]/state[at0077]/items[at0078]" max="0" />
-        <Rule path="/protocol[at0003]" hide_on_form="true" />
-        <Rule path="/protocol[at0003]/items[at0025]" max="0" />
       </Item>
     </Content>
     <Content xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.adhoc.v1" concept_name="Ad hoc heading" max="1" path="/content" name="Conclusion Assessment C">
@@ -941,16 +778,16 @@
     </Context>
   </definition>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-COMPOSITION.encounter.v1">
-    <digest id="MD5-CAM-1.0.1">4DF6B3DE1A7F7899B4F88A97FED974E7</digest>
+    <digest id="MD5-CAM-1.0.1">15173A4BF38FA171E47BBE704F3E0940</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-SECTION.adhoc.v1">
-    <digest id="MD5-CAM-1.0.1">833221C23E2B25AD3CB9B0B78EE33740</digest>
+    <digest id="MD5-CAM-1.0.1">3237F5891EC3C7D52CA1D2043D1DF62F</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.pulse.v1">
     <digest id="MD5-CAM-1.0.1">7E0F17C058F5F85DB171D40C60FB28A4</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.blood_pressure.v1">
-    <digest id="MD5-CAM-1.0.1">0B794FDD7E013E64D0E7A004C0E71F0D</digest>
+    <digest id="MD5-CAM-1.0.1">22A191BEDF72D9313D07EFFF596014C4</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.story.v1">
     <digest id="MD5-CAM-1.0.1">1A6AFF556A3135480517C4E830985332</digest>
@@ -964,56 +801,56 @@
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.capillary_refill_time.v0">
     <digest id="MD5-CAM-1.0.1">75ADEC193F9D23257C195F9D35CF2C4C</digest>
   </integrity_checks>
-  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.fluid_output.v0">
-    <digest id="MD5-CAM-1.0.1">4BA414019131C8D2D1A2EC597330BA49</digest>
-  </integrity_checks>
-  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.daily_timing.v0">
-    <digest id="MD5-CAM-1.0.1">BCB54C670C9B1774754FDA265208BEFA</digest>
-  </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.body_weight.v1">
     <digest id="MD5-CAM-1.0.1">00796FC78634E1F9B128CBDEE62B825D</digest>
   </integrity_checks>
-  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.avpu_reset.v0">
-    <digest id="MD5-CAM-1.0.1">ED7A298F76D57C39D0024E84FCE8A185</digest>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.avpu.v0">
+    <digest id="MD5-CAM-1.0.1">1C487D3F2E18E58E6D1203AD95DEABE5</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.altered_mental_state_reset.v0">
     <digest id="MD5-CAM-1.0.1">ABE90DBDCC42307C224156098055777A</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.exam.v1">
-    <digest id="MD5-CAM-1.0.1">F68E5D84BAEAB67A14FBFFC77373CF88</digest>
+    <digest id="MD5-CAM-1.0.1">42A758CADEF3767E390EB8187F98AFF5</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.oedema.v0">
-    <digest id="MD5-CAM-1.0.1">96507CB14934505B3A1E607DEA3E2516</digest>
+    <digest id="MD5-CAM-1.0.1">7CA9FE1FBE6CF341ED66F94D40BA921A</digest>
   </integrity_checks>
-  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.fluid_balance.v0">
-    <digest id="MD5-CAM-1.0.1">EE76DC9C8E84E9F4C97ACEB5CD805FA1</digest>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.fluid_input.v1">
+    <digest id="MD5-CAM-1.0.1">0470B5CFF2759CE7EA117AF87D0A8BA7</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.fluid_output.v1">
+    <digest id="MD5-CAM-1.0.1">21FFDBF3DECD6BB1CA3E734079BFCC05</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.fluid_balance.v1">
+    <digest id="MD5-CAM-1.0.1">A7041FF5705494256961A33EFBE5BD52</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.respiration.v1">
-    <digest id="MD5-CAM-1.0.1">F785361CE72E20207CD557387B49B703</digest>
+    <digest id="MD5-CAM-1.0.1">CCBDEAF5545FEA7C3A9673CD4012CBD6</digest>
   </integrity_checks>
-  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.indirect_oximetry.v1">
-    <digest id="MD5-CAM-1.0.1">4388FC26E8F584CF143244AF68A6147B</digest>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.inspired_oxygen.v1">
+    <digest id="MD5-CAM-1.0.1">1D03ABF2ED7D6734A8838BA7EF91DAD2</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.body_temperature.v1">
     <digest id="MD5-CAM-1.0.1">5E2257CC252B591F41714621C597C910</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.news_uk_rcp.v1">
-    <digest id="MD5-CAM-1.0.1">73BD8552D8195464AB4C88128BB80F8C</digest>
+    <digest id="MD5-CAM-1.0.1">8110BB9B378E6CE77EE9A7F2344772C3</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.symptom_sign.v1">
-    <digest id="MD5-CAM-1.0.1">D99FDDA78E05025ED49B9F7502795394</digest>
+    <digest id="MD5-CAM-1.0.1">722FB3886409D9A08A7FD119D76254B0</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v1">
-    <digest id="MD5-CAM-1.0.1">6110E221A71B0A223ACDF7184471D1C8</digest>
+    <digest id="MD5-CAM-1.0.1">767E39313E0D137FA9E95FE7477DEEF8</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.ecg.v0">
+    <digest id="MD5-CAM-1.0.1">9D34D35B6CCDD5DDB3BDD3886AD487FD</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.laboratory_test.v0">
-    <digest id="MD5-CAM-1.0.1">64F4898018F4D87C7D8ADAF36558AAF7</digest>
+    <digest id="MD5-CAM-1.0.1">28DA00B027F05A19CAC484D4036452ED</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.laboratory_test_panel.v0">
-    <digest id="MD5-CAM-1.0.1">4609D4C2AA596C22113E03DFFBB7737C</digest>
-  </integrity_checks>
-  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.ecg.v1">
-    <digest id="MD5-CAM-1.0.1">DFCED3C93DE237C3B8DF90FD6F552C6C</digest>
+    <digest id="MD5-CAM-1.0.1">482A9A46BAB3629A4242D4BD8D5B915B</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.conclusion_assess_c_reset.v0">
     <digest id="MD5-CAM-1.0.1">D63A9DD92F85B08E6AC227044E139B23</digest>
