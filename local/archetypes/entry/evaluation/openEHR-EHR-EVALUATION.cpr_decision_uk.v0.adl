@@ -41,8 +41,8 @@ Leeds ePaccs team">
 		["original_namespace"] = <"uk.org.clinicalmodels">
 		["original_publisher"] = <"UK Clinical Models">
 		["custodian_namespace"] = <"uk.org.clinicalmodels">
-		["MD5-CAM-1.0.1"] = <"0F6626B48ECBB041F15DC42CE98C7872">
-		["build_uid"] = <"a506f9ba-a07c-433c-86ba-3408a54fb22c">
+		["MD5-CAM-1.0.1"] = <"40CBAF5A01D32E8917DDDFD752562AF4">
+		["build_uid"] = <"554a48e3-cf21-4c90-adbf-0612ae92fdd0">
 		["revision"] = <"0.0.1-alpha">
 	>
 
@@ -69,7 +69,7 @@ definition
 							DV_DATE_TIME matches {*}
 						}
 					}
-					ELEMENT[at0028] occurrences matches {0..1} matches {	-- Modification for Modified CPR child only
+					ELEMENT[at0028] occurrences matches {0..1} matches {	-- Details for Modified CPR child only
 						value matches {
 							DV_TEXT matches {*}
 						}
@@ -273,7 +273,7 @@ ontology
 					description = <"Modified CPR is recommended for child only.">
 				>
 				["at0028"] = <
-					text = <"Modification for Modified CPR child only">
+					text = <"Details for Modified CPR child only">
 					description = <"Narrative description of modification where modified CPR for child only has been selected.">
 				>
 			>
