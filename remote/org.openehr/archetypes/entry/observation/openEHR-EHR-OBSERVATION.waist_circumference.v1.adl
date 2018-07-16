@@ -6,6 +6,14 @@ concept
 language
 	original_language = <[ISO_639-1::en]>
 	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+				["name"] = <"Andreas Sundström">
+				["organisation"] = <"Capio S:t Gorans Hospital">
+				["email"] = <"andreas.sundstrom@capiostgoran.se">
+			>
+		>
 		["nb"] = <
 			language = <[ISO_639-1::nb]>
 			author = <
@@ -31,6 +39,19 @@ description
 		["date"] = <"2017-05-11">
 	>
 	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			purpose = <"Att registrera måttet på midjans omkrets.">
+			use = <"Används för att registrera midjemåttet.
+
+Det finns ingen enighet om exakt var midjemåttet ska mätas. I fall där detta är viktigt för tolkningen av resultatet, ska detta dokumenteras i elementet 'metod'.
+
+Denna arketyp kan också användas för att registrera en uppskattning av midjemåttet i ett kliniskt scenario där det inte är möjligt att tillförlitligt mäta midjemåttet - till exempel, vid mätning av ett barn som inte samarbetar. Detta är inte uttalat modellerat i arketypen, eftersom referensmodellen för openEHR tillåter attributet uppskattning för varje angiven kvantitativ datatyp. Vid implementering, till exempel, i en applikations användargränssnitt kan klinikerna tillåtas att markera en passande benämnd kryssruta bredvid datafältet för 'midjemått' för att indikera att registreringen midjemått är en uppskattning och inte ett faktiskt värde.">
+			keywords = <"antropometri", "mätningar", "uppskattningar", "omkretts", "midja", "omfång", "buk">
+			misuse = <"Används inte för att registrera hur hastigheten på midjemåttet ökar eller minskar. Använd istället en arketyp för tillväxthastighet för detta ändamål.
+
+Används inte för att registrera midjemåttet på någon annan kroppsdel. Använd istället OBSERVATION.body_segment i dessa sammanhang, förutom då mer specifika arketyper finns som till exempel OBSERVATION.hip_circumference.">
+		>
 		["nb"] = <
 			language = <[ISO_639-1::nb]>
 			purpose = <"For å registrere målingen av midjeomkrets.">
@@ -89,9 +110,9 @@ Júlíusson, P. B., Vinsjansen, S., Nilsen, B., Sælensminde, H., Vågset, R., &
 		["original_namespace"] = <"no.nasjonalikt">
 		["original_publisher"] = <"Nasjonal IKT">
 		["custodian_namespace"] = <"no.nasjonalikt">
-		["MD5-CAM-1.0.1"] = <"0D9BF1B674E88DBDACC6E074E052FFB1">
-		["build_uid"] = <"160b7298-7ed6-4568-8fb0-66cc79bccb34">
-		["revision"] = <"1.0.0">
+		["MD5-CAM-1.0.1"] = <"6F8592F6D7223D8FC1D8D8EF6A2C0A35">
+		["build_uid"] = <"33413b69-0207-4575-8621-0fd9fecf113b">
+		["revision"] = <"1.0.1">
 	>
 
 definition
@@ -327,6 +348,60 @@ ontology
 				["at0013"] = <
 					text = <"Metode">
 					description = <"Metoden som ble brukt til målingen av midjeomkretsen.">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Midjemått">
+					description = <"Måttet på avståndet runt midjan.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Midjemått">
+					description = <"Måttet på midjans omkrets.">
+				>
+				["at0005"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0006"] = <
+					text = <"Utrustning">
+					description = <"Information om utrustningen som användes för mätningen.">
+				>
+				["at0007"] = <
+					text = <"Kommentar">
+					description = <"Ytterligare beskrivning av midjemåttet som inte fångas i andra fält.">
+				>
+				["at0008"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0009"] = <
+					text = <"Påverkande faktorer">
+					description = <"Beskrivning av eventuella problem eller faktorer som kan påverka mätningen.">
+					comment = <"Till exempel: icke-samarbetsvilligt barn.">
+				>
+				["at0010"] = <
+					text = <"Ospecificerad händelse">
+					description = <"Standard, ospecificerad händelse vid en tidpunkt eller ett tidsintervall som explicit kan definieras i en mall eller vid körning av program.">
+				>
+				["at0012"] = <
+					text = <"Ytterligare information">
+					description = <"Ytterligare information som krävs för att fånga lokal kontext eller för anpassning till andra referensmodeller och formalismer.">
+					comment = <"T.ex. lokala informationskrav eller ytterligare metadata för att anpassa sig till FHIR- eller CIMI-ekvivalenter.">
+				>
+				["at0013"] = <
+					text = <"Metod">
+					description = <"Metoden för hur midjemåttet mättes.">
 				>
 			>
 		>
