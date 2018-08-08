@@ -104,6 +104,23 @@
         <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.inspired_oxygen.v1" concept_name="Inspired oxygen" path="/data[at0001]/events[at0002]/state[at0014]/items[at0015]">
           <Rule path="/items[at0052]" max="0" />
           <Rule path="/items[at0053]" max="0" />
+          <Rule path="/items[at0054]" max="0" />
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.device.v1" concept_name="Medical Device" max="1" path="/items[at0058]">
+            <Rule path="/items[at0001]" name="Device" />
+            <Rule path="/items[at0003]" max="0" />
+            <Rule path="/items[at0002]" max="0" />
+            <Rule path="/items[at0021]" max="0" />
+            <Rule path="/items[at0004]" max="0" />
+            <Rule path="/items[at0005]" max="0" />
+            <Rule path="/items[at0020]" max="0" />
+            <Rule path="/items[at0022]" max="0" />
+            <Rule path="/items[at0023]" max="0" />
+            <Rule path="/items[at0006]" max="0" />
+            <Rule path="/items[at0025]" max="0" />
+            <Rule path="/items[at0007]" max="0" />
+            <Rule path="/items[at0024]" max="0" />
+            <Rule path="/items[at0008]" max="0" />
+          </Items>
         </Items>
       </Item>
       <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.pulse.v1" concept_name="Pulse/Heart beat" max="1" path="/items[at0001]">
@@ -219,6 +236,23 @@
         <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.inspired_oxygen.v1" concept_name="Inspired oxygen" path="/protocol[at0045]/items[at0053]">
           <Rule path="/items[at0052]" max="0" />
           <Rule path="/items[at0053]" max="0" />
+          <Rule path="/items[at0054]" max="0" />
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.device.v1" concept_name="Medical Device" max="1" path="/items[at0058]">
+            <Rule path="/items[at0001]" name="Device" />
+            <Rule path="/items[at0003]" max="0" />
+            <Rule path="/items[at0002]" max="0" />
+            <Rule path="/items[at0021]" max="0" />
+            <Rule path="/items[at0004]" max="0" />
+            <Rule path="/items[at0005]" max="0" />
+            <Rule path="/items[at0020]" max="0" />
+            <Rule path="/items[at0022]" max="0" />
+            <Rule path="/items[at0023]" max="0" />
+            <Rule path="/items[at0006]" max="0" />
+            <Rule path="/items[at0025]" max="0" />
+            <Rule path="/items[at0007]" max="0" />
+            <Rule path="/items[at0024]" max="0" />
+            <Rule path="/items[at0008]" max="0" />
+          </Items>
         </Items>
       </Item>
       <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.glasgow_coma_scale.v1" concept_name="Glasgow coma scale" max="1" path="/items[at0001]">
@@ -240,13 +274,13 @@
     </Context>
   </definition>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-COMPOSITION.encounter.v1">
-    <digest id="MD5-CAM-1.0.1">4DF6B3DE1A7F7899B4F88A97FED974E7</digest>
+    <digest id="MD5-CAM-1.0.1">15173A4BF38FA171E47BBE704F3E0940</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.xds_metadata.v0">
     <digest id="MD5-CAM-1.0.1">B2538EC96A6545E2E6F04CE532DA36E3</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-SECTION.vital_signs.v0">
-    <digest id="MD5-CAM-1.0.1">BFB0D72627B3F4C46CB5A8DA3678F1DE</digest>
+    <digest id="MD5-CAM-1.0.1">C70F201898812333C6FDB875C782CE8F</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.respiration.v1">
     <digest id="MD5-CAM-1.0.1">CCBDEAF5545FEA7C3A9673CD4012CBD6</digest>
@@ -257,14 +291,17 @@
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.inspired_oxygen.v1">
     <digest id="MD5-CAM-1.0.1">1D03ABF2ED7D6734A8838BA7EF91DAD2</digest>
   </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.device.v1">
+    <digest id="MD5-CAM-1.0.1">E4E11C034E29C626B3B3A8448D2CB86C</digest>
+  </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.pulse.v1">
     <digest id="MD5-CAM-1.0.1">7E0F17C058F5F85DB171D40C60FB28A4</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.body_temperature.v2">
-    <digest id="MD5-CAM-1.0.1">7D1C9AAF0C93C3F3C583405151EBD4C4</digest>
+    <digest id="MD5-CAM-1.0.1">2CCE093FD82CC67655AA62387FA3DB24</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.blood_pressure.v1">
-    <digest id="MD5-CAM-1.0.1">7341F7E8A07ACE883A5F541BA79F2B95</digest>
+    <digest id="MD5-CAM-1.0.1">22A191BEDF72D9313D07EFFF596014C4</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.avpu.v0">
     <digest id="MD5-CAM-1.0.1">1C487D3F2E18E58E6D1203AD95DEABE5</digest>
@@ -273,15 +310,15 @@
     <digest id="MD5-CAM-1.0.1">8F9AF5C0FF535EFC45C111EEDB60484D</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.news_uk_rcp.v1">
-    <digest id="MD5-CAM-1.0.1">4E4F9CF7E6E5CD2A39F6AB032A34393D</digest>
+    <digest id="MD5-CAM-1.0.1">8110BB9B378E6CE77EE9A7F2344772C3</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.news2_uk_rcp.v0">
     <digest id="MD5-CAM-1.0.1">145F3788A67B58821B609FD172169428</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.glasgow_coma_scale.v1">
-    <digest id="MD5-CAM-1.0.1">F96DF5407AD3C630AB9F3CA94F5886AB</digest>
+    <digest id="MD5-CAM-1.0.1">83BD01BA1AEB3976DE633DCF0273E46E</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.clinical_synopsis.v1">
-    <digest id="MD5-CAM-1.0.1">2D066E7C501C2DAEC625DEE2ECD81DF4</digest>
+    <digest id="MD5-CAM-1.0.1">32F9563D428258E02EFA916126110EBF</digest>
   </integrity_checks>
 </template>
