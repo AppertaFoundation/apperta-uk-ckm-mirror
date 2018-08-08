@@ -265,6 +265,7 @@
       </Item>
       <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.clinical_synopsis.v1" concept_name="Clinical Synopsis" path="/items[at0002]">
         <Rule path="/data[at0001]" hide_on_form="true" />
+        <Rule path="/protocol[at0003]" hide_on_form="true" />
       </Item>
     </Content>
     <Context>
