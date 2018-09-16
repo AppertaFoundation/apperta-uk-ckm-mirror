@@ -1,4 +1,4 @@
-﻿archetype (adl_version=1.4)
+﻿archetype (adl_version=1.4; uid=75ab50d5-67b5-4523-b29f-025c234c0235)
 	openEHR-EHR-CLUSTER.tumour_invasion.v1
 
 concept
@@ -20,14 +20,20 @@ description
 Use as a component archetype in the context of a suite of archetypes that make up a histopathology report ie OBSERVATION.lab_test.histopathology.">
 			keywords = <"histopathology", "histology", "pathology", "lab", "cancer", "tumour", "malignancy">
 			misuse = <"Not designed to be used within any other archetype other than OBSERVATION.lab_test.histopathology.">
-			copyright = <"copyright (c) 2009 openEHR Foundation">
+			copyright = <"© openEHR Foundation">
 		>
 	>
-	lifecycle_state = <"Initial">
+	lifecycle_state = <"in_development">
 	other_contributors = <>
 	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
 		["references"] = <"">
-		["MD5-CAM-1.0.1"] = <"25F4156BBAE9989CE4793B0B3637CB57">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"D1A8A1C738778D59DE20B41556A96A80">
+		["build_uid"] = <"d73c8569-8bed-44cf-aeda-ef4f149b4ef2">
 	>
 
 definition
@@ -85,8 +91,6 @@ definition
 			}
 		}
 	}
-
-
 
 ontology
 	term_definitions = <
