@@ -2,7 +2,7 @@
 	openEHR-EHR-OBSERVATION.childhood_asthma_control_test.v0
 
 concept
-	[at0000]	-- Childhood Asthma Control Test (C-AST)
+	[at0000]	-- Childhood Asthma Control Test (C-ACT)
 language
 	original_language = <[ISO_639-1::en]>
 description
@@ -19,25 +19,24 @@ description
 			use = <"Use in children age 4 to 11 years.">
 			keywords = <"asthma, child, paediatrics, control, PROM", ...>
 			misuse = <"Do not use in adults.">
-			copyright = <"© Clinical Models UK">
 		>
 	>
 	lifecycle_state = <"in_development">
 	other_contributors = <>
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
-		["custodian_organisation"] = <"UK Clinical Models">
+		["custodian_organisation"] = <"openEHR Foundation">
 		["references"] = <"https://www.asthma.com/content/dam/NA_Pharma/Country/US/Unbranded/Consumer/Common/Images/MPY/documents/816205R0_childhoodasthmacontrolcest_printable.pdf">
-		["original_namespace"] = <"uk.org.clinicalmodels">
-		["original_publisher"] = <"UK Clinical Models">
-		["custodian_namespace"] = <"uk.org.clinicalmodels">
-		["MD5-CAM-1.0.1"] = <"4BF6B1E2A7E1625AE70B18EB878E99E1">
-		["build_uid"] = <"16ebf772-cae7-4ce7-9f2a-1bc66c1a0359">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"B6DEE6143233A6969EA8CF49C9A8C282">
+		["build_uid"] = <"f0db6f13-d520-4b97-b9a3-bacbe6f13850">
 		["revision"] = <"0.0.1-alpha">
 	>
 
 definition
-	OBSERVATION[at0000] matches {    -- Childhood Asthma Control Test (C-AST)
+	OBSERVATION[at0000] matches {    -- Childhood Asthma Control Test (C-ACT)
 		data matches {
 			HISTORY[at0001] matches {    -- History
 				events cardinality matches {0..*; unordered} matches {
@@ -170,7 +169,7 @@ ontology
 		["en"] = <
 			items = <
 				["at0000"] = <
-					text = <"Childhood Asthma Control Test (C-AST)">
+					text = <"Childhood Asthma Control Test (C-ACT)">
 					description = <"A Patient Recorded Outcome Measure which offers an assessment of how well a child’s asthma has been controlled over the previous month.">
 				>
 				["at0001"] = <
