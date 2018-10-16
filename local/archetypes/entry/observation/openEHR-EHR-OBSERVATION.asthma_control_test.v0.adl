@@ -1,0 +1,329 @@
+﻿archetype (adl_version=1.4; uid=ee1e0818-1b15-41b0-bbe4-e236a5678e25)
+	openEHR-EHR-OBSERVATION.asthma_control_test.v0
+
+concept
+	[at0000]	-- Asthma Control Test (ACT)
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Ltd.">
+		["email"] = <"ian@freshehr.com">
+		["date"] = <"2018-10-15">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"The Asthma Control Test™ will provide you with a snapshot of how well your asthma has been controlled over the last four
+weeks, giving you a simple score out of 25. Asthma symptoms can vary from month to month, so it is worth keeping the test
+handy to see if your score changes. You can also share your results with your doctor or asthma nurse to help explain just how
+your asthma affects you.">
+			use = <"The Asthma Control Test is copyright of QualityMetric Incorporated. Asthma Control Test is a trademark of QualityMetric Incorporated and is a US English version modified for use in UK.
+
+While openEHR archetypes are all freely available under an open license, the specific content of this archetype may be copyright protected. Any use of this archetype within implementations must be in compliance with the terms established by the copyright owners where a copyright exists.">
+			keywords = <"Asthma, PROM, breathing, ACT", ...>
+			misuse = <"Do not use in children under 12 years of age.">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"3B534D5E52ED0106C9CA1733D4E84C3F">
+		["build_uid"] = <"ee19af6d-4772-4e16-a7db-4ee7bb201bac">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- Asthma Control Test (ACT)
+		data matches {
+			HISTORY[at0001] matches {    -- History
+				events cardinality matches {0..*; unordered} matches {
+					EVENT[at0002] matches {    -- Any Event
+						data matches {
+							ITEM_TREE[at0003] matches {    -- ItemTree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {    -- Asthma prevents work
+										value matches {
+											1|[local::at0026],
+											2|[local::at0027],
+											3|[local::at0028],
+											4|[local::at0029],
+											5|[local::at0030]
+										}
+									}
+									ELEMENT[at0005] occurrences matches {0..1} matches {    -- Shortness of breath
+										value matches {
+											1|[local::at0031],
+											2|[local::at0032],
+											3|[local::at0033],
+											4|[local::at0034],
+											5|[local::at0035]
+										}
+									}
+									ELEMENT[at0019] occurrences matches {0..1} matches {    -- Asthma symptoms at night
+										value matches {
+											1|[local::at0036],
+											2|[local::at0037],
+											3|[local::at0038],
+											4|[local::at0039],
+											5|[local::at0040]
+										}
+									}
+									ELEMENT[at0006] occurrences matches {0..1} matches {    -- Use of reliever
+										value matches {
+											1|[local::at0041],
+											2|[local::at0042],
+											3|[local::at0043],
+											4|[local::at0044],
+											5|[local::at0045]
+										}
+									}
+									ELEMENT[at0007] occurrences matches {0..1} matches {    -- Asthma control
+										value matches {
+											1|[local::at0046],
+											2|[local::at0047],
+											3|[local::at0048],
+											4|[local::at0049],
+											5|[local::at0050]
+										}
+									}
+									ELEMENT[at0022] occurrences matches {0..1} matches {    -- Total score
+										value matches {
+											DV_COUNT matches {
+												magnitude matches {|0..25|}
+											}
+										}
+									}
+									ELEMENT[at0011] occurrences matches {0..1} matches {    -- Interpretation
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0014,    -- Score: 25 – WELL DONE
+													at0015,    -- Score: 20 to 24 – ON TARGET
+													at0016]    -- Score: less than 20 – OFF TARGET
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+						state matches {
+							ITEM_TREE[at0020] matches {    -- ItemTree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0021] occurrences matches {0..1} matches {    -- Confounding factors
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0009] matches {    -- ItemTree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0018] occurrences matches {0..1} matches {    -- Extension
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Asthma Control Test (ACT)">
+					description = <"The Asthma Control Test™ provides a snapshot of how well asthma has been controlled over the last four
+weeks, giving a simple score out of 25.">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"*">
+				>
+				["at0002"] = <
+					text = <"Any Event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"ItemTree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Asthma prevents work">
+					description = <"During the past 4 weeks, how often did your asthma prevent you from getting as much done at work, school or home?">
+				>
+				["at0005"] = <
+					text = <"Shortness of breath">
+					description = <"During the past 4 weeks, how often have you had shortness of breath?">
+				>
+				["at0006"] = <
+					text = <"Use of reliever">
+					description = <"During the past 4 weeks, how often have you used your reliever inhaler (usually blue)?">
+				>
+				["at0007"] = <
+					text = <"Asthma control">
+					description = <"How would you rate your asthma control during the past 4 weeks?">
+					comment = <"e.g. Local hospital departmental information or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+				["at0009"] = <
+					text = <"ItemTree">
+					description = <"@ internal @">
+				>
+				["at0011"] = <
+					text = <"Interpretation">
+					description = <"A coded interpretation of the level of asthma control.">
+					comment = <"25 - Well controlled
+20-24 - On target
+Less than 20 - Off target.">
+				>
+				["at0014"] = <
+					text = <"Score: 25 – WELL DONE">
+					description = <"Your asthma appears to have been UNDER CONTROL over the last 4 weeks.">
+				>
+				["at0015"] = <
+					text = <"Score: 20 to 24 – ON TARGET">
+					description = <"Your asthma appears to have been REASONABLY WELL CONTROLLED during the past 4 weeks.">
+				>
+				["at0016"] = <
+					text = <"Score: less than 20 – OFF TARGET">
+					description = <"Your asthma may NOT HAVE BEEN CONTROLLED during the past 4 weeks.">
+				>
+				["at0018"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+				>
+				["at0019"] = <
+					text = <"Asthma symptoms at night">
+					description = <"During the past 4 weeks, how often did your asthma symptoms (wheezing, coughing, chest tightness, shortness of breath) wake you up at night or earlier than usual in the morning?">
+				>
+				["at0020"] = <
+					text = <"ItemTree">
+					description = <"@ internal @">
+				>
+				["at0021"] = <
+					text = <"Confounding factors">
+					description = <"Record any issues or factors that may impact on the score or interpretation.">
+					comment = <"For example: A current upper respiratory tract infection">
+				>
+				["at0022"] = <
+					text = <"Total score">
+					description = <"The total score of each of the questions.">
+				>
+				["at0026"] = <
+					text = <"All of the time">
+					description = <"*">
+				>
+				["at0027"] = <
+					text = <"Most of the time">
+					description = <"*">
+				>
+				["at0028"] = <
+					text = <"Some of the time">
+					description = <"*">
+				>
+				["at0029"] = <
+					text = <"A little of the time">
+					description = <"*">
+				>
+				["at0030"] = <
+					text = <"None of the time">
+					description = <"*">
+				>
+				["at0031"] = <
+					text = <"More than once a day">
+					description = <"*">
+				>
+				["at0032"] = <
+					text = <"Once a day">
+					description = <"*">
+				>
+				["at0033"] = <
+					text = <"3-6 times a week">
+					description = <"*">
+				>
+				["at0034"] = <
+					text = <"1-2 times a week">
+					description = <"*">
+				>
+				["at0035"] = <
+					text = <"Not at all">
+					description = <"*">
+				>
+				["at0036"] = <
+					text = <"4 or more times a week">
+					description = <"*">
+				>
+				["at0037"] = <
+					text = <"2-3 nights a week">
+					description = <"*">
+				>
+				["at0038"] = <
+					text = <"Once a week">
+					description = <"*">
+				>
+				["at0039"] = <
+					text = <"Once or twice">
+					description = <"*">
+				>
+				["at0040"] = <
+					text = <"Not at all">
+					description = <"*">
+				>
+				["at0041"] = <
+					text = <"3 or more times a day">
+					description = <"*">
+				>
+				["at0042"] = <
+					text = <"1 or 2 times a day">
+					description = <"*">
+				>
+				["at0043"] = <
+					text = <"2-3 times a week">
+					description = <"*">
+				>
+				["at0044"] = <
+					text = <"Once a week or less">
+					description = <"*">
+				>
+				["at0045"] = <
+					text = <"Not at all">
+					description = <"*">
+				>
+				["at0046"] = <
+					text = <"Not controlled">
+					description = <"*">
+				>
+				["at0047"] = <
+					text = <"Poorly controlled">
+					description = <"*">
+				>
+				["at0048"] = <
+					text = <"Somewhat controlled">
+					description = <"*">
+				>
+				["at0049"] = <
+					text = <"Well controlled">
+					description = <"*">
+				>
+				["at0050"] = <
+					text = <"Completely controlled">
+					description = <"*">
+				>
+			>
+		>
+	>
