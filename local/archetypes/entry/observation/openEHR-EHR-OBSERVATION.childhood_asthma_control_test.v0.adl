@@ -1,0 +1,399 @@
+﻿archetype (adl_version=1.4; uid=6282937c-99bd-440f-9149-fb1b6eecdc4b)
+	openEHR-EHR-OBSERVATION.childhood_asthma_control_test.v0
+
+concept
+	[at0000]	-- Childhood Asthma Control Test (C-AST)
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Ltd.">
+		["email"] = <"ian@freshehr.com">
+		["date"] = <"2018-10-16">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record a patient/parent assessment of how well a child’s asthma has been controlled over the previous month.">
+			use = <"Use in children age 4 to 11 years.">
+			keywords = <"asthma, child, paediatrics, control, PROM", ...>
+			misuse = <"Do not use in adults.">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["references"] = <"https://www.asthma.com/content/dam/NA_Pharma/Country/US/Unbranded/Consumer/Common/Images/MPY/documents/816205R0_childhoodasthmacontrolcest_printable.pdf">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"4BF6B1E2A7E1625AE70B18EB878E99E1">
+		["build_uid"] = <"16ebf772-cae7-4ce7-9f2a-1bc66c1a0359">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- Childhood Asthma Control Test (C-AST)
+		data matches {
+			HISTORY[at0001] matches {    -- History
+				events cardinality matches {0..*; unordered} matches {
+					EVENT[at0002] matches {    -- Any Event
+						data matches {
+							ITEM_TREE[at0003] matches {    -- ItemTree
+								items cardinality matches {0..*; unordered} matches {
+									CLUSTER[at0029] occurrences matches {0..1} matches {    -- Child responses
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0004] occurrences matches {0..1} matches {    -- Asthma today
+												value matches {
+													0|[local::at0005],
+													1|[local::at0006],
+													2|[local::at0007],
+													3|[local::at0008]
+												}
+											}
+											ELEMENT[at0010] occurrences matches {0..1} matches {    -- Asthma on exercise
+												value matches {
+													0|[local::at0012],
+													1|[local::at0013],
+													2|[local::at0014],
+													3|[local::at0015]
+												}
+											}
+											ELEMENT[at0011] occurrences matches {0..1} matches {    -- Cough because of asthma
+												value matches {
+													0|[local::at0025],
+													1|[local::at0026],
+													2|[local::at0027],
+													3|[local::at0028]
+												}
+											}
+											ELEMENT[at0020] occurrences matches {0..1} matches {    -- Wake up because of asthma
+												value matches {
+													0|[local::at0021],
+													1|[local::at0022],
+													2|[local::at0023],
+													3|[local::at0024]
+												}
+											}
+										}
+									}
+									CLUSTER[at0030] occurrences matches {0..1} matches {    -- Adult responses
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0031] occurrences matches {0..1} matches {    -- Daytime asthma symptoms
+												value matches {
+													5|[local::at0034],
+													4|[local::at0035],
+													3|[local::at0036],
+													2|[local::at0037],
+													1|[local::at0038],
+													6|[local::at0039]
+												}
+											}
+											ELEMENT[at0032] occurrences matches {0..1} matches {    -- Daytime wheeze
+												value matches {
+													5|[local::at0045],
+													4|[local::at0046],
+													3|[local::at0047],
+													2|[local::at0048],
+													1|[local::at0049],
+													6|[local::at0050]
+												}
+											}
+											ELEMENT[at0033] occurrences matches {0..1} matches {    -- Wake up at night
+												value matches {
+													5|[local::at0051],
+													4|[local::at0052],
+													3|[local::at0053],
+													2|[local::at0054],
+													1|[local::at0055],
+													6|[local::at0056]
+												}
+											}
+										}
+									}
+									ELEMENT[at0040] occurrences matches {0..1} matches {    -- Total score
+										value matches {
+											DV_COUNT matches {
+												magnitude matches {|0..27|}
+											}
+										}
+									}
+									ELEMENT[at0041] occurrences matches {0..1} matches {    -- Interpretation
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0042,    -- 20 or greater: Good control
+													at0043,    -- 13-19: Poor control
+													at0044]    -- 12 or less: Very poor control
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+						state matches {
+							ITEM_TREE[at0016] matches {    -- ItemTree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0017] occurrences matches {0..1} matches {    -- Confounding factors
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0018] matches {    -- ItemTree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0019] occurrences matches {0..*} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Childhood Asthma Control Test (C-AST)">
+					description = <"A Patient Recorded Outcome Measure which offers an assessment of how well a child’s asthma has been controlled over the previous month.">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"*">
+				>
+				["at0002"] = <
+					text = <"Any Event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"ItemTree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Asthma today">
+					description = <"How is your asthma today?">
+				>
+				["at0005"] = <
+					text = <"Very bad">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Bad">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Good">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Very good">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"Asthma on exercise">
+					description = <"How much of a problem is your asthma when you run, exercise or play sports?">
+				>
+				["at0011"] = <
+					text = <"Cough because of asthma">
+					description = <"Do you cough because of your asthma?">
+				>
+				["at0012"] = <
+					text = <"It's a big problem. I can't do what I want to do.">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"It's a problem and I don't like it">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"It's a big problem. I can't do what I want to do.">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"It's not a problem.">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"ItemTree">
+					description = <"@ internal @">
+				>
+				["at0017"] = <
+					text = <"Confounding factors">
+					description = <"Record any issues or factors that may impact on the score or interpretation.">
+					comment = <"For example: A current upper respiratory tract infection.">
+				>
+				["at0018"] = <
+					text = <"ItemTree">
+					description = <"@ internal @">
+				>
+				["at0019"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+				>
+				["at0020"] = <
+					text = <"Wake up because of asthma">
+					description = <"Do you wake up during the night because of your asthma?">
+				>
+				["at0021"] = <
+					text = <"Yes, all of the time">
+					description = <"*">
+				>
+				["at0022"] = <
+					text = <"Yes, most of the time">
+					description = <"*">
+				>
+				["at0023"] = <
+					text = <"Yes, some of the time">
+					description = <"*">
+				>
+				["at0024"] = <
+					text = <"No, none of the time4">
+					description = <"*">
+				>
+				["at0025"] = <
+					text = <"Yes, all of the time">
+					description = <"*">
+				>
+				["at0026"] = <
+					text = <"Yes, most of the time">
+					description = <"*">
+				>
+				["at0027"] = <
+					text = <"Yes, some of the time">
+					description = <"*">
+				>
+				["at0028"] = <
+					text = <"No, none of the time">
+					description = <"*">
+				>
+				["at0029"] = <
+					text = <"Child responses">
+					description = <"Responses completed by the child themselves.">
+				>
+				["at0030"] = <
+					text = <"Adult responses">
+					description = <"Responses completed by an adult parent or carer.">
+				>
+				["at0031"] = <
+					text = <"Daytime asthma symptoms">
+					description = <"During the last 4 weeks, how many days did your child have any daytime asthma symptoms?">
+				>
+				["at0032"] = <
+					text = <"Daytime wheeze">
+					description = <"During the last 4 weeks, how many days did your child wheeze during the day because of asthma?">
+				>
+				["at0033"] = <
+					text = <"Wake up at night">
+					description = <"During the last 4 weeks, how many days did your child wake up during the night because of asthma?">
+				>
+				["at0034"] = <
+					text = <"Not at all">
+					description = <"*">
+				>
+				["at0035"] = <
+					text = <"1-3 days">
+					description = <"*">
+				>
+				["at0036"] = <
+					text = <"4-10 days">
+					description = <"*">
+				>
+				["at0037"] = <
+					text = <"11-18 days">
+					description = <"*">
+				>
+				["at0038"] = <
+					text = <"19-24 days">
+					description = <"*">
+				>
+				["at0039"] = <
+					text = <"Everyday">
+					description = <"*">
+				>
+				["at0040"] = <
+					text = <"Total score">
+					description = <"*">
+				>
+				["at0041"] = <
+					text = <"Interpretation">
+					description = <"*">
+				>
+				["at0042"] = <
+					text = <"20 or greater: Good control">
+					description = <"The child's asthma is well-controlled.">
+				>
+				["at0043"] = <
+					text = <"13-19: Poor control">
+					description = <"The child's asthma is not well-controlled.">
+				>
+				["at0044"] = <
+					text = <"12 or less: Very poor control">
+					description = <"The child's asthma is very poorly controlled.">
+				>
+				["at0045"] = <
+					text = <"Not at all">
+					description = <"*">
+				>
+				["at0046"] = <
+					text = <"1-3 days">
+					description = <"*">
+				>
+				["at0047"] = <
+					text = <"4-10 days">
+					description = <"*">
+				>
+				["at0048"] = <
+					text = <"11-18 days">
+					description = <"*">
+				>
+				["at0049"] = <
+					text = <"19-24 days">
+					description = <"*">
+				>
+				["at0050"] = <
+					text = <"Everyday">
+					description = <"*">
+				>
+				["at0051"] = <
+					text = <"Not at all">
+					description = <"*">
+				>
+				["at0052"] = <
+					text = <"1-3 days">
+					description = <"*">
+				>
+				["at0053"] = <
+					text = <"4-10 days">
+					description = <"*">
+				>
+				["at0054"] = <
+					text = <"11-18 days">
+					description = <"*">
+				>
+				["at0055"] = <
+					text = <"19-24 days">
+					description = <"*">
+				>
+				["at0056"] = <
+					text = <"Everyday">
+					description = <"*">
+				>
+			>
+		>
+	>
