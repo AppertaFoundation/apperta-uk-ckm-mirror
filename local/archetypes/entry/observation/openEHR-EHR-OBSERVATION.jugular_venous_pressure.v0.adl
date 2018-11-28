@@ -26,13 +26,13 @@ description
 	other_contributors = <"Sam Heard, Ocean Informatics, Australia", ...>
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
-		["custodian_organisation"] = <"UK Clinical Models">
+		["custodian_organisation"] = <"openEHR Foundation">
 		["current_contact"] = <"Heather Leslie, Atomica Informatics<heather.leslie@atomicainformatics.com>">
-		["original_namespace"] = <"uk.org.clinicalmodels">
-		["original_publisher"] = <"UK Clinical Models">
-		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
 		["MD5-CAM-1.0.1"] = <"BFA7FA8F09E42E369F08914450DEE78C">
-		["build_uid"] = <"5ca09105-5556-40ea-945f-9fbb1101ffc0">
+		["build_uid"] = <"3f1cb80f-367f-45e6-9cec-4667d1455fbb">
 		["revision"] = <"0.0.1-alpha">
 	>
 
