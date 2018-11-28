@@ -1,0 +1,732 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xmlns="openEHR/v1/Template">
+    <id>e53a1473-1406-4693-a756-b345fdcdc775</id>
+    <name>WISDM Cardiovascular Assessment</name>
+    <description>
+        <original_author>
+            <item>
+                <key>date</key>
+                <value>2018-11-26</value>
+            </item>
+            <item>
+                <key>name</key>
+                <value>John Meredith</value>
+            </item>
+            <item>
+                <key>organisation</key>
+                <value>NHS Wales Informatics Service</value>
+            </item>
+            <item>
+                <key>email</key>
+                <value>john.meredith@wales.nhs.uk</value>
+            </item>
+        </original_author>
+        <other_contributors>
+            <item>Heather Wallace</item>
+        </other_contributors>
+        <lifecycle_state>in_development</lifecycle_state>
+        <details>
+            <purpose>To record a cardiovascular assessment and observations as part of diabetes management of a patient. Comprises part of the diabetes outpatient assessment.</purpose>
+            <keywords>
+                <item>diabetes, WISDM, NHS Wales, cardiology, cardiovascular, assessment, observation</item>
+            </keywords>
+            <use>To be used in a secondary care setting as part of the NHS Wales Diabetes Solution (WISDM). May be adapted for use in other clinical specialities.
+</use>
+            <misuse/>
+            <copyright>Welsh Diabetes Solution for Diabetes Management (WISDM)</copyright>
+        </details>
+        <other_details>
+            <item>
+                <key>licence</key>
+                <value>This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.</value>
+            </item>
+            <item>
+                <key>custodian_organisation</key>
+                <value>openEHR Foundation</value>
+            </item>
+            <item>
+                <key>original_namespace</key>
+                <value>org.openehr</value>
+            </item>
+            <item>
+                <key>original_publisher</key>
+                <value>openEHR Foundation</value>
+            </item>
+            <item>
+                <key>custodian_namespace</key>
+                <value>org.openehr</value>
+            </item>
+            <item>
+                <key>MD5-CAM-1.0.1</key>
+                <value>c93d7ebd97aa66799f67f86bcb16b8dc</value>
+            </item>
+            <item>
+                <key>PARENT:MD5-CAM-1.0.1</key>
+                <value>15173A4BF38FA171E47BBE704F3E0940</value>
+            </item>
+        </other_details>
+    </description>
+    <definition archetype_id="openEHR-EHR-COMPOSITION.encounter.v1"
+        concept_name="Encounter" name="Cardiovascular Assessment"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:COMPOSITION">
+        <Content archetype_id="openEHR-EHR-SECTION.adhoc.v1"
+            concept_name="Ad hoc heading"
+            name="Cardiovascular Observations" path="/content" xsi:type="tem:SECTION">
+            <Item
+                archetype_id="openEHR-EHR-OBSERVATION.blood_pressure.v1"
+                path="/items" xsi:type="tem:OBSERVATION">
+                <Rule max="0" path="/data[at0001]/events[at0006]/data[at0003]/items[at1006]">
+                    <constraint xsi:type="tem:quantityConstraint">
+                        <unitMagnitude>
+                            <unit>mm[Hg]</unit>
+                            <maxMagnitude>1000.0</maxMagnitude>
+                            <minMagnitude>0.0</minMagnitude>
+                            <includesMaximum>false</includesMaximum>
+                            <includesMinimum>true</includesMinimum>
+                        </unitMagnitude>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/events[at0006]/data[at0003]/items[at1007]">
+                    <constraint xsi:type="tem:quantityConstraint">
+                        <unitMagnitude>
+                            <unit>mm[Hg]</unit>
+                            <maxMagnitude>1000.0</maxMagnitude>
+                            <minMagnitude>0.0</minMagnitude>
+                            <includesMaximum>false</includesMaximum>
+                            <includesMinimum>true</includesMinimum>
+                        </unitMagnitude>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/events[at0006]/data[at0003]/items[at0033]"/>
+                <Rule path="/data[at0001]/events[at0006]/state[at0007]/items[at0008]">
+                    <constraint xsi:type="tem:textConstraint">
+                        <excludedValues>local::at1002</excludedValues>
+                        <excludedValues>local::at1003</excludedValues>
+                        <excludedValues>local::at1014</excludedValues>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/events[at0006]/state[at0007]/items[at1052]"/>
+                <Rule max="0" path="/data[at0001]/events[at0006]/state[at0007]/items[at1043]">
+                    <constraint xsi:type="tem:textConstraint"/>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/events[at0006]/state[at0007]/items[at1005]">
+                    <constraint xsi:type="tem:quantityConstraint">
+                        <unitMagnitude>
+                            <unit>°</unit>
+                            <maxMagnitude>90.0</maxMagnitude>
+                            <minMagnitude>-90.0</minMagnitude>
+                            <includesMaximum>true</includesMaximum>
+                            <includesMinimum>true</includesMinimum>
+                        </unitMagnitude>
+                        <unitMagnitude>
+                            <unit>deg</unit>
+                            <maxMagnitude>90.0</maxMagnitude>
+                            <minMagnitude>-90.0</minMagnitude>
+                            <includesMaximum>true</includesMaximum>
+                            <includesMinimum>true</includesMinimum>
+                        </unitMagnitude>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/events[at1042]"/>
+                <Rule max="0" path="/protocol[at0011]/items[at0013]">
+                    <constraint xsi:type="tem:textConstraint"/>
+                </Rule>
+                <Rule max="0" path="/protocol[at0011]/items[at1033]"/>
+                <Rule max="0" path="/protocol[at0011]/items[at1035]">
+                    <constraint xsi:type="tem:textConstraint"/>
+                </Rule>
+                <Rule max="0" path="/protocol[at0011]/items[at1038]"/>
+                <Rule max="0" path="/protocol[at0011]/items[at1054]"/>
+                <Rule max="0" path="/protocol[at0011]/items[at1055]"/>
+                <Rule max="0" path="/protocol[at0011]/items[at1010]">
+                    <constraint xsi:type="tem:textConstraint"/>
+                </Rule>
+            </Item>
+            <Item archetype_id="openEHR-EHR-OBSERVATION.pulse.v1"
+                path="/items" xsi:type="tem:OBSERVATION">
+                <Rule max="0" path="/data[at0002]/events[at0003]/data[at0001]/items[at1005]">
+                    <constraint xsi:type="tem:textConstraint"/>
+                </Rule>
+                <Rule max="0" path="/data[at0002]/events[at0003]/data[at0001]/items[at0005]">
+                    <constraint xsi:type="tem:textConstraint"/>
+                </Rule>
+                <Rule max="0" path="/data[at0002]/events[at0003]/data[at0001]/items[at1055]">
+                    <constraint xsi:type="tem:textConstraint"/>
+                </Rule>
+                <Rule max="0" path="/data[at0002]/events[at0003]/data[at0001]/items[at1030]"/>
+                <Rule max="0" path="/data[at0002]/events[at0003]/data[at0001]/items[at1022]"/>
+                <Rule max="0" path="/data[at0002]/events[at0003]/data[at0001]/items[at1023]"/>
+                <Rule max="0" path="/data[at0002]/events[at0003]/data[at0001]/items[at1059]"/>
+                <Rule path="/data[at0002]/events[at0003]/state[at0012]/items[at0013]">
+                    <constraint xsi:type="tem:textConstraint">
+                        <excludedValues>local::at1002</excludedValues>
+                        <excludedValues>local::at1000</excludedValues>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0002]/events[at0003]/state[at0012]/items[at1018]"/>
+                <Rule max="0" path="/data[at0002]/events[at1036]"/>
+                <Rule max="0" path="/protocol[at0010]/items[at1019]">
+                    <constraint xsi:type="tem:textConstraint"/>
+                </Rule>
+                <Rule max="0" path="/protocol[at0010]/items[at1037]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Coded_text</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                    </constraint>
+                </Rule>
+            </Item>
+        </Content>
+        <Content archetype_id="openEHR-EHR-SECTION.adhoc.v1"
+            concept_name="Ad hoc heading"
+            name="Cardiovascular Assessment" path="/content" xsi:type="tem:SECTION">
+            <Item archetype_id="openEHR-EHR-SECTION.adhoc.v1"
+                concept_name="Ad hoc heading"
+                name="24 Hour Blood Pressure" path="/items" xsi:type="tem:SECTION">
+                <Item
+                    archetype_id="openEHR-EHR-OBSERVATION.blood_pressure.v1"
+                    concept_name="Blood Pressure"
+                    name="24 Hour Blood Pressure (Average)"
+                    path="/items" xsi:type="tem:OBSERVATION">
+                    <Rule max="0" path="/data[at0001]/events[at0006]"/>
+                    <Rule path="/data[at0001]/events[at1042]/data[at0003]/items[at0004]">
+                        <constraint xsi:type="tem:quantityConstraint">
+                            <unitMagnitude>
+                                <unit>mm[Hg]</unit>
+                                <maxMagnitude>1000.0</maxMagnitude>
+                                <minMagnitude>0.0</minMagnitude>
+                                <includesMaximum>false</includesMaximum>
+                                <includesMinimum>true</includesMinimum>
+                            </unitMagnitude>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/data[at0001]/events[at1042]/data[at0003]/items[at1006]">
+                        <constraint xsi:type="tem:quantityConstraint">
+                            <unitMagnitude>
+                                <unit>mm[Hg]</unit>
+                                <maxMagnitude>1000.0</maxMagnitude>
+                                <minMagnitude>0.0</minMagnitude>
+                                <includesMaximum>false</includesMaximum>
+                                <includesMinimum>true</includesMinimum>
+                            </unitMagnitude>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/data[at0001]/events[at1042]/data[at0003]/items[at1007]">
+                        <constraint xsi:type="tem:quantityConstraint">
+                            <unitMagnitude>
+                                <unit>mm[Hg]</unit>
+                                <maxMagnitude>1000.0</maxMagnitude>
+                                <minMagnitude>0.0</minMagnitude>
+                                <includesMaximum>false</includesMaximum>
+                                <includesMinimum>true</includesMinimum>
+                            </unitMagnitude>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/data[at0001]/events[at1042]/data[at0003]/items[at0033]"/>
+                    <Rule max="0" path="/data[at0001]/events[at1042]/state[at0007]/items[at1052]"/>
+                    <Rule path="/data[at0001]/events[at1042]/state[at0007]/items[at1043]">
+                        <constraint xsi:type="tem:textConstraint"/>
+                    </Rule>
+                    <Rule max="0" path="/data[at0001]/events[at1042]/state[at0007]/items[at1005]">
+                        <constraint xsi:type="tem:quantityConstraint">
+                            <unitMagnitude>
+                                <unit>°</unit>
+                                <maxMagnitude>90.0</maxMagnitude>
+                                <minMagnitude>-90.0</minMagnitude>
+                                <includesMaximum>true</includesMaximum>
+                                <includesMinimum>true</includesMinimum>
+                            </unitMagnitude>
+                            <unitMagnitude>
+                                <unit>deg</unit>
+                                <maxMagnitude>90.0</maxMagnitude>
+                                <minMagnitude>-90.0</minMagnitude>
+                                <includesMaximum>true</includesMaximum>
+                                <includesMinimum>true</includesMinimum>
+                            </unitMagnitude>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/protocol[at0011]/items[at0013]">
+                        <constraint xsi:type="tem:textConstraint"/>
+                    </Rule>
+                    <Rule max="0" path="/protocol[at0011]/items[at1033]"/>
+                    <Rule max="0" path="/protocol[at0011]/items[at1033]/items[at0014]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Coded_text</includedTypes>
+                            <includedTypes>Text</includedTypes>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/protocol[at0011]/items[at1033]/items[at1034]"/>
+                    <Rule max="0" path="/protocol[at0011]/items[at1035]">
+                        <constraint xsi:type="tem:textConstraint"/>
+                    </Rule>
+                    <Rule max="0" path="/protocol[at0011]/items[at1038]"/>
+                    <Rule max="0" path="/protocol[at0011]/items[at1054]"/>
+                    <Rule max="0" path="/protocol[at0011]/items[at1055]"/>
+                    <Rule max="0" path="/protocol[at0011]/items[at1010]">
+                        <constraint xsi:type="tem:textConstraint"/>
+                    </Rule>
+                </Item>
+                <Item
+                    archetype_id="openEHR-EHR-OBSERVATION.blood_pressure.v1"
+                    concept_name="Blood Pressure"
+                    name="24 Hour Blood Pressure (Day)" path="/items" xsi:type="tem:OBSERVATION">
+                    <Rule max="0" path="/data[at0001]/events[at0006]"/>
+                    <Rule max="0" path="/data[at0001]/events[at1042]/data[at0003]/items[at1006]">
+                        <constraint xsi:type="tem:quantityConstraint">
+                            <unitMagnitude>
+                                <unit>mm[Hg]</unit>
+                                <maxMagnitude>1000.0</maxMagnitude>
+                                <minMagnitude>0.0</minMagnitude>
+                                <includesMaximum>false</includesMaximum>
+                                <includesMinimum>true</includesMinimum>
+                            </unitMagnitude>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/data[at0001]/events[at1042]/data[at0003]/items[at1007]">
+                        <constraint xsi:type="tem:quantityConstraint">
+                            <unitMagnitude>
+                                <unit>mm[Hg]</unit>
+                                <maxMagnitude>1000.0</maxMagnitude>
+                                <minMagnitude>0.0</minMagnitude>
+                                <includesMaximum>false</includesMaximum>
+                                <includesMinimum>true</includesMinimum>
+                            </unitMagnitude>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/data[at0001]/events[at1042]/data[at0003]/items[at0033]"/>
+                    <Rule path="/data[at0001]/events[at1042]/state[at0007]/items[at0008]">
+                        <constraint xsi:type="tem:textConstraint"/>
+                    </Rule>
+                    <Rule max="0" path="/data[at0001]/events[at1042]/state[at0007]/items[at1052]"/>
+                    <Rule max="0" path="/data[at0001]/events[at1042]/state[at0007]/items[at1005]">
+                        <constraint xsi:type="tem:quantityConstraint">
+                            <unitMagnitude>
+                                <unit>°</unit>
+                                <maxMagnitude>90.0</maxMagnitude>
+                                <minMagnitude>-90.0</minMagnitude>
+                                <includesMaximum>true</includesMaximum>
+                                <includesMinimum>true</includesMinimum>
+                            </unitMagnitude>
+                            <unitMagnitude>
+                                <unit>deg</unit>
+                                <maxMagnitude>90.0</maxMagnitude>
+                                <minMagnitude>-90.0</minMagnitude>
+                                <includesMaximum>true</includesMaximum>
+                                <includesMinimum>true</includesMinimum>
+                            </unitMagnitude>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/protocol[at0011]/items[at0013]">
+                        <constraint xsi:type="tem:textConstraint"/>
+                    </Rule>
+                    <Rule max="0" path="/protocol[at0011]/items[at1033]/items[at0014]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Coded_text</includedTypes>
+                            <includedTypes>Text</includedTypes>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/protocol[at0011]/items[at1033]/items[at1034]"/>
+                    <Rule max="0" path="/protocol[at0011]/items[at1035]">
+                        <constraint xsi:type="tem:textConstraint"/>
+                    </Rule>
+                    <Rule max="0" path="/protocol[at0011]/items[at1038]"/>
+                    <Rule max="0" path="/protocol[at0011]/items[at1054]"/>
+                    <Rule max="0" path="/protocol[at0011]/items[at1055]"/>
+                    <Rule max="0" path="/protocol[at0011]/items[at1010]">
+                        <constraint xsi:type="tem:textConstraint"/>
+                    </Rule>
+                </Item>
+                <Item
+                    archetype_id="openEHR-EHR-OBSERVATION.blood_pressure.v1"
+                    concept_name="Blood Pressure"
+                    name="24 Hour Blood Pressure (Night)" path="/items" xsi:type="tem:OBSERVATION">
+                    <Rule max="0" path="/data[at0001]/events[at0006]"/>
+                    <Rule max="0" path="/data[at0001]/events[at1042]/data[at0003]/items[at1006]">
+                        <constraint xsi:type="tem:quantityConstraint">
+                            <unitMagnitude>
+                                <unit>mm[Hg]</unit>
+                                <maxMagnitude>1000.0</maxMagnitude>
+                                <minMagnitude>0.0</minMagnitude>
+                                <includesMaximum>false</includesMaximum>
+                                <includesMinimum>true</includesMinimum>
+                            </unitMagnitude>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/data[at0001]/events[at1042]/data[at0003]/items[at1007]">
+                        <constraint xsi:type="tem:quantityConstraint">
+                            <unitMagnitude>
+                                <unit>mm[Hg]</unit>
+                                <maxMagnitude>1000.0</maxMagnitude>
+                                <minMagnitude>0.0</minMagnitude>
+                                <includesMaximum>false</includesMaximum>
+                                <includesMinimum>true</includesMinimum>
+                            </unitMagnitude>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/data[at0001]/events[at1042]/data[at0003]/items[at0033]"/>
+                    <Rule max="0" path="/data[at0001]/events[at1042]/state[at0007]/items[at1052]"/>
+                    <Rule path="/data[at0001]/events[at1042]/state[at0007]/items[at1043]">
+                        <constraint xsi:type="tem:textConstraint"/>
+                    </Rule>
+                    <Rule max="0" path="/data[at0001]/events[at1042]/state[at0007]/items[at1005]">
+                        <constraint xsi:type="tem:quantityConstraint">
+                            <unitMagnitude>
+                                <unit>°</unit>
+                                <maxMagnitude>90.0</maxMagnitude>
+                                <minMagnitude>-90.0</minMagnitude>
+                                <includesMaximum>true</includesMaximum>
+                                <includesMinimum>true</includesMinimum>
+                            </unitMagnitude>
+                            <unitMagnitude>
+                                <unit>deg</unit>
+                                <maxMagnitude>90.0</maxMagnitude>
+                                <minMagnitude>-90.0</minMagnitude>
+                                <includesMaximum>true</includesMaximum>
+                                <includesMinimum>true</includesMinimum>
+                            </unitMagnitude>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/protocol[at0011]/items[at0013]">
+                        <constraint xsi:type="tem:textConstraint"/>
+                    </Rule>
+                    <Rule max="0" path="/protocol[at0011]/items[at1033]/items[at0014]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Coded_text</includedTypes>
+                            <includedTypes>Text</includedTypes>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/protocol[at0011]/items[at1033]/items[at1034]"/>
+                    <Rule max="0" path="/protocol[at0011]/items[at1035]">
+                        <constraint xsi:type="tem:textConstraint"/>
+                    </Rule>
+                    <Rule max="0" path="/protocol[at0011]/items[at1038]"/>
+                    <Rule max="0" path="/protocol[at0011]/items[at1054]"/>
+                    <Rule max="0" path="/protocol[at0011]/items[at1055]"/>
+                    <Rule max="0" path="/protocol[at0011]/items[at1010]">
+                        <constraint xsi:type="tem:textConstraint"/>
+                    </Rule>
+                </Item>
+            </Item>
+            <Item archetype_id="openEHR-EHR-OBSERVATION.pulse.v1"
+                concept_name="Pulse/Heart beat" name="Pulse Character"
+                path="/items" xsi:type="tem:OBSERVATION">
+                <Rule max="0" path="/data[at0002]/events[at0003]/data[at0001]/items[at1005]">
+                    <constraint xsi:type="tem:textConstraint"/>
+                </Rule>
+                <Rule max="0" path="/data[at0002]/events[at0003]/data[at0001]/items[at0004]">
+                    <constraint xsi:type="tem:quantityConstraint">
+                        <unitMagnitude>
+                            <unit>/min</unit>
+                            <minMagnitude>0.0</minMagnitude>
+                            <includesMaximum>false</includesMaximum>
+                            <includesMinimum>true</includesMinimum>
+                        </unitMagnitude>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0002]/events[at0003]/data[at0001]/items[at1030]"/>
+                <Rule max="0" path="/data[at0002]/events[at0003]/data[at0001]/items[at1022]"/>
+                <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at1023]">
+                    <constraint xsi:type="tem:textConstraint">
+                        <includedValues>SNOMED-CT::271636001::Pulse regular</includedValues>
+                        <includedValues>SNOMED-CT::271638000::Pulse regularly irregular</includedValues>
+                        <includedValues>SNOMED-CT::271637005::Pulse irregularly irregular</includedValues>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0002]/events[at0003]/data[at0001]/items[at1059]"/>
+                <Rule max="0" path="/data[at0002]/events[at0003]/state[at0012]/items[at0013]">
+                    <constraint xsi:type="tem:textConstraint"/>
+                </Rule>
+                <Rule max="0" path="/data[at0002]/events[at0003]/state[at0012]/items[at1018]"/>
+                <Rule max="0" path="/data[at0002]/events[at1036]"/>
+                <Rule max="0" path="/protocol[at0010]/items[at1019]">
+                    <constraint xsi:type="tem:textConstraint"/>
+                </Rule>
+                <Rule max="0" path="/protocol[at0010]/items[at1037]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Coded_text</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                    </constraint>
+                </Rule>
+            </Item>
+            <Item archetype_id="openEHR-EHR-OBSERVATION.pulse.v1"
+                concept_name="Pulse/Heart beat"
+                name="Carotid Pulse Character" path="/items" xsi:type="tem:OBSERVATION">
+                <Rule max="0" path="/data[at0002]/events[at0003]/data[at0001]/items[at1005]">
+                    <constraint xsi:type="tem:textConstraint"/>
+                </Rule>
+                <Rule max="0" path="/data[at0002]/events[at0003]/data[at0001]/items[at0004]">
+                    <constraint xsi:type="tem:quantityConstraint">
+                        <unitMagnitude>
+                            <unit>/min</unit>
+                            <minMagnitude>0.0</minMagnitude>
+                            <includesMaximum>false</includesMaximum>
+                            <includesMinimum>true</includesMinimum>
+                        </unitMagnitude>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0002]/events[at0003]/data[at0001]/items[at0005]">
+                    <constraint xsi:type="tem:textConstraint"/>
+                </Rule>
+                <Rule max="0" path="/data[at0002]/events[at0003]/data[at0001]/items[at1055]">
+                    <constraint xsi:type="tem:textConstraint"/>
+                </Rule>
+                <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at1030]">
+                    <constraint xsi:type="tem:textConstraint">
+                        <includedValues>Normal</includedValues>
+                        <includedValues>Abnormal</includedValues>
+                    </constraint>
+                </Rule>
+                <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at1023]">
+                    <constraint xsi:type="tem:textConstraint">
+                        <includedValues>SNOMED-CT::301153003::Carotid pulse present</includedValues>
+                        <includedValues>SNOMED-CT::301163006::Carotid pulse absent</includedValues>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0002]/events[at0003]/data[at0001]/items[at1059]"/>
+                <Rule max="0" path="/data[at0002]/events[at0003]/state[at0012]/items[at0013]">
+                    <constraint xsi:type="tem:textConstraint"/>
+                </Rule>
+                <Rule max="0" path="/data[at0002]/events[at0003]/state[at0012]/items[at1018]"/>
+                <Rule max="0" path="/data[at0002]/events[at1036]"/>
+                <Rule max="0" path="/protocol[at0010]/items[at1019]">
+                    <constraint xsi:type="tem:textConstraint"/>
+                </Rule>
+                <Rule path="/protocol[at0010]/items[at1037]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Coded_text</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                    </constraint>
+                </Rule>
+            </Item>
+            <Item archetype_id="openEHR-EHR-OBSERVATION.exam.v1"
+                concept_name="Physical examination findings"
+                name="Carotid bruit" path="/items" xsi:type="tem:OBSERVATION">
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0011]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/state[at0009]/items[at0008]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/state[at0009]/items[at0013]"/>
+                <Items archetype_id="openEHR-EHR-CLUSTER.exam.v1"
+                    path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]" xsi:type="tem:CLUSTER">
+                    <Rule path="/items[at0001]">
+                        <constraint xsi:type="tem:textConstraint">
+                            <termQueryId terminologyID="//termbrowser.nhs.uk/"/>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0012]"/>
+                    <Rule path="/items[at0006]">
+                        <constraint xsi:type="tem:textConstraint">
+                            <includedValues>SNOMED-CT::274721007::Carotid bruit present</includedValues>
+                            <includedValues>SNOMED-CT::700428007::Carotid bruit absent</includedValues>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0007]"/>
+                </Items>
+            </Item>
+            <Item archetype_id="openEHR-EHR-OBSERVATION.exam.v1"
+                concept_name="Physical examination findings"
+                name="Apex beat" path="/items" xsi:type="tem:OBSERVATION">
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0011]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/state[at0009]/items[at0008]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/state[at0009]/items[at0013]"/>
+                <Items archetype_id="openEHR-EHR-CLUSTER.exam_heart.v0"
+                    path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]" xsi:type="tem:CLUSTER">
+                    <Rule name="Description of Abnormality" path="/items[at0003]"/>
+                    <Rule max="0" path="/items[at0010]">
+                        <constraint xsi:type="tem:textConstraint"/>
+                    </Rule>
+                    <Rule path="/items[at0006]">
+                        <constraint xsi:type="tem:textConstraint">
+                            <includedValues>SNOMED-CT::301137001::Normal character apex beat</includedValues>
+                            <includedValues>SNOMED-CT::301136005::Feeble apex beat</includedValues>
+                            <includedValues>SNOMED-CT::301135009::Thrusting apex beat</includedValues>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0007]"/>
+                </Items>
+            </Item>
+            <Item archetype_id="openEHR-EHR-OBSERVATION.exam.v1"
+                concept_name="Physical examination findings"
+                name="Palpation for heaves\thrills" path="/items" xsi:type="tem:OBSERVATION">
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0011]"/>
+                <Items archetype_id="openEHR-EHR-CLUSTER.exam.v1"
+                    concept_name="Examination findings"
+                    name="Palpation for heaves\thrills findings"
+                    path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]" xsi:type="tem:CLUSTER">
+                    <Rule path="/items[at0001]">
+                        <constraint xsi:type="tem:textConstraint">
+                            <termQueryId terminologyID="//termbrowser.nhs.uk/"/>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0012]"/>
+                    <Rule path="/items[at0006]">
+                        <constraint xsi:type="tem:textConstraint"/>
+                    </Rule>
+                    <Rule max="0" path="/items[at0007]"/>
+                </Items>
+            </Item>
+            <Item
+                archetype_id="openEHR-EHR-OBSERVATION.jugular_venous_pressure.v0"
+                path="/items" xsi:type="tem:OBSERVATION">
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]">
+                    <constraint xsi:type="tem:quantityConstraint"/>
+                </Rule>
+                <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]">
+                    <constraint xsi:type="tem:textConstraint">
+                        <includedValues>Normal</includedValues>
+                        <includedValues>Elevated</includedValues>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0007]">
+                    <constraint xsi:type="tem:textConstraint"/>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]">
+                    <constraint xsi:type="tem:textConstraint"/>
+                </Rule>
+                <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0028]">
+                    <constraint xsi:type="tem:textConstraint">
+                        <includedValues>SNOMED-CT::22447003::Raised jugular venous pressure</includedValues>
+                        <includedValues>SNOMED-CT::369001::Normal jugular venous pressure</includedValues>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0026]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/state[at0013]/items[at0014]">
+                    <constraint xsi:type="tem:textConstraint"/>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/events[at0002]/state[at0013]/items[at0018]"/>
+                <Rule max="0" path="/protocol[at0019]/items[at0022]">
+                    <constraint xsi:type="tem:textConstraint"/>
+                </Rule>
+            </Item>
+            <Item archetype_id="openEHR-EHR-OBSERVATION.exam.v1"
+                concept_name="Physical examination findings"
+                name="Heart sounds" path="/items" xsi:type="tem:OBSERVATION">
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0011]"/>
+                <Items archetype_id="openEHR-EHR-CLUSTER.exam.v1"
+                    concept_name="Examination findings"
+                    name="Heart Sounds Findings"
+                    path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]" xsi:type="tem:CLUSTER">
+                    <Rule path="/items[at0001]">
+                        <constraint xsi:type="tem:textConstraint">
+                            <termQueryId terminologyID="//termbrowser.nhs.uk/"/>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0012]"/>
+                    <Rule path="/items[at0006]">
+                        <constraint xsi:type="tem:textConstraint">
+                            <includedValues>SNOMED-CT::123824001::Heart sounds abnormal</includedValues>
+                            <includedValues>SNOMED-CT::301132007::Heart sounds normal</includedValues>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0007]"/>
+                </Items>
+            </Item>
+            <Item archetype_id="openEHR-EHR-OBSERVATION.exam.v1"
+                concept_name="Physical examination findings"
+                name="Heart murmurs" path="/items" xsi:type="tem:OBSERVATION">
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0011]"/>
+                <Items archetype_id="openEHR-EHR-CLUSTER.exam.v1"
+                    concept_name="Examination findings"
+                    name="Heart Murmur Findings"
+                    path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]" xsi:type="tem:CLUSTER">
+                    <Rule path="/items[at0001]">
+                        <constraint xsi:type="tem:textConstraint">
+                            <termQueryId terminologyID="//termbrowser.nhs.uk/"/>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0012]"/>
+                    <Rule path="/items[at0006]">
+                        <constraint xsi:type="tem:textConstraint">
+                            <includedValues>SNOMED-CT::301131000::Heart murmur absent</includedValues>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0007]"/>
+                </Items>
+            </Item>
+            <Item archetype_id="openEHR-EHR-OBSERVATION.exam.v1"
+                concept_name="Physical examination findings"
+                name="Peripheral oedema" path="/items" xsi:type="tem:OBSERVATION">
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]">
+                    <constraint xsi:type="tem:textConstraint"/>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0011]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/state[at0009]/items[at0008]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/state[at0009]/items[at0013]"/>
+                <Items archetype_id="openEHR-EHR-CLUSTER.exam.v1"
+                    concept_name="Examination findings"
+                    name="Pedal Oedema Finding"
+                    path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]" xsi:type="tem:CLUSTER">
+                    <Rule path="/items[at0001]">
+                        <constraint xsi:type="tem:textConstraint"/>
+                    </Rule>
+                    <Rule max="0" path="/items[at0012]"/>
+                    <Rule max="0" path="/items[at0003]"/>
+                    <Rule path="/items[at0006]"/>
+                    <Rule max="0" path="/items[at0007]"/>
+                </Items>
+                <Items archetype_id="openEHR-EHR-CLUSTER.exam.v1"
+                    concept_name="Examination findings"
+                    name="Sacral Oedema Finding"
+                    path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]" xsi:type="tem:CLUSTER">
+                    <Rule path="/items[at0001]">
+                        <constraint xsi:type="tem:textConstraint"/>
+                    </Rule>
+                    <Rule max="0" path="/items[at0012]"/>
+                    <Rule max="0" path="/items[at0003]"/>
+                    <Rule path="/items[at0006]"/>
+                    <Rule max="0" path="/items[at0007]"/>
+                </Items>
+            </Item>
+        </Content>
+    </definition>
+    <integrity_checks
+        archetype_id="openEHR-EHR-COMPOSITION.encounter.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">15173A4BF38FA171E47BBE704F3E0940</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-SECTION.adhoc.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">B10361594E32A1FB73B449259A593192</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-OBSERVATION.blood_pressure.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">22A191BEDF72D9313D07EFFF596014C4</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-OBSERVATION.pulse.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">80A3B6BB55AAAF5E7F482B713498AA73</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-OBSERVATION.exam.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">42A758CADEF3767E390EB8187F98AFF5</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.exam.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">A4554C1F4C0F21A8B931BE1DD07708D1</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.exam_heart.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">BF2AB9C1FB8537BB52E2CC3C8D19CD64</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-OBSERVATION.jugular_venous_pressure.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">BFA7FA8F09E42E369F08914450DEE78C</digest>
+    </integrity_checks>
+</template>
