@@ -223,8 +223,11 @@
                         </constraint>
                     </Rule>
                     <Rule max="0" path="/data[at0001]/events[at1042]/data[at0003]/items[at0033]"/>
+                    <Rule max="0" path="/data[at0001]/events[at1042]/state[at0007]/items[at0008]">
+                        <constraint xsi:type="tem:textConstraint"/>
+                    </Rule>
                     <Rule max="0" path="/data[at0001]/events[at1042]/state[at0007]/items[at1052]"/>
-                    <Rule path="/data[at0001]/events[at1042]/state[at0007]/items[at1043]">
+                    <Rule max="0" path="/data[at0001]/events[at1042]/state[at0007]/items[at1043]">
                         <constraint xsi:type="tem:textConstraint"/>
                     </Rule>
                     <Rule max="0" path="/data[at0001]/events[at1042]/state[at0007]/items[at1005]">
@@ -298,6 +301,9 @@
                         <constraint xsi:type="tem:textConstraint"/>
                     </Rule>
                     <Rule max="0" path="/data[at0001]/events[at1042]/state[at0007]/items[at1052]"/>
+                    <Rule path="/data[at0001]/events[at1042]/state[at0007]/items[at1043]">
+                        <constraint xsi:type="tem:textConstraint"/>
+                    </Rule>
                     <Rule max="0" path="/data[at0001]/events[at1042]/state[at0007]/items[at1005]">
                         <constraint xsi:type="tem:quantityConstraint">
                             <unitMagnitude>
@@ -364,6 +370,9 @@
                         </constraint>
                     </Rule>
                     <Rule max="0" path="/data[at0001]/events[at1042]/data[at0003]/items[at0033]"/>
+                    <Rule path="/data[at0001]/events[at1042]/state[at0007]/items[at0008]">
+                        <constraint xsi:type="tem:textConstraint"/>
+                    </Rule>
                     <Rule max="0" path="/data[at0001]/events[at1042]/state[at0007]/items[at1052]"/>
                     <Rule path="/data[at0001]/events[at1042]/state[at0007]/items[at1043]">
                         <constraint xsi:type="tem:textConstraint"/>
@@ -431,6 +440,9 @@
                         <includedValues>SNOMED-CT::271638000::Pulse regularly irregular</includedValues>
                         <includedValues>SNOMED-CT::271637005::Pulse irregularly irregular</includedValues>
                     </constraint>
+                    <nameConstraint>
+                        <excludedValues>local::at1057</excludedValues>
+                    </nameConstraint>
                 </Rule>
                 <Rule max="0" path="/data[at0002]/events[at0003]/data[at0001]/items[at1059]"/>
                 <Rule max="0" path="/data[at0002]/events[at0003]/state[at0012]/items[at0013]">
@@ -532,7 +544,6 @@
                 <Rule max="0" path="/data[at0001]/events[at0002]/state[at0009]/items[at0013]"/>
                 <Items archetype_id="openEHR-EHR-CLUSTER.exam_heart.v0"
                     path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]" xsi:type="tem:CLUSTER">
-                    <Rule name="Description of Abnormality" path="/items[at0003]"/>
                     <Rule max="0" path="/items[at0010]">
                         <constraint xsi:type="tem:textConstraint"/>
                     </Rule>
@@ -552,6 +563,8 @@
                 <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]"/>
                 <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]"/>
                 <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0011]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/state[at0009]/items[at0008]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/state[at0009]/items[at0013]"/>
                 <Items archetype_id="openEHR-EHR-CLUSTER.exam.v1"
                     concept_name="Examination findings"
                     name="Palpation for heaves\thrills findings"
@@ -571,6 +584,9 @@
             <Item
                 archetype_id="openEHR-EHR-OBSERVATION.jugular_venous_pressure.v0"
                 path="/items" xsi:type="tem:OBSERVATION">
+                <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]">
+                    <constraint xsi:type="tem:textConstraint"/>
+                </Rule>
                 <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]">
                     <constraint xsi:type="tem:quantityConstraint"/>
                 </Rule>
@@ -645,6 +661,7 @@
                     <Rule path="/items[at0006]">
                         <constraint xsi:type="tem:textConstraint">
                             <includedValues>SNOMED-CT::301131000::Heart murmur absent</includedValues>
+                            <includedValues>SNOMED-CT::88610006::Observation of heart murmur</includedValues>
                         </constraint>
                     </Rule>
                     <Rule max="0" path="/items[at0007]"/>
