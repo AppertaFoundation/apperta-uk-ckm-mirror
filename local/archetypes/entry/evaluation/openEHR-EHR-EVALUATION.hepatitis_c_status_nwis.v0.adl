@@ -1,0 +1,194 @@
+﻿archetype (adl_version=1.4; uid=8866392e-fd74-45aa-b827-1401553609ff)
+	openEHR-EHR-EVALUATION.hepatitis_c_status_nwis.v0
+
+concept
+	[at0000]	-- Hepatitis C Status
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["date"] = <"2019-01-07">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record Hepatitis C status local to NWIS app.">
+			use = <"">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"27D4CC583169BF6E02E9A3C977B1A88D">
+		["build_uid"] = <"3dfb9edc-0392-4862-bdcd-2b8dd612b41c">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	EVALUATION[at0000] matches {    -- Hepatitis C Status
+		data matches {
+			ITEM_TREE[at0002] matches {    -- ItemTree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0003] occurrences matches {0..1} matches {    -- Active status
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0004,    -- Active
+									at0005,    -- On Treatment
+									at0006,    -- Immediate Post-treatment Follow up
+									at0007,    -- Spontaneous Clearance
+									at0008]    -- SVR following treatment
+								}
+							}
+						}
+					}
+					ELEMENT[at0009] occurrences matches {0..1} matches {    -- Treatment offered?
+						value matches {
+							DV_BOOLEAN matches {*}
+						}
+					}
+					ELEMENT[at0010] occurrences matches {0..*} matches {    -- Reason treatment not offered
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0011,    -- Further workup required
+									at0012,    -- Patient declined
+									at0013,    -- No suitable treatment
+									at0014,    -- No suitable treatment available on NHS (cost)
+									at0015,    -- Clinician feels patient not ready
+									at0016,    -- Concerns re compliance
+									at0017,    -- Concerns re reinfection
+									at0018,    -- Contraindication to treatment
+									at0019,    -- Treatment planned in next 3 months
+									at0020,    -- Treatment deemed unnecessary
+									at0021]    -- Treatment deferred for other reason
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0001] matches {    -- ItemTree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0022] occurrences matches {0..*} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Hepatitis C Status">
+					description = <"Hepatitis C status local to NWIS app.">
+				>
+				["at0001"] = <
+					text = <"ItemTree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"ItemTree">
+					description = <"@ internal @">
+				>
+				["at0003"] = <
+					text = <"Active status">
+					description = <"The current active status of the condition.">
+				>
+				["at0004"] = <
+					text = <"Active">
+					description = <"Active">
+				>
+				["at0005"] = <
+					text = <"On Treatment">
+					description = <"On Treatment">
+				>
+				["at0006"] = <
+					text = <"Immediate Post-treatment Follow up">
+					description = <"Immediate Post-treatment Follow up (up to 12 weeks Post Follow-up)">
+				>
+				["at0007"] = <
+					text = <"Spontaneous Clearance">
+					description = <"Spontaneous Clearance">
+				>
+				["at0008"] = <
+					text = <"SVR following treatment">
+					description = <"SVR (Sustained virologic response) following treatment">
+				>
+				["at0009"] = <
+					text = <"Treatment offered?">
+					description = <"If active, was treatment offered?">
+				>
+				["at0010"] = <
+					text = <"Reason treatment not offered">
+					description = <"If treatment was not offered, why not?">
+				>
+				["at0011"] = <
+					text = <"Further workup required">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Patient declined">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"No suitable treatment">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"No suitable treatment available on NHS (cost)">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Clinician feels patient not ready">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"Concerns re compliance">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"Concerns re reinfection">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"Contraindication to treatment">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"Treatment planned in next 3 months">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"Treatment deemed unnecessary">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"Treatment deferred for other reason">
+					description = <"*">
+				>
+				["at0022"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental infomation or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+			>
+		>
+	>
