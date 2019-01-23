@@ -1,0 +1,330 @@
+﻿archetype (adl_version=1.4; uid=7dfbecf7-4dec-40fa-b29b-621608e67f44)
+	openEHR-EHR-OBSERVATION.ishak_modified_hai_score.v0
+
+concept
+	[at0000]	-- Ishak Modified HAI Score
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Ltd. UK">
+		["email"] = <"ian@freshehr.com">
+		["date"] = <"2019-01-07">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record an assessment of liver fibrosis/cirrhosis in chronic active hepatitis according to the Ishak modified HAI ((Histologic Activity Index) score.">
+			use = <"Use to record an assessment of liver fibrosis/cirrhosis in chronic active hepatitis according to the Ishak modified HAI ((Histologic Activity Index) score.">
+			keywords = <"liver, hepatitis, fibrosis, cirrhosis, chronic, biopsy", ...>
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["references"] = <"Ishak K, et al. Histological grading and staging of chronic hepatitis. J Hepatol 1995;22:696-699.
+Knodell RG, et al. Formulation and application of a numerical scoring system for assessing histological activity in asymptomatic chronic active hepatitis. Hepatology 1981;1(5):431-5
+mHAI score, TPIS, Univ. Pittsburgh, Avaialble from: https://tpis.upmc.com/tpislibrary/schema/mHAI.html">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"146C3E45DFF7EAEDE282B1F7D6C7A6DA">
+		["build_uid"] = <"c8c87a3d-baf4-43d7-aee0-9b6ad8680ce1">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- Ishak Modified HAI Score
+		data matches {
+			HISTORY[at0001] matches {    -- History
+				events cardinality matches {0..*; unordered} matches {
+					POINT_EVENT[at0002] matches {    -- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {    -- ItemTree
+								items cardinality matches {0..*; unordered} matches {
+									CLUSTER[at0013] occurrences matches {0..1} matches {    -- Modified HAI grading
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0012] occurrences matches {0..1} matches {    -- Piecemeal necrosis (A)
+												value matches {
+													0|[local::at0015],
+													1|[local::at0016],
+													2|[local::at0017],
+													3|[local::at0018],
+													4|[local::at0019]
+												}
+											}
+											ELEMENT[at0020] occurrences matches {0..1} matches {    -- Confluent necrosis (B)
+												value matches {
+													0|[local::at0021],
+													1|[local::at0022],
+													2|[local::at0023],
+													3|[local::at0024],
+													4|[local::at0025],
+													5|[local::at0026]
+												}
+											}
+											ELEMENT[at0027] occurrences matches {0..1} matches {    -- Focal (spotty) Lytic Necrosis, Apoptosis, and Focal Inflammation (C)
+												value matches {
+													0|[local::at0028],
+													1|[local::at0029],
+													2|[local::at0030],
+													3|[local::at0031],
+													4|[local::at0032]
+												}
+											}
+											ELEMENT[at0033] occurrences matches {0..1} matches {    -- Portal Inflammation (D)
+												value matches {
+													0|[local::at0034],
+													1|[local::at0035],
+													2|[local::at0036],
+													3|[local::at0037],
+													4|[local::at0038]
+												}
+											}
+											ELEMENT[at0042] occurrences matches {0..1} matches {    -- Modified HAI Score
+												value matches {
+													DV_COUNT matches {
+														magnitude matches {|0..18|}
+													}
+												}
+											}
+										}
+									}
+									ELEMENT[at0004] occurrences matches {0..1} matches {    -- Fibrosis staging
+										value matches {
+											0|[local::at0005],
+											1|[local::at0006],
+											2|[local::at0007],
+											3|[local::at0008],
+											4|[local::at0009],
+											5|[local::at0010],
+											6|[local::at0011]
+										}
+									}
+									ELEMENT[at0043] occurrences matches {0..1} matches {    -- Comment
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+						state matches {
+							ITEM_TREE[at0039] matches {    -- ItemTree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0040] occurrences matches {0..*} matches {    -- Confounding factors
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0014] matches {    -- ItemTree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0041] occurrences matches {0..*} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Ishak Modified HAI Score">
+					description = <"An assessment of liver fibrosis/cirrhosis in chronic active hepatitis according to the Ishak modified HAI ((Histologic Activity Index) score.">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"*">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"ItemTree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Fibrosis staging">
+					description = <"Fibrosis staging.">
+				>
+				["at0005"] = <
+					text = <"No fibrosis">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Fibrous expansion of some portal areas, with or without short fibrous septa">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Fibrous expansion of most portal areas, with or without short fibrous septa">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Fibrous expansion of most portal areas with occasional portal to portal (P-P) bridging">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Fibrous expansion of portal areas with marked bridging [portal to portal (P-P) as well as portal to central (P-C)]">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"Marked bridging (P-P and/or P-C) with occasional nodules (incomplete cirrhosis)">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Cirrhosis, probable or definite">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Piecemeal necrosis (A)">
+					description = <"Periportal or Periseptal Interface Hepatitis (piecemeal necrosis) (A).">
+				>
+				["at0013"] = <
+					text = <"Modified HAI grading">
+					description = <"Modified HAI Grading: Necroinflammatory Scores.">
+				>
+				["at0014"] = <
+					text = <"ItemTree">
+					description = <"@ internal @">
+				>
+				["at0015"] = <
+					text = <"Absent">
+					description = <"Absent">
+				>
+				["at0016"] = <
+					text = <"Mild">
+					description = <"Mild (focal, few portal areas)">
+				>
+				["at0017"] = <
+					text = <"Mild/moderate">
+					description = <"Mild/moderate (focal, most portal areas)">
+				>
+				["at0018"] = <
+					text = <"Moderate">
+					description = <"Moderate (continuous around <50% of tracts or septa)">
+				>
+				["at0019"] = <
+					text = <"Severe">
+					description = <"Severe (continuous around >50% of tracts or septa)">
+				>
+				["at0020"] = <
+					text = <"Confluent necrosis (B)">
+					description = <"Confluent necrosis (B).">
+				>
+				["at0021"] = <
+					text = <"Absent">
+					description = <"*">
+				>
+				["at0022"] = <
+					text = <"Focal confluent necrosis">
+					description = <"*">
+				>
+				["at0023"] = <
+					text = <"Zone 3 necrosis in some areas">
+					description = <"*">
+				>
+				["at0024"] = <
+					text = <"Zone 3 necrosis in most areas">
+					description = <"*">
+				>
+				["at0025"] = <
+					text = <"Zone 3 necrosis + occasional portal-central (P-C) bridging">
+					description = <"*">
+				>
+				["at0026"] = <
+					text = <"Zone 3 necrosis + multiple P-C bridging">
+					description = <"*">
+				>
+				["at0027"] = <
+					text = <"Focal (spotty) Lytic Necrosis, Apoptosis, and Focal Inflammation (C)">
+					description = <"Focal (spotty) Lytic Necrosis, Apoptosis, and Focal Inflammation (C).">
+				>
+				["at0028"] = <
+					text = <"Absent">
+					description = <"*">
+				>
+				["at0029"] = <
+					text = <"One focus or less per 10x objective">
+					description = <"*">
+				>
+				["at0030"] = <
+					text = <"Two to four foci per 10x objective">
+					description = <"*">
+				>
+				["at0031"] = <
+					text = <"Five to ten foci per 10x objective">
+					description = <"*">
+				>
+				["at0032"] = <
+					text = <"More than ten foci per 10x objective">
+					description = <"*">
+				>
+				["at0033"] = <
+					text = <"Portal Inflammation (D)">
+					description = <"Portal Inflammation (D).">
+				>
+				["at0034"] = <
+					text = <"None">
+					description = <"*">
+				>
+				["at0035"] = <
+					text = <"Mild, some or all portal areas">
+					description = <"*">
+				>
+				["at0036"] = <
+					text = <"Moderate, some or all portal areas">
+					description = <"*">
+				>
+				["at0037"] = <
+					text = <"Moderate/marked, all portal areas">
+					description = <"*">
+				>
+				["at0038"] = <
+					text = <"Marked, all portal areas">
+					description = <"*">
+				>
+				["at0039"] = <
+					text = <"ItemTree">
+					description = <"@ internal @">
+				>
+				["at0040"] = <
+					text = <"Confounding factors">
+					description = <"Record any issues or factors that may impact on the assessment and the score.">
+				>
+				["at0041"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local content or to align with other reference models/formalisms.">
+					comment = <"e.g. Local information requirements or additional metadata to align with FHIR or CIMI equivalents">
+				>
+				["at0042"] = <
+					text = <"Modified HAI Score">
+					description = <"The total score of the individual HAI components A-D.">
+					comment = <"For example: 16.">
+				>
+				["at0043"] = <
+					text = <"Comment">
+					description = <"Other narrative comment related to the assessment.
+">
+				>
+			>
+		>
+	>
