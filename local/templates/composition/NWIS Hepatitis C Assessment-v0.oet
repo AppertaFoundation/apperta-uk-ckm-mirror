@@ -1,0 +1,1167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xmlns="openEHR/v1/Template">
+    <id>400d77e0-07e5-4d0b-8693-7301406af1c1</id>
+    <name>NWIS Hepatitis C Assessment-v0</name>
+    <description>
+        <original_author>
+            <item>
+                <key>date</key>
+                <value>2019-01-07</value>
+            </item>
+            <item>
+                <key>name</key>
+                <value>Ian McNicoll</value>
+            </item>
+        </original_author>
+        <other_contributors>
+            <item>John Meredith, NHS Wales Informatics Service</item>
+        </other_contributors>
+        <lifecycle_state>in_development</lifecycle_state>
+        <details>
+            <purpose>To record Hepatitis C management assessment in an outpatient clinic.</purpose>
+            <keywords>
+                <item>Hepatitis C, assessment, liver disease,</item>
+            </keywords>
+            <copyright>Clinical Models UK</copyright>
+        </details>
+        <other_details>
+            <item>
+                <key>licence</key>
+                <value>This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.</value>
+            </item>
+            <item>
+                <key>custodian_organisation</key>
+                <value>openEHR Foundation</value>
+            </item>
+            <item>
+                <key>original_namespace</key>
+                <value>org.openehr</value>
+            </item>
+            <item>
+                <key>original_publisher</key>
+                <value>openEHR Foundation</value>
+            </item>
+            <item>
+                <key>custodian_namespace</key>
+                <value>org.openehr</value>
+            </item>
+            <item>
+                <key>MD5-CAM-1.0.1</key>
+                <value>0a974294a4ddeb4a3a3489774807013b</value>
+            </item>
+            <item>
+                <key>PARENT:MD5-CAM-1.0.1</key>
+                <value>15173A4BF38FA171E47BBE704F3E0940</value>
+            </item>
+        </other_details>
+    </description>
+    <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/content[openEHR-EHR-SECTION.adhoc.v1, 'Treatment']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v0, 'HVC genotype test']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v0, 'HVC First type']/items[at0003]">
+        <items>
+            <item>
+                <key>hl7v2_mapping</key>
+                <value>NTE.3</value>
+            </item>
+            <item>
+                <key>fhir_mapping</key>
+                <value>Observation.comments</value>
+            </item>
+        </items>
+    </annotations>
+    <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/content[openEHR-EHR-SECTION.adhoc.v1, 'Treatment']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v0, 'HVC genotype test']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v0, 'HVC First type']/items[at0005]">
+        <items>
+            <item>
+                <key>hl7v2_mapping</key>
+                <value>OBX-11-observation result status</value>
+            </item>
+            <item>
+                <key>fhir_mapping</key>
+                <value>status</value>
+            </item>
+        </items>
+    </annotations>
+    <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/content[openEHR-EHR-SECTION.adhoc.v1, 'Treatment']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v0, 'HVC genotype test']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v0, 'HVC First type']/items[at0006]">
+        <items>
+            <item>
+                <key>hl7v2_mapping</key>
+                <value>OBX-22 and/or OBX-19</value>
+            </item>
+            <item>
+                <key>fhir_mapping</key>
+                <value>Observation.issued</value>
+            </item>
+        </items>
+    </annotations>
+    <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/content[openEHR-EHR-SECTION.adhoc.v1, 'Treatment']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v0, 'HVC genotype test']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v0, 'HVC First type']/items[at0024]">
+        <items>
+            <item>
+                <key>hl7v2_mapping</key>
+                <value>OBX-3.1;3.2</value>
+            </item>
+            <item>
+                <key>fhir_mapping</key>
+                <value>observation.code</value>
+            </item>
+        </items>
+    </annotations>
+    <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/content[openEHR-EHR-SECTION.adhoc.v1, 'Treatment']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v0, 'HVC genotype test']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v0, 'HVC First type']/items[at0001]">
+        <items>
+            <item>
+                <key>hl7v2_mapping</key>
+                <value>OBX.2,OBX.5,OBX.6</value>
+            </item>
+            <item>
+                <key>fhir_mapping</key>
+                <value>Observation.result; Observation.name</value>
+            </item>
+        </items>
+    </annotations>
+    <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/content[openEHR-EHR-SECTION.adhoc.v1, 'Treatment']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v0, 'HVC genotype test']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v0, 'HVC Second type']/items[at0003]">
+        <items>
+            <item>
+                <key>hl7v2_mapping</key>
+                <value>NTE.3</value>
+            </item>
+            <item>
+                <key>fhir_mapping</key>
+                <value>Observation.comments</value>
+            </item>
+        </items>
+    </annotations>
+    <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/content[openEHR-EHR-SECTION.adhoc.v1, 'Treatment']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v0, 'HVC genotype test']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v0, 'HVC Second type']/items[at0005]">
+        <items>
+            <item>
+                <key>hl7v2_mapping</key>
+                <value>OBX-11-observation result status</value>
+            </item>
+            <item>
+                <key>fhir_mapping</key>
+                <value>status</value>
+            </item>
+        </items>
+    </annotations>
+    <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/content[openEHR-EHR-SECTION.adhoc.v1, 'Treatment']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v0, 'HVC genotype test']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v0, 'HVC Second type']/items[at0006]">
+        <items>
+            <item>
+                <key>hl7v2_mapping</key>
+                <value>OBX-22 and/or OBX-19</value>
+            </item>
+            <item>
+                <key>fhir_mapping</key>
+                <value>Observation.issued</value>
+            </item>
+        </items>
+    </annotations>
+    <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/content[openEHR-EHR-SECTION.adhoc.v1, 'Treatment']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v0, 'HVC genotype test']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v0, 'HVC Second type']/items[at0024]">
+        <items>
+            <item>
+                <key>hl7v2_mapping</key>
+                <value>OBX-3.1;3.2</value>
+            </item>
+            <item>
+                <key>fhir_mapping</key>
+                <value>observation.code</value>
+            </item>
+        </items>
+    </annotations>
+    <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/content[openEHR-EHR-SECTION.adhoc.v1, 'Treatment']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v0, 'HVC genotype test']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v0, 'HVC Second type']/items[at0001]">
+        <items>
+            <item>
+                <key>hl7v2_mapping</key>
+                <value>OBX.2,OBX.5,OBX.6</value>
+            </item>
+            <item>
+                <key>fhir_mapping</key>
+                <value>Observation.result; Observation.name</value>
+            </item>
+        </items>
+    </annotations>
+    <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/content[openEHR-EHR-SECTION.adhoc.v1, 'Treatment']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v0, 'HVC genotype test']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v0, 'HVC Second sub-type']/items[at0003]">
+        <items>
+            <item>
+                <key>hl7v2_mapping</key>
+                <value>NTE.3</value>
+            </item>
+            <item>
+                <key>fhir_mapping</key>
+                <value>Observation.comments</value>
+            </item>
+        </items>
+    </annotations>
+    <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/content[openEHR-EHR-SECTION.adhoc.v1, 'Treatment']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v0, 'HVC genotype test']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v0, 'HVC Second sub-type']/items[at0005]">
+        <items>
+            <item>
+                <key>hl7v2_mapping</key>
+                <value>OBX-11-observation result status</value>
+            </item>
+            <item>
+                <key>fhir_mapping</key>
+                <value>status</value>
+            </item>
+        </items>
+    </annotations>
+    <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/content[openEHR-EHR-SECTION.adhoc.v1, 'Treatment']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v0, 'HVC genotype test']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v0, 'HVC Second sub-type']/items[at0006]">
+        <items>
+            <item>
+                <key>hl7v2_mapping</key>
+                <value>OBX-22 and/or OBX-19</value>
+            </item>
+            <item>
+                <key>fhir_mapping</key>
+                <value>Observation.issued</value>
+            </item>
+        </items>
+    </annotations>
+    <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/content[openEHR-EHR-SECTION.adhoc.v1, 'Treatment']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v0, 'HVC genotype test']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v0, 'HVC Second sub-type']/items[at0024]">
+        <items>
+            <item>
+                <key>hl7v2_mapping</key>
+                <value>OBX-3.1;3.2</value>
+            </item>
+            <item>
+                <key>fhir_mapping</key>
+                <value>observation.code</value>
+            </item>
+        </items>
+    </annotations>
+    <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/content[openEHR-EHR-SECTION.adhoc.v1, 'Treatment']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v0, 'HVC genotype test']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v0, 'HVC Second sub-type']/items[at0001]">
+        <items>
+            <item>
+                <key>hl7v2_mapping</key>
+                <value>OBX.2,OBX.5,OBX.6</value>
+            </item>
+            <item>
+                <key>fhir_mapping</key>
+                <value>Observation.result; Observation.name</value>
+            </item>
+        </items>
+    </annotations>
+    <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/content[openEHR-EHR-SECTION.investigations_results_rcp.v1, 'Pathology']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v0, 'General pathology']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v0]/items[at0024]">
+        <items>
+            <item>
+                <key>hl7v2_mapping</key>
+                <value>OBX-3.1;3.2</value>
+            </item>
+            <item>
+                <key>fhir_mapping</key>
+                <value>observation.code</value>
+            </item>
+        </items>
+    </annotations>
+    <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/content[openEHR-EHR-SECTION.investigations_results_rcp.v1, 'Pathology']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v0, 'General pathology']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v0]/items[at0001]">
+        <items>
+            <item>
+                <key>hl7v2_mapping</key>
+                <value>OBX.2,OBX.5,OBX.6</value>
+            </item>
+            <item>
+                <key>fhir_mapping</key>
+                <value>Observation.result; Observation.name</value>
+            </item>
+        </items>
+    </annotations>
+    <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/content[openEHR-EHR-SECTION.investigations_results_rcp.v1, 'Pathology']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v0, 'General pathology']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v0]/items[at0003]">
+        <items>
+            <item>
+                <key>hl7v2_mapping</key>
+                <value>NTE.3</value>
+            </item>
+            <item>
+                <key>fhir_mapping</key>
+                <value>Observation.comments</value>
+            </item>
+        </items>
+    </annotations>
+    <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/content[openEHR-EHR-SECTION.investigations_results_rcp.v1, 'Pathology']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v0, 'General pathology']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v0]/items[at0005]">
+        <items>
+            <item>
+                <key>hl7v2_mapping</key>
+                <value>OBX-11-observation result status</value>
+            </item>
+            <item>
+                <key>fhir_mapping</key>
+                <value>status</value>
+            </item>
+        </items>
+    </annotations>
+    <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/content[openEHR-EHR-SECTION.investigations_results_rcp.v1, 'Pathology']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v0, 'General pathology']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v0]/items[at0006]">
+        <items>
+            <item>
+                <key>hl7v2_mapping</key>
+                <value>OBX-22 and/or OBX-19</value>
+            </item>
+            <item>
+                <key>fhir_mapping</key>
+                <value>Observation.issued</value>
+            </item>
+        </items>
+    </annotations>
+    <definition archetype_id="openEHR-EHR-COMPOSITION.encounter.v1"
+        concept_name="Encounter" name="NWIS Hepatitis C Assessment"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:COMPOSITION">
+        <Content
+            archetype_id="openEHR-EHR-SECTION.referral_details_rcp.v1"
+            path="/content" xsi:type="tem:SECTION">
+            <Item archetype_id="openEHR-EHR-ACTION.service.v0"
+                concept_name="Service" name="Referral details"
+                path="/items" xsi:type="tem:ACTION">
+                <Rule max="0" min="0" path="/ism_transition[at0002]"/>
+                <Rule max="0" min="0" path="/ism_transition[at0008]"/>
+                <Rule max="0" min="0" path="/ism_transition[at0009]"/>
+                <Rule max="0" min="0" path="/ism_transition[at0003]"/>
+                <Rule max="0" min="0" path="/ism_transition[at0004]"/>
+                <Rule max="0" min="0" path="/ism_transition[at0010]"/>
+                <Rule max="0" min="0" path="/ism_transition[at0006]"/>
+                <Rule max="0" min="0" path="/ism_transition[at0023]"/>
+                <Rule max="0" min="0" path="/ism_transition[at0005]"/>
+                <Rule max="0" path="/description[at0001]/items[at0014]"/>
+                <Rule max="0" path="/description[at0001]/items[at0013]"/>
+                <Rule max="0" path="/description[at0001]/items[at0025]"/>
+                <Rule max="0" path="/description[at0001]/items[at0021]">
+                    <constraint xsi:type="tem:countConstraint">
+                        <minMagnitude>0</minMagnitude>
+                        <includesMaximum>false</includesMaximum>
+                        <includesMinimum>true</includesMinimum>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/description[at0001]/items[at0012]"/>
+                <Rule max="0" path="/description[at0001]/items[at0028]"/>
+                <Rule max="0" path="/protocol[at0015]/items[at0016]"/>
+                <Rule max="0" path="/protocol[at0015]/items[at0018]"/>
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.organisation.v0"
+                    concept_name="Organisation" name="Referral source"
+                    path="/protocol[at0015]/items[at0017]" xsi:type="tem:CLUSTER">
+                    <Rule max="0" path="/items[at0011]"/>
+                    <Rule max="0" path="/items[at0005]"/>
+                </Items>
+            </Item>
+            <Item archetype_id="openEHR-EHR-ADMIN_ENTRY.appointment.v0"
+                path="/items" xsi:type="tem:ADMIN_ENTRY">
+                <Rule max="0" path="/data[at0001]/items[at0027]"/>
+                <Rule path="/data[at0001]/items[at0002]">
+                    <constraint xsi:type="tem:textConstraint">
+                        <excludedValues>local::at0003</excludedValues>
+                        <excludedValues>local::at0004</excludedValues>
+                        <excludedValues>local::at0006</excludedValues>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/items[at0010]"/>
+                <Rule path="/data[at0001]/items[at0011]">
+                    <constraint xsi:type="tem:textConstraint">
+                        <includedValues>nwis::new::New</includedValues>
+                        <includedValues>nwis::followup::Follow-up</includedValues>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/items[at0012]">
+                    <constraint xsi:type="tem:countConstraint">
+                        <minMagnitude>0</minMagnitude>
+                        <includesMaximum>false</includesMaximum>
+                        <includesMinimum>true</includesMinimum>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/items[at0013]"/>
+                <Rule max="0" path="/data[at0001]/items[at0015]"/>
+                <Rule max="0" path="/data[at0001]/items[at0016]">
+                    <constraint xsi:type="tem:durationConstraint">
+                        <pattern>PTM</pattern>
+                        <minMagnitude>PT0M</minMagnitude>
+                        <includesMaximum>false</includesMaximum>
+                        <includesMinimum>true</includesMinimum>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/items[at0017]"/>
+                <Rule max="0" path="/data[at0001]/items[at0018]/items[at0021]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Text</includedTypes>
+                        <includedTypes>Identifier</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/items[at0018]/items[at0020]"/>
+                <Rule max="0" path="/data[at0001]/items[at0018]/items[at0019]">
+                    <constraint xsi:type="tem:textConstraint"/>
+                </Rule>
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.organisation.v0"
+                    path="/data[at0001]/items[at0018]/items[at0022]" xsi:type="tem:CLUSTER">
+                    <Rule name="Hospital name" path="/items[at0001]"/>
+                    <Rule max="0" path="/items[at0011]"/>
+                    <Rule default="Consultant" max="0" path="/items[at0005]/items[at0007]"/>
+                    <Items
+                        archetype_id="openEHR-EHR-CLUSTER.person_name.v0"
+                        path="/items[at0005]/items[at0010]" xsi:type="tem:CLUSTER">
+                        <Rule max="0" path="/items[at0006]">
+                            <constraint xsi:type="tem:textConstraint"/>
+                        </Rule>
+                        <Rule max="0" path="/items[at0022]"/>
+                        <Rule max="0" path="/items[at0002]"/>
+                        <Rule max="0" path="/items[at0014]"/>
+                    </Items>
+                    <Items archetype_id="openEHR-EHR-CLUSTER.address.v1"
+                        path="/items[at0008]" xsi:type="tem:CLUSTER">
+                        <Rule path="/items[at0001]/items[at0006]">
+                            <constraint xsi:type="tem:textConstraint">
+                                <excludedValues>local::at0011</excludedValues>
+                                <excludedValues>local::at0012</excludedValues>
+                                <excludedValues>local::at0014</excludedValues>
+                            </constraint>
+                        </Rule>
+                        <Rule name="Location" path="/items[at0001]/items[at0002]"/>
+                        <Rule max="0" path="/items[at0001]/items[at0003]"/>
+                        <Rule max="0" path="/items[at0001]/items[at0004]"/>
+                        <Rule max="0" path="/items[at0001]/items[at0015]"/>
+                    </Items>
+                </Items>
+            </Item>
+        </Content>
+        <Content
+            archetype_id="openEHR-EHR-SECTION.problems_and_diagnoses.v1"
+            concept_name="Problems and diagnoses"
+            name="Problems and issues" path="/content" xsi:type="tem:SECTION">
+            <Rule max="0" path="/items[at0003]"/>
+            <Item
+                archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v1"
+                concept_name="Problem/Diagnosis"
+                name="Primary diagnosis" path="/items[at0001]/items" xsi:type="tem:EVALUATION">
+                <Rule path="/data[at0001]/items[at0002]">
+                    <constraint xsi:type="tem:textConstraint">
+                        <includedValues>SNOMED-CT::235866006::Acute Hepatitis C</includedValues>
+                        <includedValues>SNOMED-CT::128302006::Chronic Hepatitis C</includedValues>
+                        <includedValues>SNOMED-CT::761381000000102::Hepatitis C resolved</includedValues>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/items[at0009]"/>
+                <Rule max="0" path="/data[at0001]/items[at0012]"/>
+                <Rule max="0" path="/data[at0001]/items[at0077]"/>
+                <Rule max="0" path="/data[at0001]/items[at0005]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Coded_text</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/items[at0072]"/>
+                <Rule max="0" path="/data[at0001]/items[at0030]"/>
+                <Rule max="0" path="/data[at0001]/items[at0073]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Coded_text</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/items[at0069]"/>
+                <Rule max="0" path="/protocol[at0032]/items[at0070]"/>
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.problem_qualifier.v1"
+                    path="/data[at0001]/items[at0043]" xsi:type="tem:CLUSTER">
+                    <Rule max="0" path="/items[at0004]">
+                        <constraint xsi:type="tem:textConstraint"/>
+                    </Rule>
+                    <Rule max="0" path="/items[at0060]">
+                        <constraint xsi:type="tem:textConstraint"/>
+                    </Rule>
+                    <Rule max="0" path="/items[at0003]">
+                        <constraint xsi:type="tem:textConstraint"/>
+                    </Rule>
+                    <Rule max="0" path="/items[at0083]">
+                        <constraint xsi:type="tem:textConstraint"/>
+                    </Rule>
+                    <Rule max="0" path="/items[at0089]">
+                        <constraint xsi:type="tem:textConstraint"/>
+                    </Rule>
+                    <Rule max="0" path="/items[at0001]">
+                        <constraint xsi:type="tem:textConstraint"/>
+                    </Rule>
+                    <Rule max="0" path="/items[at0071]"/>
+                    <Rule max="0" path="/items[at0077]">
+                        <constraint xsi:type="tem:textConstraint"/>
+                    </Rule>
+                    <Rule path="/items[at0063]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Coded_text</includedTypes>
+                            <includedTypes>Text</includedTypes>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0073]"/>
+                </Items>
+            </Item>
+            <Item
+                archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v1"
+                concept_name="Problem/Diagnosis" name="Co-morbidity"
+                path="/items[at0002]/items" xsi:type="tem:EVALUATION">
+                <Rule path="/data[at0001]/items[at0002]">
+                    <constraint xsi:type="tem:textConstraint">
+                        <includedValues>SNOMED-CT::86406008::Human immunodeficiency virus infection</includedValues>
+                        <includedValues>SNOMED-CT::66071002::Viral hepatitis type B</includedValues>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/items[at0009]"/>
+                <Rule max="0" path="/data[at0001]/items[at0012]"/>
+                <Rule max="0" path="/data[at0001]/items[at0077]"/>
+                <Rule max="0" path="/data[at0001]/items[at0003]"/>
+                <Rule max="0" path="/data[at0001]/items[at0005]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Coded_text</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/items[at0072]"/>
+                <Rule max="0" path="/data[at0001]/items[at0030]"/>
+                <Rule max="0" path="/data[at0001]/items[at0073]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Coded_text</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/items[at0069]"/>
+                <Rule max="0" path="/protocol[at0032]/items[at0070]"/>
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.hep_c_diagnosis_detail_nwis.v0"
+                    path="/data[at0001]/items[at0043]" xsi:type="tem:CLUSTER"/>
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.problem_qualifier.v1"
+                    path="/data[at0001]/items[at0043]" xsi:type="tem:CLUSTER">
+                    <Rule max="0" path="/items[at0004]">
+                        <constraint xsi:type="tem:textConstraint"/>
+                    </Rule>
+                    <Rule max="0" path="/items[at0060]">
+                        <constraint xsi:type="tem:textConstraint"/>
+                    </Rule>
+                    <Rule max="0" path="/items[at0003]">
+                        <constraint xsi:type="tem:textConstraint"/>
+                    </Rule>
+                    <Rule max="0" path="/items[at0083]">
+                        <constraint xsi:type="tem:textConstraint"/>
+                    </Rule>
+                    <Rule max="0" path="/items[at0089]">
+                        <constraint xsi:type="tem:textConstraint"/>
+                    </Rule>
+                    <Rule max="0" path="/items[at0001]">
+                        <constraint xsi:type="tem:textConstraint"/>
+                    </Rule>
+                    <Rule max="0" path="/items[at0071]"/>
+                    <Rule max="0" path="/items[at0077]">
+                        <constraint xsi:type="tem:textConstraint"/>
+                    </Rule>
+                    <Rule path="/items[at0063]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Coded_text</includedTypes>
+                            <includedTypes>Text</includedTypes>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0073]"/>
+                </Items>
+            </Item>
+            <Item
+                archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v1"
+                concept_name="Problem/Diagnosis"
+                name="Co-morbidity other" path="/items[at0002]/items" xsi:type="tem:EVALUATION">
+                <Rule max="0" path="/data[at0001]/items[at0009]"/>
+                <Rule max="0" path="/data[at0001]/items[at0012]"/>
+                <Rule max="0" path="/data[at0001]/items[at0077]"/>
+                <Rule max="0" path="/data[at0001]/items[at0005]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Coded_text</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/items[at0072]"/>
+                <Rule max="0" path="/data[at0001]/items[at0030]"/>
+                <Rule max="0" path="/data[at0001]/items[at0073]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Coded_text</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/items[at0069]"/>
+                <Rule max="0" path="/protocol[at0032]/items[at0070]"/>
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.hep_c_diagnosis_detail_nwis.v0"
+                    path="/data[at0001]/items[at0043]" xsi:type="tem:CLUSTER"/>
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.problem_qualifier.v1"
+                    path="/data[at0001]/items[at0043]" xsi:type="tem:CLUSTER">
+                    <Rule max="0" path="/items[at0004]">
+                        <constraint xsi:type="tem:textConstraint"/>
+                    </Rule>
+                    <Rule max="0" path="/items[at0060]">
+                        <constraint xsi:type="tem:textConstraint"/>
+                    </Rule>
+                    <Rule max="0" path="/items[at0003]">
+                        <constraint xsi:type="tem:textConstraint"/>
+                    </Rule>
+                    <Rule max="0" path="/items[at0083]">
+                        <constraint xsi:type="tem:textConstraint"/>
+                    </Rule>
+                    <Rule max="0" path="/items[at0089]">
+                        <constraint xsi:type="tem:textConstraint"/>
+                    </Rule>
+                    <Rule max="0" path="/items[at0001]">
+                        <constraint xsi:type="tem:textConstraint"/>
+                    </Rule>
+                    <Rule max="0" path="/items[at0071]"/>
+                    <Rule max="0" path="/items[at0077]">
+                        <constraint xsi:type="tem:textConstraint"/>
+                    </Rule>
+                    <Rule path="/items[at0063]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Coded_text</includedTypes>
+                            <includedTypes>Text</includedTypes>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0073]"/>
+                </Items>
+            </Item>
+            <Item
+                archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v1"
+                concept_name="Problem/Diagnosis" name="Other problem"
+                path="/items[at0003]/items" xsi:type="tem:EVALUATION">
+                <Rule max="0" path="/data[at0001]/items[at0009]"/>
+                <Rule max="0" path="/data[at0001]/items[at0012]"/>
+                <Rule max="0" path="/data[at0001]/items[at0077]"/>
+                <Rule max="0" path="/data[at0001]/items[at0005]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Coded_text</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/items[at0072]"/>
+                <Rule max="0" path="/data[at0001]/items[at0030]"/>
+                <Rule max="0" path="/data[at0001]/items[at0073]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Coded_text</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/items[at0069]"/>
+                <Rule max="0" path="/protocol[at0032]/items[at0070]"/>
+            </Item>
+        </Content>
+        <Content archetype_id="openEHR-EHR-SECTION.adhoc.v1"
+            concept_name="Ad hoc heading" name="Treatment"
+            path="/content" xsi:type="tem:SECTION">
+            <Item
+                archetype_id="openEHR-EHR-OBSERVATION.laboratory_test_result.v0"
+                concept_name="Laboratory test result"
+                name="HVC genotype test" path="/items" xsi:type="tem:OBSERVATION">
+                <Rule
+                    default="SNOMED-CT::397662006::Hepatitis C virus genotype determination" path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0073]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Coded_text</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0075]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0077]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0100]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0057]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0098]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0101]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/state[at0112]/items[at0113]"/>
+                <Rule max="0" path="/protocol[at0004]/items[at0068]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Identifier</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/protocol[at0004]/items[at0094]"/>
+                <Rule max="0" path="/protocol[at0004]/items[at0111]"/>
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.laboratory_test_analyte.v0"
+                    concept_name="Laboratory test analyte"
+                    name="HVC First type"
+                    path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" xsi:type="tem:CLUSTER">
+                    <Rule default="HVC First type" path="/items[at0024]"/>
+                    <Rule path="/items[at0001]">
+                        <constraint xsi:type="tem:textConstraint">
+                            <includedValues>SNOMED-CT::824841000000105::Hepatitis C genotype 1</includedValues>
+                            <includedValues>SNOMED-CT::824851000000108::Hepatitis C genotype 1</includedValues>
+                            <includedValues>SNOMED-CT::824871000000104::Hepatitis C genotype 3</includedValues>
+                            <includedValues>SNOMED-CT::824881000000102::Hepatitis C genotype 4</includedValues>
+                            <includedValues>SNOMED-CT::824891000000100::Hepatitis C genotype 5</includedValues>
+                            <includedValues>SNOMED-CT::824901000000104::Hepatitis C genotype 6</includedValues>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0003]"/>
+                    <Rule max="0" path="/items[at0004]"/>
+                    <Rule max="0" path="/items[at0005]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Coded_text</includedTypes>
+                            <includedTypes>Text</includedTypes>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0006]"/>
+                </Items>
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.laboratory_test_analyte.v0"
+                    concept_name="Laboratory test analyte"
+                    name="HVC Second type"
+                    path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" xsi:type="tem:CLUSTER">
+                    <Rule default="HVC Second type" path="/items[at0024]"/>
+                    <Rule path="/items[at0001]">
+                        <constraint xsi:type="tem:textConstraint">
+                            <includedValues>SNOMED-CT::824841000000105::Hepatitis C genotype 1</includedValues>
+                            <includedValues>SNOMED-CT::824851000000108::Hepatitis C genotype 1</includedValues>
+                            <includedValues>SNOMED-CT::824871000000104::Hepatitis C genotype 3</includedValues>
+                            <includedValues>SNOMED-CT::824881000000102::Hepatitis C genotype 4</includedValues>
+                            <includedValues>SNOMED-CT::824891000000100::Hepatitis C genotype 5</includedValues>
+                            <includedValues>SNOMED-CT::824901000000104::Hepatitis C genotype 6</includedValues>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0003]"/>
+                    <Rule max="0" path="/items[at0004]"/>
+                    <Rule max="0" path="/items[at0005]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Coded_text</includedTypes>
+                            <includedTypes>Text</includedTypes>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0006]"/>
+                </Items>
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.laboratory_test_analyte.v0"
+                    concept_name="Laboratory test analyte"
+                    name="HVC Second sub-type"
+                    path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" xsi:type="tem:CLUSTER">
+                    <Rule default="HVC Second sub-type" path="/items[at0024]"/>
+                    <Rule path="/items[at0001]">
+                        <constraint xsi:type="tem:textConstraint">
+                            <includedValues>SNOMED-CT::824841000000105::Hepatitis C genotype 1</includedValues>
+                            <includedValues>SNOMED-CT::824851000000108::Hepatitis C genotype 1</includedValues>
+                            <includedValues>SNOMED-CT::824871000000104::Hepatitis C genotype 3</includedValues>
+                            <includedValues>SNOMED-CT::824881000000102::Hepatitis C genotype 4</includedValues>
+                            <includedValues>SNOMED-CT::824891000000100::Hepatitis C genotype 5</includedValues>
+                            <includedValues>SNOMED-CT::824901000000104::Hepatitis C genotype 6</includedValues>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0003]"/>
+                    <Rule max="0" path="/items[at0004]"/>
+                    <Rule max="0" path="/items[at0005]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Coded_text</includedTypes>
+                            <includedTypes>Text</includedTypes>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0006]"/>
+                </Items>
+            </Item>
+            <Item
+                archetype_id="openEHR-EHR-EVALUATION.medication_summary-nwis.v0"
+                concept_name="Medication summary nwis"
+                name="Treatment summary" path="/items" xsi:type="tem:EVALUATION">
+                <Rule default="Hepatitis C treatment"
+                    name="Treatment name" path="/data[at0001]/items[at0002]"/>
+                <Rule max="0" path="/data[at0001]/items[at0003]"/>
+                <Rule max="0" path="/data[at0001]/items[at0004]"/>
+                <Rule max="0" path="/data[at0001]/items[at0007]"/>
+                <Rule max="0" path="/data[at0001]/items[at0009]"/>
+                <Rule default="Hepatitis C treatment"
+                    name="Treatment name" path="/data[at0001]/items[at0008, 'Treatment regime']/items[at0021]"/>
+                <Rule name="Start date" path="/data[at0001]/items[at0008, 'Treatment regime']/items[at0011]"/>
+                <Rule max="0" path="/data[at0001]/items[at0008, 'Treatment regime']/items[at0018]"/>
+                <Rule max="0" path="/data[at0001]/items[at0008, 'Treatment regime']/items[at0020]"/>
+                <Rule name="Other relevant information" path="/data[at0001]/items[at0008, 'Treatment regime']/items[at0014]"/>
+                <Rule name="Stop date" path="/data[at0001]/items[at0008, 'Treatment regime']/items[at0012]"/>
+                <Rule max="0" path="/data[at0001]/items[at0008, 'Treatment regime']/items[at0016]">
+                    <constraint xsi:type="tem:quantityConstraint"/>
+                </Rule>
+                <Rule path="/data[at0001]/items[at0008, 'Treatment regime']/items[at0.2]">
+                    <constraint xsi:type="tem:textConstraint">
+                        <includedValues>nwis_hepc::svr24::SVR 24</includedValues>
+                        <includedValues>nwis_hepc::svr12::SVR 12</includedValues>
+                        <includedValues>nwis_hepc::replase::Relapse independent of reason for stopping</includedValues>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/items[at0015]">
+                    <constraint xsi:type="tem:quantityConstraint"/>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/items[at0010]"/>
+                <Rule max="0" path="/protocol[at0005]/items[at0006]"/>
+            </Item>
+        </Content>
+        <Content
+            archetype_id="openEHR-EHR-SECTION.investigations_results_rcp.v1"
+            concept_name="Investigations and results" name="Pathology"
+            path="/content" xsi:type="tem:SECTION">
+            <Item
+                archetype_id="openEHR-EHR-OBSERVATION.laboratory_test_result.v0"
+                concept_name="Laboratory test result"
+                name="General pathology" path="/items" xsi:type="tem:OBSERVATION">
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0073]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Coded_text</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0075]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0077]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0100]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0057]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0098]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0101]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/state[at0112]/items[at0113]"/>
+                <Rule max="0" path="/protocol[at0004]/items[at0068]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Identifier</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/protocol[at0004]/items[at0094]"/>
+                <Rule max="0" path="/protocol[at0004]/items[at0111]"/>
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.laboratory_test_analyte.v0"
+                    path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" xsi:type="tem:CLUSTER">
+                    <Rule max="0" path="/items[at0003]"/>
+                    <Rule max="0" path="/items[at0004]"/>
+                    <Rule max="0" path="/items[at0005]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Coded_text</includedTypes>
+                            <includedTypes>Text</includedTypes>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0006]"/>
+                </Items>
+            </Item>
+        </Content>
+        <Content archetype_id="openEHR-EHR-SECTION.adhoc.v1"
+            concept_name="Ad hoc heading" name="Staging" path="/content" xsi:type="tem:SECTION">
+            <Item archetype_id="openEHR-EHR-OBSERVATION.imaging_exam.v0"
+                concept_name="Imaging examination result"
+                name="Fibroscan" path="/items" xsi:type="tem:OBSERVATION">
+                <Rule default="Hepatic Fibroscan" path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0043]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0007]">
+                    <constraint xsi:type="tem:textConstraint"/>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0024]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0014]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0008]"/>
+                <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0020]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0021]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0023]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/state[at0047]/items[at0048]"/>
+                <Rule max="0" path="/protocol[at0025]/items[at0027]"/>
+                <Rule path="/protocol[at0025]/items[at0027]/items[at0028]"/>
+                <Rule path="/protocol[at0025]/items[at0027]/items[at0032]"/>
+                <Rule path="/protocol[at0025]/items[at0027]/items[at0034]/items[at0035]"/>
+                <Rule path="/protocol[at0025]/items[at0027]/items[at0034]/items[at0036]"/>
+                <Rule path="/protocol[at0025]/items[at0027]/items[at0034]/items[at0037]"/>
+                <Rule path="/protocol[at0025]/items[at0027]/items[at0034]/items[at0038]"/>
+                <Rule path="/protocol[at0025]/items[at0027]/items[at0034]/items[at0039]"/>
+                <Rule path="/protocol[at0025]/items[at0027]/items[at0034]/items[at0040]"/>
+                <Rule max="0" path="/protocol[at0025]/items[at0042]"/>
+                <Rule clone="true" name="Requester order identifier" path="/protocol[at0025]/items[at0042]/items[at0028]"/>
+                <Rule clone="true" name="DICOM study identifier" path="/protocol[at0025]/items[at0042]/items[at0032]"/>
+                <Rule clone="true" name="Image identifier" path="/protocol[at0025]/items[at0042]/items[at0035]"/>
+                <Rule clone="true" name="DICOM series identifier" path="/protocol[at0025]/items[at0042]/items[at0036]"/>
+                <Rule clone="true" name="View" path="/protocol[at0025]/items[at0042]/items[at0037]"/>
+                <Rule clone="true" name="Position" path="/protocol[at0025]/items[at0042]/items[at0038]"/>
+                <Rule clone="true" name="Image DateTime" path="/protocol[at0025]/items[at0042]/items[at0039]"/>
+                <Rule clone="true" name="Image" path="/protocol[at0025]/items[at0042]/items[at0040]"/>
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.fibroscan_imaging_result.v0"
+                    path="/data[at0001]/events[at0002]/data[at0003]/items[at0044]" xsi:type="tem:CLUSTER"/>
+            </Item>
+            <Item
+                archetype_id="openEHR-EHR-OBSERVATION.ishak_modified_hai_score.v0"
+                concept_name="Ishak Modified HAI Score"
+                name="Liver biopsy" path="/items" xsi:type="tem:OBSERVATION"/>
+            <Item
+                archetype_id="openEHR-EHR-EVALUATION.alcohol_consumption_summary.v0"
+                path="/items" xsi:type="tem:EVALUATION">
+                <Rule max="0" path="/data[at0001]/items[at0089]">
+                    <constraint xsi:type="tem:textConstraint"/>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/items[at0043]"/>
+                <Rule max="0" path="/data[at0001]/items[at0015]"/>
+                <Rule max="0" path="/data[at0001]/items[at0080]"/>
+                <Rule max="1" name="Current" path="/data[at0001]/items[at0064]"/>
+                <Rule max="0" path="/data[at0001]/items[at0064, 'Current']/items[at0052]">
+                    <constraint xsi:type="tem:textConstraint"/>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/items[at0064, 'Current']/items[at0112]"/>
+                <Rule max="0" path="/data[at0001]/items[at0064, 'Current']/items[at0081]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Count</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/items[at0064, 'Current']/items[at0013]"/>
+                <Rule max="0" path="/data[at0001]/items[at0064, 'Current']/items[at0082]"/>
+                <Rule max="0" path="/data[at0001]/items[at0064, 'Current']/items[at0030]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Coded_text</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/items[at0064, 'Current']/items[at0097]">
+                    <constraint xsi:type="tem:textConstraint"/>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/items[at0064, 'Current']/items[at0113]"/>
+                <Rule max="0" path="/data[at0001]/items[at0064, 'Current']/items[at0110]">
+                    <constraint xsi:type="tem:quantityConstraint">
+                        <unitMagnitude>
+                            <unit>1/wk</unit>
+                            <minMagnitude>7.0</minMagnitude>
+                            <includesMaximum>false</includesMaximum>
+                            <includesMinimum>true</includesMinimum>
+                        </unitMagnitude>
+                        <unitMagnitude>
+                            <unit>1/mo</unit>
+                            <minMagnitude>31.0</minMagnitude>
+                            <includesMaximum>false</includesMaximum>
+                            <includesMinimum>true</includesMinimum>
+                        </unitMagnitude>
+                    </constraint>
+                </Rule>
+                <Rule path="/data[at0001]/items[at0064, 'Current']/items[at0023]">
+                    <constraint xsi:type="tem:quantityConstraint">
+                        <excludedUnits>1/d</excludedUnits>
+                        <excludedUnits>1/mo</excludedUnits>
+                        <unitMagnitude>
+                            <unit>1/wk</unit>
+                            <minMagnitude>0.0</minMagnitude>
+                            <includesMaximum>false</includesMaximum>
+                            <includesMinimum>true</includesMinimum>
+                        </unitMagnitude>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/items[at0064, 'Current']/items[at0029]"/>
+                <Rule max="0" path="/data[at0001]/items[at0064, 'Current']/items[at0025]">
+                    <constraint xsi:type="tem:countConstraint">
+                        <minMagnitude>0</minMagnitude>
+                        <includesMaximum>false</includesMaximum>
+                        <includesMinimum>true</includesMinimum>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/items[at0064, 'Current']/items[at0014]"/>
+                <Rule max="0" path="/data[at0001]/items[at0064, 'Current']/items[at0087]"/>
+                <Rule max="0" path="/data[at0001]/items[at0016]"/>
+                <Rule max="0" path="/data[at0001]/items[at0019]"/>
+                <Rule max="0" path="/protocol[at0021]/items[at0071]"/>
+                <Rule max="0" path="/protocol[at0021]/items[at0085]"/>
+                <Rule max="0" path="/protocol[at0021]/items[at0075]"/>
+                <Rule max="0" path="/protocol[at0021]/items[at0076]"/>
+                <Rule max="0" path="/protocol[at0021]/items[at0079]"/>
+                <Rule max="0" path="/protocol[at0021]/items[at0104]">
+                    <constraint xsi:type="tem:quantityConstraint">
+                        <unitMagnitude>
+                            <unit>g</unit>
+                            <minMagnitude>0.0</minMagnitude>
+                            <includesMaximum>false</includesMaximum>
+                            <includesMinimum>true</includesMinimum>
+                        </unitMagnitude>
+                        <unitMagnitude>
+                            <unit>[oz_av]</unit>
+                            <minMagnitude>0.0</minMagnitude>
+                            <includesMaximum>false</includesMaximum>
+                            <includesMinimum>true</includesMinimum>
+                        </unitMagnitude>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/protocol[at0021]/items[at0022]"/>
+            </Item>
+            <Item
+                archetype_id="openEHR-EHR-OBSERVATION.ast_to_platelet_ratio_index.v0"
+                path="/items" xsi:type="tem:OBSERVATION">
+                <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]">
+                    <constraint xsi:type="tem:quantityConstraint"/>
+                </Rule>
+                <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]">
+                    <constraint xsi:type="tem:quantityConstraint"/>
+                </Rule>
+                <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0007]">
+                    <constraint xsi:type="tem:quantityConstraint"/>
+                </Rule>
+                <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]">
+                    <constraint xsi:type="tem:quantityConstraint">
+                        <unitMagnitude>
+                            <unit>1</unit>
+                            <includesMaximum>false</includesMaximum>
+                            <includesMinimum>false</includesMinimum>
+                        </unitMagnitude>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0013]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/state[at0016]/items[at0017]"/>
+            </Item>
+        </Content>
+        <Content archetype_id="openEHR-EHR-SECTION.adhoc.v1"
+            concept_name="Ad hoc heading" name="Child-pugh score"
+            path="/content" xsi:type="tem:SECTION">
+            <Item
+                archetype_id="openEHR-EHR-OBSERVATION.child_pugh_score.v0"
+                path="/items" xsi:type="tem:OBSERVATION">
+                <Rule max="0" path="/data[at0001]/events[at0002]/state[at0033]/items[at0034]"/>
+            </Item>
+        </Content>
+        <Content
+            archetype_id="openEHR-EHR-SECTION.plan_requested_actions_rcp.v1"
+            concept_name="Plan and requested actions"
+            name="Current status" path="/content" xsi:type="tem:SECTION">
+            <Item
+                archetype_id="openEHR-EHR-EVALUATION.hepatitis_c_status_nwis.v0"
+                path="/items" xsi:type="tem:EVALUATION"/>
+        </Content>
+        <Context>
+            <Items archetype_id="openEHR-EHR-CLUSTER.xds_metadata.v0"
+                path="/context/other_context[at0001]/items[at0002]" xsi:type="tem:CLUSTER">
+                <Rule max="0" path="/items[at0007]"/>
+                <Rule max="0" path="/items[at0009]"/>
+                <Rule max="0" path="/items[at0011]"/>
+                <Rule max="0" path="/items[at0010]"/>
+            </Items>
+        </Context>
+    </definition>
+    <view>
+        <constraints path="[openEHR-EHR-COMPOSITION.encounter.v1]/content[openEHR-EHR-SECTION.plan_requested_actions_rcp.v1, 'Current status']/items">
+            <items id="VisibleInView">
+                <value>items</value>
+            </items>
+        </constraints>
+    </view>
+    <integrity_checks
+        archetype_id="openEHR-EHR-COMPOSITION.encounter.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">15173A4BF38FA171E47BBE704F3E0940</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.xds_metadata.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">B2538EC96A6545E2E6F04CE532DA36E3</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-SECTION.referral_details_rcp.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">1486F82A2601CDF0D7F2BBB7626997D7</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-ACTION.service.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">1DD7A519075BCADED9022E614B88F4FE</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.organisation.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">66F0BA10E66E902D47B12EAFE9F0F247</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-ADMIN_ENTRY.appointment.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">61B2E9511F5E0A1405F12E8393042208</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.person_name.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">4A2B8D4C0E557A14843B5DBA7D434820</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.address.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">18D2B0E9FACF5C8F0094A5EDDFC97B09</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-SECTION.problems_and_diagnoses.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">22F432BA9F3DB1ECC8EDED3EE4C509A9</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">E3A8F38126B720CBCBCA085F2190A241</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.problem_qualifier.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">3FA9AA5B8C0A900243AF702FF80C4D4A</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.hep_c_diagnosis_detail_nwis.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">3B7BE5A3A13A365A0664C696395723A4</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-SECTION.adhoc.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">B10361594E32A1FB73B449259A593192</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-OBSERVATION.laboratory_test_result.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">1BB8DC23A187DFCB9D9639E283647B75</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.laboratory_test_analyte.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">E62A7A610752BE3F09CEB48321E7567E</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-EVALUATION.medication_summary-nwis.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">98112983CB6C91D56511BBD2D937D6D7</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-SECTION.investigations_results_rcp.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">99EAC7D147B628F6E4DFEA1A1BF11A22</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-OBSERVATION.imaging_exam.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">0D19B58C43604C1F36D88E5079EBB8FF</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.fibroscan_imaging_result.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">14064BE579A090C03845E50D39E61E78</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-OBSERVATION.ishak_modified_hai_score.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">146C3E45DFF7EAEDE282B1F7D6C7A6DA</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-EVALUATION.alcohol_consumption_summary.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">CAF78A26C946978588CCA9CB5E9ED851</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-OBSERVATION.ast_to_platelet_ratio_index.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">A37C90112715183C7E71C186E0B9FE01</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-OBSERVATION.child_pugh_score.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">64870AE17F4867BDC560992AB50C23AC</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-SECTION.plan_requested_actions_rcp.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">EA200004BA20070C6FA6A4909B1E2EA7</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-EVALUATION.hepatitis_c_status_nwis.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">27D4CC583169BF6E02E9A3C977B1A88D</digest>
+    </integrity_checks>
+</template>
