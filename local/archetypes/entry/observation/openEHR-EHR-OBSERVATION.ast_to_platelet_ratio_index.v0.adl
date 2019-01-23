@@ -1,0 +1,219 @@
+﻿archetype (adl_version=1.4; uid=b26a8bd9-d2e8-4a8d-ac0a-f3c3c3f1b1d5)
+	openEHR-EHR-OBSERVATION.ast_to_platelet_ratio_index.v0
+
+concept
+	[at0000]	-- AST to Platelet Ratio Index (APRI)
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"John Meredith">
+		["organisation"] = <"NHS Wales Informatics Service">
+		["email"] = <"john.meredith@wales.nhs.uk">
+		["date"] = <"2019-01-14">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"The APRI model was developed as a simple, easily calculated method to predict significant, severe fibrosis or cirrhosis and has been tested in patients with HCV monoinfection and those with HCV and HIV coinfection.[1,2] The APRI is calculated using the patient’s aspartate aminotransferase (AST) level, corrected for the upper limit of normal, and platelet count. ">
+			use = <"A meta-analysis of 40 studies found that an APRI cutoff of greater than or equal to 0.7 had an estimated sensitivity of 77% and specificity of 72% for detection of significant hepatic fibrosis (greater than or equal to F2 by Metavir).[3] A cutoff score of at least 1.0 has an estimated sensitivity of 61 to 76% and specificity of 64 to 72% for detection of severe fibrosis/cirrhosis (F3 to F4 by Metavir). For detection of cirrhosis, a cutoff score of at least 2.0 was more specific (91%) but less sensitive (46%). Overall, APRI has good diagnostic utility for predicting severe fibrosis/cirrhosis or low risk of significant fibrosis, but does not accurately differentiate intermediate fibrosis from mild or severe fibrosis. Thus, clinicians should use APRI in combination with other noninvasive markers of fibrosis.">
+			keywords = <"AST, APRI, Platelet, Ratio Index, liver, Hepatitis C", ...>
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <"Robert Jones", "Ian McNicoll">
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["references"] = <"1. Wai CT, Greenson JK, Fontana RJ, Kalbfleisch JD, Marrero JA, Conjeevaram HS, Lok AS. A simple noninvasive index can predict both significant fibrosis and cirrhosis in patients with chronic hepatitis C. Hepatology. 2003;38:518-26.
+2. Schmid P, Bregenzer A, Huber M, et al. Progression of Liver Fibrosis in HIV/HCV Co-Infection: A Comparison between Non-Invasive Assessment Methods and Liver Biopsy. PLoS One. 2015;10:e0138838.
+3. Lin ZH, Xin YN, Dong QJ, et al. Performance of the aspartate aminotransferase-to-platelet ratio index for the staging of hepatitis C-related fibrosis: an updated meta-analysis. Hepatology. 2011;53:726-36.
+4. Paula P. Cox-North; Margaret C. Shuhart, “Core Concepts - Evaluation and Staging of Liver Fibrosis - Evaluation, Staging, and Monitoring of Chronic Hepatitis C - Hepatitis C Online,” 2018. [Online]. Available: https://www.hepatitisc.uw.edu/go/evaluation-staging-monitoring/evaluation-staging/core-concept/all.">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"A37C90112715183C7E71C186E0B9FE01">
+		["build_uid"] = <"e71ec8e4-1dbd-49e1-8ad8-32f3c96ab6dd">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- AST to Platelet Ratio Index (APRI)
+		data matches {
+			HISTORY[at0001] matches {    -- History
+				events cardinality matches {0..*; unordered} matches {
+					EVENT[at0002] matches {    -- Any Event
+						data matches {
+							ITEM_TREE[at0003] matches {    -- ItemTree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0005] occurrences matches {0..1} matches {    -- AST
+										value matches {
+											C_DV_QUANTITY <
+												
+												list = <
+													["1"] = <
+														units = <"u/L">
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0006] occurrences matches {0..1} matches {    -- AST upper limit
+										value matches {
+											C_DV_QUANTITY <
+												
+												list = <
+													["1"] = <
+														units = <"u/L">
+													>
+												>
+
+												assumed_value = <
+													units = <"u/L">
+													magnitude = <40.0>
+													precision = <-1>
+												>
+											>
+										}
+									}
+									ELEMENT[at0007] occurrences matches {0..1} matches {    -- Platelet count
+										value matches {
+											C_DV_QUANTITY <
+												
+												list = <
+													["1"] = <
+														units = <"10+9/L">
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0004] occurrences matches {0..1} matches {    -- APRI score
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::380]>
+												list = <
+													["1"] = <
+														units = <"1">
+														precision = <|3|>
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0013] occurrences matches {0..1} matches {    -- Comment
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+						state matches {
+							ITEM_TREE[at0016] matches {    -- ItemTree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0017] occurrences matches {0..1} matches {    -- Confounding factors
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0008] matches {    -- ItemTree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0012] occurrences matches {0..*} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	terminologies_available = <"SNOMED-CT", "LOINC">
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"AST to Platelet Ratio Index (APRI)">
+					description = <"AST to Platelet Ratio Index (APRI) used as an indication for liver biopsy. ">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"*">
+				>
+				["at0002"] = <
+					text = <"Any Event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"ItemTree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"APRI score">
+					description = <"AST to platelet ratio index">
+				>
+				["at0005"] = <
+					text = <"AST">
+					description = <"Aspartate transaminase (AST)">
+				>
+				["at0006"] = <
+					text = <"AST upper limit">
+					description = <"Aspartate transaminase (Upper Limit of Normal) (IU/L). Most experts recommend using 40 IU/L as the value for the AST upper limit of normal when calculating an APRI value.">
+				>
+				["at0007"] = <
+					text = <"Platelet count">
+					description = <"Platelet Count (109/L).">
+				>
+				["at0008"] = <
+					text = <"ItemTree">
+					description = <"@ internal @">
+				>
+				["at0012"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local content or to align with other reference models/formalisms.">
+					comment = <"Local information requirements or additional metadata to align with FHIR or CIMI equivalents.">
+				>
+				["at0013"] = <
+					text = <"Comment">
+					description = <"Additional narrative about the index calculation, not captured in other fields.">
+				>
+				["at0016"] = <
+					text = <"ItemTree">
+					description = <"@ internal @">
+				>
+				["at0017"] = <
+					text = <"Confounding factors">
+					description = <"Narrative description of any issues or factors that may impact on the calculation.">
+					comment = <"
+	
+
+">
+				>
+			>
+		>
+	>
+	term_bindings = <
+		["SNOMED-CT"] = <
+			items = <
+				["at0007"] = <[SNOMED-CT::365632008]>
+				["at0005"] = <[SNOMED-CT::373679006]>
+			>
+		>
+		["LOINC"] = <
+			items = <
+				["at0004"] = <[LOINC::86465-2]>
+			>
+		>
+	>
