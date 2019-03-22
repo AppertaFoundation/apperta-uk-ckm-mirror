@@ -20,7 +20,7 @@ description
 
 The GAD-7 originates from Spitzer RL, Kroenke K, Williams JB, et al; A brief measure for assessing generalized anxiety disorder: the GAD-7. Arch Intern Med. 2006 May 22;166(10):1092-7.">
 			misuse = <"">
-			copyright = <"© Clinical Models UK">
+			copyright = <"© Apperta Foundation">
 		>
 	>
 	lifecycle_state = <"in_development">
@@ -31,92 +31,102 @@ The GAD-7 originates from Spitzer RL, Kroenke K, Williams JB, et al; A brief mea
 		["references"] = <"https://patient.info/doctor/generalised-anxiety-disorder-assessment-gad-7 cited 12-Jun-2018.">
 		["current_contact"] = <"Hildegard McNicoll, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
 		["original_namespace"] = <"uk.org.clinicalmodels">
-		["original_publisher"] = <"UK Clinical Models">
+		["original_publisher"] = <"Apperta Foundation">
 		["custodian_namespace"] = <"uk.org.clinicalmodels">
-		["MD5-CAM-1.0.1"] = <"A50D5E5A721AACD81F1E9F9DE47D5AA1">
-		["build_uid"] = <"41780224-712d-42c1-a298-c144882c7ae8">
+		["MD5-CAM-1.0.1"] = <"5ACF3542C0C9A971D23A26D6B87EF2DE">
+		["build_uid"] = <"9cb60cf1-b789-48aa-8ecb-e889b65c94d7">
 		["revision"] = <"0.0.1-alpha">
 	>
 
 definition
-	OBSERVATION[at0000] matches {	-- GAD-7
+	OBSERVATION[at0000] matches {    -- GAD-7
 		data matches {
-			HISTORY[at0001] matches {	-- Event Series
+			HISTORY[at0001] matches {    -- Event Series
 				events cardinality matches {1..*; unordered} matches {
-					POINT_EVENT[at0002] occurrences matches {0..1} matches {	-- Point in time
+					POINT_EVENT[at0002] occurrences matches {0..1} matches {    -- Point in time
 						data matches {
-							ITEM_TREE[at0003] matches {	-- Tree
+							ITEM_TREE[at0003] matches {    -- Tree
 								items cardinality matches {0..*; unordered} matches {
-									ELEMENT[at0008] occurrences matches {0..1} matches {	-- Feeling nervous, anxious or on edge
+									ELEMENT[at0008] occurrences matches {0..1} matches {    -- Feeling nervous, anxious or on edge
 										value matches {
-											0|[local::at0009], 	-- Not at all
-											1|[local::at0010], 	-- Several days
-											2|[local::at0011], 	-- More than half the days
-											3|[local::at0012]  	-- Nearly every day
+											0|[local::at0009],
+											1|[local::at0010],
+											2|[local::at0011],
+											3|[local::at0012]
 										}
 									}
-									ELEMENT[at0013] occurrences matches {0..1} matches {	-- Not being able to stop or control worrying
+									ELEMENT[at0013] occurrences matches {0..1} matches {    -- Not being able to stop or control worrying
 										value matches {
-											0|[local::at0014], 	-- Not at all
-											1|[local::at0015], 	-- Several days
-											2|[local::at0016], 	-- More than half the days
-											3|[local::at0017]  	-- Nearly every day
+											0|[local::at0014],
+											1|[local::at0015],
+											2|[local::at0016],
+											3|[local::at0017]
 										}
 									}
-									ELEMENT[at0018] occurrences matches {0..1} matches {	-- Worrying too much about different things
+									ELEMENT[at0018] occurrences matches {0..1} matches {    -- Worrying too much about different things
 										value matches {
-											0|[local::at0019], 	-- Not at all
-											1|[local::at0020], 	-- Several days
-											2|[local::at0021], 	-- More than half the days
-											3|[local::at0022]  	-- Nearly every day
+											0|[local::at0019],
+											1|[local::at0020],
+											2|[local::at0021],
+											3|[local::at0022]
 										}
 									}
-									ELEMENT[at0023] occurrences matches {0..1} matches {	-- Trouble relaxing
+									ELEMENT[at0023] occurrences matches {0..1} matches {    -- Trouble relaxing
 										value matches {
-											0|[local::at0024], 	-- Not at all
-											1|[local::at0025], 	-- Several days
-											2|[local::at0026], 	-- More than half the days
-											3|[local::at0027]  	-- Nearly every day
+											0|[local::at0024],
+											1|[local::at0025],
+											2|[local::at0026],
+											3|[local::at0027]
 										}
 									}
-									ELEMENT[at0028] occurrences matches {0..1} matches {	-- Being so restless it is hard to sit still
+									ELEMENT[at0028] occurrences matches {0..1} matches {    -- Being so restless it is hard to sit still
 										value matches {
-											0|[local::at0029], 	-- Not at all
-											1|[local::at0030], 	-- Several days
-											2|[local::at0031], 	-- More than half the days
-											3|[local::at0032]  	-- Nearly every day
+											0|[local::at0029],
+											1|[local::at0030],
+											2|[local::at0031],
+											3|[local::at0032]
 										}
 									}
-									ELEMENT[at0033] occurrences matches {0..1} matches {	-- Becoming easily annoyed or irritable
+									ELEMENT[at0033] occurrences matches {0..1} matches {    -- Becoming easily annoyed or irritable
 										value matches {
-											0|[local::at0034], 	-- Not at all
-											1|[local::at0035], 	-- Several days
-											2|[local::at0036], 	-- More than half the days
-											3|[local::at0037]  	-- Nearly every day
+											0|[local::at0034],
+											1|[local::at0035],
+											2|[local::at0036],
+											3|[local::at0037]
 										}
 									}
-									ELEMENT[at0038] occurrences matches {0..1} matches {	-- Feeling afraid as it something awful might happen
+									ELEMENT[at0038] occurrences matches {0..1} matches {    -- Feeling afraid as it something awful might happen
 										value matches {
-											0|[local::at0039], 	-- Not at all
-											1|[local::at0040], 	-- Several days
-											2|[local::at0041], 	-- More than half the days
-											3|[local::at0042]  	-- Nearly every day
+											0|[local::at0039],
+											1|[local::at0040],
+											2|[local::at0041],
+											3|[local::at0042]
 										}
 									}
-									ELEMENT[at0043] occurrences matches {0..1} matches {	-- Total score
+									ELEMENT[at0043] occurrences matches {0..1} matches {    -- Total score
 										value matches {
 											DV_COUNT matches {
 												magnitude matches {|0..21|}
 											}
 										}
 									}
+									ELEMENT[at0045] occurrences matches {0..1} matches {    -- Interpretation
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0044] occurrences matches {0..1} matches {    -- Comment
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
 								}
 							}
 						}
 						state matches {
-							ITEM_TREE[at0006] matches {	-- Tree
+							ITEM_TREE[at0006] matches {    -- Tree
 								items cardinality matches {0..*; unordered} matches {
-									ELEMENT[at0007] occurrences matches {0..1} matches {	-- Confounding factors
+									ELEMENT[at0007] occurrences matches {0..1} matches {    -- Confounding factors
 										value matches {
 											DV_TEXT matches {*}
 										}
@@ -129,9 +139,9 @@ definition
 			}
 		}
 		protocol matches {
-			ITEM_TREE[at0004] matches {	-- Tree
+			ITEM_TREE[at0004] matches {    -- Tree
 				items cardinality matches {0..*; unordered} matches {
-					allow_archetype CLUSTER[at0005] occurrences matches {0..*} matches {	-- Extension
+					allow_archetype CLUSTER[at0005] occurrences matches {0..*} matches {    -- Extension
 						include
 							archetype_id/value matches {/.*/}
 					}
@@ -321,6 +331,16 @@ ontology
 				["at0043"] = <
 					text = <"Total score">
 					description = <"Total GAD-7 score calculated from sum of all seven individual responses.">
+				>
+				["at0044"] = <
+					text = <"Comment">
+					description = <"Any additional narrative comment, not covered in other elements.">
+					comment = <"For example: ''">
+				>
+				["at0045"] = <
+					text = <"Interpretation">
+					description = <"Single word, phrase or brief description that represents the clinical meaning and significance of the total score.">
+					comment = <"For example: 'Probable anxiety disorder'. Coding of the interpretation with a terminology is preferred, where possible.">
 				>
 			>
 		>
