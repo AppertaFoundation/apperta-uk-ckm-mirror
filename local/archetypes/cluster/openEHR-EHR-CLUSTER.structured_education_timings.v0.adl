@@ -1,0 +1,113 @@
+﻿archetype (adl_version=1.4; uid=e6accd67-1516-4f1e-a364-3838cc7a33bd)
+	openEHR-EHR-CLUSTER.structured_education_timings.v0
+
+concept
+	[at0000]	-- Structured education timings
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"John Meredith">
+		["organisation"] = <"NHS Wales Informatics Service">
+		["email"] = <"john.meredith@wales.nhs.uk">
+		["date"] = <"2019-02-26">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Structured education timings are recorded as part of the diabetes management education summary where educational treatment given to the patient is attributed a specific status depending on when it was offered and if it is refreshed. ">
+			use = <"">
+			keywords = <"structured education", ...>
+			misuse = <"">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"04C2F029FBAD2C370B4A92342989067F">
+		["build_uid"] = <"d8f0c27e-3702-4118-8f40-2b7a7b3894e2">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Structured education timings
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Date offered
+				value matches {
+					DV_DATE_TIME matches {*}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {    -- First received
+				value matches {
+					DV_DATE_TIME matches {*}
+				}
+			}
+			ELEMENT[at0003] occurrences matches {0..1} matches {    -- Last refreshed
+				value matches {
+					DV_DATE_TIME matches {*}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {    -- Refresher type
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0005,    -- One-to-one
+							at0006,    -- Group
+							at0007]    -- Online certified
+						}
+					}
+				}
+				name matches {
+					DV_CODED_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Structured education timings">
+					description = <"Structured education timings for diabetes management education summary.">
+				>
+				["at0001"] = <
+					text = <"Date offered">
+					description = <"*">
+				>
+				["at0002"] = <
+					text = <"First received">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Last refreshed">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Refresher type">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"One-to-one">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Group">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Online certified">
+					description = <"*">
+				>
+			>
+		>
+	>
