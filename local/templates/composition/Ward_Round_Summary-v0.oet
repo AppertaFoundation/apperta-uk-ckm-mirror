@@ -36,7 +36,7 @@
             </item>
             <item>
                 <key>MD5-CAM-1.0.1</key>
-                <value>93d9b666fb162e979d7b6d297e0b9b26</value>
+                <value>03ecd093adf6b9a8224cfb3cf7f38c50</value>
             </item>
             <item>
                 <key>PARENT:MD5-CAM-1.0.1</key>
@@ -399,7 +399,11 @@
             </Item>
         </Content>
         <Content archetype_id="openEHR-EHR-SECTION.adhoc.v1"
-            concept_name="Ad hoc heading" name="Frailty" path="/content" xsi:type="tem:SECTION"/>
+            concept_name="Ad hoc heading" name="Frailty" path="/content" xsi:type="tem:SECTION">
+            <Item
+                archetype_id="openEHR-EHR-OBSERVATION.clinical_frailty_scale.v0"
+                path="/items" xsi:type="tem:OBSERVATION"/>
+        </Content>
         <Content archetype_id="openEHR-EHR-SECTION.adhoc.v1"
             concept_name="Ad hoc heading"
             name="Acute Kidney Injury Status" path="/content" xsi:type="tem:SECTION"/>
@@ -572,6 +576,12 @@
         xmlns:tem="openEHR/v1/Template"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
         <digest id="MD5-CAM-1.0.1">D151870E300424DD16EB635786088BE3</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-OBSERVATION.clinical_frailty_scale.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">685F85105D3B3911C942479FCE199522</digest>
     </integrity_checks>
     <integrity_checks
         archetype_id="openEHR-EHR-OBSERVATION.bowel_assessment_nhss.v0"
