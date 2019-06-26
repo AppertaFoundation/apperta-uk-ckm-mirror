@@ -30,55 +30,51 @@ description
 		["original_namespace"] = <"uk.org.clinicalmodels">
 		["original_publisher"] = <"UK Clinical Models">
 		["custodian_namespace"] = <"uk.org.clinicalmodels">
-		["MD5-CAM-1.0.1"] = <"9600D96AB99E8C64E6BAC82A2C40AE05">
-		["build_uid"] = <"45ca2201-d38f-43a7-a80f-e7bee45f61e4">
+		["MD5-CAM-1.0.1"] = <"FBDD7446E1AA5758693D54F2A50BB530">
+		["build_uid"] = <"6e13ff80-32d3-4224-859d-aeb1c0c4944f">
 		["revision"] = <"0.0.1-alpha">
 	>
 
 definition
-	ADMIN_ENTRY[at0000] matches {	-- Organ donation preferences
+	ADMIN_ENTRY[at0000] matches {    -- Organ donation preferences
 		data matches {
-			ITEM_TREE[at0001] matches {	-- Tree
+			ITEM_TREE[at0001] matches {    -- Tree
 				items cardinality matches {0..*; unordered} matches {
-					ELEMENT[at0013] occurrences matches {0..1} matches {	-- On NHS Organ Donor register
+					ELEMENT[at0013] occurrences matches {0..1} matches {    -- On NHS Organ Donor register
 						value matches {
-							DV_BOOLEAN matches {
-								value matches {True, False}
-							}
+							DV_BOOLEAN matches {*}
 						}
 					}
-					ELEMENT[at0014] occurrences matches {0..1} matches {	-- Preference
+					ELEMENT[at0014] occurrences matches {0..1} matches {    -- Preference
 						value matches {
 							DV_CODED_TEXT matches {
 								defining_code matches {
 									[local::
-									at0015, 	-- Opted in
-									at0016, 	-- Opted out
-									at0017]	-- Not stated or not known
+									at0015,    -- Opted in
+									at0016,    -- Opted out
+									at0017]    -- Not stated or not known
 								}
 							}
 						}
 					}
-					ELEMENT[at0012] occurrences matches {0..1} matches {	-- All organs
+					ELEMENT[at0012] occurrences matches {0..1} matches {    -- All organs
 						value matches {
-							DV_BOOLEAN matches {
-								value matches {True, False}
-							}
+							DV_BOOLEAN matches {*}
 						}
 					}
-					ELEMENT[at0002] occurrences matches {0..*} matches {	-- Specific organs
+					ELEMENT[at0002] occurrences matches {0..*} matches {    -- Specific organs
 						value matches {
 							DV_CODED_TEXT matches {
 								defining_code matches {
 									[local::
-									at0003, 	-- Kidneys
-									at0004, 	-- Heart
-									at0005, 	-- Liver
-									at0006, 	-- Pancreas
-									at0007, 	-- Small bowel
-									at0008, 	-- Lungs
-									at0009, 	-- Corneas
-									at0011]	-- Tissue
+									at0003,    -- Kidneys
+									at0004,    -- Heart
+									at0005,    -- Liver
+									at0006,    -- Pancreas
+									at0007,    -- Small bowel
+									at0008,    -- Lungs
+									at0009,    -- Corneas
+									at0011]    -- Tissue
 								}
 							}
 							DV_TEXT matches {*}

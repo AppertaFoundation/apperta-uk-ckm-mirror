@@ -30,36 +30,34 @@ description
 		["original_namespace"] = <"uk.org.clinicalmodels">
 		["original_publisher"] = <"UK Clinical Models">
 		["custodian_namespace"] = <"uk.org.clinicalmodels">
-		["MD5-CAM-1.0.1"] = <"DB522FC91E92B10221F17FA8AE1C6555">
-		["build_uid"] = <"1293c081-24b8-40b5-a612-83ec53abdf01">
+		["MD5-CAM-1.0.1"] = <"8DD05D4D236D335A21D3584B3F548B1D">
+		["build_uid"] = <"41d4b2c4-1e0d-4c6e-af8b-1bacb8cf783e">
 		["revision"] = <"0.0.1-alpha">
 	>
 
 definition
-	ADMIN_ENTRY[at0000] matches {	-- Capacity ReSPECT
+	ADMIN_ENTRY[at0000] matches {    -- Capacity ReSPECT
 		data matches {
-			ITEM_TREE[at0001] matches {	-- Tree
+			ITEM_TREE[at0001] matches {    -- Tree
 				items cardinality matches {0..*; unordered} matches {
-					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Sufficient capacity
+					ELEMENT[at0002] occurrences matches {0..1} matches {    -- Sufficient capacity
 						value matches {
-							DV_BOOLEAN matches {
-								value matches {True, False}
-							}
+							DV_BOOLEAN matches {*}
 						}
 					}
-					ELEMENT[at0003] occurrences matches {0..1} matches {	-- Legal proxy
+					ELEMENT[at0003] occurrences matches {0..1} matches {    -- Legal proxy
 						value matches {
 							DV_CODED_TEXT matches {
 								defining_code matches {
 									[local::
-									at0004, 	-- Yes
-									at0005, 	-- No
-									at0006]	-- Unknown
+									at0004,    -- Yes
+									at0005,    -- No
+									at0006]    -- Unknown
 								}
 							}
 						}
 					}
-					allow_archetype CLUSTER[at0007] occurrences matches {0..*} matches {	-- Person holding parental responsibility
+					allow_archetype CLUSTER[at0007] occurrences matches {0..*} matches {    -- Person holding parental responsibility
 						include
 							archetype_id/value matches {/.*/}
 					}
