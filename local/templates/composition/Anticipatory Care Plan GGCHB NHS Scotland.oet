@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xmlns="openEHR/v1/Template">
+    <id>ddad28de-a87f-49c2-b846-468a6312d23f</id>
+    <name>Anticipatory Care Plan GGCHB NHS Scotland</name>
+    <description>
+        <original_author>
+            <item>
+                <key>date</key>
+                <value>2019-06-27</value>
+            </item>
+            <item>
+                <key>name</key>
+                <value>Dr Paul Miller</value>
+            </item>
+            <item>
+                <key>organisation</key>
+                <value>NES Digital Service, NHS Scotland</value>
+            </item>
+            <item>
+                <key>email</key>
+                <value>paul.miller@nes.scot.nhs.uk</value>
+            </item>
+        </original_author>
+        <lifecycle_state>unmanaged</lifecycle_state>
+        <details>
+            <purpose>First version of an example of how the Greater Glasgow and Clyde Anticipatory Care Plan could be instantiated as a template.</purpose>
+        </details>
+        <other_details>
+            <item>
+                <key>licence</key>
+                <value>This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.</value>
+            </item>
+            <item>
+                <key>custodian_organisation</key>
+                <value>openEHR Foundation</value>
+            </item>
+            <item>
+                <key>original_namespace</key>
+                <value>org.openehr</value>
+            </item>
+            <item>
+                <key>original_publisher</key>
+                <value>openEHR Foundation</value>
+            </item>
+            <item>
+                <key>custodian_namespace</key>
+                <value>org.openehr</value>
+            </item>
+            <item>
+                <key>MD5-CAM-1.0.1</key>
+                <value>109099053328b2bd451a4c78bbc56edf</value>
+            </item>
+            <item>
+                <key>PARENT:MD5-CAM-1.0.1</key>
+                <value>1DA7D8EDC23CF1B673C05E6E8FE28EB1</value>
+            </item>
+            <item>
+                <key>build_uid</key>
+                <value>24b4828a-2e19-40c3-87e4-1051dd0a5606</value>
+            </item>
+        </other_details>
+    </description>
+    <definition archetype_id="openEHR-EHR-COMPOSITION.report.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:COMPOSITION">
+        <Content archetype_id="openEHR-EHR-SECTION.adhoc.v1"
+            concept_name="Ad hoc heading" name="Review Dates"
+            path="/content" xsi:type="tem:SECTION"/>
+        <Content archetype_id="openEHR-EHR-SECTION.adhoc.v1"
+            concept_name="Ad hoc heading" name="Special Notes"
+            path="/content" xsi:type="tem:SECTION">
+            <Item
+                archetype_id="openEHR-EHR-ADMIN_ENTRY.respect_summary.v0"
+                path="/items" xsi:type="tem:ADMIN_ENTRY">
+                <Rule max="0" path="/data[at0001]/items[at0005]"/>
+            </Item>
+        </Content>
+        <Content archetype_id="openEHR-EHR-SECTION.adhoc.v1"
+            concept_name="Ad hoc heading" name="Patient Contacts"
+            path="/content" xsi:type="tem:SECTION">
+            <Item
+                archetype_id="openEHR-EHR-ADMIN_ENTRY.relevant_contact_rcp.v0"
+                path="/items" xsi:type="tem:ADMIN_ENTRY">
+                <Items archetype_id="openEHR-EHR-CLUSTER.person_name.v0"
+                    path="/data[at0001]/items[at0013]" xsi:type="tem:CLUSTER">
+                    <Rule max="0" path="/items[at0006]"/>
+                    <Rule max="0" path="/items[at0022]"/>
+                    <Rule max="0" path="/items[at0002]/items[at0004]"/>
+                </Items>
+            </Item>
+        </Content>
+        <Content archetype_id="openEHR-EHR-SECTION.adhoc.v1"
+            concept_name="Ad hoc heading" name="Clinical Summary"
+            path="/content" xsi:type="tem:SECTION">
+            <Item archetype_id="openEHR-EHR-SECTION.adhoc.v1"
+                concept_name="Ad hoc heading"
+                name="Current Health Problems" path="/items" xsi:type="tem:SECTION">
+                <Item
+                    archetype_id="openEHR-EHR-EVALUATION.clinical_synopsis.v1"
+                    path="/items" xsi:type="tem:EVALUATION"/>
+                <Item
+                    archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v1"
+                    path="/items" xsi:type="tem:EVALUATION">
+                    <Rule max="0" path="/data[at0001]/items[at0012]"/>
+                    <Rule max="0" path="/data[at0001]/items[at0077]"/>
+                    <Rule max="0" path="/data[at0001]/items[at0003]"/>
+                    <Rule max="0" path="/data[at0001]/items[at0005]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Coded_text</includedTypes>
+                            <includedTypes>Text</includedTypes>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/data[at0001]/items[at0072]"/>
+                    <Rule max="0" path="/data[at0001]/items[at0030]"/>
+                    <Rule max="0" path="/data[at0001]/items[at0073]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Coded_text</includedTypes>
+                            <includedTypes>Text</includedTypes>
+                        </constraint>
+                    </Rule>
+                </Item>
+            </Item>
+            <Item archetype_id="openEHR-EHR-SECTION.adhoc.v1"
+                concept_name="Ad hoc heading"
+                name="Essential Medication and Equipment" path="/items" xsi:type="tem:SECTION"/>
+        </Content>
+        <Content archetype_id="openEHR-EHR-SECTION.adhoc.v1"
+            concept_name="Ad hoc heading" name="Care and Support"
+            path="/content" xsi:type="tem:SECTION">
+            <Item archetype_id="openEHR-EHR-SECTION.adhoc.v1"
+                concept_name="Ad hoc heading" name="Power of Attorney"
+                path="/items" xsi:type="tem:SECTION">
+                <Item
+                    archetype_id="openEHR-EHR-ADMIN_ENTRY.power_of_attorney_uk.v1"
+                    path="/items" xsi:type="tem:ADMIN_ENTRY"/>
+            </Item>
+            <Item archetype_id="openEHR-EHR-SECTION.adhoc.v1"
+                concept_name="Ad hoc heading"
+                name="Adults with incapacity" path="/items" xsi:type="tem:SECTION"/>
+            <Item archetype_id="openEHR-EHR-SECTION.adhoc.v1"
+                concept_name="Ad hoc heading"
+                name="Essential Medication and Equipment" path="/items" xsi:type="tem:SECTION"/>
+        </Content>
+        <Content archetype_id="openEHR-EHR-SECTION.adhoc.v1"
+            concept_name="Ad hoc heading"
+            name="Resuscitation and Preferred Place of Care"
+            path="/content" xsi:type="tem:SECTION">
+            <Item archetype_id="openEHR-EHR-SECTION.adhoc.v1"
+                concept_name="Ad hoc heading"
+                name="Preferred Place of Care" path="/items" xsi:type="tem:SECTION">
+                <Item
+                    archetype_id="openEHR-EHR-EVALUATION.care_preference_uk.v0"
+                    path="/items" xsi:type="tem:EVALUATION">
+                    <Rule max="0" path="/data[at0001]/items[at0039]">
+                        <constraint xsi:type="tem:countConstraint">
+                            <maxMagnitude>100</maxMagnitude>
+                            <minMagnitude>1</minMagnitude>
+                            <includesMaximum>true</includesMaximum>
+                            <includesMinimum>true</includesMinimum>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/data[at0001]/items[at0038]"/>
+                </Item>
+            </Item>
+            <Item archetype_id="openEHR-EHR-SECTION.adhoc.v1"
+                concept_name="Ad hoc heading" name="Resuscitation"
+                path="/items" xsi:type="tem:SECTION">
+                <Item
+                    archetype_id="openEHR-EHR-EVALUATION.cpr_decision_uk.v0"
+                    path="/items" xsi:type="tem:EVALUATION"/>
+            </Item>
+        </Content>
+        <Content archetype_id="openEHR-EHR-SECTION.adhoc.v1"
+            concept_name="Ad hoc heading" name="Frailty" path="/content" xsi:type="tem:SECTION">
+            <Item
+                archetype_id="openEHR-EHR-OBSERVATION.clinical_frailty_scale.v0"
+                path="/items" xsi:type="tem:OBSERVATION"/>
+        </Content>
+    </definition>
+    <integrity_checks archetype_id="openEHR-EHR-COMPOSITION.report.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">1DA7D8EDC23CF1B673C05E6E8FE28EB1</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-SECTION.adhoc.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">4F5EA4B729BE5E129F87B46C2235C64C</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-ADMIN_ENTRY.respect_summary.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">42B6229D24EED33B6F2F91135E0B4841</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-ADMIN_ENTRY.relevant_contact_rcp.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">9CC0B83E6A153CB7FF937C37C42835FB</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.person_name.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">4A2B8D4C0E557A14843B5DBA7D434820</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-EVALUATION.clinical_synopsis.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">32F9563D428258E02EFA916126110EBF</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">767E39313E0D137FA9E95FE7477DEEF8</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-ADMIN_ENTRY.power_of_attorney_uk.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">9DF5B23BF01246240BF2B91579FEE02D</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-EVALUATION.care_preference_uk.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">AA45A4552E64A5CC08104414CDA59D7A</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-EVALUATION.cpr_decision_uk.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">40CBAF5A01D32E8917DDDFD752562AF4</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-OBSERVATION.clinical_frailty_scale.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">685F85105D3B3911C942479FCE199522</digest>
+    </integrity_checks>
+</template>
