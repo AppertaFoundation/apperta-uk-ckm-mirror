@@ -1,0 +1,447 @@
+﻿archetype (adl_version=1.4; uid=f9fc4cd0-8de2-4e59-a623-a7432be4a20a)
+	openEHR-EHR-OBSERVATION.myelopathy_disability_index.v0
+
+concept
+	[at0000]	-- Myelopathy Disability Index Questionnaire
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Alan Fish">
+		["organisation"] = <"Apperta Foundation CIC.">
+		["email"] = <"alan.fish@apperta.org">
+		["date"] = <"2019-07-03">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the capture and reporting of details of the Myelopathy Disability Index Questionnaire.">
+			use = <"Use to record details of the Myelopathy Disability Index Questionnaire.
+
+This questionnaire is a patient-reported outcome measure (PROM) for spine surgery.
+
+While openEHR archetypes are all freely available under an open license, the specific content of this archetype may be copyright protected. Any use of this archetype within implementations must be in compliance with the terms established by the copyright owners where a copyright exists. ">
+			misuse = <"Not to be used unless the terms of copyright have been observed (if a copyright exists).">
+			copyright = <"© Clinical Models UK, Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["references"] = <"https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3886505/">
+		["current_contact"] = <"Alan Fish, Apperta Foundation CIC.<alan.fish@apperta.org>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"BDB429039A91218D127FC4CC79077745">
+		["build_uid"] = <"8c3bca9d-f635-4430-aede-8015602bd035">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- Myelopathy Disability Index Questionnaire
+		data matches {
+			HISTORY[at0001] matches {    -- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..1} matches {    -- Point in time
+						data matches {
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {    -- Rising - chair
+										value matches {
+											0|[local::at0009],
+											1|[local::at0050],
+											2|[local::at0051],
+											3|[local::at0052]
+										}
+									}
+									ELEMENT[at0053] occurrences matches {0..1} matches {    -- Rising - bed
+										value matches {
+											0|[local::at0054],
+											1|[local::at0055],
+											2|[local::at0056],
+											3|[local::at0057]
+										}
+									}
+									ELEMENT[at0058] occurrences matches {0..1} matches {    -- Eating - cutting
+										value matches {
+											0|[local::at0059],
+											1|[local::at0060],
+											2|[local::at0061],
+											3|[local::at0062]
+										}
+									}
+									ELEMENT[at0063] occurrences matches {0..1} matches {    -- Eating - lift a cup
+										value matches {
+											0|[local::at0064],
+											1|[local::at0065],
+											2|[local::at0066],
+											3|[local::at0067]
+										}
+									}
+									ELEMENT[at0068] occurrences matches {0..1} matches {    -- Walking - flat ground
+										value matches {
+											0|[local::at0069],
+											1|[local::at0070],
+											2|[local::at0071],
+											3|[local::at0072]
+										}
+									}
+									ELEMENT[at0078] occurrences matches {0..1} matches {    -- Walking - five steps
+										value matches {
+											0|[local::at0079],
+											1|[local::at0080],
+											2|[local::at0081],
+											3|[local::at0082]
+										}
+									}
+									ELEMENT[at0073] occurrences matches {0..1} matches {    -- Hygiene - washing
+										value matches {
+											0|[local::at0074],
+											1|[local::at0075],
+											2|[local::at0076],
+											3|[local::at0077]
+										}
+									}
+									ELEMENT[at0083] occurrences matches {0..1} matches {    -- Hygiene - toilet
+										value matches {
+											0|[local::at0084],
+											1|[local::at0085],
+											2|[local::at0086],
+											3|[local::at0087]
+										}
+									}
+									ELEMENT[at0088] occurrences matches {0..1} matches {    -- Grip - open jars
+										value matches {
+											0|[local::at0089],
+											1|[local::at0090],
+											2|[local::at0091],
+											3|[local::at0092]
+										}
+									}
+									ELEMENT[at0093] occurrences matches {0..1} matches {    -- Activities - car
+										value matches {
+											0|[local::at0094],
+											1|[local::at0095],
+											2|[local::at0096],
+											3|[local::at0097]
+										}
+									}
+									ELEMENT[at0044] occurrences matches {0..1} matches {    -- Total score
+										value matches {
+											DV_COUNT matches {
+												magnitude matches {|0..100|}
+											}
+										}
+									}
+									ELEMENT[at0045] occurrences matches {0..1} matches {    -- Total score as percentage
+										value matches {
+											DV_PROPORTION matches {
+												numerator matches {|0.0..100.0|}
+												type matches {2}
+											}
+										}
+									}
+								}
+							}
+						}
+						state matches {
+							ITEM_TREE[at0046] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0047] occurrences matches {0..*} matches {    -- Confounding factors
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0048] matches {    -- ItemTree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0049] occurrences matches {0..*} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Myelopathy Disability Index Questionnaire">
+					description = <"Myelopathy Disability Index Questionnaire.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Point in time">
+					description = <"A specific date and/or time which may be explicitly defined in a template or at run-time.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Rising - chair">
+					description = <"Patient-reported ability to rise up from an armless straght chair.">
+					comment = <"Questionnaire wording: 
+Rising are you able to stand up from an armless straight chair?">
+				>
+				["at0009"] = <
+					text = <"Without ANY difficulty">
+					description = <"The patient can stand up from an armless straight chair without any difficulty.">
+				>
+				["at0044"] = <
+					text = <"Total score">
+					description = <"Total score from questions 1 to 8.">
+				>
+				["at0045"] = <
+					text = <"Total score as percentage">
+					description = <"Total score from questions 1 to 10 as a percentage.">
+				>
+				["at0046"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0047"] = <
+					text = <"Confounding factors">
+					description = <"Record any issues or factors that may impact on the score or interpretation.">
+				>
+				["at0048"] = <
+					text = <"ItemTree">
+					description = <"@ internal @">
+				>
+				["at0049"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental information or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+				["at0050"] = <
+					text = <"With SOME difficulty">
+					description = <"The patient can stand up from an armless straight chair with some difficulty.">
+				>
+				["at0051"] = <
+					text = <"With MUCH difficulty / assistance required">
+					description = <"The patient can stand up from an armless straight chair with much difficulty.">
+				>
+				["at0052"] = <
+					text = <"Unable to do">
+					description = <"The patient is unable to stand up from an armless straight chair.">
+				>
+				["at0053"] = <
+					text = <"Rising - bed">
+					description = <"Patient-reported ability to get in and out of bed.">
+					comment = <"Questionnaire wording: 
+Rising are you able to get in and out of bed?">
+				>
+				["at0054"] = <
+					text = <"Without ANY difficulty">
+					description = <"The patient can get in and out of bed without any difficulty.">
+				>
+				["at0055"] = <
+					text = <"With SOME difficulty">
+					description = <"The patient can get in and out of bed with some difficulty.">
+				>
+				["at0056"] = <
+					text = <"With MUCH difficulty / assistance required">
+					description = <"The patient can get in and out of bed with much difficulty.">
+				>
+				["at0057"] = <
+					text = <"Unable to do">
+					description = <"The patient is unable to get in and out of bed.">
+				>
+				["at0058"] = <
+					text = <"Eating - cutting">
+					description = <"Patient-reported ability to eat and cut their meat.">
+					comment = <"Questionnaire wording: 
+Eating are you able to cut your meat? ">
+				>
+				["at0059"] = <
+					text = <"Without ANY difficulty">
+					description = <"The patient can cut meat without any difficulty.">
+				>
+				["at0060"] = <
+					text = <"With SOME difficulty">
+					description = <"The patient can cut meat with some difficulty.">
+				>
+				["at0061"] = <
+					text = <"With MUCH difficulty / assistance required">
+					description = <"The patient can cut meat with much difficulty.">
+				>
+				["at0062"] = <
+					text = <"Unable to do">
+					description = <"The patient is unable to cut meat.">
+				>
+				["at0063"] = <
+					text = <"Eating - lift a cup">
+					description = <"Patient-reported ability to lift a full cup or glass to their mouth.">
+					comment = <"Questionnaire wording: 
+Eating are you able to lift a full cup or glass to your mouth?">
+				>
+				["at0064"] = <
+					text = <"Without ANY difficulty">
+					description = <"The patient can lift a full cup or glass to their mouth without any difficulty.">
+				>
+				["at0065"] = <
+					text = <"With SOME difficulty">
+					description = <"The patient can lift a full cup or glass to their mouth with some difficulty.">
+				>
+				["at0066"] = <
+					text = <"With MUCH difficulty / assistance required">
+					description = <"The patient can lift a full cup or glass to their mouth with much difficulty.">
+				>
+				["at0067"] = <
+					text = <"Unable to do">
+					description = <"The patient is unable to lift a full cup or glass to their mouth.">
+				>
+				["at0068"] = <
+					text = <"Walking - flat ground">
+					description = <"Patient-reported ability to walk around outdoors on flat ground.">
+					comment = <"Questionnaire wording: 
+Walking are you able to walk outdoors on flat ground? ">
+				>
+				["at0069"] = <
+					text = <"Without ANY difficulty">
+					description = <"The patient can walk around outdoors on flat ground without any difficulty.">
+				>
+				["at0070"] = <
+					text = <"With SOME difficulty">
+					description = <"The patient can walk around outdoors on flat ground with some difficulty.">
+				>
+				["at0071"] = <
+					text = <"With MUCH difficulty / assistance required">
+					description = <"The patient can walk around outdoors on flat ground with much difficulty.">
+				>
+				["at0072"] = <
+					text = <"Unable to do">
+					description = <"The patient is unable to walk around outdoors on flat ground.">
+				>
+				["at0073"] = <
+					text = <"Hygiene - washing">
+					description = <"Patient-reported ability to wash and dry their entire body.">
+					comment = <"Questionnaire wording: 
+Hygiene are you able to wash and dry your entire body? ">
+				>
+				["at0074"] = <
+					text = <"Without ANY difficulty">
+					description = <"The patient can wash and dry their body without any difficulty.">
+				>
+				["at0075"] = <
+					text = <"With SOME difficulty">
+					description = <"The patient can wash and dry their body with some difficulty.">
+				>
+				["at0076"] = <
+					text = <"With MUCH difficulty / assistance required">
+					description = <"The patient can wash and dry their body with much difficulty.">
+				>
+				["at0077"] = <
+					text = <"Unable to do">
+					description = <"The patient is unable to wash and dry their body.">
+				>
+				["at0078"] = <
+					text = <"Walking - five steps">
+					description = <"Patient-reported ability to climb up 5 steps.">
+					comment = <"Questionnaire wording: 
+Walking are you able to climb up five steps?
+">
+				>
+				["at0079"] = <
+					text = <"Without ANY difficulty">
+					description = <"The patient can climb up five steps without any difficulty.">
+				>
+				["at0080"] = <
+					text = <"With SOME difficulty">
+					description = <"The patient can climb up five steps with some difficulty.">
+				>
+				["at0081"] = <
+					text = <"With MUCH difficulty / assistance required">
+					description = <"The patient can climb up five steps with much difficulty.">
+				>
+				["at0082"] = <
+					text = <"Unable to do">
+					description = <"The patient is unable to climb up five steps.">
+				>
+				["at0083"] = <
+					text = <"Hygiene - toilet">
+					description = <"Patient-reported ability to get on and off the toilet">
+					comment = <"Questionnaire wording: 
+Hygiene are you able to get on and off the toilet? ">
+				>
+				["at0084"] = <
+					text = <"Without ANY difficulty">
+					description = <"The patient can get on and off the toilet without any difficulty.">
+				>
+				["at0085"] = <
+					text = <"With SOME difficulty">
+					description = <"The patient can get on and off the toilet with some difficulty.">
+				>
+				["at0086"] = <
+					text = <"With MUCH difficulty / assistance required">
+					description = <"The patient can get on and off the toilet with much difficulty.">
+				>
+				["at0087"] = <
+					text = <"Unable to do">
+					description = <"The patient is unable to get on and off the toilet.">
+				>
+				["at0088"] = <
+					text = <"Grip - open jars">
+					description = <"Patient-reported ability to open jars which have previously been opened.">
+					comment = <"Questionnaire wording: 
+Grip are you able to:Open jars which have been previously
+opened? ">
+				>
+				["at0089"] = <
+					text = <"Without ANY difficulty">
+					description = <"The patient can open jars that have already been opened without any difficulty.">
+				>
+				["at0090"] = <
+					text = <"With SOME difficulty">
+					description = <"The patient can open jars that have already been opened with some difficulty.">
+				>
+				["at0091"] = <
+					text = <"With MUCH difficulty / assistance required">
+					description = <"The patient can open jars that have already been opened with much difficulty.">
+				>
+				["at0092"] = <
+					text = <"Unable to do">
+					description = <"The patient is unable to open jars that have already been opened.">
+				>
+				["at0093"] = <
+					text = <"Activities - car">
+					description = <"Patient-reported ability to get in and out of a car.">
+					comment = <"Questionnaire wording: 
+Activities are you able to:Get in and out of a car? ">
+				>
+				["at0094"] = <
+					text = <"Without ANY difficulty">
+					description = <"The patient can get in and out of a car without any difficulty.">
+				>
+				["at0095"] = <
+					text = <"With SOME difficulty">
+					description = <"The patient can get in and out of a car with some difficulty.">
+				>
+				["at0096"] = <
+					text = <"With MUCH difficulty / assistance required">
+					description = <"The patient can get in and out of a car with much difficulty.">
+				>
+				["at0097"] = <
+					text = <"Unable to do">
+					description = <"The patient is unable to get in and out of a car.">
+				>
+			>
+		>
+	>
