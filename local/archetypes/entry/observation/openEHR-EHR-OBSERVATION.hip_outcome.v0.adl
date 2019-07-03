@@ -1,0 +1,229 @@
+﻿archetype (adl_version=1.4; uid=6b02a3dd-82ab-4798-a837-c8072b97b7b3)
+	openEHR-EHR-OBSERVATION.hip_outcome.v0
+
+concept
+	[at0000]	-- Hip outcome questionnaire
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2018-09-03">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the recording and reporting of patient-reported outcome information following hip operations, based on the questionnaire from the Non Arthroplasty Hip Surgery Register (NAHSR) of the British Hip Society.">
+			use = <"Use tor record patient-reported outcome information following hip operations, based on the questionnaire from the Non Arthroplasty Hip Surgery Register (NAHSR) of the British Hip Society.
+
+While openEHR archetypes are all freely available under an open license, the specific content of this archetype may be copyright protected. Any use of this archetype within implementations must be in compliance with the terms established by the copyright owners where a copyright exists. ">
+			keywords = <"Outcome, hip, questionnaire", ...>
+			misuse = <"Not to be used unless the terms of copyright have been observed (if a copyright exists).">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["references"] = <"Derived from: <Add reference to original resource here>
+https://www.britishhipsociety.com cited 03-Sep-2018.">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"4D7D202C7E67582750C9BFFDAC5A1215">
+		["build_uid"] = <"92c0216a-d55b-4def-8562-eff425be0d9e">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- Hip outcome questionnaire
+		data matches {
+			HISTORY[at0001] matches {    -- History
+				events cardinality matches {0..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {1..*} matches {    -- Point in time
+						data matches {
+							ITEM_TREE[at0003] matches {    -- ItemTree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0008] occurrences matches {0..1} matches {    -- Satisfaction
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0009,    -- Very satisfied
+													at0010,    -- Quite satisfied
+													at0011,    -- Neither satisfied nor dissatisfied
+													at0012,    -- Quite dissatisfied
+													at0013]    -- Very dissatisfied
+												}
+											}
+										}
+									}
+									ELEMENT[at0014] occurrences matches {0..1} matches {    -- Venous thrombosis?
+										value matches {
+											DV_BOOLEAN matches {*}
+										}
+									}
+									ELEMENT[at0015] occurrences matches {0..1} matches {    -- Pulmonary thrombosis?
+										value matches {
+											DV_BOOLEAN matches {*}
+										}
+									}
+									ELEMENT[at0016] occurrences matches {0..1} matches {    -- Wound infection?
+										value matches {
+											DV_BOOLEAN matches {*}
+										}
+									}
+									ELEMENT[at0017] occurrences matches {0..1} matches {    -- Deep infection of hip joint?
+										value matches {
+											DV_BOOLEAN matches {*}
+										}
+									}
+									ELEMENT[at0018] occurrences matches {0..1} matches {    -- Any other problems?
+										value matches {
+											DV_BOOLEAN matches {*}
+										}
+									}
+									ELEMENT[at0019] occurrences matches {0..1} matches {    -- Any other operations on operated hip?
+										value matches {
+											DV_BOOLEAN matches {*}
+										}
+									}
+									ELEMENT[at0021] occurrences matches {0..1} matches {    -- Any other useful operation information
+										value matches {
+											DV_BOOLEAN matches {*}
+										}
+									}
+									ELEMENT[at0022] occurrences matches {0..1} matches {    -- Details
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+						state matches {
+							ITEM_TREE[at0004] matches {    -- ItemTree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0007] occurrences matches {0..*} matches {    -- Confounding factors
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0005] matches {    -- ItemTree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0006] occurrences matches {0..1} matches {    -- Extension
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Hip outcome questionnaire">
+					description = <"Hip outcome questionnaire based on the Non Arthroplasty Hip Surgery Register (NAHSR) of the British Hip Society.">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"*">
+				>
+				["at0002"] = <
+					text = <"Point in time">
+					description = <"A specific date and/or time which may be explicitly defined in a template or at run-time.">
+				>
+				["at0003"] = <
+					text = <"ItemTree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"ItemTree">
+					description = <"@ internal @">
+				>
+				["at0005"] = <
+					text = <"ItemTree">
+					description = <"@ internal @">
+				>
+				["at0006"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental information or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+				["at0007"] = <
+					text = <"Confounding factors">
+					description = <"Record any issues or factors that may impact on the score or interpretation.">
+				>
+				["at0008"] = <
+					text = <"Satisfaction">
+					description = <"Patient reported degree of satisfaction with outcome of hip operation.">
+				>
+				["at0009"] = <
+					text = <"Very satisfied">
+					description = <"Patient reports that they are very satisfied with the outcome of their hip operation.">
+				>
+				["at0010"] = <
+					text = <"Quite satisfied">
+					description = <"Patient reports that they are very satisfied with the outcome of their hip operation.">
+				>
+				["at0011"] = <
+					text = <"Neither satisfied nor dissatisfied">
+					description = <"Patient reports that they are neither satisfied nor dissatisfied with the outcome of their hip operation.">
+				>
+				["at0012"] = <
+					text = <"Quite dissatisfied">
+					description = <"Patient reports that they are quite dissatisfied with the outcome of their hip operation.">
+				>
+				["at0013"] = <
+					text = <"Very dissatisfied">
+					description = <"Patient reports that they are very dissatisfied with the outcome of their hip operation.">
+				>
+				["at0014"] = <
+					text = <"Venous thrombosis?">
+					description = <"Patient reported statement whether they suffered venous thrombosis after last hip operation.">
+				>
+				["at0015"] = <
+					text = <"Pulmonary thrombosis?">
+					description = <"Patient reported statement whether they suffered pulmonary thrombosis after last hip operation.">
+				>
+				["at0016"] = <
+					text = <"Wound infection?">
+					description = <"Patient reported statement whether they suffered a wound infection after last hip operation.">
+				>
+				["at0017"] = <
+					text = <"Deep infection of hip joint?">
+					description = <"Patient reported statement whether they suffered a deep infection of hip joint after last hip operation.">
+				>
+				["at0018"] = <
+					text = <"Any other problems?">
+					description = <"Patient reported statement whether they suffered any other problems after last hip operation.">
+				>
+				["at0019"] = <
+					text = <"Any other operations on operated hip?">
+					description = <"Patient reported statement whether they had any other operations on operated hip since last hip operation.">
+				>
+				["at0021"] = <
+					text = <"Any other useful operation information">
+					description = <"Patient reported statement whether there is any other useful operation information about hip joint.">
+				>
+				["at0022"] = <
+					text = <"Details">
+					description = <"Patient provided details of other problems, other operations and other useful operation information to supplement yes answers to previous questions.">
+				>
+			>
+		>
+	>
