@@ -1,0 +1,476 @@
+﻿archetype (adl_version=1.4; uid=844e7928-0663-449c-94b4-bcaeea177f4c)
+	openEHR-EHR-OBSERVATION.Neck_Disability_Index.v0
+
+concept
+	[at0000]	-- Neck Disability Index (NDI)
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Alan Fish">
+		["organisation"] = <"Apperta Foundation CIC.">
+		["email"] = <"alan.fish@apperta.org">
+		["date"] = <"2019-07-18">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the capture and reporting of details of the Neck Disability Index Questionnaire.">
+			use = <"Use to record details of the Neck Disability Index Questionnaire.
+
+This questionnaire is a patient-reported outcome measure (PROM) for spine surgery.
+
+While openEHR archetypes are all freely available under an open license, the specific content of this archetype may be copyright protected. Any use of this archetype within implementations must be in compliance with the terms established by the copyright owners where a copyright exists. ">
+			misuse = <"Not to be used unless the terms of copyright have been observed (if a copyright exists).">
+			copyright = <"© Clinical Models UK, Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["references"] = <"">
+		["current_contact"] = <"Alan Fish, Apperta Foundation CIC.<alan.fish@apperta.org>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"DB58F7A950C6AE534FB0AC179886BEA5">
+		["build_uid"] = <"3b84d07a-7996-4ac6-852e-efca2120612c">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- Neck Disability Index (NDI)
+		data matches {
+			HISTORY[at0001] matches {    -- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..1} matches {    -- Point in time
+						data matches {
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {    -- Pain Intensity
+										value matches {
+											0|[local::at0009],
+											1|[local::at0050],
+											2|[local::at0051],
+											3|[local::at0052],
+											4|[local::at0098],
+											5|[local::at0099]
+										}
+									}
+									ELEMENT[at0053] occurrences matches {0..1} matches {    -- Personal care
+										value matches {
+											0|[local::at0054],
+											1|[local::at0055],
+											2|[local::at0056],
+											3|[local::at0057],
+											4|[local::at0100],
+											5|[local::at0101]
+										}
+									}
+									ELEMENT[at0058] occurrences matches {0..1} matches {    -- Lifting
+										value matches {
+											0|[local::at0059],
+											1|[local::at0060],
+											2|[local::at0061],
+											3|[local::at0062],
+											4|[local::at0102],
+											5|[local::at0103]
+										}
+									}
+									ELEMENT[at0063] occurrences matches {0..1} matches {    -- Reading
+										value matches {
+											0|[local::at0064],
+											1|[local::at0065],
+											2|[local::at0066],
+											3|[local::at0067]
+										}
+									}
+									ELEMENT[at0068] occurrences matches {0..1} matches {    -- Headaches
+										value matches {
+											0|[local::at0069],
+											1|[local::at0070],
+											2|[local::at0071],
+											3|[local::at0072]
+										}
+									}
+									ELEMENT[at0078] occurrences matches {0..1} matches {    -- Concentration
+										value matches {
+											0|[local::at0079],
+											1|[local::at0080],
+											2|[local::at0081],
+											3|[local::at0082]
+										}
+									}
+									ELEMENT[at0073] occurrences matches {0..1} matches {    -- Work
+										value matches {
+											0|[local::at0074],
+											1|[local::at0075],
+											2|[local::at0076],
+											3|[local::at0077]
+										}
+									}
+									ELEMENT[at0083] occurrences matches {0..1} matches {    -- Driving
+										value matches {
+											0|[local::at0084],
+											1|[local::at0085],
+											2|[local::at0086],
+											3|[local::at0087]
+										}
+									}
+									ELEMENT[at0088] occurrences matches {0..1} matches {    -- Sleeping
+										value matches {
+											0|[local::at0089],
+											1|[local::at0090],
+											2|[local::at0091],
+											3|[local::at0092]
+										}
+									}
+									ELEMENT[at0093] occurrences matches {0..1} matches {    -- Recreation
+										value matches {
+											0|[local::at0094],
+											1|[local::at0095],
+											2|[local::at0096],
+											3|[local::at0097]
+										}
+									}
+									ELEMENT[at0044] occurrences matches {0..1} matches {    -- Total score
+										value matches {
+											DV_COUNT matches {
+												magnitude matches {|0..100|}
+											}
+										}
+									}
+									ELEMENT[at0045] occurrences matches {0..1} matches {    -- Total score as percentage
+										value matches {
+											DV_PROPORTION matches {
+												numerator matches {|0.0..100.0|}
+												type matches {2}
+											}
+										}
+									}
+								}
+							}
+						}
+						state matches {
+							ITEM_TREE[at0046] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0047] occurrences matches {0..*} matches {    -- Confounding factors
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0048] matches {    -- ItemTree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0049] occurrences matches {0..*} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Neck Disability Index (NDI)">
+					description = <"Neck Disability Index.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Point in time">
+					description = <"A specific date and/or time which may be explicitly defined in a template or at run-time.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Pain Intensity">
+					description = <"Patient-reported neck pain intensity.">
+					comment = <"Questionnaire wording: 
+Section 1 - Pain intensity">
+				>
+				["at0009"] = <
+					text = <"I have no pain at the moment">
+					description = <"The patient has no pain at the moment.">
+				>
+				["at0044"] = <
+					text = <"Total score">
+					description = <"Total score from questions 1 to 10.">
+				>
+				["at0045"] = <
+					text = <"Total score as percentage">
+					description = <"Total score from questions 1 to 10 as a percentage.">
+				>
+				["at0046"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0047"] = <
+					text = <"Confounding factors">
+					description = <"Record any issues or factors that may impact on the score or interpretation.">
+				>
+				["at0048"] = <
+					text = <"ItemTree">
+					description = <"@ internal @">
+				>
+				["at0049"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental information or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+				["at0050"] = <
+					text = <"The pain is very mild at the moment">
+					description = <"The patient has very mild pain at the moment.">
+				>
+				["at0051"] = <
+					text = <"The pain is moderate at the moment">
+					description = <"The patient has moderate pain at the moment.">
+				>
+				["at0052"] = <
+					text = <"The pain is fairly severe at the moment">
+					description = <"The patient has fairly severe pain at the moment.">
+				>
+				["at0053"] = <
+					text = <"Personal care">
+					description = <"Patient-reported ability of personal care (washing, dressing etc) due to neck pain.">
+					comment = <"Questionnaire wording: 
+Section 2 – Personal care (washing, dressing etc)">
+				>
+				["at0054"] = <
+					text = <"I can look after myself normally without causing extra pain">
+					description = <"The patient can look after their self without causing extra pain.">
+				>
+				["at0055"] = <
+					text = <"I can look after myself normally but it causes extra pain">
+					description = <"The patient can look after their self normally but it causes extra pain.">
+				>
+				["at0056"] = <
+					text = <"It is painful to look after myself and I am slow and careful">
+					description = <"The patient finds it painful to look after their self and are slow and careful doing so.">
+				>
+				["at0057"] = <
+					text = <"I need some help but manage most of my personal care">
+					description = <"The patient needs some help but manages most of their personal care.">
+				>
+				["at0058"] = <
+					text = <"Lifting">
+					description = <"Patient-reported ability to lift heavy weights due to neck pain.">
+					comment = <"Questionnaire wording: 
+Section 3 – Lifting">
+				>
+				["at0059"] = <
+					text = <"I can lift heavy weights without extra pain">
+					description = <"The patient can lift heavy weights without extra pain.">
+				>
+				["at0060"] = <
+					text = <"I can lift heavy weights but it gives extra pain">
+					description = <"The patient can lift heavy weights but it gives extra pain.">
+				>
+				["at0061"] = <
+					text = <"Pain prevents me from lifting heavy weights off the floor, but I can manage if they are conveniently placed eg. on a table">
+					description = <"Pain prevents the patient from lifting heavy weights off the floor, but they can manage if they are conveniently placed eg. on a table.">
+				>
+				["at0062"] = <
+					text = <"Pain prevents me from lifting heavy weights, but I can manage light to medium weights if they are conveniently positioned">
+					description = <"Pain prevents the patient from lifting heavy weights, but they can manage light to medium weights if they are conveniently positioned.">
+				>
+				["at0063"] = <
+					text = <"Reading">
+					description = <"Patient-reported ability to read due to neck pain.">
+					comment = <"Questionnaire wording: 
+Section 4 – Reading">
+				>
+				["at0064"] = <
+					text = <"I can read as much as I want to with no pain in my neck">
+					description = <"The patient can read as much as they want to with no pain in their neck.">
+				>
+				["at0065"] = <
+					text = <"I can read as much as I want to with slight pain in my neck">
+					description = <"The patient can read as much as they want to with slight pain in their neck.">
+				>
+				["at0066"] = <
+					text = <"I can read as much as I want with moderate pain in my neck">
+					description = <"The patient can read as much as they want with moderate pain in their neck.">
+				>
+				["at0067"] = <
+					text = <"I can’t read as much as I want because of moderate pain in my neck">
+					description = <"The patient can’t read as much as they want because of moderate pain in their neck.">
+				>
+				["at0068"] = <
+					text = <"Headaches">
+					description = <"Patient-reported suffering from headaches due to neck pain.">
+					comment = <"Questionnaire wording: 
+Section 5 – Headaches">
+				>
+				["at0069"] = <
+					text = <"I have no headaches at all">
+					description = <"The patient has no headaches at all.">
+				>
+				["at0070"] = <
+					text = <"I have slight headaches, which come infrequently">
+					description = <"The patient has slight headaches, which come infrequently.">
+				>
+				["at0071"] = <
+					text = <"I have moderate headaches, which come infrequently">
+					description = <"The patient has moderate headaches, which come infrequently.">
+				>
+				["at0072"] = <
+					text = <"I have moderate headaches, which come frequently">
+					description = <"The patient has moderate headaches, which come frequently.">
+				>
+				["at0073"] = <
+					text = <"Work">
+					description = <"Patient-reported ability to work due to neck pain.">
+					comment = <"Questionnaire wording: 
+Section 7 – Work">
+				>
+				["at0074"] = <
+					text = <"I can do as much work as I want to">
+					description = <"The patient can do as much work as they want to.">
+				>
+				["at0075"] = <
+					text = <"I can only do my usual work, but no more">
+					description = <"The patient can only do their usual work, but no more.">
+				>
+				["at0076"] = <
+					text = <"I can do most of my usual work, but no more">
+					description = <"The patient can do most of their usual work, but no more.">
+				>
+				["at0077"] = <
+					text = <"I cannot do my usual work">
+					description = <"the patient cannot do their usual work.">
+				>
+				["at0078"] = <
+					text = <"Concentration">
+					description = <"Patient-reported concentration levels due to neck pain.">
+					comment = <"Questionnaire wording: 
+Section 6 – Concentration
+">
+				>
+				["at0079"] = <
+					text = <"I can concentrate fully when I want to with no difficulty">
+					description = <"The patient can concentrate fully when they want to with no difficulty.">
+				>
+				["at0080"] = <
+					text = <"I can concentrate fully when I want to with slight difficulty">
+					description = <"The patient can concentrate fully when they want to with slight difficulty.">
+				>
+				["at0081"] = <
+					text = <"I have a fair degree of difficulty in concentrating when I want to">
+					description = <"The patient has a fair degree of difficulty in concentrating when they want to.">
+				>
+				["at0082"] = <
+					text = <"I have a lot of difficulty in concentrating when I want to">
+					description = <"The patient has a lot of difficulty in concentrating when they want to.">
+				>
+				["at0083"] = <
+					text = <"Driving">
+					description = <"Patient-reported impact on driving due to back pain.">
+					comment = <"Questionnaire wording: 
+Section 8 – Driving">
+				>
+				["at0084"] = <
+					text = <"I can drive my car without any neck pain">
+					description = <"The patient can drive my car without any neck pain.">
+				>
+				["at0085"] = <
+					text = <"I can drive my car as long as I want with slight pain in my neck">
+					description = <"The patient can drive my car as long as they want with slight pain in their neck.">
+				>
+				["at0086"] = <
+					text = <"I can drive my car as long as I want with moderate pain in my neck">
+					description = <"The patient can drive my car as long as they want with moderate pain in their neck.">
+				>
+				["at0087"] = <
+					text = <"I can hardly drive at all because of severe pain in my neck">
+					description = <"The patient can hardly drive at all because of severe pain in their neck.">
+				>
+				["at0088"] = <
+					text = <"Sleeping">
+					description = <"Patient-reported impact on sleep due to neck pain.">
+					comment = <"Questionnaire wording: 
+Section 9 – Sleeping">
+				>
+				["at0089"] = <
+					text = <"I have no trouble sleeping">
+					description = <"Patient has no trouble sleeping.">
+				>
+				["at0090"] = <
+					text = <"My sleep is slightly disturbed (less than 1 hr sleepless)">
+					description = <"The patient's sleep is slightly disturbed (less than 1 hr sleepless).">
+				>
+				["at0091"] = <
+					text = <"My sleep is mildly disturbed (1-2 hrs sleepless)">
+					description = <"The patient's sleep is mildly disturbed (1-2 hrs sleepless).">
+				>
+				["at0092"] = <
+					text = <"My sleep is moderately disturbed (2-3 hrs sleepless)">
+					description = <"The patient's sleep is moderately disturbed (2-3 hrs sleepless).">
+				>
+				["at0093"] = <
+					text = <"Recreation">
+					description = <"Patient-reported ability to engage in recreational activity due to pain.">
+					comment = <"Questionnaire wording: 
+Section 10 – Recreation">
+				>
+				["at0094"] = <
+					text = <"I am able to engage in all my recreation activities with no neck pain at all">
+					description = <"Patient is able to engage in all recreation activities with no neck pain at all.">
+				>
+				["at0095"] = <
+					text = <"I am able to engage in all my recreation activities, with some pain in my neck">
+					description = <"Patient is able to engage in all recreation activities, with some pain in neck.">
+				>
+				["at0096"] = <
+					text = <"I am able to engage in most, but not all of my usual recreation activities because of pain in my neck">
+					description = <"Patient is able to engage in most, but not all usual recreation activities because of pain in neck.">
+				>
+				["at0097"] = <
+					text = <"I am able to engage in a few of my usual recreation activities because of pain in my neck">
+					description = <"Patient is able to engage in a few usual recreation activities because of pain in neck.">
+				>
+				["at0098"] = <
+					text = <"The pain is very severe at the moment">
+					description = <"The patient has very severe pain at the moment.">
+				>
+				["at0099"] = <
+					text = <"The pain is the worst pain imaginable at the moment">
+					description = <"The patient has the worst pain imaginable at the moment.">
+				>
+				["at0100"] = <
+					text = <"I need help every day in most aspects of self care">
+					description = <"The patient needs help every day in most aspects of self care.">
+				>
+				["at0101"] = <
+					text = <"I do not get dressed, I wash with difficulty and stay in bed">
+					description = <"The patient does not get dressed, washes with difficulty and stays in bed.">
+				>
+				["at0102"] = <
+					text = <"I can only lift very light weights">
+					description = <"The patient can only lift very light weights.">
+				>
+				["at0103"] = <
+					text = <"I cannot lift or carry anything">
+					description = <"The patient cannot lift or carry anything.">
+				>
+			>
+		>
+	>
