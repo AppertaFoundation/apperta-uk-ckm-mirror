@@ -20,6 +20,13 @@ language
 				["email"] = <"i.lizunov@infinnity.ru">
 			>
 		>
+		["fi"] = <
+			language = <[ISO_639-1::fi]>
+			author = <
+				["name"] = <"Vesa Peltola">
+				["organisation"] = <"Tieto Finland">
+			>
+		>
 		["nb"] = <
 			language = <[ISO_639-1::nb]>
 			author = <
@@ -107,6 +114,14 @@ Häufig werden mnemonische Merkhilfen für APGAR gelehrt. Z.B. in Englisch: A f�
 			keywords = <"новорожденный", "оценка", "балл", "младенец", "оценка состояния">
 			misuse = <"Completar el score parcialmente y no sumar los 5 valores para dar el total.">
 			copyright = <"© openEHR Foundation">
+		>
+		["fi"] = <
+			language = <[ISO_639-1::fi]>
+			purpose = <"Tallentaa Apgarin pisteet yksinkertaiseksi ja toistettavaksi menetelmäksi, jolla dokumentoidaan vastasyntyneen lapsen tila heti syntymän jälkeen.
+Tapahtumasarjan alku on aina syntymä.">
+			use = <"Mahdollistaa vastasyntyneen tilan arvioinnin nimenomaisen tallentamisen 1, 2, 3, 5 ja / tai 10 minuuttia syntymän jälkeen, sekä tarvittaessa muita tapahtumia. Tavallinen käytäntö on dokumentoida Apgar-pisteet 1 ja 5 minuutissa; muita pisteitä voidaan tallentaa kliinisesti osoitetulla tavalla. Apgar-pisteet on mahdollista tallentaa milloin tahansa syntymän jälkeen käyttäen tätä arkkityyppiä. Yleinen kliininen käytäntö on tallentaa kaikki 5 parametria plus kokonaismäärä, mutta tämä arkkityyppi sallii mahdollisen osittaisen tiedon tallentamisen, mikäli se on saatavilla esimerkiksi historiallisista tiedoista. Jos kokonaismäärä lasketaan, on tarpeen rekisteröidä kaikki 5 peräkkäistä arvoa. Kokonaissumma on viiden peräkkäisen arvon (min 0, max 10) summa.">
+			keywords = <"vastasyntynyt, indeksi, pistemäärä, syntymä, arviointi", ...>
+			misuse = <"Osittainen pisteyttäminen ja puuttuville arvoille lisättävä 5 saadakseen kokonaisarvot.">
 		>
 		["nb"] = <
 			language = <[ISO_639-1::nb]>
@@ -238,8 +253,8 @@ http://en.wikipedia.org/wiki/Apgar_score">
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"AB6037DEA29A0EBE168C342D45AAB316">
-		["build_uid"] = <"28344ee6-7882-4ec4-af1c-fdbea981b336">
+		["MD5-CAM-1.0.1"] = <"7BA2229E7FE5D5F604D62EA4CE0FDD42">
+		["build_uid"] = <"aa0536b9-e273-4e13-b8ab-1f7303192678">
 		["revision"] = <"1.0.1-alpha">
 	>
 
@@ -367,8 +382,6 @@ definition
 			}
 		}
 	}
-
-
 
 ontology
 	terminologies_available = <"SNOMED-CT", "LOINC">
@@ -1740,6 +1753,143 @@ ontology
 					text = <"*Extension(en)">
 					description = <"*Additional information required to capture local content or to align with other reference models/formalisms.(en)">
 					comment = <"*e.g. Local information requirements or additional metadata to align with FHIR or CIMI equivalents.(en)">
+				>
+			>
+		>
+		["fi"] = <
+			items = <
+				["at0000"] = <
+					text = <"Apgarin pisteet">
+					description = <"Kliininen pistemäärä, joka perustuu hengityksen, sykkeen, ärtyvyyden, lihasjänteyden ja ihonvärin arviontiin.">
+				>
+				["at0001"] = <
+					text = <"List">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"historia">
+					description = <"@ internal @">
+				>
+				["at0003"] = <
+					text = <"1 minuutti">
+					description = <"Apgarin pisteet 1 minuutti syntymän jälkeen.">
+				>
+				["at0005"] = <
+					text = <"Syke">
+					description = <"Vauvan sykkeen kirjaus.">
+				>
+				["at0006"] = <
+					text = <"Ei havaittu">
+					description = <"Sydämen sykettä ei nähdä, tunneta tai kuulla.">
+				>
+				["at0007"] = <
+					text = <"< 100 lyöntiä minuutissa">
+					description = <"Syke vähemmän kuin 100 lyöntiä minuutissa.">
+				>
+				["at0008"] = <
+					text = <"≥ 100 lyöntiä minuutissa">
+					description = <"Syke suurempi tai yhtä suuri kuin 100 lyöntiä minuutissa.">
+				>
+				["at0009"] = <
+					text = <"Hengitys">
+					description = <"Havainto vauvan hengitysyrityksistä.">
+				>
+				["at0010"] = <
+					text = <"Ei havaittu">
+					description = <"Ei hengitysyritystä.">
+				>
+				["at0011"] = <
+					text = <"Heikko tai epäsäännöllinen">
+					description = <"Jonkin verran hengitysyrityksiä, rintakehä liikkuu.">
+				>
+				["at0012"] = <
+					text = <"Normaali">
+					description = <"Hengittää normaalisti tai itkee.">
+				>
+				["at0013"] = <
+					text = <"Lihasjänteys">
+					description = <"Havainto vauvan lihasjänteydestä.">
+				>
+				["at0014"] = <
+					text = <"Vetelä tai veltto">
+					description = <"Ei spontaaneja liikkeitä.">
+				>
+				["at0015"] = <
+					text = <"Alentunut jänteys">
+					description = <"Jonkin verran taivutusta raajoissa.">
+				>
+				["at0016"] = <
+					text = <"Normaali jänteys">
+					description = <"Normaalit, tarmokkaat liikkeet.">
+				>
+				["at0017"] = <
+					text = <"Ärtyvyys">
+					description = <"Havainto vauvan reaktiosta ärsyttävään ärsykkeeseen, esimerkiksi suunielun ja sierainten imemiseen pehmeällä kumikatetrilla.">
+				>
+				["at0018"] = <
+					text = <"Ei vastetta">
+					description = <"Ei reagoi ärsykkeeseen.">
+				>
+				["at0019"] = <
+					text = <"Vähentynyt vaste">
+					description = <"Reagoi ärsykkeeseen irvistämällä tai itkemällä heikosti.">
+				>
+				["at0020"] = <
+					text = <"Normaali vaste">
+					description = <"Irvistää, aivastaa, yskii tai vetäytyy poispäin, kun ärsyke annetaan.">
+				>
+				["at0021"] = <
+					text = <"Ihon väri">
+					description = <"Havainto lapsen ihon väristä.">
+				>
+				["at0022"] = <
+					text = <"Kauttaaltaan sinertävä">
+					description = <"Keho ja raajat sinertävät.">
+				>
+				["at0023"] = <
+					text = <"Keho vaaleanpunainen, raajat sinertävät">
+					description = <"Keho on vaaleanpunainen, raajat sinertävät.">
+				>
+				["at0024"] = <
+					text = <"Kauttaaltaan punakka">
+					description = <"Keho ja raajat ovat vaaleanpunaisia; ei sinerrystä.">
+				>
+				["at0025"] = <
+					text = <"Yhteensä">
+					description = <"Yhteissumma komponenttien (5 kpl) pisteistä.">
+				>
+				["at0026"] = <
+					text = <"2 minuuttia">
+					description = <"Apgarin pisteet 2 minuuttia syntymän jälkeen.">
+				>
+				["at0027"] = <
+					text = <"3 minuuttia">
+					description = <"Apgarin pisteet 3 minuuttia syntymän jälkeen.">
+				>
+				["at0028"] = <
+					text = <"5 minuuttia">
+					description = <"Apgarin pisteet 5 minuuttia syntymän jälkeen.">
+				>
+				["at0029"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0030"] = <
+					text = <"Mittausta koskevat huomautukset">
+					description = <"Apgarin pisteiden mittausta koskevat huomautukset.">
+				>
+				["at0031"] = <
+					text = <"10 minuuttia">
+					description = <"Apgarin pisteet 10 minuuttia syntymän jälkeen.">
+				>
+				["at0037"] = <
+					text = <"Mikä tahansa tapahtuma">
+					description = <"Apgarin pisteet tarpeen mukaan jonakin muuna aikana.">
+				>
+				["at0040"] = <
+					text = <"Laajennus">
+					description = <"Lisätiedot, joita tarvitaan paikallisen sisällön kirjaamiseksi tai yhtenäistämiseksi muiden viitemallien tai formalismien kanssa.">
+					comment = <"Esimerkiksi paikalliset tietovaatimukset tai muu metadata, joilla saadaan aikaan vastaavuus vastaavien FHIR- tai CIMI-tietojen kanssa.">
 				>
 			>
 		>

@@ -1,5 +1,5 @@
-﻿archetype (adl_version=1.4)
-	openEHR-EHR-OBSERVATION.waterlow_score.v1
+﻿archetype (adl_version=1.4; uid=8aef47dd-e99d-3aac-8fd3-b143ac2c1c49)
+	openEHR-EHR-OBSERVATION.waterlow_score.v0
 
 concept
 	[at0000]	-- Waterlow score
@@ -26,85 +26,92 @@ Some centres expect only a total to be recorded for a whole category in which ca
 			copyright = <"© openEHR Foundation">
 		>
 	>
-	lifecycle_state = <"AuthorDraft">
+	lifecycle_state = <"in_development">
 	other_contributors = <>
 	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
 		["references"] = <"The Waterlow Score [Internet];[cited 2011 Aug 1] Available from: http://www.judy-waterlow.co.uk/waterlow_score.htm
 The Waterlow Score Card [Internet];[cited 2011 Aug 1] Available from: http://www.judy-waterlow.co.uk/downloads/Waterlow%20Score%20Card-front.pdf
 Ferguson ML, Bauer J, Gallagher B,Capra S, Christie DRH, Mason BR. Validation of a malnutrition screening tool for patients receiving radiotherapy. Australasian Radiology. 1999;43:325–327">
-		["current_contact"] = <"Dr Ian McNicoll, Ocean Informatics, United Kingdom, ian.mcnicoll@oceaninformatics.com">
-		["MD5-CAM-1.0.1"] = <"5648B8340272B1AC66E333AEFDA11A94">
+		["current_contact"] = <"Dr Ian McNicoll, freshEHR, ian@freshehr.com">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"C4B49847E86B80470E251EEF1097CB75">
+		["build_uid"] = <"a228e23c-c4b9-4c1b-8977-b83687d7c5e7">
+		["revision"] = <"0.0.1-alpha">
 	>
 
 definition
-	OBSERVATION[at0000] matches {	-- Waterlow score
+	OBSERVATION[at0000] matches {    -- Waterlow score
 		data matches {
-			HISTORY[at0001] matches {	-- Event Series
+			HISTORY[at0001] matches {    -- Event Series
 				events cardinality matches {1..*; unordered} matches {
-					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+					POINT_EVENT[at0002] occurrences matches {0..8} matches {    -- Any point in time event
 						data matches {
-							ITEM_TREE[at0003] matches {	-- Tree
+							ITEM_TREE[at0003] matches {    -- Tree
 								items cardinality matches {0..*; unordered} matches {
-									ELEMENT[at0008] occurrences matches {0..1} matches {	-- Sex
+									ELEMENT[at0008] occurrences matches {0..1} matches {    -- Sex
 										value matches {
-											1|[local::at0028], 	-- Male
-											2|[local::at0029]  	-- Female
+											1|[local::at0028],
+											2|[local::at0029]
 										}
 									}
-									ELEMENT[at0009] occurrences matches {0..1} matches {	-- Age group
+									ELEMENT[at0009] occurrences matches {0..1} matches {    -- Age group
 										value matches {
-											0|[local::at0134], 	-- Less than 14 years
-											1|[local::at0030], 	-- 14-49
-											2|[local::at0031], 	-- 50-64
-											3|[local::at0032], 	-- 65-74
-											4|[local::at0033], 	-- 75-80
-											5|[local::at0034]  	-- 80+
+											0|[local::at0134],
+											1|[local::at0030],
+											2|[local::at0031],
+											3|[local::at0032],
+											4|[local::at0033],
+											5|[local::at0034]
 										}
 									}
-									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Build/weight for height
+									ELEMENT[at0004] occurrences matches {0..1} matches {    -- Build/weight for height
 										value matches {
-											0|[local::at0020], 	-- Average
-											1|[local::at0021], 	-- Above average
-											2|[local::at0022], 	-- Obese
-											3|[local::at0023]  	-- Below average
+											0|[local::at0020],
+											1|[local::at0021],
+											2|[local::at0022],
+											3|[local::at0023]
 										}
 									}
-									ELEMENT[at0005] occurrences matches {0..1} matches {	-- Continence
+									ELEMENT[at0005] occurrences matches {0..1} matches {    -- Continence
 										value matches {
-											0|[local::at0024], 	-- Complete / catheterised
-											1|[local::at0025], 	-- Urinary incontinence
-											2|[local::at0026], 	-- Faecal incontinence
-											3|[local::at0027]  	-- Urinary and faecal incontinence
+											0|[local::at0024],
+											1|[local::at0025],
+											2|[local::at0026],
+											3|[local::at0027]
 										}
 									}
-									ELEMENT[at0007] occurrences matches {0..1} matches {	-- Mobility
+									ELEMENT[at0007] occurrences matches {0..1} matches {    -- Mobility
 										value matches {
-											0|[local::at0035], 	-- Fully mobile
-											1|[local::at0036], 	-- Restless/ fidgety
-											2|[local::at0037], 	-- Apathetic
-											3|[local::at0038], 	-- Restricted
-											4|[local::at0039], 	-- Bedbound
-											5|[local::at0040]  	-- Chairbound
+											0|[local::at0035],
+											1|[local::at0036],
+											2|[local::at0037],
+											3|[local::at0038],
+											4|[local::at0039],
+											5|[local::at0040]
 										}
 									}
-									CLUSTER[at0129] occurrences matches {0..1} matches {	-- Nutritional risk
+									CLUSTER[at0129] occurrences matches {0..1} matches {    -- Nutritional risk
 										items cardinality matches {1..*; unordered} matches {
-											ELEMENT[at0054] occurrences matches {0..1} matches {	-- Weight loss
+											ELEMENT[at0054] occurrences matches {0..1} matches {    -- Weight loss
 												value matches {
-													0|[local::at0131], 	-- No recent weight loss
-													1|[local::at0055], 	-- 0.5-5kg
-													2|[local::at0056], 	-- 5-10kg (or Amount unsure)
-													3|[local::at0057], 	-- 10-15kg
-													4|[local::at0058]  	-- Over 15kg
+													0|[local::at0131],
+													1|[local::at0055],
+													2|[local::at0056],
+													3|[local::at0057],
+													4|[local::at0058]
 												}
 											}
-											ELEMENT[at0044] occurrences matches {0..1} matches {	-- Appetite
+											ELEMENT[at0044] occurrences matches {0..1} matches {    -- Appetite
 												value matches {
-													0|[local::at0045], 	-- Average
-													1|[local::at0046]  	-- Poor
+													0|[local::at0045],
+													1|[local::at0046]
 												}
 											}
-											ELEMENT[at0130] occurrences matches {0..1} matches {	-- Nutritional score
+											ELEMENT[at0130] occurrences matches {0..1} matches {    -- Nutritional score
 												value matches {
 													DV_COUNT matches {
 														magnitude matches {|0..5|}
@@ -113,149 +120,175 @@ definition
 											}
 										}
 									}
-									CLUSTER[at0066] occurrences matches {0..1} matches {	-- Skin type visual risk areas
+									CLUSTER[at0066] occurrences matches {0..1} matches {    -- Skin type visual risk areas
 										items cardinality matches {1..*; unordered} matches {
-											ELEMENT[at0116] occurrences matches {0..1} matches {	-- Healthy
-												value matches {0|[local::at0116]}		-- Healthy
-											}
-											ELEMENT[at0117] occurrences matches {0..1} matches {	-- Tissue-paper
-												value matches {1|[local::at0117]}		-- Tissue-paper
-											}
-											ELEMENT[at0118] occurrences matches {0..1} matches {	-- Dry
-												value matches {1|[local::at0118]}		-- Dry
-											}
-											ELEMENT[at0119] occurrences matches {0..1} matches {	-- Oedematous
-												value matches {1|[local::at0119]}		-- Oedematous
-											}
-											ELEMENT[at0120] occurrences matches {0..1} matches {	-- Clammy, pyrexia
-												value matches {1|[local::at0120]}		-- Clammy, pyrexia
-											}
-											ELEMENT[at0121] occurrences matches {0..1} matches {	-- Discoloured - Stage 1
-												value matches {2|[local::at0121]}		-- Discoloured - Stage 1
-											}
-											ELEMENT[at0122] occurrences matches {0..1} matches {	-- Pressure ulcer - Stage 2-4
-												value matches {2|[local::at0122]}		-- Pressure ulcer - Stage 2-4
-											}
-										}
-									}
-									CLUSTER[at0070] occurrences matches {0..1} matches {	-- Tissue malnutrition
-										items cardinality matches {1..*; unordered} matches {
-											ELEMENT[at0123] occurrences matches {0..1} matches {	-- Terminal cachexia
-												value matches {8|[local::at0123]}		-- Terminal cachexia
-											}
-											ELEMENT[at0124] occurrences matches {0..1} matches {	-- Single organ failure
-												value matches {5|[local::at0124]}		-- Single organ failure
-											}
-											ELEMENT[at0125] occurrences matches {0..1} matches {	-- Multiple organ failure
-												value matches {8|[local::at0125]}		-- Multiple organ failure
-											}
-											ELEMENT[at0126] occurrences matches {0..1} matches {	-- Peripheral vascular disease
-												value matches {5|[local::at0126]}		-- Peripheral vascular disease
-											}
-											ELEMENT[at0127] occurrences matches {0..1} matches {	-- Anaemia (Hb < 8 g/dl)
-												value matches {2|[local::at0127]}		-- Anaemia (Hb < 8 g/dl)
-											}
-											ELEMENT[at0128] occurrences matches {0..1} matches {	-- Smoking
-												value matches {1|[local::at0128]}		-- Smoking
-											}
-										}
-									}
-									CLUSTER[at0073] occurrences matches {0..1} matches {	-- Neurological deficit
-										items cardinality matches {1..*; unordered} matches {
-											ELEMENT[at0150] occurrences matches {0..1} matches {	-- Diabetes, MS, CVA
+											ELEMENT[at0116] occurrences matches {0..1} matches {    -- Healthy
 												value matches {
-													0|[local::at0136], 	-- No neurological deficit
-													4|[local::at0137], 	-- Mild neurological deficit
-													5|[local::at0138], 	-- Moderate neurological deficit
-													6|[local::at0139]  	-- Severe neurological deficit
+													0|[local::at0116]
 												}
 											}
-											ELEMENT[at0151] occurrences matches {0..1} matches {	-- Motor / sensory deficit
+											ELEMENT[at0117] occurrences matches {0..1} matches {    -- Tissue-paper
 												value matches {
-													0|[local::at0136], 	-- No neurological deficit
-													4|[local::at0137], 	-- Mild neurological deficit
-													5|[local::at0138], 	-- Moderate neurological deficit
-													6|[local::at0139]  	-- Severe neurological deficit
+													1|[local::at0117]
 												}
 											}
-											ELEMENT[at0152] occurrences matches {0..1} matches {	-- Paraplegia
+											ELEMENT[at0118] occurrences matches {0..1} matches {    -- Dry
 												value matches {
-													0|[local::at0136], 	-- No neurological deficit
-													4|[local::at0137], 	-- Mild neurological deficit
-													5|[local::at0138], 	-- Moderate neurological deficit
-													6|[local::at0139]  	-- Severe neurological deficit
+													1|[local::at0118]
 												}
 											}
-											ELEMENT[at0135] occurrences matches {0..1} matches {	-- Combined neurological deficit
+											ELEMENT[at0119] occurrences matches {0..1} matches {    -- Oedematous
 												value matches {
-													0|[local::at0136], 	-- No neurological deficit
-													4|[local::at0137], 	-- Mild neurological deficit
-													5|[local::at0138], 	-- Moderate neurological deficit
-													6|[local::at0139]  	-- Severe neurological deficit
+													1|[local::at0119]
+												}
+											}
+											ELEMENT[at0120] occurrences matches {0..1} matches {    -- Clammy, pyrexia
+												value matches {
+													1|[local::at0120]
+												}
+											}
+											ELEMENT[at0121] occurrences matches {0..1} matches {    -- Discoloured - Stage 1
+												value matches {
+													2|[local::at0121]
+												}
+											}
+											ELEMENT[at0122] occurrences matches {0..1} matches {    -- Pressure ulcer - Stage 2-4
+												value matches {
+													2|[local::at0122]
 												}
 											}
 										}
 									}
-									CLUSTER[at0068] occurrences matches {0..1} matches {	-- Major surgery or trauma
+									CLUSTER[at0070] occurrences matches {0..1} matches {    -- Tissue malnutrition
 										items cardinality matches {1..*; unordered} matches {
-											ELEMENT[at0114] occurrences matches {0..1} matches {	-- Orthopaedic /spinal
+											ELEMENT[at0123] occurrences matches {0..1} matches {    -- Terminal cachexia
 												value matches {
-													0|[local::at0153], 	-- No orthopaedic / spinal surgery
-													5|[local::at0143]  	-- Orthopaedic /spinal surgery
+													8|[local::at0123]
 												}
 											}
-											ELEMENT[at0144] occurrences matches {0..1} matches {	-- Duration of surgery
+											ELEMENT[at0124] occurrences matches {0..1} matches {    -- Single organ failure
 												value matches {
-													0|[local::at0154], 	-- On table < 2 hrs or not in ast 48 hrs
-													5|[local::at0145], 	-- On table > 2 hrs (Past 48 hrs)
-													8|[local::at0146]  	-- On table > 6 hrs (Past 48 hrs)
+													5|[local::at0124]
+												}
+											}
+											ELEMENT[at0125] occurrences matches {0..1} matches {    -- Multiple organ failure
+												value matches {
+													8|[local::at0125]
+												}
+											}
+											ELEMENT[at0126] occurrences matches {0..1} matches {    -- Peripheral vascular disease
+												value matches {
+													5|[local::at0126]
+												}
+											}
+											ELEMENT[at0127] occurrences matches {0..1} matches {    -- Anaemia (Hb < 8 g/dl)
+												value matches {
+													2|[local::at0127]
+												}
+											}
+											ELEMENT[at0128] occurrences matches {0..1} matches {    -- Smoking
+												value matches {
+													1|[local::at0128]
 												}
 											}
 										}
 									}
-									CLUSTER[at0067] occurrences matches {0..1} matches {	-- Medication
+									CLUSTER[at0073] occurrences matches {0..1} matches {    -- Neurological deficit
 										items cardinality matches {1..*; unordered} matches {
-											ELEMENT[at0106] occurrences matches {0..1} matches {	-- Cytotoxics
+											ELEMENT[at0150] occurrences matches {0..1} matches {    -- Diabetes, MS, CVA
 												value matches {
-													0|[local::at0141], 	-- No medication risk
-													4|[local::at0142]  	-- Significant medication risk
+													0|[local::at0136],
+													4|[local::at0137],
+													5|[local::at0138],
+													6|[local::at0139]
 												}
 											}
-											ELEMENT[at0107] occurrences matches {0..1} matches {	-- Steroids
+											ELEMENT[at0151] occurrences matches {0..1} matches {    -- Motor / sensory deficit
 												value matches {
-													0|[local::at0141], 	-- No medication risk
-													4|[local::at0142]  	-- Significant medication risk
+													0|[local::at0136],
+													4|[local::at0137],
+													5|[local::at0138],
+													6|[local::at0139]
 												}
 											}
-											ELEMENT[at0108] occurrences matches {0..1} matches {	-- Anti-inflammatories
+											ELEMENT[at0152] occurrences matches {0..1} matches {    -- Paraplegia
 												value matches {
-													0|[local::at0141], 	-- No medication risk
-													4|[local::at0142]  	-- Significant medication risk
+													0|[local::at0136],
+													4|[local::at0137],
+													5|[local::at0138],
+													6|[local::at0139]
 												}
 											}
-											ELEMENT[at0140] occurrences matches {0..1} matches {	-- Combined medication risk
+											ELEMENT[at0135] occurrences matches {0..1} matches {    -- Combined neurological deficit
 												value matches {
-													0|[local::at0141], 	-- No medication risk
-													4|[local::at0142]  	-- Significant medication risk
+													0|[local::at0136],
+													4|[local::at0137],
+													5|[local::at0138],
+													6|[local::at0139]
 												}
 											}
 										}
 									}
-									ELEMENT[at0014] occurrences matches {0..1} matches {	-- Waterlow score
+									CLUSTER[at0068] occurrences matches {0..1} matches {    -- Major surgery or trauma
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0114] occurrences matches {0..1} matches {    -- Orthopaedic /spinal
+												value matches {
+													0|[local::at0153],
+													5|[local::at0143]
+												}
+											}
+											ELEMENT[at0144] occurrences matches {0..1} matches {    -- Duration of surgery
+												value matches {
+													0|[local::at0154],
+													5|[local::at0145],
+													8|[local::at0146]
+												}
+											}
+										}
+									}
+									CLUSTER[at0067] occurrences matches {0..1} matches {    -- Medication
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0106] occurrences matches {0..1} matches {    -- Cytotoxics
+												value matches {
+													0|[local::at0141],
+													4|[local::at0142]
+												}
+											}
+											ELEMENT[at0107] occurrences matches {0..1} matches {    -- Steroids
+												value matches {
+													0|[local::at0141],
+													4|[local::at0142]
+												}
+											}
+											ELEMENT[at0108] occurrences matches {0..1} matches {    -- Anti-inflammatories
+												value matches {
+													0|[local::at0141],
+													4|[local::at0142]
+												}
+											}
+											ELEMENT[at0140] occurrences matches {0..1} matches {    -- Combined medication risk
+												value matches {
+													0|[local::at0141],
+													4|[local::at0142]
+												}
+											}
+										}
+									}
+									ELEMENT[at0014] occurrences matches {0..1} matches {    -- Waterlow score
 										value matches {
 											DV_COUNT matches {
 												magnitude matches {|>=1|}
 											}
 										}
 									}
-									ELEMENT[at0015] occurrences matches {0..1} matches {	-- Overall risk grade
+									ELEMENT[at0015] occurrences matches {0..1} matches {    -- Overall risk grade
 										value matches {
-											10|[local::at0016], 	-- 10+ At risk
-											15|[local::at0017], 	-- 15+ High risk
-											20|[local::at0018]  	-- 20+ Very high risk
+											10|[local::at0016],
+											15|[local::at0017],
+											20|[local::at0018]
 										}
 									}
-									ELEMENT[at0019] occurrences matches {0..1} matches {	-- Comment
+									ELEMENT[at0019] occurrences matches {0..1} matches {    -- Comment
 										value matches {
 											DV_TEXT matches {*}
 										}
@@ -264,9 +297,9 @@ definition
 							}
 						}
 						state matches {
-							ITEM_TREE[at0071] matches {	-- Tree
+							ITEM_TREE[at0071] matches {    -- Tree
 								items cardinality matches {0..*; unordered} matches {
-									ELEMENT[at0072] occurrences matches {0..*} matches {	-- Confounding factors
+									ELEMENT[at0072] occurrences matches {0..*} matches {    -- Confounding factors
 										value matches {
 											DV_TEXT matches {*}
 										}
@@ -279,9 +312,9 @@ definition
 			}
 		}
 		protocol matches {
-			ITEM_TREE[at0132] matches {	-- Tree
+			ITEM_TREE[at0132] matches {    -- Tree
 				items cardinality matches {0..*; unordered} matches {
-					ELEMENT[at0133] occurrences matches {0..1} matches {	-- Score version
+					ELEMENT[at0133] occurrences matches {0..1} matches {    -- Score version
 						value matches {
 							DV_TEXT matches {*}
 						}
@@ -290,8 +323,6 @@ definition
 			}
 		}
 	}
-
-
 
 ontology
 	term_definitions = <
@@ -306,8 +337,8 @@ ontology
 					description = <"@ internal @">
 				>
 				["at0002"] = <
-					text = <"Any event">
-					description = <"Any event.">
+					text = <"Any point in time event">
+					description = <"Unspecified point in time event which may be explicitly defined in a template or at run-time.">
 				>
 				["at0003"] = <
 					text = <"Tree">
@@ -658,7 +689,7 @@ ontology
 					description = <"The subject has no risk related to spinal / orthopaedic surgery.">
 				>
 				["at0154"] = <
-					text = <"On table < 2 hrs or not in ast 48 hrs">
+					text = <"On table < 2 hrs or not in past 48 hrs">
 					description = <"The subject has had surgery more than 48 hrs ago or lasting for less than 2 hours.">
 				>
 			>
