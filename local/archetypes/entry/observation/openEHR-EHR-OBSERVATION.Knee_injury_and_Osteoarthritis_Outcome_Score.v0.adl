@@ -1,0 +1,1662 @@
+﻿archetype (adl_version=1.4; uid=21b966e6-d831-43ef-829b-84b894731130)
+	openEHR-EHR-OBSERVATION.Knee_injury_and_Osteoarthritis_Outcome_Score.v0
+
+concept
+	[at0000]	-- Knee_injury_and_Osteoarthritis_Outcome_Score (KOOS)
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Alan Fish">
+		["organisation"] = <"Apperta Foundation CIC.">
+		["email"] = <"alan.fish@apperta.org">
+		["date"] = <"2019-07-30">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the capture and reporting of details of the Knee injury and Osteoarthritis Outcome Score (KOOS).">
+			use = <"Use to record details of the Knee injury and Osteoarthritis Outcome Score (KOOS).
+
+This questionnaire is a patient-reported outcome measure (PROM) for knee surgery.
+
+While openEHR archetypes are all freely available under an open license, the specific content of this archetype may be copyright protected. Any use of this archetype within implementations must be in compliance with the terms established by the copyright owners where a copyright exists. ">
+			misuse = <"Not to be used unless the terms of copyright have been observed (if a copyright exists).">
+			copyright = <"© Apperta Foundation CIC, Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["references"] = <"Derived from: <Add reference to original resource here>
+http://koos.nu/">
+		["current_contact"] = <"Alan Fish, Apperta Foundation CIC.<alan.fish@apperta.org>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"1CD86EDFFDBC4D72A552EE66E1197C9E">
+		["build_uid"] = <"f8df4451-21e2-4f6a-8ffe-6e70cc9e611a">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- Knee_injury_and_Osteoarthritis_Outcome_Score (KOOS)
+		data matches {
+			HISTORY[at0001] matches {    -- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..1} matches {    -- Point in time
+						data matches {
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									CLUSTER[at0347] occurrences matches {0..1} matches {    -- Symptoms
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0004] occurrences matches {0..1} matches {    -- S1 - Swelling
+												value matches {
+													4|[local::at0009],
+													3|[local::at0050],
+													2|[local::at0051],
+													1|[local::at0052],
+													0|[local::at0105]
+												}
+											}
+											ELEMENT[at0099] occurrences matches {0..1} matches {    -- S2 - Grinding
+												value matches {
+													4|[local::at0100],
+													3|[local::at0101],
+													2|[local::at0102],
+													1|[local::at0103],
+													0|[local::at0106]
+												}
+											}
+											ELEMENT[at0107] occurrences matches {0..1} matches {    -- S3 - Catching
+												value matches {
+													4|[local::at0108],
+													3|[local::at0109],
+													2|[local::at0110],
+													1|[local::at0111],
+													0|[local::at0112]
+												}
+											}
+											ELEMENT[at0113] occurrences matches {0..1} matches {    -- S4 - Straighten
+												value matches {
+													4|[local::at0114],
+													3|[local::at0115],
+													2|[local::at0116],
+													1|[local::at0117],
+													0|[local::at0118]
+												}
+											}
+											ELEMENT[at0119] occurrences matches {0..1} matches {    -- S5 - Bend
+												value matches {
+													4|[local::at0120],
+													3|[local::at0121],
+													2|[local::at0122],
+													1|[local::at0123],
+													0|[local::at0124]
+												}
+											}
+											ELEMENT[at0125] occurrences matches {0..1} matches {    -- S6 - Morning Stiffness
+												value matches {
+													0|[local::at0126],
+													1|[local::at0127],
+													2|[local::at0128],
+													3|[local::at0129],
+													4|[local::at0130]
+												}
+											}
+											ELEMENT[at0131] occurrences matches {0..1} matches {    -- S7 - Stiffness after sitting
+												value matches {
+													0|[local::at0132],
+													1|[local::at0133],
+													2|[local::at0134],
+													3|[local::at0135],
+													4|[local::at0136]
+												}
+											}
+										}
+									}
+									CLUSTER[at0348] occurrences matches {0..1} matches {    -- Pain
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0137] occurrences matches {0..1} matches {    -- P1 - Pain frequency
+												value matches {
+													0|[local::at0138],
+													1|[local::at0139],
+													2|[local::at0140],
+													3|[local::at0141],
+													4|[local::at0142]
+												}
+											}
+											ELEMENT[at0143] occurrences matches {0..1} matches {    -- P2 - Twisting
+												value matches {
+													0|[local::at0144],
+													1|[local::at0145],
+													2|[local::at0146],
+													3|[local::at0147],
+													4|[local::at0148]
+												}
+											}
+											ELEMENT[at0149] occurrences matches {0..1} matches {    -- P3 - Straightening
+												value matches {
+													0|[local::at0150],
+													1|[local::at0151],
+													2|[local::at0152],
+													3|[local::at0153],
+													4|[local::at0154]
+												}
+											}
+											ELEMENT[at0155] occurrences matches {0..1} matches {    -- P4 - Bending
+												value matches {
+													0|[local::at0156],
+													1|[local::at0157],
+													2|[local::at0158],
+													3|[local::at0159],
+													4|[local::at0160]
+												}
+											}
+											ELEMENT[at0161] occurrences matches {0..1} matches {    -- P5 - Walking
+												value matches {
+													0|[local::at0162],
+													1|[local::at0163],
+													2|[local::at0164],
+													3|[local::at0165],
+													4|[local::at0166]
+												}
+											}
+											ELEMENT[at0167] occurrences matches {0..1} matches {    -- P6- Stairs
+												value matches {
+													0|[local::at0168],
+													1|[local::at0169],
+													2|[local::at0170],
+													3|[local::at0171],
+													4|[local::at0172]
+												}
+											}
+											ELEMENT[at0173] occurrences matches {0..1} matches {    -- P7 - In Bed
+												value matches {
+													0|[local::at0174],
+													1|[local::at0175],
+													2|[local::at0176],
+													3|[local::at0177],
+													4|[local::at0178]
+												}
+											}
+											ELEMENT[at0179] occurrences matches {0..1} matches {    -- P8 - Sitting or lying
+												value matches {
+													0|[local::at0180],
+													1|[local::at0181],
+													2|[local::at0182],
+													3|[local::at0183],
+													4|[local::at0184]
+												}
+											}
+											ELEMENT[at0185] occurrences matches {0..1} matches {    -- P9 - Standing
+												value matches {
+													0|[local::at0186],
+													1|[local::at0187],
+													2|[local::at0188],
+													3|[local::at0189],
+													4|[local::at0190]
+												}
+											}
+										}
+									}
+									CLUSTER[at0351] occurrences matches {0..1} matches {    -- Function
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0191] occurrences matches {0..1} matches {    -- A1 - Descending stairs
+												value matches {
+													0|[local::at0192],
+													1|[local::at0193],
+													2|[local::at0194],
+													3|[local::at0195],
+													4|[local::at0196]
+												}
+											}
+											ELEMENT[at0197] occurrences matches {0..1} matches {    -- A2 - Ascending stairs
+												value matches {
+													0|[local::at0198],
+													1|[local::at0199],
+													2|[local::at0200],
+													3|[local::at0201],
+													4|[local::at0202]
+												}
+											}
+											ELEMENT[at0203] occurrences matches {0..1} matches {    -- A3 - Rising from sitting
+												value matches {
+													0|[local::at0204],
+													1|[local::at0205],
+													2|[local::at0206],
+													3|[local::at0207],
+													4|[local::at0208]
+												}
+											}
+											ELEMENT[at0209] occurrences matches {0..1} matches {    -- A4 - Standing
+												value matches {
+													0|[local::at0210],
+													1|[local::at0211],
+													2|[local::at0212],
+													3|[local::at0213],
+													4|[local::at0214]
+												}
+											}
+											ELEMENT[at0215] occurrences matches {0..1} matches {    -- A5 - Bending to pick up
+												value matches {
+													0|[local::at0216],
+													1|[local::at0217],
+													2|[local::at0218],
+													3|[local::at0219],
+													4|[local::at0220]
+												}
+											}
+											ELEMENT[at0221] occurrences matches {0..1} matches {    -- A6 - Walking on flat surface
+												value matches {
+													0|[local::at0222],
+													1|[local::at0223],
+													2|[local::at0224],
+													3|[local::at0225],
+													4|[local::at0226]
+												}
+											}
+											ELEMENT[at0227] occurrences matches {0..1} matches {    -- A7 - Getting in/out car
+												value matches {
+													0|[local::at0228],
+													1|[local::at0229],
+													2|[local::at0230],
+													3|[local::at0231],
+													4|[local::at0232]
+												}
+											}
+											ELEMENT[at0233] occurrences matches {0..1} matches {    -- A8 - Shopping
+												value matches {
+													0|[local::at0234],
+													1|[local::at0235],
+													2|[local::at0236],
+													3|[local::at0237],
+													4|[local::at0238]
+												}
+											}
+											ELEMENT[at0239] occurrences matches {0..1} matches {    -- A9 - Socks on
+												value matches {
+													0|[local::at0240],
+													1|[local::at0241],
+													2|[local::at0242],
+													3|[local::at0243],
+													4|[local::at0244]
+												}
+											}
+											ELEMENT[at0245] occurrences matches {0..1} matches {    -- A10 - Rising from bed
+												value matches {
+													0|[local::at0246],
+													1|[local::at0247],
+													2|[local::at0248],
+													3|[local::at0249],
+													4|[local::at0250]
+												}
+											}
+											ELEMENT[at0251] occurrences matches {0..1} matches {    -- A11 - Socks off
+												value matches {
+													0|[local::at0252],
+													1|[local::at0253],
+													2|[local::at0254],
+													3|[local::at0255],
+													4|[local::at0256]
+												}
+											}
+											ELEMENT[at0257] occurrences matches {0..1} matches {    -- A12 - Lying in bed
+												value matches {
+													0|[local::at0258],
+													1|[local::at0259],
+													2|[local::at0260],
+													3|[local::at0261],
+													4|[local::at0262]
+												}
+											}
+											ELEMENT[at0263] occurrences matches {0..1} matches {    -- A13 - Bathing
+												value matches {
+													0|[local::at0264],
+													1|[local::at0265],
+													2|[local::at0266],
+													3|[local::at0267],
+													4|[local::at0268]
+												}
+											}
+											ELEMENT[at0269] occurrences matches {0..1} matches {    -- A14 - Sitting
+												value matches {
+													0|[local::at0270],
+													1|[local::at0271],
+													2|[local::at0272],
+													3|[local::at0273],
+													4|[local::at0274]
+												}
+											}
+											ELEMENT[at0275] occurrences matches {0..1} matches {    -- A15 - Toilet
+												value matches {
+													0|[local::at0276],
+													1|[local::at0277],
+													2|[local::at0278],
+													3|[local::at0279],
+													4|[local::at0280]
+												}
+											}
+											ELEMENT[at0281] occurrences matches {0..1} matches {    -- A16 - Heavy domestic duties
+												value matches {
+													0|[local::at0282],
+													1|[local::at0283],
+													2|[local::at0284],
+													3|[local::at0285],
+													4|[local::at0286]
+												}
+											}
+											ELEMENT[at0287] occurrences matches {0..1} matches {    -- A17 - Light domestic duties
+												value matches {
+													0|[local::at0288],
+													1|[local::at0289],
+													2|[local::at0290],
+													3|[local::at0291],
+													4|[local::at0292]
+												}
+											}
+										}
+									}
+									CLUSTER[at0350] occurrences matches {0..1} matches {    -- Sports and recreation
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0293] occurrences matches {0..1} matches {    -- SP1 - Squatting
+												value matches {
+													0|[local::at0294],
+													1|[local::at0295],
+													2|[local::at0296],
+													3|[local::at0297],
+													4|[local::at0298]
+												}
+											}
+											ELEMENT[at0299] occurrences matches {0..1} matches {    -- SP2 - Running
+												value matches {
+													0|[local::at0300],
+													1|[local::at0301],
+													2|[local::at0302],
+													3|[local::at0303],
+													4|[local::at0304]
+												}
+											}
+											ELEMENT[at0305] occurrences matches {0..1} matches {    -- SP3 - Jumping
+												value matches {
+													0|[local::at0306],
+													1|[local::at0307],
+													2|[local::at0308],
+													3|[local::at0309],
+													4|[local::at0310]
+												}
+											}
+											ELEMENT[at0311] occurrences matches {0..1} matches {    -- SP4 - Twisiting/pivoting
+												value matches {
+													0|[local::at0312],
+													1|[local::at0313],
+													2|[local::at0314],
+													3|[local::at0315],
+													4|[local::at0316]
+												}
+											}
+											ELEMENT[at0317] occurrences matches {0..1} matches {    -- SP5 - Kneeling
+												value matches {
+													0|[local::at0318],
+													1|[local::at0319],
+													2|[local::at0320],
+													3|[local::at0321],
+													4|[local::at0322]
+												}
+											}
+										}
+									}
+									CLUSTER[at0349] occurrences matches {0..1} matches {    -- Quality of life
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0323] occurrences matches {0..1} matches {    -- Q1 - Aware of pain
+												value matches {
+													0|[local::at0324],
+													1|[local::at0325],
+													2|[local::at0326],
+													3|[local::at0327],
+													4|[local::at0328]
+												}
+											}
+											ELEMENT[at0329] occurrences matches {0..1} matches {    -- Q2 - Lifestyle
+												value matches {
+													0|[local::at0330],
+													1|[local::at0331],
+													2|[local::at0332],
+													3|[local::at0333],
+													4|[local::at0334]
+												}
+											}
+											ELEMENT[at0335] occurrences matches {0..1} matches {    -- Q3 - Confidence
+												value matches {
+													0|[local::at0336],
+													1|[local::at0337],
+													2|[local::at0338],
+													3|[local::at0339],
+													4|[local::at0340]
+												}
+											}
+											ELEMENT[at0341] occurrences matches {0..1} matches {    -- Q4 - General difficulty
+												value matches {
+													0|[local::at0342],
+													1|[local::at0343],
+													2|[local::at0344],
+													3|[local::at0345],
+													4|[local::at0346]
+												}
+											}
+										}
+									}
+									ELEMENT[at0044] occurrences matches {0..1} matches {    -- Total score
+										value matches {
+											DV_COUNT matches {
+												magnitude matches {|0..100|}
+											}
+										}
+									}
+									ELEMENT[at0045] occurrences matches {0..1} matches {    -- Total score as percentage
+										value matches {
+											DV_PROPORTION matches {
+												numerator matches {|0.0..100.0|}
+												type matches {2}
+											}
+										}
+									}
+								}
+							}
+						}
+						state matches {
+							ITEM_TREE[at0046] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0047] occurrences matches {0..*} matches {    -- Confounding factors
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0048] matches {    -- ItemTree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0049] occurrences matches {0..*} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Knee_injury_and_Osteoarthritis_Outcome_Score (KOOS)">
+					description = <"Knee injury and Osteoarthritis Outcome Score (KOOS).">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Point in time">
+					description = <"A specific date and/or time which may be explicitly defined in a template or at run-time.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"S1 - Swelling">
+					description = <"Patient-reported swelling of knee.">
+					comment = <"Questionnaire wording: 
+S1. Do you have swelling in your knee?">
+				>
+				["at0009"] = <
+					text = <"Never">
+					description = <"The patient never has swelling in their knee in the last week.">
+				>
+				["at0044"] = <
+					text = <"Total score">
+					description = <"Total score from questions 1 to 8.">
+				>
+				["at0045"] = <
+					text = <"Total score as percentage">
+					description = <"Total score from all questions as a percentage.">
+				>
+				["at0046"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0047"] = <
+					text = <"Confounding factors">
+					description = <"Record any issues or factors that may impact on the score or interpretation.">
+				>
+				["at0048"] = <
+					text = <"ItemTree">
+					description = <"@ internal @">
+				>
+				["at0049"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental information or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+				["at0050"] = <
+					text = <"Rarely">
+					description = <"The patient rarely has swelling in their knee in the last week.">
+				>
+				["at0051"] = <
+					text = <"Sometimes">
+					description = <"The patient sometimes has swelling in their knee in the last week.">
+				>
+				["at0052"] = <
+					text = <"Often">
+					description = <"The patient often has swelling in their knee in the last week.">
+				>
+				["at0099"] = <
+					text = <"S2 - Grinding">
+					description = <"Patient-reported feeling grinding, hearing clicking or any other type of noise when your knee moves.">
+					comment = <"Questionnaire wording: 
+S2. Do you feel grinding, hear clicking or any other type of noise when your knee
+moves?">
+				>
+				["at0100"] = <
+					text = <"Never">
+					description = <"The patient never has grinding, clicking or any other type of noise their knee in the last week.">
+				>
+				["at0101"] = <
+					text = <"Rarely">
+					description = <"The patient rarely has grinding, clicking or any other type of noise their knee in the last week.">
+				>
+				["at0102"] = <
+					text = <"Sometimes">
+					description = <"The patient sometimes has grinding, clicking or any other type of noise their knee in the last week.">
+				>
+				["at0103"] = <
+					text = <"Often">
+					description = <"The patient often has grinding, clicking or any other type of noise their knee in the last week.">
+				>
+				["at0105"] = <
+					text = <"Always">
+					description = <"The patient always has swelling in their knee in the last week.">
+				>
+				["at0106"] = <
+					text = <"Always">
+					description = <"The patient always has grinding, clicking or any other type of noise their knee in the last week.">
+				>
+				["at0107"] = <
+					text = <"S3 - Catching">
+					description = <"Patient-reported knee catching or hanging up when moving.">
+					comment = <"Questionnaire wording: 
+S3. Does your knee catch or hang up when moving?">
+				>
+				["at0108"] = <
+					text = <"Never">
+					description = <"The patient never has catching or hanging up in their knee in the last week.">
+				>
+				["at0109"] = <
+					text = <"Rarely">
+					description = <"The patient rarely has catching or hanging up in their knee in the last week.">
+				>
+				["at0110"] = <
+					text = <"Sometimes">
+					description = <"The patient sometimes has catching or hanging up in their knee in the last week.">
+				>
+				["at0111"] = <
+					text = <"Often">
+					description = <"The patient often has catching or hanging up in their knee in the last week.">
+				>
+				["at0112"] = <
+					text = <"Always">
+					description = <"The patient always has catching or hanging up in their knee in the last week.">
+				>
+				["at0113"] = <
+					text = <"S4 - Straighten">
+					description = <"Patient-reported ability to straighten knee fully.">
+					comment = <"Questionnaire wording: 
+S4. Can you straighten your knee fully?">
+				>
+				["at0114"] = <
+					text = <"Always">
+					description = <"The patient can always straighten their knee in the last week.">
+				>
+				["at0115"] = <
+					text = <"Often">
+					description = <"The patient can often straighten their knee in the last week.">
+				>
+				["at0116"] = <
+					text = <"Sometimes">
+					description = <"The patient can sometimes straighten their knee in the last week.">
+				>
+				["at0117"] = <
+					text = <"Rarely">
+					description = <"The patient can rarely straighten their knee in the last week.">
+				>
+				["at0118"] = <
+					text = <"Never">
+					description = <"The patient can never straighten their knee in the last week.">
+				>
+				["at0119"] = <
+					text = <"S5 - Bend">
+					description = <"Patient-reported ability to bend knee fully.">
+					comment = <"Questionnaire wording: 
+S5. Can you bend your knee fully?">
+				>
+				["at0120"] = <
+					text = <"Always">
+					description = <"The patient can always bend their knee in the last week.">
+				>
+				["at0121"] = <
+					text = <"Often">
+					description = <"The patient can often bend their knee in the last week.">
+				>
+				["at0122"] = <
+					text = <"Sometimes">
+					description = <"The patient can sometimes bend their knee in the last week.">
+				>
+				["at0123"] = <
+					text = <"Rarely">
+					description = <"The patient can rarely bend their knee in the last week.">
+				>
+				["at0124"] = <
+					text = <"Never">
+					description = <"The patient can never bend their knee in the last week.">
+				>
+				["at0125"] = <
+					text = <"S6 - Morning Stiffness">
+					description = <"Patient-reported knee stiffness in the last week in the morning.">
+					comment = <"Questionnaire wording: 
+S6. How severe is your knee joint stiffness after first wakening in the morning?">
+				>
+				["at0126"] = <
+					text = <"Extreme">
+					description = <"The patient had extreme knee stiffness last week.">
+				>
+				["at0127"] = <
+					text = <"Severe">
+					description = <"The patient had severe knee stiffness last week.">
+				>
+				["at0128"] = <
+					text = <"Moderate">
+					description = <"The patient had moderate knee stiffness last week.">
+				>
+				["at0129"] = <
+					text = <"Mild">
+					description = <"The patient had mild knee stiffness last week.">
+				>
+				["at0130"] = <
+					text = <"None">
+					description = <"The patient had no knee stiffness last week.">
+				>
+				["at0131"] = <
+					text = <"S7 - Stiffness after sitting">
+					description = <"Patient-reported knee stiffness in the last week after sitting, lying or resting later in the day.">
+					comment = <"Questionnaire wording: 
+S7. How severe is your knee stiffness after sitting, lying or resting later in the day?">
+				>
+				["at0132"] = <
+					text = <"Extreme">
+					description = <"The patient had extreme knee stiffness last week.">
+				>
+				["at0133"] = <
+					text = <"Severe">
+					description = <"The patient had severe knee stiffness last week.">
+				>
+				["at0134"] = <
+					text = <"Moderate">
+					description = <"The patient had moderate knee stiffness last week.">
+				>
+				["at0135"] = <
+					text = <"Mild">
+					description = <"The patient had mild knee stiffness last week.">
+				>
+				["at0136"] = <
+					text = <"None">
+					description = <"The patient had no knee stiffness last week.">
+				>
+				["at0137"] = <
+					text = <"P1 - Pain frequency">
+					description = <"Patient-reported knee pain frequency.">
+					comment = <"Questionnaire wording: 
+P1. How often do you experience knee pain?">
+				>
+				["at0138"] = <
+					text = <"Always">
+					description = <"The patient always has knee pain.">
+				>
+				["at0139"] = <
+					text = <"Daily">
+					description = <"The patient has daily knee pain.">
+				>
+				["at0140"] = <
+					text = <"Weekly">
+					description = <"The patient has weekly knee pain.">
+				>
+				["at0141"] = <
+					text = <"Monthly">
+					description = <"The patient has monthly knee pain.">
+				>
+				["at0142"] = <
+					text = <"Never">
+					description = <"The patient never has knee pain.">
+				>
+				["at0143"] = <
+					text = <"P2 - Twisting">
+					description = <"Patient-reported knee pain when teisting/pivoting.">
+					comment = <"Questionnaire wording: 
+P2. Twisting/pivoting on your knee">
+				>
+				["at0144"] = <
+					text = <"Extreme">
+					description = <"The patient always has extreme knee pain twisting/pivoting.">
+				>
+				["at0145"] = <
+					text = <"Severe">
+					description = <"The patient always has severe knee pain twisting/pivoting.">
+				>
+				["at0146"] = <
+					text = <"Moderate">
+					description = <"The patient always has moderate knee pain twisting/pivoting.">
+				>
+				["at0147"] = <
+					text = <"Mild">
+					description = <"The patient always has mild knee pain twisting/pivoting.">
+				>
+				["at0148"] = <
+					text = <"None">
+					description = <"The patient always has no knee pain twisting/pivoting.">
+				>
+				["at0149"] = <
+					text = <"P3 - Straightening">
+					description = <"Patient-reported knee pain straightneing knee fully.">
+					comment = <"Questionnaire wording: 
+P3. Straightening knee fully">
+				>
+				["at0150"] = <
+					text = <"Extreme">
+					description = <"The patient always has extreme knee pain straightening knee fully.">
+				>
+				["at0151"] = <
+					text = <"Severe">
+					description = <"The patient always has severe knee pain straightening knee fully.">
+				>
+				["at0152"] = <
+					text = <"Moderate">
+					description = <"The patient always has moderate knee pain straightening knee fully.">
+				>
+				["at0153"] = <
+					text = <"Mild">
+					description = <"The patient always has mild knee pain straightening knee fully.">
+				>
+				["at0154"] = <
+					text = <"None">
+					description = <"The patient always has no knee pain straightening knee fully.">
+				>
+				["at0155"] = <
+					text = <"P4 - Bending">
+					description = <"Patient-reported knee pain bending knee fully.">
+					comment = <"Questionnaire wording: 
+P4. Bending knee fully">
+				>
+				["at0156"] = <
+					text = <"Extreme">
+					description = <"The patient always has extreme knee pain bending knee fully.">
+				>
+				["at0157"] = <
+					text = <"Severe">
+					description = <"The patient always has severe knee pain bending knee fully.">
+				>
+				["at0158"] = <
+					text = <"Moderate">
+					description = <"The patient always has moderate knee pain bending knee fully.">
+				>
+				["at0159"] = <
+					text = <"Mild">
+					description = <"The patient always has mild knee pain bending knee fully.">
+				>
+				["at0160"] = <
+					text = <"None">
+					description = <"The patient always has no knee pain bending knee fully.">
+				>
+				["at0161"] = <
+					text = <"P5 - Walking">
+					description = <"Patient-reported knee pain walking on a flat surface.">
+					comment = <"Questionnaire wording: 
+P5. Walking on flat surface">
+				>
+				["at0162"] = <
+					text = <"Extreme">
+					description = <"The patient always has extreme knee pain walking on a flat surface.">
+				>
+				["at0163"] = <
+					text = <"Severe">
+					description = <"The patient always has severe knee pain walking on a flat surface.">
+				>
+				["at0164"] = <
+					text = <"Moderate">
+					description = <"The patient always has moderate knee pain walking on a flat surface.">
+				>
+				["at0165"] = <
+					text = <"Mild">
+					description = <"The patient always has mild knee pain walking on a flat surface.">
+				>
+				["at0166"] = <
+					text = <"None">
+					description = <"The patient always has no knee pain walking on a flat surface.">
+				>
+				["at0167"] = <
+					text = <"P6- Stairs">
+					description = <"Patient-reported knee pain going up or down stairs.">
+					comment = <"Questionnaire wording: 
+P6. Going up or down stairs">
+				>
+				["at0168"] = <
+					text = <"Extreme">
+					description = <"The patient always has extreme knee pain going up or down stairs.">
+				>
+				["at0169"] = <
+					text = <"Severe">
+					description = <"The patient always has severe knee pain going up or down stairs.">
+				>
+				["at0170"] = <
+					text = <"Moderate">
+					description = <"The patient always has moderate knee pain going up or down stairs.">
+				>
+				["at0171"] = <
+					text = <"Mild">
+					description = <"The patient always has mild knee pain going up or down stairs.">
+				>
+				["at0172"] = <
+					text = <"None">
+					description = <"The patient always has no knee pain going up or down stairs.">
+				>
+				["at0173"] = <
+					text = <"P7 - In Bed">
+					description = <"Patient-reported knee pain at night while in bed.">
+					comment = <"Questionnaire wording: 
+P7. At night while in bed">
+				>
+				["at0174"] = <
+					text = <"Extreme">
+					description = <"The patient always has extreme knee pain at night while in bed.">
+				>
+				["at0175"] = <
+					text = <"Severe">
+					description = <"The patient always has severe knee pain at night while in bed.">
+				>
+				["at0176"] = <
+					text = <"Moderate">
+					description = <"The patient always has moderate knee pain at night while in bed.">
+				>
+				["at0177"] = <
+					text = <"Mild">
+					description = <"The patient always has mild knee pain at night while in bed.">
+				>
+				["at0178"] = <
+					text = <"None">
+					description = <"The patient always has no knee pain at night while in bed.">
+				>
+				["at0179"] = <
+					text = <"P8 - Sitting or lying">
+					description = <"Patient-reported knee pain sitting or lying.">
+					comment = <"Questionnaire wording: 
+P8. Sitting or lying">
+				>
+				["at0180"] = <
+					text = <"Extreme">
+					description = <"The patient always has extreme knee pain sitting or lying.">
+				>
+				["at0181"] = <
+					text = <"Severe">
+					description = <"The patient always has severe knee pain sitting or lying.">
+				>
+				["at0182"] = <
+					text = <"Moderate">
+					description = <"The patient always has moderate knee pain sitting or lying.">
+				>
+				["at0183"] = <
+					text = <"Mild">
+					description = <"The patient always has mild knee pain sitting or lying.">
+				>
+				["at0184"] = <
+					text = <"None">
+					description = <"The patient always has no knee pain sitting or lying.">
+				>
+				["at0185"] = <
+					text = <"P9 - Standing">
+					description = <"Patient-reported knee pain standing upright.">
+					comment = <"Questionnaire wording: 
+P9. Standing upright">
+				>
+				["at0186"] = <
+					text = <"Extreme">
+					description = <"The patient always has extreme knee pain standing upright.">
+				>
+				["at0187"] = <
+					text = <"Severe">
+					description = <"The patient always has severe knee pain standing upright.">
+				>
+				["at0188"] = <
+					text = <"Moderate">
+					description = <"The patient always has moderate knee pain standing upright.">
+				>
+				["at0189"] = <
+					text = <"Mild">
+					description = <"The patient always has mild knee pain standing upright.">
+				>
+				["at0190"] = <
+					text = <"None">
+					description = <"The patient always has no knee pain standing upright.">
+				>
+				["at0191"] = <
+					text = <"A1 - Descending stairs">
+					description = <"Patient-reported knee pain decending stairs.">
+					comment = <"Questionnaire wording: 
+A1. Descending stairs">
+				>
+				["at0192"] = <
+					text = <"Extreme">
+					description = <"The patient always has extreme knee pain descending stairs.">
+				>
+				["at0193"] = <
+					text = <"Severe">
+					description = <"The patient always has severe knee pain descending stairs.">
+				>
+				["at0194"] = <
+					text = <"Moderate">
+					description = <"The patient always has moderate knee pain descending stairs.">
+				>
+				["at0195"] = <
+					text = <"Mild">
+					description = <"The patient always has mild knee pain descending stairs.">
+				>
+				["at0196"] = <
+					text = <"None">
+					description = <"The patient always has no knee pain descending stairs.">
+				>
+				["at0197"] = <
+					text = <"A2 - Ascending stairs">
+					description = <"Patient-reported knee pain ascending stairs.">
+					comment = <"Questionnaire wording: 
+A2. Ascending stairs">
+				>
+				["at0198"] = <
+					text = <"Extreme">
+					description = <"The patient always has extreme knee pain ascending stairs.">
+				>
+				["at0199"] = <
+					text = <"Severe">
+					description = <"The patient always has severe knee pain ascending stairs.">
+				>
+				["at0200"] = <
+					text = <"Moderate">
+					description = <"The patient always has moderate knee pain ascending stairs.">
+				>
+				["at0201"] = <
+					text = <"Mild">
+					description = <"The patient always has mild knee pain ascending stairs.">
+				>
+				["at0202"] = <
+					text = <"None">
+					description = <"The patient always has no knee pain ascending stairs.">
+				>
+				["at0203"] = <
+					text = <"A3 - Rising from sitting">
+					description = <"Patient-reported knee pain risingfrom sitting.">
+					comment = <"Questionnaire wording: 
+A3. Rising from sitting">
+				>
+				["at0204"] = <
+					text = <"Extreme">
+					description = <"The patient always has extreme knee pain rising from sitting.">
+				>
+				["at0205"] = <
+					text = <"Severe">
+					description = <"The patient always has severe knee pain rising from sitting.">
+				>
+				["at0206"] = <
+					text = <"Moderate">
+					description = <"The patient always has moderate knee pain rising from sitting.">
+				>
+				["at0207"] = <
+					text = <"Mild">
+					description = <"The patient always has mild knee pain rising from sitting.">
+				>
+				["at0208"] = <
+					text = <"None">
+					description = <"The patient always has no knee pain rising from sitting.">
+				>
+				["at0209"] = <
+					text = <"A4 - Standing">
+					description = <"Patient-reported knee pain standing.">
+					comment = <"Questionnaire wording: 
+A4. Standing">
+				>
+				["at0210"] = <
+					text = <"Extreme">
+					description = <"The patient always has extreme knee pain standing.">
+				>
+				["at0211"] = <
+					text = <"Severe">
+					description = <"The patient always has severe knee pain standing.">
+				>
+				["at0212"] = <
+					text = <"Moderate">
+					description = <"The patient always has moderate knee pain standing.">
+				>
+				["at0213"] = <
+					text = <"Mild">
+					description = <"The patient always has mild knee pain standing.">
+				>
+				["at0214"] = <
+					text = <"None">
+					description = <"The patient always has no knee pain standing.">
+				>
+				["at0215"] = <
+					text = <"A5 - Bending to pick up">
+					description = <"Patient-reported knee pain bending to floor/pick up an object.">
+					comment = <"Questionnaire wording: 
+A5. Bending to floor/pick up an object">
+				>
+				["at0216"] = <
+					text = <"Extreme">
+					description = <"The patient always has extreme knee pain bending to floor/pick up an object.">
+				>
+				["at0217"] = <
+					text = <"Severe">
+					description = <"The patient always has severe knee pain bending to floor/pick up an object.">
+				>
+				["at0218"] = <
+					text = <"Moderate">
+					description = <"The patient always has moderate knee pain bending to floor/pick up an object.">
+				>
+				["at0219"] = <
+					text = <"Mild">
+					description = <"The patient always has mild knee pain bending to floor/pick up and object.">
+				>
+				["at0220"] = <
+					text = <"None">
+					description = <"The patient always has no knee pain bending to floor/ pick up an object.">
+				>
+				["at0221"] = <
+					text = <"A6 - Walking on flat surface">
+					description = <"Patient-reported knee pain walking on flat surface.">
+					comment = <"Questionnaire wording: 
+A6. Walking on flat surface">
+				>
+				["at0222"] = <
+					text = <"Extreme">
+					description = <"The patient always has extreme knee walking on a flat surface.">
+				>
+				["at0223"] = <
+					text = <"Severe">
+					description = <"The patient always has severe knee walking on a flat surface.">
+				>
+				["at0224"] = <
+					text = <"Moderate">
+					description = <"The patient always has moderate knee pain walking on a flat surface.">
+				>
+				["at0225"] = <
+					text = <"Mild">
+					description = <"The patient always has mild knee pain walking on a flat surface.">
+				>
+				["at0226"] = <
+					text = <"None">
+					description = <"The patient always has no knee pain walking on a flat surface.">
+				>
+				["at0227"] = <
+					text = <"A7 - Getting in/out car">
+					description = <"Patient-reported knee pain getting in/out of cars.">
+					comment = <"Questionnaire wording: 
+A7. Getting in/out of car">
+				>
+				["at0228"] = <
+					text = <"Extreme">
+					description = <"The patient always has extreme knee pain getting in/out of car.">
+				>
+				["at0229"] = <
+					text = <"Severe">
+					description = <"The patient always has severe knee pain getting in/out of car.">
+				>
+				["at0230"] = <
+					text = <"Moderate">
+					description = <"The patient always has moderate knee pain getting in/out of car.">
+				>
+				["at0231"] = <
+					text = <"Mild">
+					description = <"The patient always has mild knee pain getting in/out of car.">
+				>
+				["at0232"] = <
+					text = <"None">
+					description = <"The patient always has no knee pain getting in/out of car.">
+				>
+				["at0233"] = <
+					text = <"A8 - Shopping">
+					description = <"Patient-reported knee pain going shopping.">
+					comment = <"Questionnaire wording: 
+A8. Going shopping">
+				>
+				["at0234"] = <
+					text = <"Extreme">
+					description = <"The patient always has extreme knee pain going shopping.">
+				>
+				["at0235"] = <
+					text = <"Severe">
+					description = <"The patient always has severe knee pain going shopping.">
+				>
+				["at0236"] = <
+					text = <"Moderate">
+					description = <"The patient always has moderate knee pain going shopping.">
+				>
+				["at0237"] = <
+					text = <"Mild">
+					description = <"The patient always has mild knee pain going shopping.">
+				>
+				["at0238"] = <
+					text = <"None">
+					description = <"The patient always has no knee pain going shopping.">
+				>
+				["at0239"] = <
+					text = <"A9 - Socks on">
+					description = <"Patient-reported knee pain putting on socks/stockings.">
+					comment = <"Questionnaire wording: 
+A9. Putting on socks/stockings">
+				>
+				["at0240"] = <
+					text = <"Extreme">
+					description = <"The patient always has extreme knee pain putting on socks/stockings.">
+				>
+				["at0241"] = <
+					text = <"Severe">
+					description = <"The patient always has severe knee pain putting on socks/stockings.">
+				>
+				["at0242"] = <
+					text = <"Moderate">
+					description = <"The patient always has moderate knee pain putting on socks/stockings.">
+				>
+				["at0243"] = <
+					text = <"Mild">
+					description = <"The patient always has mild knee pain putting on socks/stockings.">
+				>
+				["at0244"] = <
+					text = <"None">
+					description = <"The patient always has no knee pain putting on socks/stockings.">
+				>
+				["at0245"] = <
+					text = <"A10 - Rising from bed">
+					description = <"Patient-reported knee pain rising from bed.">
+					comment = <"Questionnaire wording: 
+A10. Rising from bed">
+				>
+				["at0246"] = <
+					text = <"Extreme">
+					description = <"The patient always has extreme knee pain rising from bed.">
+				>
+				["at0247"] = <
+					text = <"Severe">
+					description = <"The patient always has severe knee pain rising from bed.">
+				>
+				["at0248"] = <
+					text = <"Moderate">
+					description = <"The patient always has moderate knee pain rising from bed.">
+				>
+				["at0249"] = <
+					text = <"Mild">
+					description = <"The patient always has mild knee pain rising from bed.">
+				>
+				["at0250"] = <
+					text = <"None">
+					description = <"The patient always has no knee pain rising from bed.">
+				>
+				["at0251"] = <
+					text = <"A11 - Socks off">
+					description = <"Patient-reported knee pain taking off socks/stockings.">
+					comment = <"Questionnaire wording: 
+A11. Taking off socks/stockings">
+				>
+				["at0252"] = <
+					text = <"Extreme">
+					description = <"The patient always has extreme knee pain taking off socks/stockings.">
+				>
+				["at0253"] = <
+					text = <"Severe">
+					description = <"The patient always has severe knee pain taking off socks/stockings.">
+				>
+				["at0254"] = <
+					text = <"Moderate">
+					description = <"The patient always has moderate knee pain taking off socks/stockings.">
+				>
+				["at0255"] = <
+					text = <"Mild">
+					description = <"The patient always has mild knee pain taking off socks/stockings.">
+				>
+				["at0256"] = <
+					text = <"None">
+					description = <"The patient always has no knee pain taking off socks/stockings.">
+				>
+				["at0257"] = <
+					text = <"A12 - Lying in bed">
+					description = <"Patient-reported knee pain lying in bed (turning over, maintaining knee position).">
+					comment = <"Questionnaire wording: 
+A12. Lying in bed (turning over, maintaining knee position)">
+				>
+				["at0258"] = <
+					text = <"Extreme">
+					description = <"The patient always has extreme knee pain lying in bed.">
+				>
+				["at0259"] = <
+					text = <"Severe">
+					description = <"The patient always has severe knee pain lying in bed.">
+				>
+				["at0260"] = <
+					text = <"Moderate">
+					description = <"The patient always has moderate knee pain lying in bed.">
+				>
+				["at0261"] = <
+					text = <"Mild">
+					description = <"The patient always has mild knee pain lying in bed.">
+				>
+				["at0262"] = <
+					text = <"None">
+					description = <"The patient always has no knee pain lying in bed.">
+				>
+				["at0263"] = <
+					text = <"A13 - Bathing">
+					description = <"Patient-reported knee pain getting in/out of bath.">
+					comment = <"Questionnaire wording: 
+A13. Getting in/out of bath">
+				>
+				["at0264"] = <
+					text = <"Extreme">
+					description = <"The patient always has extreme knee pain getting in/out of bath.">
+				>
+				["at0265"] = <
+					text = <"Severe">
+					description = <"The patient always has severe knee pain getting in/out of bath.">
+				>
+				["at0266"] = <
+					text = <"Moderate">
+					description = <"The patient always has moderate knee pain getting in/out of bath.">
+				>
+				["at0267"] = <
+					text = <"Mild">
+					description = <"The patient always has mild knee pain getting in/out of bath.">
+				>
+				["at0268"] = <
+					text = <"None">
+					description = <"The patient always has no knee pain getting in/out of bath.">
+				>
+				["at0269"] = <
+					text = <"A14 - Sitting">
+					description = <"Patient-reported knee pain sitting.">
+					comment = <"Questionnaire wording: 
+A14. Sitting">
+				>
+				["at0270"] = <
+					text = <"Extreme">
+					description = <"The patient always has extreme knee pain sitting.">
+				>
+				["at0271"] = <
+					text = <"Severe">
+					description = <"The patient always has severe knee pain sitting.">
+				>
+				["at0272"] = <
+					text = <"Moderate">
+					description = <"The patient always has moderate knee pain sitting.">
+				>
+				["at0273"] = <
+					text = <"Mild">
+					description = <"The patient always has mild knee pain sitting.">
+				>
+				["at0274"] = <
+					text = <"None">
+					description = <"The patient always has no knee pain sitting.">
+				>
+				["at0275"] = <
+					text = <"A15 - Toilet">
+					description = <"Patient-reported knee pain getting on/off toilet.">
+					comment = <"Questionnaire wording: 
+A15. Getting on/off toilet">
+				>
+				["at0276"] = <
+					text = <"Extreme">
+					description = <"The patient always has extreme knee pain getting on/off toilet.">
+				>
+				["at0277"] = <
+					text = <"Severe">
+					description = <"The patient always has severe knee pain getting on/off toilet.">
+				>
+				["at0278"] = <
+					text = <"Moderate">
+					description = <"The patient always has moderate knee pain getting on/off toilet.">
+				>
+				["at0279"] = <
+					text = <"Mild">
+					description = <"The patient always has mild knee pain getting on/off toilet.">
+				>
+				["at0280"] = <
+					text = <"None">
+					description = <"The patient always has no knee pain getting on/off toilet.">
+				>
+				["at0281"] = <
+					text = <"A16 - Heavy domestic duties">
+					description = <"Patient-reported knee degree of difficulty in the last week performing heavy domestic duties (moving heavy boxes, scrubbing floors, etc) due to knee pain.">
+					comment = <"Questionnaire wording: 
+A16. Heavy domestic duties (moving heavy boxes, scrubbing floors, etc)">
+				>
+				["at0282"] = <
+					text = <"Extreme">
+					description = <"The patient always has extreme knee pain performing heavy domestic duties.">
+				>
+				["at0283"] = <
+					text = <"Severe">
+					description = <"The patient always has severe knee pain performing heavy domestic duties.">
+				>
+				["at0284"] = <
+					text = <"Moderate">
+					description = <"The patient always has moderate knee pain performing heavy domestic duties.">
+				>
+				["at0285"] = <
+					text = <"Mild">
+					description = <"The patient always has mild knee pain performing heavy domestic duties.">
+				>
+				["at0286"] = <
+					text = <"None">
+					description = <"The patient always has no knee pain performing heavy domestic duties.">
+				>
+				["at0287"] = <
+					text = <"A17 - Light domestic duties">
+					description = <"Patient-reported knee degree of difficulty in the last week performing light domestic duties (cooking, dusting, etc) due to knee pain.">
+					comment = <"Questionnaire wording: 
+A17. Light domestic duties (cooking, dusting, etc)">
+				>
+				["at0288"] = <
+					text = <"Extreme">
+					description = <"The patient always has extreme knee pain performing light domestic duties.">
+				>
+				["at0289"] = <
+					text = <"Severe">
+					description = <"The patient always has severe knee pain performing light domestic duties.">
+				>
+				["at0290"] = <
+					text = <"Moderate">
+					description = <"The patient always has moderate knee pain performing light domestic duties.">
+				>
+				["at0291"] = <
+					text = <"Mild">
+					description = <"The patient always has mild knee pain performing light domestic duties.">
+				>
+				["at0292"] = <
+					text = <"None">
+					description = <"The patient always has no knee pain performing light domestic duties.">
+				>
+				["at0293"] = <
+					text = <"SP1 - Squatting">
+					description = <"Patient-reported knee degree of difficulty squatting during the last week.">
+					comment = <"Questionnaire wording: 
+SP1. Squatting">
+				>
+				["at0294"] = <
+					text = <"Extreme">
+					description = <"The patient always has extreme knee pain squatting.">
+				>
+				["at0295"] = <
+					text = <"Severe">
+					description = <"The patient always has severe knee pain squatting.">
+				>
+				["at0296"] = <
+					text = <"Moderate">
+					description = <"The patient always has moderate knee pain squatting.">
+				>
+				["at0297"] = <
+					text = <"Mild">
+					description = <"The patient always has mild knee pain squatting.">
+				>
+				["at0298"] = <
+					text = <"None">
+					description = <"The patient always has no knee pain squatting.">
+				>
+				["at0299"] = <
+					text = <"SP2 - Running">
+					description = <"Patient-reported knee degree of difficulty running during the last week.">
+					comment = <"Questionnaire wording: 
+SP2. Running">
+				>
+				["at0300"] = <
+					text = <"Extreme">
+					description = <"The patient always has extreme knee pain running.">
+				>
+				["at0301"] = <
+					text = <"Severe">
+					description = <"The patient always has severe knee pain running.">
+				>
+				["at0302"] = <
+					text = <"Moderate">
+					description = <"The patient always has moderate knee pain running.">
+				>
+				["at0303"] = <
+					text = <"Mild">
+					description = <"The patient always has mild knee pain running.">
+				>
+				["at0304"] = <
+					text = <"None">
+					description = <"The patient always has no knee pain running.">
+				>
+				["at0305"] = <
+					text = <"SP3 - Jumping">
+					description = <"Patient-reported knee degree of difficulty jumping during the last week.">
+					comment = <"Questionnaire wording: 
+SP3. Jumping">
+				>
+				["at0306"] = <
+					text = <"Extreme">
+					description = <"The patient always has extreme knee jumping.">
+				>
+				["at0307"] = <
+					text = <"Severe">
+					description = <"The patient always has severe knee pain jumping.">
+				>
+				["at0308"] = <
+					text = <"Moderate">
+					description = <"The patient always has moderate knee pain jumping.">
+				>
+				["at0309"] = <
+					text = <"Mild">
+					description = <"The patient always has mild knee pain jumping.">
+				>
+				["at0310"] = <
+					text = <"None">
+					description = <"The patient always has no knee pain jumping.">
+				>
+				["at0311"] = <
+					text = <"SP4 - Twisiting/pivoting">
+					description = <"Patient-reported knee degree of difficulty twisting/pivoting on your injured knee during the last week.">
+					comment = <"Questionnaire wording: 
+SP4. Twisting/pivoting on your injured knee">
+				>
+				["at0312"] = <
+					text = <"Extreme">
+					description = <"The patient always has extreme knee pain twisting/pivoting the injured knee.">
+				>
+				["at0313"] = <
+					text = <"Severe">
+					description = <"The patient always has severe knee pain twisting/pivoting the injured knee.">
+				>
+				["at0314"] = <
+					text = <"Moderate">
+					description = <"The patient always has moderate knee twisting/pivoting the injured knee.">
+				>
+				["at0315"] = <
+					text = <"Mild">
+					description = <"The patient always has mild knee pain twisting/pivoting the injured knee.">
+				>
+				["at0316"] = <
+					text = <"None">
+					description = <"The patient always has no knee pain twisting/pivoting the injured knee.">
+				>
+				["at0317"] = <
+					text = <"SP5 - Kneeling">
+					description = <"Patient-reported knee degree of difficulty kneeling during the last week.">
+					comment = <"Questionnaire wording: 
+SP5. Kneeling">
+				>
+				["at0318"] = <
+					text = <"Extreme">
+					description = <"The patient always has extreme knee pain kneeling.">
+				>
+				["at0319"] = <
+					text = <"Severe">
+					description = <"The patient always has severe knee pain kneeling.">
+				>
+				["at0320"] = <
+					text = <"Moderate">
+					description = <"The patient always has moderate knee pain kneeling.">
+				>
+				["at0321"] = <
+					text = <"Mild">
+					description = <"The patient always has mild knee pain kneeling.">
+				>
+				["at0322"] = <
+					text = <"None">
+					description = <"The patient always has no knee pain kneeling.">
+				>
+				["at0323"] = <
+					text = <"Q1 - Aware of pain">
+					description = <"Patient-reported how often they are aware of their knee problem?">
+					comment = <"Questionnaire wording: 
+Q1. How often are you aware of your knee problem?">
+				>
+				["at0324"] = <
+					text = <"Constantly">
+					description = <"The patient is constantly aware of their knee pain.">
+				>
+				["at0325"] = <
+					text = <"Daily">
+					description = <"The patient is aware of their knee pain daily.">
+				>
+				["at0326"] = <
+					text = <"Weekly">
+					description = <"The patient is aware of their knee pain weekly.">
+				>
+				["at0327"] = <
+					text = <"Monthly">
+					description = <"The patient is aware of their knee pain monthly.">
+				>
+				["at0328"] = <
+					text = <"Never">
+					description = <"The patient is never aware of their knee pain.">
+				>
+				["at0329"] = <
+					text = <"Q2 - Lifestyle">
+					description = <"Extent to which patient has modified their life style to avoid potentially damaging activities
+to their knee.">
+					comment = <"Questionnaire wording: 
+Q2. Have you modified your life style to avoid potentially damaging activities
+to your knee?">
+				>
+				["at0330"] = <
+					text = <"Totally">
+					description = <"The patient has totally modified their life style to avoid potentially damaging activities to their knee.">
+				>
+				["at0331"] = <
+					text = <"Severely">
+					description = <"The patient has severely modified their life style to avoid potentially damaging activities to their knee.">
+				>
+				["at0332"] = <
+					text = <"Moderately">
+					description = <"The patient has moderately modified their life style to avoid potentially damaging activities to their knee.">
+				>
+				["at0333"] = <
+					text = <"Mildly">
+					description = <"The patient has mildly modified their life style to avoid potentially damaging activities to their knee.">
+				>
+				["at0334"] = <
+					text = <"Not at all">
+					description = <"The patient has not modified their life style to avoid potentially damaging activities to their knee.">
+				>
+				["at0335"] = <
+					text = <"Q3 - Confidence">
+					description = <"Patient reported how much they are troubled with lack of confidence in their knee?">
+					comment = <"Questionnaire wording: 
+Q3. How much are you troubled with lack of confidence in your knee?">
+				>
+				["at0336"] = <
+					text = <"Extremely">
+					description = <"The patient is extremely troubled troubled with lack of confidence in their knee.">
+				>
+				["at0337"] = <
+					text = <"Severely">
+					description = <"The patient is severely troubled troubled with lack of confidence in their knee.">
+				>
+				["at0338"] = <
+					text = <"Moderately">
+					description = <"The patient is moderately troubled troubled with lack of confidence in their knee.">
+				>
+				["at0339"] = <
+					text = <"Mildly">
+					description = <"The patient is mildly troubled troubled with lack of confidence in their knee.">
+				>
+				["at0340"] = <
+					text = <"Not at all">
+					description = <"The patient is not troubled troubled with lack of confidence in their knee.">
+				>
+				["at0341"] = <
+					text = <"Q4 - General difficulty">
+					description = <"Extent to which patient, in general, has difficulty with their knee.">
+					comment = <"Questionnaire wording: 
+Q4. In general, how much difficulty do you have with your knee?">
+				>
+				["at0342"] = <
+					text = <"Extreme">
+					description = <"The patient, in general, has extreme difficulty with their knee.">
+				>
+				["at0343"] = <
+					text = <"Severe">
+					description = <"The patient, in general, has severe difficulty with their knee.">
+				>
+				["at0344"] = <
+					text = <"Moderate">
+					description = <"The patient, in general, has moderate difficulty with their knee.">
+				>
+				["at0345"] = <
+					text = <"Mild">
+					description = <"The patient, in general, has mild difficulty with their knee.">
+				>
+				["at0346"] = <
+					text = <"None">
+					description = <"The patient, in general, has no difficulty with their knee.">
+				>
+				["at0347"] = <
+					text = <"Symptoms">
+					description = <"Patient reported knee symptoms during the last week.">
+					comment = <"These questions should be answered thinking of your knee symptoms during the last week.">
+				>
+				["at0348"] = <
+					text = <"Pain">
+					description = <"Patient reported frequency and pain levels.">
+				>
+				["at0349"] = <
+					text = <"Quality of life">
+					description = <"Patient reported quality of life.">
+				>
+				["at0350"] = <
+					text = <"Sports and recreation">
+					description = <"Patient reported levels of physical function.">
+					comment = <"The following questions concern your physical function when being active on a higher level. The questions should be answered thinking of what degree of difficulty you have experienced during the last week due to your knee.">
+				>
+				["at0351"] = <
+					text = <"Function">
+					description = <"Patient reported physical function during the last week.">
+					comment = <"The following questions concern your physical function. By this we mean your ability to move around and to look after yourself. For each of the following activities please indicate the degree of difficulty you have experienced in the last week due to your knee.">
+				>
+			>
+		>
+	>
