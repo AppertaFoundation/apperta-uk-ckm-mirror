@@ -1,0 +1,439 @@
+﻿archetype (adl_version=1.4; uid=3dc42f9f-dcd0-4414-8fc4-b364c57a3d8f)
+	openEHR-EHR-OBSERVATION.oxford_knee_activity_and_participation.v0
+
+concept
+	[at0000]	-- Oxford Knee Score – Activity and Participation Questionnaire (OKS-APQ)
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Alan Fish">
+		["organisation"] = <"Apperta Foundation CIC.">
+		["email"] = <"alan.fish@apperta.org">
+		["date"] = <"2019-08-05">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Use to capture and report Oxford Knee Score – Activity and Participation Questionnaire (OKS-APQ) score details.">
+			use = <"Use to capture and report Oxford Knee Score – Activity and Participation Questionnaire (OKS-APQ).
+
+While openEHR archetypes are all freely available under an open license, the specific content of this archetype may be copyright protected. Any use of this archetype within implementations must be in compliance with the terms established by the copyright owners where a copyright exists. 
+
+">
+			keywords = <"orthopaedics, knee", ...>
+			misuse = <"Not to be used unless the terms of copyright have been observed (if a copyright exists).">
+			copyright = <"© Apperta UK CIC, Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["references"] = <"https://innovation.ox.ac.uk/outcome-measures/oxford-knee-score-activity-participation-questionnaire-oks-apq/">
+		["current_contact"] = <"Alan Fish, Apperta Foundation CIC.<alan.fish@apperta.org>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"07BD860EA0B0CF6F6B71200B69365708">
+		["build_uid"] = <"24170802-b996-4911-af9f-5956a43dc458">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- Oxford Knee Score – Activity and Participation Questionnaire (OKS-APQ)
+		data matches {
+			HISTORY[at0001] matches {    -- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..1} matches {    -- Point in time
+						data matches {
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0008] occurrences matches {0..1} matches {    -- 1 Activities
+										value matches {
+											0|[local::at0109],
+											1|[local::at0009],
+											2|[local::at0010],
+											3|[local::at0011],
+											4|[local::at0012]
+										}
+									}
+									ELEMENT[at0132] occurrences matches {0..1} matches {    -- 2 Carrying
+										value matches {
+											0|[local::at0133],
+											1|[local::at0134],
+											2|[local::at0135],
+											3|[local::at0136],
+											4|[local::at0137]
+										}
+									}
+									ELEMENT[at0138] occurrences matches {0..1} matches {    -- 3 Work
+										value matches {
+											0|[local::at0139],
+											1|[local::at0140],
+											2|[local::at0141],
+											3|[local::at0142],
+											4|[local::at0143]
+										}
+									}
+									ELEMENT[at0144] occurrences matches {0..1} matches {    -- 4 Going out
+										value matches {
+											0|[local::at0145],
+											1|[local::at0146],
+											2|[local::at0147],
+											3|[local::at0148],
+											4|[local::at0149]
+										}
+									}
+									ELEMENT[at0150] occurrences matches {0..1} matches {    -- 5 Family activities
+										value matches {
+											0|[local::at0151],
+											1|[local::at0152],
+											2|[local::at0153],
+											3|[local::at0154],
+											4|[local::at0155]
+										}
+									}
+									ELEMENT[at0156] occurrences matches {0..1} matches {    -- 6 Walk at pace
+										value matches {
+											0|[local::at0157],
+											1|[local::at0158],
+											2|[local::at0159],
+											3|[local::at0160],
+											4|[local::at0161]
+										}
+									}
+									ELEMENT[at0162] occurrences matches {0..1} matches {    -- 7 Twist and Turn
+										value matches {
+											0|[local::at0163],
+											1|[local::at0164],
+											2|[local::at0165],
+											3|[local::at0166],
+											4|[local::at0167]
+										}
+									}
+									ELEMENT[at0168] occurrences matches {0..1} matches {    -- 8 Activity duration
+										value matches {
+											0|[local::at0169],
+											1|[local::at0170],
+											2|[local::at0171],
+											3|[local::at0172],
+											4|[local::at0173]
+										}
+									}
+									ELEMENT[at0104] occurrences matches {0..1} matches {    -- Total score
+										value matches {
+											DV_COUNT matches {
+												magnitude matches {|0..48|}
+											}
+										}
+									}
+									ELEMENT[at0105] occurrences matches {0..1} matches {    -- Average score
+										value matches {
+											DV_COUNT matches {
+												magnitude matches {|0..100|}
+											}
+										}
+									}
+									ELEMENT[at0115] occurrences matches {0..1} matches {    -- Grading
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0116,    -- Severe
+													at0117,    -- Moderate to severe
+													at0118,    -- Moderate
+													at0119]    -- Satisfactory
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0005] matches {    -- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0006] occurrences matches {0..1} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Oxford Knee Score – Activity and Participation Questionnaire (OKS-APQ)">
+					description = <"Oxford Knee Score – Activity and Participation Questionnaire (OKS-APQ).">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Point in time">
+					description = <"A specific date and/or time which may be explicitly defined in a template or at run-time.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0005"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0006"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental infomation or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+				["at0008"] = <
+					text = <"1 Activities">
+					description = <"Patient-reported extent of impact on ability to undertake activities beacuse of knee pain in the past 4 weeks.">
+					comment = <"Questionnaire wording: 
+It is a problem for me to do activities (e.g. sports, dancing, walking) to the level I want because of my knee.">
+				>
+				["at0009"] = <
+					text = <"Tend to agree">
+					description = <"The patient tends to agree that it is a problem to undertake activities because of their knee in the past 4 weeks.">
+				>
+				["at0010"] = <
+					text = <"Neither agree nor disagree">
+					description = <"The patient neither agrees nor disagrees  that it is a problem to undertake activities because of their knee in the past 4 weeks.">
+				>
+				["at0011"] = <
+					text = <"Tend to disagree">
+					description = <"The patient tend to agree that it is a problem to undertake activities because of their knee in the past 4 weeks.">
+				>
+				["at0012"] = <
+					text = <"Strongly disagree">
+					description = <"The patient strongly disagrees that it is a problem to undertake activities because of their knee in the past 4 weeks.">
+				>
+				["at0104"] = <
+					text = <"Total score">
+					description = <"Total score from Questions 1 to 12.">
+				>
+				["at0105"] = <
+					text = <"Average score">
+					description = <"Average score from Questions 1-12.">
+				>
+				["at0109"] = <
+					text = <"Strongly agree">
+					description = <"The patient strongly agrees that it is a problem to undertake activities because of their knee in the past 4 weeks.">
+				>
+				["at0115"] = <
+					text = <"Grading">
+					description = <"*">
+				>
+				["at0116"] = <
+					text = <"Severe">
+					description = <"May indicate severe hip arthritis.">
+				>
+				["at0117"] = <
+					text = <"Moderate to severe">
+					description = <"May indicate moderate to severe hip arthritis.">
+				>
+				["at0118"] = <
+					text = <"Moderate">
+					description = <"May indicate mild to moderate hip arthritis.">
+				>
+				["at0119"] = <
+					text = <"Satisfactory">
+					description = <"May indicate satisfactory joint function.">
+				>
+				["at0132"] = <
+					text = <"2 Carrying">
+					description = <"Patient-reported extent of impact on ability to carry heavy things beacuse of knee pain in the past 4 weeks.">
+					comment = <"Questionnaire wording: 
+It is a problem for me to carry heavy things (e.g. items at work, shopping or a child), because of my knee.">
+				>
+				["at0133"] = <
+					text = <"Strongly agree">
+					description = <"The patient strongly agrees that it is a problem to carry heavy things because of their knee in the past 4 weeks.">
+				>
+				["at0134"] = <
+					text = <"Tend to agree">
+					description = <"The patient tends to agree that it is a problem to carry heavy things because of their knee in the past 4 weeks.">
+				>
+				["at0135"] = <
+					text = <"Neither agree nor disagree">
+					description = <"The patient neither agrees nor disagrees  that it is a problem to carry heavy things because of their knee in the past 4 weeks.">
+				>
+				["at0136"] = <
+					text = <"Tend to disagree">
+					description = <"The patient tend to agree that it is a problem to carry heavy things because of their knee in the past 4 weeks.">
+				>
+				["at0137"] = <
+					text = <"Strongly disagree">
+					description = <"The patient strongly disagrees that it is a problem to carry heavy things because of their knee in the past 4 weeks.">
+				>
+				["at0138"] = <
+					text = <"3 Work">
+					description = <"Patient-reported extent modifying work or everday activities beacuse of knee pain in the past 4 weeks.">
+					comment = <"Questionnaire wording: 
+3. I need to modify my work or everyday activities, because of my knee.">
+				>
+				["at0139"] = <
+					text = <"Strongly agree">
+					description = <"The patient strongly agrees that they have modified work or every day activities because of their knee in the past 4 weeks.">
+				>
+				["at0140"] = <
+					text = <"Tend to agree">
+					description = <"The patient tends to agree that they have modified work or every day activities because of their knee in the past 4 weeks.">
+				>
+				["at0141"] = <
+					text = <"Neither agree nor disagree">
+					description = <"The patient neither agrees nor disagrees that they have modified work or every day activities because of their knee in the past 4 weeks.">
+				>
+				["at0142"] = <
+					text = <"Tend to disagree">
+					description = <"The patient tend to agree that they have modified work or every day activities because of their knee in the past 4 weeks.">
+				>
+				["at0143"] = <
+					text = <"Strongly disagree">
+					description = <"The patient strongly disagrees that they have modified work or every day activities because of their knee in the past 4 weeks.">
+				>
+				["at0144"] = <
+					text = <"4 Going out">
+					description = <"Patient-reported extent of planning carefully before going out for the day beacuse of knee pain in the past 4 weeks.">
+					comment = <"Questionnaire wording: 
+4. I need to plan carefully before going out for the day, because of my knee (e.g. taking painkillers, using a knee brace or checking that there will be places to sit down)">
+				>
+				["at0145"] = <
+					text = <"Strongly agree">
+					description = <"The patient strongly agrees that they have to plan before going out for the day because of their knee in the past 4 weeks.">
+				>
+				["at0146"] = <
+					text = <"Tend to agree">
+					description = <"The patient tends to agree that they have to plan before going out for the day because of their knee in the past 4 weeks.">
+				>
+				["at0147"] = <
+					text = <"Neither agree nor disagree">
+					description = <"The patient neither agrees nor disagrees that they have to plan before going out for the day because of their knee in the past 4 weeks.">
+				>
+				["at0148"] = <
+					text = <"Tend to disagree">
+					description = <"The patient tend to agree that they have to plan before going out for the day because of their knee in the past 4 weeks.">
+				>
+				["at0149"] = <
+					text = <"Strongly disagree">
+					description = <"The patient strongly disagrees that they have to plan before going out for the day because of their knee in the past 4 weeks.">
+				>
+				["at0150"] = <
+					text = <"5 Family activities">
+					description = <"Patient-reported extent of impact on taking part in events with family and friends beacuse of knee pain in the past 4 weeks.">
+					comment = <"Questionnaire wording: 
+5. It is a problem for me to fully take part in activities with friends and family, because of my knee">
+				>
+				["at0151"] = <
+					text = <"Strongly agree">
+					description = <"The patient strongly agrees that they have a problem fully taking part in activities with family and friends because of their knee in the past 4 weeks.">
+				>
+				["at0152"] = <
+					text = <"Tend to agree">
+					description = <"The patient tends to agree that they have a problem fully taking part in activities with family and friends because of their knee in the past 4 weeks.">
+				>
+				["at0153"] = <
+					text = <"Neither agree nor disagree">
+					description = <"The patient neither agrees nor disagrees that they have a problem fully taking part in activities with family and friends because of their knee in the past 4 weeks.">
+				>
+				["at0154"] = <
+					text = <"Tend to disagree">
+					description = <"The patient tend to agree that they have a problem fully taking part in activities with family and friends because of their knee in the past 4 weeks.">
+				>
+				["at0155"] = <
+					text = <"Strongly disagree">
+					description = <"The patient strongly disagrees that they have a problem fully taking part in activities with family and friends because of their knee in the past 4 weeks.">
+				>
+				["at0156"] = <
+					text = <"6 Walk at pace">
+					description = <"Patient-reported extent of impact walking at pace beacuse of knee pain in the past 4 weeks.">
+					comment = <"Questionnaire wording: 
+6. It is a problem for me to walk at the pace I would like, because of my knee.">
+				>
+				["at0157"] = <
+					text = <"Strongly agree">
+					description = <"The patient strongly agrees that they have a problem walking at a pace they would like because of their knee in the past 4 weeks.">
+				>
+				["at0158"] = <
+					text = <"Tend to agree">
+					description = <"The patient tends to agree that they have a problem walking at a pace they would like because of their knee in the past 4 weeks.">
+				>
+				["at0159"] = <
+					text = <"Neither agree nor disagree">
+					description = <"The patient neither agrees nor disagrees that they have a problem walking at a pace they would like because of their knee in the past 4 weeks.">
+				>
+				["at0160"] = <
+					text = <"Tend to disagree">
+					description = <"The patient tend to agree that they have a problem walking at a pace they would like because of their knee in the past 4 weeks.">
+				>
+				["at0161"] = <
+					text = <"Strongly disagree">
+					description = <"The patient strongly disagrees that they have a problem walking at a pace they would like because of their knee in the past 4 weeks.">
+				>
+				["at0162"] = <
+					text = <"7 Twist and Turn">
+					description = <"Patient-reported extent of problem twisting and turning beacuse of knee pain in the past 4 weeks.">
+					comment = <"Questionnaire wording: 
+7. It is a problem for me to twist or turn, as my knee may give way or be painful.">
+				>
+				["at0163"] = <
+					text = <"Strongly agree">
+					description = <"The patient strongly agrees that they have a problem twisting and turning because of their knee in the past 4 weeks.">
+				>
+				["at0164"] = <
+					text = <"Tend to agree">
+					description = <"The patient tends to agree that they have a problem twisting and turning because of their knee in the past 4 weeks.">
+				>
+				["at0165"] = <
+					text = <"Neither agree nor disagree">
+					description = <"The patient neither agrees nor disagrees that they have a problem twisting and turning because of their knee in the past 4 weeks.">
+				>
+				["at0166"] = <
+					text = <"Tend to disagree">
+					description = <"The patient tend to agree that they have a problem twisting and turning because of their knee in the past 4 weeks.">
+				>
+				["at0167"] = <
+					text = <"Strongly disagree">
+					description = <"The patient strongly disagrees that they have a problem twisting and turning because of their knee in the past 4 weeks.">
+				>
+				["at0168"] = <
+					text = <"8 Activity duration">
+					description = <"Patient-reported extent of problem taking longer to do everyday activities beacuse of knee pain in the past 4 weeks.">
+					comment = <"Questionnaire wording: 
+8. It is a problem for me that I need to take longer to do everyday activities, because of my knee.">
+				>
+				["at0169"] = <
+					text = <"Strongly agree">
+					description = <"The patient strongly agrees that they have a problem taking longer to do everyday activities because of their knee in the past 4 weeks.">
+				>
+				["at0170"] = <
+					text = <"Tend to agree">
+					description = <"The patient tends to agree that they have a problem taking longer to do everyday activities because of their knee in the past 4 weeks.">
+				>
+				["at0171"] = <
+					text = <"Neither agree nor disagree">
+					description = <"The patient neither agrees nor disagrees that they have a problem taking longer to do every day activities because of their knee in the past 4 weeks.">
+				>
+				["at0172"] = <
+					text = <"Tend to disagree">
+					description = <"The patient tend to agree that they have a problem taking longer to do every day activities because of their knee in the past 4 weeks.">
+				>
+				["at0173"] = <
+					text = <"Strongly disagree">
+					description = <"The patient strongly disagrees that they have a problem taking longer to do everday activities because of their knee in the past 4 weeks.">
+				>
+			>
+		>
+	>
