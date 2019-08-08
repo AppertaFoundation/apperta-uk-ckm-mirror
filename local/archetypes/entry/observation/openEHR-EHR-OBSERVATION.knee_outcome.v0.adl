@@ -1,0 +1,229 @@
+﻿archetype (adl_version=1.4; uid=567cc5d9-0079-4b0d-b46d-7a8288aa9c72)
+	openEHR-EHR-OBSERVATION.knee_outcome.v0
+
+concept
+	[at0000]	-- Knee outcome questionnaire
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Alan Fish">
+		["organisation"] = <"The Apperta Foundation CIC">
+		["email"] = <"alan.fish@apperta.org">
+		["date"] = <"2019-07-18">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the recording and reporting of patient-reported outcome information following knee operations.">
+			use = <"Used tor record patient-reported outcome information following knee operations.
+While openEHR archetypes are all freely available under an open license, the specific content of this archetype may be copyright protected. Any use of this archetype within implementations must be in compliance with the terms established by the copyright owners where a copyright exists. ">
+			keywords = <"Outcome, knee, questionnaire", ...>
+			misuse = <"Not to be used unless the terms of copyright have been observed (if a copyright exists).">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["references"] = <"">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"D55DB1899E71B35B26BCE67E63594C59">
+		["build_uid"] = <"eb6e5160-9e93-4657-9ed6-ff00c11c3469">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- Knee outcome questionnaire
+		data matches {
+			HISTORY[at0001] matches {    -- History
+				events cardinality matches {0..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {1..*} matches {    -- Point in time
+						data matches {
+							ITEM_TREE[at0003] matches {    -- ItemTree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0008] occurrences matches {0..1} matches {    -- Satisfaction
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0009,    -- Very satisfied
+													at0010,    -- Quite satisfied
+													at0011,    -- Neither satisfied nor dissatisfied
+													at0012,    -- Quite dissatisfied
+													at0013]    -- Very dissatisfied
+												}
+											}
+										}
+									}
+									ELEMENT[at0014] occurrences matches {0..1} matches {    -- Venous thrombosis?
+										value matches {
+											DV_BOOLEAN matches {*}
+										}
+									}
+									ELEMENT[at0015] occurrences matches {0..1} matches {    -- Pulmonary thrombosis?
+										value matches {
+											DV_BOOLEAN matches {*}
+										}
+									}
+									ELEMENT[at0023] occurrences matches {0..1} matches {    -- Wound infection?
+										value matches {
+											DV_BOOLEAN matches {*}
+										}
+									}
+									ELEMENT[at0024] occurrences matches {0..1} matches {    -- Deep infection?
+										value matches {
+											DV_BOOLEAN matches {*}
+										}
+									}
+									ELEMENT[at0025] occurrences matches {0..1} matches {    -- Any other problems after knee operation?
+										value matches {
+											DV_BOOLEAN matches {*}
+										}
+									}
+									ELEMENT[at0019] occurrences matches {0..1} matches {    -- Any other operations on operated knee?
+										value matches {
+											DV_BOOLEAN matches {*}
+										}
+									}
+									ELEMENT[at0021] occurrences matches {0..1} matches {    -- Any other useful operation information
+										value matches {
+											DV_BOOLEAN matches {*}
+										}
+									}
+									ELEMENT[at0026] occurrences matches {0..1} matches {    -- Details
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+						state matches {
+							ITEM_TREE[at0004] matches {    -- ItemTree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0007] occurrences matches {0..*} matches {    -- Confounding factors
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0005] matches {    -- ItemTree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0006] occurrences matches {0..1} matches {    -- Extension
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Knee outcome questionnaire">
+					description = <"Knee outcome questionnaire.">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"*">
+				>
+				["at0002"] = <
+					text = <"Point in time">
+					description = <"A specific date and/or time which may be explicitly defined in a template or at run-time.">
+				>
+				["at0003"] = <
+					text = <"ItemTree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"ItemTree">
+					description = <"@ internal @">
+				>
+				["at0005"] = <
+					text = <"ItemTree">
+					description = <"@ internal @">
+				>
+				["at0006"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental information or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+				["at0007"] = <
+					text = <"Confounding factors">
+					description = <"Record any issues or factors that may impact on the score or interpretation.">
+				>
+				["at0008"] = <
+					text = <"Satisfaction">
+					description = <"Patient reported degree of satisfaction with outcome of knee operation.">
+					comment = <"Question:
+How satisfied are you with the outcome of your knee operation?">
+				>
+				["at0009"] = <
+					text = <"Very satisfied">
+					description = <"Patient reports that they are very satisfied with the outcome of their knee operation.">
+				>
+				["at0010"] = <
+					text = <"Quite satisfied">
+					description = <"Patient reports that they are very satisfied with the outcome of their knee operation.">
+				>
+				["at0011"] = <
+					text = <"Neither satisfied nor dissatisfied">
+					description = <"Patient reports that they are neither satisfied nor dissatisfied with the outcome of their knee operation.">
+				>
+				["at0012"] = <
+					text = <"Quite dissatisfied">
+					description = <"Patient reports that they are quite dissatisfied with the outcome of their knee operation.">
+				>
+				["at0013"] = <
+					text = <"Very dissatisfied">
+					description = <"Patient reports that they are very dissatisfied with the outcome of their knee operation.">
+				>
+				["at0014"] = <
+					text = <"Venous thrombosis?">
+					description = <"Patient reported statement whether they suffered venous thrombosis after last knee operation.">
+				>
+				["at0015"] = <
+					text = <"Pulmonary thrombosis?">
+					description = <"Patient reported statement whether they suffered pulmonary thrombosis after last knee operation.">
+				>
+				["at0019"] = <
+					text = <"Any other operations on operated knee?">
+					description = <"Patient reported statement whether they had any other operations on operated knee since last operation.">
+				>
+				["at0021"] = <
+					text = <"Any other useful operation information">
+					description = <"Patient reported statement whether there is any other useful operation information about knee.">
+				>
+				["at0023"] = <
+					text = <"Wound infection?">
+					description = <"Patient reported statement whether they suffered wound infection after last knee operation.">
+				>
+				["at0024"] = <
+					text = <"Deep infection?">
+					description = <"Patient reported statement whether they suffered deep infection of the knee joint after last knee operation.">
+				>
+				["at0025"] = <
+					text = <"Any other problems after knee operation?">
+					description = <"Patient reported statement whether they had any other operations on operated knee since last operation.">
+				>
+				["at0026"] = <
+					text = <"Details">
+					description = <"Patient provided details of other problems, other operations and other useful operation information to supplement yes answers to previous questions.">
+				>
+			>
+		>
+	>
