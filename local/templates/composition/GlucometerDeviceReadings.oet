@@ -150,6 +150,7 @@
                     <includedTypes>Text</includedTypes>
                 </constraint>
             </Rule>
+            <Rule max="0" path="/protocol[at0004]/items[at0094]"/>
             <Rule max="0" path="/protocol[at0004]/items[at0094]/items[at0106]"/>
             <Rule max="0" path="/protocol[at0004]/items[at0094]/items[at0062]">
                 <constraint xsi:type="tem:multipleConstraint">
@@ -164,6 +165,32 @@
                 </constraint>
             </Rule>
             <Rule default="true" path="/protocol[at0004]/items[at0111]"/>
+            <Rule max="0" path="/protocol[at0004]/items[at0121]">
+                <constraint xsi:type="tem:multipleConstraint">
+                    <includedTypes>Boolean</includedTypes>
+                    <includedTypes>Identifier</includedTypes>
+                    <includedTypes>MultiMedia</includedTypes>
+                    <includedTypes>Quantity</includedTypes>
+                    <includedTypes>Count</includedTypes>
+                    <includedTypes>Date_Time</includedTypes>
+                    <includedTypes>Date</includedTypes>
+                    <includedTypes>Time</includedTypes>
+                    <includedTypes>Duration</includedTypes>
+                    <includedTypes>Ordinal</includedTypes>
+                    <includedTypes>Proportion</includedTypes>
+                    <includedTypes>URI</includedTypes>
+                    <includedTypes>Text</includedTypes>
+                    <includedTypes>Coded_text</includedTypes>
+                    <includedTypes>Parsable</includedTypes>
+                    <includedTypes>Interval</includedTypes>
+                    <includedTypes>Interval</includedTypes>
+                    <includedTypes>Interval</includedTypes>
+                    <includedTypes>Interval</includedTypes>
+                    <includedTypes>Interval</includedTypes>
+                    <includedTypes>Interval</includedTypes>
+                    <includedTypes>URI</includedTypes>
+                </constraint>
+            </Rule>
             <Items
                 archetype_id="openEHR-EHR-CLUSTER.laboratory_test_analyte.v1"
                 path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" xsi:type="tem:CLUSTER">
