@@ -8,9 +8,26 @@
                 <key>date</key>
                 <value>2019-09-02</value>
             </item>
+            <item>
+                <key>name</key>
+                <value>Dr Paul Miller</value>
+            </item>
+            <item>
+                <key>organisation</key>
+                <value>NES Digital Service</value>
+            </item>
+            <item>
+                <key>email</key>
+                <value>paulmiller@nes.nhs.scot.uk</value>
+            </item>
         </original_author>
         <lifecycle_state>unmanaged</lifecycle_state>
-        <details/>
+        <details>
+            <purpose>For the recording of self-measured blood glucose using self-monitoring devices, to measure capillary blood glucose.</purpose>
+            <keywords>
+                <item>BM, glucose, diabetes, sugar, device</item>
+            </keywords>
+        </details>
         <other_details>
             <item>
                 <key>licence</key>
@@ -39,6 +56,10 @@
             <item>
                 <key>PARENT:MD5-CAM-1.0.1</key>
                 <value>55DB2D45BC470E831EE8C905348471E4</value>
+            </item>
+            <item>
+                <key>build_uid</key>
+                <value>32e2ec71-ab01-4e23-af08-785bbf6c5149</value>
             </item>
         </other_details>
     </description>
@@ -123,7 +144,25 @@
             <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0098]"/>
             <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0101]"/>
             <Rule max="0" path="/data[at0001]/events[at0002]/state[at0112]/items[at0113]"/>
+            <Rule max="0" path="/protocol[at0004]/items[at0068]">
+                <constraint xsi:type="tem:multipleConstraint">
+                    <includedTypes>Identifier</includedTypes>
+                    <includedTypes>Text</includedTypes>
+                </constraint>
+            </Rule>
             <Rule max="0" path="/protocol[at0004]/items[at0094]/items[at0106]"/>
+            <Rule max="0" path="/protocol[at0004]/items[at0094]/items[at0062]">
+                <constraint xsi:type="tem:multipleConstraint">
+                    <includedTypes>Identifier</includedTypes>
+                    <includedTypes>Text</includedTypes>
+                </constraint>
+            </Rule>
+            <Rule max="0" path="/protocol[at0004]/items[at0094]/items[at0063]">
+                <constraint xsi:type="tem:multipleConstraint">
+                    <includedTypes>Identifier</includedTypes>
+                    <includedTypes>Text</includedTypes>
+                </constraint>
+            </Rule>
             <Rule default="true" path="/protocol[at0004]/items[at0111]"/>
             <Items
                 archetype_id="openEHR-EHR-CLUSTER.laboratory_test_analyte.v1"
