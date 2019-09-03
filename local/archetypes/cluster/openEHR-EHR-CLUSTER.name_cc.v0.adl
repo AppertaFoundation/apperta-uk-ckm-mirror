@@ -20,23 +20,18 @@ description
 
 This cluster archetype is intended to be used inside FHIR resource aligned archetypes such as CLUSTER.fhir_contact.v0 and CLUSTER.fhir_practitioner.v0.">
 			misuse = <"">
-			copyright = <"© Apperta Foundation">
 		>
 	>
 	lifecycle_state = <"in_development">
 	other_contributors = <>
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
-		["custodian_organisation"] = <"Apperta UK">
 		["references"] = <"https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Patient-1 cited 19-Jul-2018.
 
 https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Practitioner-1 cited 19-Jul-2018.">
 		["current_contact"] = <"Hildegard McNicoll, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
-		["original_namespace"] = <"uk.org.clinicalmodels">
-		["original_publisher"] = <"Apperta UK">
-		["custodian_namespace"] = <"uk.org.clinicalmodels">
 		["MD5-CAM-1.0.1"] = <"837216B3380EEE7CDC8C974E487FE65F">
-		["build_uid"] = <"2fca7e2a-5653-4481-a198-7209ecc29c77">
+		["build_uid"] = <"68ccd8fd-6d1a-43e1-b8e9-95873687789d">
 		["revision"] = <"0.0.1-alpha">
 	>
 
