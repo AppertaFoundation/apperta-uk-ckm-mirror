@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xmlns="openEHR/v1/Template">
+    <id>a6e77981-294f-4ed5-be38-c03785218380</id>
+    <name>Contextual Problem List.v0</name>
+    <description>
+        <original_author>
+            <item>
+                <key>name</key>
+                <value>John Meredith</value>
+            </item>
+            <item>
+                <key>organisation</key>
+                <value>NHS Wales Informatics Service</value>
+            </item>
+            <item>
+                <key>email</key>
+                <value>john.meredith@wales.nhs.uk</value>
+            </item>
+            <item>
+                <key>date</key>
+                <value>2019-09-24</value>
+            </item>
+        </original_author>
+        <lifecycle_state>release_candidate</lifecycle_state>
+        <details>
+            <purpose>This problem template represents an active list of problems or diagnosis code for the purposes of active patient care.</purpose>
+            <keywords>
+                <item>problem</item>
+                <item>diagnosis</item>
+                <item>complication</item>
+                <item>comorbidity</item>
+            </keywords>
+            <use/>
+            <misuse/>
+        </details>
+        <other_details>
+            <item>
+                <key>MetaDataSet:Sample Set</key>
+                <value>Template metadata sample set </value>
+            </item>
+            <item>
+                <key>Acknowledgements</key>
+                <value/>
+            </item>
+            <item>
+                <key>Business Process Level</key>
+                <value/>
+            </item>
+            <item>
+                <key>Care setting</key>
+                <value/>
+            </item>
+            <item>
+                <key>Client group</key>
+                <value/>
+            </item>
+            <item>
+                <key>Clinical Record Element</key>
+                <value/>
+            </item>
+            <item>
+                <key>Copyright</key>
+                <value/>
+            </item>
+            <item>
+                <key>Issues</key>
+                <value/>
+            </item>
+            <item>
+                <key>Owner</key>
+                <value/>
+            </item>
+            <item>
+                <key>Sign off</key>
+                <value/>
+            </item>
+            <item>
+                <key>Speciality</key>
+                <value/>
+            </item>
+            <item>
+                <key>User roles</key>
+                <value/>
+            </item>
+            <item>
+                <key>MD5-CAM-1.0.1</key>
+                <value>529a79c38e705005c63cf7dbc0c8a4ac</value>
+            </item>
+            <item>
+                <key>PARENT:MD5-CAM-1.0.1</key>
+                <value>0CA62AF2B9495CC802003ADD3A0FC2D5</value>
+            </item>
+            <item>
+                <key>build_uid</key>
+                <value>cea9eb88-56ea-4c30-99df-98170cbb7f07</value>
+            </item>
+        </other_details>
+    </description>
+    <definition archetype_id="openEHR-EHR-COMPOSITION.problem_list.v1"
+        concept_name="Problem list" name="Contextual Problem List"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:COMPOSITION">
+        <Content
+            archetype_id="openEHR-EHR-SECTION.problems_and_diagnoses.v1"
+            path="/content" xsi:type="tem:SECTION">
+            <Item
+                archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v1"
+                concept_name="Problem/Diagnosis"
+                name="Primary Diagnosis" path="/items[at0001]/items" xsi:type="tem:EVALUATION">
+                <Rule max="0" path="/data[at0001]/items[at0009]"/>
+                <Rule max="0" path="/data[at0001]/items[at0012]"/>
+                <Rule max="0" path="/data[at0001]/items[at0003]"/>
+                <Rule max="0" path="/data[at0001]/items[at0005]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Coded_text</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/items[at0072]"/>
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.problem_qualifier.v1"
+                    path="/data[at0001]/items[at0046]" xsi:type="tem:CLUSTER">
+                    <Rule max="0" path="/items[at0004]"/>
+                    <Rule max="0" path="/items[at0060]"/>
+                    <Rule name="Problem status" path="/items[at0003]"/>
+                    <Rule path="/items[at0083]">
+                        <constraint xsi:type="tem:textConstraint">
+                            <excludedValues>local::at0086</excludedValues>
+                            <excludedValues>local::at0085</excludedValues>
+                            <excludedValues>local::at0087</excludedValues>
+                            <excludedValues>local::at0097</excludedValues>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0089]"/>
+                    <Rule max="0" path="/items[at0001]"/>
+                    <Rule max="0" path="/items[at0071]"/>
+                    <Rule max="0" path="/items[at0077]"/>
+                    <Rule path="/items[at0063]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Coded_text</includedTypes>
+                            <includedTypes>Text</includedTypes>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0073]"/>
+                </Items>
+            </Item>
+            <Item archetype_id="openEHR-EHR-EVALUATION.absence.v1"
+                path="/items[at0001]/items" xsi:type="tem:EVALUATION">
+                <Rule default="Principle diagnosis not recorded" path="/data[at0001]/items[at0002]"/>
+                <Rule max="0" path="/data[at0001]/items[at0005]"/>
+            </Item>
+            <Item
+                archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v1"
+                concept_name="Problem/Diagnosis" name="Co-morbidities"
+                path="/items[at0002]/items" xsi:type="tem:EVALUATION">
+                <Rule name="Problem or complication" path="/data[at0001]/items[at0002]"/>
+                <Rule max="0" path="/data[at0001]/items[at0009]"/>
+                <Rule max="0" path="/data[at0001]/items[at0012]"/>
+                <Rule max="0" path="/data[at0001]/items[at0003]"/>
+                <Rule max="0" path="/data[at0001]/items[at0005]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Coded_text</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/items[at0072]"/>
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.problem_qualifier.v1"
+                    path="/data[at0001]/items[at0046]" xsi:type="tem:CLUSTER">
+                    <Rule max="0" path="/items[at0004]"/>
+                    <Rule max="0" path="/items[at0060]"/>
+                    <Rule name="Problem status" path="/items[at0003]"/>
+                    <Rule path="/items[at0083]">
+                        <constraint xsi:type="tem:textConstraint">
+                            <excludedValues>local::at0086</excludedValues>
+                            <excludedValues>local::at0085</excludedValues>
+                            <excludedValues>local::at0087</excludedValues>
+                            <excludedValues>local::at0097</excludedValues>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0089]"/>
+                    <Rule max="0" path="/items[at0001]"/>
+                    <Rule max="0" path="/items[at0071]"/>
+                    <Rule max="0" path="/items[at0077]"/>
+                    <Rule path="/items[at0063]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Coded_text</includedTypes>
+                            <includedTypes>Text</includedTypes>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0073]"/>
+                </Items>
+            </Item>
+            <Item archetype_id="openEHR-EHR-EVALUATION.absence.v1"
+                path="/items[at0002]/items" xsi:type="tem:EVALUATION">
+                <Rule default="No information for known co-morbidities" path="/data[at0001]/items[at0002]"/>
+                <Rule max="0" path="/data[at0001]/items[at0005]"/>
+            </Item>
+            <Item
+                archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v1"
+                concept_name="Problem/Diagnosis"
+                name="Problem or complication"
+                path="/items[at0004]/items" xsi:type="tem:EVALUATION">
+                <Rule name="Problem or complication" path="/data[at0001]/items[at0002]"/>
+                <Rule max="0" path="/data[at0001]/items[at0009]"/>
+                <Rule max="0" path="/data[at0001]/items[at0012]"/>
+                <Rule max="0" path="/data[at0001]/items[at0003]"/>
+                <Rule max="0" path="/data[at0001]/items[at0005]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Coded_text</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/items[at0072]"/>
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.problem_qualifier.v1"
+                    path="/data[at0001]/items[at0046]" xsi:type="tem:CLUSTER">
+                    <Rule max="0" path="/items[at0004]"/>
+                    <Rule max="0" path="/items[at0060]"/>
+                    <Rule name="Problem status" path="/items[at0003]"/>
+                    <Rule path="/items[at0083]">
+                        <constraint xsi:type="tem:textConstraint">
+                            <excludedValues>local::at0086</excludedValues>
+                            <excludedValues>local::at0085</excludedValues>
+                            <excludedValues>local::at0087</excludedValues>
+                            <excludedValues>local::at0097</excludedValues>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0089]"/>
+                    <Rule max="0" path="/items[at0001]"/>
+                    <Rule max="0" path="/items[at0071]"/>
+                    <Rule max="0" path="/items[at0077]"/>
+                    <Rule path="/items[at0063]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Coded_text</includedTypes>
+                            <includedTypes>Text</includedTypes>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0073]"/>
+                </Items>
+            </Item>
+            <Item archetype_id="openEHR-EHR-EVALUATION.absence.v1"
+                path="/items[at0004]/items" xsi:type="tem:EVALUATION">
+                <Rule
+                    default="No information for known problems or complications" path="/data[at0001]/items[at0002]"/>
+                <Rule max="0" path="/data[at0001]/items[at0005]"/>
+            </Item>
+            <Item
+                archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v1"
+                concept_name="Problem/Diagnosis" name="Other problems"
+                path="/items[at0003]/items" xsi:type="tem:EVALUATION">
+                <Rule name="Other problems" path="/data[at0001]/items[at0002]"/>
+                <Rule max="0" path="/data[at0001]/items[at0009]"/>
+                <Rule max="0" path="/data[at0001]/items[at0012]"/>
+                <Rule max="0" path="/data[at0001]/items[at0003]"/>
+                <Rule max="0" path="/data[at0001]/items[at0005]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Coded_text</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/items[at0072]"/>
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.problem_qualifier.v1"
+                    path="/data[at0001]/items[at0046]" xsi:type="tem:CLUSTER">
+                    <Rule max="0" path="/items[at0004]"/>
+                    <Rule max="0" path="/items[at0060]"/>
+                    <Rule name="Problem status" path="/items[at0003]"/>
+                    <Rule path="/items[at0083]">
+                        <constraint xsi:type="tem:textConstraint">
+                            <excludedValues>local::at0086</excludedValues>
+                            <excludedValues>local::at0085</excludedValues>
+                            <excludedValues>local::at0087</excludedValues>
+                            <excludedValues>local::at0097</excludedValues>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0089]"/>
+                    <Rule max="0" path="/items[at0001]"/>
+                    <Rule max="0" path="/items[at0071]"/>
+                    <Rule max="0" path="/items[at0077]"/>
+                    <Rule max="0" path="/items[at0063]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Coded_text</includedTypes>
+                            <includedTypes>Text</includedTypes>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0073]"/>
+                </Items>
+            </Item>
+            <Item archetype_id="openEHR-EHR-EVALUATION.absence.v1"
+                path="/items[at0003]/items" xsi:type="tem:EVALUATION">
+                <Rule default="No information for other problems" path="/data[at0001]/items[at0002]"/>
+                <Rule max="0" path="/data[at0001]/items[at0005]"/>
+            </Item>
+        </Content>
+        <Context>
+            <Items archetype_id="openEHR-EHR-CLUSTER.xds_metadata.v0"
+                path="/context/other_context[at0006]/items[at0008]" xsi:type="tem:CLUSTER">
+                <Rule
+                    default="SNOMED-CT::162991000000102::Problems and issues" path="/items[at0003]"/>
+                <Rule max="0" path="/items[at0009]"/>
+                <Rule max="0" path="/items[at0010]"/>
+            </Items>
+        </Context>
+    </definition>
+    <integrity_checks
+        archetype_id="openEHR-EHR-COMPOSITION.problem_list.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">0CA62AF2B9495CC802003ADD3A0FC2D5</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.xds_metadata.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">B2538EC96A6545E2E6F04CE532DA36E3</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-SECTION.problems_and_diagnoses.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">E627C5D0C2754B6AF0ABB209A97AA9B5</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">714FD09D39A922BCADF58B178C81E8BB</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.problem_qualifier.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">E4B6D4472A17D1D5FF387681D8D361DB</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-EVALUATION.absence.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">FF43E895078FC0D3D3234730AEE4CAEE</digest>
+    </integrity_checks>
+</template>
