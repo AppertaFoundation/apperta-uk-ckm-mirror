@@ -51,11 +51,11 @@
             </item>
             <item>
                 <key>MD5-CAM-1.0.1</key>
-                <value>8474d58a9b1a266df37875c36c27ba97</value>
+                <value>3c480b76045f3d602adb6cbe1f522ce7</value>
             </item>
             <item>
                 <key>PARENT:MD5-CAM-1.0.1</key>
-                <value>55DB2D45BC470E831EE8C905348471E4</value>
+                <value>1DA7D8EDC23CF1B673C05E6E8FE28EB1</value>
             </item>
             <item>
                 <key>build_uid</key>
@@ -196,7 +196,7 @@
                 path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" xsi:type="tem:CLUSTER">
                 <Rule max="0" path="/items[at0027]"/>
                 <Rule
-                    default="SNOMED CT::2715841000000117::Blood glucose concentration using glucometer" path="/items[at0024]">
+                    default="SNOMED-CT::2715841000000117::Blood glucose concentration using glucometer" path="/items[at0024]">
                     <constraint xsi:type="tem:textConstraint">
                         <termQueryId terminologyID="//snomed.info/sct/999000021000000109"/>
                     </constraint>
@@ -204,7 +204,7 @@
                 <Rule path="/items[at0001]">
                     <constraint xsi:type="tem:quantityConstraint">
                         <unitMagnitude>
-                            <unit>mmol</unit>
+                            <unit>mmol/l</unit>
                             <maxMagnitude>100.0</maxMagnitude>
                             <minMagnitude>0.0</minMagnitude>
                             <includesMaximum>true</includesMaximum>
