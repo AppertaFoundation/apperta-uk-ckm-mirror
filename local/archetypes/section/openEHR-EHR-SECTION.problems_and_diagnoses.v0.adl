@@ -1,0 +1,74 @@
+﻿archetype (adl_version=1.4; uid=6c71c063-311c-36bc-a5f6-c5e9821588eb)
+	openEHR-EHR-SECTION.problems_and_diagnoses.v0
+
+concept
+	[at0000]	-- Problems and diagnoses
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"Ocean Informatics, UK">
+		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+		["date"] = <"2013-10-18">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"© Clinical Models UK, Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"42078740689ACF332EBC7B3DA5D98BC0">
+		["build_uid"] = <"f70be938-e8f4-4f65-a359-98df582ea47e">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	SECTION[at0000] matches {    -- Problems and diagnoses
+		items cardinality matches {0..*; unordered} matches {
+			SECTION[at0001] occurrences matches {0..1} matches {*}    -- Primary diagnoses
+			SECTION[at0002] occurrences matches {0..1} matches {*}    -- Co-morbidities
+			SECTION[at0004] occurrences matches {0..1} matches {*}    -- Complications
+			SECTION[at0003] occurrences matches {0..1} matches {*}    -- Other problems
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Problems and diagnoses">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Primary diagnoses">
+					description = <"*">
+				>
+				["at0002"] = <
+					text = <"Co-morbidities">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Other problems">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Complications">
+					description = <"*">
+				>
+			>
+		>
+	>
