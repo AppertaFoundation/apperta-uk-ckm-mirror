@@ -1,4 +1,4 @@
-﻿archetype (adl_version=1.4)
+﻿archetype (adl_version=1.4; uid=1f22cbcd-d9d7-4963-8df8-7e97e1e746da)
 	openEHR-EHR-SECTION.problems_and_diagnoses.v1
 
 concept
@@ -18,21 +18,29 @@ description
 			purpose = <"">
 			use = <"">
 			misuse = <"">
-			copyright = <"© Clinical Models UK">
+			copyright = <"© Clinical Models UK, Apperta Foundation">
 		>
 	>
-	lifecycle_state = <"0">
+	lifecycle_state = <"published">
 	other_contributors = <>
 	other_details = <
-		["MD5-CAM-1.0.1"] = <"22F432BA9F3DB1ECC8EDED3EE4C509A9">
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"E627C5D0C2754B6AF0ABB209A97AA9B5">
+		["build_uid"] = <"a473229f-a018-4832-9838-ade0c5cbc7ce">
+		["revision"] = <"1.0.0">
 	>
 
 definition
-	SECTION[at0000] matches {	-- Problems and diagnoses
+	SECTION[at0000] matches {    -- Problems and diagnoses
 		items cardinality matches {0..*; unordered} matches {
-			SECTION[at0001] occurrences matches {0..1} matches {*}
-			SECTION[at0002] occurrences matches {0..1} matches {*}
-			SECTION[at0003] occurrences matches {0..1} matches {*}
+			SECTION[at0001] occurrences matches {0..1} matches {*}    -- Primary diagnoses
+			SECTION[at0002] occurrences matches {0..1} matches {*}    -- Co-morbidities
+			SECTION[at0004] occurrences matches {0..1} matches {*}    -- Complications
+			SECTION[at0003] occurrences matches {0..1} matches {*}    -- Other problems
 		}
 	}
 
@@ -54,7 +62,11 @@ ontology
 					description = <"*">
 				>
 				["at0003"] = <
-					text = <"Problems">
+					text = <"Other problems">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Complications">
 					description = <"*">
 				>
 			>
