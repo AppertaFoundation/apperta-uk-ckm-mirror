@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xmlns="openEHR/v1/Template">
+    <id>cac497ab-d4fa-4fae-850b-3e5b9cd547a7</id>
+    <name>WCN - ACS Pathway outcome assessment-v0</name>
+    <description>
+        <original_author>
+            <item>
+                <key>date</key>
+                <value>2019-05-21</value>
+            </item>
+        </original_author>
+        <lifecycle_state>unmanaged</lifecycle_state>
+        <details/>
+        <other_details>
+            <item>
+                <key>licence</key>
+                <value>This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.</value>
+            </item>
+            <item>
+                <key>custodian_organisation</key>
+                <value>openEHR Foundation</value>
+            </item>
+            <item>
+                <key>original_namespace</key>
+                <value>org.openehr</value>
+            </item>
+            <item>
+                <key>original_publisher</key>
+                <value>openEHR Foundation</value>
+            </item>
+            <item>
+                <key>custodian_namespace</key>
+                <value>org.openehr</value>
+            </item>
+            <item>
+                <key>MD5-CAM-1.0.1</key>
+                <value>0f6a5de8af1061204d3683b32a257aa4</value>
+            </item>
+            <item>
+                <key>PARENT:MD5-CAM-1.0.1</key>
+                <value>1DA7D8EDC23CF1B673C05E6E8FE28EB1</value>
+            </item>
+        </other_details>
+    </description>
+    <definition archetype_id="openEHR-EHR-COMPOSITION.report.v1"
+        concept_name="Report" name="ACS Outcome assessment"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:COMPOSITION">
+        <Content archetype_id="openEHR-EHR-ACTION.procedure.v1"
+            concept_name="Procedure" name="Angio Procedure"
+            path="/content" xsi:type="tem:ACTION">
+            <Rule max="0" min="0" path="/ism_transition[at0004]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0034]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0007]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0035]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0038]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0039]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0036]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0068]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0040]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0041]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0043]"/>
+            <Rule path="/description[at0001]/items[at0002]">
+                <constraint limitToList="false" xsi:type="tem:textConstraint">
+                    <includedValues>Angio only</includedValues>
+                    <includedValues>Angio and PCI</includedValues>
+                    <includedValues>Angio and CABG Ref</includedValues>
+                    <includedValues>Angio PCI and EP</includedValues>
+                    <includedValues>Angio and Intravascular Imaging</includedValues>
+                    <includedValues>Angio and FFR</includedValues>
+                </constraint>
+            </Rule>
+            <Rule max="0" path="/description[at0001]/items[at0049]"/>
+            <Rule max="0" path="/description[at0001]/items[at0065]"/>
+            <Rule max="0" path="/description[at0001]/items[at0058]"/>
+            <Rule max="0" path="/description[at0001]/items[at0063]"/>
+            <Rule max="0" path="/description[at0001]/items[at0048]"/>
+            <Rule max="0" path="/description[at0001]/items[at0069]"/>
+            <Rule max="0" path="/description[at0001]/items[at0006]"/>
+            <Rule max="0" path="/description[at0001]/items[at0066]"/>
+            <Rule max="0" path="/description[at0001]/items[at0060]"/>
+        </Content>
+        <Content archetype_id="openEHR-EHR-ACTION.service.v0"
+            concept_name="Service" name="ACS Pathway Step"
+            path="/content" xsi:type="tem:ACTION">
+            <Rule max="0" min="0" path="/ism_transition[at0002]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0026]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0008]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0009]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0004]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0010]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0006]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0023]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0005]"/>
+            <Rule default="WCN ACS Pathway" path="/description[at0001]/items[at0011]"/>
+            <Rule max="0" path="/description[at0001]/items[at0014]"/>
+            <Rule name="Referral issues" path="/description[at0001]/items[at0013]"/>
+            <Rule max="0" path="/description[at0001]/items[at0021]">
+                <constraint xsi:type="tem:countConstraint">
+                    <minMagnitude>0</minMagnitude>
+                    <includesMaximum>false</includesMaximum>
+                    <includesMinimum>true</includesMinimum>
+                </constraint>
+            </Rule>
+            <Rule max="0" path="/description[at0001]/items[at0012]"/>
+            <Rule max="0" path="/description[at0001]/items[at0028]"/>
+            <Rule max="0" path="/protocol[at0015]/items[at0016]"/>
+            <Rule max="0" path="/protocol[at0015]/items[at0018]"/>
+        </Content>
+        <Content archetype_id="openEHR-EHR-ACTION.procedure.v1"
+            concept_name="Procedure" name="Inpatient Cardiac rehab"
+            path="/content" xsi:type="tem:ACTION">
+            <Rule max="0" min="0" path="/ism_transition[at0004]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0034]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0007]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0035]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0038]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0039]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0036]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0068]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0040]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0043]"/>
+            <Rule path="/description[at0001]/items[at0002]">
+                <constraint limitToList="false" xsi:type="tem:textConstraint">
+                    <includedValues>Cardiac rehab</includedValues>
+                </constraint>
+            </Rule>
+            <Rule max="0" path="/description[at0001]/items[at0049]"/>
+            <Rule max="0" path="/description[at0001]/items[at0065]"/>
+            <Rule max="0" path="/description[at0001]/items[at0058]"/>
+            <Rule max="0" path="/description[at0001]/items[at0063]"/>
+            <Rule max="0" path="/description[at0001]/items[at0048]"/>
+            <Rule max="0" path="/description[at0001]/items[at0069]"/>
+            <Rule max="0" path="/description[at0001]/items[at0006]"/>
+            <Rule max="0" path="/description[at0001]/items[at0066]"/>
+            <Rule max="0" path="/description[at0001]/items[at0060]"/>
+            <Rule max="0" path="/description[at0001]/items[at0061]">
+                <constraint xsi:type="tem:durationConstraint">
+                    <minMagnitude>PT0S</minMagnitude>
+                    <includesMaximum>false</includesMaximum>
+                    <includesMinimum>true</includesMinimum>
+                </constraint>
+            </Rule>
+            <Rule max="0" path="/description[at0001]/items[at0067]"/>
+            <Rule max="1" name="Reason not performed" path="/description[at0001]/items[at0014]">
+                <constraint xsi:type="tem:textConstraint">
+                    <includedValues>3 Patient declined</includedValues>
+                    <includedValues>8 Not indicated</includedValues>
+                    <includedValues>9 Unknown</includedValues>
+                </constraint>
+            </Rule>
+            <Rule max="0" path="/description[at0001]/items[at0005]"/>
+        </Content>
+        <Content
+            archetype_id="openEHR-EHR-ADMIN_ENTRY.acs_pathway_discharge_wcn.v0"
+            path="/content" xsi:type="tem:ADMIN_ENTRY"/>
+        <Content archetype_id="openEHR-EHR-EVALUATION.recommendation.v1"
+            concept_name="Recommendation" name="Plan of care"
+            path="/content" xsi:type="tem:EVALUATION">
+            <Rule max="0" path="/data[at0001]/items[at0003]"/>
+        </Content>
+        <Content
+            archetype_id="openEHR-EHR-INSTRUCTION.service_request.v1"
+            max="0" path="/content" xsi:type="tem:INSTRUCTION"/>
+        <Content archetype_id="openEHR-EHR-ACTION.service.v0"
+            concept_name="Service" name="Surgical referral"
+            path="/content" xsi:type="tem:ACTION">
+            <Rule max="0" min="0" path="/ism_transition[at0008]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0009]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0003]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0004]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0010]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0023]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0005]"/>
+            <Rule default="ACS Surgical referral" path="/description[at0001]/items[at0011]"/>
+            <Rule max="0" path="/description[at0001]/items[at0013]"/>
+            <Rule max="0" path="/description[at0001]/items[at0025]"/>
+            <Rule max="0" path="/description[at0001]/items[at0021]">
+                <constraint xsi:type="tem:countConstraint">
+                    <minMagnitude>0</minMagnitude>
+                    <includesMaximum>false</includesMaximum>
+                    <includesMinimum>true</includesMinimum>
+                </constraint>
+            </Rule>
+            <Rule max="0" path="/protocol[at0015]/items[at0016]"/>
+            <Rule max="0" path="/protocol[at0015]/items[at0018]"/>
+        </Content>
+        <Content archetype_id="openEHR-EHR-ACTION.procedure.v1"
+            concept_name="Procedure" name="Angio Scheduled"
+            path="/content" xsi:type="tem:ACTION">
+            <Rule max="0" min="0" path="/ism_transition[at0004]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0034]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0007]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0035]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0038]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0039]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0068]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0047]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0040]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0041]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0043]"/>
+            <Rule path="/description[at0001]/items[at0002]">
+                <constraint limitToList="false" xsi:type="tem:textConstraint">
+                    <includedValues>Angio only</includedValues>
+                    <includedValues>Angio and PCI</includedValues>
+                    <includedValues>Angio and CABG Ref</includedValues>
+                    <includedValues>Angio PCI and EP</includedValues>
+                </constraint>
+            </Rule>
+            <Rule max="0" path="/description[at0001]/items[at0049]"/>
+            <Rule max="0" path="/description[at0001]/items[at0065]"/>
+            <Rule max="0" path="/description[at0001]/items[at0058]"/>
+            <Rule max="0" path="/description[at0001]/items[at0063]"/>
+            <Rule max="0" path="/description[at0001]/items[at0048]"/>
+            <Rule max="0" path="/description[at0001]/items[at0069]"/>
+            <Rule max="0" path="/description[at0001]/items[at0006]"/>
+            <Rule max="0" path="/description[at0001]/items[at0060]"/>
+            <Rule max="0" path="/description[at0001]/items[at0061]">
+                <constraint xsi:type="tem:durationConstraint">
+                    <minMagnitude>PT0S</minMagnitude>
+                    <includesMaximum>false</includesMaximum>
+                    <includesMinimum>true</includesMinimum>
+                </constraint>
+            </Rule>
+            <Rule max="0" path="/description[at0001]/items[at0067]"/>
+            <Rule max="0" path="/description[at0001]/items[at0014]"/>
+            <Rule max="0" path="/description[at0001]/items[at0005]"/>
+        </Content>
+        <Rule max="0" path="/context/other_context[at0001]/items[at0002]"/>
+        <Rule max="0" path="/context/other_context[at0001]/items[at0005]"/>
+    </definition>
+    <integrity_checks archetype_id="openEHR-EHR-COMPOSITION.report.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">1DA7D8EDC23CF1B673C05E6E8FE28EB1</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-ACTION.procedure.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">7A65632D1A59E073C1B6D7CE0E68E7B8</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-ACTION.service.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">1DD7A519075BCADED9022E614B88F4FE</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-ADMIN_ENTRY.acs_pathway_discharge_wcn.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">1B647E6B8148A1D551499EB78C7D956D</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-EVALUATION.recommendation.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">CFB4C8C091ABC7ACFBE46AF0DAFFE54B</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-INSTRUCTION.service_request.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">70F17AA57F4A32AC4576E97678B9471F</digest>
+    </integrity_checks>
+</template>
