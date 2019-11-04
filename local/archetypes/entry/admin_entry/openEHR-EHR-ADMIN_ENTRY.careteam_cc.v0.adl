@@ -35,8 +35,8 @@ This admin archetype is intended to be the main container for any patient contac
 		["original_namespace"] = <"uk.org.clinicalmodels">
 		["original_publisher"] = <"Apperta UK">
 		["custodian_namespace"] = <"uk.org.clinicalmodels">
-		["MD5-CAM-1.0.1"] = <"8DA672E004C3BDD21C14564248DDF846">
-		["build_uid"] = <"cd7ecbbd-87d3-43f7-8d9d-c135ee9b6355">
+		["MD5-CAM-1.0.1"] = <"6A06FE162C937733BF2E9557C66C175F">
+		["build_uid"] = <"397e86e4-c7b0-48c5-8613-ae07ce93448f">
 		["revision"] = <"0.0.1-alpha">
 	>
 
@@ -47,7 +47,7 @@ definition
 				items cardinality matches {0..*; unordered} matches {
 					allow_archetype CLUSTER[at0004] occurrences matches {0..*} matches {    -- Identifier
 						include
-							archetype_id/value matches {/openEHR-EHR-CLUSTER\.fhir_identifier(-[a-zA-Z0-9_]+)*\.v0/}
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.identifier_cc\.v0/}
 					}
 					ELEMENT[at0005] occurrences matches {0..1} matches {    -- Status
 						value matches {
@@ -102,11 +102,9 @@ definition
 							}
 							allow_archetype CLUSTER[at0023] occurrences matches {0..*} matches {    -- Member
 								include
-									archetype_id/value matches {/openEHR-EHR-CLUSTER\.fhir_contact(-[a-zA-Z0-9_]+)*\.v0|openEHR-EHR-CLUSTER\.fhir_organisation(-[a-zA-Z0-9_]+)*\.v0|openEHR-EHR-CLUSTER\.fhir_practitioner(-[a-zA-Z0-9_]+)*\.v0/}
+									archetype_id/value matches {/openEHR-EHR-CLUSTER\.contact_cc\.v0|openEHR-EHR-CLUSTER\.practitioner_cc\.v0/}
 							}
 							allow_archetype CLUSTER[at0024] occurrences matches {0..*} matches {    -- On behalf of
-								include
-									archetype_id/value matches {/openEHR-EHR-CLUSTER\.fhir_organisation(-[a-zA-Z0-9_]+)*\.v0/}
 							}
 							ELEMENT[at0025] occurrences matches {0..1} matches {    -- Valid period start
 								value matches {
@@ -118,6 +116,15 @@ definition
 									DV_DATE_TIME matches {*}
 								}
 							}
+							ELEMENT[at0030] occurrences matches {0..*} matches {    -- Note
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							allow_archetype CLUSTER[at0031] occurrences matches {0..*} matches {    -- Other details
+								include
+									archetype_id/value matches {/.*/}
+							}
 						}
 					}
 					ELEMENT[at0027] occurrences matches {0..*} matches {    -- Reason
@@ -126,8 +133,6 @@ definition
 						}
 					}
 					allow_archetype CLUSTER[at0029] occurrences matches {0..*} matches {    -- Managing organisation
-						include
-							archetype_id/value matches {/openEHR-EHR-CLUSTER\.fhir_organisation(-[a-zA-Z0-9_]+)*\.v0/}
 					}
 					ELEMENT[at0028] occurrences matches {0..*} matches {    -- Note
 						value matches {
@@ -256,6 +261,14 @@ ontology
 				["at0029"] = <
 					text = <"Managing organisation">
 					description = <"The organisation responsible for the care team.">
+				>
+				["at0030"] = <
+					text = <"Note">
+					description = <"Comments made about the participant.">
+				>
+				["at0031"] = <
+					text = <"Other details">
+					description = <"Any other details about the participant.">
 				>
 			>
 		>
