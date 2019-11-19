@@ -1,0 +1,530 @@
+﻿archetype (adl_version=1.4; uid=50193e29-f9f6-4b41-9f50-0b8179ca51e8)
+	openEHR-EHR-OBSERVATION.denwis.v0
+
+concept
+	[at0000]	-- DENWIS
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Alan Fish">
+		["organisation"] = <"The Apperta Foundation">
+		["email"] = <"alan.fish@apperta.org">
+		["date"] = <"2019-11-07">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the recording of subjective assessment for completion by nurse to give a DENWIS score.">
+			use = <"">
+			misuse = <"">
+			copyright = <"© The Apperta Foundation CIC, Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["references"] = <"https://www.ncbi.nlm.nih.gov/pubmed/27222458">
+		["current_contact"] = <"Alan Fish">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"372CBDFAC15E28DB5AB00940D2E98A81">
+		["build_uid"] = <"fcfa319d-d8ef-498f-a9fa-f7ee1b120377">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- DENWIS
+		data matches {
+			HISTORY[at0001] matches {    -- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..1} matches {    -- Point in time
+						data matches {
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0028] occurrences matches {0..1} matches {    -- Q1 Breathing
+										value matches {
+											0|[local::at0032],
+											1|[local::at0031]
+										}
+									}
+									ELEMENT[at0062] occurrences matches {0..*} matches {    -- Breathing indicator
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0067,    -- Noisy breathing
+													at0068,    -- Short of breath
+													at0069,    -- Unable to speak full sentences
+													at0070]    -- Use accessory muscles
+												}
+											}
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0033] occurrences matches {0..1} matches {    -- Q2 Circulation
+										value matches {
+											0|[local::at0037],
+											1|[local::at0036]
+										}
+									}
+									ELEMENT[at0071] occurrences matches {0..*} matches {    -- Circulation indicator
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0096,    -- Colour changes: pale, grey
+													at0097,    -- Sweaty/clammy
+													at0098,    -- Coldness
+													at0099]    -- Impaired perfusion
+												}
+											}
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0038] occurrences matches {0..1} matches {    -- Q3 Temperature
+										value matches {
+											0|[local::at0042],
+											1|[local::at0105]
+										}
+									}
+									ELEMENT[at0076] occurrences matches {0..*} matches {    -- Temperature indicator
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::at0100]    -- Rigors
+												}
+											}
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0043] occurrences matches {0..1} matches {    -- Q4 Mentation
+										value matches {
+											0|[local::at0046],
+											1|[local::at0045]
+										}
+									}
+									ELEMENT[at0078] occurrences matches {0..*} matches {    -- Mentation indicator
+										value matches {
+											DV_TEXT matches {*}
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0101,    -- Lethargic
+													at0102]    -- Confused
+												}
+											}
+										}
+									}
+									ELEMENT[at0047] occurrences matches {0..1} matches {    -- Q5 Agitation
+										value matches {
+											0|[local::at0048],
+											1|[local::at0049]
+										}
+									}
+									ELEMENT[at0081] occurrences matches {0..*} matches {    -- Agitation indicator
+										value matches {
+											DV_TEXT matches {*}
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0103,    -- Restless
+													at0104]    -- Anxious
+												}
+											}
+										}
+									}
+									ELEMENT[at0050] occurrences matches {0..1} matches {    -- Q6 Pain
+										value matches {
+											0|[local::at0051],
+											1|[local::at0052]
+										}
+									}
+									ELEMENT[at0084] occurrences matches {0..*} matches {    -- Pain indicator
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0106,    -- New pain
+													at0107]    -- Increasing or consisting pain
+												}
+											}
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0053] occurrences matches {0..1} matches {    -- Q7 Trajectory
+										value matches {
+											0|[local::at0054],
+											1|[local::at0055]
+										}
+									}
+									ELEMENT[at0087] occurrences matches {0..*} matches {    -- Trajectory indicator
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0108,    -- No progress
+													at0109]    -- Abdominal distension/nausea/bleeding
+												}
+											}
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0056] occurrences matches {0..1} matches {    -- Q8 Patient subjective
+										value matches {
+											0|[local::at0057],
+											1|[local::at0058]
+										}
+									}
+									ELEMENT[at0090] occurrences matches {0..*} matches {    -- Patient indicator
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0110,    -- Not feeling well
+													at0111]    -- Feeling of impending doom
+												}
+											}
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0059] occurrences matches {0..1} matches {    -- Q9 Nurse subjective
+										value matches {
+											0|[local::at0060],
+											1|[local::at0061]
+										}
+									}
+									ELEMENT[at0093] occurrences matches {0..*} matches {    -- Nurse subjective indicator
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0112,    -- Change in behaviour
+													at0113]    -- Doesn't look good
+												}
+											}
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0008] occurrences matches {0..1} matches {    -- Total score
+										value matches {
+											DV_COUNT matches {
+												magnitude matches {|0..9|}
+											}
+										}
+									}
+									ELEMENT[at0027] occurrences matches {0..1} matches {    -- Comment
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+						state matches {
+							ITEM_TREE[at0006] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0007] occurrences matches {0..*} matches {    -- Confounding factors
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0004] matches {    -- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0005] occurrences matches {0..*} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"DENWIS">
+					description = <"Dutch Early Nurse Worry Indicator Score (DENWIS)">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Point in time">
+					description = <"A specific date and/or time which may be explicitly defined in a template or at run-time.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0005"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental infomation or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+				["at0006"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0007"] = <
+					text = <"Confounding factors">
+					description = <"Record any issues or factors that may impact on the overall assessment or score.">
+				>
+				["at0008"] = <
+					text = <"Total score">
+					description = <"The total score for the four questions.">
+				>
+				["at0027"] = <
+					text = <"Comment">
+					description = <"Narrative comment.">
+				>
+				["at0028"] = <
+					text = <"Q1 Breathing">
+					description = <"Nurse recorded changes in breathing.">
+				>
+				["at0031"] = <
+					text = <"Change in breathing">
+					description = <"Change in breathing.">
+				>
+				["at0032"] = <
+					text = <"No change in breathing">
+					description = <"No change in breathing.">
+				>
+				["at0033"] = <
+					text = <"Q2 Circulation">
+					description = <"Nurse recorded changes in circulation.">
+				>
+				["at0036"] = <
+					text = <"Change in circulation">
+					description = <"Change in circulation.">
+				>
+				["at0037"] = <
+					text = <"No change in circulation">
+					description = <"No change in circulation.">
+				>
+				["at0038"] = <
+					text = <"Q3 Temperature">
+					description = <"Nurse recorded changes in temperature.">
+				>
+				["at0042"] = <
+					text = <"No change in temperature">
+					description = <"No change in temperature.">
+				>
+				["at0043"] = <
+					text = <"Q4 Mentation">
+					description = <"Nurse recorded changes in mentation.">
+				>
+				["at0045"] = <
+					text = <"Change in mentation">
+					description = <"Change in mentation.">
+				>
+				["at0046"] = <
+					text = <"No change in mentation">
+					description = <"No change in mentation.">
+				>
+				["at0047"] = <
+					text = <"Q5 Agitation">
+					description = <"Nurse recorded changes in agitation.">
+				>
+				["at0048"] = <
+					text = <"No agitation">
+					description = <"No agitation.">
+				>
+				["at0049"] = <
+					text = <"Agitation">
+					description = <"Agitation.">
+				>
+				["at0050"] = <
+					text = <"Q6 Pain">
+					description = <"Nurse recorded changes in pain.">
+				>
+				["at0051"] = <
+					text = <"No change in pain">
+					description = <"No change in pain.">
+				>
+				["at0052"] = <
+					text = <"Change in pain">
+					description = <"Change in pain.">
+				>
+				["at0053"] = <
+					text = <"Q7 Trajectory">
+					description = <"Nurse recorded unexpected trajectory.">
+				>
+				["at0054"] = <
+					text = <"No change in trajectory">
+					description = <"No change in trajectory.">
+				>
+				["at0055"] = <
+					text = <"Change in trajectory">
+					description = <"Change in trajectory.">
+				>
+				["at0056"] = <
+					text = <"Q8 Patient subjective">
+					description = <"Nurse recorded patient indicators.">
+				>
+				["at0057"] = <
+					text = <"No subjective patient indicator">
+					description = <"No subjective patient indicator.">
+				>
+				["at0058"] = <
+					text = <"Subjective patient indicator">
+					description = <"Subjective patient indicator.">
+				>
+				["at0059"] = <
+					text = <"Q9 Nurse subjective">
+					description = <"Nurse recorded subjective observation.">
+				>
+				["at0060"] = <
+					text = <"No nurse subjective indicator">
+					description = <"No nurse subjective indicator.">
+				>
+				["at0061"] = <
+					text = <"Nurse subjective indicator">
+					description = <"Nurse subjective indicator.">
+				>
+				["at0062"] = <
+					text = <"Breathing indicator">
+					description = <"Nurse recorded the indication that there are changes in breathing.">
+				>
+				["at0067"] = <
+					text = <"Noisy breathing">
+					description = <"Noisy breathing.">
+				>
+				["at0068"] = <
+					text = <"Short of breath">
+					description = <"Short of breath.">
+				>
+				["at0069"] = <
+					text = <"Unable to speak full sentences">
+					description = <"Unable to speak in full sentences.">
+				>
+				["at0070"] = <
+					text = <"Use accessory muscles">
+					description = <"Use accessory muscles.">
+				>
+				["at0071"] = <
+					text = <"Circulation indicator">
+					description = <"Nurse recorded changes in circulation.">
+				>
+				["at0076"] = <
+					text = <"Temperature indicator">
+					description = <"Nurse recorded changes in temperature.">
+				>
+				["at0078"] = <
+					text = <"Mentation indicator">
+					description = <"Nurse recorded changes in mentation.">
+				>
+				["at0081"] = <
+					text = <"Agitation indicator">
+					description = <"Nurse recorded changes in agitation.">
+				>
+				["at0084"] = <
+					text = <"Pain indicator">
+					description = <"Nurse recorded changes in pain.">
+				>
+				["at0087"] = <
+					text = <"Trajectory indicator">
+					description = <"Nurse recorded unexpected trajectory.">
+				>
+				["at0090"] = <
+					text = <"Patient indicator">
+					description = <"Nurse recorded patient indicators.">
+				>
+				["at0093"] = <
+					text = <"Nurse subjective indicator">
+					description = <"Nurse recorded subjective observation.">
+				>
+				["at0096"] = <
+					text = <"Colour changes: pale, grey">
+					description = <"Colour changes: pale, grey.">
+				>
+				["at0097"] = <
+					text = <"Sweaty/clammy">
+					description = <"Sweaty/clammy.">
+				>
+				["at0098"] = <
+					text = <"Coldness">
+					description = <"Coldness.">
+				>
+				["at0099"] = <
+					text = <"Impaired perfusion">
+					description = <"Impaired perfusion.">
+				>
+				["at0100"] = <
+					text = <"Rigors">
+					description = <"Rigors.">
+				>
+				["at0101"] = <
+					text = <"Lethargic">
+					description = <"Lethargic.">
+				>
+				["at0102"] = <
+					text = <"Confused">
+					description = <"Confused.">
+				>
+				["at0103"] = <
+					text = <"Restless">
+					description = <"Restless.">
+				>
+				["at0104"] = <
+					text = <"Anxious">
+					description = <"Anxious.">
+				>
+				["at0105"] = <
+					text = <"Change in temperature">
+					description = <"Change in temperature.">
+				>
+				["at0106"] = <
+					text = <"New pain">
+					description = <"New pain.">
+				>
+				["at0107"] = <
+					text = <"Increasing or consisting pain">
+					description = <"Increasing or consisting pain.">
+				>
+				["at0108"] = <
+					text = <"No progress">
+					description = <"No progress.">
+				>
+				["at0109"] = <
+					text = <"Abdominal distension/nausea/bleeding">
+					description = <"Abdominal distension/nausea/bleeding.">
+				>
+				["at0110"] = <
+					text = <"Not feeling well">
+					description = <"Not feeling well.">
+				>
+				["at0111"] = <
+					text = <"Feeling of impending doom">
+					description = <"Feeling of impending doom.">
+				>
+				["at0112"] = <
+					text = <"Change in behaviour">
+					description = <"Change in behaviour.">
+				>
+				["at0113"] = <
+					text = <"Doesn't look good">
+					description = <"Doesn't look good.">
+				>
+			>
+		>
+	>
