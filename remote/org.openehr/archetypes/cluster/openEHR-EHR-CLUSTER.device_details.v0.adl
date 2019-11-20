@@ -1,5 +1,5 @@
-﻿archetype (adl_version=1.4)
-	openEHR-EHR-CLUSTER.device_details.v1
+﻿archetype (adl_version=1.4; uid=9cf4152b-3fe8-4f5a-9806-999d797a3c55)
+	openEHR-EHR-CLUSTER.device_details.v0
 
 concept
 	[at0000]	-- Medical device details
@@ -32,25 +32,33 @@ language
 description
 	original_author = <
 		["name"] = <"Heather Leslie">
-		["organisation"] = <"Ocean Informatics">
-		["email"] = <"heather.leslie@oceaninformatics.com">
+		["organisation"] = <"Atomica Informatics">
+		["email"] = <"heather.leslie@atomicainformatics.com">
 		["date"] = <"2010-08-16">
 	>
 	details = <
+		["es-ar"] = <
+			language = <[ISO_639-1::es-ar]>
+			purpose = <"Registrar detalles adicionales relativos a especificaciones, mantenimiento, servicio, limpieza y calibración de un dispositivo. ">
+			use = <"Utilizar para registrar detalles adicionales requeridos para suplementar al genérico CLUSTER.device o sus especializaciones. Este arquetipo focaliza en la captura de los detalles relativos al mantenimiento, limpieza, calibración y otros detalles específicos de los componentes de un dispositivo.">
+			keywords = <"calibración", "mantenimiento", "esterilización", "limpieza", "servicio", "dispositivo">
+			misuse = <"">
+			copyright = <"© openEHR Foundation">
+		>
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			purpose = <"Anvendes for registrering av detaljer relatert til spesifikasjoner, vedlikehold, servicering, renhold og kalibrering av enhver enhet.">
+			use = <"Anvendes for ytterligere registrering av nødvendige detaljer for supplere den generelle CLUSTER.device eller spesialiserte arketyper. Fokus for denne arketype er at fange opp detaljer relatert til vedlikehold, servicering, renhold, kalibrering og andre spesifikke detaljer om enhetens komponenter.">
+			keywords = <"Kalibrerning", "vedlikehold", "sterilisasjon", "service", "enhet">
+			misuse = <"">
+			copyright = <"© openEHR Foundation">
+		>
 		["ar-sy"] = <
 			language = <[ISO_639-1::ar-sy]>
 			purpose = <"لتسجيل التفاصيل الإضافية المتعلقة بالمواصفات, الصيانة, التصليح, التنظيف و التعيير لأي جهيزة">
 			use = <"يستخدم لتسجيل التفاصيل الإضافية المطلوبة لتزويد النماذج الجنيسة (غير محدودة الملكية) عنقود.جهيزة أو النماذج المخصصة.
 يركز هذا النموذج على التقاط التفاصيل المتعلقة بالصيانة, التصليح, التنظيف, التعيير و تفاصيل محددة حول مكونات الجهيزة">
 			keywords = <"تعيير", "صيانة", "تعقيم", "نظيف", "خدمة", "جهيزة">
-			misuse = <"">
-			copyright = <"© openEHR Foundation">
-		>
-		["es-ar"] = <
-			language = <[ISO_639-1::es-ar]>
-			purpose = <"Registrar detalles adicionales relativos a especificaciones, mantenimiento, servicio, limpieza y calibración de un dispositivo. ">
-			use = <"Utilizar para registrar detalles adicionales requeridos para suplementar al genérico CLUSTER.device o sus especializaciones. Este arquetipo focaliza en la captura de los detalles relativos al mantenimiento, limpieza, calibración y otros detalles específicos de los componentes de un dispositivo.">
-			keywords = <"calibración", "mantenimiento", "esterilización", "limpieza", "servicio", "dispositivo">
 			misuse = <"">
 			copyright = <"© openEHR Foundation">
 		>
@@ -64,25 +72,24 @@ This archetype is designed to be used in the 'Asset Management' SLOT within the 
 			misuse = <"Not to be used outside of the CLUSTER.device archetype or its specialisations, unless there is a clear identification of the device about which the information is being recorded.">
 			copyright = <"© openEHR Foundation">
 		>
-		["nb"] = <
-			language = <[ISO_639-1::nb]>
-			purpose = <"Anvendes for registrering av detaljer relatert til spesifikasjoner, vedlikehold, servicering, renhold og kalibrering av enhver enhet.">
-			use = <"Anvendes for ytterligere registrering av nødvendige detaljer for supplere den generelle CLUSTER.device eller spesialiserte arketyper. Fokus for denne arketype er at fange opp detaljer relatert til vedlikehold, servicering, renhold, kalibrering og andre spesifikke detaljer om enhetens komponenter.">
-			keywords = <"Kalibrerning", "vedlikehold", "sterilisasjon", "service", "enhet">
-			misuse = <"">
-			copyright = <"© openEHR Foundation">
-		>
 	>
-	lifecycle_state = <"AuthorDraft">
+	lifecycle_state = <"in_development">
 	other_contributors = <"Ian McNicoll, freshEHR Consulting, United Kingdom", ...>
 	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
 		["references"] = <"Resource Device [Internet]. HL7 International, FHIR Specification first DSTU version (v 0.0.82). Available from: http://www.hl7.org/implement/standards/fhir/device.html [last accessed 25 Feb 2015].
 
 Implementation Guide for CDA Release 2.0 Personal Healthcare Monitoring Report (PHMR) (International Realm) Draft Standard for Trial Use Release 1. HL7 International, 2008. Available at: http://wiki.hl7.org/index.php?title=Product_CDA_R2_IG#Product_Name_-_CDA_R2_IG_PHM_Reports [last accessed 05 Mar 2015].
 
 Guidelines for 64-bit Global Identifier (EUI-64) [Internet]. IEEE Standards Association [cited: 2015-02-25]. Available from: http://standards.ieee.org/regauth/oui/tutorials/EUI64.html [last accessed 05 Mar 2015].">
 		["current_contact"] = <"Heather Leslie, Ocean Informatics, heather.leslie@oceaninformatics.com">
-		["MD5-CAM-1.0.1"] = <"C9F9BBE3231A684F081712B4B291C709">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"A585C08AA295D79F2248D2E61472C89C">
+		["build_uid"] = <"41f9352f-9d5b-4a60-a34a-a2c8f43da327">
+		["revision"] = <"0.0.1-alpha">
 	>
 
 definition
@@ -215,8 +222,6 @@ definition
 			}
 		}
 	}
-
-
 
 ontology
 	term_definitions = <
