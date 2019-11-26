@@ -1,18 +1,24 @@
-﻿archetype (adl_version=1.4; uid=4ad82530-88c6-41f1-b01d-30ea2de5801a)
-	openEHR-EHR-OBSERVATION.avpu-c.v0
-specialise
-	openEHR-EHR-OBSERVATION.avpu.v0
+﻿archetype (adl_version=1.4; uid=7acb676b-14b9-450e-b041-8b7a4c4db16d)
+	openEHR-EHR-OBSERVATION.acvpu.v0
 
 concept
-	[at0000.1]	-- ACVPU
+	[at0000]	-- ACVPU
 language
 	original_language = <[ISO_639-1::en]>
 	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+				["name"] = <"Åsa Skagerhult">
+				["organisation"] = <"Region Östergötland">
+				["email"] = <"asa.skagerhult@regionostergotland.se">
+			>
+		>
 		["nb"] = <
 			language = <[ISO_639-1::nb]>
 			author = <
-				["name"] = <"Silje Ljosland Bakke">
-				["organisation"] = <"Helse Bergen HF">
+				["name"] = <"Silje Ljosland Bakke; John Tore Valand">
+				["organisation"] = <"Nasjonal IKT HF; Helse Bergen HF">
 			>
 		>
 		["pt-br"] = <
@@ -32,13 +38,21 @@ description
 		["date"] = <"2018-02-01">
 	>
 	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			purpose = <"Att registrera en individs medvetandegrad.">
+			use = <"Används för att registrera en snabb och enkel bedömning av en individs medvetandegrad, i synnerhet i akuta situationer. Bedömningen har uppdaterats som en konsekvens av publiceringen av NEWS2 år 2017.">
+			keywords = <"*avpu(en)", "*alert(en)", "*voice(en)", "*pain(en)", "*unresponsive(en)", "*awake(en)", "*speech(en)", "*pain(en)", "*unconscious(en)", "*voice(en)", "*consciousness(en)", "*verbal(en)", "*verbal response(en)", "*semicomatose(en)", "*conscious(en)", "*level of consciousness(en)", "*comatose(en)", "*confusion(en)", "*acvpu(en)">
+			misuse = <"">
+			copyright = <"© Apperta UK, openEHR Foundation, openEHR Foundation">
+		>
 		["nb"] = <
 			language = <[ISO_639-1::nb]>
 			purpose = <"Brukes for å vurdere et individs bevissthetsnivå.">
-			use = <"For raskt og enkel vurdering av et individs bevissthetsnivå, særlig egnet til vurdering i akutte situasjoner.">
+			use = <"For raskt og enkel vurdering av et individs bevissthetsnivå, særlig egnet til vurdering i akutte situasjoner. Denne vurderingen har blitt oppdatert i 2017 som følge av endringer NEWS skåringsverktøyet. Verktøyet er nå publisert som NEWS 2.">
 			keywords = <"AVPU", "alert", "voice", "pain", "unresponsive", "våken", "tale", "smerte", "bevisstløs", "stemme", "bevissthet", "verbal", "verbalrespons", "semikomatøs", "bevisst", "bevissthetsnivå", "komatøs">
 			misuse = <"">
-			copyright = <"© Apperta UK, openEHR Foundation">
+			copyright = <"© Apperta UK, openEHR Foundation, openEHR Foundation">
 		>
 		["pt-br"] = <
 			language = <[ISO_639-1::pt-br]>
@@ -46,7 +60,7 @@ description
 			use = <"Usar para registrar, como parte de uma avaliação de rastreamento da responsividade de um paciente, como uma indicação do seu nível de consicência.">
 			keywords = <"avda", "alerta", "voz", "dor", "arresponsivo">
 			misuse = <"">
-			copyright = <"© Apperta UK, openEHR Foundation">
+			copyright = <"© Apperta UK, openEHR Foundation, openEHR Foundation">
 		>
 		["en"] = <
 			language = <[ISO_639-1::en]>
@@ -54,7 +68,7 @@ description
 			use = <"Use to record a quick and simple assessment of an individual's level of consciousness, especially in an emergency situation. This assessment has been updated in response to 2017 changes to the NEWS assessment, now published as NEWS2.">
 			keywords = <"avpu", "alert", "voice", "pain", "unresponsive", "awake", "speech", "pain", "unconscious", "voice", "consciousness", "verbal", "verbal response", "semicomatose", "conscious", "level of consciousness", "comatose", "confusion", "acvpu">
 			misuse = <"">
-			copyright = <"© Apperta UK, openEHR Foundation">
+			copyright = <"© Apperta UK, openEHR Foundation, openEHR Foundation">
 		>
 	>
 	lifecycle_state = <"in_development">
@@ -69,13 +83,13 @@ https://www.rcplondon.ac.uk/projects/outputs/national-early-warning-score-news-2
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"0670284BA5C4511A5C05CE50F0F30188">
-		["build_uid"] = <"a272a109-1eb7-4640-8eae-e4ee74ff5db7">
+		["MD5-CAM-1.0.1"] = <"1FB0687E1011C3665DD211040E99DB1C">
+		["build_uid"] = <"ea3ccc39-9b3d-4f4b-b2ef-9c7bee635857">
 		["revision"] = <"0.0.1-alpha">
 	>
 
 definition
-	OBSERVATION[at0000.1] matches {	-- ACVPU
+	OBSERVATION[at0000] matches {	-- ACVPU
 		data matches {
 			HISTORY[at0001] matches {	-- Event Series
 				events cardinality matches {1..*; unordered} matches {
@@ -83,13 +97,13 @@ definition
 						data matches {
 							ITEM_TREE[at0003] matches {	-- Tree
 								items cardinality matches {0..*; unordered} matches {
-									ELEMENT[at0004.1] occurrences matches {0..1} matches {	-- Observation
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Observation
 										value matches {
 											DV_CODED_TEXT matches {
 												defining_code matches {
 													[local::
 													at0005, 	-- Alert
-													at0.15, 	-- Confusion
+													at0015, 	-- Confusion
 													at0006, 	-- Voice
 													at0007, 	-- Pain
 													at0008]	-- Unresponsive
@@ -141,15 +155,11 @@ ontology
 	term_definitions = <
 		["en"] = <
 			items = <
-				["at0.15"] = <
+				["at0015"] = <
 					text = <"Confusion">
 					description = <"New onset of confusion, disorientation and/or agitation, where previously their mental state was normal.">
 				>
 				["at0000"] = <
-					text = <"AVPU">
-					description = <"Simple scale used as part of an assessment to measure and record an individual's level of consciousness. AVPU is an acronym for 'Alert', 'Voice', 'Pain', 'Unresponsive'.">
-				>
-				["at0000.1"] = <
 					text = <"ACVPU">
 					description = <"Simple scale used as part of an assessment to measure and record an individual's level of consciousness.">
 					comment = <"ACVPU is an acronym for 'Alert', 'Confusion', 'Voice', 'Pain', 'Unresponsive'.">
@@ -167,10 +177,6 @@ ontology
 					description = <"@ internal @">
 				>
 				["at0004"] = <
-					text = <"Observation">
-					description = <"The observation of the patient's level of consciousness.">
-				>
-				["at0004.1"] = <
 					text = <"Observation">
 					description = <"The observation of the patient's level of consciousness.">
 				>
@@ -220,18 +226,14 @@ ontology
 		>
 		["nb"] = <
 			items = <
-				["at0.15"] = <
-					text = <"*Confusion(en)">
-					description = <"*New onset of confusion, disorientation and/or agitation, where previously their mental state was normal.(en)">
+				["at0015"] = <
+					text = <"Nyoppstått forvirring">
+					description = <"Nyoppstått forvirring og eller agitasjon, der den mentale tilstanden tidligere var normal (C).">
 				>
 				["at0000"] = <
-					text = <"AVPU">
-					description = <"En enkel skala for å vurdere et individs bevissthetsnivå. AVPU er en forkortelse for engelsk \"Alert\", \"Voice\", \"Pain\" og \"Unresponsive\", på norsk \"Våken\", \"Tiltale\", \"Smerte\" og \"Reagerer ikke\".">
-				>
-				["at0000.1"] = <
-					text = <"*ACVPU(en)">
-					description = <"*Simple scale used as part of an assessment to measure and record an individual's level of consciousness.(en)">
-					comment = <"*ACVPU is an acronym for 'Alert', 'Confusion', 'Voice', 'Pain', 'Unresponsive'.(en)">
+					text = <"ACVPU">
+					description = <"En enkel skala for å vurdere et individs bevissthetsnivå.">
+					comment = <"AVPU er en forkortelse for engelsk \"Alert\", \"Confusion\", \"Voice\", \"Pain\" og \"Unresponsive\", på norsk \"Våken\", \"Nyoppstått forvirring\", \"Tiltale\", \"Smerte\" og \"Reagerer ikke\".">
 				>
 				["at0001"] = <
 					text = <"Event Series">
@@ -246,12 +248,8 @@ ontology
 					description = <"@ internal @">
 				>
 				["at0004"] = <
-					text = <"AVPU-observasjon">
+					text = <"ACVPU-observasjon">
 					description = <"Observasjonen av individets bevissthetsnivå.">
-				>
-				["at0004.1"] = <
-					text = <"*! - Observation(en)">
-					description = <"*The observation of the patient's level of consciousness.(en)">
 				>
 				["at0005"] = <
 					text = <"Våken">
@@ -299,15 +297,11 @@ ontology
 		>
 		["pt-br"] = <
 			items = <
-				["at0.15"] = <
+				["at0015"] = <
 					text = <"*Confusion(en)">
 					description = <"*New onset of confusion, disorientation and/or agitation, where previously their mental state was normal.(en)">
 				>
 				["at0000"] = <
-					text = <"AVDA">
-					description = <"Escala simples utilizada como parte de uma medida de avaliação e registro da responsividade de um paciente, indicando o seu nível de consciência. AVDA é um acrônimo para 'Alerta', 'Voz', 'Dor' e \"Arresponsivo'">
-				>
-				["at0000.1"] = <
 					text = <"*ACVPU(en)">
 					description = <"*Simple scale used as part of an assessment to measure and record an individual's level of consciousness.(en)">
 					comment = <"*ACVPU is an acronym for 'Alert', 'Confusion', 'Voice', 'Pain', 'Unresponsive'.(en)">
@@ -325,10 +319,6 @@ ontology
 					description = <"@ internal @">
 				>
 				["at0004"] = <
-					text = <"Observação AVDA">
-					description = <"A observação da responsividade do paciente.">
-				>
-				["at0004.1"] = <
 					text = <"*! - Observation(en)">
 					description = <"*The observation of the patient's level of consciousness.(en)">
 				>
@@ -373,6 +363,77 @@ ontology
 				["at0014"] = <
 					text = <"*Confounding factors(en)">
 					description = <"*Narrative descripiton of any issues or factors that may impact on the observation.(en)">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0015"] = <
+					text = <"Förvirring">
+					description = <"Nytillkommen förvirring, desorientering och/eller oro, där tillståndet tidigare varit normalt.">
+				>
+				["at0000"] = <
+					text = <"ACVPU">
+					description = <"En skala som används som del av bedömningen och registreringen av en individs medvetandegrad.">
+					comment = <"ACVPU är en akronym för Alert (Vaken), Confusion (Förvirring), Voice (Röst), Pain (Smärta), Unresponsive (Ingen respons).">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Ospecificerad händelse">
+					description = <"Ospecificerad standardhändelse vid en tidpunkt eller inom ett tidsintervall som explicit kan definieras i en mall eller genereras automatiskt av vissa IT-system.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Observation">
+					description = <"Den observerade medvetenhetsgraden hos patienten.">
+				>
+				["at0005"] = <
+					text = <"Vaken">
+					description = <"Öppnar ögonen spontant, sammanhängande tal, följer uppmaningar.">
+				>
+				["at0006"] = <
+					text = <"Röst">
+					description = <"Någon form av verbal, motorisk eller ögonrespons på röststimulans.">
+				>
+				["at0007"] = <
+					text = <"Smärta">
+					description = <"Någon form av verbal, motorisk eller ögonrespons på smärtstimulans, såsom tryck mot nagelband, men inte på röststimulans.">
+				>
+				["at0008"] = <
+					text = <"Ingen respons">
+					description = <"Ingen respons på vare sig röst- eller smärtstimulans.">
+				>
+				["at0009"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0010"] = <
+					text = <"Smärtstimulans">
+					description = <"Beskrivning av den typ av stimulans som använts för att framkalla smärta.">
+					comment = <"Detta element bör om möjligt terminologibindas. Exempelvis tryck på nagelrot eller bröstben.">
+				>
+				["at0011"] = <
+					text = <"Tilläggsinformation">
+					description = <"Plats för att infoga tilläggsinformation som krävs för lokala anpassningar eller anpassning till andra referensmodeller eller formella krav.">
+					comment = <"Exempelvis lokala informationskrav eller metadata för anpassning till FHIR- eller CIMI-motsvarigheter.">
+				>
+				["at0012"] = <
+					text = <"Kommentar">
+					description = <"Kommentarer avseende medvetandegraden som inte beskrivs i övriga fält.">
+				>
+				["at0013"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0014"] = <
+					text = <"Möjliga felkällor">
+					description = <"Beskrivning av faktorer och felkällor som kan påverka bedömningen av medvetandegrad.">
 				>
 			>
 		>
