@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xmlns="openEHR/v1/Template">
+    <id>b7299a52-7563-459b-b585-343cc450fb6c</id>
+    <name>Physical health app admin-v0</name>
+    <description>
+        <original_author>
+            <item>
+                <key>date</key>
+                <value>2019-02-12</value>
+            </item>
+        </original_author>
+        <lifecycle_state>unmanaged</lifecycle_state>
+        <details/>
+        <other_details>
+            <item>
+                <key>licence</key>
+                <value>This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.</value>
+            </item>
+            <item>
+                <key>custodian_organisation</key>
+                <value>openEHR Foundation</value>
+            </item>
+            <item>
+                <key>original_namespace</key>
+                <value>org.openehr</value>
+            </item>
+            <item>
+                <key>original_publisher</key>
+                <value>openEHR Foundation</value>
+            </item>
+            <item>
+                <key>custodian_namespace</key>
+                <value>org.openehr</value>
+            </item>
+            <item>
+                <key>MD5-CAM-1.0.1</key>
+                <value>3ac7abdceacff979459377cb74fba1c2</value>
+            </item>
+            <item>
+                <key>PARENT:MD5-CAM-1.0.1</key>
+                <value>1DA7D8EDC23CF1B673C05E6E8FE28EB1</value>
+            </item>
+        </other_details>
+    </description>
+    <definition archetype_id="openEHR-EHR-COMPOSITION.report.v1"
+        concept_name="Report" name="Physical health app admin"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:COMPOSITION">
+        <Content archetype_id="openEHR-EHR-ACTION.informed_consent.v0"
+            concept_name="Informed Consent" name="Consent"
+            path="/content" xsi:type="tem:ACTION">
+            <Rule max="0" min="0" path="/ism_transition[at0013]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0019]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0018]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0027]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0014]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0021]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0017]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0022]"/>
+            <Rule default="Consent to Physical Health data sharing" path="/description[at0001]/items[at0002]"/>
+            <Rule max="0" path="/description[at0001]/items[at0030]"/>
+            <Rule max="0" path="/description[at0001]/items[at0031]"/>
+            <Rule max="0" path="/description[at0001]/items[at0004]"/>
+            <Rule max="0" path="/description[at0001]/items[at0007]"/>
+            <Rule max="0" path="/description[at0001]/items[at0008]"/>
+            <Rule max="0" path="/description[at0001]/items[at0009]"/>
+            <Rule max="0" path="/description[at0001]/items[at0010]"/>
+            <Rule max="0" path="/description[at0001]/items[at0012]"/>
+            <Rule max="0" path="/protocol[at0024]/items[at0025]"/>
+            <Rule max="0" path="/protocol[at0024]/items[at0026]"/>
+            <Rule max="0" path="/protocol[at0024]/items[at0033]"/>
+        </Content>
+        <Rule max="0" path="/context/other_context[at0001]/items[at0002]"/>
+        <Rule max="0" path="/context/other_context[at0001]/items[at0005]"/>
+    </definition>
+    <integrity_checks archetype_id="openEHR-EHR-COMPOSITION.report.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">55DB2D45BC470E831EE8C905348471E4</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-ACTION.informed_consent.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">946987A1D182E9C9FEE624EF6065E29D</digest>
+    </integrity_checks>
+</template>
