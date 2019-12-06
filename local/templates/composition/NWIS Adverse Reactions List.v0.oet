@@ -318,12 +318,22 @@
                 <Rule max="0" path="/protocol[at0042]/items[at0099]"/>
                 <Items
                     archetype_id="openEHR-EHR-CLUSTER.witnessed_by_clinician.v0"
-                    path="/data[at0001]/items[at0009]/items[at0116]" xsi:type="tem:CLUSTER"/>
+                    path="/data[at0001]/items[at0009]/items[at0116]" xsi:type="tem:CLUSTER">
+                    <Rule name="Witnessed by clinician" path="/items[at0001]"/>
+                </Items>
             </Item>
             <Item
                 archetype_id="openEHR-EHR-EVALUATION.exclusion_global.v1"
                 path="/items[at0001]" xsi:type="tem:EVALUATION">
-                <Rule default="Patient has no known adverse reactions" path="/data[at0001]/items[at0002]"/>
+                <Rule default="Patient has no known adverse reactions"
+                    name="Global exclusion of adverse reactions" path="/data[at0001]/items[at0002]">
+                    <nameConstraint>
+                        <excludedValues>local::at0003</excludedValues>
+                        <excludedValues>local::at0004</excludedValues>
+                        <excludedValues>local::at0005</excludedValues>
+                        <excludedValues>local::at0006</excludedValues>
+                    </nameConstraint>
+                </Rule>
                 <Rule max="0" path="/data[at0001]/items[at0011]"/>
             </Item>
             <Item archetype_id="openEHR-EHR-EVALUATION.absence.v1"
@@ -387,12 +397,12 @@
         archetype_id="openEHR-EHR-EVALUATION.exclusion_global.v1"
         xmlns:tem="openEHR/v1/Template"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
-        <digest id="MD5-CAM-1.0.1">CBD3F597907DCC9BE51553069E405BB1</digest>
+        <digest id="MD5-CAM-1.0.1">B5F597BB42D9AEC354AD597077ABC0D5</digest>
     </integrity_checks>
     <integrity_checks archetype_id="openEHR-EHR-EVALUATION.absence.v1"
         xmlns:tem="openEHR/v1/Template"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
-        <digest id="MD5-CAM-1.0.1">C3FB0E9724C49FDF46E44AD9B8FB75B1</digest>
+        <digest id="MD5-CAM-1.0.1">FF43E895078FC0D3D3234730AEE4CAEE</digest>
     </integrity_checks>
     <integrity_checks archetype_id="openEHR-EHR-ACTION.review.v1"
         xmlns:tem="openEHR/v1/Template"
