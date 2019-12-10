@@ -1,0 +1,197 @@
+﻿archetype (adl_version=1.4; uid=059cc37e-ee19-4c69-a46a-3ba45f087206)
+	openEHR-EHR-CLUSTER.living_will_details_uk.v0
+
+concept
+	[at0000]	-- Living will details UK
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Heidi Koikkalainen">
+		["organisation"] = <"NES Digital Service, Edinburgh Napier University">
+		["email"] = <"hk.koikkalainen@gmail.com">
+		["date"] = <"2019-10-30">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record the details of a living will document based on the UK requirements.">
+			use = <"Use to record the details of a living will document based on the UK requirements.
+
+Living will is also known as Advance Directive in Scotland, and as Advance Decision in England and Wales.
+
+An individual with capacity may create a living will document to record their wishes for medical care and treatment in advance, which is intended to guide decision-making in future situations in which the individual is unable to make or communicate decisions. In England and Wales, a living will is a legally-binding document, while, in Scotland, it is legally persuasive without having an official legal status.
+
+A living will is commonly used to refuse life-sustaining treatment which may include, but is not limited to, cardiopulmonary resuscitation (CPR), clinically assisted nutrition and hydration, artificial or mechanical ventilation, and antibiotics for life-threatening infections. 
+
+This archetype has been specifically designed to be used within the EVALUATION.living_will archetype to adhere to the legal and other local requirements for living wills in the UK.">
+			keywords = <"living, will, advance, directive, decision, legal, preference, EoL", ...>
+			misuse = <"">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <"Ian McNicoll, freshEHR Clinical Informatics, United Kingdom", "Vebjørn Arntzen, Oslo University Hospital, Norway">
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["current_contact"] = <"Heidi Koikkalainen, hk.koikkalainen@gmail.com">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"5D074529E3961F02D97BC64E878A80C6">
+		["build_uid"] = <"e1ee8d2e-672a-48f6-bc9e-afd43a2e49ef">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Living will details UK
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0018] occurrences matches {0..1} matches {    -- Refusal of all life-sustaining treatment
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0019,    -- Yes
+							at0020,    -- No
+							at0021]    -- Unknown
+						}
+					}
+				}
+			}
+			CLUSTER[at0002] occurrences matches {0..*} matches {    -- Refusal of specific treatment
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0003] occurrences matches {0..1} matches {    -- Name of treatment
+						value matches {
+							DV_CODED_TEXT matches {*}
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..1} matches {    -- Description
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			ELEMENT[at0008] occurrences matches {0..1} matches {    -- Pain relief
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0014,    -- Yes
+							at0015,    -- No
+							at0016]    -- Not applicable
+						}
+					}
+				}
+			}
+			ELEMENT[at0010] occurrences matches {0..1} matches {    -- Pregnancy
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0011,    -- Yes
+							at0012,    -- No
+							at0013]    -- Not applicable
+						}
+					}
+				}
+			}
+			ELEMENT[at0007] occurrences matches {0..1} matches {    -- Additional decisions on medical treatment
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			allow_archetype CLUSTER[at0017] occurrences matches {0..*} matches {    -- Other details
+				include
+					archetype_id/value matches {/.*/}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Living will details UK">
+					description = <"Details relating to a living will document based on the UK requirements.
+
+Living will is a document to communicate the individual's wishes with regard to future medical action or end-of-life care, to be used in situations in which the individual has lost the capacity to make or express choices.">
+				>
+				["at0002"] = <
+					text = <"Refusal of specific treatment">
+					description = <"States the individual’s decision to refuse specific treatment even if their life is at risk or may be shortened as a result.">
+				>
+				["at0003"] = <
+					text = <"Name of treatment">
+					description = <"Name of the treatment.">
+				>
+				["at0004"] = <
+					text = <"Description">
+					description = <"Narrative description of the treatment.">
+				>
+				["at0007"] = <
+					text = <"Additional decisions on medical treatment">
+					description = <"Any other decisions on medical treatment that the individual wishes to include in the living will.">
+				>
+				["at0008"] = <
+					text = <"Pain relief">
+					description = <"Confirms whether the individual wishes to receive all medical treatment intended to alleviate pain or distress, or to ensure comfort, even if the result of the treatment may shorten their life.">
+				>
+				["at0010"] = <
+					text = <"Pregnancy">
+					description = <"Confirms whether the individual, if pregnant, wishes to receive medical treatment or procedures leading to the safe delivery of their child. 
+
+Once their child is safely delivered, the individual wishes to reinstate the decisions set out in the living will.">
+				>
+				["at0011"] = <
+					text = <"Yes">
+					description = <"The individual, if pregnant, wishes to receive medical treatment or procedures leading to the safe delivery of their child.">
+				>
+				["at0012"] = <
+					text = <"No">
+					description = <"The individual, if pregnant, does not wish to receive all medical treatment or procedures leading to the safe delivery of their child.">
+				>
+				["at0013"] = <
+					text = <"Not applicable">
+					description = <"Decision not applicable.">
+				>
+				["at0014"] = <
+					text = <"Yes">
+					description = <"Patient wishes to receive all treatment to relieve pain even if it may shorten their life.">
+				>
+				["at0015"] = <
+					text = <"No">
+					description = <"Patient does not wish to receive all treatment to relieve pain if it may shorten their life.">
+				>
+				["at0016"] = <
+					text = <"Not applicable">
+					description = <"Decision not applicable.">
+				>
+				["at0017"] = <
+					text = <"Other details">
+					description = <"Other details that may be included in the living will.">
+				>
+				["at0018"] = <
+					text = <"Refusal of all life-sustaining treatment">
+					description = <"Confirms the individual’s decision to refuse all life-sustaining treatment even if their life is at risk or may be shortened as a result.">
+					comment = <"Life-sustaining treatment includes, but is not limited to, CPR, clinically assisted nutrition and hydration, artificial or mechanical ventilation, and antibiotics for life-threatening infections.">
+				>
+				["at0019"] = <
+					text = <"Yes">
+					description = <"The individual wishes to refuse all life-sustaining treatment.">
+				>
+				["at0020"] = <
+					text = <"No">
+					description = <"The individual does not wish to refuse all life-sustaining treatment.">
+				>
+				["at0021"] = <
+					text = <"Unknown">
+					description = <"It is not known whether the individual wishes to refuse all life-sustaining treatment.">
+				>
+			>
+		>
+	>
