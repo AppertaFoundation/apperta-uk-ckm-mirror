@@ -1,0 +1,93 @@
+﻿archetype (adl_version=1.4; uid=dd238bf6-8a50-4d8e-b799-7b7b4b84cca7)
+	openEHR-EHR-COMPOSITION.living_will.v0
+
+concept
+	[at0000]	-- Living will
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Heidi Koikkalainen">
+		["organisation"] = <"NES Digital Service, Edinburgh Napier University">
+		["email"] = <"hk.koikkalainen@gmail.com">
+		["date"] = <"2019-10-30">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Container archetype to carry details of a persistent living will document.">
+			use = <"Use as a container archetype to carry details of a persistent living will document.
+
+Living will is also known as advance directive, advance decision, advance decision to refuse treatment, personal directive, advance healthcare directive, or medical directive. 
+
+An individual with capacity may create a living will document to record their wishes for medical care and treatment in advance, which is intended to guide decision-making in future situations in which the individual is unable to make or communicate decisions. In some countries, a living will is a legally-binding document, while, in others, it may be legally persuasive without having an official legal status.
+
+A living will is commonly used to refuse life-sustaining treatment which may include, but is not limited to, cardiopulmonary resuscitation (CPR), clinically assisted nutrition and hydration, artificial or mechanical ventilation, and antibiotics for life-threatening infections. 
+
+This archetype has been specifically designed to hold the EVALUATION.living_will archetype with a nested living will details CLUSTER archetype, which will contain specific details of the living will as per national or other local requirements. However, this COMPOSITION can also be used to hold other types of archetypes where it is deemed appropriate.
+
+In countries where a living will has legal status, it MUST be ensured that the EVALUATION.living_will archetype and nested living will details CLUSTER archetype adhere to the specific legal requirements.">
+			keywords = <"living, will, advance, directive, decision, legal, preference, EoL", ...>
+			misuse = <"">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <"Ian McNicoll, freshEHR Clinical Informatics, United Kingdom", "Vebjørn Arntzen, Oslo University Hospital, Norway">
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["current_contact"] = <"Heidi Koikkalainen, hk.koikkalainen@gmail.com">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"D2E47324B3E30B3749798E0D4009E27B">
+		["build_uid"] = <"7431d905-f553-421e-b701-45a6780b056d">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	COMPOSITION[at0000] matches {    -- Living will
+		category matches {
+			DV_CODED_TEXT matches {
+				defining_code matches {
+					[openehr::431]
+				}
+			}
+		}
+		context matches {
+			EVENT_CONTEXT matches {
+				other_context matches {
+					ITEM_TREE[at0003] matches {    -- Item tree
+						items cardinality matches {0..*; unordered} matches {
+							allow_archetype CLUSTER[at0004] occurrences matches {0..1} matches {    -- XDS Metadata
+								include
+									archetype_id/value matches {/openEHR-EHR-CLUSTER\.xds_metadata\.v0/}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Living will">
+					description = <"A document to communicate the individual's wishes with regard to future medical action or end-of-life care, to be used in situations in which the individual has lost the capacity to make or express choices.">
+				>
+				["at0003"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"XDS Metadata">
+					description = <"Additional composition metadata aligned with IHE-XDS which is not already available from the Reference Model COMPOSITION class.">
+				>
+			>
+		>
+	>
