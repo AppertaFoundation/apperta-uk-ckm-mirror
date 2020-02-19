@@ -1,0 +1,164 @@
+﻿archetype (adl_version=1.4; uid=45cd7322-c4e9-4264-88b1-e94aade4f570)
+	openEHR-EHR-OBSERVATION.ability_to_perform_mouthcare_activities.v0
+
+concept
+	[at0000]	-- Ability to perform mouthcare activities
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Heidi Koikkalainen">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"heidi@freshehr.com">
+		["date"] = <"2020-02-19">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record details about the practical ability of an individual to perform mouthcare activities, such as brushing their teeth or cleaning dentures.">
+			use = <"Use to record details about the practical ability of an individual to perform mouthcare activities, such as brushing their teeth or cleaning dentures.
+
+The following text is copied from the Dutch ZIB model AbilityToPerformMouthcareActivities-v3.1:
+
+The ability to perform mouthcare activities is part of self-care. This includes brushing teeth twice a day with fluoride toothpaste and/or cleaning (partial) dentures, cleaning jaws without teeth (edentulous jaws) and taking care of the mucous membrane of the mouth.
+Limitations in this ability indicate a reduced ability to cope for oneself.
+This activity and activities such as those including eating, getting dressed and bathing are also known as activities of daily living (ADL). These are the activities people go through in daily life. The extent to which a person is able to do all these activities by themselves is a measure for their total ability to do things independently.
+
+Problems with oral health can lead to malnutrition or disease: if the patient has difficulty eating, insufficient nutrients are absorbed. A bad set of teeth can also have negative social consequences, such as no longer being able to talk properly, having bad breath or a patient being embarrassed because of their appearance.
+Information on limitations in a patient’s ability to keep up their own dental hygiene is important in determining the nature and intensity of the care the patient needs. In a transfer situation, it offers the receiving organization the ability to anticipate the intensity of the care to be given to the patient, enabling continuity in healthcare for the patient.
+If policy has been implemented to improve a patient’s ability to do things independently, the entered extent of independence helps to evaluate the efficiency of the treatment.
+
+The definitions of the concepts were (partially) taken from the ICNP definitions.
+In addition to this information model, there are more tools for entering the extent of independence, such as the BarthelIndex. The BarthelIndex is mainly used for patients who have had a stroke.
+This information model evaluates the ability to keep up their own dental hygiene on a three-point scale. In the BarthelIndex, this falls under the aspect of Grooming. In this tool, the ability is scored on a scale with fewer points.">
+			keywords = <"teeth, dentures, brushing", ...>
+			misuse = <"">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["references"] = <"AbilityToPerformMouthcareActivities-v3.1(2019EN) - Zorginformatiebouwstenen [Internet]. Zibs.nl. 2020 [cited 2020 Feb 19]. Available from: https://zibs.nl/wiki/AbilityToPerformMouthcareActivities-v3.1(2019EN)">
+		["current_contact"] = <"Heidi Koikkalainen, heidi@freshehr.com">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"9D41FA33744E554D0DB3DF3B3F5D9C8C">
+		["build_uid"] = <"24566e27-45fc-4efc-bb4b-4cdfae8dd09e">
+		["ip_acknowledgements"] = <"This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomedct or info@snomed.org.">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- Ability to perform mouthcare activities
+		data matches {
+			HISTORY[at0001] matches {    -- History
+				events cardinality matches {0..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..*} matches {    -- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] matches {    -- Performing mouthcare activities
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0005,    -- Independent
+													at0006,    -- Requires assistance
+													at0007]    -- Unable to perform mouthcare activities
+												}
+											}
+										}
+									}
+									CLUSTER[at0008] occurrences matches {0..*} matches {    -- Dental aid
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0010] occurrences matches {0..1} matches {    -- Type
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0011,    -- Dental prosthesis
+															at0012]    -- Orthodontic bracket
+														}
+													}
+												}
+											}
+											allow_archetype CLUSTER[at0009] occurrences matches {0..1} matches {    -- Medical device
+												include
+													archetype_id/value matches {/.*/}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Ability to perform mouthcare activities">
+					description = <"The ability of an individual to perform mouthcare activities, such as brushing their teeth or cleaning dentures.">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"Any event.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Performing mouthcare activities">
+					description = <"The ability to perform mouthcare activities.">
+					comment = <"Includes taking care of mouth and teeth/molars or dentures.">
+				>
+				["at0005"] = <
+					text = <"Independent">
+					description = <"The individual has the ability to perform mouthcare activities independently.">
+				>
+				["at0006"] = <
+					text = <"Requires assistance">
+					description = <"The individual requires assistance with performing mouthcare activities.">
+				>
+				["at0007"] = <
+					text = <"Unable to perform mouthcare activities">
+					description = <"The individual is unable to perform mouthcare activities.">
+				>
+				["at0008"] = <
+					text = <"Dental aid">
+					description = <"Information about the dental aids used by the individual.">
+				>
+				["at0009"] = <
+					text = <"Medical device">
+					description = <"Slot to include the 'Medical device' archetype.">
+				>
+				["at0010"] = <
+					text = <"Type">
+					description = <"Description of the dental aid type.">
+				>
+				["at0011"] = <
+					text = <"Dental prosthesis">
+					description = <"The individual has a dental prosthesis.">
+				>
+				["at0012"] = <
+					text = <"Orthodontic bracket">
+					description = <"The individual has an orthodontic bracket.">
+				>
+			>
+		>
+	>
