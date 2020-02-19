@@ -1,0 +1,145 @@
+﻿archetype (adl_version=1.4; uid=10d16f65-53e6-4371-b4f6-ffb70caa7ad6)
+	openEHR-EHR-OBSERVATION.ability_to_perform_nursing_activities.v0
+
+concept
+	[at0000]	-- Ability to perform nursing activities
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Heidi Koikkalainen">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"heidi@freshehr.com">
+		["date"] = <"2020-02-19">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record details about the practical ability of an individual to perform nursing activities.">
+			use = <"Use to record details about the practical ability of an individual to perform nursing activities.
+
+The following text is copied from the Dutch ZIB model AbilityToPerformNursingActivities-v1.0:
+
+When taking care of a patient with a disease or disability, parents, children and other caretakers often carry out nursing interventions. Adults and older children may carry out nursing interventions by themselves. Therefore skills training is needed for caregivers/ children. Qualification is required for correct performing of an intervention and also knowledge about what to do in case of complications.
+The assessment of the degree to which the intervention can be performed independently refers only to the indicated intervention.
+
+
+Information about the qualification of skill for performing a specific nursing intervention is necessary to provide parents, children and other caregivers appropriate support for the care of the patient.
+
+In order to indicate to whom the defined skills relate, use is made of one of the implicit concepts of the information model: the subject of the data. Usually, this is the patient in which case it will not be explicitly mentioned. If the data relates to a different person, this can be indicated by means of a reference to e.g. the information model Contactperson.">
+			keywords = <"nursing, intervention", ...>
+			misuse = <"">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["references"] = <"AbilityToPerformNursingActivities-v1.0(2019EN) - Zorginformatiebouwstenen [Internet]. Zibs.nl. 2020 [cited 2020 Feb 19]. Available from: https://zibs.nl/wiki/AbilityToPerformNursingActivities-v1.0(2019EN)">
+		["current_contact"] = <"Heidi Koikkalainen. heidi@freshehr.com">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"3659795B7383C997DBC556BAABC52C1F">
+		["build_uid"] = <"85957704-e65c-4f06-be1d-fafe3915dd2e">
+		["ip_acknowledgements"] = <"This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomedct or info@snomed.org.">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- Ability to perform nursing activities
+		data matches {
+			HISTORY[at0001] matches {    -- History
+				events cardinality matches {0..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..*} matches {    -- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									CLUSTER[at0004] occurrences matches {0..*} matches {    -- Nursing activity
+										items cardinality matches {1..*; unordered} matches {
+											allow_archetype CLUSTER[at0005] matches {    -- Nursing intervention
+												include
+													archetype_id/value matches {/.*/}
+											}
+											ELEMENT[at0006] matches {    -- Performing nursing activity
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0007,    -- Independent
+															at0008,    -- Requires assistance
+															at0009]    -- Unable to manage personal healthcare
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	terminologies_available = <"SNOMED-CT", ...>
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Ability to perform nursing activities">
+					description = <"The ability of an individual to perform nursing activities.">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"Any event.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Nursing activity">
+					description = <"Details of a specific nursing intervention/activity to which the skills relate.">
+				>
+				["at0005"] = <
+					text = <"Nursing intervention">
+					description = <"Slot to include 'Nursing intervention' archetype.">
+					comment = <"The use of 'Nursing intervention' archetype is preferred.">
+				>
+				["at0006"] = <
+					text = <"Performing nursing activity">
+					description = <"Qualification of the degree of independence when performing a certain nursing intervention.">
+				>
+				["at0007"] = <
+					text = <"Independent">
+					description = <"The individual has the ability to manage personal healthcare independently.">
+				>
+				["at0008"] = <
+					text = <"Requires assistance">
+					description = <"The individual requires help with managing personal healthcare.">
+				>
+				["at0009"] = <
+					text = <"Unable to manage personal healthcare">
+					description = <"The individual is unable to manage personal healthcare.">
+				>
+			>
+		>
+	>
+	term_bindings = <
+		["SNOMED-CT"] = <
+			items = <
+				["at0006"] = <[SNOMED-CT::303074009]>
+			>
+		>
+	>
