@@ -1,0 +1,142 @@
+﻿archetype (adl_version=1.4; uid=a9b5cf5f-b29c-4545-8ba2-8e3e0c71c0f2)
+	openEHR-EHR-OBSERVATION.ability_to_manage_medication.v0
+
+concept
+	[at0000]	-- Ability to manage medication
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Heidi Koikkalainen">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"heidi@freshehr.com">
+		["date"] = <"2020-02-19">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record details about the practical ability of an individual to manage their own medication.">
+			use = <"Use to record details about the practical ability of an individual to manage their own medication.
+
+The following text is copied from the Dutch ZIB model AbilityToGroome-v1.0:
+
+Managing one's own medication is part of self-healthcare. Limitations in this ability indicate a reduced ability to cope for oneself.
+This activity and activities such as those including cooking, using the telephone and shopping are also known as instrumentel activities of daily living (IADL). These tasks support an independent life style. Many people can still live independently even though they need help with one or two of these IADL’s.
+
+To promote safe and proper use of medication, it is important in patient care to know whether the patient is capable of using the medication independently, or if the patient needs help doing so.">
+			keywords = <"medicine, management", ...>
+			misuse = <"">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["references"] = <"AbilityToManageMedication-v1.0.1(2019EN) - Zorginformatiebouwstenen [Internet]. Zibs.nl. 2020 [cited 2020 Feb 19]. Available from: https://zibs.nl/wiki/AbilityToManageMedication-v1.0.1(2019EN)">
+		["current_contact"] = <"Heidi Koikkalainen, heidi@freshehr.com">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"4FDC0F28410FB5B17F3367CDA3250BEE">
+		["build_uid"] = <"bbdeb249-39d4-4f9c-a533-7d12461f12fe">
+		["ip_acknowledgements"] = <"This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomedct or info@snomed.org.">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- Ability to manage medication
+		data matches {
+			HISTORY[at0001] matches {    -- History
+				events cardinality matches {0..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..*} matches {    -- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] matches {    -- Managing medication
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0005,    -- Independent
+													at0006,    -- Requires assistance
+													at0007]    -- Unable to manage medication
+												}
+											}
+										}
+									}
+									allow_archetype CLUSTER[at0008] occurrences matches {0..*} matches {    -- Required assistance
+										include
+											archetype_id/value matches {/.*/}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0009] matches {*}    -- Item tree
+		}
+	}
+
+
+ontology
+	terminologies_available = <"SNOMED-CT", ...>
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Ability to manage medication">
+					description = <"The ability of an individual to manage their own medication.">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"Any event.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Managing medication">
+					description = <"The ability to manage own medication.">
+				>
+				["at0005"] = <
+					text = <"Independent">
+					description = <"The individual has the ability to manage their own medication independently.">
+				>
+				["at0006"] = <
+					text = <"Requires assistance">
+					description = <"The individual requires assistance with managing their medication.">
+				>
+				["at0007"] = <
+					text = <"Unable to manage medication">
+					description = <"The individual is unable to manage their own medication.">
+				>
+				["at0008"] = <
+					text = <"Required assistance">
+					description = <"Details of the nursing support the individual requires to manage their medication.">
+					comment = <"Slot to include 'Nursing intervention' archetype.">
+				>
+				["at0009"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+			>
+		>
+	>
+	term_bindings = <
+		["SNOMED-CT"] = <
+			items = <
+				["at0004"] = <[SNOMED-CT::285033005]>
+				["at0007"] = <[SNOMED-CT::285035003]>
+			>
+		>
+	>
