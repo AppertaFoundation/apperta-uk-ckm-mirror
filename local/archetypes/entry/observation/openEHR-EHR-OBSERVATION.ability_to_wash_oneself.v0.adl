@@ -1,0 +1,181 @@
+﻿archetype (adl_version=1.4; uid=c34b51f8-991b-4a62-864a-57f124c69c8b)
+	openEHR-EHR-OBSERVATION.ability_to_wash_oneself.v0
+
+concept
+	[at0000]	-- Ability to wash oneself
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Heidi Koikkalainen">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"heidi@freshehr.com">
+		["date"] = <"2020-02-19">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record details about the practical ability of an individual to wash their entire body or body parts, such as face, hands, or hair.">
+			use = <"Use to record details about the practical ability of an individual to wash their entire body or body parts, such as face, hands, or hair.
+
+The following text is copied from the Dutch ZIB model AbilityToWashOneself-v3.1:
+
+Being able to bathe independently is part of self-care. Limitations in this ability indicate a reduced ability to cope for oneself.
+This activity and activities such as those including eating, drinking, and dressing are also known as activities of daily living (ADL). These are the activities people go through in daily life. The extent to which a person is able to do all these activities by themselves is a measure for their total ability to do things independently.
+
+Information on limitations in a patient’s ability to bathe themselves is important in determining the nature and intensity of the care the patient needs. In a transfer situation, it gives the receiving organization the ability to anticipate the intensity of the care to be given to the patient, enabling continuity in healthcare for the patient.
+If policy has been implemented to improve a patient’s ability to do things independently, the entered extent of independence helps to determine the efficiency of the treatment.
+
+In addition to this information model, there are other tools to record independence, such as the KATZ-ADL and the BarthelIndex. The KATZ-ADL is mainly used for vulnerable seniors and the BarthelIndex is mainly used for patients who have had a stroke.
+This information model evaluates the ability to bathe on a three-point scale. In the KATZ-ADL and in the BarthelIndex, this falls under the aspect of Grooming. In these two tools, the ability is scored on a scale with fewer points.">
+			keywords = <"bathe, bath, shower, personal, hygiene", ...>
+			misuse = <"">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["references"] = <"AbilityToWashOneself-v3.1(2019EN) - Zorginformatiebouwstenen [Internet]. Zibs.nl. 2020 [cited 2020 Feb 19]. Available from: https://zibs.nl/wiki/AbilityToWashOneself-v3.1(2019EN)">
+		["current_contact"] = <"Heidi Koikkalainen, heidi@freshehr.com">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"C3001CEE138478ACFA6603EA2CE4C28D">
+		["build_uid"] = <"f8808013-63c9-499a-a1c7-32b2ff6caf70">
+		["ip_acknowledgements"] = <"This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomedct or info@snomed.org.">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- Ability to wash oneself
+		data matches {
+			HISTORY[at0001] matches {    -- History
+				events cardinality matches {0..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..*} matches {    -- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] matches {    -- Washing oneself
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0005,    -- Independent
+													at0006,    -- Requires assistance
+													at0007]    -- Unable to wash self
+												}
+											}
+										}
+									}
+									ELEMENT[at0008] occurrences matches {0..*} matches {    -- Body part to be washed
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0009,    -- Entire body
+													at0010,    -- Face
+													at0011,    -- Upper body
+													at0012,    -- Lower body
+													at0013,    -- Hands
+													at0014]    -- Hair
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	terminologies_available = <"SNOMED-CT", ...>
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Ability to wash oneself">
+					description = <"The ability of an individual to wash their entire body or body parts, such as face, hands, or hair.">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"Any event.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Washing oneself">
+					description = <"The ability to wash self.">
+					comment = <"The washing and drying of the entire body, or body parts, such as bathing, showering, washing of hands and feet, face and hair.
+
+The BodyPartToBeWashed concept offers the option to specify to which part of the body the limitation applies.">
+				>
+				["at0005"] = <
+					text = <"Independent">
+					description = <"The individual has the ability to wash self independently.">
+				>
+				["at0006"] = <
+					text = <"Requires assistance">
+					description = <"The individual requires assistance with washing self.">
+				>
+				["at0007"] = <
+					text = <"Unable to wash self">
+					description = <"The individual is unable to wash self.">
+				>
+				["at0008"] = <
+					text = <"Body part to be washed">
+					description = <"The part or parts of the body for which help washing is wanted/necessary.">
+				>
+				["at0009"] = <
+					text = <"Entire body">
+					description = <"The individual requires assistance with washing their entire body.">
+				>
+				["at0010"] = <
+					text = <"Face">
+					description = <"The individual requires assistance with washing their face.">
+				>
+				["at0011"] = <
+					text = <"Upper body">
+					description = <"The individual requires assistance with washing their upper body.">
+				>
+				["at0012"] = <
+					text = <"Lower body">
+					description = <"The individual requires assistance with washing their lower body.">
+				>
+				["at0013"] = <
+					text = <"Hands">
+					description = <"The individual requires assistance with washing their hands.">
+				>
+				["at0014"] = <
+					text = <"Hair">
+					description = <"The individual requires assistance with washing their hair.">
+				>
+			>
+		>
+	>
+	term_bindings = <
+		["SNOMED-CT"] = <
+			items = <
+				["at0004"] = <[SNOMED-CT::284785009]>
+				["at0008"] = <[SNOMED-CT::38866009]>
+				["at0007"] = <[SNOMED-CT::284787001]>
+				["at0009"] = <[SNOMED-CT::38266002]>
+				["at0010"] = <[SNOMED-CT::302549007]>
+				["at0011"] = <[SNOMED-CT::362874006]>
+				["at0012"] = <[SNOMED-CT::362875007]>
+			>
+		>
+	>
