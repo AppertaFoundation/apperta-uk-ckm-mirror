@@ -15,18 +15,16 @@ description
 	details = <
 		["en"] = <
 			language = <[ISO_639-1::en]>
-			purpose = <"To record details of the individual's ability to put on and remove clothing.
-
-The following text is copied from the Dutch ZIB model AbilityToDressOneself-v3.1: 
-
-Information on limitations in a patient’s ability to dress themselves is important in determining the nature and intensity of the care the patient needs. In a transfer situation, it gives the receiving organization the ability to anticipate the intensity of the care to be given to the patient, enabling continuity in healthcare for the patient.
-If policy has been implemented to improve a patient’s ability to do things independently, the entered extent of independence helps to determine the efficiency of the treatment.">
-			use = <"Use to record details of the individual's ability to put on and remove clothing.
+			purpose = <"To record details about the practical ability of an individual to put on and remove clothing.">
+			use = <"Use to record details about the practical ability of an individual to put on and remove clothing.
 
 The following text is copied from the Dutch ZIB model AbilityToDressOneself-v3.1:
 
 Being able to get dressed independently is part of self-care. Limitations in this ability indicate a reduced ability to cope for oneself.
 This activity and activities such as those including eating, drinking, and bathing are also known as activities of daily living (ADL). These are the activities people go through in daily life. The extent to which a person is able to do all these activities by themselves is a measure for their total ability to do things independently.
+
+Information on limitations in a patient’s ability to dress themselves is important in determining the nature and intensity of the care the patient needs. In a transfer situation, it gives the receiving organization the ability to anticipate the intensity of the care to be given to the patient, enabling continuity in healthcare for the patient.
+If policy has been implemented to improve a patient’s ability to do things independently, the entered extent of independence helps to determine the efficiency of the treatment.
 
 The definitions of the concepts were (partially) taken from the ICNP definitions.
 In addition to this information model, there are other tools to record independence, such as the KATZ-ADL and the BarthelIndex. The KATZ-ADL is mainly used for vulnerable seniors and the BarthelIndex is mainly used for patients who have had a stroke.
@@ -41,13 +39,13 @@ This information model evaluates the ability to get dressed on a three-point sca
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
 		["custodian_organisation"] = <"Apperta UK">
-		["references"] = <"1. AbilityToDressOneself-v3.1(2019EN) - Zorginformatiebouwstenen [Internet]. Zibs.nl. 2020 [cited 2020 Feb 11]. Available from: https://zibs.nl/wiki/AbilityToDressOneself-v3.1(2019EN)">
-		["current_contact"] = <"heidi@freshEHR.com">
+		["references"] = <"AbilityToDressOneself-v3.1(2019EN) - Zorginformatiebouwstenen [Internet]. Zibs.nl. 2020 [cited 2020 Feb 11]. Available from: https://zibs.nl/wiki/AbilityToDressOneself-v3.1(2019EN)">
+		["current_contact"] = <"Heidi Koikkalainen, heidi@freshEHR.com">
 		["original_namespace"] = <"uk.org.clinicalmodels">
 		["original_publisher"] = <"Apperta UK">
 		["custodian_namespace"] = <"uk.org.clinicalmodels">
-		["MD5-CAM-1.0.1"] = <"DA7848988D42C7C616FB2F52E71A9A51">
-		["build_uid"] = <"41f33872-d259-4f1f-8df5-f061eb5d2548">
+		["MD5-CAM-1.0.1"] = <"81DF3F35008B78D75FD7609595FC4C07">
+		["build_uid"] = <"053c0bf7-5f40-4627-b8db-c145f43a8903">
 		["ip_acknowledgements"] = <"This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomedct or info@snomed.org.">
 		["revision"] = <"0.0.1-alpha">
 	>
@@ -66,8 +64,8 @@ definition
 											DV_CODED_TEXT matches {
 												defining_code matches {
 													[local::
-													at0006,    -- Independent with dressing
-													at0007,    -- Needs help with dressing
+													at0006,    -- Independent
+													at0007,    -- Requires assistance
 													at0008]    -- Unable to dress
 												}
 											}
@@ -118,7 +116,7 @@ ontology
 				>
 				["at0004"] = <
 					text = <"Dressing oneself">
-					description = <"The ability to put on or remove clothes.">
+					description = <"The ability of to put on and remove clothing.">
 					comment = <"The 'Body part to be dressed' element offers the option to specify to which part of the body the limitation applies.">
 				>
 				["at0005"] = <
@@ -126,12 +124,12 @@ ontology
 					description = <"The part or parts of the body for which help getting dressed is wanted/necessary.">
 				>
 				["at0006"] = <
-					text = <"Independent with dressing">
+					text = <"Independent">
 					description = <"The individual has the ability to put on and remove clothing independently.">
 				>
 				["at0007"] = <
-					text = <"Needs help with dressing">
-					description = <"The individual needs help with putting on and removing clothing.">
+					text = <"Requires assistance">
+					description = <"The individual requires assistance with putting on and removing clothing.">
 				>
 				["at0008"] = <
 					text = <"Unable to dress">
@@ -139,15 +137,15 @@ ontology
 				>
 				["at0009"] = <
 					text = <"Entire body">
-					description = <"The individual requires help with dressing the whole body.">
+					description = <"The individual requires assistance with dressing the whole body.">
 				>
 				["at0010"] = <
 					text = <"Upper body">
-					description = <"The individual requires help with dressing the upper body.">
+					description = <"The individual requires assistance with dressing the upper body.">
 				>
 				["at0011"] = <
 					text = <"Lower body">
-					description = <"The individual requires help with dressing the lower body.">
+					description = <"The individual requires assistance with dressing the lower body.">
 				>
 			>
 		>
