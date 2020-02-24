@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xmlns="openEHR/v1/Template">
+    <id>bd17f3b6-5b06-4a64-a202-c839625076d2</id>
+    <name>Self care</name>
+    <description>
+        <original_author>
+            <item>
+                <key>date</key>
+                <value>2020-02-24</value>
+            </item>
+        </original_author>
+        <lifecycle_state>unmanaged</lifecycle_state>
+        <details>
+            <purpose>Intended to represent an example dataset for recording details about the practical ability of an individual to perform activities of daily living, such as getting dressed, drinking, eating, going to the toilet and managing medication.</purpose>
+            <keywords>
+                <item>personal, ability, capability, activities, daily, living</item>
+            </keywords>
+            <use>Use to record details about the practical ability of an individual to perform activities of daily living, such as getting dressed, drinking, eating, going to the toilet and managing medication.</use>
+        </details>
+        <other_details>
+            <item>
+                <key>licence</key>
+                <value>This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.</value>
+            </item>
+            <item>
+                <key>custodian_organisation</key>
+                <value>Apperta UK</value>
+            </item>
+            <item>
+                <key>original_namespace</key>
+                <value>uk.org.clinicalmodels</value>
+            </item>
+            <item>
+                <key>original_publisher</key>
+                <value>Apperta UK</value>
+            </item>
+            <item>
+                <key>custodian_namespace</key>
+                <value>uk.org.clinicalmodels</value>
+            </item>
+            <item>
+                <key>MD5-CAM-1.0.1</key>
+                <value>e8c3e0636efaae136f8c057bece9e0d7</value>
+            </item>
+            <item>
+                <key>PARENT:MD5-CAM-1.0.1</key>
+                <value>1DA7D8EDC23CF1B673C05E6E8FE28EB1</value>
+            </item>
+        </other_details>
+    </description>
+    <definition archetype_id="openEHR-EHR-COMPOSITION.report.v1"
+        concept_name="Report" name="Self care"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:COMPOSITION">
+        <Content
+            archetype_id="openEHR-EHR-OBSERVATION.ability_to_dress_oneself.v0"
+            path="/content" xsi:type="tem:OBSERVATION"/>
+        <Content
+            archetype_id="openEHR-EHR-OBSERVATION.ability_to_drink.v0"
+            path="/content" xsi:type="tem:OBSERVATION"/>
+        <Content
+            archetype_id="openEHR-EHR-OBSERVATION.ability_to_eat.v0"
+            path="/content" xsi:type="tem:OBSERVATION"/>
+        <Content
+            archetype_id="openEHR-EHR-OBSERVATION.ability_to_groom.v0"
+            path="/content" xsi:type="tem:OBSERVATION"/>
+        <Content
+            archetype_id="openEHR-EHR-OBSERVATION.ability_to_manage_medication.v0"
+            path="/content" xsi:type="tem:OBSERVATION"/>
+        <Content
+            archetype_id="openEHR-EHR-OBSERVATION.ability_to_perform_mouthcare_activities.v0"
+            path="/content" xsi:type="tem:OBSERVATION">
+            <Items archetype_id="openEHR-EHR-CLUSTER.device.v1"
+                path="/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0009]" xsi:type="tem:CLUSTER"/>
+        </Content>
+        <Content
+            archetype_id="openEHR-EHR-OBSERVATION.ability_to_perform_nursing_activities.v0"
+            path="/content" xsi:type="tem:OBSERVATION"/>
+        <Content
+            archetype_id="openEHR-EHR-OBSERVATION.ability_to_use_toilet.v0"
+            path="/content" xsi:type="tem:OBSERVATION"/>
+        <Content
+            archetype_id="openEHR-EHR-OBSERVATION.ability_to_wash_oneself.v0"
+            path="/content" xsi:type="tem:OBSERVATION"/>
+        <Content archetype_id="openEHR-EHR-OBSERVATION.mobility.v0"
+            path="/content" xsi:type="tem:OBSERVATION">
+            <Items archetype_id="openEHR-EHR-CLUSTER.device.v1"
+                path="/data[at0001]/events[at0002]/data[at0003]/items[at0009]/items[at0011]" xsi:type="tem:CLUSTER"/>
+        </Content>
+    </definition>
+    <integrity_checks archetype_id="openEHR-EHR-COMPOSITION.report.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">55DB2D45BC470E831EE8C905348471E4</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-OBSERVATION.ability_to_dress_oneself.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">81DF3F35008B78D75FD7609595FC4C07</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-OBSERVATION.ability_to_drink.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">17D95CDD082284DAF6ACD38FF16C2485</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-OBSERVATION.ability_to_eat.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">3A35E4BEAF1645758284697A8E207EC4</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-OBSERVATION.ability_to_groom.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">6C3F151063306D847919BDE576269DE8</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-OBSERVATION.ability_to_manage_medication.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">4FDC0F28410FB5B17F3367CDA3250BEE</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-OBSERVATION.ability_to_perform_mouthcare_activities.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">9D41FA33744E554D0DB3DF3B3F5D9C8C</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.device.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">08C28B0330D6A5C90573D9FF66DB1AF3</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-OBSERVATION.ability_to_perform_nursing_activities.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">3659795B7383C997DBC556BAABC52C1F</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-OBSERVATION.ability_to_use_toilet.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">09BD36183B3019645CDFD85DE1A4618B</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-OBSERVATION.ability_to_wash_oneself.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">C3001CEE138478ACFA6603EA2CE4C28D</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-OBSERVATION.mobility.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">377F2E8973F5C9A5B4203A1B2D6EDA70</digest>
+    </integrity_checks>
+</template>
