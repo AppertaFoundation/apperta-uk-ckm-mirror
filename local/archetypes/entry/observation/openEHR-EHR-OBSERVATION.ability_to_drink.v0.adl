@@ -15,8 +15,8 @@ description
 	details = <
 		["en"] = <
 			language = <[ISO_639-1::en]>
-			purpose = <"To record details about the practical ability of an individual to prepare and drink beverages.">
-			use = <"Use to record details about the practical ability of an individual to prepare and drink beverages.
+			purpose = <"To record details about the practical ability of an individual to prepare and consume drinks.">
+			use = <"Use to record details about the practical ability of an individual to prepare and consume drinks.
 
 The following text is copied from the Dutch ZIB model AbilityToDrink-v3.1:
 
@@ -43,8 +43,8 @@ This information model evaluates the ability to drink on a three-point scale. In
 		["original_namespace"] = <"uk.org.clinicalmodels">
 		["original_publisher"] = <"Apperta UK">
 		["custodian_namespace"] = <"uk.org.clinicalmodels">
-		["MD5-CAM-1.0.1"] = <"8AECAFCD5C131718BF66C42DA9A25097">
-		["build_uid"] = <"214076a9-7073-4ecb-8814-c1e843ae91d3">
+		["MD5-CAM-1.0.1"] = <"17D95CDD082284DAF6ACD38FF16C2485">
+		["build_uid"] = <"b6936746-bad3-40db-814d-6619da67af94">
 		["ip_acknowledgements"] = <"This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomedct or info@snomed.org.">
 		["revision"] = <"0.0.1-alpha">
 	>
@@ -63,8 +63,8 @@ definition
 											DV_CODED_TEXT matches {
 												defining_code matches {
 													[local::
-													at0005,    -- Able to drink without assistance
-													at0006,    -- Needs help with drinking
+													at0005,    -- Independent
+													at0006,    -- Requires assistance
 													at0007]    -- Unable to drink
 												}
 											}
@@ -99,7 +99,7 @@ ontology
 			items = <
 				["at0000"] = <
 					text = <"Ability to drink">
-					description = <"The ability of an individual to prepare and drink beverages.">
+					description = <"The ability of an individual to prepare and consume drinks.">
 				>
 				["at0001"] = <
 					text = <"History">
@@ -115,15 +115,15 @@ ontology
 				>
 				["at0004"] = <
 					text = <"Drinking">
-					description = <"The ability to take fluids during meals or when thirsty.">
+					description = <"The ability to consume drinks.">
 				>
 				["at0005"] = <
-					text = <"Able to drink without assistance">
-					description = <"The individual is able to drink without assistance.">
+					text = <"Independent">
+					description = <"The individual has the ability to drink independently.">
 				>
 				["at0006"] = <
-					text = <"Needs help with drinking">
-					description = <"The individual needs help with drinking.">
+					text = <"Requires assistance">
+					description = <"The individual requires assistance with drinking.">
 				>
 				["at0007"] = <
 					text = <"Unable to drink">
