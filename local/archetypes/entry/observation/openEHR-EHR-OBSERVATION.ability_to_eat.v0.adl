@@ -15,8 +15,8 @@ description
 	details = <
 		["en"] = <
 			language = <[ISO_639-1::en]>
-			purpose = <"To record details about the practical ability of an individual to feed self and eat food.">
-			use = <"Use to record details about the practical ability of an individual to feed self and eat food.
+			purpose = <"To record details about the practical ability of an individual to prepare and consume food.">
+			use = <"Use to record details about the practical ability of an individual to prepare and consume food.
 
 The following text is copied from the Dutch ZIB model AbilityToEat-v3.1:
 
@@ -44,8 +44,8 @@ This information model evaluates the ability to eat on a three-point scale. In t
 		["original_namespace"] = <"uk.org.clinicalmodels">
 		["original_publisher"] = <"Apperta UK">
 		["custodian_namespace"] = <"uk.org.clinicalmodels">
-		["MD5-CAM-1.0.1"] = <"6B23696582F992C88C9CD53B7A5EAF51">
-		["build_uid"] = <"73b47fb0-40b5-4153-bd98-7d6d3b0377a6">
+		["MD5-CAM-1.0.1"] = <"3A35E4BEAF1645758284697A8E207EC4">
+		["build_uid"] = <"e687b286-84e2-42cb-9028-73ffedc2e2b5">
 		["ip_acknowledgements"] = <"This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomedct or info@snomed.org.">
 		["revision"] = <"0.0.1-alpha">
 	>
@@ -64,8 +64,8 @@ definition
 											DV_CODED_TEXT matches {
 												defining_code matches {
 													[local::
-													at0006,    -- Independent feeding
-													at0007,    -- Feeding assisted
+													at0006,    -- Independent
+													at0007,    -- Requires assistance
 													at0008]    -- Unable to feed self
 												}
 											}
@@ -100,7 +100,7 @@ ontology
 			items = <
 				["at0000"] = <
 					text = <"Ability to eat">
-					description = <"The ability of an individual to feed self and eat food.">
+					description = <"The ability of an individual to prepare and consume food.">
 				>
 				["at0001"] = <
 					text = <"History">
@@ -120,15 +120,15 @@ ontology
 				>
 				["at0005"] = <
 					text = <"Eating limitations">
-					description = <"The individual's limitations in eating.">
+					description = <"The individual's limitations in preparing and consuming food.">
 				>
 				["at0006"] = <
-					text = <"Independent feeding">
-					description = <"The individual is able to feed independently.">
+					text = <"Independent">
+					description = <"The individual has the ability to eat independently.">
 				>
 				["at0007"] = <
-					text = <"Feeding assisted">
-					description = <"The individual needs help with feeding.">
+					text = <"Requires assistance">
+					description = <"The individual requires assistance with eating.">
 				>
 				["at0008"] = <
 					text = <"Unable to feed self">
