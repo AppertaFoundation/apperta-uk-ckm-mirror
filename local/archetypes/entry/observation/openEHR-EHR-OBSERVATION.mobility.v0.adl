@@ -1,0 +1,287 @@
+﻿archetype (adl_version=1.4; uid=d950e420-e187-4ee8-ba00-05c6907a3016)
+	openEHR-EHR-OBSERVATION.mobility.v0
+
+concept
+	[at0000]	-- Mobility
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Heidi Koikkalainen">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"heidi@freshehr.com">
+		["date"] = <"2020-02-24">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record details about the practical ability of an individual to move freely, such as changing position, walking and moving forward.">
+			use = <"Use to record details about the practical ability of an individual to move freely, such as changing position, walking and moving forward.
+
+The following text is copied from the Dutch ZIB model Mobility-v3.2:
+
+Mobility describes the abilities and any limitations in all aspects of mobility, such as changing position, walking and moving forward, in some cases with the help of an aid.
+
+The abilities and any limitations to mobility are documented:
+- to be able to take this into account when in contact with the patient and when providing care to the patient;
+- so as to monitor mobility in the event that mobility limitations are the subject of treatment;
+- to be able to warrant the continuity of care in transfers.
+
+The definitions of the concepts were (partially) taken from the ICF and ICNP definitions.">
+			keywords = <"moving, walking,climbing, transfer, position", ...>
+			misuse = <"">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["references"] = <"Mobility-v3.2(2019EN) - Zorginformatiebouwstenen [Internet]. Zibs.nl. 2020 [cited 2020 Feb 24]. Available from: https://zibs.nl/wiki/Mobility-v3.2(2019EN)">
+		["current_contact"] = <"Heidi Koikkalainen, heidi@freshehr.com">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"377F2E8973F5C9A5B4203A1B2D6EDA70">
+		["build_uid"] = <"b57ece74-da47-4d09-a64f-2e150ad8f5f8">
+		["ip_acknowledgements"] = <"This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomedct or info@snomed.org.">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- Mobility
+		data matches {
+			HISTORY[at0001] matches {    -- History
+				events cardinality matches {0..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..*} matches {    -- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {    -- Walking
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0013,    -- Independent
+													at0014,    -- Requires assistance
+													at0015]    -- Unable to walk
+												}
+											}
+										}
+									}
+									ELEMENT[at0005] occurrences matches {0..1} matches {    -- Climbing stairs
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0016,    -- Independent
+													at0017,    -- Requires assistance
+													at0018]    -- Unable to manage stairs
+												}
+											}
+										}
+									}
+									ELEMENT[at0006] occurrences matches {0..1} matches {    -- Changing position
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0019,    -- Independent
+													at0020,    -- Requires assistance
+													at0021]    -- Unable to change position
+												}
+											}
+										}
+									}
+									ELEMENT[at0007] occurrences matches {0..1} matches {    -- Maintaining position
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0022,    -- Independent
+													at0023,    -- Requires assistance
+													at0024]    -- Unable to maintain position
+												}
+											}
+										}
+									}
+									ELEMENT[at0008] occurrences matches {0..1} matches {    -- Transfer
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0025,    -- Independent
+													at0026,    -- Requires assistance
+													at0027]    -- Unable to manage transfers
+												}
+											}
+										}
+									}
+									CLUSTER[at0009] occurrences matches {0..*} matches {    -- Mobility aid
+										items cardinality matches {1..*; unordered} matches {
+											allow_archetype CLUSTER[at0011] occurrences matches {0..*} matches {    -- Medical device
+												include
+													archetype_id/value matches {/.*/}
+											}
+										}
+									}
+									ELEMENT[at0012] occurrences matches {0..1} matches {    -- Comment
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	terminologies_available = <"SNOMED-CT", ...>
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Mobility">
+					description = <"The ability to move freely, such as changing position, walking and moving forward.">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"Any event.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Walking">
+					description = <"The ability to walk.">
+					comment = <"Walking is moving body from one place to another by moving legs stepwise by self, capacity to bear weight of body and walk with effective gait within the range of speed from slow, moderate and fast pace.">
+				>
+				["at0005"] = <
+					text = <"Climbing stairs">
+					description = <"The ability to climb stairs.">
+					comment = <"Indicates the extent to which a patient is capable of going up and down stairs independently.">
+				>
+				["at0006"] = <
+					text = <"Changing position">
+					description = <"The ability to change position.">
+					comment = <"Changing position entails the body going from one position to another and going from one location to the next, such as getting out of a chair and into bed, or kneeling or crouching and getting back up.">
+				>
+				["at0007"] = <
+					text = <"Maintaining position">
+					description = <"The ability to maintain position.">
+					comment = <"Maintaining position is staying in the same position, such as sitting in a chair or standing, when required.">
+				>
+				["at0008"] = <
+					text = <"Transfer">
+					description = <"The ability to manage transfers.">
+					comment = <"A transfer is moving from one surface to another without changing the body’s position, such as sliding across a couch or moving from the bed to a chair.">
+				>
+				["at0009"] = <
+					text = <"Mobility aid">
+					description = <"Description of medical aids that can be used for limitations in mobility.">
+					comment = <"For example, a wheelchair or walking frame.">
+				>
+				["at0011"] = <
+					text = <"Medical device">
+					description = <"Slot to include the 'Medical device' archetype.">
+				>
+				["at0012"] = <
+					text = <"Comment">
+					description = <"A comment on the individual’s mobility.">
+				>
+				["at0013"] = <
+					text = <"Independent">
+					description = <"The individual has the ability to walk independently.">
+				>
+				["at0014"] = <
+					text = <"Requires assistance">
+					description = <"The individual requires assistance with walking.">
+				>
+				["at0015"] = <
+					text = <"Unable to walk">
+					description = <"The individual is unable to walk.">
+				>
+				["at0016"] = <
+					text = <"Independent">
+					description = <"The individual has the ability to climb stairs independently.">
+				>
+				["at0017"] = <
+					text = <"Requires assistance">
+					description = <"The individual requires assistance with climbing stairs.">
+				>
+				["at0018"] = <
+					text = <"Unable to manage stairs">
+					description = <"The individual is unable to manage stairs.">
+				>
+				["at0019"] = <
+					text = <"Independent">
+					description = <"The individual has the ability to change position independently.">
+				>
+				["at0020"] = <
+					text = <"Requires assistance">
+					description = <"The individual requires assistance with changing position.">
+				>
+				["at0021"] = <
+					text = <"Unable to change position">
+					description = <"The individual is unable to change position.">
+				>
+				["at0022"] = <
+					text = <"Independent">
+					description = <"The individual has the ability to maintain position independently.">
+				>
+				["at0023"] = <
+					text = <"Requires assistance">
+					description = <"The individual requires assistance with maintaining position.">
+				>
+				["at0024"] = <
+					text = <"Unable to maintain position">
+					description = <"The individual is unable to maintain position.">
+				>
+				["at0025"] = <
+					text = <"Independent">
+					description = <"The individual has the ability to manage transfers independently.">
+				>
+				["at0026"] = <
+					text = <"Requires assistance">
+					description = <"The individual requires assistance with managing transfers.">
+				>
+				["at0027"] = <
+					text = <"Unable to manage transfers">
+					description = <"The individual is unable to manage transfers.">
+				>
+			>
+		>
+	>
+	term_bindings = <
+		["SNOMED-CT"] = <
+			items = <
+				["at0004"] = <[SNOMED-CT::282097004]>
+				["at0005"] = <[SNOMED-CT::301587001]>
+				["at0006"] = <[SNOMED-CT::282869009]>
+				["at0007"] = <[SNOMED-CT::249868004]>
+				["at0008"] = <[SNOMED-CT::364666007]>
+				["at0009"] = <[SNOMED-CT::183135000]>
+				["at0013"] = <[SNOMED-CT::165245003]>
+				["at0015"] = <[SNOMED-CT::282145008]>
+				["at0016"] = <[SNOMED-CT::165249009]>
+				["at0017"] = <[SNOMED-CT::165248001]>
+				["at0018"] = <[SNOMED-CT::301589003]>
+				["at0021"] = <[SNOMED-CT::303384002]>
+				["at0024"] = <[SNOMED-CT::282848007]>
+				["at0025"] = <[SNOMED-CT::714915006]>
+				["at0026"] = <[SNOMED-CT::719024002]>
+				["at0027"] = <[SNOMED-CT::714887007]>
+			>
+		>
+	>
