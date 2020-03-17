@@ -8,8 +8,8 @@ language
 description
 	original_author = <
 		["name"] = <"Ian McNicoll">
-		["organisation"] = <"Ocean Informatics, UK">
-		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+		["organisation"] = <"freshEHR">
+		["email"] = <"ian@freshehr.com">
 		["date"] = <"2013-10-18">
 	>
 	details = <
@@ -18,19 +18,19 @@ description
 			purpose = <"To record the patient's preferred locations of care, in the context of long-term condiitons or end of life care, and other special requests.">
 			use = <"">
 			misuse = <"">
-			copyright = <"© Clinical Models UK">
+			copyright = <"© Apperta Foundation">
 		>
 	>
 	lifecycle_state = <"in_development">
 	other_contributors = <>
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
-		["custodian_organisation"] = <"UK Clinical Models">
+		["custodian_organisation"] = <"Apperta Foundaiton">
 		["original_namespace"] = <"uk.org.clinicalmodels">
 		["original_publisher"] = <"UK Clinical Models">
-		["custodian_namespace"] = <"uk.org.clinicalmodels">
-		["MD5-CAM-1.0.1"] = <"63510840B5DD2E1C6864286895BED3BB">
-		["build_uid"] = <"d554af51-f20c-4329-b4c2-92bb1cbd97f2">
+		["custodian_namespace"] = <"uk.org.apperta">
+		["MD5-CAM-1.0.1"] = <"A4E6A92FABE9B275F20006DEB68A9757">
+		["build_uid"] = <"0a4ef098-1814-45a6-b621-32c167d2ec75">
 		["ip_acknowledgements"] = <"This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomedct or info@snomed.org.">
 		["revision"] = <"0.0.1-alpha">
 	>
@@ -40,6 +40,16 @@ definition
 		data matches {
 			ITEM_TREE[at0001] matches {    -- Tree
 				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0038] occurrences matches {0..*} matches {    -- What matters to me
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0030] occurrences matches {0..*} matches {    -- Personal request or preference
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
 					ELEMENT[at0003] occurrences matches {0..2} matches {    -- Preferred place of care
 						name matches {
 							DV_CODED_TEXT matches {
@@ -125,16 +135,6 @@ definition
 							DV_TEXT matches {*}
 						}
 					}
-					ELEMENT[at0030] occurrences matches {0..*} matches {    -- Personal request or preference
-						value matches {
-							DV_TEXT matches {*}
-						}
-					}
-					ELEMENT[at0029] occurrences matches {0..1} matches {    -- Comment
-						value matches {
-							DV_TEXT matches {*}
-						}
-					}
 					ELEMENT[at0039] occurrences matches {0..1} matches {    -- Care priority scale
 						value matches {
 							DV_COUNT matches {
@@ -142,7 +142,7 @@ definition
 							}
 						}
 					}
-					ELEMENT[at0038] occurrences matches {0..1} matches {    -- Care priority
+					ELEMENT[at0029] occurrences matches {0..1} matches {    -- Comment
 						value matches {
 							DV_TEXT matches {*}
 						}
@@ -322,7 +322,7 @@ ontology
 					description = <"Details of the organisation/location of the preferred place of death (second choice).">
 				>
 				["at0038"] = <
-					text = <"Care priority">
+					text = <"What matters to me">
 					description = <"A narrative statement by the patient on their preferred priorities of care.">
 					comment = <"In the UI, this should be represented as 'Considering the above priorities. what is most important to you? (optional)'.">
 				>
@@ -332,7 +332,7 @@ ontology
 				>
 				["at0040"] = <
 					text = <"Other details">
-					description = <"*">
+					description = <"Other deails of personal preferences.">
 				>
 			>
 		>
