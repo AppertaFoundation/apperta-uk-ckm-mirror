@@ -29,23 +29,24 @@ description
 		["original_namespace"] = <"uk.org.clinicalmodels">
 		["original_publisher"] = <"UK Clinical Models">
 		["custodian_namespace"] = <"uk.org.clinicalmodels">
-		["MD5-CAM-1.0.1"] = <"AA45A4552E64A5CC08104414CDA59D7A">
-		["build_uid"] = <"c9e34c32-2608-45df-a66c-e758bca7c699">
+		["MD5-CAM-1.0.1"] = <"63510840B5DD2E1C6864286895BED3BB">
+		["build_uid"] = <"d554af51-f20c-4329-b4c2-92bb1cbd97f2">
+		["ip_acknowledgements"] = <"This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomedct or info@snomed.org.">
 		["revision"] = <"0.0.1-alpha">
 	>
 
 definition
-	EVALUATION[at0000] matches {	-- Preferred priorities of care
+	EVALUATION[at0000] matches {    -- Preferred priorities of care
 		data matches {
-			ITEM_TREE[at0001] matches {	-- Tree
+			ITEM_TREE[at0001] matches {    -- Tree
 				items cardinality matches {0..*; unordered} matches {
-					ELEMENT[at0003] occurrences matches {0..2} matches {	-- Preferred place of care
+					ELEMENT[at0003] occurrences matches {0..2} matches {    -- Preferred place of care
 						name matches {
 							DV_CODED_TEXT matches {
 								defining_code matches {
 									[local::
-									at0004, 	-- Preferred place of care
-									at0005]	-- Preferred place of care (second choice)
+									at0004,    -- Preferred place of care
+									at0005]    -- Preferred place of care (second choice)
 								}
 							}
 						}
@@ -53,26 +54,26 @@ definition
 							DV_CODED_TEXT matches {
 								defining_code matches {
 									[local::
-									at0006, 	-- Preferred place of care - home
-									at0007, 	-- Preferred place of care - hospice
-									at0008, 	-- Preferred place of care - community hospital
-									at0009, 	-- Preferred place of care - hospital
-									at0010, 	-- Preferred place of care - nursing home
-									at0011, 	-- Preferred place of care - residential home
-									at0012, 	-- Preferred place of care - patient declined to participate
-									at0013, 	-- Preferred place of care - discussion not appropriate
-									at0014]	-- Preferred place of care - patient unable to express preference
+									at0006,    -- Preferred place of care - home
+									at0007,    -- Preferred place of care - hospice
+									at0008,    -- Preferred place of care - community hospital
+									at0009,    -- Preferred place of care - hospital
+									at0010,    -- Preferred place of care - nursing home
+									at0011,    -- Preferred place of care - residential home
+									at0012,    -- Preferred place of care - patient declined to participate
+									at0013,    -- Preferred place of care - discussion not appropriate
+									at0014]    -- Preferred place of care - patient unable to express preference
 								}
 							}
 						}
 					}
-					ELEMENT[at0034] occurrences matches {0..2} matches {	-- Preferred place of care location
+					ELEMENT[at0034] occurrences matches {0..2} matches {    -- Preferred place of care location
 						name matches {
 							DV_CODED_TEXT matches {
 								defining_code matches {
 									[local::
-									at0034, 	-- Preferred place of care location
-									at0035]	-- Preferred place of care (second choice) location details
+									at0034,    -- Preferred place of care location
+									at0035]    -- Preferred place of care (second choice) location details
 								}
 							}
 						}
@@ -80,13 +81,13 @@ definition
 							DV_TEXT matches {*}
 						}
 					}
-					ELEMENT[at0015] occurrences matches {0..2} matches {	-- Preferred place of death
+					ELEMENT[at0015] occurrences matches {0..2} matches {    -- Preferred place of death
 						name matches {
 							DV_CODED_TEXT matches {
 								defining_code matches {
 									[local::
-									at0027, 	-- Preferred place of death
-									at0028]	-- Preferred place of death (second choice)
+									at0027,    -- Preferred place of death
+									at0028]    -- Preferred place of death (second choice)
 								}
 							}
 						}
@@ -94,29 +95,29 @@ definition
 							DV_CODED_TEXT matches {
 								defining_code matches {
 									[local::
-									at0016, 	-- Preferred place of death: home
-									at0017, 	-- Preferred place of death: hospice
-									at0018, 	-- Preferred place of death: community hospital
-									at0019, 	-- Preferred place of death: hospital
-									at0020, 	-- Preferred place of death: nursing home
-									at0021, 	-- Preferred place of death: residential home
-									at0022, 	-- Preferred place of death: patient unable to express preference
-									at0023, 	-- Preferred place of death discussed with patient
-									at0024, 	-- Preferred place of death: discussion not appropriate
-									at0025, 	-- Preferred place of death: patient undecided
-									at0032, 	-- Preferred place of death: patient declined discussion
-									at0033]	-- Preferred place of death: usual place of residence
+									at0016,    -- Preferred place of death: home
+									at0017,    -- Preferred place of death: hospice
+									at0018,    -- Preferred place of death: community hospital
+									at0019,    -- Preferred place of death: hospital
+									at0020,    -- Preferred place of death: nursing home
+									at0021,    -- Preferred place of death: residential home
+									at0022,    -- Preferred place of death: patient unable to express preference
+									at0023,    -- Preferred place of death discussed with patient
+									at0024,    -- Preferred place of death: discussion not appropriate
+									at0025,    -- Preferred place of death: patient undecided
+									at0032,    -- Preferred place of death: patient declined discussion
+									at0033]    -- Preferred place of death: usual place of residence
 								}
 							}
 						}
 					}
-					ELEMENT[at0036] occurrences matches {0..2} matches {	-- Preferred place of death location
+					ELEMENT[at0036] occurrences matches {0..2} matches {    -- Preferred place of death location
 						name matches {
 							DV_CODED_TEXT matches {
 								defining_code matches {
 									[local::
-									at0036, 	-- Preferred place of death location
-									at0037]	-- Preferred place of death (second choice) location
+									at0036,    -- Preferred place of death location
+									at0037]    -- Preferred place of death (second choice) location
 								}
 							}
 						}
@@ -124,35 +125,39 @@ definition
 							DV_TEXT matches {*}
 						}
 					}
-					ELEMENT[at0030] occurrences matches {0..*} matches {	-- Personal request or preference
+					ELEMENT[at0030] occurrences matches {0..*} matches {    -- Personal request or preference
 						value matches {
 							DV_TEXT matches {*}
 						}
 					}
-					ELEMENT[at0029] occurrences matches {0..1} matches {	-- Comment
+					ELEMENT[at0029] occurrences matches {0..1} matches {    -- Comment
 						value matches {
 							DV_TEXT matches {*}
 						}
 					}
-					ELEMENT[at0039] occurrences matches {0..1} matches {	-- Care priority scale
+					ELEMENT[at0039] occurrences matches {0..1} matches {    -- Care priority scale
 						value matches {
 							DV_COUNT matches {
 								magnitude matches {|1..100|}
 							}
 						}
 					}
-					ELEMENT[at0038] occurrences matches {0..1} matches {	-- Care priority
+					ELEMENT[at0038] occurrences matches {0..1} matches {    -- Care priority
 						value matches {
 							DV_TEXT matches {*}
 						}
+					}
+					allow_archetype CLUSTER[at0040] occurrences matches {0..*} matches {    -- Other details
+						include
+							archetype_id/value matches {/.*/}
 					}
 				}
 			}
 		}
 		protocol matches {
-			ITEM_TREE[at0031] matches {	-- Tree
+			ITEM_TREE[at0031] matches {    -- Tree
 				items cardinality matches {0..*; ordered} matches {
-					ELEMENT[at0026] occurrences matches {0..1} matches {	-- Date last updated
+					ELEMENT[at0026] occurrences matches {0..1} matches {    -- Date last updated
 						value matches {
 							DV_DATE_TIME matches {*}
 						}
@@ -324,6 +329,10 @@ ontology
 				["at0039"] = <
 					text = <"Care priority scale">
 					description = <"Indication on a scale of 1 - 100 of where priority for care should be. 1 indicates absolute priority on sustaining life (even at the expense of comfort) and 100 indicates absolute priority on comfort (even at the expense of sustaining life).">
+				>
+				["at0040"] = <
+					text = <"Other details">
+					description = <"*">
 				>
 			>
 		>

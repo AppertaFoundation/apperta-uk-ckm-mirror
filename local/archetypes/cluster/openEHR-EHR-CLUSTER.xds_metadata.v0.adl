@@ -30,98 +30,98 @@ description
 		["original_namespace"] = <"uk.org.clinicalmodels">
 		["original_publisher"] = <"UK Clinical Models">
 		["custodian_namespace"] = <"uk.org.clinicalmodels">
-		["MD5-CAM-1.0.1"] = <"B2538EC96A6545E2E6F04CE532DA36E3">
-		["build_uid"] = <"5e6379f0-14f8-4d4a-8722-788a72b935b1">
+		["MD5-CAM-1.0.1"] = <"E62D896E2577FA727C75A9EFFD7CA63E">
+		["build_uid"] = <"1bb353c1-af99-4dcb-947e-c29e3ecbef99">
 		["revision"] = <"0.0.1-alpha">
 	>
 
 definition
-	CLUSTER[at0000] matches {	-- XDS Metadata
+	CLUSTER[at0000] matches {    -- XDS Metadata
 		items cardinality matches {1..*; unordered} matches {
-			ELEMENT[at0001] occurrences matches {0..1} matches {	-- Author specialty
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Author specialty
 				value matches {
 					DV_TEXT matches {*}
 				}
 			}
-			ELEMENT[at0002] occurrences matches {0..1} matches {	-- Class code
+			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Class code
 				value matches {
 					DV_TEXT matches {*}
 				}
 			}
-			ELEMENT[at0003] occurrences matches {0..1} matches {	-- Document type
+			ELEMENT[at0003] occurrences matches {0..1} matches {    -- Document type
 				value matches {
 					DV_TEXT matches {*}
 				}
 			}
-			ELEMENT[at0004] occurrences matches {0..1} matches {	-- Confidentiality code
+			ELEMENT[at0004] occurrences matches {0..1} matches {    -- Confidentiality code
 				value matches {
 					DV_TEXT matches {*}
 				}
 			}
-			ELEMENT[at0007] occurrences matches {0..1} matches {	-- Health care facility type
+			ELEMENT[at0007] occurrences matches {0..1} matches {    -- Health care facility type
 				value matches {
 					DV_TEXT matches {*}
 				}
 			}
-			ELEMENT[at0009] occurrences matches {0..1} matches {	-- Practice setting code
+			ELEMENT[at0009] occurrences matches {0..1} matches {    -- Practice setting code
 				value matches {
 					DV_TEXT matches {*}
 				}
 			}
-			ELEMENT[at0011] occurrences matches {0..*} matches {	-- Event code
+			ELEMENT[at0011] occurrences matches {0..*} matches {    -- Event code
 				value matches {
 					DV_TEXT matches {*}
 				}
 			}
-			ELEMENT[at0010] occurrences matches {0..1} matches {	-- Document_media
+			ELEMENT[at0010] occurrences matches {0..1} matches {    -- Document_media
 				value matches {
 					DV_MULTIMEDIA matches {
 						media_type matches {
 							[openEHR::
-							406, 
-							407, 
-							408, 
-							414, 
-							415, 
-							416, 
-							417, 
-							418, 
-							419, 
-							420, 
-							421, 
-							422, 
-							423, 
-							424, 
-							427, 
-							429, 
-							517, 
-							518, 
-							387, 
-							388, 
-							389, 
-							390, 
-							391, 
-							392, 
-							393, 
-							394, 
-							395, 
-							396, 
-							397, 
-							398, 
-							399, 
-							400, 
-							409, 
-							410, 
-							411, 
-							412, 
-							413, 
-							401, 
-							402, 
-							404, 
-							405, 
-							519, 
-							637, 
-							682, 
+							406,
+							407,
+							408,
+							414,
+							415,
+							416,
+							417,
+							418,
+							419,
+							420,
+							421,
+							422,
+							423,
+							424,
+							427,
+							429,
+							517,
+							518,
+							387,
+							388,
+							389,
+							390,
+							391,
+							392,
+							393,
+							394,
+							395,
+							396,
+							397,
+							398,
+							399,
+							400,
+							409,
+							410,
+							411,
+							412,
+							413,
+							401,
+							402,
+							404,
+							405,
+							519,
+							637,
+							682,
 							683]
 						}
 					}
@@ -132,7 +132,6 @@ definition
 
 
 ontology
-	terminologies_available = <"en", ...>
 	term_definitions = <
 		["en"] = <
 			items = <
