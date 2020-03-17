@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xmlns="openEHR/v1/Template">
+    <id>4a56b0b0-b296-48e6-bea8-3c149f180346</id>
+    <name>Care preferences</name>
+    <description>
+        <original_author>
+            <item>
+                <key>name</key>
+                <value>Ian McNicoll</value>
+            </item>
+            <item>
+                <key>organisation</key>
+                <value>freshEHR Clinical Informatics Ltd.</value>
+            </item>
+            <item>
+                <key>email</key>
+                <value>ian@freshehr.com</value>
+            </item>
+            <item>
+                <key>date</key>
+                <value>2020-03-16</value>
+            </item>
+        </original_author>
+        <lifecycle_state>unmanaged</lifecycle_state>
+        <details/>
+        <other_details>
+            <item>
+                <key>licence</key>
+                <value>This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.</value>
+            </item>
+            <item>
+                <key>custodian_organisation</key>
+                <value>openEHR Foundation</value>
+            </item>
+            <item>
+                <key>original_namespace</key>
+                <value>org.openehr</value>
+            </item>
+            <item>
+                <key>original_publisher</key>
+                <value>openEHR Foundation</value>
+            </item>
+            <item>
+                <key>custodian_namespace</key>
+                <value>org.openehr</value>
+            </item>
+            <item>
+                <key>MD5-CAM-1.0.1</key>
+                <value>8c198c1a7553e4140eb9d2f72924dfe4</value>
+            </item>
+            <item>
+                <key>PARENT:MD5-CAM-1.0.1</key>
+                <value>55DB2D45BC470E831EE8C905348471E4</value>
+            </item>
+        </other_details>
+    </description>
+    <definition archetype_id="openEHR-EHR-COMPOSITION.report.v1"
+        concept_name="Report" name="Care preferences"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:COMPOSITION">
+        <Content
+            archetype_id="openEHR-EHR-EVALUATION.care_preference_uk.v0"
+            path="/content" xsi:type="tem:EVALUATION">
+            <Rule max="0" path="/data[at0001]/items[at0034]"/>
+            <Rule max="0" path="/data[at0001]/items[at0036]"/>
+            <Rule max="1" name="Views about hospital admission" path="/data[at0001]/items[at0030]"/>
+            <Rule clone="true" max="1"
+                name="Views about ceilings of care" path="/data[at0001]/items[at0030]"/>
+            <Rule max="0" path="/data[at0001]/items[at0029]"/>
+            <Rule max="0" path="/data[at0001]/items[at0039]">
+                <constraint xsi:type="tem:countConstraint">
+                    <maxMagnitude>100</maxMagnitude>
+                    <minMagnitude>1</minMagnitude>
+                    <includesMaximum>true</includesMaximum>
+                    <includesMinimum>true</includesMinimum>
+                </constraint>
+            </Rule>
+            <Rule max="0" path="/protocol[at0031]/items[at0026]"/>
+        </Content>
+        <Rule max="0" path="/context/other_context[at0001]/items[at0002]"/>
+        <Rule max="0" path="/context/other_context[at0001]/items[at0005]"/>
+    </definition>
+    <integrity_checks archetype_id="openEHR-EHR-COMPOSITION.report.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">55DB2D45BC470E831EE8C905348471E4</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-EVALUATION.care_preference_uk.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">AA45A4552E64A5CC08104414CDA59D7A</digest>
+    </integrity_checks>
+</template>
