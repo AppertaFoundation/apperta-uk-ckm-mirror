@@ -88,24 +88,27 @@
             </Items>
         </Content>
         <Content
-            archetype_id="openEHR-EHR-EVALUATION.care_preference_uk.v0"
-            concept_name="Preferred priorities of care"
-            name="Professional priorities of care" path="/content" xsi:type="tem:EVALUATION">
-            <Rule max="0" name="Care priority" path="/data[at0001]/items[at0038]"/>
-            <Rule max="0" path="/data[at0001]/items[at0003]"/>
-            <Rule max="0" path="/data[at0001]/items[at0034]"/>
-            <Rule max="0" path="/data[at0001]/items[at0015]"/>
-            <Rule max="0" path="/data[at0001]/items[at0036]"/>
-            <Rule max="0" path="/data[at0001]/items[at0039]">
-                <constraint xsi:type="tem:countConstraint">
-                    <maxMagnitude>100</maxMagnitude>
-                    <minMagnitude>1</minMagnitude>
-                    <includesMaximum>true</includesMaximum>
-                    <includesMinimum>true</includesMinimum>
+            archetype_id="openEHR-EHR-EVALUATION.advance_care_directive.v0"
+            path="/content" xsi:type="tem:EVALUATION">
+            <Rule max="0" path="/data[at0001]/items[at0004]">
+                <constraint xsi:type="tem:multipleConstraint">
+                    <includedTypes>Coded_text</includedTypes>
+                    <includedTypes>Text</includedTypes>
                 </constraint>
             </Rule>
-            <Rule max="0" path="/data[at0001]/items[at0029]"/>
-            <Rule max="0" path="/protocol[at0031]/items[at0026]"/>
+            <Rule max="0" path="/data[at0001]/items[at0006]"/>
+            <Rule max="0" path="/data[at0001]/items[at0007]"/>
+            <Rule max="0" path="/data[at0001]/items[at0038]"/>
+            <Rule max="0" path="/protocol[at0010]/items[at0053]"/>
+            <Rule max="0" path="/protocol[at0010]/items[at0054]"/>
+            <Rule max="0" path="/protocol[at0010]/items[at0056]"/>
+            <Rule max="0" path="/protocol[at0010]/items[at0055]"/>
+            <Rule max="0" path="/protocol[at0010]/items[at0027]">
+                <constraint xsi:type="tem:multipleConstraint">
+                    <includedTypes>Text</includedTypes>
+                    <includedTypes>URI</includedTypes>
+                </constraint>
+            </Rule>
         </Content>
         <Content archetype_id="openEHR-EHR-SECTION.adhoc.v1"
             concept_name="Ad hoc heading"
@@ -119,7 +122,7 @@
                 <Rule max="0" path="/data[at0001]/items[at0019]"/>
                 <Rule max="0" path="/data[at0001]/items[at0020]"/>
                 <Rule max="1" name="Emergency contact" path="/data[at0001]/items[at0021]"/>
-                <Rule default="Lead Consultant" max="1" path="/data[at0001]/items[at0021, 'Emergency contact']/items[at0022]">
+                <Rule default="Emergency contact" max="1" path="/data[at0001]/items[at0021, 'Emergency contact']/items[at0022]">
                     <constraint xsi:type="tem:textConstraint">
                         <includedValues>Parent</includedValues>
                         <includedValues>Legal Proxy</includedValues>
@@ -379,10 +382,68 @@
                     </Items>
                 </Items>
             </Item>
+            <Item
+                archetype_id="openEHR-EHR-EVALUATION.legal_directive.v0"
+                concept_name="Legal directive" name="Power of attorney"
+                path="/items" xsi:type="tem:EVALUATION">
+                <Rule path="/data[at0001]/items[at0005]">
+                    <constraint limitToList="false" xsi:type="tem:textConstraint">
+                        <includedValues>Welfare power of attorney</includedValues>
+                        <includedValues>Financial power of attorney</includedValues>
+                        <includedValues>Welfare guardianship</includedValues>
+                        <includedValues>Financial guardianship</includedValues>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/items[at0006]"/>
+                <Rule max="0" path="/data[at0001]/items[at0007]"/>
+                <Rule max="1" path="/data[at0001]/items[at0058]"/>
+                <Rule max="0" path="/data[at0001]/items[at0058]/items[at0030]"/>
+                <Rule max="0" path="/data[at0001]/items[at0038]"/>
+                <Rule max="0" path="/protocol[at0010]/items[at0053]"/>
+                <Rule max="0" path="/protocol[at0010]/items[at0054]"/>
+                <Rule max="0" path="/protocol[at0010]/items[at0056]"/>
+                <Rule max="0" path="/protocol[at0010]/items[at0055]"/>
+                <Rule max="0" path="/protocol[at0010]/items[at0027]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Text</includedTypes>
+                        <includedTypes>URI</includedTypes>
+                    </constraint>
+                </Rule>
+                <Items archetype_id="openEHR-EHR-CLUSTER.contact_cc.v0"
+                    path="/data[at0001]/items[at0058]/items[at0059]" xsi:type="tem:CLUSTER">
+                    <Rule max="0" path="/items[at0013]"/>
+                    <Rule max="0" path="/items[at0005]"/>
+                    <Rule max="0" path="/items[at0011]"/>
+                    <Rule max="0" path="/items[at0012]"/>
+                    <Items archetype_id="openEHR-EHR-CLUSTER.name_cc.v0"
+                        path="/items[at0002]" xsi:type="tem:CLUSTER">
+                        <Rule path="/items[at0001]">
+                            <constraint xsi:type="tem:textConstraint">
+                                <excludedValues>local::at0003</excludedValues>
+                                <excludedValues>local::at0004</excludedValues>
+                                <excludedValues>local::at0005</excludedValues>
+                                <excludedValues>local::at0006</excludedValues>
+                                <excludedValues>local::at0007</excludedValues>
+                                <excludedValues>local::at0008</excludedValues>
+                            </constraint>
+                        </Rule>
+                        <Rule max="0" path="/items[at0010]"/>
+                        <Rule max="0" path="/items[at0011]"/>
+                        <Rule max="0" path="/items[at0012]"/>
+                        <Rule max="0" path="/items[at0013]"/>
+                        <Rule max="0" path="/items[at0014]"/>
+                        <Rule max="0" path="/items[at0015]"/>
+                    </Items>
+                </Items>
+            </Item>
         </Content>
         <Content
             archetype_id="openEHR-EHR-SECTION.problems_issues_rcp.v1"
             path="/content" xsi:type="tem:SECTION">
+            <Item
+                archetype_id="openEHR-EHR-EVALUATION.clinical_synopsis.v1"
+                concept_name="Clinical Synopsis"
+                name="Problems and events summary" path="/items" xsi:type="tem:EVALUATION"/>
             <Item
                 archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v1"
                 path="/items" xsi:type="tem:EVALUATION">
@@ -518,7 +579,10 @@
         <Context>
             <Items archetype_id="openEHR-EHR-CLUSTER.xds_metadata.v0"
                 path="/context/other_context[at0001]/items[at0002]" xsi:type="tem:CLUSTER">
+                <Rule max="0" path="/items[at0001]"/>
                 <Rule max="0" path="/items[at0002]"/>
+                <Rule
+                    default="SNOMED-CT::736367008::Anticipatory care plan" path="/items[at0003]"/>
                 <Rule max="0" path="/items[at0004]"/>
                 <Rule max="0" path="/items[at0007]"/>
                 <Rule max="0" path="/items[at0009]"/>
@@ -549,6 +613,12 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
         <digest id="MD5-CAM-1.0.1">51835D3E2EEFFCA0AEF6953E6314BDF6</digest>
     </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-EVALUATION.advance_care_directive.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">C6AD35AA18292324128BF8F2A93917F4</digest>
+    </integrity_checks>
     <integrity_checks archetype_id="openEHR-EHR-SECTION.adhoc.v1"
         xmlns:tem="openEHR/v1/Template"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
@@ -576,10 +646,22 @@
         <digest id="MD5-CAM-1.0.1">895F99CC13DF97E2BEE2DD159E440414</digest>
     </integrity_checks>
     <integrity_checks
+        archetype_id="openEHR-EHR-EVALUATION.legal_directive.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">524CE91E6B4C6BF934DA09244E146822</digest>
+    </integrity_checks>
+    <integrity_checks
         archetype_id="openEHR-EHR-SECTION.problems_issues_rcp.v1"
         xmlns:tem="openEHR/v1/Template"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
         <digest id="MD5-CAM-1.0.1">80D546B22F1720E6FE5AEE4216764A74</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-EVALUATION.clinical_synopsis.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">32F9563D428258E02EFA916126110EBF</digest>
     </integrity_checks>
     <integrity_checks
         archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v1"
@@ -597,12 +679,6 @@
         xmlns:tem="openEHR/v1/Template"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
         <digest id="MD5-CAM-1.0.1">608F256B2279433C062DFA7CAA847D41</digest>
-    </integrity_checks>
-    <integrity_checks
-        archetype_id="openEHR-EHR-EVALUATION.clinical_synopsis.v1"
-        xmlns:tem="openEHR/v1/Template"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
-        <digest id="MD5-CAM-1.0.1">32F9563D428258E02EFA916126110EBF</digest>
     </integrity_checks>
     <integrity_checks
         archetype_id="openEHR-EHR-INSTRUCTION.medication_order.v2"
