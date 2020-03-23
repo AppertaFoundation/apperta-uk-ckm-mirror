@@ -1,0 +1,133 @@
+﻿archetype (adl_version=1.4; uid=271d6c4d-e692-4da6-b4d8-8bd811a08b89)
+	openEHR-EHR-CLUSTER.outbreak_exposure.v0
+
+concept
+	[at0000]	-- Location-based exposure
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"ian@freshehr.com">
+		["date"] = <"2020-02-27">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record details of potential exposure to a potentially harmful agent, relating to a specific location, typically an outbreak of infectious disease.">
+			use = <"To record details of potential exposure to a potentially harmful agent, relating to a specific location, typically an outbreak of infectious disease.">
+			keywords = <"location, outbreak, infection,", ...>
+			misuse = <"">
+			copyright = <"© openEHR Foundation, Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"1761421FC4A73C01B3DC7377ED75C220">
+		["build_uid"] = <"d2a1ef9f-b369-4b04-a691-c7836607947b">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Location-based exposure
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0007] occurrences matches {0..*} matches {    -- Outbreak  location
+				value matches {
+					DV_TEXT matches {*}
+					DV_CODED_TEXT matches {*}
+				}
+				name matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0026,    -- City
+							at0027,    -- Region
+							at0028]    -- Country
+						}
+					}
+				}
+			}
+			ELEMENT[at0021] occurrences matches {0..*} matches {    -- Location identifier
+				value matches {
+					DV_IDENTIFIER matches {*}
+				}
+			}
+			ELEMENT[at0024] occurrences matches {0..1} matches {    -- Risk category
+				value matches {
+					DV_CODED_TEXT matches {*}
+					DV_TEXT matches {*}
+					DV_ORDINAL matches {*}
+				}
+			}
+			ELEMENT[at0022] occurrences matches {0..1} matches {    -- Date entered location
+				value matches {
+					DV_DATE matches {*}
+				}
+			}
+			ELEMENT[at0023] occurrences matches {0..1} matches {    -- Date left location
+				value matches {
+					DV_DATE_TIME matches {*}
+				}
+			}
+			allow_archetype CLUSTER[at0025] occurrences matches {0..*} matches {    -- Sub-location
+				include
+					archetype_id/value matches {/.*/}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Location-based exposure">
+					description = <"Details of potential exposure to a potentially harmful agent, relating to a specific location, typically an outbreak of infectious disease.">
+				>
+				["at0007"] = <
+					text = <"Outbreak  location">
+					description = <"Outbreak location.">
+				>
+				["at0021"] = <
+					text = <"Location identifier">
+					description = <"Location identifier.">
+				>
+				["at0022"] = <
+					text = <"Date entered location">
+					description = <"Date entered location.">
+				>
+				["at0023"] = <
+					text = <"Date left location">
+					description = <"Date left location.">
+				>
+				["at0024"] = <
+					text = <"Risk category">
+					description = <"Risk category.">
+				>
+				["at0025"] = <
+					text = <"Sub-location">
+					description = <"Sub-location.">
+				>
+				["at0026"] = <
+					text = <"City">
+					description = <"The name of the city visited.">
+				>
+				["at0027"] = <
+					text = <"Region">
+					description = <"The name of a region or district visited.">
+				>
+				["at0028"] = <
+					text = <"Country">
+					description = <"The name of the country visited.">
+				>
+			>
+		>
+	>
