@@ -1861,6 +1861,61 @@ You should check the exact requirements for your country and clinical setting an
             path="/content" xsi:type="tem:SECTION">
             <Item archetype_id="openEHR-EHR-OBSERVATION.denwis.v0"
                 path="/items" xsi:type="tem:OBSERVATION">
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0062]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Coded_text</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0071]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Coded_text</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0076]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Coded_text</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0078]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Text</includedTypes>
+                        <includedTypes>Coded_text</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0081]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Text</includedTypes>
+                        <includedTypes>Coded_text</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0084]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Coded_text</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0087]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Coded_text</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0090]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Coded_text</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0093]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Coded_text</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0027]"/>
                 <Rule max="0" path="/data[at0001]/events[at0002]/state[at0006]/items[at0007]"/>
             </Item>
             <Item
@@ -2111,8 +2166,6 @@ You should check the exact requirements for your country and clinical setting an
             </Item>
             <Item archetype_id="openEHR-EHR-OBSERVATION.acvpu.v0"
                 path="/items" xsi:type="tem:OBSERVATION"/>
-            <Item archetype_id="openEHR-EHR-OBSERVATION.news2.v0"
-                concept_name="NEWS2 Score" name="NEWS2" path="/items" xsi:type="tem:OBSERVATION"/>
             <Item archetype_id="openEHR-EHR-OBSERVATION.exam.v1"
                 path="/items" xsi:type="tem:OBSERVATION">
                 <Rule max="1" path="/data[at0001]/events[at0002]"/>
@@ -2474,11 +2527,6 @@ You should check the exact requirements for your country and clinical setting an
         xmlns:tem="openEHR/v1/Template"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
         <digest id="MD5-CAM-1.0.1">35857B87FDDE08706066D19C85491817</digest>
-    </integrity_checks>
-    <integrity_checks archetype_id="openEHR-EHR-OBSERVATION.news2.v0"
-        xmlns:tem="openEHR/v1/Template"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
-        <digest id="MD5-CAM-1.0.1">82a300cd4f7dc0878063f18d293f7c38</digest>
     </integrity_checks>
     <integrity_checks archetype_id="openEHR-EHR-OBSERVATION.exam.v1"
         xmlns:tem="openEHR/v1/Template"
