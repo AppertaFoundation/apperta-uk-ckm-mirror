@@ -5,6 +5,16 @@ concept
 	[at0000]	-- Management/treatment screening questionnaire
 language
 	original_language = <[ISO_639-1::en]>
+	translations = <
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			author = <
+				["name"] = <"Silje Ljosland Bakke, Marit Alice Venheim">
+				["organisation"] = <"Helse Vest IKT AS">
+				["email"] = <"silje.ljosland.bakke@helse-vest-ikt.no, marit.alice.venheim@helse-vest-ikt.no">
+			>
+		>
+	>
 description
 	original_author = <
 		["name"] = <"Heather Leslie">
@@ -13,6 +23,16 @@ description
 		["date"] = <"2020-03-13">
 	>
 	details = <
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			purpose = <"For å registrere responsen i et individuelt- eller selvrapportert spørreskjema, som screener for sykdomshåndtering eller behandling utført.">
+			use = <"Brukes for å registrere responsen i et individuelt- eller selvrapportert spørreskjema, som screener for sykdomshåndtering eller behandling utført.
+
+Vanlige bruksområder inkluderer, men er ikke begrenset til:
+- Systematisk spørring i enhver konsultasjon; eller
+- Spesifikk spørring relatert til overvåkning av infeksjonssykdom.">
+			misuse = <"">
+		>
 		["en"] = <
 			language = <[ISO_639-1::en]>
 			purpose = <"To record the responses to an individual- or self-reported questionnaire screening for management or treatment carried out.">
@@ -33,8 +53,9 @@ Common use cases include, but are not limited to:
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"41AACE2B810C1CF609282D62DD2DBE23">
-		["build_uid"] = <"1210d83c-8ab4-4951-a254-2d34c3861d17">
+		["MD5-CAM-1.0.1"] = <"BDC2CC54DB629FA8B093BCD57B7ADF37">
+		["build_uid"] = <"5939cae1-ce34-46c5-ab4f-22782b091f98">
+		["ip_acknowledgements"] = <"This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomedct or info@snomed.org.">
 		["revision"] = <"0.0.1-alpha">
 	>
 
@@ -76,6 +97,10 @@ definition
 													DV_DATE_TIME matches {*}
 												}
 											}
+											allow_archetype CLUSTER[at0036] occurrences matches {0..*} matches {    -- Additional details
+												include
+													archetype_id/value matches {/openEHR-EHR-CLUSTER\.inspired_oxygen\.v1/}
+											}
 											ELEMENT[at0035] occurrences matches {0..1} matches {    -- Comment
 												value matches {
 													DV_TEXT matches {*}
@@ -112,6 +137,7 @@ definition
 	}
 
 ontology
+	terminologies_available = <"SNOMED-CT", ...>
 	term_definitions = <
 		["en"] = <
 			items = <
@@ -186,6 +212,98 @@ ontology
 					text = <"Comment">
 					description = <"Additional narrative about the specific management or treatment activity, not captured in other fields.">
 				>
+				["at0036"] = <
+					text = <"Additional details">
+					description = <"Additional details about the specific activity.">
+					comment = <"For example: Details about oxygen therapy.">
+				>
+			>
+		>
+		["nb"] = <
+			items = <
+				["at0000"] = <
+					text = <"Spørreskjema for screening av sykdomshåndtering/behandling">
+					description = <"Et individuelt eller selvrapportert spørreskjema for screening av sykdomshåndtering eller behandling utført.">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Uspesifisert hendelse">
+					description = <"Standard, uspesifisert tidspunkt eller tidsintervall som kan defineres mer eksplisitt i et templat eller i en applikasjon.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Navn på aktiviteten">
+					description = <"Navnet på sykdomshåndteringen (tiltaket) eller behandlingsaktiviteten som blir screenet.">
+				>
+				["at0005"] = <
+					text = <"Iverksatt?">
+					description = <"Fant tiltaket eller aktiviteten sted?">
+				>
+				["at0006"] = <
+					text = <"Dato">
+					description = <"Dato / klokkeslett da sykdomshåndteringen (tiltaket) eller behandlingen ble utført.">
+					comment = <"Delvis dato er tillatt.">
+				>
+				["at0007"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0021"] = <
+					text = <"Tilleggsinformasjon">
+					description = <"Ytterligere informasjon som trengs for å kunne registrere lokalt definert innhold eller for å tilpasse til andre referansemodeller/formalismer.">
+					comment = <"For eksempel lokale informasjonsbehov eller ytterligere metadata for å kunne tilpasse til tilsvarende konsepter i FHIR eller CIMI.">
+				>
+				["at0022"] = <
+					text = <"Spesifikk håndterings-/behandlingsaktivitet">
+					description = <"Gruppering av dataelementer relatert til screeningen for en enkel sykdomshåndtering eller behandlingsaktivitet.">
+				>
+				["at0023"] = <
+					text = <"Iverksatt">
+					description = <"Det spesifikke tiltaket ble iverksatt.">
+				>
+				["at0024"] = <
+					text = <"Ikke iverksatt">
+					description = <"Det spesifikke tiltaket ble ikke iverksatt.">
+				>
+				["at0025"] = <
+					text = <"Kommentar">
+					description = <"Ytterligere kommentar til all sykdomshåndtering og behandlingsaktivitet som ikke er fanget opp i andre felt.">
+				>
+				["at0026"] = <
+					text = <"Ytterligere detaljer">
+					description = <"Ytterlige strukturerte detaljer relatert til sykdomshåndtering/behandlings-screening.">
+				>
+				["at0027"] = <
+					text = <"Ubestemmelig">
+					description = <"Det er ikke mulig å vite om tiltaket ble iverksatt.">
+				>
+				["at0034"] = <
+					text = <"Formål med screeningen">
+					description = <"Årsaken til generell screening.">
+					comment = <"For eksempel: Screening for en infeksjonssykdom, som SARS-COV-2.">
+				>
+				["at0035"] = <
+					text = <"Kommentar">
+					description = <"Ytterligere kommentar til den spesifikke sykdomshåndteringen eller behandlingen som ikke er fanget opp i andre felt.">
+				>
+				["at0036"] = <
+					text = <"Ytterligere detaljer">
+					description = <"Ytterligere detaljer om den spesifikke aktiviteten.">
+					comment = <"For eksempel detaljer om oksygenbehandling.">
+				>
+			>
+		>
+	>
+	term_bindings = <
+		["SNOMED-CT"] = <
+			items = <
+				["at0027"] = <[SNOMED-CT::82334004]>
 			>
 		>
 	>

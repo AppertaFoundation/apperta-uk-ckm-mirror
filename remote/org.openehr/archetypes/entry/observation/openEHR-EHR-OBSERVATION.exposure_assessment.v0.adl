@@ -5,6 +5,16 @@ concept
 	[at0000]	-- Exposure assessment
 language
 	original_language = <[ISO_639-1::en]>
+	translations = <
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			author = <
+				["name"] = <"Silje Ljosland Bakke, Marit Alice Venheim">
+				["organisation"] = <"Helse Vest IKT AS">
+				["email"] = <"silje.ljosland.bakke@helse-vest-ikt.no, marit.alice.venheim@helse-vest-ikt.no">
+			>
+		>
+	>
 description
 	original_author = <
 		["name"] = <"Heather Leslie">
@@ -13,6 +23,12 @@ description
 		["date"] = <"2020-03-14">
 	>
 	details = <
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			purpose = <"For å registrere detaljer om risikofaktorer som indikerer eller kan bidra til en vurdering om faktisk eller potensiell eksponering for en kjemisk, fysisk eller biologisk agens.">
+			use = <"Brukes for å registrere detaljer om risikofaktorer som indikerer eller kan bidra til en vurdering om faktisk eller potensiell eksponering for en kjemisk, fysisk eller biologisk agens.">
+			misuse = <"">
+		>
 		["en"] = <
 			language = <[ISO_639-1::en]>
 			purpose = <"To record details about risk factors that indicate, or may contribute to an assessment about, actual or potential exposure to a chemical, physical or biological agent.">
@@ -29,8 +45,8 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"28560D4A790C81124E3E877950338CE5">
-		["build_uid"] = <"fe67aceb-cbad-4798-8ffe-d740b557b733">
+		["MD5-CAM-1.0.1"] = <"F4F6193366612DBD2E91FF36EE32CA91">
+		["build_uid"] = <"cfb29e26-32e8-46e3-a264-b7e942f4f4e5">
 		["revision"] = <"0.0.1-alpha">
 	>
 
@@ -191,6 +207,86 @@ ontology
 					text = <"Extension">
 					description = <"Additional information required to extend the model with local content or to align with other reference models or formalisms.">
 					comment = <"For example: local information requirements; or additional metadata to align with FHIR.">
+				>
+			>
+		>
+		["nb"] = <
+			items = <
+				["at0000"] = <
+					text = <"Eksponeringsvurdering">
+					description = <"Detaljer om faktisk eller potensiell eksponering for en kjemisk, fysisk eller biologisk agens som har forårsaket eller kan forårsake skade på et individ.">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Uspesifisert hendelse">
+					description = <"Standard, uspesifisert tidspunkt eller tidsintervall som kan defineres mer eksplisitt i et templat eller i en applikasjon.">
+				>
+				["at0004"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0042"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0043"] = <
+					text = <"Eksponering">
+					description = <"Navnet på det kjemiske, fysiske eller biologiske middel som en person kan ha blitt utsatt for.">
+					comment = <"Koding av \"Helserisiko\" med en terminologi er å foretrekke, der det er mulig. Fritekst skal bare brukes hvis det ikke er noen passende terminologi tilgjengelig. For eksempel: 2019-nCoV; eller hiv.">
+				>
+				["at0044"] = <
+					text = <"Per risikofaktor">
+					description = <"Detaljer om hver mulige risikofaktor.">
+				>
+				["at0045"] = <
+					text = <"Risikofaktor">
+					description = <"Navnet på risikofaktoren.">
+					comment = <"For eksempel: Reis til et \"utsatt\" sted; eller eksponering for infiserte kroppsvæsker. Koding av \"risikofaktor\" med en terminologi er å foretrekke, der det er mulig.">
+				>
+				["at0046"] = <
+					text = <"Tilstedeværelse">
+					description = <"Tilstedeværelse av risikofaktoren.">
+				>
+				["at0047"] = <
+					text = <"Tilstede">
+					description = <"Eksponeringsrisiko er identifisert for denne personen.">
+				>
+				["at0048"] = <
+					text = <"Ubestemmelig">
+					description = <"Det er ikke mulig å avgjøre om eksponeringsrisikoen er til stede eller fraværende.">
+				>
+				["at0049"] = <
+					text = <"Ikke tilstede">
+					description = <"Eksponeringsrisiko er ikke identifisert for denne personen.">
+				>
+				["at0050"] = <
+					text = <"Beskrivelse">
+					description = <"Fritekst beskrivelse om eksponeringsrisikoen.">
+				>
+				["at0051"] = <
+					text = <"Dato identifisert">
+					description = <"Dato/klokkeslett da eksponeringsrisikoen ble identifisert.">
+				>
+				["at0053"] = <
+					text = <"Link til evidens">
+					description = <"Adresse til arketypen eller dataelementet der en finner evidens for eksponering.">
+				>
+				["at0054"] = <
+					text = <"Detaljer">
+					description = <"Strukturerte detaljer om andre aspekter om omhandler vurderingen av risikofaktorer for eksponering.">
+					comment = <"For eksempel: Prevalens av risikofaktor hos familiemedlemmer.">
+				>
+				["at0055"] = <
+					text = <"Kommentar">
+					description = <"Ytterligere fritekst om risikofaktoren som ikke fanges opp i andre elementer.">
+				>
+				["at0056"] = <
+					text = <"Tilleggsinformasjon">
+					description = <"Ytterligere informasjon som trengs for å kunne registrere lokalt definert innhold eller for å tilpasse til andre referansemodeller/formalismer.">
+					comment = <"For eksempel lokale informasjonsbehov eller ytterligere metadata for å kunne tilpasse til tilsvarende konsepter i FHIR.">
 				>
 			>
 		>
