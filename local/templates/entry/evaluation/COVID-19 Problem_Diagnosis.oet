@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xmlns="openEHR/v1/Template">
+    <id>a2084d91-9b1b-4dc7-af77-e5da5b1dd8b2</id>
+    <name>COVID-19 Problem/Diagnosis</name>
+    <description>
+        <original_author>
+            <item>
+                <key>date</key>
+                <value>2020-03-28</value>
+            </item>
+        </original_author>
+        <lifecycle_state>unmanaged</lifecycle_state>
+        <details/>
+        <other_details>
+            <item>
+                <key>licence</key>
+                <value>This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.</value>
+            </item>
+            <item>
+                <key>custodian_organisation</key>
+                <value>openEHR Foundation</value>
+            </item>
+            <item>
+                <key>original_namespace</key>
+                <value>org.openehr</value>
+            </item>
+            <item>
+                <key>original_publisher</key>
+                <value>openEHR Foundation</value>
+            </item>
+            <item>
+                <key>custodian_namespace</key>
+                <value>org.openehr</value>
+            </item>
+            <item>
+                <key>MD5-CAM-1.0.1</key>
+                <value>1373f2278b15b339516d57dabb057bda</value>
+            </item>
+            <item>
+                <key>PARENT:MD5-CAM-1.0.1</key>
+                <value>1BA7DBDFBC67678A19B93822D9F3A6A7</value>
+            </item>
+        </other_details>
+    </description>
+    <definition
+        archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:EVALUATION">
+        <Rule path="/data[at0001]/items[at0002]">
+            <constraint xsi:type="tem:textConstraint">
+                <includedValues>SNOMED-CT::840544004::Suspected disease caused by 2019 novel coronavirus</includedValues>
+                <includedValues>SNOMED-CT::840546002::Exposure to 2019 novel coronavirus</includedValues>
+                <includedValues>SNOMED-CT::840539006::Disease caused by 2019-nCoV</includedValues>
+            </constraint>
+        </Rule>
+        <Rule max="0" path="/data[at0001]/items[at0009]"/>
+        <Rule max="0" path="/data[at0001]/items[at0012]"/>
+        <Rule max="0" path="/data[at0001]/items[at0077]"/>
+        <Rule max="0" path="/data[at0001]/items[at0003]"/>
+        <Rule max="0" path="/data[at0001]/items[at0005]">
+            <constraint xsi:type="tem:multipleConstraint">
+                <includedTypes>Coded_text</includedTypes>
+                <includedTypes>Text</includedTypes>
+            </constraint>
+        </Rule>
+        <Rule max="0" path="/data[at0001]/items[at0072]"/>
+        <Rule max="0" path="/data[at0001]/items[at0030]"/>
+        <Rule max="0" path="/data[at0001]/items[at0073]">
+            <constraint xsi:type="tem:multipleConstraint">
+                <includedTypes>Coded_text</includedTypes>
+                <includedTypes>Text</includedTypes>
+            </constraint>
+        </Rule>
+        <Rule max="0" path="/data[at0001]/items[at0069]"/>
+        <Items archetype_id="openEHR-EHR-CLUSTER.problem_qualifier.v1"
+            concept_name="Problem/Diagnosis qualifier" name="Status"
+            path="/data[at0001]/items[at0046]" xsi:type="tem:CLUSTER">
+            <Rule path="/items[at0004]">
+                <constraint xsi:type="tem:textConstraint">
+                    <excludedValues>local::at0016</excludedValues>
+                    <excludedValues>local::at0018</excludedValues>
+                    <excludedValues>local::at0088</excludedValues>
+                </constraint>
+            </Rule>
+            <Rule max="0" path="/items[at0060]"/>
+            <Rule max="0" path="/items[at0003]"/>
+            <Rule max="0" path="/items[at0083]"/>
+            <Rule max="0" path="/items[at0089]"/>
+            <Rule max="0" path="/items[at0001]"/>
+            <Rule max="0" path="/items[at0071]"/>
+            <Rule max="0" path="/items[at0077]"/>
+            <Rule max="0" path="/items[at0063]">
+                <constraint xsi:type="tem:multipleConstraint">
+                    <includedTypes>Coded_text</includedTypes>
+                    <includedTypes>Text</includedTypes>
+                </constraint>
+            </Rule>
+            <Rule max="0" path="/items[at0073]"/>
+        </Items>
+    </definition>
+    <integrity_checks
+        archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">1BA7DBDFBC67678A19B93822D9F3A6A7</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.problem_qualifier.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">6467BBA9938EF3141C6611ED2714EE0B</digest>
+    </integrity_checks>
+</template>
