@@ -1,0 +1,677 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xmlns="openEHR/v1/Template">
+    <id>6e8bd308-9bd6-40d7-a071-98ea2ac97fa9</id>
+    <name>NDS Covid-19 Data Dictionary.v0.1</name>
+    <description>
+        <original_author>
+            <item>
+                <key>name</key>
+                <value>Ian McNicoll</value>
+            </item>
+            <item>
+                <key>organisation</key>
+                <value>freshEHR Clinical Informatics Ltd.</value>
+            </item>
+            <item>
+                <key>email</key>
+                <value>ian@freshehr.com</value>
+            </item>
+            <item>
+                <key>date</key>
+                <value>2020-02-27</value>
+            </item>
+        </original_author>
+        <lifecycle_state>in_development</lifecycle_state>
+        <details>
+            <purpose>To record the information required to evaluate the potential risk of Covid-19 infection, as part of professional screening or self-assessment. 
+
+This is based on 
+- The current NHS-111 UK self-assessment app at https://111.nhs.uk/covid-19
+- A similar risk assessment app developed for pre-hospital admission by DIPS.no
+- Public Health England COVID-19: investigation and initial clinical management of possible cases https://www.gov.uk/government/publications/wuhan-novel-coronavirus-initial-investigation-of-possible-cases
+
+The exact risk factors are subject to continual update as the disease progresses.
+
+Note that a critical part of the information, exposure locations, has been left open, so as to allow the list to be updated very regularly and in alignment with local or national policy.
+
+We have decided to leave in 'older' questions such as 'Exposure to birds in China' until such time that we get clear professional guidance that these are no longer necessary or useful.</purpose>
+            <keywords>
+                <item>covid-19, risk, screening, triage, coronavirus</item>
+            </keywords>
+            <use>To record the information required to evaluate the potential risk of Covid-19 infection, as part of professional screening or self-assessment. 
+
+This is based on 
+- The current NHS-111 UK self-assessment app at https://111.nhs.uk/covid-19 
+- A similar risk assessment app developed for pre-hospital admission by DIPS.no
+- Public Health England COVID-19: investigation and initial clinical management of possible cases https://www.gov.uk/government/publications/wuhan-novel-coronavirus-initial-investigation-of-possible-cases
+The exact risk factors are subject to continual update as the disease progresses.
+
+Note that a critical part of the information, exposure locations, has been left open, so as to allow the list to be updated very regularly and in alignment with local or national policy.
+
+</use>
+            <misuse>This assessment is not intended to act directly as part of any public health reporting documentation - further work is being undertaken to support this use-case.
+Please also be aware that this assessment dataset is likely to be a superset of the questions and criteria required in any single country or setting. 
+
+You should check the exact requirements for your country and clinical setting and adapt appropriately. For similar reasons we have not embedded any particular guidance or rules on how high / low risk should be estimated - you should follow local guidance.</misuse>
+            <copyright>openEHR Foundation</copyright>
+        </details>
+        <other_details>
+            <item>
+                <key>licence</key>
+                <value>This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.</value>
+            </item>
+            <item>
+                <key>custodian_organisation</key>
+                <value>openEHR Foundation</value>
+            </item>
+            <item>
+                <key>original_namespace</key>
+                <value>org.openehr</value>
+            </item>
+            <item>
+                <key>original_publisher</key>
+                <value>openEHR Foundation</value>
+            </item>
+            <item>
+                <key>custodian_namespace</key>
+                <value>org.openehr</value>
+            </item>
+            <item>
+                <key>MD5-CAM-1.0.1</key>
+                <value>59c7eec5451b9135547f323581f43866</value>
+            </item>
+            <item>
+                <key>build_uid</key>
+                <value>7efc32bc-561b-4334-a918-cfed0e233ef2</value>
+            </item>
+            <item>
+                <key>sem_ver</key>
+                <value>0.0.0.1</value>
+            </item>
+            <item>
+                <key>PARENT:MD5-CAM-1.0.1</key>
+                <value>706E6DA39FA082EE75E0F0D4E4A87F25</value>
+            </item>
+        </other_details>
+    </description>
+    <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/content[openEHR-EHR-SECTION.adhoc.v1, 'Covid-19 screening']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1, 'Covid-19 test result']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]/items[at0024]">
+        <items>
+            <item>
+                <key>hl7v2_mapping</key>
+                <value>OBX.3</value>
+            </item>
+            <item>
+                <key>fhir_mapping</key>
+                <value>Observation.code</value>
+            </item>
+        </items>
+    </annotations>
+    <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/content[openEHR-EHR-SECTION.adhoc.v1, 'Covid-19 screening']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1, 'Covid-19 test result']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]/items[at0001]">
+        <items>
+            <item>
+                <key>hl7v2_mapping</key>
+                <value>OBX.2, OBX.5, OBX.6, OBX.7, OBX.8</value>
+            </item>
+            <item>
+                <key>fhir_mapping</key>
+                <value>Observation.value[x]</value>
+            </item>
+        </items>
+    </annotations>
+    <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/content[openEHR-EHR-SECTION.adhoc.v1, 'Covid-19 screening']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1, 'Covid-19 test result']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]/items[at0005]">
+        <items>
+            <item>
+                <key>hl7v2_mapping</key>
+                <value>OBX.11</value>
+            </item>
+            <item>
+                <key>fhir_mapping</key>
+                <value>Observation.status</value>
+            </item>
+        </items>
+    </annotations>
+    <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/content[openEHR-EHR-SECTION.adhoc.v1, 'Covid-19 screening']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1, 'Covid-19 test result']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]/items[at0006]">
+        <items>
+            <item>
+                <key>hl7v2_mapping</key>
+                <value>OBX.19</value>
+            </item>
+            <item>
+                <key>fhir_mapping</key>
+                <value>Observation.issued</value>
+            </item>
+        </items>
+    </annotations>
+    <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/content[openEHR-EHR-SECTION.adhoc.v1, 'Covid-19 screening']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1, 'Covid-19 test result']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]/items[at0003]">
+        <items>
+            <item>
+                <key>hl7v2_mapping</key>
+                <value>NTE.3</value>
+            </item>
+            <item>
+                <key>fhir_mapping</key>
+                <value>Observation.note</value>
+            </item>
+        </items>
+    </annotations>
+    <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/content[openEHR-EHR-SECTION.adhoc.v1, 'Covid-19 screening']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1, 'Other laboratory test result']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]/items[at0024]">
+        <items>
+            <item>
+                <key>hl7v2_mapping</key>
+                <value>OBX.3</value>
+            </item>
+            <item>
+                <key>fhir_mapping</key>
+                <value>Observation.code</value>
+            </item>
+        </items>
+    </annotations>
+    <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/content[openEHR-EHR-SECTION.adhoc.v1, 'Covid-19 screening']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1, 'Other laboratory test result']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]/items[at0001]">
+        <items>
+            <item>
+                <key>hl7v2_mapping</key>
+                <value>OBX.2, OBX.5, OBX.6, OBX.7, OBX.8</value>
+            </item>
+            <item>
+                <key>fhir_mapping</key>
+                <value>Observation.value[x]</value>
+            </item>
+        </items>
+    </annotations>
+    <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/content[openEHR-EHR-SECTION.adhoc.v1, 'Covid-19 screening']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1, 'Other laboratory test result']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]/items[at0005]">
+        <items>
+            <item>
+                <key>hl7v2_mapping</key>
+                <value>OBX.11</value>
+            </item>
+            <item>
+                <key>fhir_mapping</key>
+                <value>Observation.status</value>
+            </item>
+        </items>
+    </annotations>
+    <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/content[openEHR-EHR-SECTION.adhoc.v1, 'Covid-19 screening']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1, 'Other laboratory test result']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]/items[at0006]">
+        <items>
+            <item>
+                <key>hl7v2_mapping</key>
+                <value>OBX.19</value>
+            </item>
+            <item>
+                <key>fhir_mapping</key>
+                <value>Observation.issued</value>
+            </item>
+        </items>
+    </annotations>
+    <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/content[openEHR-EHR-SECTION.adhoc.v1, 'Covid-19 screening']/items[openEHR-EHR-OBSERVATION.laboratory_test_result.v1, 'Other laboratory test result']/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]/items[at0003]">
+        <items>
+            <item>
+                <key>hl7v2_mapping</key>
+                <value>NTE.3</value>
+            </item>
+            <item>
+                <key>fhir_mapping</key>
+                <value>Observation.note</value>
+            </item>
+        </items>
+    </annotations>
+    <definition archetype_id="openEHR-EHR-COMPOSITION.encounter.v1"
+        concept_name="Encounter"
+        name="NES  Covid19 Data Dictionary.v0.1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:COMPOSITION">
+        <Content archetype_id="openEHR-EHR-SECTION.adhoc.v1"
+            concept_name="Ad hoc heading" name="Background"
+            path="/content" xsi:type="tem:SECTION">
+            <Item path="/items"
+                template_id="0487d185-7fa1-4246-abb7-7911d947eff6" xsi:type="tem:EVALUATION" archetype_id="openEHR-EHR-EVALUATION.cpr_decision_uk.v0"/>
+            <Item path="/items"
+                template_id="0b27b5d8-a5f7-4312-9050-294dc5160209" xsi:type="tem:EVALUATION" archetype_id="openEHR-EHR-EVALUATION.advance_care_directive.v0"/>
+            <Item path="/items"
+                template_id="08138f06-ccca-416f-b11a-fab61f9761b1" xsi:type="tem:EVALUATION" archetype_id="openEHR-EHR-EVALUATION.occupation_summary.v1"/>
+            <Item path="/items"
+                template_id="5e6a0b75-08c4-4ce6-ad92-753e2101487e" xsi:type="tem:OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.clinical_frailty_scale.v0"/>
+            <Item path="/items"
+                template_id="5dc9a08b-52bc-4432-883b-24464a50f41d" xsi:type="tem:EVALUATION" archetype_id="openEHR-EHR-EVALUATION.living_arrangement.v0"/>
+            <Item path="/items"
+                template_id="b833edcd-d064-4bad-9655-232871b824ba" xsi:type="tem:OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.condition_screening.v0"/>
+            <Item path="/items"
+                template_id="f3489bed-d100-4d04-856b-f35024d89573" xsi:type="tem:EVALUATION" archetype_id="openEHR-EHR-EVALUATION.medication_summary.v0"/>
+            <Item path="/items"
+                template_id="c8cdb7a6-0870-4f74-b1f0-6624003c4c2a" xsi:type="tem:OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.travel_history.v0"/>
+            <Item path="/items"
+                template_id="2acdfde3-dedf-4980-ae48-5f52e5e35a6c" xsi:type="tem:EVALUATION" archetype_id="openEHR-EHR-EVALUATION.health_risk-covid.v0"/>
+        </Content>
+        <Content archetype_id="openEHR-EHR-SECTION.adhoc.v1"
+            concept_name="Ad hoc heading" name="Covid-19 screening"
+            path="/content" xsi:type="tem:SECTION">
+            <Item path="/items"
+                template_id="7e289b5c-e123-4dc0-9aad-548352b64915" xsi:type="tem:OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.story.v1"/>
+            <Item
+                archetype_id="openEHR-EHR-OBSERVATION.laboratory_test_result.v1"
+                concept_name="Laboratory test result"
+                name="Covid-19 test result" path="/items" xsi:type="tem:OBSERVATION">
+                <Rule max="1" path="/data[at0001]/events[at0002]"/>
+                <Rule default="Covid19 test" path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]"/>
+                <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0073]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Coded_text</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0075]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0077]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0057]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0098]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0101]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/state[at0112]/items[at0113]"/>
+                <Rule max="0" path="/protocol[at0004]/items[at0068]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Identifier</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/protocol[at0004]/items[at0094]"/>
+                <Rule max="0" path="/protocol[at0004]/items[at0111]"/>
+                <Rule max="0" path="/protocol[at0004]/items[at0121]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Boolean</includedTypes>
+                        <includedTypes>Identifier</includedTypes>
+                        <includedTypes>MultiMedia</includedTypes>
+                        <includedTypes>Quantity</includedTypes>
+                        <includedTypes>Count</includedTypes>
+                        <includedTypes>Date_Time</includedTypes>
+                        <includedTypes>Date</includedTypes>
+                        <includedTypes>Time</includedTypes>
+                        <includedTypes>Duration</includedTypes>
+                        <includedTypes>Ordinal</includedTypes>
+                        <includedTypes>Proportion</includedTypes>
+                        <includedTypes>URI</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                        <includedTypes>Coded_text</includedTypes>
+                        <includedTypes>Parsable</includedTypes>
+                        <includedTypes>Interval</includedTypes>
+                        <includedTypes>Interval</includedTypes>
+                        <includedTypes>Interval</includedTypes>
+                        <includedTypes>Interval</includedTypes>
+                        <includedTypes>Interval</includedTypes>
+                        <includedTypes>Interval</includedTypes>
+                        <includedTypes>URI</includedTypes>
+                    </constraint>
+                </Rule>
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.laboratory_test_analyte.v1"
+                    path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" xsi:type="tem:CLUSTER">
+                    <Rule max="0" path="/items[at0027]"/>
+                    <Rule max="1" path="/items[at0001]">
+                        <constraint xsi:type="tem:textConstraint">
+                            <includedValues>SNOMED-CT::Positive::Positive</includedValues>
+                            <includedValues>SNOMED-CT::Negative::Negative</includedValues>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0004]"/>
+                    <Rule max="0" path="/items[at0025]"/>
+                    <Rule max="0" path="/items[at0005]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Coded_text</includedTypes>
+                            <includedTypes>Text</includedTypes>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0006]"/>
+                    <Rule max="0" path="/items[at0026]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Identifier</includedTypes>
+                            <includedTypes>URI</includedTypes>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0003]"/>
+                </Items>
+            </Item>
+            <Item
+                archetype_id="openEHR-EHR-OBSERVATION.laboratory_test_result.v1"
+                concept_name="Laboratory test result"
+                name="Other laboratory test result" path="/items" xsi:type="tem:OBSERVATION">
+                <Rule max="1" path="/data[at0001]/events[at0002]"/>
+                <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0073]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Coded_text</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0075]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0077]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0057]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0098]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0101]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/state[at0112]/items[at0113]"/>
+                <Rule max="0" path="/protocol[at0004]/items[at0068]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Identifier</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/protocol[at0004]/items[at0094]"/>
+                <Rule max="0" path="/protocol[at0004]/items[at0111]"/>
+                <Rule max="0" path="/protocol[at0004]/items[at0121]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Boolean</includedTypes>
+                        <includedTypes>Identifier</includedTypes>
+                        <includedTypes>MultiMedia</includedTypes>
+                        <includedTypes>Quantity</includedTypes>
+                        <includedTypes>Count</includedTypes>
+                        <includedTypes>Date_Time</includedTypes>
+                        <includedTypes>Date</includedTypes>
+                        <includedTypes>Time</includedTypes>
+                        <includedTypes>Duration</includedTypes>
+                        <includedTypes>Ordinal</includedTypes>
+                        <includedTypes>Proportion</includedTypes>
+                        <includedTypes>URI</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                        <includedTypes>Coded_text</includedTypes>
+                        <includedTypes>Parsable</includedTypes>
+                        <includedTypes>Interval</includedTypes>
+                        <includedTypes>Interval</includedTypes>
+                        <includedTypes>Interval</includedTypes>
+                        <includedTypes>Interval</includedTypes>
+                        <includedTypes>Interval</includedTypes>
+                        <includedTypes>Interval</includedTypes>
+                        <includedTypes>URI</includedTypes>
+                    </constraint>
+                </Rule>
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.laboratory_test_analyte.v1"
+                    path="/data[at0001]/events[at0002]/data[at0003]/items[at0097]" xsi:type="tem:CLUSTER">
+                    <Rule max="0" path="/items[at0027]"/>
+                    <Rule max="1" path="/items[at0001]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Boolean</includedTypes>
+                            <includedTypes>Quantity</includedTypes>
+                            <includedTypes>Coded_text</includedTypes>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0004]"/>
+                    <Rule max="0" path="/items[at0025]"/>
+                    <Rule max="0" path="/items[at0005]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Coded_text</includedTypes>
+                            <includedTypes>Text</includedTypes>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0006]"/>
+                    <Rule max="0" path="/items[at0026]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Identifier</includedTypes>
+                            <includedTypes>URI</includedTypes>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0003]"/>
+                </Items>
+            </Item>
+        </Content>
+        <Content path="/content"
+            template_id="f0b6b85e-85a4-4015-9f62-ab9b6050f2a8" xsi:type="tem:SECTION"  archetype_id="openEHR-EHR-SECTION.adhoc.v1"/>
+        <Content archetype_id="openEHR-EHR-SECTION.adhoc.v1"
+            concept_name="Ad hoc heading" name="Recommend"
+            path="/content" xsi:type="tem:SECTION">
+            <Item path="/items"
+                template_id="a2084d91-9b1b-4dc7-af77-e5da5b1dd8b2" xsi:type="tem:EVALUATION" archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v1"/>
+            <Item path="/items"
+                template_id="999d9e03-f903-4026-a2a0-f618d07987f7" xsi:type="tem:EVALUATION" archetype_id="openEHR-EHR-EVALUATION.recommendation.v1"/>
+        </Content>
+        <Content archetype_id="openEHR-EHR-SECTION.adhoc.v1"
+            concept_name="Ad hoc heading" name="Plan" path="/content" xsi:type="tem:SECTION">
+            <Item path="/items"
+                template_id="d7cf88fd-5324-4005-9f1b-d0f4f8e112ba" xsi:type="tem:INSTRUCTION" archetype_id="openEHR-EHR-INSTRUCTION.service_request.v1"/>
+        </Content>
+        <Content archetype_id="openEHR-EHR-SECTION.adhoc.v1"
+            concept_name="Ad hoc heading" name="Treatment"
+            path="/content" xsi:type="tem:SECTION">
+            <Item path="/items"
+                template_id="cda1d6a3-af3f-487f-a586-5e4d918deb75" xsi:type="tem:EVALUATION" archetype_id="openEHR-EHR-EVALUATION.procedure_summary_covid.v0"/>
+        </Content>
+    </definition>
+    <view>
+        <constraints path="[openEHR-EHR-COMPOSITION.encounter.v1]/content">
+            <items id="VisibleInView">
+                <value>content</value>
+            </items>
+        </constraints>
+    </view>
+    <integrity_checks
+        archetype_id="openEHR-EHR-COMPOSITION.encounter.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">706E6DA39FA082EE75E0F0D4E4A87F25</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-SECTION.adhoc.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">0C2394431867543AD5B88E7ED5D589B2</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-OBSERVATION.laboratory_test_result.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">C73B6234DE67D5588E6486968624168B</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.laboratory_test_analyte.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">17EE509C521168FB4D0FBF23E9590DF6</digest>
+    </integrity_checks>
+      <integrity_checks
+        archetype_id="openEHR-EHR-EVALUATION.living_arrangement.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">CD002BB574656EC690FA866E32730BFE</digest>
+    </integrity_checks>
+     <integrity_checks
+        archetype_id="openEHR-EHR-EVALUATION.cpr_decision_uk.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">40CBAF5A01D32E8917DDDFD752562AF4</digest>
+    </integrity_checks>
+      <integrity_checks
+        archetype_id="openEHR-EHR-EVALUATION.advance_care_directive.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">C6AD35AA18292324128BF8F2A93917F4</digest>
+    </integrity_checks>
+     <integrity_checks
+        archetype_id="openEHR-EHR-EVALUATION.occupation_summary.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">7E6F0883E14EDE591F38805F00280D56</digest>
+    </integrity_checks>
+     <integrity_checks
+        archetype_id="openEHR-EHR-OBSERVATION.clinical_frailty_scale.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">685F85105D3B3911C942479FCE199522</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-OBSERVATION.condition_screening.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">AA14DED8BD27EC29A61AD73F44C380F1</digest>
+    </integrity_checks>
+     <integrity_checks
+        archetype_id="openEHR-EHR-EVALUATION.medication_summary.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">75082BEEF15E139A76B4F5BD3D2E70B3</digest>
+    </integrity_checks>
+     <integrity_checks
+        archetype_id="openEHR-EHR-OBSERVATION.travel_history.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">0197F084754005DE379B78B5DFAB42F5</digest>
+    </integrity_checks>
+     <integrity_checks
+        archetype_id="openEHR-EHR-EVALUATION.health_risk-covid.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">250B670887DE0F5A09A99E778B5D7B91</digest>
+    </integrity_checks>
+      <integrity_checks archetype_id="openEHR-EHR-OBSERVATION.story.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">D5AC52C70A99C8A90ED0239A76BB61B9</digest>
+    </integrity_checks>
+       <integrity_checks
+        archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">1BA7DBDFBC67678A19B93822D9F3A6A7</digest>
+    </integrity_checks>
+     <integrity_checks
+        archetype_id="openEHR-EHR-EVALUATION.recommendation.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">E786F7A2782ECF1BD1F48E2505C5F2F5</digest>
+    </integrity_checks>
+       <integrity_checks
+        archetype_id="openEHR-EHR-INSTRUCTION.service_request.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">79322C35117205D99CB2DD0C4EBF6130</digest>
+    </integrity_checks>
+      <integrity_checks
+        archetype_id="openEHR-EHR-EVALUATION.procedure_summary_covid.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">82DA952DC17E5AB25862DEC40A251713</digest>
+    </integrity_checks>
+     <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.problem_qualifier.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">6467BBA9938EF3141C6611ED2714EE0B</digest>
+    </integrity_checks>
+      <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.outbreak_exposure.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">1761421FC4A73C01B3DC7377ED75C220</digest>
+    </integrity_checks>
+       <integrity_checks archetype_id="openEHR-EHR-CLUSTER.dwelling.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">8EF81636931CBD91B3468C1BA5B005EA</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.overcrowding_screening.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">B12BB02B437FCFA780EE531A415AC144</digest>
+    </integrity_checks>
+       <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.occupation_record.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">8A419A318393ABB88CF8188C747918D2</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.organisation_cc.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">4DD4327B2A07666ACC92DBB0FDE0B2EC</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.address_cc.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">27C66E529432847664C60FB687DA1CCC</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.employment_covid.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">81B147D16A050D7167AE4E76C32F2DF3</digest>
+    </integrity_checks>
+     <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.symptom_sign-cvid.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">EF535FBE6EB1D2281A026D351C4B64C0</digest>
+    </integrity_checks>
+       <integrity_checks archetype_id="openEHR-EHR-OBSERVATION.denwis.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">372CBDFAC15E28DB5AB00940D2E98A81</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-OBSERVATION.pulse_oximetry.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">BD14A0A1E3800CCBA3D7F0169154E9AC</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.inspired_oxygen.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">1D03ABF2ED7D6734A8838BA7EF91DAD2</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-OBSERVATION.respiration.v2"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">BF4247CFAF9AC4CBE467A16CB947A8A1</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-OBSERVATION.body_temperature.v2"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">A6618A05BBB42A6FCB5DFACFAD13C7A6</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-OBSERVATION.pulse.v2"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">09C0FC009F09B43DAFFFA5A6D25CD970</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-OBSERVATION.blood_pressure.v2"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">17CAAD568AC5BB315D0A86780DC576C5</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-OBSERVATION.acvpu.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">35857B87FDDE08706066D19C85491817</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-OBSERVATION.news2_uk_rcp.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">145F3788A67B58821B609FD172169428</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-OBSERVATION.glasgow_coma_scale.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">83BD01BA1AEB3976DE633DCF0273E46E</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-OBSERVATION.exam.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">42A758CADEF3767E390EB8187F98AFF5</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.exam.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">DBAE4E382CCCB33F98C79D06FCC50E65</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.capillary_refill_time.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">75ADEC193F9D23257C195F9D35CF2C4C</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-EVALUATION.clinical_synopsis.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">1C27320A9B0499317426B81E69A5862D</digest>
+    </integrity_checks>
+
+</template>
