@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xmlns="openEHR/v1/Template">
+    <id>7e289b5c-e123-4dc0-9aad-548352b64915</id>
+    <name>NDS_COVID Symptoms</name>
+    <description>
+        <original_author>
+            <item>
+                <key>date</key>
+                <value>2020-03-28</value>
+            </item>
+        </original_author>
+        <lifecycle_state>unmanaged</lifecycle_state>
+        <details/>
+        <other_details>
+            <item>
+                <key>licence</key>
+                <value>This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.</value>
+            </item>
+            <item>
+                <key>custodian_organisation</key>
+                <value>openEHR Foundation</value>
+            </item>
+            <item>
+                <key>original_namespace</key>
+                <value>org.openehr</value>
+            </item>
+            <item>
+                <key>original_publisher</key>
+                <value>openEHR Foundation</value>
+            </item>
+            <item>
+                <key>custodian_namespace</key>
+                <value>org.openehr</value>
+            </item>
+            <item>
+                <key>MD5-CAM-1.0.1</key>
+                <value>7651a0fc40d9e38197c60c4450bee291</value>
+            </item>
+            <item>
+                <key>PARENT:MD5-CAM-1.0.1</key>
+                <value>D5AC52C70A99C8A90ED0239A76BB61B9</value>
+            </item>
+        </other_details>
+    </description>
+    <definition archetype_id="openEHR-EHR-OBSERVATION.story.v1"
+        concept_name="Story/History" name="Symptoms"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:OBSERVATION">
+        <Rule max="1" path="/data[at0001]/events[at0002]"/>
+        <Rule max="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]"/>
+        <Items archetype_id="openEHR-EHR-CLUSTER.symptom_sign-cvid.v0"
+            concept_name="Covid-19 symptom"
+            name="Influenza-like symptoms"
+            path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]" xsi:type="tem:CLUSTER">
+            <Rule
+                default="SNOMED-CT::315642008::Influenza-like symptoms" path="/items[at0001.1]">
+                <constraint xsi:type="tem:textConstraint">
+                    <includedValues>SNOMED-CT::315642008::Influenza-like symptoms</includedValues>
+                </constraint>
+            </Rule>
+            <Rule max="0" path="/items[at0035]"/>
+            <Rule max="0" path="/items[at0002]"/>
+            <Rule max="0" path="/items[at0151]"/>
+            <Rule max="0" path="/items[at0175]"/>
+            <Rule max="0" path="/items[at0186]"/>
+            <Rule name="First onset of symptoms" path="/items[at0152]"/>
+            <Rule max="0" path="/items[at0164]"/>
+            <Rule path="/items[at0028]">
+                <constraint xsi:type="tem:durationConstraint">
+                    <minMagnitude>PT0H</minMagnitude>
+                    <includesMaximum>false</includesMaximum>
+                    <includesMinimum>true</includesMinimum>
+                </constraint>
+            </Rule>
+            <Rule max="0" path="/items[at0021]">
+                <constraint xsi:type="tem:multipleConstraint">
+                    <includedTypes>Coded_text</includedTypes>
+                    <includedTypes>Text</includedTypes>
+                </constraint>
+            </Rule>
+            <Rule max="0" path="/items[at0026]">
+                <constraint xsi:type="tem:quantityConstraint">
+                    <unitMagnitude>
+                        <unit>1</unit>
+                        <maxMagnitude>10.0</maxMagnitude>
+                        <minMagnitude>0.0</minMagnitude>
+                        <includesMaximum>true</includesMaximum>
+                        <includesMinimum>true</includesMinimum>
+                    </unitMagnitude>
+                </constraint>
+            </Rule>
+            <Rule max="0" path="/items[at0180]"/>
+            <Rule max="0" path="/items[at0003]"/>
+            <Rule max="0" path="/items[at0018]"/>
+            <Rule max="0" path="/items[at0018]/items[at0019]"/>
+            <Rule max="0" path="/items[at0018]/items[at0017]"/>
+            <Rule max="0" path="/items[at0018]/items[at0056]"/>
+            <Rule max="0" path="/items[at0165]"/>
+            <Rule max="0" path="/items[at0165]/items[at0170]"/>
+            <Rule max="0" path="/items[at0165]/items[at0171]"/>
+            <Rule max="0" path="/items[at0165]/items[at0185]"/>
+            <Rule max="0" path="/items[at0155]"/>
+            <Rule max="0" path="/items[at0037]"/>
+            <Rule max="0" path="/items[at0161]"/>
+            <Rule max="0" path="/items[at0057]"/>
+            <Rule max="0" path="/items[at0031]">
+                <constraint xsi:type="tem:countConstraint">
+                    <minMagnitude>0</minMagnitude>
+                    <includesMaximum>false</includesMaximum>
+                    <includesMinimum>true</includesMinimum>
+                </constraint>
+            </Rule>
+            <Rule max="0" path="/items[at0163]"/>
+        </Items>
+        <Items archetype_id="openEHR-EHR-CLUSTER.symptom_sign-cvid.v0"
+            concept_name="Covid-19 symptom" name="Specific symptom"
+            path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]" xsi:type="tem:CLUSTER">
+            <Rule path="/items[at0001.1]">
+                <constraint xsi:type="tem:textConstraint">
+                    <includedValues>SNOMED-CT::49727002::Cough</includedValues>
+                    <includedValues>SNOMED-CT::386661006::Fever</includedValues>
+                    <includedValues>SNOMED-CT::267036007::Difficulty breathing</includedValues>
+                    <includedValues>SNOMED-CT::162397003::Pain in throat</includedValues>
+                    <includedValues>SNOMED-CT::16001004::Ear pain</includedValues>
+                    <includedValues>SNOMED-CT::267101005::Nose running</includedValues>
+                    <includedValues>SNOMED-CT::68962001::Muscle ache</includedValues>
+                    <includedValues>SNOMED-CT::57676002::Joint pain</includedValues>
+                    <includedValues>SNOMED-CT::271795006::Malaise and fatigue</includedValues>
+                    <includedValues>SNOMED-CT::29857009::Chest pain</includedValues>
+                    <includedValues>SNOMED-CT::21522001::Abdominal pain</includedValues>
+                    <includedValues>SNOMED-CT::62315008::Diarrhoea</includedValues>
+                    <includedValues>SNOMED-CT::16932000::Nausea and vomiting</includedValues>
+                    <includedValues>SNOMED-CT::131148009::Bleeding</includedValues>
+                    <includedValues>SNOMED-CT::25064002::Headache</includedValues>
+                    <includedValues>SNOMED-CT::3006004::Altered consciousness</includedValues>
+                    <includedValues>SNOMED-CT::91175000::Seizure</includedValues>
+                    <includedValues>SNOMED-CT::308923001::Eye symptom</includedValues>
+                </constraint>
+            </Rule>
+            <Rule max="0" path="/items[at0035]"/>
+            <Rule max="0" path="/items[at0002]"/>
+            <Rule max="0" path="/items[at0151]"/>
+            <Rule max="0" path="/items[at0175]"/>
+            <Rule max="0" path="/items[at0186]"/>
+            <Rule max="0" path="/items[at0152]"/>
+            <Rule max="0" path="/items[at0164]"/>
+            <Rule max="0" path="/items[at0028]"/>
+            <Rule max="0" path="/items[at0021]">
+                <constraint xsi:type="tem:multipleConstraint">
+                    <includedTypes>Coded_text</includedTypes>
+                    <includedTypes>Text</includedTypes>
+                </constraint>
+            </Rule>
+            <Rule max="0" path="/items[at0026]">
+                <constraint xsi:type="tem:quantityConstraint">
+                    <unitMagnitude>
+                        <unit>1</unit>
+                        <maxMagnitude>10.0</maxMagnitude>
+                        <minMagnitude>0.0</minMagnitude>
+                        <includesMaximum>true</includesMaximum>
+                        <includesMinimum>true</includesMinimum>
+                    </unitMagnitude>
+                </constraint>
+            </Rule>
+            <Rule max="0" path="/items[at0180]"/>
+            <Rule max="0" path="/items[at0003]"/>
+            <Rule max="0" path="/items[at0018]"/>
+            <Rule max="0" path="/items[at0018]/items[at0019]"/>
+            <Rule max="0" path="/items[at0018]/items[at0017]"/>
+            <Rule max="0" path="/items[at0018]/items[at0056]"/>
+            <Rule max="0" path="/items[at0165]"/>
+            <Rule max="0" path="/items[at0165]/items[at0170]"/>
+            <Rule max="0" path="/items[at0165]/items[at0171]"/>
+            <Rule max="0" path="/items[at0165]/items[at0185]"/>
+            <Rule max="0" path="/items[at0155]"/>
+            <Rule max="0" path="/items[at0037]"/>
+            <Rule max="0" path="/items[at0161]"/>
+            <Rule max="0" path="/items[at0057]"/>
+            <Rule max="0" path="/items[at0031]">
+                <constraint xsi:type="tem:countConstraint">
+                    <minMagnitude>0</minMagnitude>
+                    <includesMaximum>false</includesMaximum>
+                    <includesMinimum>true</includesMinimum>
+                </constraint>
+            </Rule>
+            <Rule max="0" path="/items[at0163]"/>
+        </Items>
+        <Items archetype_id="openEHR-EHR-CLUSTER.symptom_sign-cvid.v0"
+            concept_name="Covid-19 symptom" name="Other symptom"
+            path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]" xsi:type="tem:CLUSTER">
+            <Rule max="0" path="/items[at0035]"/>
+            <Rule max="0" path="/items[at0002]"/>
+            <Rule max="0" path="/items[at0151]"/>
+            <Rule max="0" path="/items[at0175]"/>
+            <Rule max="0" path="/items[at0186]"/>
+            <Rule max="0" path="/items[at0152]"/>
+            <Rule max="0" path="/items[at0164]"/>
+            <Rule max="0" path="/items[at0028]"/>
+            <Rule max="0" path="/items[at0021]">
+                <constraint xsi:type="tem:multipleConstraint">
+                    <includedTypes>Coded_text</includedTypes>
+                    <includedTypes>Text</includedTypes>
+                </constraint>
+            </Rule>
+            <Rule max="0" path="/items[at0026]">
+                <constraint xsi:type="tem:quantityConstraint">
+                    <unitMagnitude>
+                        <unit>1</unit>
+                        <maxMagnitude>10.0</maxMagnitude>
+                        <minMagnitude>0.0</minMagnitude>
+                        <includesMaximum>true</includesMaximum>
+                        <includesMinimum>true</includesMinimum>
+                    </unitMagnitude>
+                </constraint>
+            </Rule>
+            <Rule max="0" path="/items[at0180]"/>
+            <Rule max="0" path="/items[at0003]"/>
+            <Rule max="0" path="/items[at0018]"/>
+            <Rule max="0" path="/items[at0018]/items[at0019]"/>
+            <Rule max="0" path="/items[at0018]/items[at0017]"/>
+            <Rule max="0" path="/items[at0018]/items[at0056]"/>
+            <Rule max="0" path="/items[at0165]"/>
+            <Rule max="0" path="/items[at0165]/items[at0170]"/>
+            <Rule max="0" path="/items[at0165]/items[at0171]"/>
+            <Rule max="0" path="/items[at0165]/items[at0185]"/>
+            <Rule max="0" path="/items[at0155]"/>
+            <Rule max="0" path="/items[at0037]"/>
+            <Rule max="0" path="/items[at0161]"/>
+            <Rule max="0" path="/items[at0057]"/>
+            <Rule max="0" path="/items[at0031]">
+                <constraint xsi:type="tem:countConstraint">
+                    <minMagnitude>0</minMagnitude>
+                    <includesMaximum>false</includesMaximum>
+                    <includesMinimum>true</includesMinimum>
+                </constraint>
+            </Rule>
+            <Rule max="0" path="/items[at0163]"/>
+        </Items>
+    </definition>
+    <integrity_checks archetype_id="openEHR-EHR-OBSERVATION.story.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">D5AC52C70A99C8A90ED0239A76BB61B9</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.symptom_sign-cvid.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">EF535FBE6EB1D2281A026D351C4B64C0</digest>
+    </integrity_checks>
+</template>
