@@ -1,0 +1,179 @@
+﻿archetype (adl_version=1.4; uid=287104b0-a2da-496a-8a7a-efc34c859c36)
+	openEHR-EHR-EVALUATION.procedure_summary_covid.v0
+
+concept
+	[at0000]	-- COVID - procedure summary
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["date"] = <"2020-03-09">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record a summary of historical procedures and therapies for epidemiological purposes.">
+			use = <"To record a summary of historical procedures and therapies for epidemiological purposes.">
+			misuse = <"">
+			copyright = <"© openEHR Foundation, Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"82DA952DC17E5AB25862DEC40A251713">
+		["build_uid"] = <"a0d584fa-44dd-4eaf-991a-2557696b48d5">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	EVALUATION[at0000] matches {    -- COVID - procedure summary
+		data matches {
+			ITEM_TREE[at0003] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					CLUSTER[at0012] occurrences matches {0..*} matches {    -- Procedure
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0020] occurrences matches {0..1} matches {    -- Procedure name
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0039,    -- ICU care
+											at0040,    -- Ventilation
+											at0041,    -- ECMO
+											at0042]    -- Isolation
+										}
+									}
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0004] occurrences matches {0..1} matches {    -- Status
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0005,    -- Yes
+											at0006,    -- No
+											at0044]    -- Unknown
+										}
+									}
+								}
+							}
+							ELEMENT[at0043] occurrences matches {0..1} matches {    -- Procedure date
+								value matches {
+									DV_DATE_TIME matches {*}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0001] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0047] occurrences matches {0..1} matches {    -- Report phase
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0048,    -- Confirmed diagnosis
+									at0049]    -- Outcome
+								}
+							}
+						}
+					}
+					allow_archetype CLUSTER[at0002] occurrences matches {0..*} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"COVID - procedure summary">
+					description = <"A summary of historical procedures and therapies">
+				>
+				["at0001"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Extension">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Status">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Yes">
+					description = <"The patient has had the procedure or therapy.">
+				>
+				["at0006"] = <
+					text = <"No">
+					description = <"The patient has not had the procedure or therapy.">
+				>
+				["at0012"] = <
+					text = <"Procedure">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"Procedure name">
+					description = <"*">
+				>
+				["at0039"] = <
+					text = <"ICU care">
+					description = <"ICU care">
+				>
+				["at0040"] = <
+					text = <"Ventilation">
+					description = <"Ventilation">
+				>
+				["at0041"] = <
+					text = <"ECMO">
+					description = <"ECMO">
+				>
+				["at0042"] = <
+					text = <"Isolation">
+					description = <"Isolation">
+				>
+				["at0043"] = <
+					text = <"Procedure date">
+					description = <"*">
+				>
+				["at0044"] = <
+					text = <"Unknown">
+					description = <"It is not known if the patient has had the procedure or therapy.">
+				>
+				["at0047"] = <
+					text = <"Report phase">
+					description = <"*">
+				>
+				["at0048"] = <
+					text = <"Confirmed diagnosis">
+					description = <"Confirmed diagnosis report phase.">
+				>
+				["at0049"] = <
+					text = <"Outcome">
+					description = <"Outcome report phase.">
+				>
+			>
+		>
+	>
