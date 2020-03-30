@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xmlns="openEHR/v1/Template">
+    <id>b833edcd-d064-4bad-9655-232871b824ba</id>
+    <name>NDS_COVID Significant comorbidities</name>
+    <description>
+        <original_author>
+            <item>
+                <key>date</key>
+                <value>2020-03-28</value>
+            </item>
+        </original_author>
+        <lifecycle_state>unmanaged</lifecycle_state>
+        <details/>
+        <other_details>
+            <item>
+                <key>licence</key>
+                <value>This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.</value>
+            </item>
+            <item>
+                <key>custodian_organisation</key>
+                <value>openEHR Foundation</value>
+            </item>
+            <item>
+                <key>original_namespace</key>
+                <value>org.openehr</value>
+            </item>
+            <item>
+                <key>original_publisher</key>
+                <value>openEHR Foundation</value>
+            </item>
+            <item>
+                <key>custodian_namespace</key>
+                <value>org.openehr</value>
+            </item>
+            <item>
+                <key>MD5-CAM-1.0.1</key>
+                <value>48f8d939c28b1ebd0c8ab4329af8442c</value>
+            </item>
+            <item>
+                <key>PARENT:MD5-CAM-1.0.1</key>
+                <value>AA14DED8BD27EC29A61AD73F44C380F1</value>
+            </item>
+        </other_details>
+    </description>
+    <definition
+        archetype_id="openEHR-EHR-OBSERVATION.condition_screening.v0"
+        concept_name="Condition screening questionnaire"
+        name="Significant comorbidities" xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:OBSERVATION">
+        <Rule max="1" path="/data[at0001]/events[at0002]"/>
+        <Rule default="COVID-19 management" path="/data[at0001]/events[at0002]/data[at0003]/items[at0034]"/>
+        <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0028]"/>
+        <Rule name="Comorbidities" path="/data[at0001]/events[at0002]/data[at0003]/items[at0022]"/>
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0022]/items[at0004]">
+            <constraint xsi:type="tem:textConstraint">
+                <includedValues>COPD</includedValues>
+                <includedValues>Asthma</includedValues>
+                <includedValues>Smoker</includedValues>
+                <includedValues>Bronchiectasis</includedValues>
+                <includedValues>Emphysema</includedValues>
+                <includedValues>Cystic Fibrosis</includedValues>
+                <includedValues>Pulmonary Fibrosis</includedValues>
+                <includedValues>Chronic Heart Failure</includedValues>
+                <includedValues>Ischaemic Heart disease</includedValues>
+                <includedValues>Liver disease</includedValues>
+                <includedValues>Obesity</includedValues>
+                <includedValues>Malnutrition</includedValues>
+                <includedValues>Type 1 Diabetes</includedValues>
+                <includedValues>Type 2 Diabetes</includedValues>
+                <includedValues>Chronic Neurological disorder</includedValues>
+                <includedValues>Chronic kidney disease</includedValues>
+                <includedValues>AIDS / HIV</includedValues>
+                <includedValues>Rheumatological disease</includedValues>
+                <includedValues>Dementia</includedValues>
+                <includedValues>Long term oxygen / home ventilation</includedValues>
+                <includedValues>Home nebulisation</includedValues>
+                <includedValues>Pregnancy</includedValues>
+            </constraint>
+        </Rule>
+        <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0022]/items[at0006]"/>
+        <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0022]/items[at0035]"/>
+        <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0025]"/>
+    </definition>
+    <integrity_checks
+        archetype_id="openEHR-EHR-OBSERVATION.condition_screening.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">AA14DED8BD27EC29A61AD73F44C380F1</digest>
+    </integrity_checks>
+</template>
