@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xmlns="openEHR/v1/Template">
+    <id>2acdfde3-dedf-4980-ae48-5f52e5e35a6c</id>
+    <name>NDS_COVID Infection risk assessment</name>
+    <description>
+        <original_author>
+            <item>
+                <key>date</key>
+                <value>2020-03-28</value>
+            </item>
+        </original_author>
+        <lifecycle_state>unmanaged</lifecycle_state>
+        <details/>
+        <other_details>
+            <item>
+                <key>licence</key>
+                <value>This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.</value>
+            </item>
+            <item>
+                <key>custodian_organisation</key>
+                <value>openEHR Foundation</value>
+            </item>
+            <item>
+                <key>original_namespace</key>
+                <value>org.openehr</value>
+            </item>
+            <item>
+                <key>original_publisher</key>
+                <value>openEHR Foundation</value>
+            </item>
+            <item>
+                <key>custodian_namespace</key>
+                <value>org.openehr</value>
+            </item>
+            <item>
+                <key>MD5-CAM-1.0.1</key>
+                <value>b63612560a1728361cbe1eabb88f4d4d</value>
+            </item>
+            <item>
+                <key>PARENT:MD5-CAM-1.0.1</key>
+                <value>250B670887DE0F5A09A99E778B5D7B91</value>
+            </item>
+        </other_details>
+    </description>
+    <definition
+        archetype_id="openEHR-EHR-EVALUATION.health_risk-covid.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:EVALUATION">
+        <Rule max="1" name="Needs admission for resp.disease" path="/data[at0001]/items[at0016]"/>
+        <Rule path="/data[at0001]/items[at0016, 'Needs admission for resp.disease']/items[at0013.1]">
+            <constraint xsi:type="tem:textConstraint">
+                <excludedValues>local::at0.9</excludedValues>
+                <excludedValues>local::at0.14</excludedValues>
+                <excludedValues>local::at0.10</excludedValues>
+                <excludedValues>local::at0.13</excludedValues>
+                <excludedValues>local::at0.11</excludedValues>
+                <excludedValues>local::at0.12</excludedValues>
+                <excludedValues>local::at0.19</excludedValues>
+                <excludedValues>local::at0.20</excludedValues>
+            </constraint>
+        </Rule>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Needs admission for resp.disease']/items[at0014]"/>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Needs admission for resp.disease']/items[at0029]"/>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Needs admission for resp.disease']/items[at0028]"/>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Needs admission for resp.disease']/items[at0012]"/>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Needs admission for resp.disease']/items[at0030]"/>
+        <Rule clone="true" max="1" name="Potential locality exposure" path="/data[at0001]/items[at0016]"/>
+        <Rule path="/data[at0001]/items[at0016, 'Potential locality exposure']/items[at0013.1]">
+            <constraint xsi:type="tem:textConstraint">
+                <excludedValues>local::at0.9</excludedValues>
+                <excludedValues>local::at0.10</excludedValues>
+                <excludedValues>local::at0.13</excludedValues>
+                <excludedValues>local::at0.11</excludedValues>
+                <excludedValues>local::at0.12</excludedValues>
+                <excludedValues>local::at0.18</excludedValues>
+                <excludedValues>local::at0.19</excludedValues>
+                <excludedValues>local::at0.20</excludedValues>
+            </constraint>
+        </Rule>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Potential locality exposure']/items[at0014]"/>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Potential locality exposure']/items[at0029]"/>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Potential locality exposure']/items[at0028]"/>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Potential locality exposure']/items[at0012]"/>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Potential locality exposure']/items[at0030]"/>
+        <Rule clone="true" max="1" name="Contact with confirmed case" path="/data[at0001]/items[at0016]"/>
+        <Rule path="/data[at0001]/items[at0016, 'Contact with confirmed case']/items[at0013.1]">
+            <constraint xsi:type="tem:textConstraint">
+                <excludedValues>local::at0.14</excludedValues>
+                <excludedValues>local::at0.10</excludedValues>
+                <excludedValues>local::at0.13</excludedValues>
+                <excludedValues>local::at0.11</excludedValues>
+                <excludedValues>local::at0.12</excludedValues>
+                <excludedValues>local::at0.18</excludedValues>
+                <excludedValues>local::at0.19</excludedValues>
+                <excludedValues>local::at0.20</excludedValues>
+            </constraint>
+        </Rule>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Contact with confirmed case']/items[at0014]"/>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Contact with confirmed case']/items[at0029]"/>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Contact with confirmed case']/items[at0028]"/>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Contact with confirmed case']/items[at0012]"/>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Contact with confirmed case']/items[at0030]"/>
+        <Rule clone="true" max="1" name="Other household members unwell" path="/data[at0001]/items[at0016]"/>
+        <Rule path="/data[at0001]/items[at0016, 'Other household members unwell']/items[at0013.1]">
+            <constraint xsi:type="tem:textConstraint">
+                <excludedValues>local::at0.9</excludedValues>
+                <excludedValues>local::at0.14</excludedValues>
+                <excludedValues>local::at0.10</excludedValues>
+                <excludedValues>local::at0.13</excludedValues>
+                <excludedValues>local::at0.11</excludedValues>
+                <excludedValues>local::at0.12</excludedValues>
+                <excludedValues>local::at0.18</excludedValues>
+                <excludedValues>local::at0.20</excludedValues>
+            </constraint>
+        </Rule>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Other household members unwell']/items[at0014]"/>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Other household members unwell']/items[at0029]"/>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Other household members unwell']/items[at0028]"/>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Other household members unwell']/items[at0012]"/>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Other household members unwell']/items[at0030]"/>
+        <Rule clone="true" max="1"
+            name="Other household members travel exposure" path="/data[at0001]/items[at0016]"/>
+        <Rule path="/data[at0001]/items[at0016, 'Other household members travel exposure']/items[at0013.1]">
+            <constraint xsi:type="tem:textConstraint">
+                <excludedValues>local::at0.9</excludedValues>
+                <excludedValues>local::at0.14</excludedValues>
+                <excludedValues>local::at0.10</excludedValues>
+                <excludedValues>local::at0.13</excludedValues>
+                <excludedValues>local::at0.11</excludedValues>
+                <excludedValues>local::at0.12</excludedValues>
+                <excludedValues>local::at0.18</excludedValues>
+                <excludedValues>local::at0.19</excludedValues>
+            </constraint>
+        </Rule>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Other household members travel exposure']/items[at0014]"/>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Other household members travel exposure']/items[at0029]"/>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Other household members travel exposure']/items[at0028]"/>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Other household members travel exposure']/items[at0012]"/>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Other household members travel exposure']/items[at0030]"/>
+        <Rule clone="true" max="1"
+            name="Contact with suspected pneumonia" path="/data[at0001]/items[at0016]"/>
+        <Rule path="/data[at0001]/items[at0016, 'Contact with suspected pneumonia']/items[at0013.1]">
+            <constraint xsi:type="tem:textConstraint">
+                <excludedValues>local::at0.9</excludedValues>
+                <excludedValues>local::at0.14</excludedValues>
+                <excludedValues>local::at0.13</excludedValues>
+                <excludedValues>local::at0.11</excludedValues>
+                <excludedValues>local::at0.12</excludedValues>
+                <excludedValues>local::at0.18</excludedValues>
+                <excludedValues>local::at0.19</excludedValues>
+                <excludedValues>local::at0.20</excludedValues>
+            </constraint>
+        </Rule>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Contact with suspected pneumonia']/items[at0014]"/>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Contact with suspected pneumonia']/items[at0029]"/>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Contact with suspected pneumonia']/items[at0028]"/>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Contact with suspected pneumonia']/items[at0012]"/>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Contact with suspected pneumonia']/items[at0030]"/>
+        <Rule clone="true" max="1"
+            name="Contact with severe resp disease" path="/data[at0001]/items[at0016]"/>
+        <Rule path="/data[at0001]/items[at0016, 'Contact with severe resp disease']/items[at0013.1]">
+            <constraint xsi:type="tem:textConstraint">
+                <excludedValues>local::at0.9</excludedValues>
+                <excludedValues>local::at0.14</excludedValues>
+                <excludedValues>local::at0.10</excludedValues>
+                <excludedValues>local::at0.11</excludedValues>
+                <excludedValues>local::at0.12</excludedValues>
+                <excludedValues>local::at0.18</excludedValues>
+                <excludedValues>local::at0.19</excludedValues>
+                <excludedValues>local::at0.20</excludedValues>
+            </constraint>
+        </Rule>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Contact with severe resp disease']/items[at0014]"/>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Contact with severe resp disease']/items[at0029]"/>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Contact with severe resp disease']/items[at0028]"/>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Contact with severe resp disease']/items[at0012]"/>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Contact with severe resp disease']/items[at0030]"/>
+        <Rule clone="true" max="1" name="Contact with birds in China" path="/data[at0001]/items[at0016]"/>
+        <Rule path="/data[at0001]/items[at0016, 'Contact with birds in China']/items[at0013.1]">
+            <constraint xsi:type="tem:textConstraint">
+                <excludedValues>local::at0.9</excludedValues>
+                <excludedValues>local::at0.14</excludedValues>
+                <excludedValues>local::at0.10</excludedValues>
+                <excludedValues>local::at0.13</excludedValues>
+                <excludedValues>local::at0.12</excludedValues>
+                <excludedValues>local::at0.18</excludedValues>
+                <excludedValues>local::at0.19</excludedValues>
+                <excludedValues>local::at0.20</excludedValues>
+            </constraint>
+        </Rule>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Contact with birds in China']/items[at0014]"/>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Contact with birds in China']/items[at0029]"/>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Contact with birds in China']/items[at0028]"/>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Contact with birds in China']/items[at0012]"/>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Contact with birds in China']/items[at0030]"/>
+        <Rule clone="true" max="1" name="Contact with Avian flu" path="/data[at0001]/items[at0016]"/>
+        <Rule path="/data[at0001]/items[at0016, 'Contact with Avian flu']/items[at0013.1]">
+            <constraint xsi:type="tem:textConstraint">
+                <excludedValues>local::at0.9</excludedValues>
+                <excludedValues>local::at0.14</excludedValues>
+                <excludedValues>local::at0.10</excludedValues>
+                <excludedValues>local::at0.13</excludedValues>
+                <excludedValues>local::at0.11</excludedValues>
+                <excludedValues>local::at0.18</excludedValues>
+                <excludedValues>local::at0.19</excludedValues>
+                <excludedValues>local::at0.20</excludedValues>
+            </constraint>
+        </Rule>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Contact with Avian flu']/items[at0014]"/>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Contact with Avian flu']/items[at0029]"/>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Contact with Avian flu']/items[at0028]"/>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Contact with Avian flu']/items[at0012]"/>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Contact with Avian flu']/items[at0030]"/>
+        <Rule clone="true" name="Other" path="/data[at0001]/items[at0016]"/>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Other']/items[at0014]"/>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Other']/items[at0029]"/>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Other']/items[at0028]"/>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Other']/items[at0012]"/>
+        <Rule max="0" path="/data[at0001]/items[at0016, 'Other']/items[at0030]"/>
+        <Rule max="0" path="/data[at0001]/items[at0020]"/>
+        <Rule max="0" path="/data[at0001]/items[at0023]"/>
+        <Rule max="0" path="/data[at0001]/items[at0004]"/>
+        <Rule max="0" path="/data[at0001]/items[at0015]"/>
+        <Rule max="0" path="/protocol[at0010]/items[at0024]"/>
+        <Rule max="0" path="/protocol[at0010]/items[at0025]"/>
+        <Items archetype_id="openEHR-EHR-CLUSTER.outbreak_exposure.v0"
+            concept_name="Location-based exposure"
+            name="Location visited"
+            path="/data[at0001]/items[at0016, 'Potential locality exposure']/items[at0027.1]" xsi:type="tem:CLUSTER">
+            <Rule max="1" path="/items[at0007]">
+                <constraint xsi:type="tem:multipleConstraint">
+                    <includedTypes>Text</includedTypes>
+                    <includedTypes>Coded_text</includedTypes>
+                </constraint>
+            </Rule>
+            <Rule max="0" path="/items[at0021]"/>
+            <Rule max="0" path="/items[at0024]">
+                <constraint xsi:type="tem:multipleConstraint">
+                    <includedTypes>Coded_text</includedTypes>
+                    <includedTypes>Text</includedTypes>
+                    <includedTypes>Ordinal</includedTypes>
+                </constraint>
+            </Rule>
+            <Rule max="0" path="/items[at0022]"/>
+            <Rule max="0" path="/items[at0023]"/>
+        </Items>
+    </definition>
+    <integrity_checks
+        archetype_id="openEHR-EHR-EVALUATION.health_risk-covid.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">250B670887DE0F5A09A99E778B5D7B91</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.outbreak_exposure.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">1761421FC4A73C01B3DC7377ED75C220</digest>
+    </integrity_checks>
+</template>
