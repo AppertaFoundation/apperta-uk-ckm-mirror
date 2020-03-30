@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xmlns="openEHR/v1/Template">
+    <id>08138f06-ccca-416f-b11a-fab61f9761b1</id>
+    <name>NDS_COVID Health-related occupation</name>
+    <description>
+        <original_author>
+            <item>
+                <key>date</key>
+                <value>2020-03-28</value>
+            </item>
+        </original_author>
+        <lifecycle_state>unmanaged</lifecycle_state>
+        <details/>
+        <other_details>
+            <item>
+                <key>licence</key>
+                <value>This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.</value>
+            </item>
+            <item>
+                <key>custodian_organisation</key>
+                <value>openEHR Foundation</value>
+            </item>
+            <item>
+                <key>original_namespace</key>
+                <value>org.openehr</value>
+            </item>
+            <item>
+                <key>original_publisher</key>
+                <value>openEHR Foundation</value>
+            </item>
+            <item>
+                <key>custodian_namespace</key>
+                <value>org.openehr</value>
+            </item>
+            <item>
+                <key>MD5-CAM-1.0.1</key>
+                <value>fa981acee7b0da3968d3c7af725c95d0</value>
+            </item>
+            <item>
+                <key>PARENT:MD5-CAM-1.0.1</key>
+                <value>7E6F0883E14EDE591F38805F00280D56</value>
+            </item>
+        </other_details>
+    </description>
+    <definition
+        archetype_id="openEHR-EHR-EVALUATION.occupation_summary.v1"
+        concept_name="Occupation summary"
+        name="Health-related occupation" xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:EVALUATION">
+        <Rule max="0" path="/data[at0001]/items[at0002]"/>
+        <Rule max="0" name="Is healthcare worker?" path="/data[at0001]/items[at0004]">
+            <constraint xsi:type="tem:textConstraint">
+                <includedValues>YES</includedValues>
+                <includedValues>NO</includedValues>
+                <includedValues>UNKNOWN</includedValues>
+            </constraint>
+        </Rule>
+        <Rule max="0" path="/data[at0001]/items[at0006]"/>
+        <Rule max="0" path="/protocol[at0007]/items[at0009]"/>
+        <Items archetype_id="openEHR-EHR-CLUSTER.occupation_record.v1"
+            path="/data[at0001]/items[at0003]" xsi:type="tem:CLUSTER">
+            <Rule default="Healthcare worker" path="/items[at0005]">
+                <constraint xsi:type="tem:textConstraint">
+                    <includedValues>Healthcare worker</includedValues>
+                    <includedValues>Laboratory staff</includedValues>
+                </constraint>
+            </Rule>
+            <Rule max="0" path="/items[at0016]"/>
+            <Rule max="0" path="/items[at0007]"/>
+            <Rule max="0" path="/items[at0001]"/>
+            <Rule max="0" path="/items[at0013]">
+                <constraint xsi:type="tem:multipleConstraint">
+                    <includedTypes>Proportion</includedTypes>
+                    <includedTypes>Coded_text</includedTypes>
+                </constraint>
+            </Rule>
+            <Rule max="0" path="/items[at0019]">
+                <constraint xsi:type="tem:quantityConstraint">
+                    <unitMagnitude>
+                        <unit>wk/a</unit>
+                        <minMagnitude>0.0</minMagnitude>
+                        <includesMaximum>false</includesMaximum>
+                        <includesMinimum>true</includesMinimum>
+                    </unitMagnitude>
+                    <unitMagnitude>
+                        <unit>d/wk</unit>
+                        <minMagnitude>0.0</minMagnitude>
+                        <includesMaximum>false</includesMaximum>
+                        <includesMinimum>true</includesMinimum>
+                    </unitMagnitude>
+                    <unitMagnitude>
+                        <unit>wk/mo</unit>
+                        <minMagnitude>0.0</minMagnitude>
+                        <includesMaximum>false</includesMaximum>
+                        <includesMinimum>true</includesMinimum>
+                    </unitMagnitude>
+                    <unitMagnitude>
+                        <unit>d/mo</unit>
+                        <minMagnitude>0.0</minMagnitude>
+                        <includesMaximum>false</includesMaximum>
+                        <includesMinimum>true</includesMinimum>
+                    </unitMagnitude>
+                    <unitMagnitude>
+                        <unit>mo/a</unit>
+                        <minMagnitude>0.0</minMagnitude>
+                        <includesMaximum>false</includesMaximum>
+                        <includesMinimum>true</includesMinimum>
+                    </unitMagnitude>
+                    <unitMagnitude>
+                        <unit>d/a</unit>
+                        <minMagnitude>0.0</minMagnitude>
+                        <includesMaximum>false</includesMaximum>
+                        <includesMinimum>true</includesMinimum>
+                    </unitMagnitude>
+                    <unitMagnitude>
+                        <unit>h/mo</unit>
+                        <minMagnitude>0.0</minMagnitude>
+                        <includesMaximum>false</includesMaximum>
+                        <includesMinimum>true</includesMinimum>
+                    </unitMagnitude>
+                    <unitMagnitude>
+                        <unit>h/a</unit>
+                        <minMagnitude>0.0</minMagnitude>
+                        <includesMaximum>false</includesMaximum>
+                        <includesMinimum>true</includesMinimum>
+                    </unitMagnitude>
+                    <unitMagnitude>
+                        <unit>h/wk</unit>
+                        <minMagnitude>0.0</minMagnitude>
+                        <includesMaximum>false</includesMaximum>
+                        <includesMinimum>true</includesMinimum>
+                    </unitMagnitude>
+                    <unitMagnitude>
+                        <unit>h/d</unit>
+                        <minMagnitude>0.0</minMagnitude>
+                        <includesMaximum>false</includesMaximum>
+                        <includesMinimum>true</includesMinimum>
+                    </unitMagnitude>
+                </constraint>
+            </Rule>
+            <Rule max="0" path="/items[at0002]"/>
+            <Rule max="0" path="/items[at0006]"/>
+            <Rule max="0" path="/items[at0008]"/>
+            <Rule max="0" path="/items[at0014]"/>
+            <Items archetype_id="openEHR-EHR-CLUSTER.organisation_cc.v0"
+                concept_name="Organisation" name="Facility"
+                path="/items[at0004]" xsi:type="tem:CLUSTER">
+                <Rule max="0" path="/items[at0010]"/>
+                <Rule max="0" path="/items[at0011]"/>
+                <Rule name="Facility name" path="/items[at0012]"/>
+                <Rule max="0" path="/items[at0013]"/>
+                <Items archetype_id="openEHR-EHR-CLUSTER.address_cc.v0"
+                    path="/items[at0015]" xsi:type="tem:CLUSTER">
+                    <Rule max="0" path="/items[at0001]"/>
+                    <Rule max="0" path="/items[at0006]"/>
+                    <Rule max="0" path="/items[at0010]"/>
+                    <Rule max="0" path="/items[at0011]"/>
+                    <Rule max="0" path="/items[at0013]"/>
+                    <Rule max="0" path="/items[at0014]"/>
+                    <Rule max="0" path="/items[at0016]"/>
+                    <Rule max="0" path="/items[at0017]"/>
+                </Items>
+            </Items>
+        </Items>
+        <Items archetype_id="openEHR-EHR-CLUSTER.employment_covid.v0"
+            path="/data[at0001]/items[at0005]" xsi:type="tem:CLUSTER"/>
+    </definition>
+    <integrity_checks
+        archetype_id="openEHR-EHR-EVALUATION.occupation_summary.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">7E6F0883E14EDE591F38805F00280D56</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.occupation_record.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">8A419A318393ABB88CF8188C747918D2</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.organisation_cc.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">4DD4327B2A07666ACC92DBB0FDE0B2EC</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.address_cc.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">27C66E529432847664C60FB687DA1CCC</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.employment_covid.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">81B147D16A050D7167AE4E76C32F2DF3</digest>
+    </integrity_checks>
+</template>
