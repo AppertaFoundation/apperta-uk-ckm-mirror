@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xmlns="openEHR/v1/Template">
+    <id>f3489bed-d100-4d04-856b-f35024d89573</id>
+    <name>NDS_COVID Significant medications</name>
+    <description>
+        <original_author>
+            <item>
+                <key>date</key>
+                <value>2020-03-28</value>
+            </item>
+        </original_author>
+        <lifecycle_state>unmanaged</lifecycle_state>
+        <details/>
+        <other_details>
+            <item>
+                <key>licence</key>
+                <value>This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.</value>
+            </item>
+            <item>
+                <key>custodian_organisation</key>
+                <value>openEHR Foundation</value>
+            </item>
+            <item>
+                <key>original_namespace</key>
+                <value>org.openehr</value>
+            </item>
+            <item>
+                <key>original_publisher</key>
+                <value>openEHR Foundation</value>
+            </item>
+            <item>
+                <key>custodian_namespace</key>
+                <value>org.openehr</value>
+            </item>
+            <item>
+                <key>MD5-CAM-1.0.1</key>
+                <value>8470773749186e180f4a522231ff1ab4</value>
+            </item>
+            <item>
+                <key>PARENT:MD5-CAM-1.0.1</key>
+                <value>75082BEEF15E139A76B4F5BD3D2E70B3</value>
+            </item>
+        </other_details>
+    </description>
+    <definition
+        archetype_id="openEHR-EHR-EVALUATION.medication_summary.v0"
+        concept_name="Medication summary" name="Significant medications"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:EVALUATION">
+        <Rule path="/data[at0001]/items[at0002]">
+            <constraint limitToList="false" xsi:type="tem:textConstraint">
+                <includedValues>Immunosuppresant/ chemotherapy</includedValues>
+                <includedValues>Steroids</includedValues>
+            </constraint>
+        </Rule>
+        <Rule max="0" path="/data[at0001]/items[at0003]"/>
+        <Rule max="0" path="/data[at0001]/items[at0007]"/>
+        <Rule max="0" path="/data[at0001]/items[at0009]"/>
+        <Rule max="0" path="/data[at0001]/items[at0008]"/>
+        <Rule max="0" path="/data[at0001]/items[at0015]"/>
+        <Rule max="0" path="/data[at0001]/items[at0010]"/>
+        <Rule max="0" path="/protocol[at0005]/items[at0006]"/>
+    </definition>
+    <integrity_checks
+        archetype_id="openEHR-EHR-EVALUATION.medication_summary.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">75082BEEF15E139A76B4F5BD3D2E70B3</digest>
+    </integrity_checks>
+</template>
