@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xmlns="openEHR/v1/Template">
+    <id>0b27b5d8-a5f7-4312-9050-294dc5160209</id>
+    <name>NDS_COVID Anticipatory Care Plan</name>
+    <description>
+        <original_author>
+            <item>
+                <key>date</key>
+                <value>2020-03-28</value>
+            </item>
+        </original_author>
+        <lifecycle_state>unmanaged</lifecycle_state>
+        <details/>
+        <other_details>
+            <item>
+                <key>licence</key>
+                <value>This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.</value>
+            </item>
+            <item>
+                <key>custodian_organisation</key>
+                <value>openEHR Foundation</value>
+            </item>
+            <item>
+                <key>original_namespace</key>
+                <value>org.openehr</value>
+            </item>
+            <item>
+                <key>original_publisher</key>
+                <value>openEHR Foundation</value>
+            </item>
+            <item>
+                <key>custodian_namespace</key>
+                <value>org.openehr</value>
+            </item>
+            <item>
+                <key>MD5-CAM-1.0.1</key>
+                <value>b19b6bb13be5122a671b97dc0897236e</value>
+            </item>
+            <item>
+                <key>PARENT:MD5-CAM-1.0.1</key>
+                <value>C6AD35AA18292324128BF8F2A93917F4</value>
+            </item>
+        </other_details>
+    </description>
+    <definition
+        archetype_id="openEHR-EHR-EVALUATION.advance_care_directive.v0"
+        concept_name="Advance care directive"
+        name="Anticipatory Care Plan" xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:EVALUATION">
+        <Rule default="SNOMED-CT::736367008::Anticipatory care plan" path="/data[at0001]/items[at0005]">
+            <constraint xsi:type="tem:textConstraint">
+                <includedValues>SNOMED-CT::736367008::Anticipatory care plan</includedValues>
+            </constraint>
+        </Rule>
+        <Rule max="0" path="/data[at0001]/items[at0007]"/>
+        <Rule max="0" path="/protocol[at0010]/items[at0056]"/>
+        <Rule max="0" path="/protocol[at0010]/items[at0055]"/>
+        <Rule max="0" path="/protocol[at0010]/items[at0027]">
+            <constraint xsi:type="tem:multipleConstraint">
+                <includedTypes>Text</includedTypes>
+                <includedTypes>URI</includedTypes>
+            </constraint>
+        </Rule>
+    </definition>
+    <integrity_checks
+        archetype_id="openEHR-EHR-EVALUATION.advance_care_directive.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">C6AD35AA18292324128BF8F2A93917F4</digest>
+    </integrity_checks>
+</template>
