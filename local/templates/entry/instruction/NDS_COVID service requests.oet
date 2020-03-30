@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xmlns="openEHR/v1/Template">
+    <id>d7cf88fd-5324-4005-9f1b-d0f4f8e112ba</id>
+    <name>NDS_COVID service requests</name>
+    <description>
+        <original_author>
+            <item>
+                <key>date</key>
+                <value>2020-03-28</value>
+            </item>
+        </original_author>
+        <lifecycle_state>unmanaged</lifecycle_state>
+        <details/>
+        <other_details>
+            <item>
+                <key>licence</key>
+                <value>This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.</value>
+            </item>
+            <item>
+                <key>custodian_organisation</key>
+                <value>openEHR Foundation</value>
+            </item>
+            <item>
+                <key>original_namespace</key>
+                <value>org.openehr</value>
+            </item>
+            <item>
+                <key>original_publisher</key>
+                <value>openEHR Foundation</value>
+            </item>
+            <item>
+                <key>custodian_namespace</key>
+                <value>org.openehr</value>
+            </item>
+            <item>
+                <key>MD5-CAM-1.0.1</key>
+                <value>5ba0e1a326235528ae4975f23d5bb8fd</value>
+            </item>
+            <item>
+                <key>PARENT:MD5-CAM-1.0.1</key>
+                <value>79322C35117205D99CB2DD0C4EBF6130</value>
+            </item>
+        </other_details>
+    </description>
+    <definition
+        archetype_id="openEHR-EHR-INSTRUCTION.service_request.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:INSTRUCTION">
+        <Rule path="/activities[at0001]/description[at0009]/items[at0121]">
+            <constraint xsi:type="tem:textConstraint">
+                <includedValues>SNOMED-CT::170499009::Isolation of infection contact</includedValues>
+                <includedValues>SNOMED-CT::225368008::Contact tracing</includedValues>
+            </constraint>
+        </Rule>
+        <Rule max="0" path="/activities[at0001]/description[at0009]/items[at0148]"/>
+        <Rule max="0" path="/activities[at0001]/description[at0009]/items[at0135]"/>
+        <Rule path="/activities[at0001]/description[at0009]/items[at0062]">
+            <constraint xsi:type="tem:textConstraint">
+                <includedValues>SNOMED-CT::840544004::Suspected disease caused by 2019 novel coronavirus</includedValues>
+                <includedValues>SNOMED-CT::840546002::Exposure to 2019 novel coronavirus</includedValues>
+                <includedValues>SNOMED-CT::840539006::Disease caused by 2019-nCoV</includedValues>
+            </constraint>
+        </Rule>
+        <Rule max="0" path="/activities[at0001]/description[at0009]/items[at0064]"/>
+        <Rule max="0" path="/activities[at0001]/description[at0009]/items[at0152]"/>
+        <Rule max="0" path="/activities[at0001]/description[at0009]/items[at0065]"/>
+        <Rule max="0" path="/activities[at0001]/description[at0009]/items[at0068]">
+            <constraint xsi:type="tem:multipleConstraint">
+                <includedTypes>Coded_text</includedTypes>
+                <includedTypes>Text</includedTypes>
+            </constraint>
+        </Rule>
+        <Rule max="0" path="/activities[at0001]/description[at0009]/items[at0040]">
+            <constraint xsi:type="tem:multipleConstraint">
+                <includedTypes>Date_Time</includedTypes>
+                <includedTypes>Text</includedTypes>
+            </constraint>
+        </Rule>
+        <Rule max="0" path="/activities[at0001]/description[at0009]/items[at0145]"/>
+        <Rule max="0" path="/activities[at0001]/description[at0009]/items[at0144]"/>
+        <Rule max="0" path="/activities[at0001]/description[at0009]/items[at0147]"/>
+        <Rule max="0" path="/activities[at0001]/description[at0009]/items[at0076]"/>
+        <Rule max="0" path="/activities[at0001]/description[at0009]/items[at0078]"/>
+        <Rule max="0" path="/activities[at0001]/description[at0009]/items[at0150]"/>
+        <Rule max="0" path="/protocol[at0008]/items[at0010]">
+            <constraint xsi:type="tem:multipleConstraint">
+                <includedTypes>Text</includedTypes>
+                <includedTypes>Identifier</includedTypes>
+            </constraint>
+        </Rule>
+        <Rule max="0" path="/protocol[at0008]/items[at0011]">
+            <constraint xsi:type="tem:multipleConstraint">
+                <includedTypes>Text</includedTypes>
+                <includedTypes>Identifier</includedTypes>
+            </constraint>
+        </Rule>
+        <Rule max="0" path="/protocol[at0008]/items[at0127]"/>
+    </definition>
+    <integrity_checks
+        archetype_id="openEHR-EHR-INSTRUCTION.service_request.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">79322C35117205D99CB2DD0C4EBF6130</digest>
+    </integrity_checks>
+</template>
