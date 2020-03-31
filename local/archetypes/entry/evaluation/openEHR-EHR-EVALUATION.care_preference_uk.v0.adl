@@ -29,8 +29,8 @@ description
 		["original_namespace"] = <"uk.org.clinicalmodels">
 		["original_publisher"] = <"UK Clinical Models">
 		["custodian_namespace"] = <"uk.org.apperta">
-		["MD5-CAM-1.0.1"] = <"A4E6A92FABE9B275F20006DEB68A9757">
-		["build_uid"] = <"0a4ef098-1814-45a6-b621-32c167d2ec75">
+		["MD5-CAM-1.0.1"] = <"40152D512B48468201F8792F0F35E147">
+		["build_uid"] = <"a496e1f2-d585-4e2f-9a91-91ac399e8429">
 		["ip_acknowledgements"] = <"This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomedct or info@snomed.org.">
 		["revision"] = <"0.0.1-alpha">
 	>
@@ -40,7 +40,7 @@ definition
 		data matches {
 			ITEM_TREE[at0001] matches {    -- Tree
 				items cardinality matches {0..*; unordered} matches {
-					ELEMENT[at0038] occurrences matches {0..*} matches {    -- What matters to me
+					ELEMENT[at0038] occurrences matches {0..*} matches {    -- Care priority
 						value matches {
 							DV_TEXT matches {*}
 						}
@@ -322,7 +322,7 @@ ontology
 					description = <"Details of the organisation/location of the preferred place of death (second choice).">
 				>
 				["at0038"] = <
-					text = <"What matters to me">
+					text = <"Care priority">
 					description = <"A narrative statement by the patient on their preferred priorities of care.">
 					comment = <"In the UI, this should be represented as 'Considering the above priorities. what is most important to you? (optional)'.">
 				>
