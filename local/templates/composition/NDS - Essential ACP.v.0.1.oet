@@ -103,12 +103,12 @@
             name="Personal support network" path="/content" xsi:type="tem:ADMIN_ENTRY">
             <Rule max="0" path="/data[at0001]/items[at0005]"/>
             <Rule max="0" path="/data[at0001]/items[at0011]"/>
-            <Rule default="Personal support network"
+            <Rule default="ACP Personal support network"
                 name="Care team name" path="/data[at0001]/items[at0018]"/>
             <Rule max="0" path="/data[at0001]/items[at0019]"/>
             <Rule max="0" path="/data[at0001]/items[at0020]"/>
             <Rule name="People involved in decisions about your care" path="/data[at0001]/items[at0021]"/>
-            <Rule default="Emergency contact" path="/data[at0001]/items[at0021, 'People involved in decisions about your care']/items[at0022]">
+            <Rule path="/data[at0001]/items[at0021, 'People involved in decisions about your care']/items[at0022]">
                 <constraint limitToList="false" xsi:type="tem:textConstraint">
                     <includedValues>Parent</includedValues>
                     <includedValues>Family</includedValues>
