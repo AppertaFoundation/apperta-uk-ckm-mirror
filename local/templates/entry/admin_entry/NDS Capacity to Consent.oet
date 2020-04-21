@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xmlns="openEHR/v1/Template">
+    <id>be99503f-db30-4051-a861-725f1717799e</id>
+    <name>NDS Capacity to Consent</name>
+    <description>
+        <original_author>
+            <item>
+                <key>date</key>
+                <value>2020-03-31</value>
+            </item>
+        </original_author>
+        <lifecycle_state>unmanaged</lifecycle_state>
+        <details/>
+        <other_details>
+            <item>
+                <key>licence</key>
+                <value>This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.</value>
+            </item>
+            <item>
+                <key>custodian_organisation</key>
+                <value>openEHR Foundation</value>
+            </item>
+            <item>
+                <key>original_namespace</key>
+                <value>org.openehr</value>
+            </item>
+            <item>
+                <key>original_publisher</key>
+                <value>openEHR Foundation</value>
+            </item>
+            <item>
+                <key>custodian_namespace</key>
+                <value>org.openehr</value>
+            </item>
+            <item>
+                <key>MD5-CAM-1.0.1</key>
+                <value>6660c6bee60d5ffe16e5ee6abc277d81</value>
+            </item>
+            <item>
+                <key>PARENT:MD5-CAM-1.0.1</key>
+                <value>8DD05D4D236D335A21D3584B3F548B1D</value>
+            </item>
+        </other_details>
+    </description>
+    <definition
+        archetype_id="openEHR-EHR-ADMIN_ENTRY.capacity_respect.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ADMIN_ENTRY">
+        <Rule max="0" path="/data[at0001]/items[at0003]"/>
+    </definition>
+    <view>
+        <constraints path="[openEHR-EHR-ADMIN_ENTRY.capacity_respect.v0]/data">
+            <items id="VisibleInView">
+                <value>data</value>
+            </items>
+        </constraints>
+    </view>
+    <integrity_checks
+        archetype_id="openEHR-EHR-ADMIN_ENTRY.capacity_respect.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">8DD05D4D236D335A21D3584B3F548B1D</digest>
+    </integrity_checks>
+</template>
