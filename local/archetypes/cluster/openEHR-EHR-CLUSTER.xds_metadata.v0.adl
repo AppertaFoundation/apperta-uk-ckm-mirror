@@ -7,9 +7,9 @@ language
 	original_language = <[ISO_639-1::en]>
 description
 	original_author = <
-		["name"] = <"Ian McNicoll">
-		["organisation"] = <"freshEHR Clinical Informatics UK">
-		["email"] = <"ian@freshehr.com">
+		["name"] = <"Borut Fabjan">
+		["organisation"] = <"Better, Slovenia">
+		["email"] = <"borut.fabjan@better.care">
 		["date"] = <"2017-11-08">
 	>
 	details = <
@@ -19,19 +19,22 @@ description
 			use = <"Use to add IHE-XDS aligned metadata to a COMPOSITION.context, which along with existing COMPOSITION attributes, allows the composition to be registered in an IHE-XDS environment.">
 			keywords = <"Document, metadata", "IHE", "XDS">
 			misuse = <"">
-			copyright = <"©Clinical Models UK">
+			copyright = <"© Apperta Foundation">
 		>
 	>
 	lifecycle_state = <"in_development">
-	other_contributors = <>
+	other_contributors = <"Boštjan Lah, Better, Slovenia", "Ian McNicoll, freshEHR Clinical Informatics, UK">
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
-		["custodian_organisation"] = <"UK Clinical Models">
+		["custodian_organisation"] = <"Apperta Foundation">
+		["references"] = <"Fabjan B. Querying openEHR-based Electronic Health Record in the IHE XDS enviroment [Internet]. eprints.fri.uni-lj.si. 2016 [cited 2020 Apr 23]. Available from: http://eprints.fri.uni-lj.si/3476/
+‌">
+		["current_contact"] = <"Ian McNicoll <ian@freshehr.com>">
 		["original_namespace"] = <"uk.org.clinicalmodels">
 		["original_publisher"] = <"UK Clinical Models">
 		["custodian_namespace"] = <"uk.org.clinicalmodels">
 		["MD5-CAM-1.0.1"] = <"E62D896E2577FA727C75A9EFFD7CA63E">
-		["build_uid"] = <"1bb353c1-af99-4dcb-947e-c29e3ecbef99">
+		["build_uid"] = <"feed3fab-2d92-470b-a6c9-f19499a58c8b">
 		["revision"] = <"0.0.1-alpha">
 	>
 
