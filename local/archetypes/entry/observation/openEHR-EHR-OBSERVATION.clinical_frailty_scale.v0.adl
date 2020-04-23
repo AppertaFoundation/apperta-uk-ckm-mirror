@@ -28,15 +28,15 @@ description
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
 		["custodian_organisation"] = <"openEHR Foundation">
 		["references"] = <"Rockwood K, Song X, MacKnight C, Bergman H, Hogan DB, McDowell I, Mitnitski A. A global clinical measure of fitness and frailty in elderly people. Canadian Medical Association Journal [Internet]. 2005 Aug 30 [cited 2019 Mar 29];173(5):489–95. Available from: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1188185/
+
 Clinical Frailty Scale [Internet]. Dalhousie University. Dalhousie University; 2019 [cited 2020 Apr 21]. Available from: https://www.dal.ca/sites/gmr/our-tools/clinical-frailty-scale.html">
 		["current_contact"] = <"Dr Paul Miller, NDS">
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"4E04A9F8A196C1E41BFE623F8E5149D5">
-		["build_uid"] = <"410064dd-ef45-4da7-893e-b5a61a236432">
-		["ip_acknowledgements"] = <"This archetype is drawn from the The Clinical Frailty Scale© (CFS), which is copyright to Dalhousie University.
-Implementers should consult the 'Permission for Use' section at https://www.dal.ca/sites/gmr/our-tools/clinical-frailty-scale.html for guidance on use.">
+		["MD5-CAM-1.0.1"] = <"438F1AC85359EF20EDAA26772FAC5B5E">
+		["build_uid"] = <"d2fdf029-0551-44fb-81e8-1dfcf1688cc7">
+		["ip_acknowledgements"] = <"This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomedct or info@snomed.org.">
 		["revision"] = <"0.0.1-alpha">
 	>
 
@@ -83,12 +83,13 @@ definition
 
 
 ontology
+	terminologies_available = <"SNOMED-CT", ...>
 	term_definitions = <
 		["en"] = <
 			items = <
 				["at0000"] = <
 					text = <"Clinical Frailty Scale">
-					description = <"Clinical Frailty Scale developed by the Geriatric Medicine Research Dept, Dalhousie University, Halifax, Canada.">
+					description = <"Clinical Frailty Scale (CFS) developed by the Geriatric Medicine Research Dept, Dalhousie University, Halifax, Canada. Sometimes referred to as the Rockwood Scale.">
 				>
 				["at0001"] = <
 					text = <"History">
@@ -159,6 +160,23 @@ ontology
 					description = <"Additional information required to extend the model with local content or to align with other reference models/formalisms.">
 					comment = <"For example: local information requirements; or additional metadata to align with FHIR.">
 				>
+			>
+		>
+	>
+	term_bindings = <
+		["SNOMED-CT"] = <
+			items = <
+				["at0004"] = <[SNOMED-CT::763264000]>
+				["at0000"] = <[SNOMED-CT::445414007]>
+				["at0005"] = <[SNOMED-CT::1129331000000101]>
+				["at0006"] = <[SNOMED-CT::1129341000000105]>
+				["at0007"] = <[SNOMED-CT::1129351000000108]>
+				["at0008"] = <[SNOMED-CT::1129361000000106]>
+				["at0009"] = <[SNOMED-CT::1129371000000104]>
+				["at0010"] = <[SNOMED-CT::1129381000000102]>
+				["at0013"] = <[SNOMED-CT::1129411000000100]>
+				["at0011"] = <[SNOMED-CT::1129391000000100]>
+				["at0012"] = <[SNOMED-CT::1129401000000102]>
 			>
 		>
 	>
