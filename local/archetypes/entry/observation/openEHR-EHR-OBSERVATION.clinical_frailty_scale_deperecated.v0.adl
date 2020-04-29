@@ -1,5 +1,5 @@
-﻿archetype (adl_version=1.4; uid=5addc784-f156-4f99-9752-4059f3ebd4a1)
-	openEHR-EHR-OBSERVATION.clinical_frailty_scale.v0
+﻿archetype (adl_version=1.4; uid=374c3312-f4ea-467e-85cd-17403d4516d2)
+	openEHR-EHR-OBSERVATION.clinical_frailty_scale_deperecated.v0
 
 concept
 	[at0000]	-- Clinical Frailty Scale
@@ -34,8 +34,8 @@ Clinical Frailty Scale [Internet]. Dalhousie University. Dalhousie University; 2
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"438F1AC85359EF20EDAA26772FAC5B5E">
-		["build_uid"] = <"d2fdf029-0551-44fb-81e8-1dfcf1688cc7">
+		["MD5-CAM-1.0.1"] = <"B5235F9AE519AA9EC9B02DA7DA01DB89">
+		["build_uid"] = <"dad0fd7e-d278-4468-977c-6f7ab6874a57">
 		["ip_acknowledgements"] = <"This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomedct or info@snomed.org.">
 		["revision"] = <"0.0.1-alpha">
 	>
