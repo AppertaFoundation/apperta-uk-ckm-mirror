@@ -48,7 +48,7 @@
             </item>
             <item>
                 <key>MD5-CAM-1.0.1</key>
-                <value>afd50d6cc059d70e2c5373dceb5047f0</value>
+                <value>6235405a93dc908aab85aa484ca575ef</value>
             </item>
             <item>
                 <key>PARENT:MD5-CAM-1.0.1</key>
@@ -57,6 +57,10 @@
             <item>
                 <key>sem_ver</key>
                 <value>0.2.0</value>
+            </item>
+            <item>
+                <key>original_language</key>
+                <value>ISO_639-1::en</value>
             </item>
         </other_details>
     </description>
@@ -97,6 +101,12 @@
             </Rule>
             <Rule max="0" path="/data[at0001]/items[at0029]"/>
             <Rule max="0" path="/protocol[at0031]/items[at0026]"/>
+        </Content>
+        <Content
+            archetype_id="openEHR-EHR-EVALUATION.special_patient_note.v0"
+            max="1" path="/content" xsi:type="tem:EVALUATION">
+            <Rule max="0" path="/data[at0001]/items[at0003]"/>
+            <Rule max="0" path="/data[at0001]/items[at0004]"/>
         </Content>
         <Content archetype_id="openEHR-EHR-ADMIN_ENTRY.care_team.v0"
             concept_name="Care team" max="1"
@@ -209,7 +219,7 @@
                 </Items>
                 <Items archetype_id="openEHR-EHR-CLUSTER.contact_cc.v0"
                     max="1"
-                    path="/items[at0021, 'Other important personal contacts']/items[at0023]" xsi:type="tem:CLUSTER">
+                    path="/items[at0021, 'People involved in decisions about your care']/items[at0023]" xsi:type="tem:CLUSTER">
                     <Rule max="0" path="/items[at0001]"/>
                     <Rule max="0" path="/items[at0013]"/>
                     <Rule max="0" path="/items[at0005]"/>
@@ -294,6 +304,12 @@
         xmlns:tem="openEHR/v1/Template"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
         <digest id="MD5-CAM-1.0.1">40152D512B48468201F8792F0F35E147</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-EVALUATION.special_patient_note.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">F580C7A8DC318FCF012391FDF866AAEB</digest>
     </integrity_checks>
     <integrity_checks
         archetype_id="openEHR-EHR-ADMIN_ENTRY.care_team.v0"
