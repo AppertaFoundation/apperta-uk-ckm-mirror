@@ -1,0 +1,103 @@
+﻿archetype (adl_version=1.4; uid=c5066a2d-2597-4ce3-9c03-224970f938db)
+	openEHR-EHR-EVALUATION.special_patient_note.v0
+
+concept
+	[at0000]	-- Special Patient Note
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Dr Paul Miller">
+		["organisation"] = <"NHS Education Scotland Digital Service (NDS)">
+		["email"] = <"paul.miller@nes.scot.nhs.uk">
+		["date"] = <"2019-05-10">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"this archetype is intended to support the Special Patient Note data in clinical record systems">
+			use = <"This archetype should be used for storing data relevant to the Special Patient Note as per the description">
+			keywords = <"Special Note, GPs, general practice, key information summary, KIS, ACP, eKIS, ECs, Emergency Care Summary", ...>
+			misuse = <"">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["references"] = <"Derived from: <Add reference to original resource here>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"F580C7A8DC318FCF012391FDF866AAEB">
+		["build_uid"] = <"73f6ca60-8112-4215-ab22-d6411b646c2a">
+		["ip_acknowledgements"] = <"This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomedct or info@snomed.org.">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	EVALUATION[at0000] matches {    -- Special Patient Note
+		data matches {
+			ITEM_TREE[at0001] matches {    -- ItemTree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0003] occurrences matches {0..1} matches {    -- Date Valid From
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+						name matches {
+							DV_CODED_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..1} matches {    -- Date Valid Until
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {    -- Special Note Text
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0006] matches {*}    -- ItemTree
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Special Patient Note">
+					description = <"Special Patient Note. This is the text comment normally added by general practices in the UK to provide additional free text information about the patient's care for use by unscheduled care services and other care providers as agreed by the local health and care system.
+Specifically in the UK the GP Special Note is a concept that forms part of the Key information Summary (KIS) which is completed by GP practices for patients for whom they wish additional information to be made available via the Emergency Care Summary and Key Information Summary service.">
+				>
+				["at0001"] = <
+					text = <"ItemTree">
+					description = <"@ internal @">
+				>
+				["at0003"] = <
+					text = <"Date Valid From">
+					description = <"Will normally be the date of authoring but users may wish to forward date in some cirumstances">
+				>
+				["at0004"] = <
+					text = <"Date Valid Until">
+					description = <"Most commonly will not be entered by users, but may be needed on occasions">
+				>
+				["at0005"] = <
+					text = <"Special Note Text">
+					description = <"The narrative text of the special note">
+				>
+				["at0006"] = <
+					text = <"ItemTree">
+					description = <"@ internal @">
+				>
+			>
+		>
+	>
