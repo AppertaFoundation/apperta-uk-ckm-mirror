@@ -22,7 +22,9 @@
             </item>
         </original_author>
         <lifecycle_state>unmanaged</lifecycle_state>
-        <details/>
+        <details>
+            <purpose>To record details of an SBAR Home Care assessment, aligned to the DaySix dataset.</purpose>
+        </details>
         <other_details>
             <item>
                 <key>licence</key>
@@ -143,7 +145,7 @@
         </items>
     </annotations>
     <definition archetype_id="openEHR-EHR-COMPOSITION.encounter.v1"
-        concept_name="Encounter" name="NDS - SBAR_Care_Home.v0.0"
+        concept_name="Encounter" name="SBAR Care Home Assessment"
         xmlns:tem="openEHR/v1/Template"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:COMPOSITION">
         <Content archetype_id="openEHR-EHR-SECTION.adhoc.v1"
@@ -1195,55 +1197,6 @@
                 name="Covid notes" path="/items" xsi:type="tem:EVALUATION"/>
         </Content>
         <Content archetype_id="openEHR-EHR-SECTION.adhoc.v1"
-            concept_name="Ad hoc heading" max="1" name="Response"
-            path="/content" xsi:type="tem:SECTION">
-            <Item
-                archetype_id="openEHR-EHR-EVALUATION.clinical_synopsis.v1"
-                concept_name="Clinical synopsis" max="1"
-                name="Actions taken" path="/items" xsi:type="tem:EVALUATION"/>
-            <Item archetype_id="openEHR-EHR-ACTION.service.v0"
-                concept_name="Service" name="Specific Actions"
-                path="/items" xsi:type="tem:ACTION">
-                <Rule max="0" min="0" path="/ism_transition[at0002]"/>
-                <Rule max="0" min="0" path="/ism_transition[at0026]"/>
-                <Rule max="0" min="0" path="/ism_transition[at0008]"/>
-                <Rule max="0" min="0" path="/ism_transition[at0003]"/>
-                <Rule max="0" min="0" path="/ism_transition[at0010]"/>
-                <Rule max="0" min="0" path="/ism_transition[at0006]"/>
-                <Rule max="0" min="0" path="/ism_transition[at0023]"/>
-                <Rule max="0" min="0" path="/ism_transition[at0005]"/>
-                <Rule path="/description[at0001]/items[at0011]">
-                    <constraint xsi:type="tem:textConstraint">
-                        <includedValues>Intake monitoring</includedValues>
-                        <includedValues>Vitals monitoring</includedValues>
-                        <includedValues>Lab samples taken</includedValues>
-                        <includedValues>Neuro observations performed</includedValues>
-                        <includedValues>Isolation performed</includedValues>
-                        <includedValues>Scheduled reassessment</includedValues>
-                        <includedValues>Request Top cover</includedValues>
-                    </constraint>
-                </Rule>
-                <Rule default="Covid-19 assessment" max="0" path="/description[at0001]/items[at0014]"/>
-                <Rule max="0" path="/description[at0001]/items[at0013]"/>
-                <Rule max="0" path="/description[at0001]/items[at0025]"/>
-                <Rule max="0" path="/description[at0001]/items[at0021]">
-                    <constraint xsi:type="tem:countConstraint">
-                        <minMagnitude>0</minMagnitude>
-                        <includesMaximum>false</includesMaximum>
-                        <includesMinimum>true</includesMinimum>
-                    </constraint>
-                </Rule>
-                <Rule max="0" path="/description[at0001]/items[at0012]"/>
-                <Rule max="0" path="/description[at0001]/items[at0028]"/>
-                <Rule max="0" path="/protocol[at0015]/items[at0016]"/>
-                <Rule max="0" path="/protocol[at0015]/items[at0018]"/>
-            </Item>
-            <Item
-                archetype_id="openEHR-EHR-EVALUATION.clinical_synopsis.v1"
-                concept_name="Clinical synopsis" max="1"
-                name="Management notes" path="/items" xsi:type="tem:EVALUATION"/>
-        </Content>
-        <Content archetype_id="openEHR-EHR-SECTION.adhoc.v1"
             concept_name="Ad hoc heading" max="1" name="Assessment"
             path="/content" xsi:type="tem:SECTION">
             <Item archetype_id="openEHR-EHR-OBSERVATION.denwis.v0"
@@ -1709,6 +1662,55 @@
                 concept_name="Clinical synopsis" max="1"
                 name="Assessment notes" path="/items" xsi:type="tem:EVALUATION"/>
         </Content>
+        <Content archetype_id="openEHR-EHR-SECTION.adhoc.v1"
+            concept_name="Ad hoc heading" max="1" name="Response"
+            path="/content" xsi:type="tem:SECTION">
+            <Item
+                archetype_id="openEHR-EHR-EVALUATION.clinical_synopsis.v1"
+                concept_name="Clinical synopsis" max="1"
+                name="Actions taken" path="/items" xsi:type="tem:EVALUATION"/>
+            <Item archetype_id="openEHR-EHR-ACTION.service.v0"
+                concept_name="Service" name="Specific Actions"
+                path="/items" xsi:type="tem:ACTION">
+                <Rule max="0" min="0" path="/ism_transition[at0002]"/>
+                <Rule max="0" min="0" path="/ism_transition[at0026]"/>
+                <Rule max="0" min="0" path="/ism_transition[at0008]"/>
+                <Rule max="0" min="0" path="/ism_transition[at0003]"/>
+                <Rule max="0" min="0" path="/ism_transition[at0010]"/>
+                <Rule max="0" min="0" path="/ism_transition[at0006]"/>
+                <Rule max="0" min="0" path="/ism_transition[at0023]"/>
+                <Rule max="0" min="0" path="/ism_transition[at0005]"/>
+                <Rule path="/description[at0001]/items[at0011]">
+                    <constraint xsi:type="tem:textConstraint">
+                        <includedValues>Intake monitoring</includedValues>
+                        <includedValues>Vitals monitoring</includedValues>
+                        <includedValues>Lab samples taken</includedValues>
+                        <includedValues>Neuro observations performed</includedValues>
+                        <includedValues>Isolation performed</includedValues>
+                        <includedValues>Scheduled reassessment</includedValues>
+                        <includedValues>Request Top cover</includedValues>
+                    </constraint>
+                </Rule>
+                <Rule default="Covid-19 assessment" max="0" path="/description[at0001]/items[at0014]"/>
+                <Rule max="0" path="/description[at0001]/items[at0013]"/>
+                <Rule max="0" path="/description[at0001]/items[at0025]"/>
+                <Rule max="0" path="/description[at0001]/items[at0021]">
+                    <constraint xsi:type="tem:countConstraint">
+                        <minMagnitude>0</minMagnitude>
+                        <includesMaximum>false</includesMaximum>
+                        <includesMinimum>true</includesMinimum>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/description[at0001]/items[at0012]"/>
+                <Rule max="0" path="/description[at0001]/items[at0028]"/>
+                <Rule max="0" path="/protocol[at0015]/items[at0016]"/>
+                <Rule max="0" path="/protocol[at0015]/items[at0018]"/>
+            </Item>
+            <Item
+                archetype_id="openEHR-EHR-EVALUATION.clinical_synopsis.v1"
+                concept_name="Clinical synopsis" max="1"
+                name="Management notes" path="/items" xsi:type="tem:EVALUATION"/>
+        </Content>
         <Context>
             <Items archetype_id="openEHR-EHR-CLUSTER.xds_metadata.v0"
                 max="1"
@@ -1765,7 +1767,7 @@
         archetype_id="openEHR-EHR-EVALUATION.cpr_decision_uk.v0"
         xmlns:tem="openEHR/v1/Template"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
-        <digest id="MD5-CAM-1.0.1">40CBAF5A01D32E8917DDDFD752562AF4</digest>
+        <digest id="MD5-CAM-1.0.1">E37E04B211256676D357F175E28E71C6</digest>
     </integrity_checks>
     <integrity_checks
         archetype_id="openEHR-EHR-OBSERVATION.condition_screening.v0"
@@ -1802,11 +1804,6 @@
         xmlns:tem="openEHR/v1/Template"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
         <digest id="MD5-CAM-1.0.1">C73B6234DE67D5588E6486968624168B</digest>
-    </integrity_checks>
-    <integrity_checks archetype_id="openEHR-EHR-ACTION.service.v0"
-        xmlns:tem="openEHR/v1/Template"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
-        <digest id="MD5-CAM-1.0.1">7E061EECABAC057F17CABCB1FDBAA7C1</digest>
     </integrity_checks>
     <integrity_checks archetype_id="openEHR-EHR-OBSERVATION.denwis.v0"
         xmlns:tem="openEHR/v1/Template"
@@ -1879,5 +1876,10 @@
         xmlns:tem="openEHR/v1/Template"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
         <digest id="MD5-CAM-1.0.1">82a300cd4f7dc0878063f18d293f7c38</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-ACTION.service.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">7E061EECABAC057F17CABCB1FDBAA7C1</digest>
     </integrity_checks>
 </template>
