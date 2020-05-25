@@ -8,8 +8,8 @@ language
 description
 	original_author = <
 		["name"] = <"Ian McNicoll">
-		["organisation"] = <"Ocean Informatics, UK">
-		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+		["organisation"] = <"freshEHR, UK">
+		["email"] = <"ian@freshehr.com">
 		["date"] = <"2013-10-11">
 	>
 	details = <
@@ -23,14 +23,14 @@ This archetype is closely aligned with with the UK Information Standards Board (
 Some patients with capacity to make their own decision may refuse attempted cardio pulmonary resuscitation in advance. These decisions have to be registered as part of an advance decision to refuse treatment (ADRT).">
 			keywords = <"DNACPR", "resuscitation", "EoL", "directive", "preference">
 			misuse = <"This archetype should not be used to convey the results of other advanced directives, patient preferences or resusciation activity *e.g. suction) which falls short of full cardio-pulminary resuscitation.">
-			copyright = <"© Clinical Models UK">
+			copyright = <"© Apperta Foundation">
 		>
 	>
 	lifecycle_state = <"in_development">
 	other_contributors = <>
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
-		["custodian_organisation"] = <"UK Clinical Models">
+		["custodian_organisation"] = <"Appeet Foundation">
 		["references"] = <"Information Standards Board ISB Data Dictionary Available at http://www.datadictionary.nhs.uk/
 
 End of Life Care Co-ordination: Core Content Standard Specification Available at http://www.isb.nhs.uk/documents/isb-1580/amd-29-2012/index_html
@@ -40,9 +40,10 @@ NHS Scotland Key Information Summary
 Leeds ePaccs team">
 		["original_namespace"] = <"uk.org.clinicalmodels">
 		["original_publisher"] = <"UK Clinical Models">
-		["custodian_namespace"] = <"uk.org.clinicalmodels">
-		["MD5-CAM-1.0.1"] = <"40CBAF5A01D32E8917DDDFD752562AF4">
-		["build_uid"] = <"21dc9cdb-6255-4165-bdaf-d64785e73c82">
+		["custodian_namespace"] = <"uk.org.apperta">
+		["MD5-CAM-1.0.1"] = <"E37E04B211256676D357F175E28E71C6">
+		["build_uid"] = <"87ccfa0a-57f8-4345-9da5-f3a7d334939d">
+		["ip_acknowledgements"] = <"This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomedct or info@snomed.org.">
 		["revision"] = <"0.0.1-alpha">
 	>
 
@@ -113,7 +114,8 @@ definition
 								defining_code matches {
 									[local::
 									at0018,    -- CPR form completed
-									at0019]    -- CPR form not completed
+									at0019,    -- CPR form not completed
+									at0029]    -- CPR form status unknown
 								}
 							}
 						}
@@ -275,6 +277,10 @@ ontology
 				["at0028"] = <
 					text = <"Details for Modified CPR child only">
 					description = <"Narrative description of modification where modified CPR for child only has been selected.">
+				>
+				["at0029"] = <
+					text = <"CPR form status unknown">
+					description = <"The completion status of the CPR form is not known.">
 				>
 			>
 		>
