@@ -1,0 +1,258 @@
+﻿archetype (adl_version=1.4; uid=15825dd9-8fd4-4400-ab1e-8fc61134cac0)
+	openEHR-EHR-OBSERVATION.multiple_myeloma_revised_international_staging_system.v0
+
+concept
+	[at0000]	-- Multiple Myeloma Revised International Staging System
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Amit Patel">
+		["organisation"] = <"NHS Wales Informatics Service">
+		["date"] = <"2020-06-17">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Staging system prognosticates the severity of multiple myeloma based on routinely obtained lab values. Revised ISS extends staging for myeloma patients based on the genetics and other routinely used lab values in conjunction with the original ISS Staging System.">
+			use = <"Use only in patients recently diagnosed with multiple myeloma.">
+			keywords = <"ISS, R-ISS, myeloma, staging", ...>
+			misuse = <"Do not use in patients with relapsed myeloma, smoldering myeloma or Non-IgM monoclonal gammopathy of undetermined significance (MGUS).">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <"John Meredith", "Dr Ian McNicoll">
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["references"] = <"International Myeloma Working Group (IMWG) criteria for the diagnosis of multiple myeloma; https://www.myeloma.org/international-myeloma-working-group-imwg-criteria-diagnosis-multiple-myeloma
+MacMillan Staging of Myeloma; https://www.macmillan.org.uk/cancer-information-and-support/myeloma/staging-of-myeloma">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"94FA5CD779D8783C1456167253D6BEFF">
+		["build_uid"] = <"44751608-489b-4be4-a93b-ff2e1b5716d1">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- Multiple Myeloma Revised International Staging System
+		data matches {
+			HISTORY[at0001] matches {    -- History
+				events cardinality matches {0..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..*} matches {    -- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {    -- ISS type
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0005,    -- ISS
+													at0006]    -- R-ISS
+												}
+											}
+										}
+									}
+									ELEMENT[at0007] occurrences matches {0..1} matches {    -- ISS stage date
+										value matches {
+											DV_DATE matches {*}
+										}
+									}
+									ELEMENT[at0012] occurrences matches {0..1} matches {    -- Serum β2 microglobulin
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0013,    -- <3.5 mg/L
+													at0014,    -- 3.5-5.4 mg/L
+													at0015]    -- >5.4 mg/L
+												}
+											}
+										}
+									}
+									ELEMENT[at0016] occurrences matches {0..1} matches {    -- Serum albumin
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0017,    -- <3.5 g/dL
+													at0018]    -- ≥3.5 g/dl
+												}
+											}
+										}
+									}
+									ELEMENT[at0019] occurrences matches {0..1} matches {    -- Chromosomal abnormality (CA) risk
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0020,    -- Standard
+													at0021]    -- High
+												}
+											}
+										}
+									}
+									ELEMENT[at0022] occurrences matches {0..1} matches {    -- LDH
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0023,    -- Normal
+													at0024]    -- High
+												}
+											}
+										}
+									}
+									ELEMENT[at0008] occurrences matches {0..1} matches {    -- Overall Staging
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0009,    -- I
+													at0010,    -- II
+													at0011]    -- III
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0029] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0030] occurrences matches {0..*} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Multiple Myeloma Revised International Staging System">
+					description = <"Multiple Myeloma Revised International Staging System incorporating original ISS staging system.">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"Default, unspecified point in time event which may be explicitly defined in a template or at run-time.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"ISS type">
+					description = <"Staging type according to original (ISS) or revised (R-ISS) system.">
+					comment = <"CA risk and LDH only for use with R-ISS. ">
+				>
+				["at0005"] = <
+					text = <"ISS">
+					description = <"Original ISS Staging.">
+				>
+				["at0006"] = <
+					text = <"R-ISS">
+					description = <"Revised ISS Staging.">
+				>
+				["at0007"] = <
+					text = <"ISS stage date">
+					description = <"Date where ISS staging was agreed.">
+				>
+				["at0008"] = <
+					text = <"Overall Staging">
+					description = <"Overall myeloma stage.">
+				>
+				["at0009"] = <
+					text = <"I">
+					description = <"Stage I.">
+				>
+				["at0010"] = <
+					text = <"II">
+					description = <"Stage II.">
+				>
+				["at0011"] = <
+					text = <"III">
+					description = <"Stage III.">
+				>
+				["at0012"] = <
+					text = <"Serum β2 microglobulin">
+					description = <"Category for Serum β2 microglobulin measurment.">
+				>
+				["at0013"] = <
+					text = <"<3.5 mg/L">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"3.5-5.4 mg/L">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <">5.4 mg/L">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"Serum albumin">
+					description = <"Category for Serum albumin measurement.">
+				>
+				["at0017"] = <
+					text = <"<3.5 g/dL">
+					description = <"">
+				>
+				["at0018"] = <
+					text = <"≥3.5 g/dl">
+					description = <"">
+				>
+				["at0019"] = <
+					text = <"Chromosomal abnormality (CA) risk">
+					description = <"Risk of chromosomal abnormality.">
+					comment = <"Only for inclusion within revised system (R-ISS).">
+				>
+				["at0020"] = <
+					text = <"Standard">
+					description = <"Standard-risk chromosomal abnormalities (CA).">
+				>
+				["at0021"] = <
+					text = <"High">
+					description = <"High-risk chromosomal abnormalities (CA) by FISH.">
+				>
+				["at0022"] = <
+					text = <"LDH">
+					description = <"LDH measurement category relative to normal upper limit.">
+					comment = <"Only for inclusion within revised system (R-ISS).">
+				>
+				["at0023"] = <
+					text = <"Normal">
+					description = <"Normal (< upper limit of normal).">
+				>
+				["at0024"] = <
+					text = <"High">
+					description = <"High (> upper limit of normal).">
+				>
+				["at0029"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0030"] = <
+					text = <"Extension">
+					description = <"Additional information required to extend the model with local content or to align with other reference models/formalisms.">
+				>
+			>
+		>
+	>
