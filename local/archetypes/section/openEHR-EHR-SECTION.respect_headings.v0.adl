@@ -30,29 +30,22 @@ description
 		["original_namespace"] = <"uk.org.clinicalmodels">
 		["original_publisher"] = <"UK Clinical Models">
 		["custodian_namespace"] = <"uk.org.clinicalmodels">
-		["MD5-CAM-1.0.1"] = <"A1030EE109C62C1994B2B6DEB4DCA3A2">
-		["build_uid"] = <"9ace90ff-4e80-4da7-b31d-cfdfaa670720">
+		["MD5-CAM-1.0.1"] = <"2E0AA632D4E2F4960CA7B1F13AE680C9">
+		["build_uid"] = <"3af45ed9-0a5b-4fe9-8949-d46c323bd95b">
 		["revision"] = <"0.0.1-alpha">
 	>
 
 definition
-	SECTION[at0000] matches {	-- ReSPECT headings
+	SECTION[at0000] matches {    -- ReSPECT headings
 		items cardinality matches {1..*; unordered} matches {
-			SECTION[at0001] occurrences matches {0..1} matches {	-- 2. Summary of relevant information
-				items cardinality matches {1..*; unordered} matches {
-					SECTION[at0013] occurrences matches {0..1} matches {*}
-					SECTION[at0002] occurrences matches {0..1} matches {*}
-					SECTION[at0003] occurrences matches {0..1} matches {*}
-					SECTION[at0005] occurrences matches {0..1} matches {*}
-				}
-			}
-			SECTION[at0006] occurrences matches {0..1} matches {*}
-			SECTION[at0007] occurrences matches {0..1} matches {*}
-			SECTION[at0008] occurrences matches {0..1} matches {*}
-			SECTION[at0009] occurrences matches {0..1} matches {*}
-			SECTION[at0010] occurrences matches {0..1} matches {*}
-			SECTION[at0011] occurrences matches {0..1} matches {*}
-			SECTION[at0012] occurrences matches {0..1} matches {*}
+			SECTION[at0001] occurrences matches {0..1} matches {*}    -- 2. Shared understanding
+			SECTION[at0006] occurrences matches {0..1} matches {*}    -- 3. What matters to me
+			SECTION[at0007] occurrences matches {0..1} matches {*}    -- 4. Clinical recommendations
+			SECTION[at0008] occurrences matches {0..1} matches {*}    -- 5. Capacity for involvement
+			SECTION[at0009] occurrences matches {0..1} matches {*}    -- 6. Involvement in making plan
+			SECTION[at0010] occurrences matches {0..1} matches {*}    -- 7. Clinician signatures
+			SECTION[at0011] occurrences matches {0..1} matches {*}    -- 8. Emergency contacts
+			SECTION[at0012] occurrences matches {0..1} matches {*}    -- 9. Review of Plan
 		}
 	}
 
@@ -66,23 +59,11 @@ ontology
 					description = <"Top level heading for capturing details of ReSPECT process.">
 				>
 				["at0001"] = <
-					text = <"2. Summary of relevant information">
+					text = <"2. Shared understanding">
 					description = <"Heading containing summary of relevant information for the ReSPECT process.">
 				>
-				["at0002"] = <
-					text = <"2.1 Key diagnoses">
-					description = <"Details of the key diagnoses leading to the need for a ReSPECT form.">
-				>
-				["at0003"] = <
-					text = <"2.2 Other relevant conditions">
-					description = <"Details of other significant conditions relevant to the ReSPECT form.">
-				>
-				["at0005"] = <
-					text = <"2.3 Other relevant planning documents">
-					description = <"Details of other relevant planning documents and where to find them (e.g. Advance Decision to Refuse Treatment, Advance Care Plan). Also include known wishes about organ donation.">
-				>
 				["at0006"] = <
-					text = <"3. Personal preferences">
+					text = <"3. What matters to me">
 					description = <"Details of personal preferences to guide this ReSPECT plan (where the person has capacity).">
 				>
 				["at0007"] = <
@@ -90,7 +71,7 @@ ontology
 					description = <"Summary of clinical recommendations for emergency care and treatment.">
 				>
 				["at0008"] = <
-					text = <"5. Capacity and representation">
+					text = <"5. Capacity for involvement">
 					description = <"Details of capacity and representation at the time of completion of the ReSPECT form.">
 				>
 				["at0009"] = <
@@ -107,12 +88,8 @@ ontology
 					description = <"Details of emergency contacts for ReSPECT plan.">
 				>
 				["at0012"] = <
-					text = <"9. Confirmation of validity">
+					text = <"9. Review of Plan">
 					description = <"Details of review dates and clinician for the confirmation of validity (e.g. for change of condition).">
-				>
-				["at0013"] = <
-					text = <"2.0 Relevant information">
-					description = <"Narrative and structured details of relevant information.">
 				>
 			>
 		>
