@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <template xmlns="openEHR/v1/Template">
     <id>fbfd510c-636b-40b4-b0f6-58eedb5da03d</id>
-    <name>NHS_Care_Scotland-NDS-Anticipatory_Care_Plan-ReSPECT-V0.3.1</name>
+    <name>NHS_Care_Scotland-NDS-Anticipatory_Care_Plan-ReSPECT-V0.3.1 (1)</name>
     <description>
         <original_author>
             <item>
@@ -85,6 +85,10 @@ https://www.resus.org.uk/respect/</purpose>
                 <key>PARENT:MD5-CAM-1.0.1</key>
                 <value>1DA7D8EDC23CF1B673C05E6E8FE28EB1</value>
             </item>
+            <item>
+                <key>original_language</key>
+                <value>ISO_639-1::en</value>
+            </item>
         </other_details>
     </description>
     <annotations path="[openEHR-EHR-COMPOSITION.report.v1]">
@@ -92,38 +96,6 @@ https://www.resus.org.uk/respect/</purpose>
             <item>
                 <key>Notes.Authors Note</key>
                 <value>This description may be useful to display in the UI: Document to communicate relevant patient information and summary recommendations from ReSPECT (Recommended Summary Plan for Emergency Care and Treatment) process.</value>
-            </item>
-        </items>
-    </annotations>
-    <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0001]/items[at0002]/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1]/data[at0001]/items[at0002]">
-        <items>
-            <item>
-                <key>Notes.Authors Note</key>
-                <value>This description would be useful to display in the UI where appropriate: The name of the key diagnosis, preferrably coded, e.g. 'Bronchial carcinoma'.</value>
-            </item>
-        </items>
-    </annotations>
-    <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0001]/items[at0002]/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1]">
-        <items>
-            <item>
-                <key>Notes.Authors Note</key>
-                <value>This description would be useful to display in the UI where appropriate: One or more key diagnoses leading to the need for a ReSPECT form.</value>
-            </item>
-        </items>
-    </annotations>
-    <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0001]/items[at0003]/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1]/data[at0001]/items[at0002]">
-        <items>
-            <item>
-                <key>Notes.Authors Note</key>
-                <value>This description may be useful in the UI: The name of other significant condition relevant to the ReSPECT form, preferrable coded, e.g. 'Diabetes'.</value>
-            </item>
-        </items>
-    </annotations>
-    <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0001]/items[at0003]/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1]">
-        <items>
-            <item>
-                <key>Notes.Authors Note</key>
-                <value>This description might be useful to display in the UI: Details of other significant conditions relevant to the ReSPECT form, e.g. Diabetes.</value>
             </item>
         </items>
     </annotations>
@@ -153,142 +125,100 @@ https://www.resus.org.uk/respect/</purpose>
     </annotations>
     <definition archetype_id="openEHR-EHR-COMPOSITION.report.v1"
         concept_name="Report"
-        name="NHS_Care_Scotland-NDS-Anticipatory_Care_Plan-ReSPECT-V0.3.1"
+        name="NHS_Care_Scotland-NDS-Anticipatory_Care_Plan-ReSPECT"
         xmlns:tem="openEHR/v1/Template"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:COMPOSITION">
         <Content archetype_id="openEHR-EHR-SECTION.respect_headings.v0"
             path="/content" xsi:type="tem:SECTION">
-            <Rule max="0" path="/items[at0001]/items[at0002]"/>
-            <Rule max="0" path="/items[at0001]/items[at0003]"/>
             <Item
                 archetype_id="openEHR-EHR-EVALUATION.clinical_synopsis.v1"
-                concept_name="Clinical Synopsis" name="ReSPECT summary"
-                path="/items[at0001]/items[at0013]/items" xsi:type="tem:EVALUATION">
-                <Rule name="Narrative summary" path="/data[at0001]/items[at0002]"/>
-            </Item>
-            <Item
-                archetype_id="openEHR-EHR-ADMIN_ENTRY.respect_summary.v0"
-                concept_name="ReSPECT summary" max="0"
-                name="ReSPECT admin"
-                path="/items[at0001]/items[at0013]/items" xsi:type="tem:ADMIN_ENTRY">
-                <Rule max="0" path="/data[at0001]/items[at0002]"/>
-                <Items
-                    archetype_id="openEHR-EHR-CLUSTER.interpreter_details_uk.v0"
-                    concept_name="Interpreter details UK"
-                    name="Interpreter details"
-                    path="/data[at0001]/items[at0004]" xsi:type="tem:CLUSTER">
-                    <Rule max="0" path="/items[at0009]">
-                        <constraint xsi:type="tem:multipleConstraint">
-                            <includedTypes>Coded_text</includedTypes>
-                            <includedTypes>Text</includedTypes>
-                        </constraint>
-                    </Rule>
-                    <Rule max="0" path="/items[at0027]"/>
-                    <Rule max="0" path="/items[at0003]"/>
-                    <Items
-                        archetype_id="openEHR-EHR-CLUSTER.language.v1"
-                        path="/items[at0031]" xsi:type="tem:CLUSTER">
-                        <Rule max="0" path="/items[at0002]"/>
-                        <Rule max="0" path="/items[at0006]"/>
-                    </Items>
-                </Items>
-            </Item>
-            <Item
-                archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v1"
-                path="/items[at0001]/items[at0002]/items" xsi:type="tem:EVALUATION">
-                <Rule name="Key diagnosis" path="/data[at0001]/items[at0002]"/>
-                <Rule max="0" path="/data[at0001]/items[at0012]"/>
-                <Rule max="0" path="/data[at0001]/items[at0077]"/>
-                <Rule max="0" path="/data[at0001]/items[at0003]"/>
-                <Rule max="0" path="/data[at0001]/items[at0005]">
-                    <constraint xsi:type="tem:multipleConstraint">
-                        <includedTypes>Coded_text</includedTypes>
-                        <includedTypes>Text</includedTypes>
-                    </constraint>
-                </Rule>
-                <Rule max="0" path="/data[at0001]/items[at0072]"/>
-                <Rule max="0" path="/data[at0001]/items[at0030]"/>
-                <Rule max="0" path="/data[at0001]/items[at0073]">
-                    <constraint xsi:type="tem:multipleConstraint">
-                        <includedTypes>Coded_text</includedTypes>
-                        <includedTypes>Text</includedTypes>
-                    </constraint>
-                </Rule>
-                <Rule max="0" path="/data[at0001]/items[at0069]"/>
-                <Rule max="0" path="/protocol[at0032]/items[at0070]"/>
-            </Item>
-            <Item
-                archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v1"
-                path="/items[at0001]/items[at0003]/items" xsi:type="tem:EVALUATION">
-                <Rule name="Other relevant condition" path="/data[at0001]/items[at0002]"/>
-                <Rule max="0" path="/data[at0001]/items[at0012]"/>
-                <Rule max="0" path="/data[at0001]/items[at0077]"/>
-                <Rule max="0" path="/data[at0001]/items[at0003]"/>
-                <Rule max="0" path="/data[at0001]/items[at0005]">
-                    <constraint xsi:type="tem:multipleConstraint">
-                        <includedTypes>Coded_text</includedTypes>
-                        <includedTypes>Text</includedTypes>
-                    </constraint>
-                </Rule>
-                <Rule max="0" path="/data[at0001]/items[at0072]"/>
-                <Rule max="0" path="/data[at0001]/items[at0030]"/>
-                <Rule max="0" path="/data[at0001]/items[at0073]">
-                    <constraint xsi:type="tem:multipleConstraint">
-                        <includedTypes>Coded_text</includedTypes>
-                        <includedTypes>Text</includedTypes>
-                    </constraint>
-                </Rule>
-                <Rule max="0" path="/data[at0001]/items[at0069]"/>
-                <Rule max="0" path="/protocol[at0032]/items[at0070]"/>
+                concept_name="Clinical Synopsis" max="1"
+                name="ReSPECT Summary" path="/items[at0001]/items" xsi:type="tem:EVALUATION">
+                <Rule name="Narrative Summary" path="/data[at0001]/items[at0002]"/>
             </Item>
             <Item
                 archetype_id="openEHR-EHR-EVALUATION.advance_planning_documentation.v0"
-                path="/items[at0001]/items[at0005]/items" xsi:type="tem:EVALUATION">
+                max="1" path="/items[at0001]/items" xsi:type="tem:EVALUATION">
                 <Rule max="0" path="/data[at0001]/items[at0003]"/>
-                <Items archetype_id="openEHR-EHR-CLUSTER.multimedia.v0"
-                    concept_name="Multimedia Resource"
-                    name="Link to document"
-                    path="/data[at0001]/items[at0003]/items[at0005]" xsi:type="tem:CLUSTER">
-                    <Rule max="0" path="/items[at0002]"/>
-                    <Rule max="0" path="/items[at0005]"/>
-                    <Rule name="Link to document" path="/items[at0001]"/>
-                    <Rule max="0" path="/items[at0008]"/>
-                    <Rule max="0" path="/items[at0003]"/>
-                    <Rule max="0" path="/items[at0009]"/>
-                    <Rule max="0" path="/items[at0004]"/>
-                    <Rule max="0" path="/items[at0006]"/>
-                    <Rule max="0" path="/items[at0007]"/>
-                </Items>
             </Item>
             <Item
-                archetype_id="openEHR-EHR-ADMIN_ENTRY.organ_donation_preferences.v0"
-                max="0" path="/items[at0001]/items[at0005]/items" xsi:type="tem:ADMIN_ENTRY"/>
+                archetype_id="openEHR-EHR-ADMIN_ENTRY.capacity_respect.v0"
+                concept_name="Capacity ReSPECT" max="1"
+                name="Legal welfare proxy in place"
+                path="/items[at0001]/items" xsi:type="tem:ADMIN_ENTRY">
+                <Rule max="0" path="/data[at0001]/items[at0002]"/>
+                <Rule max="0" path="/data[at0001]/items[at0008]"/>
+            </Item>
             <Item
                 archetype_id="openEHR-EHR-EVALUATION.care_preference_uk.v0"
-                path="/items[at0006]/items" xsi:type="tem:EVALUATION">
+                concept_name="Preferred priorities of care" max="1"
+                name="What matters to me" path="/items[at0006]/items" xsi:type="tem:EVALUATION">
                 <Rule max="0" path="/data[at0001]/items[at0003]"/>
                 <Rule max="0" path="/data[at0001]/items[at0034]"/>
                 <Rule max="0" path="/data[at0001]/items[at0015]"/>
                 <Rule max="0" path="/data[at0001]/items[at0036]"/>
                 <Rule max="0" path="/data[at0001]/items[at0030]"/>
                 <Rule max="0" path="/data[at0001]/items[at0029]"/>
-                <Rule name="Patient care priority" path="/data[at0001]/items[at0038]"/>
+                <Rule max="0" name="Patient care priority" path="/data[at0001]/items[at0038]"/>
+                <Rule max="0" path="/protocol[at0031]/items[at0026]"/>
+            </Item>
+            <Item
+                archetype_id="openEHR-EHR-EVALUATION.care_preference_uk.v0"
+                concept_name="Preferred priorities of care" max="1"
+                name="What I most value" path="/items[at0006]/items" xsi:type="tem:EVALUATION">
+                <Rule max="0" path="/data[at0001]/items[at0003]"/>
+                <Rule max="0" path="/data[at0001]/items[at0034]"/>
+                <Rule max="0" path="/data[at0001]/items[at0015]"/>
+                <Rule max="0" path="/data[at0001]/items[at0036]"/>
+                <Rule max="0" path="/data[at0001]/items[at0030]"/>
+                <Rule max="0" path="/data[at0001]/items[at0029]"/>
+                <Rule max="0" path="/data[at0001]/items[at0039]">
+                    <constraint xsi:type="tem:countConstraint">
+                        <maxMagnitude>100</maxMagnitude>
+                        <minMagnitude>1</minMagnitude>
+                        <includesMaximum>true</includesMaximum>
+                        <includesMinimum>true</includesMinimum>
+                    </constraint>
+                </Rule>
+                <Rule name="What I most value" path="/data[at0001]/items[at0038]"/>
+                <Rule max="0" path="/protocol[at0031]/items[at0026]"/>
+            </Item>
+            <Item
+                archetype_id="openEHR-EHR-EVALUATION.care_preference_uk.v0"
+                concept_name="Preferred priorities of care" max="1"
+                name="What I most fear" path="/items[at0006]/items" xsi:type="tem:EVALUATION">
+                <Rule max="0" path="/data[at0001]/items[at0003]"/>
+                <Rule max="0" path="/data[at0001]/items[at0034]"/>
+                <Rule max="0" path="/data[at0001]/items[at0015]"/>
+                <Rule max="0" path="/data[at0001]/items[at0036]"/>
+                <Rule max="0" path="/data[at0001]/items[at0030]"/>
+                <Rule max="0" path="/data[at0001]/items[at0029]"/>
+                <Rule max="0" path="/data[at0001]/items[at0039]">
+                    <constraint xsi:type="tem:countConstraint">
+                        <maxMagnitude>100</maxMagnitude>
+                        <minMagnitude>1</minMagnitude>
+                        <includesMaximum>true</includesMaximum>
+                        <includesMinimum>true</includesMinimum>
+                    </constraint>
+                </Rule>
+                <Rule name="What I most fear" path="/data[at0001]/items[at0038]"/>
                 <Rule max="0" path="/protocol[at0031]/items[at0026]"/>
             </Item>
             <Item
                 archetype_id="openEHR-EHR-EVALUATION.recommendation.v1"
-                path="/items[at0007]/items" xsi:type="tem:EVALUATION">
+                max="1" path="/items[at0007]/items" xsi:type="tem:EVALUATION">
                 <Rule max="1" name="Clinical focus" path="/data[at0001]/items[at0002]">
                     <constraint xsi:type="tem:textConstraint">
-                        <includedValues>Life-sustaining treatment</includedValues>
-                        <includedValues>Symptom control</includedValues>
+                        <includedValues>Prioritise extending life</includedValues>
+                        <includedValues>Balance extending life with comfort and valued outcomes</includedValues>
+                        <includedValues>Prioritise comfort</includedValues>
                     </constraint>
                 </Rule>
                 <Rule max="1" name="Clinical guidance on interventions" path="/data[at0001]/items[at0003]"/>
             </Item>
             <Item
                 archetype_id="openEHR-EHR-EVALUATION.cpr_decision_uk.v0"
-                path="/items[at0007]/items" xsi:type="tem:EVALUATION">
+                max="1" path="/items[at0007]/items" xsi:type="tem:EVALUATION">
                 <Rule max="0" path="/data[at0001]/items[at0028]"/>
                 <Rule max="0" path="/data[at0001]/items[at0006]"/>
                 <Rule max="0" path="/data[at0001]/items[at0012]"/>
@@ -306,30 +236,22 @@ https://www.resus.org.uk/respect/</purpose>
             </Item>
             <Item
                 archetype_id="openEHR-EHR-ADMIN_ENTRY.capacity_respect.v0"
-                path="/items[at0008]/items" xsi:type="tem:ADMIN_ENTRY">
-                <Items archetype_id="openEHR-EHR-CLUSTER.name_cc.v0"
-                    max="0" path="/data[at0001]/items[at0007]" xsi:type="tem:CLUSTER">
-                    <Rule
-                        name="Name of person holding parental responsibility" path="/items[at0009]"/>
-                    <Rule max="0" path="/items[at0010]"/>
-                    <Rule max="0" path="/items[at0011]"/>
-                    <Rule max="0" path="/items[at0012]"/>
-                    <Rule max="0" path="/items[at0013]"/>
-                    <Rule max="0" path="/items[at0014]"/>
-                    <Rule max="0" path="/items[at0015]"/>
-                </Items>
+                max="1" path="/items[at0008]/items" xsi:type="tem:ADMIN_ENTRY">
+                <Rule max="0" path="/data[at0001]/items[at0003]"/>
             </Item>
             <Item
                 archetype_id="openEHR-EHR-ADMIN_ENTRY.involvement_respect.v0"
                 path="/items[at0009]/items" xsi:type="tem:ADMIN_ENTRY">
                 <Rule max="1" path="/data[at0001]/items[at0012]/items[at0002]"/>
                 <Rule max="0" path="/data[at0001]/items[at0009]"/>
+                <Rule max="0" path="/data[at0001]/items[at0014]"/>
+                <Rule max="0" path="/data[at0001]/items[at0017]"/>
                 <Items archetype_id="openEHR-EHR-CLUSTER.multimedia.v0"
                     concept_name="Multimedia Resource" max="0"
                     name="Link" path="/data[at0001]/items[at0016]" xsi:type="tem:CLUSTER">
                     <Rule max="0" path="/items[at0002]"/>
                     <Rule max="0" path="/items[at0005]"/>
-                    <Rule name="Link to record of discussion" path="/items[at0001]"/>
+                    <Rule max="0" name="Link to record of discussion" path="/items[at0001]"/>
                     <Rule max="0" path="/items[at0008]"/>
                     <Rule max="0" path="/items[at0003]"/>
                     <Rule max="0" path="/items[at0009]"/>
@@ -443,6 +365,16 @@ https://www.resus.org.uk/respect/</purpose>
                     </Items>
                     <Items archetype_id="openEHR-EHR-CLUSTER.name_cc.v0"
                         path="/items[at0016]" xsi:type="tem:CLUSTER">
+                        <Rule path="/items[at0001]">
+                            <constraint xsi:type="tem:textConstraint">
+                                <excludedValues>local::at0002</excludedValues>
+                                <excludedValues>local::at0004</excludedValues>
+                                <excludedValues>local::at0005</excludedValues>
+                                <excludedValues>local::at0006</excludedValues>
+                                <excludedValues>local::at0007</excludedValues>
+                                <excludedValues>local::at0008</excludedValues>
+                            </constraint>
+                        </Rule>
                         <Rule max="0" path="/items[at0010]"/>
                         <Rule max="0" path="/items[at0011]"/>
                         <Rule max="0" path="/items[at0012]"/>
@@ -485,6 +417,13 @@ https://www.resus.org.uk/respect/</purpose>
                     <Items
                         archetype_id="openEHR-EHR-CLUSTER.identifier_cc.v0"
                         path="/items[at0025]" xsi:type="tem:CLUSTER">
+                        <Rule path="/items[at0002]">
+                            <constraint xsi:type="tem:textConstraint">
+                                <excludedValues>local::at0003</excludedValues>
+                                <excludedValues>local::at0005</excludedValues>
+                                <excludedValues>local::at0006</excludedValues>
+                            </constraint>
+                        </Rule>
                         <Rule max="0" path="/items[at0007]"/>
                         <Rule max="0" path="/items[at0008]"/>
                     </Items>
@@ -498,20 +437,16 @@ https://www.resus.org.uk/respect/</purpose>
                 <Rule default="ReSPECT Emergency Contacts" path="/data[at0001]/items[at0018]"/>
                 <Rule max="0" path="/data[at0001]/items[at0019]"/>
                 <Rule max="0" path="/data[at0001]/items[at0020]"/>
-                <Rule path="/data[at0001]/items[at0021]/items[at0022]">
-                    <constraint xsi:type="tem:textConstraint">
-                        <includedValues>Parent</includedValues>
-                        <includedValues>Legal Proxy</includedValues>
-                        <includedValues>Family</includedValues>
-                        <includedValues>Friend</includedValues>
-                        <includedValues>General Practitioner</includedValues>
-                        <includedValues>Lead Consultant</includedValues>
-                        <includedValues>Other</includedValues>
+                <Rule name="Role and Relationship" path="/data[at0001]/items[at0021]/items[at0022]">
+                    <constraint limitToList="false" xsi:type="tem:textConstraint">
+                        <includedValues>Involved in planning</includedValues>
+                        <includedValues>Primary emergency contact</includedValues>
+                        <includedValues>Legal welfare proxy</includedValues>
                     </constraint>
                 </Rule>
                 <Rule max="0" path="/data[at0001]/items[at0021]/items[at0025]"/>
                 <Rule max="0" path="/data[at0001]/items[at0021]/items[at0026]"/>
-                <Rule name="Other Details" path="/data[at0001]/items[at0021]/items[at0030]"/>
+                <Rule max="1" name="Other details about contact" path="/data[at0001]/items[at0021]/items[at0030]"/>
                 <Rule max="0" path="/data[at0001]/items[at0027]"/>
                 <Rule max="0" path="/data[at0001]/items[at0028]"/>
                 <Items archetype_id="openEHR-EHR-CLUSTER.contact_cc.v0"
@@ -595,7 +530,7 @@ https://www.resus.org.uk/respect/</purpose>
                 <Rule max="0" min="0" path="/ism_transition[at0010]"/>
                 <Rule max="0" min="0" path="/ism_transition[at0006]"/>
                 <Rule max="0" min="0" path="/ism_transition[at0023]"/>
-                <Rule default="Respect form - confirmation of validity" path="/description[at0001]/items[at0011]"/>
+                <Rule default="Respect form review" path="/description[at0001]/items[at0011]"/>
                 <Rule max="0" path="/description[at0001]/items[at0014]"/>
                 <Rule max="0" path="/description[at0001]/items[at0013]"/>
                 <Rule name="Review date" path="/description[at0001]/items[at0025]"/>
@@ -612,8 +547,7 @@ https://www.resus.org.uk/respect/</purpose>
                 <Rule max="0" path="/protocol[at0015]/items[at0018]"/>
                 <Items
                     archetype_id="openEHR-EHR-CLUSTER.practitioner_cc.v0"
-                    concept_name="Practitioner"
-                    name="Responsible clinician"
+                    concept_name="Practitioner" name="Clinician"
                     path="/protocol[at0015]/items[at0019]" xsi:type="tem:CLUSTER">
                     <Rule max="0" path="/items[at0015]"/>
                     <Rule max="0" path="/items[at0019]"/>
@@ -624,13 +558,23 @@ https://www.resus.org.uk/respect/</purpose>
                         <Rule max="0" path="/items[at0002]"/>
                         <Rule max="0" path="/items[at0003]"/>
                         <Rule max="0" path="/items[at0004]"/>
-                        <Rule max="1" name="Designation" path="/items[at0007]"/>
+                        <Rule max="1" name="Grade and specialty" path="/items[at0007]"/>
                         <Rule max="0" name="Clinician specialty" path="/items[at0008]"/>
                         <Rule max="0" path="/items[at0009]"/>
                         <Rule max="0" path="/items[at0010]"/>
                     </Items>
                     <Items archetype_id="openEHR-EHR-CLUSTER.name_cc.v0"
-                        path="/items[at0016]" xsi:type="tem:CLUSTER">
+                        max="1" path="/items[at0016]" xsi:type="tem:CLUSTER">
+                        <Rule path="/items[at0001]">
+                            <constraint xsi:type="tem:textConstraint">
+                                <excludedValues>local::at0002</excludedValues>
+                                <excludedValues>local::at0004</excludedValues>
+                                <excludedValues>local::at0005</excludedValues>
+                                <excludedValues>local::at0006</excludedValues>
+                                <excludedValues>local::at0007</excludedValues>
+                                <excludedValues>local::at0008</excludedValues>
+                            </constraint>
+                        </Rule>
                         <Rule max="0" path="/items[at0010]"/>
                         <Rule max="0" path="/items[at0011]"/>
                         <Rule max="0" path="/items[at0012]"/>
@@ -673,6 +617,13 @@ https://www.resus.org.uk/respect/</purpose>
                     <Items
                         archetype_id="openEHR-EHR-CLUSTER.identifier_cc.v0"
                         path="/items[at0025]" xsi:type="tem:CLUSTER">
+                        <Rule path="/items[at0002]">
+                            <constraint xsi:type="tem:textConstraint">
+                                <excludedValues>local::at0003</excludedValues>
+                                <excludedValues>local::at0005</excludedValues>
+                                <excludedValues>local::at0006</excludedValues>
+                            </constraint>
+                        </Rule>
                         <Rule max="0" path="/items[at0007]"/>
                         <Rule max="0" path="/items[at0008]"/>
                     </Items>
@@ -697,7 +648,7 @@ https://www.resus.org.uk/respect/</purpose>
         archetype_id="openEHR-EHR-SECTION.respect_headings.v0"
         xmlns:tem="openEHR/v1/Template"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
-        <digest id="MD5-CAM-1.0.1">A1030EE109C62C1994B2B6DEB4DCA3A2</digest>
+        <digest id="MD5-CAM-1.0.1">2E0AA632D4E2F4960CA7B1F13AE680C9</digest>
     </integrity_checks>
     <integrity_checks
         archetype_id="openEHR-EHR-EVALUATION.clinical_synopsis.v1"
@@ -706,44 +657,16 @@ https://www.resus.org.uk/respect/</purpose>
         <digest id="MD5-CAM-1.0.1">32F9563D428258E02EFA916126110EBF</digest>
     </integrity_checks>
     <integrity_checks
-        archetype_id="openEHR-EHR-ADMIN_ENTRY.respect_summary.v0"
-        xmlns:tem="openEHR/v1/Template"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
-        <digest id="MD5-CAM-1.0.1">42B6229D24EED33B6F2F91135E0B4841</digest>
-    </integrity_checks>
-    <integrity_checks
-        archetype_id="openEHR-EHR-CLUSTER.interpreter_details_uk.v0"
-        xmlns:tem="openEHR/v1/Template"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
-        <digest id="MD5-CAM-1.0.1">0B3F7E319DC345D6A97BDBE18C79D83A</digest>
-    </integrity_checks>
-    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.language.v1"
-        xmlns:tem="openEHR/v1/Template"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
-        <digest id="MD5-CAM-1.0.1">86637A95CB32F983E80D8F9506488FE6</digest>
-    </integrity_checks>
-    <integrity_checks
-        archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v1"
-        xmlns:tem="openEHR/v1/Template"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
-        <digest id="MD5-CAM-1.0.1">714FD09D39A922BCADF58B178C81E8BB</digest>
-    </integrity_checks>
-    <integrity_checks
         archetype_id="openEHR-EHR-EVALUATION.advance_planning_documentation.v0"
         xmlns:tem="openEHR/v1/Template"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
         <digest id="MD5-CAM-1.0.1">75CFC5B9EEA839B817090412E3EAE7D1</digest>
     </integrity_checks>
-    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.multimedia.v0"
-        xmlns:tem="openEHR/v1/Template"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
-        <digest id="MD5-CAM-1.0.1">2193B3813F81507191F362F9CA27A052</digest>
-    </integrity_checks>
     <integrity_checks
-        archetype_id="openEHR-EHR-ADMIN_ENTRY.organ_donation_preferences.v0"
+        archetype_id="openEHR-EHR-ADMIN_ENTRY.capacity_respect.v0"
         xmlns:tem="openEHR/v1/Template"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
-        <digest id="MD5-CAM-1.0.1">FBDD7446E1AA5758693D54F2A50BB530</digest>
+        <digest id="MD5-CAM-1.0.1">FC0E75D962BDDE6C76546D52AF143A17</digest>
     </integrity_checks>
     <integrity_checks
         archetype_id="openEHR-EHR-EVALUATION.care_preference_uk.v0"
@@ -764,21 +687,15 @@ https://www.resus.org.uk/respect/</purpose>
         <digest id="MD5-CAM-1.0.1">40CBAF5A01D32E8917DDDFD752562AF4</digest>
     </integrity_checks>
     <integrity_checks
-        archetype_id="openEHR-EHR-ADMIN_ENTRY.capacity_respect.v0"
-        xmlns:tem="openEHR/v1/Template"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
-        <digest id="MD5-CAM-1.0.1">8DD05D4D236D335A21D3584B3F548B1D</digest>
-    </integrity_checks>
-    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.name_cc.v0"
-        xmlns:tem="openEHR/v1/Template"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
-        <digest id="MD5-CAM-1.0.1">837216B3380EEE7CDC8C974E487FE65F</digest>
-    </integrity_checks>
-    <integrity_checks
         archetype_id="openEHR-EHR-ADMIN_ENTRY.involvement_respect.v0"
         xmlns:tem="openEHR/v1/Template"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
         <digest id="MD5-CAM-1.0.1">C8457191152F9311C6E42CDE11570B14</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.multimedia.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">2193B3813F81507191F362F9CA27A052</digest>
     </integrity_checks>
     <integrity_checks
         archetype_id="openEHR-EHR-CLUSTER.practitioner_cc.v0"
@@ -798,6 +715,11 @@ https://www.resus.org.uk/respect/</purpose>
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
         <digest id="MD5-CAM-1.0.1">A4C278B59C4D855C741CA3E0C21E9011</digest>
     </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.name_cc.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">837216B3380EEE7CDC8C974E487FE65F</digest>
+    </integrity_checks>
     <integrity_checks archetype_id="openEHR-EHR-ACTION.service.v0"
         xmlns:tem="openEHR/v1/Template"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
@@ -812,7 +734,7 @@ https://www.resus.org.uk/respect/</purpose>
         archetype_id="openEHR-EHR-ADMIN_ENTRY.careteam_cc.v0"
         xmlns:tem="openEHR/v1/Template"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
-        <digest id="MD5-CAM-1.0.1">6A06FE162C937733BF2E9557C66C175F</digest>
+        <digest id="MD5-CAM-1.0.1">5D5DF32D1FFC68C64DE20E13A568EF4E</digest>
     </integrity_checks>
     <integrity_checks archetype_id="openEHR-EHR-CLUSTER.contact_cc.v0"
         xmlns:tem="openEHR/v1/Template"
