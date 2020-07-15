@@ -1,0 +1,215 @@
+﻿archetype (adl_version=1.4; uid=d8d2dbeb-4597-411a-bcc4-92ae0074390b)
+	openEHR-EHR-CLUSTER.issue_uk.v0
+
+concept
+	[at0000]	-- Issue
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["cy"] = <
+			language = <[ISO_639-1::cy]>
+			author = <
+			>
+		>
+		["ar-sy"] = <
+			language = <[ISO_639-1::ar-sy]>
+			author = <
+				["name"] = <"Mona Saleh">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Heather Leslie">
+		["organisation"] = <"Atomica Informatics">
+		["email"] = <"heather.leslie@atomicainformatics.com">
+		["date"] = <"2020-02-13">
+	>
+	details = <
+		["cy"] = <
+			language = <[ISO_639-1::cy]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"© openEHR Foundation, Apperta Foundation">
+		>
+		["ar-sy"] = <
+			language = <[ISO_639-1::ar-sy]>
+			purpose = <"لتسجيل قضية/مشكلة كما يتم عرضها بواسطة المريض">
+			use = <"لتسجيل القضايا/المشكلات كما يتم عرضها إلى الطبيب السريري بواسطة المريض أو من ينوب عنه. 
+و تم تصميم هذا النموذج لتكميل المعلومات التي يتم التقاطها حول سبب زيارة الطبيب السريري فيما عدا معلومات الأعراض أو المعلومات حول واقعة معينة.
+">
+			keywords = <"قضية/مشكلة", ...>
+			misuse = <"لا تستخدم لتسجيل الأعراض أو الوقائع - استخدم النماذج المحددة لهذا الغرض.">
+			copyright = <"© openEHR Foundation, Apperta Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record a health-related issue or concern held by the individual.">
+			use = <"Use to record a health-related issue or concern held by the individual, their carer or advocate.">
+			keywords = <"issue", ...>
+			misuse = <"Not to be used to record details about a symptom or sign - use CLUSTER.symptom_sign for this purpose.
+
+Not to be used to record details about a health-related event - use CLUSTER.health_event for this purpose.">
+			copyright = <"© openEHR Foundation, Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["references"] = <"Derived from: https://ckm.apperta.org/ckm/archetypes/1051.32.809">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"057EFD3C6A2DBF67CCBC5EBBFCE29CEA">
+		["build_uid"] = <"6508f990-ec9e-4cb9-b358-9e51fbea62e8">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Issue
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] matches {    -- Issue
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Description
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {    -- Presence
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0005,    -- Present
+							at0006,    -- Absent
+							at0007]    -- Unknown
+						}
+					}
+				}
+			}
+			ELEMENT[at0008] occurrences matches {0..1} matches {    -- Impact
+				value matches {
+					DV_COUNT matches {*}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Issue">
+					description = <"A health-related issue or concern held by the individual.">
+				>
+				["at0001"] = <
+					text = <"Issue">
+					description = <"The name of the issue or concern as presented by the person.">
+				>
+				["at0002"] = <
+					text = <"Description">
+					description = <"Narrative description about the issue or concern.">
+				>
+				["at0004"] = <
+					text = <"Presence">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Present">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Absent">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Unknown">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Impact">
+					description = <"">
+				>
+			>
+		>
+		["ar-sy"] = <
+			items = <
+				["at0000"] = <
+					text = <"issue_uk">
+					description = <"قضية, عَرَض, أو شكوى يتم تقديمها إلى مقدم الخدمة الصحية, و التي تحتاج إلى تفسير, تعليم/تثقيف, تفهم, تحقيق/استقصاء أو علاج">
+				>
+				["at0001"] = <
+					text = <"قضية/مشكلة">
+					description = <"*The name of the issue or concern as presented by the person (en)">
+				>
+				["at0002"] = <
+					text = <"*Description (en)">
+					description = <"المعلومات التفصيلية حول القضية أو المشكلة الصحية">
+				>
+				["at0004"] = <
+					text = <"*DV_CODED_TEXT (en)">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"*Present (en)">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"*Absent (en)">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"*Unknown (en)">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"*DV_COUNT (en)">
+					description = <"">
+				>
+			>
+		>
+		["cy"] = <
+			items = <
+				["at0000"] = <
+					text = <"Mae gennyf gwestiynau am fy niagnosis, triniaethau neu effeithiau.">
+					description = <"*A health-related issue or concern held by the individual. (en)">
+				>
+				["at0001"] = <
+					text = <"*Issue (en)">
+					description = <"*The name of the issue or concern as presented by the person. (en)">
+				>
+				["at0002"] = <
+					text = <"*Description (en)">
+					description = <"*Narrative description about the issue or concern. (en)">
+				>
+				["at0004"] = <
+					text = <"*Presence (en)">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"*Present (en)">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"*Absent (en)">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"*Unknown (en)">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"*Impact (en)">
+					description = <"">
+				>
+			>
+		>
+	>
