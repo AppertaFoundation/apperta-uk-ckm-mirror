@@ -1,0 +1,1330 @@
+﻿archetype (adl_version=1.4; uid=72d36cfe-05ed-4388-abb1-48cb49e76cd8)
+	openEHR-EHR-CLUSTER.issue_uk-macmillan.v0
+specialise
+	openEHR-EHR-CLUSTER.issue_uk.v0
+
+concept
+	[at0000.1]	-- issue_macmilan
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["cy"] = <
+			language = <[ISO_639-1::cy]>
+			author = <
+			>
+		>
+		["ar-sy"] = <
+			language = <[ISO_639-1::ar-sy]>
+			author = <
+				["name"] = <"Mona Saleh">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Heather Leslie">
+		["organisation"] = <"Atomica Informatics">
+		["email"] = <"heather.leslie@atomicainformatics.com">
+		["date"] = <"2020-02-13">
+	>
+	details = <
+		["cy"] = <
+			language = <[ISO_639-1::cy]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"© openEHR Foundation, Apperta Foundation">
+		>
+		["ar-sy"] = <
+			language = <[ISO_639-1::ar-sy]>
+			purpose = <"لتسجيل قضية/مشكلة كما يتم عرضها بواسطة المريض">
+			use = <"لتسجيل القضايا/المشكلات كما يتم عرضها إلى الطبيب السريري بواسطة المريض أو من ينوب عنه. 
+و تم تصميم هذا النموذج لتكميل المعلومات التي يتم التقاطها حول سبب زيارة الطبيب السريري فيما عدا معلومات الأعراض أو المعلومات حول واقعة معينة.
+">
+			keywords = <"قضية/مشكلة", ...>
+			misuse = <"لا تستخدم لتسجيل الأعراض أو الوقائع - استخدم النماذج المحددة لهذا الغرض.">
+			copyright = <"© openEHR Foundation, Apperta Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record a health-related issue or concern held by the individual.">
+			use = <"Use to record a health-related issue or concern held by the individual, their carer or advocate.">
+			keywords = <"issue", ...>
+			misuse = <"Not to be used to record details about a symptom or sign - use CLUSTER.symptom_sign for this purpose.
+
+Not to be used to record details about a health-related event - use CLUSTER.health_event for this purpose.">
+			copyright = <"© openEHR Foundation, Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["references"] = <"Derived from: https://ckm.apperta.org/ckm/archetypes/1051.32.809">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"F0B70434DEAAB2730359C3840C8B3DF4">
+		["build_uid"] = <"ab85e72e-7106-4730-8064-bb63c333b031">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000.1] matches {    -- issue_macmilan
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001.1] matches {    -- Issue
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0.152,    -- Breathing difficulties
+							at0.153,    -- Passing urine
+							at0.154,    -- Constipation
+							at0.155,    -- Diarrhoea
+							at0.156,    -- Eating, appetite or taste
+							at0.157,    -- Indigestion
+							at0.158,    -- Swallowing
+							at0.159,    -- Cough
+							at0.160,    -- Sore or dry mouth or ulcers
+							at0.161,    -- Nausea or vomiting
+							at0.162,    -- Tired, exhausted or fatigued
+							at0.163,    -- Swelling
+							at0.164,    -- High temperature or fever
+							at0.165,    -- Moving around (walking)
+							at0.166,    -- Tingling in hands or feet
+							at0.167,    -- Pain or discomfort
+							at0.168,    -- Hot flushes or sweating
+							at0.169,    -- Dry, itchy or sore skin
+							at0.170,    -- Changes in weight
+							at0.171,    -- Wound care
+							at0.172,    -- Memory or concentration
+							at0.173,    -- Sight or hearing
+							at0.174,    -- Speech or voice problems
+							at0.175,    -- My appearance
+							at0.176,    -- Sleep problems
+							at0.177,    -- Sex, intimacy or fertility
+							at0.178,    -- Other medical conditions
+							at0.179,    -- Taking care of others
+							at0.180,    -- Work or education
+							at0.181,    -- Money or finance
+							at0.182,    -- Travel
+							at0.183,    -- Housing
+							at0.184,    -- Transport or parking
+							at0.185,    -- Talking or being understood
+							at0.186,    -- Laundry or housework
+							at0.187,    -- Grocery shopping
+							at0.188,    -- Washing and dressing
+							at0.189,    -- Preparing meals or drinks
+							at0.190,    -- Pets
+							at0.191,    -- Difficulty making plans
+							at0.192,    -- Smoking cessation
+							at0.193,    -- Problems with alcohol or drugs
+							at0.194,    -- My medication
+							at0.195,    -- Uncertainty
+							at0.196,    -- Loss of interest in activities
+							at0.197,    -- Unable to express feelings
+							at0.198,    -- Thinking about the future
+							at0.199,    -- Regret about the past
+							at0.200,    -- Anger or frustration
+							at0.201,    -- Loneliness or isolation
+							at0.202,    -- Sadness or depression
+							at0.203,    -- Hopelessness
+							at0.204,    -- Guilt
+							at0.205,    -- Worry, fear or anxiety
+							at0.206,    -- Independence
+							at0.207,    -- Partner
+							at0.208,    -- Children
+							at0.209,    -- Other relatives or friends
+							at0.210,    -- Person who looks after me
+							at0.211,    -- Person who I look after
+							at0.212,    -- Faith or spirituality
+							at0.213,    -- Meaning or purpose of life
+							at0.214,    -- Feeling at odds with my culture,
+							at0.215,    -- Exercise and activity
+							at0.216,    -- Diet and nutrition
+							at0.217,    -- Complementary therapies
+							at0.218,    -- Planning for my future priorities
+							at0.219,    -- Making a will or legal advice
+							at0.220,    -- Health and wellbeing
+							at0.221,    -- Patient or carer’s support group
+							at0.222,    -- Managing my symptoms
+							at0.223,    -- Sun protection
+							at0.224]    -- Questions about my diagnosis, treatments or effects
+						}
+					}
+				}
+				name matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0.28,    -- Physical concerns
+							at0.29,    -- Practical concerns
+							at0.30,    -- Emotional concerns
+							at0.31,    -- Family or relationship concerns
+							at0.32,    -- Spiritual concerns
+							at0.33,    -- Information or support
+							at0.34]    -- I have questions about my diagnosis, treatments or effects
+						}
+					}
+				}
+			}
+			ELEMENT[at0002.1] occurrences matches {0..1} matches {    -- Description
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0004.1] occurrences matches {0..1} matches {    -- Presence
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0005,    -- Present
+							at0006,    -- Absent
+							at0007]    -- Unknown
+						}
+					}
+				}
+			}
+			ELEMENT[at0008.1] occurrences matches {0..1} matches {    -- Impact
+				value matches {
+					DV_COUNT matches {
+						magnitude matches {|1..10|}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000.1"] = <
+					text = <"issue_macmilan">
+					description = <"A health-related issue or concern held by the individual.">
+				>
+				["at0001.1"] = <
+					text = <"Issue">
+					description = <"The name of the issue or concern as presented by the person.">
+				>
+				["at0.28"] = <
+					text = <"Physical concerns">
+					description = <"">
+				>
+				["at0.29"] = <
+					text = <"Practical concerns">
+					description = <"">
+				>
+				["at0.30"] = <
+					text = <"Emotional concerns">
+					description = <"">
+				>
+				["at0.31"] = <
+					text = <"Family or relationship concerns">
+					description = <"">
+				>
+				["at0.32"] = <
+					text = <"Spiritual concerns">
+					description = <"">
+				>
+				["at0.33"] = <
+					text = <"Information or support">
+					description = <"">
+				>
+				["at0.34"] = <
+					text = <"I have questions about my diagnosis, treatments or effects">
+					description = <"">
+				>
+				["at0002.1"] = <
+					text = <"Description">
+					description = <"Narrative description about the issue or concern.">
+				>
+				["at0004.1"] = <
+					text = <"Presence">
+					description = <"">
+				>
+				["at0008.1"] = <
+					text = <"Impact">
+					description = <"">
+				>
+				["at0.152"] = <
+					text = <"Breathing difficulties">
+					description = <"">
+				>
+				["at0.153"] = <
+					text = <"Passing urine">
+					description = <"">
+				>
+				["at0.154"] = <
+					text = <"Constipation">
+					description = <"">
+				>
+				["at0.155"] = <
+					text = <"Diarrhoea">
+					description = <"">
+				>
+				["at0.156"] = <
+					text = <"Eating, appetite or taste">
+					description = <"">
+				>
+				["at0.157"] = <
+					text = <"Indigestion">
+					description = <"">
+				>
+				["at0.158"] = <
+					text = <"Swallowing">
+					description = <"">
+				>
+				["at0.159"] = <
+					text = <"Cough">
+					description = <"">
+				>
+				["at0.160"] = <
+					text = <"Sore or dry mouth or ulcers">
+					description = <"">
+				>
+				["at0.161"] = <
+					text = <"Nausea or vomiting">
+					description = <"">
+				>
+				["at0.162"] = <
+					text = <"Tired, exhausted or fatigued">
+					description = <"">
+				>
+				["at0.163"] = <
+					text = <"Swelling">
+					description = <"">
+				>
+				["at0.164"] = <
+					text = <"High temperature or fever">
+					description = <"">
+				>
+				["at0.165"] = <
+					text = <"Moving around (walking)">
+					description = <"">
+				>
+				["at0.166"] = <
+					text = <"Tingling in hands or feet">
+					description = <"">
+				>
+				["at0.167"] = <
+					text = <"Pain or discomfort">
+					description = <"">
+				>
+				["at0.168"] = <
+					text = <"Hot flushes or sweating">
+					description = <"">
+				>
+				["at0.169"] = <
+					text = <"Dry, itchy or sore skin">
+					description = <"">
+				>
+				["at0.170"] = <
+					text = <"Changes in weight">
+					description = <"">
+				>
+				["at0.171"] = <
+					text = <"Wound care">
+					description = <"">
+				>
+				["at0.172"] = <
+					text = <"Memory or concentration">
+					description = <"">
+				>
+				["at0.173"] = <
+					text = <"Sight or hearing">
+					description = <"">
+				>
+				["at0.174"] = <
+					text = <"Speech or voice problems">
+					description = <"">
+				>
+				["at0.175"] = <
+					text = <"My appearance">
+					description = <"">
+				>
+				["at0.176"] = <
+					text = <"Sleep problems">
+					description = <"">
+				>
+				["at0.177"] = <
+					text = <"Sex, intimacy or fertility">
+					description = <"">
+				>
+				["at0.178"] = <
+					text = <"Other medical conditions">
+					description = <"">
+				>
+				["at0.179"] = <
+					text = <"Taking care of others">
+					description = <"">
+				>
+				["at0.180"] = <
+					text = <"Work or education">
+					description = <"">
+				>
+				["at0.181"] = <
+					text = <"Money or finance">
+					description = <"">
+				>
+				["at0.182"] = <
+					text = <"Travel">
+					description = <"">
+				>
+				["at0.183"] = <
+					text = <"Housing">
+					description = <"">
+				>
+				["at0.184"] = <
+					text = <"Transport or parking">
+					description = <"">
+				>
+				["at0.185"] = <
+					text = <"Talking or being understood">
+					description = <"">
+				>
+				["at0.186"] = <
+					text = <"Laundry or housework">
+					description = <"">
+				>
+				["at0.187"] = <
+					text = <"Grocery shopping">
+					description = <"">
+				>
+				["at0.188"] = <
+					text = <"Washing and dressing">
+					description = <"">
+				>
+				["at0.189"] = <
+					text = <"Preparing meals or drinks">
+					description = <"">
+				>
+				["at0.190"] = <
+					text = <"Pets">
+					description = <"">
+				>
+				["at0.191"] = <
+					text = <"Difficulty making plans">
+					description = <"">
+				>
+				["at0.192"] = <
+					text = <"Smoking cessation">
+					description = <"">
+				>
+				["at0.193"] = <
+					text = <"Problems with alcohol or drugs">
+					description = <"">
+				>
+				["at0.194"] = <
+					text = <"My medication">
+					description = <"">
+				>
+				["at0.195"] = <
+					text = <"Uncertainty">
+					description = <"">
+				>
+				["at0.196"] = <
+					text = <"Loss of interest in activities">
+					description = <"">
+				>
+				["at0.197"] = <
+					text = <"Unable to express feelings">
+					description = <"">
+				>
+				["at0.198"] = <
+					text = <"Thinking about the future">
+					description = <"">
+				>
+				["at0.199"] = <
+					text = <"Regret about the past">
+					description = <"">
+				>
+				["at0.200"] = <
+					text = <"Anger or frustration">
+					description = <"">
+				>
+				["at0.201"] = <
+					text = <"Loneliness or isolation">
+					description = <"">
+				>
+				["at0.202"] = <
+					text = <"Sadness or depression">
+					description = <"">
+				>
+				["at0.203"] = <
+					text = <"Hopelessness">
+					description = <"">
+				>
+				["at0.204"] = <
+					text = <"Guilt">
+					description = <"">
+				>
+				["at0.205"] = <
+					text = <"Worry, fear or anxiety">
+					description = <"">
+				>
+				["at0.206"] = <
+					text = <"Independence">
+					description = <"">
+				>
+				["at0.207"] = <
+					text = <"Partner">
+					description = <"">
+				>
+				["at0.208"] = <
+					text = <"Children">
+					description = <"">
+				>
+				["at0.209"] = <
+					text = <"Other relatives or friends">
+					description = <"">
+				>
+				["at0.210"] = <
+					text = <"Person who looks after me">
+					description = <"">
+				>
+				["at0.211"] = <
+					text = <"Person who I look after">
+					description = <"">
+				>
+				["at0.212"] = <
+					text = <"Faith or spirituality">
+					description = <"">
+				>
+				["at0.213"] = <
+					text = <"Meaning or purpose of life">
+					description = <"">
+				>
+				["at0.214"] = <
+					text = <"Feeling at odds with my culture,">
+					description = <"">
+				>
+				["at0.215"] = <
+					text = <"Exercise and activity">
+					description = <"">
+				>
+				["at0.216"] = <
+					text = <"Diet and nutrition">
+					description = <"">
+				>
+				["at0.217"] = <
+					text = <"Complementary therapies">
+					description = <"">
+				>
+				["at0.218"] = <
+					text = <"Planning for my future priorities">
+					description = <"">
+				>
+				["at0.219"] = <
+					text = <"Making a will or legal advice">
+					description = <"">
+				>
+				["at0.220"] = <
+					text = <"Health and wellbeing">
+					description = <"">
+				>
+				["at0.221"] = <
+					text = <"Patient or carer’s support group">
+					description = <"">
+				>
+				["at0.222"] = <
+					text = <"Managing my symptoms">
+					description = <"">
+				>
+				["at0.223"] = <
+					text = <"Sun protection">
+					description = <"">
+				>
+				["at0.224"] = <
+					text = <"Questions about my diagnosis, treatments or effects">
+					description = <"">
+				>
+				["at0000"] = <
+					text = <"Issue">
+					description = <"A health-related issue or concern held by the individual.">
+				>
+				["at0001"] = <
+					text = <"Issue">
+					description = <"The name of the issue or concern as presented by the person.">
+				>
+				["at0002"] = <
+					text = <"Description">
+					description = <"Narrative description about the issue or concern.">
+				>
+				["at0004"] = <
+					text = <"Presence">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Present">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Absent">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Unknown">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Impact">
+					description = <"">
+				>
+			>
+		>
+		["ar-sy"] = <
+			items = <
+				["at0000.1"] = <
+					text = <"issue_uk">
+					description = <"قضية, عَرَض, أو شكوى يتم تقديمها إلى مقدم الخدمة الصحية, و التي تحتاج إلى تفسير, تعليم/تثقيف, تفهم, تحقيق/استقصاء أو علاج">
+				>
+				["at0001.1"] = <
+					text = <"قضية/مشكلة">
+					description = <"*The name of the issue or concern as presented by the person (en)">
+				>
+				["at0.28"] = <
+					text = <"*Pryderon corfforol (cy)">
+					description = <"">
+				>
+				["at0.29"] = <
+					text = <"*Pryderon ymarferol (cy)">
+					description = <"">
+				>
+				["at0.30"] = <
+					text = <"*Pryderon emosiynol (cy)">
+					description = <"">
+				>
+				["at0.31"] = <
+					text = <"*Pryder am deulu neu berthynas (cy)">
+					description = <"">
+				>
+				["at0.32"] = <
+					text = <"*Pryderon ysbrydol (cy)">
+					description = <"">
+				>
+				["at0.33"] = <
+					text = <"*Gwybodaeth neu gefnogaeth (cy)">
+					description = <"">
+				>
+				["at0.34"] = <
+					text = <"*Mae gennyf gwestiynau am fy niagnosis, triniaethau neu effeithiau. (cy)">
+					description = <"">
+				>
+				["at0002.1"] = <
+					text = <"*Description (en)">
+					description = <"المعلومات التفصيلية حول القضية أو المشكلة الصحية">
+				>
+				["at0004.1"] = <
+					text = <"*DV_CODED_TEXT (en)">
+					description = <"">
+				>
+				["at0008.1"] = <
+					text = <"*DV_COUNT (en)">
+					description = <"">
+				>
+				["at0.152"] = <
+					text = <"*Breathing difficulties (en)">
+					description = <"">
+				>
+				["at0.153"] = <
+					text = <"*Passing urine (en)">
+					description = <"">
+				>
+				["at0.154"] = <
+					text = <"*Constipation (en)">
+					description = <"">
+				>
+				["at0.155"] = <
+					text = <"*Diarrhoea (en)">
+					description = <"">
+				>
+				["at0.156"] = <
+					text = <"*Eating, appetite or taste (en)">
+					description = <"">
+				>
+				["at0.157"] = <
+					text = <"*Indigestion (en)">
+					description = <"">
+				>
+				["at0.158"] = <
+					text = <"*Swallowing (en)">
+					description = <"">
+				>
+				["at0.159"] = <
+					text = <"*Cough (en)">
+					description = <"">
+				>
+				["at0.160"] = <
+					text = <"*Sore or dry mouth or ulcers (en)">
+					description = <"">
+				>
+				["at0.161"] = <
+					text = <"*Nausea or vomiting (en)">
+					description = <"">
+				>
+				["at0.162"] = <
+					text = <"*Tired, exhausted or fatigued (en)">
+					description = <"">
+				>
+				["at0.163"] = <
+					text = <"*Swelling (en)">
+					description = <"">
+				>
+				["at0.164"] = <
+					text = <"*High temperature or fever (en)">
+					description = <"">
+				>
+				["at0.165"] = <
+					text = <"*Moving around (walking) (en)">
+					description = <"">
+				>
+				["at0.166"] = <
+					text = <"*Tingling in hands or feet (en)">
+					description = <"">
+				>
+				["at0.167"] = <
+					text = <"*Pain or discomfort (en)">
+					description = <"">
+				>
+				["at0.168"] = <
+					text = <"*Hot flushes or sweating (en)">
+					description = <"">
+				>
+				["at0.169"] = <
+					text = <"*Dry, itchy or sore skin (en)">
+					description = <"">
+				>
+				["at0.170"] = <
+					text = <"*Changes in weight (en)">
+					description = <"">
+				>
+				["at0.171"] = <
+					text = <"*Wound care (en)">
+					description = <"">
+				>
+				["at0.172"] = <
+					text = <"*Memory or concentration (en)">
+					description = <"">
+				>
+				["at0.173"] = <
+					text = <"*Sight or hearing (en)">
+					description = <"">
+				>
+				["at0.174"] = <
+					text = <"*Speech or voice problems (en)">
+					description = <"">
+				>
+				["at0.175"] = <
+					text = <"*My appearance (en)">
+					description = <"">
+				>
+				["at0.176"] = <
+					text = <"*Sleep problems (en)">
+					description = <"">
+				>
+				["at0.177"] = <
+					text = <"*Sex, intimacy or fertility (en)">
+					description = <"">
+				>
+				["at0.178"] = <
+					text = <"*Other medical conditions (en)">
+					description = <"">
+				>
+				["at0.179"] = <
+					text = <"*Taking care of others (en)">
+					description = <"">
+				>
+				["at0.180"] = <
+					text = <"*Work or education (en)">
+					description = <"">
+				>
+				["at0.181"] = <
+					text = <"*Money or finance (en)">
+					description = <"">
+				>
+				["at0.182"] = <
+					text = <"*Travel (en)">
+					description = <"">
+				>
+				["at0.183"] = <
+					text = <"*Housing (en)">
+					description = <"">
+				>
+				["at0.184"] = <
+					text = <"*Transport or parking (en)">
+					description = <"">
+				>
+				["at0.185"] = <
+					text = <"*Talking or being understood (en)">
+					description = <"">
+				>
+				["at0.186"] = <
+					text = <"*Laundry or housework (en)">
+					description = <"">
+				>
+				["at0.187"] = <
+					text = <"*Grocery shopping (en)">
+					description = <"">
+				>
+				["at0.188"] = <
+					text = <"*Washing and dressing (en)">
+					description = <"">
+				>
+				["at0.189"] = <
+					text = <"*Preparing meals or drinks (en)">
+					description = <"">
+				>
+				["at0.190"] = <
+					text = <"*Pets (en)">
+					description = <"">
+				>
+				["at0.191"] = <
+					text = <"*Difficulty making plans (en)">
+					description = <"">
+				>
+				["at0.192"] = <
+					text = <"*Smoking cessation (en)">
+					description = <"">
+				>
+				["at0.193"] = <
+					text = <"*Problems with alcohol or drugs (en)">
+					description = <"">
+				>
+				["at0.194"] = <
+					text = <"*My medication (en)">
+					description = <"">
+				>
+				["at0.195"] = <
+					text = <"*Uncertainty (en)">
+					description = <"">
+				>
+				["at0.196"] = <
+					text = <"*Loss of interest in activities (en)">
+					description = <"">
+				>
+				["at0.197"] = <
+					text = <"*Unable to express feelings (en)">
+					description = <"">
+				>
+				["at0.198"] = <
+					text = <"*Thinking about the future (en)">
+					description = <"">
+				>
+				["at0.199"] = <
+					text = <"*Regret about the past (en)">
+					description = <"">
+				>
+				["at0.200"] = <
+					text = <"*Anger or frustration (en)">
+					description = <"">
+				>
+				["at0.201"] = <
+					text = <"*Loneliness or isolation (en)">
+					description = <"">
+				>
+				["at0.202"] = <
+					text = <"*Sadness or depression (en)">
+					description = <"">
+				>
+				["at0.203"] = <
+					text = <"*Hopelessness (en)">
+					description = <"">
+				>
+				["at0.204"] = <
+					text = <"*Guilt (en)">
+					description = <"">
+				>
+				["at0.205"] = <
+					text = <"*Worry, fear or anxiety (en)">
+					description = <"">
+				>
+				["at0.206"] = <
+					text = <"*Independence (en)">
+					description = <"">
+				>
+				["at0.207"] = <
+					text = <"*Partner (en)">
+					description = <"">
+				>
+				["at0.208"] = <
+					text = <"*Children (en)">
+					description = <"">
+				>
+				["at0.209"] = <
+					text = <"*Other relatives or friends (en)">
+					description = <"">
+				>
+				["at0.210"] = <
+					text = <"*Person who looks after me (en)">
+					description = <"">
+				>
+				["at0.211"] = <
+					text = <"*Person who I look after (en)">
+					description = <"">
+				>
+				["at0.212"] = <
+					text = <"*Faith or spirituality (en)">
+					description = <"">
+				>
+				["at0.213"] = <
+					text = <"*Meaning or purpose of life (en)">
+					description = <"">
+				>
+				["at0.214"] = <
+					text = <"*Feeling at odds with my culture, (en)">
+					description = <"">
+				>
+				["at0.215"] = <
+					text = <"*Exercise and activity (en)">
+					description = <"">
+				>
+				["at0.216"] = <
+					text = <"*Diet and nutrition (en)">
+					description = <"">
+				>
+				["at0.217"] = <
+					text = <"*Complementary therapies (en)">
+					description = <"">
+				>
+				["at0.218"] = <
+					text = <"*Planning for my future priorities (en)">
+					description = <"">
+				>
+				["at0.219"] = <
+					text = <"*Making a will or legal advice (en)">
+					description = <"">
+				>
+				["at0.220"] = <
+					text = <"*Health and wellbeing (en)">
+					description = <"">
+				>
+				["at0.221"] = <
+					text = <"*Patient or carer’s support group (en)">
+					description = <"">
+				>
+				["at0.222"] = <
+					text = <"*Managing my symptoms (en)">
+					description = <"">
+				>
+				["at0.223"] = <
+					text = <"*Sun protection (en)">
+					description = <"">
+				>
+				["at0.224"] = <
+					text = <"*Questions about my diagnosis, treatments or effects (en)">
+					description = <"">
+				>
+				["at0000"] = <
+					text = <"issue_uk">
+					description = <"قضية, عَرَض, أو شكوى يتم تقديمها إلى مقدم الخدمة الصحية, و التي تحتاج إلى تفسير, تعليم/تثقيف, تفهم, تحقيق/استقصاء أو علاج">
+				>
+				["at0001"] = <
+					text = <"قضية/مشكلة">
+					description = <"*The name of the issue or concern as presented by the person (en)">
+				>
+				["at0002"] = <
+					text = <"*Description (en)">
+					description = <"المعلومات التفصيلية حول القضية أو المشكلة الصحية">
+				>
+				["at0004"] = <
+					text = <"*DV_CODED_TEXT (en)">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"*Present (en)">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"*Absent (en)">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"*Unknown (en)">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"*DV_COUNT (en)">
+					description = <"">
+				>
+			>
+		>
+		["cy"] = <
+			items = <
+				["at0000.1"] = <
+					text = <"issue_uk">
+					description = <"*A health-related issue or concern held by the individual. (en)">
+				>
+				["at0001.1"] = <
+					text = <"Mater">
+					description = <"*The name of the issue or concern as presented by the person. (en)">
+				>
+				["at0.28"] = <
+					text = <"Pryderon corfforol">
+					description = <"">
+				>
+				["at0.29"] = <
+					text = <"Pryderon ymarferol">
+					description = <"">
+				>
+				["at0.30"] = <
+					text = <"Pryderon emosiynol">
+					description = <"">
+				>
+				["at0.31"] = <
+					text = <"Pryder am deulu neu berthynas">
+					description = <"">
+				>
+				["at0.32"] = <
+					text = <"Pryderon ysbrydol">
+					description = <"">
+				>
+				["at0.33"] = <
+					text = <"Gwybodaeth neu gefnogaeth">
+					description = <"">
+				>
+				["at0.34"] = <
+					text = <"Mae gennyf gwestiynau am fy niagnosis, triniaethau neu effeithiau.">
+					description = <"">
+				>
+				["at0002.1"] = <
+					text = <"Disgrifiad">
+					description = <"*Narrative description about the issue or concern. (en)">
+				>
+				["at0004.1"] = <
+					text = <"Presenoldeb">
+					description = <"">
+				>
+				["at0008.1"] = <
+					text = <"Effaith">
+					description = <"">
+				>
+				["at0.152"] = <
+					text = <"Anawsterau anadlu">
+					description = <"">
+				>
+				["at0.153"] = <
+					text = <"Pasio wrin">
+					description = <"">
+				>
+				["at0.154"] = <
+					text = <"Rhwymedd">
+					description = <"">
+				>
+				["at0.155"] = <
+					text = <"Dolur rhydd">
+					description = <"">
+				>
+				["at0.156"] = <
+					text = <"Bwyta, chwant neu flas">
+					description = <"">
+				>
+				["at0.157"] = <
+					text = <"Camdreuliad">
+					description = <"">
+				>
+				["at0.158"] = <
+					text = <"Llyncu">
+					description = <"">
+				>
+				["at0.159"] = <
+					text = <"Peswch">
+					description = <"">
+				>
+				["at0.160"] = <
+					text = <"Ceg ddolurus neu sych neu ddoluriau">
+					description = <"">
+				>
+				["at0.161"] = <
+					text = <"Cyfog neu daflu i fyny">
+					description = <"">
+				>
+				["at0.162"] = <
+					text = <"Blino, lluddedig neu wedi ymlâdd">
+					description = <"">
+				>
+				["at0.163"] = <
+					text = <"Chwydd">
+					description = <"">
+				>
+				["at0.164"] = <
+					text = <"Tymheredd uchel neu wres">
+					description = <"">
+				>
+				["at0.165"] = <
+					text = <"Symud o gwmpas (cerdded)">
+					description = <"">
+				>
+				["at0.166"] = <
+					text = <"Pigo yn y dwylo neu'r traed">
+					description = <"">
+				>
+				["at0.167"] = <
+					text = <"Poen neu anghysur">
+					description = <"">
+				>
+				["at0.168"] = <
+					text = <"Pyliau poeth neu chwysu">
+					description = <"">
+				>
+				["at0.169"] = <
+					text = <"Croen sych, sy'n cosi neu'n ddolurus">
+					description = <"">
+				>
+				["at0.170"] = <
+					text = <"Newidiadau mewn pwysau">
+					description = <"">
+				>
+				["at0.171"] = <
+					text = <"Gofalu am friw">
+					description = <"">
+				>
+				["at0.172"] = <
+					text = <"Y cof neu ganolbwyntio">
+					description = <"">
+				>
+				["at0.173"] = <
+					text = <"Golwg neu glyw">
+					description = <"">
+				>
+				["at0.174"] = <
+					text = <"Problemau lleferydd neu lais">
+					description = <"">
+				>
+				["at0.175"] = <
+					text = <"Fy ymddangosiad">
+					description = <"">
+				>
+				["at0.176"] = <
+					text = <"Problemau cysgu">
+					description = <"">
+				>
+				["at0.177"] = <
+					text = <"Rhyw, agosrwydd neu ffrwythlondeb">
+					description = <"">
+				>
+				["at0.178"] = <
+					text = <"Cyflyrau meddygol eraill">
+					description = <"">
+				>
+				["at0.179"] = <
+					text = <"Gofalu am eraill">
+					description = <"">
+				>
+				["at0.180"] = <
+					text = <"Gwaith neu addysg">
+					description = <"">
+				>
+				["at0.181"] = <
+					text = <"Arian neu gyllid">
+					description = <"">
+				>
+				["at0.182"] = <
+					text = <"Teithio">
+					description = <"">
+				>
+				["at0.183"] = <
+					text = <"Cartrefi">
+					description = <"">
+				>
+				["at0.184"] = <
+					text = <"Cludiant neu barcio">
+					description = <"">
+				>
+				["at0.185"] = <
+					text = <"Siarad neu gael eich deall">
+					description = <"">
+				>
+				["at0.186"] = <
+					text = <"Golchi dillad neu waith tŷ">
+					description = <"">
+				>
+				["at0.187"] = <
+					text = <"Siopa bwyd">
+					description = <"">
+				>
+				["at0.188"] = <
+					text = <"Ymolchi a gwisgo">
+					description = <"">
+				>
+				["at0.189"] = <
+					text = <"Paratoi prydau neu ddiodydd">
+					description = <"">
+				>
+				["at0.190"] = <
+					text = <"Anifeiliaid anwes">
+					description = <"">
+				>
+				["at0.191"] = <
+					text = <"Anhawster yn gwneud cynlluniau">
+					description = <"">
+				>
+				["at0.192"] = <
+					text = <"Rhoi'r gorau i ysmygu">
+					description = <"">
+				>
+				["at0.193"] = <
+					text = <"Problemau gydag alcohol neu gyffuriau">
+					description = <"">
+				>
+				["at0.194"] = <
+					text = <"Fy meddyginiaeth">
+					description = <"">
+				>
+				["at0.195"] = <
+					text = <"Ansicrwydd">
+					description = <"">
+				>
+				["at0.196"] = <
+					text = <"Colli diddordeb mewn gweithgareddau">
+					description = <"">
+				>
+				["at0.197"] = <
+					text = <"Methu mynegi teimladau">
+					description = <"">
+				>
+				["at0.198"] = <
+					text = <"Meddwl am y dyfodol">
+					description = <"">
+				>
+				["at0.199"] = <
+					text = <"Edifarhau am y gorffennol">
+					description = <"">
+				>
+				["at0.200"] = <
+					text = <"Dicter neu rwystredigaeth">
+					description = <"">
+				>
+				["at0.201"] = <
+					text = <"Unigrwydd neu unigedd">
+					description = <"">
+				>
+				["at0.202"] = <
+					text = <"Tristwch neu iselder">
+					description = <"">
+				>
+				["at0.203"] = <
+					text = <"Anobaith">
+					description = <"">
+				>
+				["at0.204"] = <
+					text = <"Euogrwydd">
+					description = <"">
+				>
+				["at0.205"] = <
+					text = <"Poeni, ofn neu bryder Camdreuliad Arian neu gyllid">
+					description = <"">
+				>
+				["at0.206"] = <
+					text = <"Annibyniaeth">
+					description = <"">
+				>
+				["at0.207"] = <
+					text = <"Partner">
+					description = <"">
+				>
+				["at0.208"] = <
+					text = <"Plant">
+					description = <"">
+				>
+				["at0.209"] = <
+					text = <"Perthnasau eraill neu ffrindiau">
+					description = <"">
+				>
+				["at0.210"] = <
+					text = <"Y person sy'n gofalu amdanaf">
+					description = <"">
+				>
+				["at0.211"] = <
+					text = <"Y person rwy'n gofalu amdanynt">
+					description = <"">
+				>
+				["at0.212"] = <
+					text = <"Ffydd neu ysbrydolrwydd">
+					description = <"">
+				>
+				["at0.213"] = <
+					text = <"Ystyr neu bwrpas bywyd">
+					description = <"">
+				>
+				["at0.214"] = <
+					text = <"Teimlo'n groes i fy niwylliant, credoau neu werthoedd">
+					description = <"">
+				>
+				["at0.215"] = <
+					text = <"Ymarfer corff a gweithgareddau">
+					description = <"">
+				>
+				["at0.216"] = <
+					text = <"Diet a maeth">
+					description = <"">
+				>
+				["at0.217"] = <
+					text = <"Therapïau cyflenwol">
+					description = <"">
+				>
+				["at0.218"] = <
+					text = <"Cynllunio ar gyfer fy mlaenoriaethau yn y dyfodol">
+					description = <"">
+				>
+				["at0.219"] = <
+					text = <"Gwneud ewyllys neu gyngor cyfreithiol">
+					description = <"">
+				>
+				["at0.220"] = <
+					text = <"Lechyd a lles">
+					description = <"">
+				>
+				["at0.221"] = <
+					text = <"Grŵp cefnogi cleifion neu ofalwyr">
+					description = <"">
+				>
+				["at0.222"] = <
+					text = <"Rheoli fy symptomau">
+					description = <"">
+				>
+				["at0.223"] = <
+					text = <"Amddiffyn rhag yr haul">
+					description = <"">
+				>
+				["at0.224"] = <
+					text = <"Mae gennyf gwestiynau am fy niagnosis, triniaethau neu effeithiau.">
+					description = <"">
+				>
+				["at0000"] = <
+					text = <"Mae gennyf gwestiynau am fy niagnosis, triniaethau neu effeithiau.">
+					description = <"*A health-related issue or concern held by the individual. (en)">
+				>
+				["at0001"] = <
+					text = <"*Issue (en)">
+					description = <"*The name of the issue or concern as presented by the person. (en)">
+				>
+				["at0002"] = <
+					text = <"*Description (en)">
+					description = <"*Narrative description about the issue or concern. (en)">
+				>
+				["at0004"] = <
+					text = <"*Presence (en)">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"*Present (en)">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"*Absent (en)">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"*Unknown (en)">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"*Impact (en)">
+					description = <"">
+				>
+			>
+		>
+	>
