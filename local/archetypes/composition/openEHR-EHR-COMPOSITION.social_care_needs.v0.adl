@@ -1,0 +1,89 @@
+﻿archetype (adl_version=1.4; uid=274f5760-8abb-436c-a54c-bf0a28945f5e)
+	openEHR-EHR-COMPOSITION.social_care_needs.v0
+
+concept
+	[at0000]	-- Social care needs
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Heidi Koikkalainen">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"heidi@freshehr.com">
+		["date"] = <"2020-10-13">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Container archetype to carry details of the social care needs of an individual.">
+			use = <"Use as a container archetype to carry details of the social care needs of an individual.">
+			misuse = <"">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"5BF1D7787C962AD972CAED4F0B5587F0">
+		["build_uid"] = <"b8692262-f504-4596-96d5-cdbdcfbd6b0c">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	COMPOSITION[at0000] matches {    -- Social care needs
+		category matches {
+			DV_CODED_TEXT[at0001] matches {    -- Coded text
+				defining_code matches {
+					[openehr::433]
+				}
+			}
+		}
+		context matches {
+			EVENT_CONTEXT[at0002] matches {    -- Event Context
+				other_context matches {
+					ITEM_TREE[at0003] matches {    -- Item tree
+						items cardinality matches {0..*; unordered} matches {
+							allow_archetype CLUSTER[at0004] occurrences matches {0..*} matches {    -- XDS Metadata
+								include
+									archetype_id/value matches {/openEHR-EHR-CLUSTER\.xds_metadata\.v0/}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Social care needs">
+					description = <"Social care needs of an individual, such as personal care or manual handling support needs.">
+				>
+				["at0001"] = <
+					text = <"Coded text">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Event Context">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"XDS Metadata">
+					description = <"Slot for XDS Metadata.">
+				>
+			>
+		>
+	>
