@@ -1,0 +1,225 @@
+﻿archetype (adl_version=1.4; uid=049ed518-bd89-4a98-b675-2dafa7209cdf)
+	openEHR-EHR-CLUSTER.personal_grooming.v0
+
+concept
+	[at0000]	-- Personal grooming
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Heidi Koikkalainen">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"heidi@freshehr.com">
+		["date"] = <"2020-10-08">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record details about the practical ability of an individual to carry out personal grooming activities, such as taking care of their skin, nails and hair, and their identified support needs.">
+			use = <"Use to record details about the practical ability of an individual to carry out personal grooming activities, such as taking care of their skin, nails and hair, and their identified support needs.">
+			keywords = <"shaving, hair, skin, nails, foot, care, make-up", ...>
+			misuse = <"">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"DE422254B785A074188E3B25CE1AA5A9">
+		["build_uid"] = <"e7139b24-4e04-49b2-8619-428d7e8a62ca">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Personal grooming
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Description
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Type
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0010,    -- Shaving
+							at0011,    -- Hair
+							at0012,    -- Skin care
+							at0013,    -- Make-up
+							at0014,    -- Nails
+							at0015,    -- Foot care
+							at0025]    -- Other
+						}
+					}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {    -- Ability
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0016,    -- Independent without equipment/aids
+							at0017,    -- Independent with equipment/aids
+							at0018,    -- Requires support
+							at0019,    -- Unable to manage personal care
+							at0020]    -- Not known
+						}
+					}
+				}
+			}
+			ELEMENT[at0005] occurrences matches {0..1} matches {    -- Support required
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0021,    -- Verbal prompt
+							at0022,    -- Physical prompt
+							at0023,    -- Support from one person
+							at0024]    -- Support from two or more people
+						}
+					}
+				}
+			}
+			CLUSTER[at0006] occurrences matches {0..*} matches {    -- Equipment/aids
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0007] occurrences matches {0..1} matches {    -- Equipment description
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0008] occurrences matches {0..1} matches {    -- Equipment details
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+			ELEMENT[at0009] occurrences matches {0..1} matches {    -- Comment
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			allow_archetype CLUSTER[at0026] occurrences matches {0..*} matches {    -- Extension
+				include
+					archetype_id/value matches {/.*/}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Personal grooming">
+					description = <"The ability of an individual to carry out personal grooming activities, such as taking care of their skin, nails and hair.">
+				>
+				["at0001"] = <
+					text = <"Description">
+					description = <"Narrative description of the individual's overall ability to  carry out personal grooming activities.">
+				>
+				["at0002"] = <
+					text = <"Type">
+					description = <"Description of the type of personal grooming activity, for example, shaving, skin care, or putting on make-up.">
+				>
+				["at0004"] = <
+					text = <"Ability">
+					description = <"Description of the individual's level of ability to carry out personal grooming activities.">
+				>
+				["at0005"] = <
+					text = <"Support required">
+					description = <"Description of the type of support the individual requires to carry out personal grooming activities.">
+				>
+				["at0006"] = <
+					text = <"Equipment/aids">
+					description = <"Details of the equipment/aids that the individual requires to carry out personal grooming activities.">
+				>
+				["at0007"] = <
+					text = <"Equipment description">
+					description = <"Narrative description of the equipment/aid.">
+				>
+				["at0008"] = <
+					text = <"Equipment details">
+					description = <"Structured details of the equipment/aid.">
+				>
+				["at0009"] = <
+					text = <"Comment">
+					description = <"Additional narrative about the individual's ability to carry out personal grooming activities not captured in other fields.">
+				>
+				["at0010"] = <
+					text = <"Shaving">
+					description = <"Shaving body hair, e.g. beard, legs, or armpits.">
+				>
+				["at0011"] = <
+					text = <"Hair">
+					description = <"Styling hair, e.g. brushing hair, or putting hair up.">
+				>
+				["at0012"] = <
+					text = <"Skin care">
+					description = <"Taking care of the skin, e.g. putting on creams or lotions.">
+				>
+				["at0013"] = <
+					text = <"Make-up">
+					description = <"Using make-up products.">
+				>
+				["at0014"] = <
+					text = <"Nails">
+					description = <"Taking care of finger and toe nails, e.g. cutting nails, or putting on nail varnish.">
+				>
+				["at0015"] = <
+					text = <"Foot care">
+					description = <"Taking care of feet.">
+				>
+				["at0016"] = <
+					text = <"Independent without equipment/aids">
+					description = <"The individual is able to carry out personal grooming activities independently without any equipment/aids.">
+				>
+				["at0017"] = <
+					text = <"Independent with equipment/aids">
+					description = <"The individual is able to carry out personal grooming activities independently with equipment/aids.">
+				>
+				["at0018"] = <
+					text = <"Requires support">
+					description = <"The individual requires support from others to carry out personal grooming activities.">
+				>
+				["at0019"] = <
+					text = <"Unable to manage personal care">
+					description = <"The individual is unable to carry out personal grooming activities and is totally dependent on others.">
+				>
+				["at0020"] = <
+					text = <"Not known">
+					description = <"It is not known whether the individual is independent or requires support with personal grooming activities.">
+				>
+				["at0021"] = <
+					text = <"Verbal prompt">
+					description = <"The individual requires verbal prompting to carry out personal grooming activities.">
+				>
+				["at0022"] = <
+					text = <"Physical prompt">
+					description = <"The individual requires physical prompting to carry out personal grooming activities.">
+				>
+				["at0023"] = <
+					text = <"Support from one person">
+					description = <"The individual requires support from one person to carry out personal grooming activities.">
+				>
+				["at0024"] = <
+					text = <"Support from two or more people">
+					description = <"The individual requires support from two or more people to carry out personal grooming activities..">
+				>
+				["at0025"] = <
+					text = <"Other">
+					description = <"Other type of personal grooming activity.">
+				>
+				["at0026"] = <
+					text = <"Extension">
+					description = <"Additional information required to extend the model with local content or to align with other reference models/formalisms.">
+				>
+			>
+		>
+	>
