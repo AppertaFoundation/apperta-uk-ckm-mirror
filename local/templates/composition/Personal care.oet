@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xmlns="openEHR/v1/Template">
+    <id>08dced05-c829-4b30-99e7-2f43a0558ba8</id>
+    <name>Personal care</name>
+    <description>
+        <original_author>
+            <item>
+                <key>name</key>
+                <value>Heidi Koikkalainen</value>
+            </item>
+            <item>
+                <key>organisation</key>
+                <value>freshEHR Clinical Informatics Ltd.</value>
+            </item>
+            <item>
+                <key>email</key>
+                <value>heidi@freshehr.com</value>
+            </item>
+            <item>
+                <key>date</key>
+                <value>2020-10-13</value>
+            </item>
+        </original_author>
+        <lifecycle_state>unmanaged</lifecycle_state>
+        <details/>
+        <other_details>
+            <item>
+                <key>licence</key>
+                <value/>
+            </item>
+            <item>
+                <key>custodian_organisation</key>
+                <value/>
+            </item>
+            <item>
+                <key>original_namespace</key>
+                <value/>
+            </item>
+            <item>
+                <key>original_publisher</key>
+                <value/>
+            </item>
+            <item>
+                <key>custodian_namespace</key>
+                <value/>
+            </item>
+            <item>
+                <key>MD5-CAM-1.0.1</key>
+                <value>85fdafb15bee76ebf8cffcbc5bf115d2</value>
+            </item>
+            <item>
+                <key>PARENT:MD5-CAM-1.0.1</key>
+                <value>5BF1D7787C962AD972CAED4F0B5587F0</value>
+            </item>
+            <item>
+                <key>original_language</key>
+                <value>ISO_639-1::en</value>
+            </item>
+        </other_details>
+    </description>
+    <definition
+        archetype_id="openEHR-EHR-COMPOSITION.social_care_needs.v0"
+        concept_name="Social care needs" name="Personal care"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:COMPOSITION">
+        <Content archetype_id="openEHR-EHR-SECTION.adhoc.v1"
+            concept_name="Ad hoc heading" max="1" name="Personal care"
+            path="/content" xsi:type="tem:SECTION">
+            <Item
+                archetype_id="openEHR-EHR-EVALUATION.personal_care_needs.v0"
+                max="1" path="/items" xsi:type="tem:EVALUATION">
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.washing_self.v0"
+                    max="1" path="/data[at0001]/items[at0010]" xsi:type="tem:CLUSTER"/>
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.dressing_self.v0"
+                    max="1" path="/data[at0001]/items[at0010]" xsi:type="tem:CLUSTER"/>
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.personal_grooming.v0"
+                    max="1" path="/data[at0001]/items[at0010]" xsi:type="tem:CLUSTER"/>
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.oral_hygiene.v0"
+                    max="1" path="/data[at0001]/items[at0010]" xsi:type="tem:CLUSTER"/>
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.use_of_toilet.v0"
+                    max="1" path="/data[at0001]/items[at0010]" xsi:type="tem:CLUSTER"/>
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.menstrual_hygiene.v0"
+                    max="1" path="/data[at0001]/items[at0010]" xsi:type="tem:CLUSTER"/>
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.continence_care.v0"
+                    max="1" path="/data[at0001]/items[at0010]" xsi:type="tem:CLUSTER"/>
+            </Item>
+        </Content>
+    </definition>
+    <integrity_checks
+        archetype_id="openEHR-EHR-COMPOSITION.social_care_needs.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">5BF1D7787C962AD972CAED4F0B5587F0</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-SECTION.adhoc.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">8FE80F3E80C594AAF99D3BA540A53D73</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-EVALUATION.personal_care_needs.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">295D0585061E11A65E44F9BBAFA2C587</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.washing_self.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">EF5F0CA23542FAB72F28A176F0A6449E</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.dressing_self.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">AACF1F3552185F1AA658B7EE234191CE</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.personal_grooming.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">DE422254B785A074188E3B25CE1AA5A9</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.oral_hygiene.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">71296CE36B0E47C4B676A7043A1F31D4</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.use_of_toilet.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">8EA203A082DB09ABBBE4B33CD8FA7104</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.menstrual_hygiene.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">1CA4B3DC91C3AE19DDB0872158961298</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.continence_care.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">C76E87AA26EDD8B826B043D15CFF0153</digest>
+    </integrity_checks>
+</template>
