@@ -1,0 +1,248 @@
+﻿archetype (adl_version=1.4; uid=b63fffda-5e5d-42dc-970e-02e5bb3a835e)
+	openEHR-EHR-CLUSTER.dressing_self.v0
+
+concept
+	[at0000]	-- Dressing self
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Heidi Koikkalainen">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"heidi@freshehr.com">
+		["date"] = <"2020-10-09">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record details about the practical ability of an individual to put on and remove clothing, and their identified support needs.">
+			use = <"Use to record details about the practical ability of an individual to put on and remove clothing, and their identified support needs.">
+			keywords = <"dressing, undressing, clothing, buttons, zibs, shoes, laces", ...>
+			misuse = <"">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"AACF1F3552185F1AA658B7EE234191CE">
+		["build_uid"] = <"25160909-e06c-4408-945b-8028cc84779b">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Dressing self
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Description
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Type
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0003,    -- Putting clothes on
+							at0004,    -- Taking clothes off
+							at0005,    -- Choosing clothing
+							at0006,    -- Buttons/zips
+							at0007,    -- Shoe laces
+							at0008]    -- Other
+						}
+					}
+				}
+			}
+			ELEMENT[at0009] occurrences matches {0..1} matches {    -- Body part to be dressed
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0010,    -- Entire body
+							at0011,    -- Upper body
+							at0012]    -- Lower body
+						}
+					}
+				}
+			}
+			ELEMENT[at0013] occurrences matches {0..1} matches {    -- Ability
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0014,    -- Independent without equipment/aids
+							at0015,    -- Independent with equipment/aids
+							at0016,    -- Requires support
+							at0017,    -- Unable to manage personal care
+							at0018]    -- Not known
+						}
+					}
+				}
+			}
+			ELEMENT[at0019] occurrences matches {0..1} matches {    -- Support required
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0020,    -- Verbal prompt
+							at0021,    -- Physical prompt
+							at0022,    -- Support from one person
+							at0023]    -- Support from two or more people
+						}
+					}
+				}
+			}
+			CLUSTER[at0024] occurrences matches {0..*} matches {    -- Equipment/aids
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0025] occurrences matches {0..1} matches {    -- Equipment description
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0026] occurrences matches {0..1} matches {    -- Equipment details
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+			ELEMENT[at0027] occurrences matches {0..1} matches {    -- Comment
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			allow_archetype CLUSTER[at0028] occurrences matches {0..*} matches {    -- Extension
+				include
+					archetype_id/value matches {/.*/}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Dressing self">
+					description = <"The ability of an individual to put on and remove clothing.">
+				>
+				["at0001"] = <
+					text = <"Description">
+					description = <"Narrative description of the individual's overall ability to put on and remove clothing.">
+				>
+				["at0002"] = <
+					text = <"Type">
+					description = <"Description of the type of dressing activity, for example, putting clothes on, choosing appropriate clothing, or tying shoe laces.">
+				>
+				["at0003"] = <
+					text = <"Putting clothes on">
+					description = <"Putting clothes on.">
+				>
+				["at0004"] = <
+					text = <"Taking clothes off">
+					description = <"Taking clothes off.">
+				>
+				["at0005"] = <
+					text = <"Choosing clothing">
+					description = <"Choosing appropriate clothing.">
+				>
+				["at0006"] = <
+					text = <"Buttons/zips">
+					description = <"Doing buttons/zips.">
+				>
+				["at0007"] = <
+					text = <"Shoe laces">
+					description = <"Tying shoe laces.">
+				>
+				["at0008"] = <
+					text = <"Other">
+					description = <"Other type of dressing activity.">
+				>
+				["at0009"] = <
+					text = <"Body part to be dressed">
+					description = <"The body part or parts to be dressed.">
+				>
+				["at0010"] = <
+					text = <"Entire body">
+					description = <"Dressing/undressing the entire body.">
+				>
+				["at0011"] = <
+					text = <"Upper body">
+					description = <"Dressing/undressing the upper body.">
+				>
+				["at0012"] = <
+					text = <"Lower body">
+					description = <"Dressing/undressing the lower body.">
+				>
+				["at0013"] = <
+					text = <"Ability">
+					description = <"Description of the individual's level of ability to dress/undress self.">
+				>
+				["at0014"] = <
+					text = <"Independent without equipment/aids">
+					description = <"The individual is able to dress/undress themselves independently without any equipment/aids.">
+				>
+				["at0015"] = <
+					text = <"Independent with equipment/aids">
+					description = <"The individual is able to dress/undress themselves independently with equipment/aids.">
+				>
+				["at0016"] = <
+					text = <"Requires support">
+					description = <"The individual requires support from others to dress/undress themselves.">
+				>
+				["at0017"] = <
+					text = <"Unable to manage personal care">
+					description = <"The individual is unable to dress/undress themselves and is totally dependent on others.">
+				>
+				["at0018"] = <
+					text = <"Not known">
+					description = <"It is not known whether the individual is independent or requires support to dress/undress themselves.">
+				>
+				["at0019"] = <
+					text = <"Support required">
+					description = <"Description of the type of support the individual requires to dress/undress self.">
+				>
+				["at0020"] = <
+					text = <"Verbal prompt">
+					description = <"The individual requires verbal prompting to dress/undress themselves.">
+				>
+				["at0021"] = <
+					text = <"Physical prompt">
+					description = <"The individual requires physical prompting to dress/undress themselves.">
+				>
+				["at0022"] = <
+					text = <"Support from one person">
+					description = <"The individual requires support from one person to dress/undress themselves.">
+				>
+				["at0023"] = <
+					text = <"Support from two or more people">
+					description = <"The individual requires support from two or more people to dress/undress themselves.">
+				>
+				["at0024"] = <
+					text = <"Equipment/aids">
+					description = <"Details of the equipment/aids that the individual requires to dress/undress self.">
+				>
+				["at0025"] = <
+					text = <"Equipment description">
+					description = <"Narrative description of the equipment/aid.">
+				>
+				["at0026"] = <
+					text = <"Equipment details">
+					description = <"Structured details of the equipment/aid.">
+				>
+				["at0027"] = <
+					text = <"Comment">
+					description = <"Additional narrative about the individual's ability to dress/undress self not captured in other fields.">
+				>
+				["at0028"] = <
+					text = <"Extension">
+					description = <"Additional information required to extend the model with local content or to align with other reference models/formalisms.">
+				>
+			>
+		>
+	>
