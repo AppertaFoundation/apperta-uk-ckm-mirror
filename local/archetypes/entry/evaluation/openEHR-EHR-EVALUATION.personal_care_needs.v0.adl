@@ -1,0 +1,259 @@
+﻿archetype (adl_version=1.4; uid=3d7b6ced-92aa-48d4-bc65-67e5b5ba0d34)
+	openEHR-EHR-EVALUATION.personal_care_needs.v0
+
+concept
+	[at0000]	-- Personal care needs
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Heidi Koikkalainen">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"heidi@freshehr.com">
+		["date"] = <"2020-10-08">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record details about the ability of an individual to carry out personal care activities and their identified support needs.">
+			use = <"Use to record details about the ability of an individual to carry out personal care activities and their identified support needs.">
+			keywords = <"washing, dressing, grooming, intimate, hygiene, continence, toilet, shower, bath, clothing", ...>
+			misuse = <"">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"295D0585061E11A65E44F9BBAFA2C587">
+		["build_uid"] = <"23c71a81-f909-4f38-b82c-aead4c91e37c">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	EVALUATION[at0000] matches {    -- Personal care needs
+		data matches {
+			ITEM_TREE[at0001] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {    -- Needs identified?
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0003,    -- Yes
+									at0004,    -- No
+									at0005]    -- Not known
+								}
+							}
+						}
+					}
+					ELEMENT[at0006] occurrences matches {0..1} matches {    -- Description
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0011] occurrences matches {0..1} matches {    -- Ability
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0016,    -- Independent without equipment/aids
+									at0017,    -- Independent with equipment/aids
+									at0018,    -- Requires support
+									at0019,    -- Unable to manage personal care
+									at0020]    -- Not known
+								}
+							}
+						}
+					}
+					ELEMENT[at0021] occurrences matches {0..1} matches {    -- Support required
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0022,    -- Verbal prompt
+									at0023,    -- Physical prompt
+									at0024,    -- Support from one person
+									at0025]    -- Support from two or more people
+								}
+							}
+						}
+					}
+					CLUSTER[at0012] occurrences matches {0..*} matches {    -- Equipment/aids
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0026] occurrences matches {0..1} matches {    -- Equipment description
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							allow_archetype CLUSTER[at0027] occurrences matches {0..1} matches {    -- Equipment details
+								include
+									archetype_id/value matches {/.*/}
+							}
+						}
+					}
+					ELEMENT[at0009] occurrences matches {0..1} matches {    -- Routine
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0007] occurrences matches {0..1} matches {    -- Privacy
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0008] occurrences matches {0..1} matches {    -- Gender preference
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0010] occurrences matches {0..*} matches {    -- Details
+						include
+							archetype_id/value matches {/.*/}
+					}
+					ELEMENT[at0013] occurrences matches {0..1} matches {    -- Comment
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0014] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0015] occurrences matches {0..*} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Personal care needs">
+					description = <"The ability of an individual to carry out personal care activities, such as washing self, using the toilet, and getting dressed.">
+				>
+				["at0001"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Needs identified?">
+					description = <"Indicates whether the individual has been identified as having personal care support needs.">
+				>
+				["at0003"] = <
+					text = <"Yes">
+					description = <"The individual has personal care support needs.">
+				>
+				["at0004"] = <
+					text = <"No">
+					description = <"The individual does not have personal care support needs.">
+				>
+				["at0005"] = <
+					text = <"Not known">
+					description = <"It is not known whether the individual has personal care support needs.">
+				>
+				["at0006"] = <
+					text = <"Description">
+					description = <"Narrative description of the individual's overall personal care needs.">
+				>
+				["at0007"] = <
+					text = <"Privacy">
+					description = <"Details of the individual's privacy requirements/preferences when carrying out personal care activities.">
+				>
+				["at0008"] = <
+					text = <"Gender preference">
+					description = <"Indicates whether the individual has a gender preference for staff that support them with personal care activities.">
+				>
+				["at0009"] = <
+					text = <"Routine">
+					description = <"Details of the individual's usual or preferred personal care routine.">
+				>
+				["at0010"] = <
+					text = <"Details">
+					description = <"Structured details of specific personal care activities, for example, washing self, dressing self, oral hygiene, use of toilet, and continence care.">
+				>
+				["at0011"] = <
+					text = <"Ability">
+					description = <"Description of the individual's level of ability to carry out personal care activities.">
+				>
+				["at0012"] = <
+					text = <"Equipment/aids">
+					description = <"Details of the equipment/aids that the individual requires to carry out personal care activities.">
+				>
+				["at0013"] = <
+					text = <"Comment">
+					description = <"Additional narrative about the individual's personal care needs not captured in other fields.">
+				>
+				["at0014"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0015"] = <
+					text = <"Extension">
+					description = <"Additional information required to extend the model with local content or to align with other reference models/formalisms.">
+					comment = <"For example: local information requirements; or additional metadata to align with FHIR.">
+				>
+				["at0016"] = <
+					text = <"Independent without equipment/aids">
+					description = <"The individual is able to carry out personal care activities independently without any equipment/aids.">
+				>
+				["at0017"] = <
+					text = <"Independent with equipment/aids">
+					description = <"The individual is able to carry out personal care activities independently with equipment/aids.">
+				>
+				["at0018"] = <
+					text = <"Requires support">
+					description = <"The individual requires support from others to carry out personal care activities.">
+				>
+				["at0019"] = <
+					text = <"Unable to manage personal care">
+					description = <"The individual is unable to carry out personal care activities and is totally dependent on others.">
+				>
+				["at0020"] = <
+					text = <"Not known">
+					description = <"It is not known whether the individual is independent or requires support to carry out personal care activities.">
+				>
+				["at0021"] = <
+					text = <"Support required">
+					description = <"Description of the type of support the individual requires to carry out personal care activities.">
+				>
+				["at0022"] = <
+					text = <"Verbal prompt">
+					description = <"The individual requires verbal prompting to carry out personal care activities.">
+				>
+				["at0023"] = <
+					text = <"Physical prompt">
+					description = <"The individual requires physical prompting to carry out personal care activities.">
+				>
+				["at0024"] = <
+					text = <"Support from one person">
+					description = <"The individual requires support from one person to carry out personal care activities.">
+				>
+				["at0025"] = <
+					text = <"Support from two or more people">
+					description = <"The individual requires support from two or more people to carry out personal care activities.">
+				>
+				["at0026"] = <
+					text = <"Equipment description">
+					description = <"Narrative description of the equipment/aid.">
+				>
+				["at0027"] = <
+					text = <"Equipment details">
+					description = <"Structured details of the equipment/aid.">
+				>
+			>
+		>
+	>
