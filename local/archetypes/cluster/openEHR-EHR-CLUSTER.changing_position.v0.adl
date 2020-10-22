@@ -1,0 +1,220 @@
+﻿archetype (adl_version=1.4; uid=cddd0181-ee3a-43ba-a234-b381837450c3)
+	openEHR-EHR-CLUSTER.changing_position.v0
+
+concept
+	[at0000]	-- Changing position
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Heidi Koikkalainen">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"heidi@freshehr.com">
+		["date"] = <"2020-10-15">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record details about the practical ability of an individual to change body position, for example, lying down onto a bed, or getting up from a seated position, including their identified support needs.">
+			use = <"Use to record details about the practical ability of an individual to change body position, for example, lying down onto a bed, or getting up from a seated position, including their identified support needs.">
+			keywords = <"sit, sitting, lie down, get up, crouching, kneeling", ...>
+			misuse = <"">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"3B7F15E0D3351F2F107BE0CE7826F88B">
+		["build_uid"] = <"c040f949-2b9c-4e06-aa34-30c7e7ba840a">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Changing position
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Description
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Type
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0003,    -- Sitting down
+							at0004,    -- Lying down
+							at0005,    -- Crouching/Kneeling down
+							at0006,    -- Getting up
+							at0007,    -- Turning
+							at0024]    -- Other
+						}
+					}
+				}
+			}
+			ELEMENT[at0008] occurrences matches {0..1} matches {    -- Ability
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0009,    -- Independent without equipment/aids
+							at0010,    -- Independent with equipment/aids
+							at0011,    -- Requires support
+							at0012,    -- Unable to change body position
+							at0013]    -- Not known
+						}
+					}
+				}
+			}
+			ELEMENT[at0014] occurrences matches {0..1} matches {    -- Support required
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0015,    -- Verbal prompt
+							at0016,    -- Physical prompt
+							at0017,    -- Support from one person
+							at0018]    -- Support from two or more people
+						}
+					}
+				}
+			}
+			CLUSTER[at0019] occurrences matches {0..*} matches {    -- Equipment/aids
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0020] occurrences matches {0..1} matches {    -- Equipment description
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0021] occurrences matches {0..1} matches {    -- Equipment details
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+			ELEMENT[at0022] occurrences matches {0..1} matches {    -- Comment
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			allow_archetype CLUSTER[at0023] occurrences matches {0..*} matches {    -- Extension
+				include
+					archetype_id/value matches {/.*/}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Changing position">
+					description = <"The ability of an individual to change body position, for example, lying down onto a bed, or getting up from a seated position.">
+				>
+				["at0001"] = <
+					text = <"Description">
+					description = <"Narrative description of the individual's overall ability to change body position.">
+				>
+				["at0002"] = <
+					text = <"Type">
+					description = <"Description of the type of movement to change body position, for example, sitting down on a chair, or getting up from a lying position.">
+				>
+				["at0003"] = <
+					text = <"Sitting down">
+					description = <"Changing body position to sit down.">
+				>
+				["at0004"] = <
+					text = <"Lying down">
+					description = <"Changing body position to lie down.">
+				>
+				["at0005"] = <
+					text = <"Crouching/Kneeling down">
+					description = <"Changing body position to crouch/kneel down.">
+				>
+				["at0006"] = <
+					text = <"Getting up">
+					description = <"Changing body position to get up from a seated/lying/crouching/kneeling position.">
+				>
+				["at0007"] = <
+					text = <"Turning">
+					description = <"Changing body position to turn sides.">
+				>
+				["at0008"] = <
+					text = <"Ability">
+					description = <"Description of the individual's level of ability to change body position.">
+				>
+				["at0009"] = <
+					text = <"Independent without equipment/aids">
+					description = <"The individual is able to change body position independently without any equipment/aids.">
+				>
+				["at0010"] = <
+					text = <"Independent with equipment/aids">
+					description = <"The individual is able to change body position independently with equipment/aids.">
+				>
+				["at0011"] = <
+					text = <"Requires support">
+					description = <"The individual requires support from others to change body position.">
+				>
+				["at0012"] = <
+					text = <"Unable to change body position">
+					description = <"The individual is unable to change body position.">
+				>
+				["at0013"] = <
+					text = <"Not known">
+					description = <"It is not known whether the individual is able to change body position independently or requires support from others..">
+				>
+				["at0014"] = <
+					text = <"Support required">
+					description = <"Description of the type of support the individual requires to change body position.">
+				>
+				["at0015"] = <
+					text = <"Verbal prompt">
+					description = <"The individual requires verbal prompting to change body position.">
+				>
+				["at0016"] = <
+					text = <"Physical prompt">
+					description = <"The individual requires physical prompting to change body position.">
+				>
+				["at0017"] = <
+					text = <"Support from one person">
+					description = <"The individual requires support from one person to change body position.">
+				>
+				["at0018"] = <
+					text = <"Support from two or more people">
+					description = <"The individual requires support from two or more people to change body position.">
+				>
+				["at0019"] = <
+					text = <"Equipment/aids">
+					description = <"Details of the equipment/aids that the individual requires to change body position.">
+				>
+				["at0020"] = <
+					text = <"Equipment description">
+					description = <"Narrative description of the equipment/aid.">
+				>
+				["at0021"] = <
+					text = <"Equipment details">
+					description = <"Structured details of the equipment/aid.">
+				>
+				["at0022"] = <
+					text = <"Comment">
+					description = <"Additional narrative about the individual's ability to change body position not captured in other fields.">
+				>
+				["at0023"] = <
+					text = <"Extension">
+					description = <"Additional information required to extend the model with local content or to align with other reference models/formalisms.">
+				>
+				["at0024"] = <
+					text = <"Other">
+					description = <"Other type of movement to change body position.">
+				>
+			>
+		>
+	>
