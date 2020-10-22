@@ -1,0 +1,260 @@
+﻿archetype (adl_version=1.4; uid=4f96dd1a-4183-4e74-8e97-82dd6445b63e)
+	openEHR-EHR-EVALUATION.mobility.v0
+
+concept
+	[at0000]	-- Mobility
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Heidi Koikkalainen">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"heidi@freshehr.com">
+		["date"] = <"2020-10-15">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record details about the ability of an individual to move freely, including their identified support needs.">
+			use = <"Use to record details about the ability of an individual to move freely, including their identified support needs.">
+			keywords = <"mobile, immobile, walk, climb, steps, stairs, standing, sitting, lying, transfer, chair, bed, toilet", ...>
+			misuse = <"">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"D274F2BB6A237FE5D7F52A9EB80A4C54">
+		["build_uid"] = <"708ff494-64db-4b4b-9bf8-b7a911b473c3">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	EVALUATION[at0000] matches {    -- Mobility
+		data matches {
+			ITEM_TREE[at0001] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {    -- Issues identified?
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0003,    -- Yes
+									at0004,    -- No
+									at0005]    -- Not known
+								}
+							}
+						}
+					}
+					ELEMENT[at0006] occurrences matches {0..1} matches {    -- Description
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0007] occurrences matches {0..1} matches {    -- History of falls
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0008,    -- Yes
+									at0009,    -- No
+									at0010]    -- Not known
+								}
+							}
+						}
+					}
+					ELEMENT[at0013] occurrences matches {0..1} matches {    -- Ability
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0014,    -- Mobile without equipment/aids
+									at0015,    -- Mobile with equipment/aids
+									at0016,    -- Requires support
+									at0017,    -- Immobile
+									at0018]    -- Not known
+								}
+							}
+						}
+					}
+					ELEMENT[at0019] occurrences matches {0..1} matches {    -- Support required
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0020,    -- Verbal prompt
+									at0021,    -- Physical prompt
+									at0022,    -- Support from one person
+									at0023]    -- Support from two or more people
+								}
+							}
+						}
+					}
+					CLUSTER[at0024] occurrences matches {0..*} matches {    -- Equipment/aids
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0025] occurrences matches {0..1} matches {    -- Equipment description
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							allow_archetype CLUSTER[at0026] occurrences matches {0..1} matches {    -- Equipment details
+								include
+									archetype_id/value matches {/.*/}
+							}
+						}
+					}
+					allow_archetype CLUSTER[at0027] occurrences matches {0..*} matches {    -- Details
+						include
+							archetype_id/value matches {/.*/}
+					}
+					ELEMENT[at0028] occurrences matches {0..1} matches {    -- Comment
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0012] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0029] occurrences matches {0..*} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Mobility">
+					description = <"The ability of an individual to move freely, including walking, transferring, and maintaining and changing body position.">
+				>
+				["at0001"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Issues identified?">
+					description = <"An indication of whether or not the individual has been identified as having mobility issues.">
+				>
+				["at0003"] = <
+					text = <"Yes">
+					description = <"The individual has mobility issues.">
+				>
+				["at0004"] = <
+					text = <"No">
+					description = <"The individual does not have mobility issues.">
+				>
+				["at0005"] = <
+					text = <"Not known">
+					description = <"It is not known whether the individual has mobility issues.">
+				>
+				["at0006"] = <
+					text = <"Description">
+					description = <"Narrative description of the individual's overall mobility.">
+				>
+				["at0007"] = <
+					text = <"History of falls">
+					description = <"An indication of whether or not the individual has a history of falling in the past.">
+				>
+				["at0008"] = <
+					text = <"Yes">
+					description = <"The individual has a history of falling.">
+				>
+				["at0009"] = <
+					text = <"No">
+					description = <"The individual does not have a history of falling.">
+				>
+				["at0010"] = <
+					text = <"Not known">
+					description = <"It is not known whether the individual has a history of falling.">
+				>
+				["at0012"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0013"] = <
+					text = <"Ability">
+					description = <"Description of the individual's level of mobility.">
+				>
+				["at0014"] = <
+					text = <"Mobile without equipment/aids">
+					description = <"The individual is mobile without any equipment/aids.">
+				>
+				["at0015"] = <
+					text = <"Mobile with equipment/aids">
+					description = <"The individual is mobile with equipment/aids.">
+				>
+				["at0016"] = <
+					text = <"Requires support">
+					description = <"The individual has mobility issues and requires support from others.">
+				>
+				["at0017"] = <
+					text = <"Immobile">
+					description = <"The individual is immobile and depends totally on others.">
+				>
+				["at0018"] = <
+					text = <"Not known">
+					description = <"It is not known whether the individual is mobile or requires support from others.">
+				>
+				["at0019"] = <
+					text = <"Support required">
+					description = <"Description of the type of support the individual requires to be mobile.">
+				>
+				["at0020"] = <
+					text = <"Verbal prompt">
+					description = <"The individual requires verbal prompting to be mobile.">
+				>
+				["at0021"] = <
+					text = <"Physical prompt">
+					description = <"The individual requires physical prompting to be mobile.">
+				>
+				["at0022"] = <
+					text = <"Support from one person">
+					description = <"The individual requires support from one person to be mobile.">
+				>
+				["at0023"] = <
+					text = <"Support from two or more people">
+					description = <"The individual requires support from two or more people to be mobile.">
+				>
+				["at0024"] = <
+					text = <"Equipment/aids">
+					description = <"Details of the mobility equipment/aids that the individual requires to be mobile.">
+				>
+				["at0025"] = <
+					text = <"Equipment description">
+					description = <"Narrative description of the equipment/aid.">
+				>
+				["at0026"] = <
+					text = <"Equipment details">
+					description = <"Structured details of the equipment/aid.">
+				>
+				["at0027"] = <
+					text = <"Details">
+					description = <"Structured details of specific activities involving mobility, for example, walking, changing position, or climbing up stairs.">
+				>
+				["at0028"] = <
+					text = <"Comment">
+					description = <"Additional narrative about the individual's mobility not captured in other fields.">
+				>
+				["at0029"] = <
+					text = <"Extension">
+					description = <"Additional information required to extend the model with local content or to align with other reference models/formalisms.">
+					comment = <"For example: local information requirements; or additional metadata to align with FHIR.">
+				>
+			>
+		>
+	>
