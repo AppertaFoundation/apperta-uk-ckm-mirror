@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xmlns="openEHR/v1/Template">
+    <id>a99a4332-9c18-4265-8c90-a3207d9d2aa1</id>
+    <name>Mobility</name>
+    <description>
+        <original_author>
+            <item>
+                <key>name</key>
+                <value>Ian McNicoll</value>
+            </item>
+            <item>
+                <key>organisation</key>
+                <value>freshEHR Clinical Informatics Ltd.</value>
+            </item>
+            <item>
+                <key>email</key>
+                <value>ian@freshehr.com</value>
+            </item>
+            <item>
+                <key>date</key>
+                <value>2020-10-22</value>
+            </item>
+        </original_author>
+        <lifecycle_state>unmanaged</lifecycle_state>
+        <details/>
+        <other_details>
+            <item>
+                <key>licence</key>
+                <value/>
+            </item>
+            <item>
+                <key>custodian_organisation</key>
+                <value/>
+            </item>
+            <item>
+                <key>original_namespace</key>
+                <value/>
+            </item>
+            <item>
+                <key>original_publisher</key>
+                <value/>
+            </item>
+            <item>
+                <key>custodian_namespace</key>
+                <value/>
+            </item>
+            <item>
+                <key>original_language</key>
+                <value>ISO_639-1::en</value>
+            </item>
+        </other_details>
+    </description>
+    <definition
+        archetype_id="openEHR-EHR-COMPOSITION.social_care_needs.v0"
+        concept_name="Social care needs" name="Mobility"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:COMPOSITION">
+        <Content archetype_id="openEHR-EHR-SECTION.adhoc.v1"
+            concept_name="Ad hoc heading" max="1" name="Mobility"
+            path="/content" xsi:type="tem:SECTION">
+            <Item archetype_id="openEHR-EHR-EVALUATION.mobility.v0"
+                max="1" path="/items" xsi:type="tem:EVALUATION">
+                <Items archetype_id="openEHR-EHR-CLUSTER.walking.v0"
+                    max="1" path="/data[at0001]/items[at0027]" xsi:type="tem:CLUSTER"/>
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.maintaining_position.v0"
+                    max="1" path="/data[at0001]/items[at0027]" xsi:type="tem:CLUSTER"/>
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.changing_position.v0"
+                    max="1" path="/data[at0001]/items[at0027]" xsi:type="tem:CLUSTER"/>
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.transferring.v0"
+                    max="1" path="/data[at0001]/items[at0027]" xsi:type="tem:CLUSTER"/>
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.climbing_stairs.v0"
+                    max="1" path="/data[at0001]/items[at0027]" xsi:type="tem:CLUSTER"/>
+            </Item>
+        </Content>
+    </definition>
+    <integrity_checks
+        archetype_id="openEHR-EHR-COMPOSITION.social_care_needs.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">5BF1D7787C962AD972CAED4F0B5587F0</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-SECTION.adhoc.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">8FE80F3E80C594AAF99D3BA540A53D73</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-EVALUATION.mobility.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">D274F2BB6A237FE5D7F52A9EB80A4C54</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.walking.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">10518DF166FED2369D9C59CF8A5626A7</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.maintaining_position.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">2C12BEB25956AC124BFBE6F9D1190AE5</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.changing_position.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">3B7F15E0D3351F2F107BE0CE7826F88B</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.transferring.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">8A9AB348FE938C369B7E59B592C0AD03</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.climbing_stairs.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">F1A92E7027CB2D6EBE7DB12FB8227704</digest>
+    </integrity_checks>
+</template>
