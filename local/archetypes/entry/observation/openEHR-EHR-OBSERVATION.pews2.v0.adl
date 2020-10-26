@@ -1,0 +1,760 @@
+﻿archetype (adl_version=1.4; uid=7aa3da2e-597d-4d5a-a0b9-0201e300bc64)
+	openEHR-EHR-OBSERVATION.pews2.v0
+
+concept
+	[at0000]	-- PEWS2
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHr Clinical Informatics Ltd.">
+		["email"] = <"ian@freshehr.com">
+		["date"] = <"2020-01-26">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"B1CD97C54F34D0A4D733ECAA5E0A7D90">
+		["build_uid"] = <"c994f60a-f4f8-466e-8667-479d025323b3">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- PEWS2
+		data matches {
+			HISTORY[at0001] matches {    -- History
+				events cardinality matches {0..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..*} matches {    -- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0151] occurrences matches {0..1} matches {    -- Respiratory rate under age 1
+										value matches {
+											4|[local::at0152],
+											2|[local::at0153],
+											1|[local::at0154],
+											0|[local::at0155],
+											1|[local::at0156],
+											2|[local::at0157],
+											4|[local::at0158]
+										}
+									}
+									ELEMENT[at0107] occurrences matches {0..1} matches {    -- Respiratory rate age 1-5
+										value matches {
+											4|[local::at0108],
+											2|[local::at0109],
+											1|[local::at0110],
+											0|[local::at0111],
+											1|[local::at0112],
+											2|[local::at0130],
+											4|[local::at0113]
+										}
+									}
+									ELEMENT[at0075] occurrences matches {0..1} matches {    -- Respiratory rate age 5-12
+										value matches {
+											4|[local::at0076],
+											2|[local::at0077],
+											1|[local::at0078],
+											0|[local::at0079],
+											1|[local::at0080],
+											4|[local::at0081]
+										}
+									}
+									ELEMENT[at0040] occurrences matches {0..1} matches {    -- Respiratory rate over age 12
+										value matches {
+											4|[local::at0067],
+											2|[local::at0044],
+											1|[local::at0043],
+											0|[local::at0042],
+											1|[local::at0068],
+											4|[local::at0045]
+										}
+									}
+									ELEMENT[at0046] occurrences matches {0..1} matches {    -- Respiratory distress
+										value matches {
+											0|[local::at0047],
+											1|[local::at0048],
+											2|[local::at0049],
+											4|[local::at0050]
+										}
+									}
+									ELEMENT[at0139] occurrences matches {0..1} matches {    -- SPO2
+										value matches {
+											4|[local::at0140],
+											1|[local::at0141],
+											0|[local::at0142]
+										}
+									}
+									ELEMENT[at0147] occurrences matches {0..1} matches {    -- Inspired Oxygen
+										value matches {
+											0|[local::at0148],
+											2|[local::at0149],
+											4|[local::at0150]
+										}
+									}
+									ELEMENT[at0159] occurrences matches {0..1} matches {    -- Heart rate under age 1
+										value matches {
+											4|[local::at0160],
+											2|[local::at0161],
+											1|[local::at0162],
+											0|[local::at0163],
+											1|[local::at0164],
+											2|[local::at0165],
+											4|[local::at0166]
+										}
+									}
+									ELEMENT[at0114] occurrences matches {0..1} matches {    -- Heart rate age 1-5
+										value matches {
+											4|[local::at0115],
+											2|[local::at0116],
+											1|[local::at0117],
+											0|[local::at0118],
+											1|[local::at0119],
+											2|[local::at0120],
+											4|[local::at0121]
+										}
+									}
+									ELEMENT[at0091] occurrences matches {0..1} matches {    -- Heart rate age 5-12
+										value matches {
+											4|[local::at0092],
+											2|[local::at0093],
+											1|[local::at0094],
+											0|[local::at0095],
+											1|[local::at0096],
+											2|[local::at0097],
+											4|[local::at0098]
+										}
+									}
+									ELEMENT[at0054] occurrences matches {0..1} matches {    -- Heart rate over age 12
+										value matches {
+											4|[local::at0058],
+											2|[local::at0057],
+											1|[local::at0056],
+											0|[local::at0055],
+											1|[local::at0069],
+											2|[local::at0070],
+											4|[local::at0071]
+										}
+									}
+									ELEMENT[at0167] occurrences matches {0..1} matches {    -- Systolic blood pressure under age 1
+										value matches {
+											4|[local::at0168],
+											2|[local::at0169],
+											1|[local::at0170],
+											0|[local::at0171],
+											1|[local::at0172],
+											2|[local::at0173],
+											4|[local::at0174]
+										}
+									}
+									ELEMENT[at0177] occurrences matches {0..1} matches {    -- Systolic blood pressure age 1-5
+										value matches {
+											4|[local::at0178],
+											2|[local::at0179],
+											1|[local::at0180],
+											0|[local::at0181],
+											1|[local::at0182],
+											2|[local::at0183],
+											4|[local::at0184]
+										}
+									}
+									ELEMENT[at0099] occurrences matches {0..1} matches {    -- Systolic blood pressure age 5-12
+										value matches {
+											4|[local::at0100],
+											2|[local::at0101],
+											1|[local::at0102],
+											0|[local::at0103],
+											1|[local::at0104],
+											2|[local::at0105],
+											4|[local::at0106]
+										}
+									}
+									ELEMENT[at0059] occurrences matches {0..1} matches {    -- Systolic blood pressure over age 12
+										value matches {
+											4|[local::at0063],
+											2|[local::at0060],
+											1|[local::at0061],
+											0|[local::at0062],
+											1|[local::at0072],
+											2|[local::at0073],
+											4|[local::at0074]
+										}
+									}
+									ELEMENT[at0064] occurrences matches {0..1} matches {    -- Capillary refill time
+										value matches {
+											0|[local::at0065],
+											2|[local::at0066]
+										}
+									}
+									ELEMENT[at0032] occurrences matches {0..1} matches {    -- SPOT Score
+										value matches {
+											DV_COUNT matches {
+												magnitude matches {|0..26|}
+											}
+										}
+									}
+									ELEMENT[at0185] occurrences matches {0..1} matches {    -- Escalation Pathway under age 1
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0186,    -- Low
+													at0187,    -- Medium
+													at0188,    -- High
+													at0189,    -- SPOT score 10-14 or AVPU -P or Sepsis 6
+													at0190]    -- SPOT score >15 or AVPU -U or Abnormal
+												}
+											}
+										}
+									}
+									ELEMENT[at0191] occurrences matches {0..1} matches {    -- Escalation Pathway over age 1
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0186,    -- Low
+													at0187,    -- Medium
+													at0188]    -- High
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0176] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0209] occurrences matches {0..*} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"PEWS2">
+					description = <"pews2">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0032"] = <
+					text = <"SPOT Score">
+					description = <"">
+				>
+				["at0040"] = <
+					text = <"Respiratory rate over age 12">
+					description = <"">
+				>
+				["at0042"] = <
+					text = <"15-25">
+					description = <"">
+				>
+				["at0043"] = <
+					text = <"25-30">
+					description = <"">
+				>
+				["at0044"] = <
+					text = <"30-40">
+					description = <"">
+				>
+				["at0045"] = <
+					text = <"<10">
+					description = <"">
+				>
+				["at0046"] = <
+					text = <"Respiratory distress">
+					description = <"">
+				>
+				["at0047"] = <
+					text = <"No respiratory distress">
+					description = <"">
+				>
+				["at0048"] = <
+					text = <"Mild respiratory distress">
+					description = <"">
+				>
+				["at0049"] = <
+					text = <"Moderate respiratory distress">
+					description = <"">
+				>
+				["at0050"] = <
+					text = <"Severe respiratory distress">
+					description = <"">
+				>
+				["at0054"] = <
+					text = <"Heart rate over age 12">
+					description = <"">
+				>
+				["at0055"] = <
+					text = <"70-100">
+					description = <"">
+				>
+				["at0056"] = <
+					text = <"100-120">
+					description = <"">
+				>
+				["at0057"] = <
+					text = <"120-130">
+					description = <"">
+				>
+				["at0058"] = <
+					text = <">130">
+					description = <"">
+				>
+				["at0059"] = <
+					text = <"Systolic blood pressure over age 12">
+					description = <"">
+				>
+				["at0060"] = <
+					text = <"130-140">
+					description = <"">
+				>
+				["at0061"] = <
+					text = <"120-130">
+					description = <"">
+				>
+				["at0062"] = <
+					text = <"100-120">
+					description = <"">
+				>
+				["at0063"] = <
+					text = <">140">
+					description = <"">
+				>
+				["at0064"] = <
+					text = <"Capillary refill time">
+					description = <"">
+				>
+				["at0065"] = <
+					text = <"<=2">
+					description = <"">
+				>
+				["at0066"] = <
+					text = <">=3">
+					description = <"">
+				>
+				["at0067"] = <
+					text = <">40">
+					description = <"">
+				>
+				["at0068"] = <
+					text = <"10-15">
+					description = <"">
+				>
+				["at0069"] = <
+					text = <"60-70">
+					description = <"">
+				>
+				["at0070"] = <
+					text = <"50-60">
+					description = <"">
+				>
+				["at0071"] = <
+					text = <"<50">
+					description = <"">
+				>
+				["at0072"] = <
+					text = <"90-100">
+					description = <"">
+				>
+				["at0073"] = <
+					text = <"80-90">
+					description = <"">
+				>
+				["at0074"] = <
+					text = <"<80">
+					description = <"">
+				>
+				["at0075"] = <
+					text = <"Respiratory rate age 5-12">
+					description = <"">
+				>
+				["at0076"] = <
+					text = <">60">
+					description = <"">
+				>
+				["at0077"] = <
+					text = <"50-60">
+					description = <"">
+				>
+				["at0078"] = <
+					text = <"40-50">
+					description = <"">
+				>
+				["at0079"] = <
+					text = <"20-40">
+					description = <"">
+				>
+				["at0080"] = <
+					text = <"15-10">
+					description = <"">
+				>
+				["at0081"] = <
+					text = <"<10">
+					description = <"">
+				>
+				["at0091"] = <
+					text = <"Heart rate age 5-12">
+					description = <"">
+				>
+				["at0092"] = <
+					text = <">160">
+					description = <"">
+				>
+				["at0093"] = <
+					text = <"140-160">
+					description = <"">
+				>
+				["at0094"] = <
+					text = <"120-140">
+					description = <"">
+				>
+				["at0095"] = <
+					text = <"80-120">
+					description = <"">
+				>
+				["at0096"] = <
+					text = <"70-80">
+					description = <"">
+				>
+				["at0097"] = <
+					text = <"60-70">
+					description = <"">
+				>
+				["at0098"] = <
+					text = <"<60">
+					description = <"">
+				>
+				["at0099"] = <
+					text = <"Systolic blood pressure age 5-12">
+					description = <"">
+				>
+				["at0100"] = <
+					text = <">130">
+					description = <"">
+				>
+				["at0101"] = <
+					text = <"120-130">
+					description = <"">
+				>
+				["at0102"] = <
+					text = <"110-120">
+					description = <"">
+				>
+				["at0103"] = <
+					text = <"90-110">
+					description = <"">
+				>
+				["at0104"] = <
+					text = <"80-90">
+					description = <"">
+				>
+				["at0105"] = <
+					text = <"70-80">
+					description = <"">
+				>
+				["at0106"] = <
+					text = <"<70">
+					description = <"">
+				>
+				["at0107"] = <
+					text = <"Respiratory rate age 1-5">
+					description = <"">
+				>
+				["at0108"] = <
+					text = <">80">
+					description = <"">
+				>
+				["at0109"] = <
+					text = <"70-80">
+					description = <"">
+				>
+				["at0110"] = <
+					text = <"50-70">
+					description = <"">
+				>
+				["at0111"] = <
+					text = <"30-50">
+					description = <"">
+				>
+				["at0112"] = <
+					text = <"20-30">
+					description = <"">
+				>
+				["at0113"] = <
+					text = <"<10">
+					description = <"">
+				>
+				["at0114"] = <
+					text = <"Heart rate age 1-5">
+					description = <"">
+				>
+				["at0115"] = <
+					text = <">170">
+					description = <"">
+				>
+				["at0116"] = <
+					text = <"150-170">
+					description = <"">
+				>
+				["at0117"] = <
+					text = <"120-150">
+					description = <"">
+				>
+				["at0118"] = <
+					text = <"90-120">
+					description = <"">
+				>
+				["at0119"] = <
+					text = <"70-90">
+					description = <"">
+				>
+				["at0120"] = <
+					text = <"60-70">
+					description = <"">
+				>
+				["at0121"] = <
+					text = <"<60">
+					description = <"">
+				>
+				["at0130"] = <
+					text = <"10-20">
+					description = <"">
+				>
+				["at0139"] = <
+					text = <"SPO2">
+					description = <"">
+				>
+				["at0140"] = <
+					text = <"<=91%">
+					description = <"">
+				>
+				["at0141"] = <
+					text = <"92-94%">
+					description = <"">
+				>
+				["at0142"] = <
+					text = <">=95%">
+					description = <"">
+				>
+				["at0147"] = <
+					text = <"Inspired Oxygen">
+					description = <"">
+				>
+				["at0148"] = <
+					text = <"Air">
+					description = <"">
+				>
+				["at0149"] = <
+					text = <"Oxygen <4l/min or < 50% or any Nasal Prongs under 5">
+					description = <"">
+				>
+				["at0150"] = <
+					text = <"> =4 l/m or >50%">
+					description = <"">
+				>
+				["at0151"] = <
+					text = <"Respiratory rate under age 1">
+					description = <"">
+				>
+				["at0152"] = <
+					text = <">80">
+					description = <"">
+				>
+				["at0153"] = <
+					text = <"70-80">
+					description = <"">
+				>
+				["at0154"] = <
+					text = <"60-70">
+					description = <"">
+				>
+				["at0155"] = <
+					text = <"40-60">
+					description = <"">
+				>
+				["at0156"] = <
+					text = <"30-40">
+					description = <"">
+				>
+				["at0157"] = <
+					text = <"20-30">
+					description = <"">
+				>
+				["at0158"] = <
+					text = <"<20">
+					description = <"">
+				>
+				["at0159"] = <
+					text = <"Heart rate under age 1">
+					description = <"">
+				>
+				["at0160"] = <
+					text = <">180">
+					description = <"">
+				>
+				["at0161"] = <
+					text = <"170-180">
+					description = <"">
+				>
+				["at0162"] = <
+					text = <"150-170">
+					description = <"">
+				>
+				["at0163"] = <
+					text = <"110-150">
+					description = <"">
+				>
+				["at0164"] = <
+					text = <"90-110">
+					description = <"">
+				>
+				["at0165"] = <
+					text = <"80-90">
+					description = <"">
+				>
+				["at0166"] = <
+					text = <"<80">
+					description = <"">
+				>
+				["at0167"] = <
+					text = <"Systolic blood pressure under age 1">
+					description = <"">
+				>
+				["at0168"] = <
+					text = <">110">
+					description = <"">
+				>
+				["at0169"] = <
+					text = <"100-110">
+					description = <"">
+				>
+				["at0170"] = <
+					text = <"90-100">
+					description = <"">
+				>
+				["at0171"] = <
+					text = <"70-90">
+					description = <"">
+				>
+				["at0172"] = <
+					text = <"60-70">
+					description = <"">
+				>
+				["at0173"] = <
+					text = <"50-60">
+					description = <"">
+				>
+				["at0174"] = <
+					text = <"<50">
+					description = <"">
+				>
+				["at0176"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0177"] = <
+					text = <"Systolic blood pressure age 1-5">
+					description = <"">
+				>
+				["at0178"] = <
+					text = <">130">
+					description = <"">
+				>
+				["at0179"] = <
+					text = <"120-130">
+					description = <"">
+				>
+				["at0180"] = <
+					text = <"100-120">
+					description = <"">
+				>
+				["at0181"] = <
+					text = <"80-100">
+					description = <"">
+				>
+				["at0182"] = <
+					text = <"60-80">
+					description = <"">
+				>
+				["at0183"] = <
+					text = <"50-60">
+					description = <"">
+				>
+				["at0184"] = <
+					text = <"<50">
+					description = <"">
+				>
+				["at0185"] = <
+					text = <"Escalation Pathway under age 1">
+					description = <"">
+				>
+				["at0186"] = <
+					text = <"Low">
+					description = <"SPOT score 1-4 or GCS reduced by 1 point or parental concern or clinical concern.">
+				>
+				["at0187"] = <
+					text = <"Medium">
+					description = <"SPOT score 5-8 or GCS reduced by 2 points or parental concern or clinical concern.">
+				>
+				["at0188"] = <
+					text = <"High">
+					description = <"SPOT score >=9 or GCS reduced by 3 points or parental concern or clinical concern or decreased AVPU.">
+				>
+				["at0189"] = <
+					text = <"SPOT score 10-14 or AVPU -P or Sepsis 6">
+					description = <"">
+				>
+				["at0190"] = <
+					text = <"SPOT score >15 or AVPU -U or Abnormal">
+					description = <"">
+				>
+				["at0191"] = <
+					text = <"Escalation Pathway over age 1">
+					description = <"">
+				>
+				["at0209"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local content or to align with other reference models/formalisms.">
+					comment = <"e.g. Local information requirements or additional metadata to align with FHIR equivalents.">
+				>
+			>
+		>
+	>
