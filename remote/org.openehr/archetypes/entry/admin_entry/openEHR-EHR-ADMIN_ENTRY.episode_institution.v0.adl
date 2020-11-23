@@ -5,6 +5,21 @@ concept
 	[at0000]	-- Episode of care - institution
 language
 	original_language = <[ISO_639-1::en]>
+	translations = <
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			author = <
+				["name"] = <"Silje Ljosland Bakke">
+				["organisation"] = <"Helse Vest IKT AS">
+				["email"] = <"silje.ljosland.bakke@helse-vest-ikt.no">
+			>
+		>
+		["it"] = <
+			language = <[ISO_639-1::it]>
+			author = <
+			>
+		>
+	>
 description
 	original_author = <
 		["name"] = <"Heather Leslie">
@@ -13,12 +28,24 @@ description
 		["date"] = <"2020-03-14">
 	>
 	details = <
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			purpose = <"*To record administrative details about a period of admitted patient care between a formal or statistical admission and a formal or statistical separation, characterised by only one care type of care from a healthcare institution.(en)">
+			use = <"*Use to record administrative details about a period of admitted patient care between a formal or statistical admission and a formal or statistical separation, characterised by only one care type of care from a healthcare institution.(en)">
+			misuse = <"">
+		>
 		["en"] = <
 			language = <[ISO_639-1::en]>
 			purpose = <"To record administrative details about a period of admitted patient care between a formal or statistical admission and a formal or statistical separation, characterised by only one care type of care from a healthcare institution.">
 			use = <"Use to record administrative details about a period of admitted patient care between a formal or statistical admission and a formal or statistical separation, characterised by only one care type of care from a healthcare institution.">
 			misuse = <"">
 			copyright = <"© openEHR Foundation">
+		>
+		["it"] = <
+			language = <[ISO_639-1::it]>
+			purpose = <"Registrare i dettagli amministrativi di un periodo di cura del paziente ricoverato tra un ricovero formale o statistico e una separazione formale o statistica, caratterizzata da un solo tipo di cura da un'istituzione sanitaria.">
+			use = <"Utilizzare per registrare i dettagli amministrativi relativi a un periodo di cura del paziente ricoverato tra un ricovero formale o statistico e una separazione formale o statistica, caratterizzata da un solo tipo di cura di un'istituzione sanitaria.">
+			misuse = <"">
 		>
 	>
 	lifecycle_state = <"in_development">
@@ -29,8 +56,8 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"1A131F351152897CDFBA543B020A4134">
-		["build_uid"] = <"c80ddc43-066c-4cb5-be60-1334c9289e51">
+		["MD5-CAM-1.0.1"] = <"D6DF6F04B7B2183FB14AD8DCB6C566C4">
+		["build_uid"] = <"5b9dd4cd-429e-463f-af7a-e3cda745669e">
 		["revision"] = <"0.0.1-alpha">
 	>
 
@@ -42,6 +69,11 @@ definition
 					ELEMENT[at0004] occurrences matches {0..1} matches {    -- Admission date
 						value matches {
 							DV_DATE_TIME matches {*}
+						}
+					}
+					ELEMENT[at0007] occurrences matches {0..1} matches {    -- Admitted from
+						value matches {
+							DV_TEXT matches {*}
 						}
 					}
 					ELEMENT[at0002] occurrences matches {0..1} matches {    -- Separation date
@@ -93,6 +125,79 @@ ontology
 					text = <"Outcome">
 					description = <"Outcome for the individual at the end of the episode.">
 					comment = <"For example: recovered/not recovered/death.">
+				>
+				["at0007"] = <
+					text = <"Admitted from">
+					description = <"Where the individual was admitted from into the institution.">
+					comment = <"For example: hospital, community, or nursing home. 'Admitted from' should be coded with a terminology, where possible.">
+				>
+			>
+		>
+		["nb"] = <
+			items = <
+				["at0000"] = <
+					text = <"Omsorgsepisode - institusjon">
+					description = <"*Administrative details about a period of admitted patient care between a formal or statistical admission and a formal or statistical separation, characterised by only one care type of care from a healthcare institution.(en)">
+				>
+				["at0001"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Utskrivelsesdato">
+					description = <"*The date of transfer of care to home or another instituion, or date of death.(en)">
+				>
+				["at0003"] = <
+					text = <"Utskrevet til">
+					description = <"*The category of destination after discharge.(en)">
+				>
+				["at0004"] = <
+					text = <"Innleggelsesdato">
+					description = <"*The date of formal or statistical admission to the institution.(en)">
+				>
+				["at0006"] = <
+					text = <"Utfall">
+					description = <"*Outcome for the individual at the end of the episode.(en)">
+				>
+				["at0007"] = <
+					text = <"Innleggelse fra">
+					description = <"*Where the individual was admitted from into the institution. (en)">
+					comment = <"*For example: hospital, community, or nursing home. 'Admitted from' should be coded with a terminology, where possible. (en)">
+				>
+			>
+		>
+		["it"] = <
+			items = <
+				["at0000"] = <
+					text = <"Episodio di cura - istituzione">
+					description = <"Dettagli amministrativi su un periodo di cura del paziente ricoverato tra un ricovero formale o statistico e una separazione formale o statistica, caratterizzata da un solo tipo di cura da un'istituzione sanitaria. ">
+				>
+				["at0001"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Data di dimissione">
+					description = <"La data del trasferimento delle cure a domicilio o in un altro istituto, o la data del decesso.">
+				>
+				["at0003"] = <
+					text = <"Categoria destinazione">
+					description = <"La categoria di destinazione dopo la dimissione.">
+					comment = <"Ad esempio: casa, ospedale, casa di cura o ospedale di riabilitazione. ">
+				>
+				["at0004"] = <
+					text = <"Data di ingresso">
+					description = <"La data di ammissione formale o statistica all'istituzione.">
+				>
+				["at0006"] = <
+					text = <"Esito">
+					description = <"Esito per l'individuo alla fine dell'episodio. ">
+					comment = <"Per esempio: recuperato/non recuperato/morte.">
+				>
+				["at0007"] = <
+					text = <"*Admitted from(en)">
+					description = <"*Where the individual was admitted from into the institution.(en)">
+					comment = <"*For example: hospital, community, or nursing home. 'Admitted from' should be coded with a terminology, where possible.(en)">
 				>
 			>
 		>
