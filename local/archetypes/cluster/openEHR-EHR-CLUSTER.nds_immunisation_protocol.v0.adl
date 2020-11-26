@@ -1,0 +1,91 @@
+﻿archetype (adl_version=1.4; uid=7c644fc1-c763-4f00-af77-a7e57f6f4c91)
+	openEHR-EHR-CLUSTER.nds_immunisation_protocol.v0
+
+concept
+	[at0000]	-- NDS_Immunisation_Protocol
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Dr Paul Miller">
+		["organisation"] = <"NES Digital Service">
+		["email"] = <"paul.miller@nes.scot.nhs.uk">
+		["date"] = <"2020-08-12">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Can be used as part of the Vaccine Administration event to capture recurrent data elements.">
+			use = <"">
+			keywords = <"Vaccines, vaccination, immunisation, immunise", ...>
+			misuse = <"">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"70D5841EBED7C9182BD46B8F14E7FB40">
+		["build_uid"] = <"091ece2b-3aed-4750-91c5-3d320577bb22">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- NDS_Immunisation_Protocol
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0003] occurrences matches {0..1} matches {    -- Immunisation name
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Target disease
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Procedure term
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {    -- Subject agreement to immunisation
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"NDS_Immunisation_Protocol">
+					description = <"NDS_Immunisation_Protocol. a small cluster to support recording additional details about immunization events.">
+				>
+				["at0001"] = <
+					text = <"Target disease">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Procedure term">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Immunisation name">
+					description = <"Local name or description for the immunisation e.g 'Influenza' 'Hepatitis A/B' 'Hepatitis A and Typhoid'">
+				>
+				["at0004"] = <
+					text = <"Subject agreement to immunisation">
+					description = <"">
+				>
+			>
+		>
+	>
