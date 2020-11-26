@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xmlns="openEHR/v1/Template">
+    <id>c3adbe3e-786e-48ee-955d-9ee42f6c92f4</id>
+    <name>NDS-Vaccination-Administration</name>
+    <description>
+        <original_author>
+            <item>
+                <key>date</key>
+                <value>2020-08-12</value>
+            </item>
+            <item>
+                <key>name</key>
+                <value>Dr Paul Miller</value>
+            </item>
+            <item>
+                <key>organisation</key>
+                <value>NES Digital Service</value>
+            </item>
+            <item>
+                <key>email</key>
+                <value>paul.miller@nes.scot.nhs.uk</value>
+            </item>
+        </original_author>
+        <lifecycle_state>unmanaged</lifecycle_state>
+        <details/>
+        <other_details>
+            <item>
+                <key>licence</key>
+                <value/>
+            </item>
+            <item>
+                <key>custodian_organisation</key>
+                <value/>
+            </item>
+            <item>
+                <key>original_namespace</key>
+                <value/>
+            </item>
+            <item>
+                <key>original_publisher</key>
+                <value/>
+            </item>
+            <item>
+                <key>custodian_namespace</key>
+                <value/>
+            </item>
+            <item>
+                <key>PARENT:MD5-CAM-1.0.1</key>
+                <value>44D94C2952391723BB72523E4132FF1C</value>
+            </item>
+            <item>
+                <key>MD5-CAM-1.0.1</key>
+                <value>5607afc090752a22d66e7049c09f820e</value>
+            </item>
+            <item>
+                <key>original_language</key>
+                <value>ISO_639-1::en</value>
+            </item>
+        </other_details>
+    </description>
+    <definition archetype_id="openEHR-EHR-COMPOSITION.encounter.v1"
+        concept_name="Encounter" name="NDS-Vaccination-Administration"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:COMPOSITION">
+        <Content archetype_id="openEHR-EHR-ACTION.medication.v1"
+            concept_name="Medication management" max="1"
+            name="Vaccine Management" path="/content" xsi:type="tem:ACTION">
+            <Rule name="Vaccination Due" path="/ism_transition[at0109]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0145]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0013]"/>
+            <Rule name="Vaccination cancelled" path="/ism_transition[at0012]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0150]"/>
+            <Rule name="Vaccination scheduled" path="/ism_transition[at0016]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0153]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0002]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0003]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0106]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0010]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0148]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0004]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0041]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0005]"/>
+            <Rule name="Vaccine administered" path="/ism_transition[at0006]"/>
+            <Rule name="Vaccine administration omitted" path="/ism_transition[at0018]"/>
+            <Rule name="Vaccine administration deferred" path="/ism_transition[at0044]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0008]"/>
+            <Rule name="Vaccine administration suspended" path="/ism_transition[at0009]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0011]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0015]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0039]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0151]"/>
+            <Rule name="Vaccination completed" path="/ism_transition[at0007]"/>
+            <Rule max="0" min="0" path="/ism_transition[at0152]"/>
+            <Rule max="0" name="Vaccine Name" path="/description[at0017]/items[at0020]"/>
+            <Rule max="0" path="/description[at0017]/items[at0132]"/>
+            <Rule max="0" path="/description[at0017]/items[at0133]"/>
+            <Rule max="0" path="/description[at0017]/items[at0043]"/>
+            <Rule max="0" path="/description[at0017]/items[at0154]"/>
+            <Rule max="0" path="/description[at0017]/items[at0155]"/>
+            <Rule max="1" path="/description[at0017]/items[at0021]"/>
+            <Rule path="/description[at0017]/items[at0140]/items[at0147]">
+                <constraint limitToList="false" xsi:type="tem:textConstraint">
+                    <includedValues>Intramuscular</includedValues>
+                    <includedValues>Nasal</includedValues>
+                    <includedValues>Subcutaneous</includedValues>
+                </constraint>
+            </Rule>
+            <Rule path="/description[at0017]/items[at0140]/items[at0141]">
+                <constraint limitToList="false" xsi:type="tem:textConstraint">
+                    <includedValues>Left arm</includedValues>
+                    <includedValues>Right arm</includedValues>
+                    <includedValues>Left thigh</includedValues>
+                    <includedValues>Right thigh</includedValues>
+                    <includedValues>Left buttock</includedValues>
+                    <includedValues>Right buttock</includedValues>
+                    <includedValues>Left nostril</includedValues>
+                    <includedValues>Right nostril</includedValues>
+                </constraint>
+            </Rule>
+            <Rule max="0" path="/description[at0017]/items[at0140]/items[at0143]"/>
+            <Rule max="0" path="/description[at0017]/items[at0033]"/>
+            <Rule max="0" path="/description[at0017]/items[at0149]"/>
+            <Rule name="Stage" path="/description[at0017]/items[at0025]"/>
+            <Rule max="0" path="/protocol[at0030]/items[at0103]"/>
+            <Items archetype_id="openEHR-EHR-CLUSTER.medication.v1"
+                concept_name="Medication" max="1" name="Vaccine Details"
+                path="/description[at0017]/items[at0104]" xsi:type="tem:CLUSTER">
+                <Rule max="0" path="/items[at0071]"/>
+                <Rule max="0" path="/items[at0142]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Coded_text</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/items[at0152]"/>
+                <Rule max="0" path="/items[at0158]"/>
+                <Rule max="0" path="/items[at0115]">
+                    <constraint xsi:type="tem:quantityConstraint"/>
+                </Rule>
+                <Rule max="1" path="/items[at0150]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Text</includedTypes>
+                        <includedTypes>Identifier</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/items[at0139]">
+                    <constraint xsi:type="tem:quantityConstraint">
+                        <unitMagnitude>
+                            <unit>1</unit>
+                            <minMagnitude>0.0</minMagnitude>
+                            <includesMaximum>false</includesMaximum>
+                            <includesMinimum>true</includesMinimum>
+                        </unitMagnitude>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/items[at0008]"/>
+                <Rule max="0" path="/items[at0148]">
+                    <constraint xsi:type="tem:quantityConstraint">
+                        <unitMagnitude>
+                            <unit>1</unit>
+                            <minMagnitude>0.0</minMagnitude>
+                            <includesMaximum>false</includesMaximum>
+                            <includesMinimum>true</includesMinimum>
+                        </unitMagnitude>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/items[at0007]"/>
+                <Rule max="0" path="/items[at0127]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Coded_text</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/items[at0133]"/>
+            </Items>
+            <Items archetype_id="openEHR-EHR-CLUSTER.dosage.v1" max="1"
+                path="/description[at0017]/items[at0131]" xsi:type="tem:CLUSTER">
+                <Rule max="0" path="/items[at0164]">
+                    <constraint xsi:type="tem:countConstraint">
+                        <minMagnitude>1</minMagnitude>
+                        <includesMaximum>false</includesMaximum>
+                        <includesMinimum>true</includesMinimum>
+                    </constraint>
+                </Rule>
+                <Rule path="/items[at0144]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Quantity</includedTypes>
+                        <includedTypes>Interval</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule path="/items[at0145]">
+                    <constraint limitToList="false" xsi:type="tem:textConstraint">
+                        <includedValues>ml</includedValues>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/items[at0135]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Text</includedTypes>
+                        <includedTypes>Quantity</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/items[at0178]"/>
+                <Rule max="0" path="/items[at0134]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Quantity</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/items[at0102]">
+                    <constraint xsi:type="tem:durationConstraint">
+                        <pattern>PDTHMS</pattern>
+                        <minMagnitude>PT0H</minMagnitude>
+                        <includesMaximum>false</includesMaximum>
+                        <includesMinimum>true</includesMinimum>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/items[at0176]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Quantity</includedTypes>
+                        <includedTypes>Interval</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/items[at0177]"/>
+            </Items>
+            <Items
+                archetype_id="openEHR-EHR-CLUSTER.nds_immunisation_protocol.v0"
+                max="1" path="/protocol[at0030]/items[at0085]" xsi:type="tem:CLUSTER"/>
+        </Content>
+        <Context>
+            <Items archetype_id="openEHR-EHR-CLUSTER.xds_metadata.v0"
+                max="0"
+                path="/context/other_context[at0001]/items[at0002]" xsi:type="tem:CLUSTER">
+                <Rule max="0" path="/items[at0001]"/>
+                <Rule max="0" path="/items[at0002]"/>
+                <Rule max="0" path="/items[at0003]"/>
+                <Rule max="0" path="/items[at0004]"/>
+                <Rule max="0" path="/items[at0007]"/>
+                <Rule max="0" path="/items[at0009]"/>
+                <Rule max="0" path="/items[at0011]"/>
+                <Rule max="0" path="/items[at0010]"/>
+            </Items>
+        </Context>
+    </definition>
+    <view>
+        <constraints path="[openEHR-EHR-COMPOSITION.encounter.v1]/context/other_context">
+            <items id="VisibleInView">
+                <value>Document Metadata</value>
+            </items>
+        </constraints>
+    </view>
+    <integrity_checks
+        archetype_id="openEHR-EHR-COMPOSITION.encounter.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">44D94C2952391723BB72523E4132FF1C</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.xds_metadata.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">E62D896E2577FA727C75A9EFFD7CA63E</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-ACTION.medication.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">E0C69F83865D3910946385034A86310F</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.medication.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">2F8FAC73C32910334C637CF675BD3713</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.dosage.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">CD1EACAF2A90BEE4DFD15DA9897B7049</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.nds_immunisation_protocol.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">70D5841EBED7C9182BD46B8F14E7FB40</digest>
+    </integrity_checks>
+</template>
