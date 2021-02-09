@@ -1,0 +1,137 @@
+﻿archetype (adl_version=1.4; uid=f2111d82-93ad-4b4a-ab5b-99409d0127a4)
+	openEHR-EHR-OBSERVATION.sepsis_clinical_screening_age_12_plus.v0
+
+concept
+	[at0000]	-- Sepsis clinical screening age 12 plus
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"ian@freshehr.com">
+		["date"] = <"2020-10-22">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Sepsis clinical screening age 12 plus.">
+			use = <"">
+			misuse = <"">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"E103D580EBC76329221DD763ECDBFBDF">
+		["build_uid"] = <"4f222876-6069-4217-9f77-eb3546fcde55">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- Sepsis clinical screening age 12 plus
+		data matches {
+			HISTORY[at0001] matches {    -- History
+				events cardinality matches {0..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..*} matches {    -- Single point in time
+						data matches {
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									allow_archetype CLUSTER[at0004] occurrences matches {0..*} matches {    -- Risk factors
+										include
+											archetype_id/value matches {/.*/}
+									}
+									allow_archetype CLUSTER[at0005] occurrences matches {0..*} matches {    -- Infection source
+										include
+											archetype_id/value matches {/.*/}
+									}
+									allow_archetype CLUSTER[at0006] occurrences matches {0..*} matches {    -- Red flag
+										include
+											archetype_id/value matches {/.*/}
+									}
+									allow_archetype CLUSTER[at0007] occurrences matches {0..*} matches {    -- Amber flag
+										include
+											archetype_id/value matches {/.*/}
+									}
+									allow_archetype CLUSTER[at0008] occurrences matches {0..*} matches {    -- 999 flag
+										include
+											archetype_id/value matches {/.*/}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0009] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0010] occurrences matches {0..*} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Sepsis clinical screening age 12 plus">
+					description = <"Sepsis clinical screening age 12 plus.">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Single point in time">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Risk factors">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Infection source">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Red flag">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Amber flag">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"999 flag">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0010"] = <
+					text = <"Extension">
+					description = <"Additional information required to extend the model with local content or to align with other reference models/formalisms.">
+					comment = <"For example: local information requirements; or additional metadata to align with FHIR.">
+				>
+			>
+		>
+	>
