@@ -1,0 +1,51 @@
+﻿archetype (adl_version=1.4; uid=54134d5a-b509-43bb-80f1-f6b66c17fc53)
+	openEHR-EHR-SECTION.ehr_reference.v0
+
+concept
+	[at0000]	-- EHR reference
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"ian@freshehr.com">
+		["date"] = <"2020-07-08">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Being used as a section divider in ReSPECT">
+			use = <"">
+			misuse = <"">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"8BA689EAFD659F82F338978DA0D52814">
+		["build_uid"] = <"cc3ad1bb-fbc5-4b58-9540-84afd2556245">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	SECTION[at0000] matches {*}    -- EHR reference
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"EHR reference">
+					description = <"This section indicates that the enclosed information is stored in a different composition/template but is intended to be referenced here.">
+				>
+			>
+		>
+	>
