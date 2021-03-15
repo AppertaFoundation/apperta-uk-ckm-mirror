@@ -1,0 +1,182 @@
+﻿archetype (adl_version=1.4; uid=cc954544-cce7-4101-b1e7-8a3f4dd3f2d4)
+	openEHR-EHR-EVALUATION.holistic_needs_assessment_summary.v0
+
+concept
+	[at0000]	-- Holistic Needs Assessment Summary
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Dr Paul Miller">
+		["organisation"] = <"NHS Education Scotland Digital Service (NDS)">
+		["email"] = <"paul.miller@nhs.scot">
+		["date"] = <"2021-02-18">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To provide a place to summarise the outcome of a MacMillan Holistic Needs Assessment. ">
+			use = <"Should be used wherever it is apporopriate to provide a summary of the Holistic Needs Assessment rather than the detailed results. It is aligned to the MacMillan HNA.">
+			keywords = <"holistic, needs, assessment, mcmillan", ...>
+			misuse = <"Would not recommend using this for other non-MacMillan HNA">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["references"] = <"See https://be.macmillan.org.uk/Downloads/ResourcesForHSCPs/MAC13689ConcernsChecklist17AWweb.pdf for the version of the full HNA
+See Macmillan_holistic_assessment.v0, Draft template [Internet]. Apperta UK, Apperta UK Clinical Knowledge Manager [cited: 2021-02-21]. Available from: https://ckm.apperta.org/ckm/templates/1051.57.272 for the associated template for the full HNA.
+">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"7284D965A9A645145FE75A99EDE55AE1">
+		["build_uid"] = <"b86a8d23-e4eb-4c67-9dd4-97d7aab8776d">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	EVALUATION[at0000] matches {    -- Holistic Needs Assessment Summary
+		data matches {
+			ITEM_TREE[at0001] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {    -- Holistic Needs Assessment Completed
+						value matches {
+							DV_BOOLEAN matches {*}
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..1} matches {    -- Location of Holistic Needs Assessment
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0015] occurrences matches {0..1} matches {    -- Summary of HNA
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0005] occurrences matches {0..1} matches {    -- Link to HNA
+						include
+							archetype_id/value matches {/.*/}
+					}
+					ELEMENT[at0006] occurrences matches {0..1} matches {    -- Summary of Physical concerns
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0007] occurrences matches {0..1} matches {    -- Summary of Practical concerns
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0008] occurrences matches {0..1} matches {    -- Summary of Emotional Concerns
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0009] occurrences matches {0..1} matches {    -- Summary of Family or Relationship concerns
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0010] occurrences matches {0..1} matches {    -- Summary of Spiritual concerns
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0011] occurrences matches {0..1} matches {    -- Summary of Information or Support
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0014] occurrences matches {0..1} matches {    -- Questions
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0012] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0016] occurrences matches {0..*} matches {    -- Any other context
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Holistic Needs Assessment Summary">
+					description = <"Holistic Needs Assessment Summary">
+					comment = <"Use for managing a summary of the McMillan Holistic Needs Assessment process.">
+				>
+				["at0001"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Holistic Needs Assessment Completed">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Location of Holistic Needs Assessment">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Link to HNA">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Summary of Physical concerns">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Summary of Practical concerns">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Summary of Emotional Concerns">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"Summary of Family or Relationship concerns">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Summary of Spiritual concerns">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"Summary of Information or Support">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0014"] = <
+					text = <"Questions">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"Summary of HNA">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"Any other context">
+					description = <"">
+				>
+			>
+		>
+	>
