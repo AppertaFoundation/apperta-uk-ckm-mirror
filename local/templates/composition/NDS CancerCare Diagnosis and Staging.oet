@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xmlns="openEHR/v1/Template">
+    <id>26bfb5a7-e3ff-4752-a776-be0d8a530305</id>
+    <name>NDS CancerCare Diagnosis and Staging</name>
+    <description>
+        <original_author>
+            <item>
+                <key>date</key>
+                <value>2021-03-14</value>
+            </item>
+            <item>
+                <key>name</key>
+                <value>Dr Paul Miller</value>
+            </item>
+            <item>
+                <key>organisation</key>
+                <value>NES Digital Service, NHS Scotland</value>
+            </item>
+            <item>
+                <key>email</key>
+                <value>paul.miller@nhs.scot</value>
+            </item>
+        </original_author>
+        <lifecycle_state>in_development</lifecycle_state>
+        <details>
+            <purpose>This template is to manage the diagnosis associated with the NHS Scotland, NES Digital Service (NDS) Cancer Treatment Summary data set. </purpose>
+            <keywords>
+                <item>Cancer, diagnosis, problem, treatment summary, cancer treatment summary, staging, tnm</item>
+            </keywords>
+            <use>Intended that this template would be used to manage this section of the overarching treatment summary data set, which may be reviewed or amended at the creation of the episodic cancer treatment summary compostions.</use>
+            <misuse>This is a DRAFT version in development.</misuse>
+        </details>
+        <other_details>
+            <item>
+                <key>licence</key>
+                <value/>
+            </item>
+            <item>
+                <key>custodian_organisation</key>
+                <value/>
+            </item>
+            <item>
+                <key>original_namespace</key>
+                <value/>
+            </item>
+            <item>
+                <key>original_publisher</key>
+                <value/>
+            </item>
+            <item>
+                <key>custodian_namespace</key>
+                <value/>
+            </item>
+            <item>
+                <key>sem_ver</key>
+                <value>0.1.0</value>
+            </item>
+            <item>
+                <key>original_language</key>
+                <value>ISO_639-1::en</value>
+            </item>
+        </other_details>
+    </description>
+    <definition archetype_id="openEHR-EHR-COMPOSITION.problem_list.v2"
+        concept_name="Problem list"
+        name="NDS CancerCare Diagnosis and Staging"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:COMPOSITION">
+        <Content
+            archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v1"
+            max="1" path="/content" xsi:type="tem:EVALUATION">
+            <Rule name="Diagnosis name" path="/data[at0001]/items[at0002]"/>
+            <Rule max="0" path="/data[at0001]/items[at0012]"/>
+            <Rule name="Date of onset" path="/data[at0001]/items[at0077]"/>
+            <Rule name="Date clinically recognised" path="/data[at0001]/items[at0003]"/>
+            <Rule max="0" path="/data[at0001]/items[at0005]">
+                <constraint xsi:type="tem:multipleConstraint">
+                    <includedTypes>Coded_text</includedTypes>
+                    <includedTypes>Text</includedTypes>
+                </constraint>
+            </Rule>
+            <Items
+                archetype_id="openEHR-EHR-CLUSTER.anatomical_location.v1"
+                max="1" path="/data[at0001]/items[at0039]" xsi:type="tem:CLUSTER">
+                <Rule max="0" path="/items[at0065]"/>
+                <Rule max="0" path="/items[at0064]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Coded_text</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/items[at0055]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Coded_text</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                    </constraint>
+                </Rule>
+            </Items>
+            <Items archetype_id="openEHR-EHR-CLUSTER.tnm.v1" max="1"
+                path="/data[at0001]/items[at0043]" xsi:type="tem:CLUSTER">
+                <Rule max="0" path="/items[at0001]"/>
+                <Rule max="0" path="/items[at0002]"/>
+                <Rule max="0" path="/items[at0025]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Count</includedTypes>
+                        <includedTypes>Boolean</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/items[at0026]"/>
+                <Rule max="0" path="/items[at0027]"/>
+                <Rule max="0" path="/items[at0028]"/>
+                <Rule max="0" path="/items[at0029]"/>
+            </Items>
+            <Items
+                archetype_id="openEHR-EHR-CLUSTER.tnm-pathological.v1"
+                max="1" path="/data[at0001]/items[at0043]" xsi:type="tem:CLUSTER">
+                <Rule max="0" path="/items[at0001]"/>
+                <Rule max="0" path="/items[at0002]"/>
+                <Rule max="0" path="/items[at0025.1]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Count</includedTypes>
+                        <includedTypes>Boolean</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/items[at0026]"/>
+                <Rule max="0" path="/items[at0027]"/>
+                <Rule max="0" path="/items[at0028]"/>
+                <Rule max="0" path="/items[at0029]"/>
+                <Rule max="0" path="/items[at0.1]"/>
+                <Rule max="0" path="/items[at0.2]"/>
+            </Items>
+            <Items archetype_id="openEHR-EHR-CLUSTER.gleason_score.v0"
+                max="1" path="/data[at0001]/items[at0043]" xsi:type="tem:CLUSTER"/>
+            <Items
+                archetype_id="openEHR-EHR-CLUSTER.problem_qualifier.v1"
+                concept_name="Problem/Diagnosis qualifier" max="1"
+                name="Diagnosis status"
+                path="/data[at0001]/items[at0046]" xsi:type="tem:CLUSTER">
+                <Rule max="0" path="/items[at0060]"/>
+                <Rule max="0" path="/items[at0003]"/>
+                <Rule max="0" path="/items[at0083]"/>
+                <Rule max="0" path="/items[at0001]"/>
+                <Rule max="0" path="/items[at0071]"/>
+                <Rule max="0" path="/items[at0077]"/>
+                <Rule max="0" path="/items[at0063]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Coded_text</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/items[at0073]"/>
+            </Items>
+        </Content>
+        <Context>
+            <Items archetype_id="openEHR-EHR-CLUSTER.xds_metadata.v0"
+                max="1"
+                path="/context/other_context[at0006]/items[at0008]" xsi:type="tem:CLUSTER"/>
+        </Context>
+    </definition>
+    <integrity_checks
+        archetype_id="openEHR-EHR-COMPOSITION.problem_list.v2"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">46B8769828AF10041506B359B6A0D96B</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.xds_metadata.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">E62D896E2577FA727C75A9EFFD7CA63E</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">4BF04E7D09B866397CA12BAFED2BC216</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.anatomical_location.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">ED4D12B1642C61217E416A8C11EE848B</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.tnm.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">48BA7281FAFAD1B5D72DD78E6D2A3E85</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.tnm-pathological.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">5D2C997BC3ED4A0F8700D73050FE8DAB</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.gleason_score.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">F561BC0D245364912E50D6D2425DB4F3</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.problem_qualifier.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">6467BBA9938EF3141C6611ED2714EE0B</digest>
+    </integrity_checks>
+</template>
