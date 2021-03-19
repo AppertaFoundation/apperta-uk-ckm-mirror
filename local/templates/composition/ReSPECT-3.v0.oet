@@ -14,10 +14,13 @@
             </item>
             <item>
                 <key>email</key>
-                <value>paul.miller@nes.nhs.scot.uk</value>
+                <value>paul.miller@nhs.scot</value>
             </item>
         </original_author>
-        <lifecycle_state>in_development</lifecycle_state>
+        <other_contributors>
+            <item>Ian McNicoll</item>
+        </other_contributors>
+        <lifecycle_state>published</lifecycle_state>
         <details>
             <purpose>Representing the dataset for capture, reporting and auditing the details of ReSPECT - Recommended Summary Plan for Emergency Care and Treatment.
 
@@ -25,8 +28,8 @@ https://www.resus.org.uk/respect/</purpose>
             <keywords>
                 <item>Anticipatory Care Plan, ACP, ReSPECT, KIS, Key Information Summary, ECS, Emergency Care Summary, DNACPR, Resuscitation, CPR</item>
             </keywords>
-            <use/>
-            <misuse/>
+            <use>This template is to record all the data points needed to support the ReSPECT version 3 process of the UK Resus Council. It is specifically modelled for the NHS Education Scotland Digital Service ReSPECT application, for use in NHS Scotland care environments.</use>
+            <misuse>Any use that extends the scope  or coverage of the template should be checked with the UK Resus council. It may not be appropriate to use it in contexts outside NHS Scotland because of the differing legal frameworks around age of competence and Power of Attorney, so re-use outside of this context should be checked to ensure it meets your needs.</misuse>
         </details>
         <other_details>
             <item>
@@ -79,11 +82,11 @@ https://www.resus.org.uk/respect/</purpose>
             </item>
             <item>
                 <key>MD5-CAM-1.0.1</key>
-                <value>9f996f21714b2a1f2bba842a47a91370</value>
+                <value>4b9f18939f8f7944b66f2ef329243865</value>
             </item>
             <item>
                 <key>PARENT:MD5-CAM-1.0.1</key>
-                <value>FD053BE0456D849CACD864F274EED32E</value>
+                <value>DE0723367AA22BB716CEC5342B21FF60</value>
             </item>
             <item>
                 <key>Template semVer</key>
@@ -92,6 +95,10 @@ https://www.resus.org.uk/respect/</purpose>
             <item>
                 <key>ReSPECT Version</key>
                 <value>3.0.0-published</value>
+            </item>
+            <item>
+                <key>sem_ver</key>
+                <value>1.0.0</value>
             </item>
             <item>
                 <key>original_language</key>
