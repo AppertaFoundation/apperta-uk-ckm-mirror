@@ -1,0 +1,582 @@
+﻿archetype (adl_version=1.4; uid=925f14af-dc45-4f8a-8585-4e107cf68fdc)
+	openEHR-EHR-OBSERVATION.augmented_iorn.v0
+
+concept
+	[at0000]	-- Augmented Indicator of Relative Need (Augmented ioRN)
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Heidi Koikkalainen">
+		["organisation"] = <"freshEHR Clinical Informatics, UK">
+		["email"] = <"heidi@freshehr.com">
+		["date"] = <"2021-04-26">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record details of an Augmented ioRN questionnaire.">
+			use = <"Use to record details of an Augmented ioRN questionnaire.
+
+Augmented ioRN is a standardised questionnaire and algorithm tool that groups people according to the degree of their functional independence, summarising the key characteristics of people who use health and care services. The Augmented ioRN tool is available for people who live in care homes or who are in hospital, while a different version (ioRN2) is also available for people living in the community (e.g. at their own home).">
+			keywords = <"indicator, assessment, functional, need, dependency", ...>
+			misuse = <"Not to be used to record details of an ioRN2 questionnaire - use OBSERVATION.iorn2 for this purpose.">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <"Ian McNicoll, freshEHR Clinical Informatics, UK", ...>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["references"] = <"Canny A, Robertson F, Knight P, Redpath A, Witham M. 142An Evaluation Of The Psychometric Properties Of The Indicator Of Relative Need (IORN) Instrument. Age and Ageing. 2017;46(suppl_1):i35-i38.
+
+Health and Social Care | Care Homes | Staffing Model | Health Topics | ISD Scotland [Internet]. Isdscotland.org. 2021 [cited 2021 Apr 27]. Available from: https://www.isdscotland.org/health-topics/health-and-social-community-care/Care-Homes/Staffing-Model/.
+
+Knight P. The Indicator of Relative Need (ioRN) - information for integrated working. International Journal of Integrated Care. 2016;16(6):361.">
+		["current_contact"] = <"Heidi Koikkalainen, heidi@freshehr.com">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"278B6BF83B9866B567A3B61319AF11DB">
+		["build_uid"] = <"142cf450-22e9-453d-8861-f1c576fda6af">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- Augmented Indicator of Relative Need (Augmented ioRN)
+		data matches {
+			HISTORY[at0001] matches {    -- History
+				events cardinality matches {1..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..*} matches {    -- Any point in time event
+						data matches {
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									CLUSTER[at0088] occurrences matches {0..1} matches {    -- Activities of Daily Living
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0102] occurrences matches {0..1} matches {    -- Eating
+												value matches {
+													1|[local::at0103],
+													2|[local::at0104],
+													3|[local::at0105]
+												}
+											}
+											ELEMENT[at0106] occurrences matches {0..1} matches {    -- Transferring position
+												value matches {
+													1|[local::at0107],
+													2|[local::at0108],
+													3|[local::at0109]
+												}
+											}
+											ELEMENT[at0110] occurrences matches {0..1} matches {    -- Moving location
+												value matches {
+													1|[local::at0111],
+													2|[local::at0112],
+													3|[local::at0113]
+												}
+											}
+											ELEMENT[at0114] occurrences matches {0..1} matches {    -- Toileting
+												value matches {
+													1|[local::at0115],
+													2|[local::at0116],
+													3|[local::at0117]
+												}
+											}
+											ELEMENT[at0118] occurrences matches {0..1} matches {    -- Dressing
+												value matches {
+													1|[local::at0119],
+													2|[local::at0120],
+													3|[local::at0121]
+												}
+											}
+											ELEMENT[at0089] occurrences matches {0..1} matches {    -- Activities of Daily Living score
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0090,    -- Low
+															at0091,    -- Medium
+															at0092]    -- High
+														}
+													}
+												}
+											}
+										}
+									}
+									CLUSTER[at0093] occurrences matches {0..1} matches {    -- Continence
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0122] occurrences matches {0..1} matches {    -- Continence urinary
+												value matches {
+													1|[local::at0123],
+													2|[local::at0124],
+													3|[local::at0125],
+													4|[local::at0126],
+													5|[local::at0127]
+												}
+											}
+											ELEMENT[at0128] occurrences matches {0..1} matches {    -- Continence faecal
+												value matches {
+													1|[local::at0129],
+													2|[local::at0130],
+													3|[local::at0131],
+													4|[local::at0132],
+													5|[local::at0133]
+												}
+											}
+											ELEMENT[at0094] occurrences matches {0..1} matches {    -- Continence score
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0095,    -- Low
+															at0096]    -- High
+														}
+													}
+												}
+											}
+										}
+									}
+									CLUSTER[at0097] occurrences matches {0..1} matches {    -- Risk & Behavioural Support Needs
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0134] occurrences matches {0..1} matches {    -- Verbal aggression
+												value matches {
+													1|[local::at0135],
+													2|[local::at0136],
+													3|[local::at0137],
+													4|[local::at0138],
+													5|[local::at0139]
+												}
+											}
+											ELEMENT[at0140] occurrences matches {0..1} matches {    -- Co-operation
+												value matches {
+													1|[local::at0141],
+													2|[local::at0142],
+													3|[local::at0143],
+													4|[local::at0144],
+													5|[local::at0145]
+												}
+											}
+											ELEMENT[at0146] occurrences matches {0..1} matches {    -- Risk
+												value matches {
+													1|[local::at0147],
+													2|[local::at0148],
+													3|[local::at0149],
+													4|[local::at0150],
+													5|[local::at0151]
+												}
+											}
+											ELEMENT[at0152] occurrences matches {0..1} matches {    -- Immediate intervention
+												value matches {
+													1|[local::at0153],
+													2|[local::at0154],
+													3|[local::at0155],
+													4|[local::at0156],
+													5|[local::at0157]
+												}
+											}
+											ELEMENT[at0098] occurrences matches {0..1} matches {    -- Risk & Behavioural support needs score
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0099,    -- Low
+															at0100,    -- Medium
+															at0101]    -- High
+														}
+													}
+												}
+											}
+										}
+									}
+									ELEMENT[at0079] occurrences matches {0..1} matches {    -- Group
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0080,    -- A
+													at0081,    -- B
+													at0082,    -- C
+													at0083,    -- D
+													at0084,    -- E
+													at0085,    -- F
+													at0086,    -- G
+													at0087]    -- H
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0004] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0005] occurrences matches {0..*} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Augmented Indicator of Relative Need (Augmented ioRN)">
+					description = <"The Augmented Indicator of Relative Need (Augmented ioRN) is a tool for measuring and describing the functional needs and relative dependency levels of older people living in care homes.">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any point in time event">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0005"] = <
+					text = <"Extension">
+					description = <"Additional information required to extend the model with local content or to align with other reference models/formalisms.">
+					comment = <"For example: local information requirements; or additional metadata to align with FHIR.">
+				>
+				["at0079"] = <
+					text = <"Group">
+					description = <"The group/category determined by the scored answers to the Augmented ioRN questions.">
+					comment = <"The Activities of Daily Living ‘score’ is obtained by combining the answers to six separate questions
+on the Augmented ioRN questionnaire. The risk and behavioural support needs scores are derived
+from 4 questions. The continence score is based on answers to two questions.">
+				>
+				["at0080"] = <
+					text = <"A">
+					description = <"Low Activities of Daily Living score +  Low Risk & Behavioural Support Needs score.">
+				>
+				["at0081"] = <
+					text = <"B">
+					description = <"Low Activities of Daily Living score + High Risk & Behavioural Support Needs score.">
+				>
+				["at0082"] = <
+					text = <"C">
+					description = <"Medium Activities of Daily Living score + Low Risk & Behavioural Support Needs score.">
+				>
+				["at0083"] = <
+					text = <"D">
+					description = <"Medium Activities of Daily Living score + Medium Risk & Behavioural Support Needs score.">
+				>
+				["at0084"] = <
+					text = <"E">
+					description = <"Medium Activities of Daily Living score + High Risk & Behavioural Support Needs score.">
+				>
+				["at0085"] = <
+					text = <"F">
+					description = <"High Activities of Daily Living score + Low continence score + Low Risk & Behavioural Support Needs score.">
+				>
+				["at0086"] = <
+					text = <"G">
+					description = <"High Activities of Daily Living score + Low continence score + High Risk & Behavioural Support Needs score.">
+				>
+				["at0087"] = <
+					text = <"H">
+					description = <"High Activities of Daily Living score + High continence score.">
+				>
+				["at0088"] = <
+					text = <"Activities of Daily Living">
+					description = <"">
+				>
+				["at0089"] = <
+					text = <"Activities of Daily Living score">
+					description = <"Total Activities of Daily Living and Mobility score.">
+				>
+				["at0090"] = <
+					text = <"Low">
+					description = <"Low Activities of Daily Living score.">
+				>
+				["at0091"] = <
+					text = <"Medium">
+					description = <"Medium Activities of Daily Living score.">
+				>
+				["at0092"] = <
+					text = <"High">
+					description = <"High Activities of Daily Living score.">
+				>
+				["at0093"] = <
+					text = <"Continence">
+					description = <"">
+				>
+				["at0094"] = <
+					text = <"Continence score">
+					description = <"Total Continence score.">
+				>
+				["at0095"] = <
+					text = <"Low">
+					description = <"Low continence score.">
+				>
+				["at0096"] = <
+					text = <"High">
+					description = <"High continence score.">
+				>
+				["at0097"] = <
+					text = <"Risk & Behavioural Support Needs">
+					description = <"">
+				>
+				["at0098"] = <
+					text = <"Risk & Behavioural support needs score">
+					description = <"Total Risk & Behavioural support needs score.">
+				>
+				["at0099"] = <
+					text = <"Low">
+					description = <"Low Risk & Behavioural support needs score.">
+				>
+				["at0100"] = <
+					text = <"Medium">
+					description = <"Medium Risk & Behavioural support needs score.">
+				>
+				["at0101"] = <
+					text = <"High">
+					description = <"High Risk & Behavioural support needs score.">
+				>
+				["at0102"] = <
+					text = <"Eating">
+					description = <"This question relates to a person’s ability to obtain appropriate nutrition. When eating a meal, the person...">
+				>
+				["at0103"] = <
+					text = <"Eats without help, prompting or assistance with or without using special/adapted utensils">
+					description = <"The person eats without help, prompting or assistance with or without using special/adapted utensils.">
+				>
+				["at0104"] = <
+					text = <"Eats with some help to modify the texture or size of the food OR Eats with encouragement, prompting or supervision">
+					description = <"The person eats with some help to modify the texture or size of the food OR eats with encouragement, prompting or supervision; i.e. needs food cutting up, pureeing, does not generally need physical help but needs someone present in order to perform the task, because the person lacks confidence/motivation.">
+				>
+				["at0105"] = <
+					text = <"Requires complete assistance OR Receives nutrition by tube or infusion">
+					description = <"The person requires complete assistance OR receives nutrition by tube or infusion; i.e. needs physical assistance from another person in bringing utensils to the mouth or is fed by gastrostomy, intravenously or by syringe.">
+				>
+				["at0106"] = <
+					text = <"Transferring position">
+					description = <"When transferring from a position of lying down to a position of sitting in a nearby chair or wheelchair the person...">
+				>
+				["at0107"] = <
+					text = <"Transfers independently and safely with or without using equipment or adaptations">
+					description = <"The person transfers independently and safely with or without using equipment or adaptations.">
+				>
+				["at0108"] = <
+					text = <"Needs the physical assistance OR Encouragement, prompting or supervision of one person">
+					description = <"The person needs the physical assistance OR encouragement, prompting or supervision of one person; i.e. needs observation because of lack of awareness or risk/fear of falling or needs equipment or adaptation set up or its use supervised.">
+				>
+				["at0109"] = <
+					text = <"Needs the physical assistance of two or more people OR Does not transfer from bed to chair">
+					description = <"The person needs the physical assistance of two or more people OR does not transfer from bed to chair; e.g. confined to bed.">
+				>
+				["at0110"] = <
+					text = <"Moving location">
+					description = <"When moving from one location to another within the home or from bedroom to the lounge the person...">
+				>
+				["at0111"] = <
+					text = <"Moves independently and safely with or without using equipment or adaptations">
+					description = <"The person moves independently and safely with or without using equipment or adaptations; e.g. a stick, walking frame, calliper, wheelchair.">
+				>
+				["at0112"] = <
+					text = <"Needs the physical assistance OR Encouragement, prompting or supervision of one person">
+					description = <"The person needs the physical assistance OR encouragement, prompting or supervision of one person; i.e. needs an initial prompt or supervision because of lack of awareness or risk/fear of falling or needs equipment or adaptation set up but no further help.">
+				>
+				["at0113"] = <
+					text = <"Requires the physical assistance of two or more people OR Does not move location">
+					description = <"The person requires the physical assistance of two or more people OR does not move location; e.g. confined to bed.">
+				>
+				["at0114"] = <
+					text = <"Toileting">
+					description = <"When using the toilet/commode (transferring on and off, adjusting clothing and attending to perineal hygiene) the person...">
+					comment = <"This does not include moving to the toilet/commode OR continence.">
+				>
+				["at0115"] = <
+					text = <"Is independent with or without a catheter, colostomy or continence pad">
+					description = <"The person is independent with or without a catheter, colostomy or continence pad; e.g. a raised toilet seat, hand rails.">
+				>
+				["at0116"] = <
+					text = <"Needs physical assistance, complete assistance OR Encouragement, prompting or supervision from one person">
+					description = <"The person needs physical assistance, complete assistance OR encouragement, prompting or supervision from one person; i.e. performs majority of the tasks, needs some assistance in transferring or adjusting clothing, positioning continence pad or needs an initial prompt or supervision because of lack of awareness or risk/fear of falling or needs equipment or adaptation set up but no further help.">
+				>
+				["at0117"] = <
+					text = <"Requires complete physical assistance from two or more people OR Does not use the toilet OR Requires assistance to manage their catheter or colostomy">
+					description = <"The person requires complete physical assistance from two or more people OR does not use the toilet OR requires assistance to manage their catheter or colostomy.">
+				>
+				["at0118"] = <
+					text = <"Dressing">
+					description = <"Is the person able to put on, take off, secure and unfasten all garments in an appropriate manner, including following the use of the toilet, putting on and taking off braces, artificial limbs or other surgical appliances?">
+				>
+				["at0119"] = <
+					text = <"Dresses without difficulty with or without using equipment or an adaptation">
+					description = <"The person dresses without difficulty with or without using equipment or an adaptation; e.g. hand rails, shoe horn.">
+				>
+				["at0120"] = <
+					text = <"Needs physical assistance, complete assistance OR Encouragement, prompting or supervision from one person">
+					description = <"The person needs physical assistance, complete assistance OR encouragement, prompting or supervision from one person; i.e. needs physical help with one or more aspect of the task (e.g. putting on socks, fastenings) or needs someone present in order to start the task, because the person lacks confidence/motivation or has a fear of falling or other anxiety or has forgotten how to perform the task.">
+				>
+				["at0121"] = <
+					text = <"Requires complete physical assistance from two or more people">
+					description = <"The person requires complete physical assistance from two or more people; i.e. needs physical help with one or more aspect of the task due to disability even if it is minimal, or does not perform the task because of disability.">
+				>
+				["at0122"] = <
+					text = <"Continence urinary">
+					description = <"The person is incontinent of urine...">
+				>
+				["at0123"] = <
+					text = <"Never">
+					description = <"The person is never incontinent of urine.">
+				>
+				["at0124"] = <
+					text = <"More than once a week but not daily">
+					description = <"The person is incontinent of urine more than once a week but not daily.">
+				>
+				["at0125"] = <
+					text = <"Once in each 24-hour period">
+					description = <"The person is incontinent of urine once in each 24-hour period.">
+				>
+				["at0126"] = <
+					text = <"Two or three times in each 24-hour period">
+					description = <"The person is incontinent of urine two or three times in each 24-hour period.">
+				>
+				["at0127"] = <
+					text = <"Four times or more in each 24-hour period">
+					description = <"The person is incontinent of urine four times or more in each 24-hour period.">
+				>
+				["at0128"] = <
+					text = <"Continence faecal">
+					description = <"The person is incontinent of faeces...">
+				>
+				["at0129"] = <
+					text = <"Never">
+					description = <"The person is never incontinent of faeces.">
+				>
+				["at0130"] = <
+					text = <"More than once a week but not daily">
+					description = <"The person is incontinent of faeces more than once a week but not daily.">
+				>
+				["at0131"] = <
+					text = <"Once in each 24-hour period">
+					description = <"The person is incontinent of faeces once in each 24-hour period.">
+				>
+				["at0132"] = <
+					text = <"Two or three times in each 24-hour period">
+					description = <"The person is incontinent of faeces two or three times in each 24-hour period.">
+				>
+				["at0133"] = <
+					text = <"Four times or more in each 24-hour period">
+					description = <"The person is incontinent of faeces four times or more in each 24-hour period.">
+				>
+				["at0134"] = <
+					text = <"Verbal aggression">
+					description = <"Is the person verbally aggressive towards other people, animals or objects?">
+				>
+				["at0135"] = <
+					text = <"Never, or less than three times in the last four weeks">
+					description = <"The person is never verbally aggressive towards other people, animals or objects, or less than three times in the last four weeks.">
+				>
+				["at0136"] = <
+					text = <"More than once a week but not daily">
+					description = <"The person is verbally aggressive towards other people, animals or objects more than once a week but not daily.">
+				>
+				["at0137"] = <
+					text = <"Once a day, on average">
+					description = <"The person is verbally aggressive towards other people, animals or objects once a day, on average.">
+				>
+				["at0138"] = <
+					text = <"More than once a day">
+					description = <"The person is verbally aggressive towards other people, animals or objects more than once a day.">
+				>
+				["at0139"] = <
+					text = <"Throughout the day">
+					description = <"The person is verbally aggressive towards other people, animals or objects throughout the day.">
+				>
+				["at0140"] = <
+					text = <"Co-operation">
+					description = <"Is the person uncooperative or resistant to help with their care?">
+					comment = <"Such as:
+- refusal to co-operate with their care;
+- or because of cognitive impairment and/or confusion will only co-operate with treatments/interventions such as medications when given repeated explanation and encouragement.">
+				>
+				["at0141"] = <
+					text = <"Never, or less than three times in the last four weeks">
+					description = <"The person is never uncooperative or resistant to help with their care, or less than three times in the last four weeks.">
+				>
+				["at0142"] = <
+					text = <"More than once a week but not daily">
+					description = <"The person is uncooperative or resistant to help with their care more than once a week but not daily.">
+				>
+				["at0143"] = <
+					text = <"Once a day, on average">
+					description = <"The person is uncooperative or resistant to help with their care once a day, on average.">
+				>
+				["at0144"] = <
+					text = <"More than once a day">
+					description = <"The person is uncooperative or resistant to help with their care more than once a day.">
+				>
+				["at0145"] = <
+					text = <"Throughout the day">
+					description = <"The person is uncooperative or resistant to help with their care throughout the day.">
+				>
+				["at0146"] = <
+					text = <"Risk">
+					description = <"Has the person’s behaviour constituted a risk of harm to themselves or others, including dangers relating to accidental explosion, fire, poisoning (including medication, food), scalding, disorientation in the home, wandering, absconding, falls, inappropriate sexual behaviour, abuse (e.g. emotional, verbal, physical, financial, sexual) etc?">
+				>
+				["at0147"] = <
+					text = <"Never, or less than three times in the last four weeks">
+					description = <"The person's behaviour never constitutes a risk of harm to themselves or others or less than three times in the last four weeks.">
+				>
+				["at0148"] = <
+					text = <"More than once a week but not daily">
+					description = <"The person's behaviour constitutes a risk of harm to themselves or others more than once a week but not daily.">
+				>
+				["at0149"] = <
+					text = <"Once a day, on average">
+					description = <"The person's behaviour constitutes a risk of harm to themselves or others once a day, on average.">
+				>
+				["at0150"] = <
+					text = <"More than once a day">
+					description = <"The person's behaviour constitutes a risk of harm to themselves or others more than once a day.">
+				>
+				["at0151"] = <
+					text = <"Throughout the day">
+					description = <"The person's behaviour constitutes a risk of harm to themselves or others throughout the day.">
+				>
+				["at0152"] = <
+					text = <"Immediate intervention">
+					description = <"Have there been episodes of a problem behaviour so severe, risky or disruptive that care staff have had to drop what they are doing to intervene immediately, including accidental explosion, fire, poisoning (including medication, food or carbon monoxide poisoning), scalding, wandering, absconding, falls, inappropriate sexual behaviour, abuse (e.g. emotional, verbal, physical, financial, sexual) etc?">
+				>
+				["at0153"] = <
+					text = <"Never, or less than three times in the last four weeks">
+					description = <"There have been no episodes of severe, risky or disruptive problem behaviour, or less than three times in the last four weeks.">
+				>
+				["at0154"] = <
+					text = <"More than once a week but not daily">
+					description = <"There are episodes of severe, risky or disruptive problem behaviour more than once a week but not daily.">
+				>
+				["at0155"] = <
+					text = <"Once a day, on average">
+					description = <"There are episodes of severe, risky or disruptive problem behaviour once a day, on average.">
+				>
+				["at0156"] = <
+					text = <"More than once a day">
+					description = <"There are episodes of severe, risky or disruptive problem behaviour more than once a day.">
+				>
+				["at0157"] = <
+					text = <"Throughout the day">
+					description = <"There are episodes of severe, risky or disruptive problem behaviour throughout the day.">
+				>
+			>
+		>
+	>
