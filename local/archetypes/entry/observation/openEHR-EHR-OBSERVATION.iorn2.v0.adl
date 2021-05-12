@@ -1,0 +1,831 @@
+﻿archetype (adl_version=1.4; uid=59bcd1f7-dea2-461f-9fee-1724b6d32db5)
+	openEHR-EHR-OBSERVATION.iorn2.v0
+
+concept
+	[at0000]	-- Indicator of Relative Need (ioRN2)
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Heidi Koikkalainen">
+		["organisation"] = <"freshEHR Clinical Informatics, UK">
+		["email"] = <"heidi@freshehr.com">
+		["date"] = <"2020-08-26">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record details of an ioRN2 questionnaire.">
+			use = <"Use to record details of an ioRN2 questionnaire.
+
+IoRN2 is a standardised questionnaire and algorithm tool that groups people according to the degree of their functional independence, summarising the key characteristics of people who use health and care services. The ioRN2 tool is available for people who live in the community (e.g. at their own home), while a different version (Augmented ioRN) is also available for people living in care homes or who are in hospital.">
+			keywords = <"indicator, assessment, functional, need, dependency, community", ...>
+			misuse = <"Not to be used to record details of an Augmented ioRN questionnaire - use OBSERVATION.augmented_iorn for this purpose.">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <"Ian McNicoll, freshEHR Clinical Informatics, UK", ...>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["references"] = <"Canny A, Robertson F, Knight P, Redpath A, Witham M. 142An Evaluation Of The Psychometric Properties Of The Indicator Of Relative Need (IORN) Instrument. Age and Ageing. 2017;46(suppl_1):i35-i38.
+
+Health and Social Care | Measuring Function/Dependency | Older People in the Community | Health Topics | ISD Scotland [Internet]. Isdscotland.org. 2021 [cited 2021 Apr 27]. Available from: https://www.isdscotland.org/Health-Topics/Health-and-Social-Community-Care/Dependency-Relative-Needs/In-the-Community/.
+
+Knight P. The Indicator of Relative Need (ioRN) - information for integrated working. International Journal of Integrated Care. 2016;16(6):361.">
+		["current_contact"] = <"Heidi Koikkalainen, heidi@freshehr.com">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"22C7A6903A64A97690BC87DFF7882DA5">
+		["build_uid"] = <"e7eb83de-c3ca-428d-be81-d7e96785e24c">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- Indicator of Relative Need (ioRN2)
+		data matches {
+			HISTORY[at0001] matches {    -- History
+				events cardinality matches {0..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..*} matches {    -- Any point in time event
+						data matches {
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									CLUSTER[at0203] occurrences matches {0..1} matches {    -- Activities of Daily Living and Mobility (ADL)
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0220] occurrences matches {0..1} matches {    -- Eating
+												value matches {
+													1|[local::at0221],
+													1|[local::at0222],
+													2|[local::at0223],
+													2|[local::at0224],
+													3|[local::at0225],
+													3|[local::at0226]
+												}
+											}
+											ELEMENT[at0227] occurrences matches {0..1} matches {    -- Transferring and mobilising
+												value matches {
+													1|[local::at0228],
+													1|[local::at0229],
+													2|[local::at0230],
+													2|[local::at0231],
+													3|[local::at0232],
+													3|[local::at0233]
+												}
+											}
+											ELEMENT[at0234] occurrences matches {0..1} matches {    -- Toileting
+												value matches {
+													1|[local::at0235],
+													1|[local::at0236],
+													2|[local::at0237],
+													2|[local::at0238],
+													3|[local::at0239],
+													3|[local::at0240]
+												}
+											}
+											ELEMENT[at0241] occurrences matches {0..1} matches {    -- ADL score
+												value matches {
+													DV_COUNT matches {
+														magnitude matches {|3..9|}
+													}
+												}
+											}
+											ELEMENT[at0208] occurrences matches {0..1} matches {    -- ADL score interpretation
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0209,    -- Low
+															at0210,    -- Medium
+															at0211]    -- High
+														}
+													}
+												}
+											}
+										}
+									}
+									CLUSTER[at0204] occurrences matches {0..1} matches {    -- Personal Care and Food/Drink Preparation (PCFP)
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0242] occurrences matches {0..1} matches {    -- Washing hands/face
+												value matches {
+													1|[local::at0243],
+													2|[local::at0244],
+													3|[local::at0245],
+													4|[local::at0246],
+													5|[local::at0247]
+												}
+											}
+											ELEMENT[at0248] occurrences matches {0..1} matches {    -- Complete wash
+												value matches {
+													1|[local::at0249],
+													2|[local::at0250],
+													3|[local::at0251],
+													4|[local::at0252],
+													5|[local::at0253]
+												}
+											}
+											ELEMENT[at0254] occurrences matches {0..1} matches {    -- Washing hair
+												value matches {
+													1|[local::at0255],
+													2|[local::at0256],
+													3|[local::at0257],
+													4|[local::at0258],
+													5|[local::at0259]
+												}
+											}
+											ELEMENT[at0260] occurrences matches {0..1} matches {    -- Dressing/undressing
+												value matches {
+													1|[local::at0261],
+													2|[local::at0262],
+													3|[local::at0263],
+													4|[local::at0264],
+													5|[local::at0265]
+												}
+											}
+											ELEMENT[at0266] occurrences matches {0..1} matches {    -- Preparing main meal
+												value matches {
+													1|[local::at0267],
+													2|[local::at0268],
+													3|[local::at0269],
+													4|[local::at0270],
+													5|[local::at0271]
+												}
+											}
+											ELEMENT[at0272] occurrences matches {0..1} matches {    -- Preparing light snack
+												value matches {
+													1|[local::at0273],
+													2|[local::at0274],
+													3|[local::at0275],
+													4|[local::at0276],
+													5|[local::at0277]
+												}
+											}
+											ELEMENT[at0278] occurrences matches {0..1} matches {    -- Preparing hot drink
+												value matches {
+													1|[local::at0279],
+													2|[local::at0280],
+													3|[local::at0281],
+													4|[local::at0282],
+													5|[local::at0283]
+												}
+											}
+											ELEMENT[at0284] occurrences matches {0..1} matches {    -- PCFP score
+												value matches {
+													DV_COUNT matches {
+														magnitude matches {|7..35|}
+													}
+												}
+											}
+											ELEMENT[at0212] occurrences matches {0..1} matches {    -- PCFP score interpretation
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0213,    -- Low
+															at0214,    -- Medium
+															at0215]    -- High
+														}
+													}
+												}
+											}
+										}
+									}
+									CLUSTER[at0205] occurrences matches {0..1} matches {    -- Mental Well-being, Behaviour and Risk (MWB)
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0285] occurrences matches {0..1} matches {    -- Agitation/restlessness
+												value matches {
+													1|[local::at0286],
+													1|[local::at0287],
+													2|[local::at0288]
+												}
+											}
+											ELEMENT[at0289] occurrences matches {0..1} matches {    -- Disturbance/disruption
+												value matches {
+													1|[local::at0290],
+													1|[local::at0291],
+													2|[local::at0292]
+												}
+											}
+											ELEMENT[at0293] occurrences matches {0..1} matches {    -- Verbal aggression
+												value matches {
+													1|[local::at0294],
+													1|[local::at0295],
+													2|[local::at0296]
+												}
+											}
+											ELEMENT[at0297] occurrences matches {0..1} matches {    -- Restiveness
+												value matches {
+													1|[local::at0298],
+													1|[local::at0299],
+													2|[local::at0300]
+												}
+											}
+											ELEMENT[at0301] occurrences matches {0..1} matches {    -- Relationships
+												value matches {
+													1|[local::at0302],
+													1|[local::at0303],
+													2|[local::at0304]
+												}
+											}
+											ELEMENT[at0305] occurrences matches {0..1} matches {    -- Risk
+												value matches {
+													1|[local::at0306],
+													1|[local::at0307],
+													2|[local::at0308]
+												}
+											}
+											ELEMENT[at0309] occurrences matches {0..1} matches {    -- MWB score
+												value matches {
+													DV_COUNT matches {
+														magnitude matches {|6..12|}
+													}
+												}
+											}
+											ELEMENT[at0216] occurrences matches {0..1} matches {    -- MWB score interpretation
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0217,    -- Low
+															at0218,    -- Medium
+															at0219]    -- High
+														}
+													}
+												}
+											}
+										}
+									}
+									ELEMENT[at0187] occurrences matches {0..1} matches {    -- Bowel management
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0188,    -- A. Never, or less than once a week on average
+													at0189]    -- B. More than once a week on average
+												}
+											}
+										}
+									}
+									ELEMENT[at0095] occurrences matches {0..1} matches {    -- Group
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0190,    -- A1
+													at0191,    -- A2
+													at0192,    -- A3
+													at0193,    -- B1
+													at0194,    -- B2
+													at0195,    -- B3
+													at0196,    -- D
+													at0197,    -- C
+													at0198,    -- E
+													at0199,    -- G
+													at0200,    -- F
+													at0201,    -- H
+													at0202]    -- I
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0097] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0098] occurrences matches {0..*} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Indicator of Relative Need (ioRN2)">
+					description = <"The Indicator of Relative Need (ioRN2) is a tool for measuring and describing the functional needs and relative dependency levels of older people living in the community.">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any point in time event">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0095"] = <
+					text = <"Group">
+					description = <"The final ioRN2 group.">
+				>
+				["at0097"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0098"] = <
+					text = <"Extension">
+					description = <"Additional information required to extend the model with local content or to align with other reference models/formalisms.">
+					comment = <"For example: local information requirements; or additional metadata to align with FHIR.">
+				>
+				["at0187"] = <
+					text = <"Bowel management">
+					description = <"Does the person require assistance, guidance, prompting or supervision to maintain bowel function?">
+				>
+				["at0188"] = <
+					text = <"A. Never, or less than once a week on average">
+					description = <"The person does not require assistance, guidance, prompting or supervision to maintain bowel function, or less than once a week on average.">
+				>
+				["at0189"] = <
+					text = <"B. More than once a week on average">
+					description = <"The person requires assistance, guidance, prompting or supervision to maintain bowel function more than once a week on average.">
+				>
+				["at0190"] = <
+					text = <"A1">
+					description = <"Independent in ADL and personal care indoors, without use of equipment or adaptations.">
+				>
+				["at0191"] = <
+					text = <"A2">
+					description = <"Largely independent in ADL and personal care indoors, possibly using equipment or adaptations.">
+				>
+				["at0192"] = <
+					text = <"A3">
+					description = <"Mainly independent in ADL and personal care indoors, but with some difficulty, possibly using equipment or adaptations.">
+				>
+				["at0193"] = <
+					text = <"B1">
+					description = <"Largely independent with ADL, possibly using equipment or adaptations. May require assistance from others. May have some difficulty with personal care or food and drink preparation.">
+				>
+				["at0194"] = <
+					text = <"B2">
+					description = <"Largely independent with ADL, possibly using equipment or adaptations. They would require assistance from others. May have some difficulty with personal care or food and drink preparation.">
+				>
+				["at0195"] = <
+					text = <"B3">
+					description = <"Largely independent with ADL, possibly using equipment or adaptations. Would require assistance from others. Would have some difficulty with personal care or food and drink preparation.">
+				>
+				["at0196"] = <
+					text = <"D">
+					description = <"Largely independent with ADL, possibly using equipment or adaptations. Will have difiiculty with most aspects of personal care, food and drink preparation.">
+				>
+				["at0197"] = <
+					text = <"C">
+					description = <"Will require the support of another person with an aspect of ADL. No mental wellbeing, behaviour or risk issues.">
+				>
+				["at0198"] = <
+					text = <"E">
+					description = <"Will require the support of another person with an aspect of ADL. Will have some issues in relation to mental wellbeing, behaviour and risk.">
+				>
+				["at0199"] = <
+					text = <"G">
+					description = <"Will require the support of another person with an aspect of ADL. Will have issues in relation to mental wellbeing, behaviour and risk.">
+				>
+				["at0200"] = <
+					text = <"F">
+					description = <"Support required with ADL from another person. No or minimal mental wellbeing, behaviour or risk issues. No or minimal support needed for bowel management.">
+				>
+				["at0201"] = <
+					text = <"H">
+					description = <"Support required with ADL from another person. Some issues in relation to mental wellbeing, behaviour and risk. No or minimal support needed for bowel management.">
+				>
+				["at0202"] = <
+					text = <"I">
+					description = <"Support required with ADL from another person. Frequent support needed in relation to bowel management.">
+				>
+				["at0203"] = <
+					text = <"Activities of Daily Living and Mobility (ADL)">
+					description = <"">
+				>
+				["at0204"] = <
+					text = <"Personal Care and Food/Drink Preparation (PCFP)">
+					description = <"">
+				>
+				["at0205"] = <
+					text = <"Mental Well-being, Behaviour and Risk (MWB)">
+					description = <"">
+				>
+				["at0208"] = <
+					text = <"ADL score interpretation">
+					description = <"Interpretation of the total Activities of Daily Living score.">
+				>
+				["at0209"] = <
+					text = <"Low">
+					description = <"Total ADL score = 3.">
+				>
+				["at0210"] = <
+					text = <"Medium">
+					description = <"Total ADL score = 4.">
+				>
+				["at0211"] = <
+					text = <"High">
+					description = <"Total ADL score = 5-9.">
+				>
+				["at0212"] = <
+					text = <"PCFP score interpretation">
+					description = <"Interpretation of the total Personal Care and Food/Drink Preparation score.">
+				>
+				["at0213"] = <
+					text = <"Low">
+					description = <"Total PCFP score = 7-14.">
+				>
+				["at0214"] = <
+					text = <"Medium">
+					description = <"Total PCFP score = 15-27.">
+				>
+				["at0215"] = <
+					text = <"High">
+					description = <"Total PCFP score = 28-35.">
+				>
+				["at0216"] = <
+					text = <"MWB score interpretation">
+					description = <"Interpretation of the total Mental Well-being, Behaviour and Risk score.">
+				>
+				["at0217"] = <
+					text = <"Low">
+					description = <"Total MWB score = 6.">
+				>
+				["at0218"] = <
+					text = <"Medium">
+					description = <"Total MWB score = 7-9.">
+				>
+				["at0219"] = <
+					text = <"High">
+					description = <"Total MWB score = 10-12.">
+				>
+				["at0220"] = <
+					text = <"Eating">
+					description = <"When eating a meal, the person...">
+				>
+				["at0221"] = <
+					text = <"A. Eats without assistance">
+					description = <"The person eats without assistance.">
+				>
+				["at0222"] = <
+					text = <"B. Eats without assistance using equipment">
+					description = <"The person eats without assistance using equipment.">
+				>
+				["at0223"] = <
+					text = <"C. Eats with help e.g. cutting up or pureeing food">
+					description = <"The person eats with help e.g. cutting up or pureeing food.">
+				>
+				["at0224"] = <
+					text = <"D. Eats with encouragement, prompting or supervision">
+					description = <"The person eats with encouragement, prompting or supervision.">
+				>
+				["at0225"] = <
+					text = <"E. Requires complete assistance when eating">
+					description = <"The person requires complete assistance when eating.">
+				>
+				["at0226"] = <
+					text = <"F. Receives nutrition by tube or infusion">
+					description = <"The person receives nutrition by tube or infusion.">
+				>
+				["at0227"] = <
+					text = <"Transferring and mobilising">
+					description = <"When transferring and mobilising, the person...">
+				>
+				["at0228"] = <
+					text = <"A. Transfers and mobilises independently">
+					description = <"The person transfers and mobilises independently.">
+				>
+				["at0229"] = <
+					text = <"B. Transfers and mobilises independently using equipment including wheelchair, or adaptations">
+					description = <"The person transfers and mobilises independently using equipment including wheelchair, or adaptations.">
+				>
+				["at0230"] = <
+					text = <"C. Needs the assistance of one person (with or without equipment)">
+					description = <"The person needs the assistance of one person (with or without equipment).">
+				>
+				["at0231"] = <
+					text = <"D. Requires encouragement, prompting or supervision">
+					description = <"The person requires encouragement, prompting or supervision.">
+				>
+				["at0232"] = <
+					text = <"E. Needs the assistance of more than one person (with or without equipment)">
+					description = <"The person needs the assistance of more than one person (with or without equipment).">
+				>
+				["at0233"] = <
+					text = <"F. Does not transfer from bed to chair (eg. confined to bed)">
+					description = <"The person does not transfer from bed to chair (eg. confined to bed).">
+				>
+				["at0234"] = <
+					text = <"Toileting">
+					description = <"When using the toilet, the person...">
+				>
+				["at0235"] = <
+					text = <"A. Is independent">
+					description = <"The person is independent.">
+				>
+				["at0236"] = <
+					text = <"B. Is independent with catheter or colostomy and equipment or adaptations">
+					description = <"The person is independent with catheter or colostomy and equipment or adaptations.">
+				>
+				["at0237"] = <
+					text = <"C. Needs assistance">
+					description = <"The person needs assistance.">
+				>
+				["at0238"] = <
+					text = <"D. Requires encouragement, prompting or supervision">
+					description = <"The person requires encouragement, prompting or supervision.">
+				>
+				["at0239"] = <
+					text = <"E. Requires complete assistance">
+					description = <"The person requires complete assistance.">
+				>
+				["at0240"] = <
+					text = <"F. Does not use the toilet">
+					description = <"The person does not use the toilet.">
+				>
+				["at0241"] = <
+					text = <"ADL score">
+					description = <"Total Activities of Daily Living and Mobility score value.">
+				>
+				["at0242"] = <
+					text = <"Washing hands/face">
+					description = <"When washing hands and face, the person...">
+				>
+				["at0243"] = <
+					text = <"A. Does without difficulty">
+					description = <"The person is able to wash their hands and face without difficulty.">
+				>
+				["at0244"] = <
+					text = <"B. Does without difficulty using equipment or adaptations">
+					description = <"The person is able to wash their hands and face without difficulty using equipment or adaptations.">
+				>
+				["at0245"] = <
+					text = <"C. Has difficulty, even if using equipment or adaptations">
+					description = <"The person has difficulty washing their hands and face, even if using equipment or adaptations.">
+				>
+				["at0246"] = <
+					text = <"D. Requires encouragement, prompting, supervision or guidance">
+					description = <"The person requires encouragement, prompting, supervision or guidance to wash their hands and face.">
+				>
+				["at0247"] = <
+					text = <"E. Needs assistance from others">
+					description = <"The person needs assistance from others to wash their hands and face.">
+				>
+				["at0248"] = <
+					text = <"Complete wash">
+					description = <"Having a complete wash, shower or bath, the person...">
+				>
+				["at0249"] = <
+					text = <"A. Does without difficulty">
+					description = <"The person is able to have a complete wash, shower or bath, without difficulty.">
+				>
+				["at0250"] = <
+					text = <"B. Does without difficulty using equipment or adaptations">
+					description = <"The person is able to have a complete wash, shower or bath, without difficulty using equipment or adaptations.">
+				>
+				["at0251"] = <
+					text = <"C. Has difficulty, even if using equipment or adaptations">
+					description = <"The person has difficulty having a complete wash, even if using equipment or adaptations.">
+				>
+				["at0252"] = <
+					text = <"D. Requires encouragement, prompting, supervision or guidance">
+					description = <"The person requires encouragement, prompting, supervision or guidance to have a complete wash..">
+				>
+				["at0253"] = <
+					text = <"E. Needs assistance from others">
+					description = <"The person needs assistance from others to have a complete wash.">
+				>
+				["at0254"] = <
+					text = <"Washing hair">
+					description = <"Washing their own hair, the person...">
+				>
+				["at0255"] = <
+					text = <"A. Does without difficulty">
+					description = <"The person is able to wash their own hair without difficulty.">
+				>
+				["at0256"] = <
+					text = <"B. Does without difficulty using equipment or adaptations">
+					description = <"The person is able to wash their own hair without difficulty using equipment or adaptations.">
+				>
+				["at0257"] = <
+					text = <"C. Has difficulty, even if using equipment or adaptations">
+					description = <"The person has difficulty washing their own hair, even if using equipment or adaptations.">
+				>
+				["at0258"] = <
+					text = <"D. Requires encouragement, prompting, supervision or guidance">
+					description = <"The person requires encouragement, prompting, supervision or guidance to wash their own hair.">
+				>
+				["at0259"] = <
+					text = <"E. Needs assistance from others">
+					description = <"The person needs assistance from others to wash their own hair.">
+				>
+				["at0260"] = <
+					text = <"Dressing/undressing">
+					description = <"Dressing and undressing, the person...">
+				>
+				["at0261"] = <
+					text = <"A. Does without difficulty">
+					description = <"The person is able to dress and undress themselves without difficulty.">
+				>
+				["at0262"] = <
+					text = <"B. Does without difficulty using equipment or adaptations">
+					description = <"The person is able to dress and undress themselves without difficulty using equipment or adaptations.">
+				>
+				["at0263"] = <
+					text = <"C. Has difficulty, even if using equipment or adaptations">
+					description = <"The person has difficulty dressing and undressing themselves, even if using equipment or adaptations.">
+				>
+				["at0264"] = <
+					text = <"D. Requires encouragement, prompting, supervision or guidance">
+					description = <"The person requires encouragement, prompting, supervision or guidance to get dressed or undressed..">
+				>
+				["at0265"] = <
+					text = <"E. Needs assistance from others">
+					description = <"The person needs assistance from others to get dressed or undressed.">
+				>
+				["at0266"] = <
+					text = <"Preparing main meal">
+					description = <"Preparing, cooking and serving a main meal, the person...">
+				>
+				["at0267"] = <
+					text = <"A. Does without difficulty">
+					description = <"The person is able to prepare, cook and serve a main meal without difficulty.">
+				>
+				["at0268"] = <
+					text = <"B. Does without difficulty using equipment or adaptations">
+					description = <"The person is able to prepare, cook and serve a main meal without difficulty using equipment or adaptations.">
+				>
+				["at0269"] = <
+					text = <"C. Has difficulty, even if using equipment or adaptations">
+					description = <"The person has difficulty preparing, cooking and serving a main meal, even if using equipment or adaptations.">
+				>
+				["at0270"] = <
+					text = <"D. Requires encouragement, prompting, supervision or guidance">
+					description = <"The person requires encouragement, prompting, supervision or guidance to prepare, cook and serve a main meal.">
+				>
+				["at0271"] = <
+					text = <"E. Needs assistance from others">
+					description = <"The person needs assistance from others to prepare, cook and serve a main meal.">
+				>
+				["at0272"] = <
+					text = <"Preparing light snack">
+					description = <"Preparing a light snack (e.g. a sandwich), the person...">
+				>
+				["at0273"] = <
+					text = <"A. Does without difficulty">
+					description = <"The person is able to prepare a light snack without difficulty.">
+				>
+				["at0274"] = <
+					text = <"B. Does without difficulty using equipment or adaptations">
+					description = <"The person is able to prepare a light snack without difficulty using equipment or adaptations.">
+				>
+				["at0275"] = <
+					text = <"C. Has difficulty, even if using equipment or adaptations">
+					description = <"The person has difficulty preparing a light snack, even if using equipment or adaptations.">
+				>
+				["at0276"] = <
+					text = <"D. Requires encouragement, prompting, supervision or guidance">
+					description = <"The person requires encouragement, prompting, supervision or guidance to prepare a light snack.">
+				>
+				["at0277"] = <
+					text = <"E. Needs assistance from others">
+					description = <"The person needs assistance from others to prepare a light snack.">
+				>
+				["at0278"] = <
+					text = <"Preparing hot drink">
+					description = <"Preparing a hot drink, the person...">
+				>
+				["at0279"] = <
+					text = <"A. Does without difficulty">
+					description = <"The person is able to prepare a hot drink without difficulty.">
+				>
+				["at0280"] = <
+					text = <"B. Does without difficulty using equipment or adaptations">
+					description = <"The person is able to prepare a hot drink without difficulty using equipment or adaptations.">
+				>
+				["at0281"] = <
+					text = <"C. Has difficulty, even if using equipment or adaptations">
+					description = <"The person has difficulty preparing a hot drink, even if using equipment or adaptations.">
+				>
+				["at0282"] = <
+					text = <"D. Requires encouragement, prompting, supervision or guidance">
+					description = <"The person requires encouragement, prompting, supervision or guidance to prepare a hot drink.">
+				>
+				["at0283"] = <
+					text = <"E. Needs assistance from others">
+					description = <"The person needs assistance from others to prepare a hot drink.">
+				>
+				["at0284"] = <
+					text = <"PCFP score">
+					description = <"Total Personal Care and Food/Drink Preparation score value.">
+				>
+				["at0285"] = <
+					text = <"Agitation/restlessness">
+					description = <"Has the person been agitated or restless?">
+				>
+				["at0286"] = <
+					text = <"A. Never">
+					description = <"The person has not been agitated or restless.">
+				>
+				["at0287"] = <
+					text = <"B. Once or twice in the past four weeks">
+					description = <"The person has been agitated or restless once or twice in the past four weeks.">
+				>
+				["at0288"] = <
+					text = <"C. More than twice in the past four weeks">
+					description = <"The person has been agitated or restless more than twice in the past four weeks.">
+				>
+				["at0289"] = <
+					text = <"Disturbance/disruption">
+					description = <"Has the person disturbed or disrupted other people?">
+				>
+				["at0290"] = <
+					text = <"A. Never">
+					description = <"The person has not disturbed or disrupted other people.">
+				>
+				["at0291"] = <
+					text = <"B. Once or twice in the past four weeks">
+					description = <"The person has disturbed or disrupted other people once or twice in the past four weeks.">
+				>
+				["at0292"] = <
+					text = <"C. More than twice in the past four weeks">
+					description = <"The person has disturbed or disrupted other people more than twice in the past four weeks.">
+				>
+				["at0293"] = <
+					text = <"Verbal aggression">
+					description = <"Has the person been verbally aggressive?">
+				>
+				["at0294"] = <
+					text = <"A. Never">
+					description = <"The person has not been verbally aggressive.">
+				>
+				["at0295"] = <
+					text = <"B. Once or twice in the past four weeks">
+					description = <"The person has been verbally aggressive once or twice in the past four weeks.">
+				>
+				["at0296"] = <
+					text = <"C. More than twice in the past four weeks">
+					description = <"The person has been verbally aggressive more than twice in the past four weeks.">
+				>
+				["at0297"] = <
+					text = <"Restiveness">
+					description = <"Has the person been resistant or uncooperative?">
+				>
+				["at0298"] = <
+					text = <"A. Never">
+					description = <"The person has not been resistant to help or uncooperative.">
+				>
+				["at0299"] = <
+					text = <"B. Once or twice in the past four weeks">
+					description = <"The person has been resistant to help or uncooperative once or twice in the past four weeks.">
+				>
+				["at0300"] = <
+					text = <"C. More than twice in the past four weeks">
+					description = <"The person has been resistant to help or uncooperative more than twice in the past four weeks.">
+				>
+				["at0301"] = <
+					text = <"Relationships">
+					description = <"Has the person had difficulty with key relationships?">
+				>
+				["at0302"] = <
+					text = <"A. Never">
+					description = <"The person has not had difficulty with key relationships.">
+				>
+				["at0303"] = <
+					text = <"B. Once or twice in the past four weeks">
+					description = <"The person has had difficulty with key relationships once or twice in the past four weeks.">
+				>
+				["at0304"] = <
+					text = <"C. More than twice in the past four weeks">
+					description = <"The person has had difficulty with key relationships more than twice in the past four weeks.">
+				>
+				["at0305"] = <
+					text = <"Risk">
+					description = <"Has the person constituted a risk of harm (to themselves or others)?">
+				>
+				["at0306"] = <
+					text = <"A. Never">
+					description = <"The person has not constituted a risk of harm to themselves or others.">
+				>
+				["at0307"] = <
+					text = <"B. Once or twice in the past four weeks">
+					description = <"The person has constituted a risk of harm to themselves or others once or twice in the past four weeks.">
+				>
+				["at0308"] = <
+					text = <"C. More than twice in the past four weeks">
+					description = <"The person has constituted a risk of harm to themselves or others more than twice in the past four weeks.">
+				>
+				["at0309"] = <
+					text = <"MWB score">
+					description = <"Total Mental Well-being, Behaviour and Risk score value.">
+				>
+			>
+		>
+	>
