@@ -1,0 +1,365 @@
+﻿archetype (adl_version=1.4; uid=ac145c97-c0f9-4439-821d-ca250b35eb36)
+	openEHR-EHR-OBSERVATION.ppsv2.v0
+
+concept
+	[at0000]	-- Palliative Performance Scale (PPSv2)
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Colin Brown">
+		["organisation"] = <"Edinburgh Napier University">
+		["email"] = <"colin.brown@napier.ac.uk">
+		["date"] = <"2021-03-04">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record the assessment of a patient's prognosis in palliative care with the PPSv2 tool.">
+			use = <"Use to record the assessment of a patient's prognosis in palliative care with the PPSv2 tool.
+
+PPSv2 covers ambulation, activity and extent of disease, ability to take care of yourself, food intake, and level of consciousness. It can provide a brief description of a patient’s current status, inform workload assessment, and it can also be used to estimate survival times.">
+			keywords = <"palliation, palliative, end-of-life, EoL, prognosis, prognostic", ...>
+			misuse = <"Not to be used to record a Karnofsky Performance Scale assessment - use OBSERVATION.karnofsky_performance_status for this purpose.">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <"Heidi Koikkalainen, freshEHR Clinical Informatics", "Ian McNicoll, freshEHR Clinical Informatics">
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["references"] = <"Anderson F, Downing G, Hill J, Casorso L, Lerch N. Palliative Performance Scale (PPS): A New Tool. Journal of Palliative Care. 1996;12(1):5-11.">
+		["current_contact"] = <"Colin Brown, colin.brown@napier.ac.uk">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"146C967079ABC97CB83C778FBA007000">
+		["build_uid"] = <"44f448db-0f64-413c-88cd-c7100c8e4b5b">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- Palliative Performance Scale (PPSv2)
+		data matches {
+			HISTORY[at0001] matches {    -- History
+				events cardinality matches {0..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..*} matches {    -- Any point in time event
+						data matches {
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0067] occurrences matches {0..1} matches {    -- Ambulation
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0068,    -- Full
+													at0069,    -- Reduced
+													at0070,    -- Mainly sit/lie
+													at0071,    -- Mainly in bed
+													at0072]    -- Totally bed bound
+												}
+											}
+										}
+									}
+									ELEMENT[at0061] occurrences matches {0..1} matches {    -- Activity level and evidence of disease
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0062,    -- Normal activity & work; no evidence of disease
+													at0063,    -- Normal activity & work; some evidence of disease
+													at0064,    -- Normal activity & work with effort; some evidence of disease
+													at0074,    -- Unable normal activity & work; significant disease
+													at0075,    -- Unable hobby/house work; significant disease
+													at0076,    -- Unable to do any work; extensive disease
+													at0077,    -- Unable to do most activity; extensive disease
+													at0078]    -- Unable to do any activity Extensive disease
+												}
+											}
+										}
+									}
+									ELEMENT[at0079] occurrences matches {0..1} matches {    -- Self-care
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0080,    -- Full
+													at0081,    -- Occasional assistance
+													at0082,    -- Considerable assistance
+													at0083,    -- Mainly assistance
+													at0094]    -- Total care
+												}
+											}
+										}
+									}
+									ELEMENT[at0084] occurrences matches {0..1} matches {    -- Intake
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0085,    -- Normal
+													at0086,    -- Reduced
+													at0087,    -- Minimal to sips
+													at0088]    -- Mouth care only
+												}
+											}
+										}
+									}
+									ELEMENT[at0089] occurrences matches {0..1} matches {    -- Conscious level
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0090,    -- Full
+													at0091,    -- Full or confusion
+													at0092,    -- Full or drowsy +/- confusion
+													at0093]    -- Drowsy or coma +/- confusion
+												}
+											}
+										}
+									}
+									ELEMENT[at0004] occurrences matches {0..1} matches {    -- PPS level
+										value matches {
+											1|[local::at0005],
+											2|[local::at0006],
+											3|[local::at0024],
+											4|[local::at0025],
+											5|[local::at0026],
+											6|[local::at0027],
+											7|[local::at0028],
+											8|[local::at0029],
+											9|[local::at0030],
+											10|[local::at0031],
+											11|[local::at0032]
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0066] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0095] occurrences matches {0..*} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Palliative Performance Scale (PPSv2)">
+					description = <"Palliative Performance Scale (PPSv2) is a prognostic tool used to measure physical status in palliative care. It is a modification of the Karnofsky Performance Scale.">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any point in time event">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"PPS level">
+					description = <"The overall PPS level.">
+				>
+				["at0005"] = <
+					text = <"100%">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"90%">
+					description = <"">
+				>
+				["at0024"] = <
+					text = <"80%">
+					description = <"">
+				>
+				["at0025"] = <
+					text = <"70%">
+					description = <"">
+				>
+				["at0026"] = <
+					text = <"60%">
+					description = <"">
+				>
+				["at0027"] = <
+					text = <"50%">
+					description = <"">
+				>
+				["at0028"] = <
+					text = <"40%">
+					description = <"">
+				>
+				["at0029"] = <
+					text = <"30%">
+					description = <"">
+				>
+				["at0030"] = <
+					text = <"20%">
+					description = <"">
+				>
+				["at0031"] = <
+					text = <"10%">
+					description = <"">
+				>
+				["at0032"] = <
+					text = <"0%">
+					description = <"">
+				>
+				["at0061"] = <
+					text = <"Activity level and evidence of disease">
+					description = <"The ability of the individual to perform normal daily activities and work, and the evidence of disease.">
+					comment = <"Activity: Refers to normal activities linked to daily routines (ADL), house work and hobbies/leisure.
+
+Job/work: Refers to normal activities linked to both paid and unpaid work, including homemaking and volunteer activities.
+
+Both include cases in which a patient continues the activity but may reduce either the time or effort involved.">
+				>
+				["at0062"] = <
+					text = <"Normal activity & work; no evidence of disease">
+					description = <"The individual is able to perform normal daily activities and work; no evidence of disease.">
+				>
+				["at0063"] = <
+					text = <"Normal activity & work; some evidence of disease">
+					description = <"The individual is able to perform normal daily activities and work; some evidence of disease.">
+				>
+				["at0064"] = <
+					text = <"Normal activity & work with effort; some evidence of disease">
+					description = <"The individual is able to perform normal daily activities and work with effort; some evidence of disease.">
+				>
+				["at0066"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0067"] = <
+					text = <"Ambulation">
+					description = <"The ability of the individual to walk and transfer.">
+				>
+				["at0068"] = <
+					text = <"Full">
+					description = <"No restrictions or assistance.">
+				>
+				["at0069"] = <
+					text = <"Reduced">
+					description = <"The individual's ability to walk and transfer is reduced and may require occasional assistance.">
+				>
+				["at0070"] = <
+					text = <"Mainly sit/lie">
+					description = <"The individual is mainly sits up or lies in bed.">
+				>
+				["at0071"] = <
+					text = <"Mainly in bed">
+					description = <"The individual mainly lies in bed.">
+				>
+				["at0072"] = <
+					text = <"Totally bed bound">
+					description = <"The individual is unable to do get out of bed or do self-care.">
+				>
+				["at0074"] = <
+					text = <"Unable normal activity & work; significant disease">
+					description = <"The individual is unable to perform normal daily activities and work; evidence of significant disease.">
+				>
+				["at0075"] = <
+					text = <"Unable hobby/house work; significant disease">
+					description = <"The individual is unable to do hobbies or house work; evidence of significant disease.">
+				>
+				["at0076"] = <
+					text = <"Unable to do any work; extensive disease">
+					description = <"The individual is unable to do any work; evidence of extensive disease.">
+				>
+				["at0077"] = <
+					text = <"Unable to do most activity; extensive disease">
+					description = <"The individual is unable to do most activity; evidence of extensive disease.">
+				>
+				["at0078"] = <
+					text = <"Unable to do any activity Extensive disease">
+					description = <"The individual is unable to do any activity; evidence of extensive disease.">
+				>
+				["at0079"] = <
+					text = <"Self-care">
+					description = <"The ability of the individual to perform self care activities.">
+				>
+				["at0080"] = <
+					text = <"Full">
+					description = <"The individual is able to do all normal self care activities such as transfer out of bed, walk, wash, toilet and eat without assistance.">
+				>
+				["at0081"] = <
+					text = <"Occasional assistance">
+					description = <"The individual requires minor assistance from several times a week to once every day, for normal self care activities..">
+				>
+				["at0082"] = <
+					text = <"Considerable assistance">
+					description = <"The individual requires moderate assistance every day, for some self care activities, e.g. getting to the bathroom or cutting up food.">
+				>
+				["at0083"] = <
+					text = <"Mainly assistance">
+					description = <"The individual requires major assistance every day, for most self care activities, e.g. getting up, washing face and shaving. Can usually eat with minimal or no help. This may fluctuate with level of fatigue.">
+				>
+				["at0084"] = <
+					text = <"Intake">
+					description = <"The current food intake of the individual.">
+				>
+				["at0085"] = <
+					text = <"Normal">
+					description = <"The individual eats normal amounts of food for them as when healthy.">
+				>
+				["at0086"] = <
+					text = <"Reduced">
+					description = <"The individual's food intake is less than normal amounts when healthy.">
+				>
+				["at0087"] = <
+					text = <"Minimal to sips">
+					description = <"The individual eats very small amounts, usually pureed or liquid, and well below normal intake.">
+				>
+				["at0088"] = <
+					text = <"Mouth care only">
+					description = <"No oral food intake.">
+				>
+				["at0089"] = <
+					text = <"Conscious level">
+					description = <"The individual's level of consciousness.">
+				>
+				["at0090"] = <
+					text = <"Full">
+					description = <"The individual is fully alert and orientated, with normal (for the patient) cognitive abilities (thinking, memory, etc).">
+				>
+				["at0091"] = <
+					text = <"Full or confusion">
+					description = <"The individual's level of consciousness is full or may be reduced. If reduced, confusion denotes delirium or dementia which may be mild, moderate or severe, with multiple possible etiologies.">
+				>
+				["at0092"] = <
+					text = <"Full or drowsy +/- confusion">
+					description = <"The individual's level of consciousness is full or may be markedly reduced; sometimes included in the term stupor. Implies fatigue, drug side effects, delirium or closeness to death.">
+				>
+				["at0093"] = <
+					text = <"Drowsy or coma +/- confusion">
+					description = <"No response to verbal or physical stimuli; some reflexes may or may not remain. The depth of coma may fluctuate throughout a 24 hour period. Usually indicates imminent death.">
+				>
+				["at0094"] = <
+					text = <"Total care">
+					description = <"The individual always requires assistance for all care. May or may not be able to chew and swallow food.">
+				>
+				["at0095"] = <
+					text = <"Extension">
+					description = <"Additional information required to extend the model with local content or to align with other reference models/formalisms.">
+					comment = <"For example: local information requirements; or additional metadata to align with FHIR.">
+				>
+			>
+		>
+	>
