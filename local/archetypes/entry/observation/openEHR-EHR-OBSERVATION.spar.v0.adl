@@ -1,0 +1,130 @@
+﻿archetype (adl_version=1.4; uid=5f3773cf-23f4-47fe-a009-e6ebda73c1b7)
+	openEHR-EHR-OBSERVATION.spar.v0
+
+concept
+	[at0000]	-- Supportive and Palliative Action Register (SPAR)
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Heidi Koikkalainen">
+		["organisation"] = <"freshEHR Clinical Informatics, UK">
+		["email"] = <"heidi@freshehr.com">
+		["date"] = <"2021-04-27">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record details of the SPAR category describing the observed rate of deterioration of a frail, elderly individual.">
+			use = <"Use to record details of the SPAR category describing the observed rate of deterioration of a frail, elderly individual.
+
+The SPAR traffic light system is used in conjunction with the Palliative Performance Scale (PPSv2), which is a separate archetype (OBSERVATION.ppsv2). To record a complete SPAR register entry, these two archetypes should be implemented together in a template.">
+			keywords = <"palliative, care, frail, frailty, dementia", ...>
+			misuse = <"">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <"Ian McNicoll, freshEHR Clinical Informatics, UK", ...>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["references"] = <"[Internet]. Palliativecareggc.org.uk. 2021 [cited 2021 Apr 27]. Available from: https://www.palliativecareggc.org.uk/wp-content/uploads/2018/08/SPAR-Residential-2018.pdf">
+		["current_contact"] = <"Heidi Koikkalainen, heidi@freshehr.com">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"E85A1DDF0D507733406CE4B223C248EA">
+		["build_uid"] = <"f49af54e-f89e-4c3d-83e9-e00874d8dda4">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- Supportive and Palliative Action Register (SPAR)
+		data matches {
+			HISTORY[at0001] matches {    -- History
+				events cardinality matches {1..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..*} matches {    -- Any point in time event
+						data matches {
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0006] occurrences matches {0..1} matches {    -- SPAR category
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0007,    -- Green (Minimal)
+													at0008,    -- Amber (Moderate)
+													at0009]    -- Red (Rapid/Major)
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0004] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0005] occurrences matches {0..*} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Supportive and Palliative Action Register (SPAR)">
+					description = <"Supportive and Palliative Action Register (SPAR) is a traffic light system used in nursing care homes to identify changing palliative care needs in frail elderly people and people with dementia.">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any point in time event">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0005"] = <
+					text = <"Extension">
+					description = <"Additional information required to extend the model with local content or to align with other reference models/formalisms.">
+					comment = <"For example: local information requirements; or additional metadata to align with FHIR.">
+				>
+				["at0006"] = <
+					text = <"SPAR category">
+					description = <"The SPAR category to describe the observed rate of deterioration of an individual.">
+				>
+				["at0007"] = <
+					text = <"Green (Minimal)">
+					description = <"No major change in physical and/or mental status over last month; care needs are stable; no change in PPSv2 score.">
+				>
+				["at0008"] = <
+					text = <"Amber (Moderate)">
+					description = <"Slow to moderate rate of decline (month by month); signs of irreversible impairment; noticeable increase in care needs; decline in PPSv2 score.">
+				>
+				["at0009"] = <
+					text = <"Red (Rapid/Major)">
+					description = <"Rapid/severe (day by day) or persistent (week by week) rate of decline; significant and/or accelerating deterioration; extent of reversible deterioration is uncertain or unlikely; significant/very significant increase in care needs; further or significant decline in PPSv2 score; AND admission to hospital is not appropriate or is declined.">
+				>
+			>
+		>
+	>
