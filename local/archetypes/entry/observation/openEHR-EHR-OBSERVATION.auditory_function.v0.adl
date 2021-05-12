@@ -1,0 +1,143 @@
+﻿archetype (adl_version=1.4; uid=41d45d36-db1a-4686-b96a-be81a523dc08)
+	openEHR-EHR-OBSERVATION.auditory_function.v0
+
+concept
+	[at0000]	-- Auditory function
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"ian@freshehr.com">
+		["date"] = <"2021-03-07">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record details about the auditory function of an individual.">
+			use = <"Use to record details about the auditory function of an individual.">
+			keywords = <"hearing", ...>
+			misuse = <"">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"5530596C54FA7CA65F23AA399F5C2979">
+		["build_uid"] = <"06d67715-bc2f-435a-bf93-a574344aba6e">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- Auditory function
+		data matches {
+			HISTORY[at0001] matches {    -- History
+				events cardinality matches {0..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..*} matches {    -- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {    -- Overall auditory function
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0005,    -- Hearing normal
+													at0006,    -- Significant hearing impairment
+													at0007]    -- Deaf
+												}
+											}
+										}
+									}
+									ELEMENT[at0008] occurrences matches {0..1} matches {    -- Legal status
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0009] occurrences matches {0..*} matches {    -- Auditory aids
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0010] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0011] occurrences matches {0..*} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Auditory function">
+					description = <"Auditory function of an individual.">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Overall auditory function">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Hearing normal">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Significant hearing impairment">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Deaf">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Legal status">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"Auditory aids">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0011"] = <
+					text = <"Extension">
+					description = <"">
+				>
+			>
+		>
+	>
