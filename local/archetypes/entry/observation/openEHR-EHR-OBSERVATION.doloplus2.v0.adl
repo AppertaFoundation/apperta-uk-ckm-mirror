@@ -1,0 +1,397 @@
+﻿archetype (adl_version=1.4; uid=14113f65-6ab4-4893-accc-55bf7a5fb929)
+	openEHR-EHR-OBSERVATION.doloplus2.v0
+
+concept
+	[at0000]	-- Doloplus-2 scale
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Heidi Koikkalainen">
+		["organisation"] = <"freshEHR Clinical Informatics, UK">
+		["email"] = <"heidi@freshehr.com">
+		["date"] = <"2021-03-23">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To assess and record the severity of pain in elderly individuals presenting with verbal communication disorders.">
+			use = <"Use to assess and record the severity of pain in elderly individuals presenting with verbal communication disorders.
+
+While openEHR archetypes are all freely available under an open license, the specific content of this Cornell Depression Scale archetype is copyright protected. Any use of this archetype within implementations must be in compliance with the terms established by the copyright owners.
+Copyright statement: DOLOPLUS © 2018. All rights reserved.
+Copyright information: http://www.doloplus.fr/en/the-doloplus-scale/.">
+			keywords = <"behavioural, pain, assessment, elderly, communication, scale, score", ...>
+			misuse = <"">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <"Ian McNicoll, freshEHR Clinical Informatics, UK", ...>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["references"] = <"Monacelli F, Vasile Nurse A, Odetti P and Traverso N. Doloplus-2 pain assessment: an effective tool in patients over 85 years with advanced dementia and persistent pain. La Clinica Terapeutica. 2013; 164(1), pp.e23-e5.
+
+The Doloplus Scale - Doloplus [Internet]. Doloplus. 2021 [cited 2021 Apr 6]. Available from: http://www.doloplus.fr/en/the-doloplus-scale/">
+		["current_contact"] = <"Heidi Koikkalainen, heidi@freshehr.com">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"54C4D8605B336FF686F32BF836CE0EB0">
+		["build_uid"] = <"cceb4d05-7f48-4731-881e-b16dad3e467a">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- Doloplus-2 scale
+		data matches {
+			HISTORY[at0001] matches {    -- History
+				events cardinality matches {0..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..*} matches {    -- Any point in time event
+						data matches {
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {    -- Somatic complaints
+										value matches {
+											0|[local::at0005],
+											1|[local::at0006],
+											2|[local::at0007],
+											3|[local::at0008]
+										}
+									}
+									ELEMENT[at0009] occurrences matches {0..1} matches {    -- Protective body postures adopted at rest
+										value matches {
+											0|[local::at0010],
+											1|[local::at0011],
+											2|[local::at0012],
+											3|[local::at0013]
+										}
+									}
+									ELEMENT[at0014] occurrences matches {0..1} matches {    -- Protection of sore areas
+										value matches {
+											0|[local::at0015],
+											1|[local::at0016],
+											2|[local::at0017],
+											3|[local::at0054]
+										}
+									}
+									ELEMENT[at0018] occurrences matches {0..1} matches {    -- Expression
+										value matches {
+											0|[local::at0019],
+											1|[local::at0020],
+											2|[local::at0021],
+											3|[local::at0022]
+										}
+									}
+									ELEMENT[at0023] occurrences matches {0..1} matches {    -- Sleep pattern
+										value matches {
+											0|[local::at0024],
+											1|[local::at0025],
+											2|[local::at0026],
+											3|[local::at0027]
+										}
+									}
+									ELEMENT[at0028] occurrences matches {0..1} matches {    -- Activities of daily living (washing and/or dressing)
+										value matches {
+											0|[local::at0029],
+											1|[local::at0030],
+											2|[local::at0031],
+											3|[local::at0032]
+										}
+									}
+									ELEMENT[at0033] occurrences matches {0..1} matches {    -- Mobility
+										value matches {
+											0|[local::at0034],
+											1|[local::at0035],
+											2|[local::at0036],
+											3|[local::at0037]
+										}
+									}
+									ELEMENT[at0038] occurrences matches {0..1} matches {    -- Communication
+										value matches {
+											0|[local::at0039],
+											1|[local::at0040],
+											2|[local::at0041],
+											3|[local::at0042]
+										}
+									}
+									ELEMENT[at0043] occurrences matches {0..1} matches {    -- Social life
+										value matches {
+											0|[local::at0044],
+											1|[local::at0045],
+											2|[local::at0046],
+											3|[local::at0047]
+										}
+									}
+									ELEMENT[at0048] occurrences matches {0..1} matches {    -- Problems of behaviour
+										value matches {
+											0|[local::at0049],
+											1|[local::at0050],
+											2|[local::at0051],
+											3|[local::at0052]
+										}
+									}
+									ELEMENT[at0053] occurrences matches {0..1} matches {    -- Score
+										value matches {
+											DV_COUNT matches {
+												magnitude matches {|0..30|}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0055] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0056] occurrences matches {0..*} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Doloplus-2 scale">
+					description = <"Behavioural pain assessment scale for the elderly presenting with verbal communication disorders.">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any point in time event">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Somatic complaints">
+					description = <"Somatic complaints expressed by the individual.">
+				>
+				["at0005"] = <
+					text = <"No complaint">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Complaints expressed upon inquiry only">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Occasional involuntary complaints">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Continuous involuntary complaints">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"Protective body postures adopted at rest">
+					description = <"Protective body postures adopted at rest by the individual.">
+				>
+				["at0010"] = <
+					text = <"No protective body posture">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"The patient occasionally avoids certain postures">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"Protective postures continuously and effectively sought">
+					description = <"">
+				>
+				["at0013"] = <
+					text = <"Protective postures continuously sought, without success">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"Protection of sore areas">
+					description = <"Attempts to protect sore areas by the individual.">
+				>
+				["at0015"] = <
+					text = <"No protective action taken">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"Protective actions attempted without interfering against any investigation or nursing">
+					description = <"">
+				>
+				["at0017"] = <
+					text = <"Protective actions against any investigations and nursing">
+					description = <"">
+				>
+				["at0018"] = <
+					text = <"Expression">
+					description = <"The facial expression of the individual.">
+				>
+				["at0019"] = <
+					text = <"Usual expression">
+					description = <"">
+				>
+				["at0020"] = <
+					text = <"Expression showing pain when approached">
+					description = <"">
+				>
+				["at0021"] = <
+					text = <"Expression showing pain even without being approached">
+					description = <"">
+				>
+				["at0022"] = <
+					text = <"Permanent and unusually blank look (voiceless, staring, looking blank)">
+					description = <"">
+				>
+				["at0023"] = <
+					text = <"Sleep pattern">
+					description = <"The sleep pattern of the individual.">
+				>
+				["at0024"] = <
+					text = <"Normal sleep">
+					description = <"">
+				>
+				["at0025"] = <
+					text = <"Difficult to go to sleep">
+					description = <"">
+				>
+				["at0026"] = <
+					text = <"Frequent waking (restlessness)">
+					description = <"">
+				>
+				["at0027"] = <
+					text = <"Insomnia affecting waking times">
+					description = <"">
+				>
+				["at0028"] = <
+					text = <"Activities of daily living (washing and/or dressing)">
+					description = <"The ability of the individual to carry out activities of daily living, such as washing and dressing self.">
+				>
+				["at0029"] = <
+					text = <"Usual abilities unaffected">
+					description = <"">
+				>
+				["at0030"] = <
+					text = <"Usual abilities slightly affected (careful but thorough)">
+					description = <"">
+				>
+				["at0031"] = <
+					text = <"Usual abilities highly impaired, washing and/or dressing is laborious and incomplete">
+					description = <"">
+				>
+				["at0032"] = <
+					text = <"Washing and/or dressing rendered impossible, the patient resists all persuasion">
+					description = <"">
+				>
+				["at0033"] = <
+					text = <"Mobility">
+					description = <"The ability of the individual to move freely.">
+				>
+				["at0034"] = <
+					text = <"Usual abilities and activities remain unaffected">
+					description = <"">
+				>
+				["at0035"] = <
+					text = <"Usual activities are reduced (the patient avoids certain movements and reduces his/her walking distance)">
+					description = <"">
+				>
+				["at0036"] = <
+					text = <"Usual activities and abilities reduced (even with help, the patient cuts down on his/her movements)">
+					description = <"">
+				>
+				["at0037"] = <
+					text = <"Any movement is impossible, the patient resists all persuasion">
+					description = <"">
+				>
+				["at0038"] = <
+					text = <"Communication">
+					description = <"Observed changes in how the individual communicates.">
+				>
+				["at0039"] = <
+					text = <"Unchanged">
+					description = <"">
+				>
+				["at0040"] = <
+					text = <"Heightened (the patient demands attention in an unusual manner)">
+					description = <"">
+				>
+				["at0041"] = <
+					text = <"Lessened (the patient cuts him/herself off)">
+					description = <"">
+				>
+				["at0042"] = <
+					text = <"Absence or refusal of any form of communication">
+					description = <"">
+				>
+				["at0043"] = <
+					text = <"Social life">
+					description = <"The individual's participation in social activities.">
+				>
+				["at0044"] = <
+					text = <"Participates normally in every activity (meals, entertainment, therapy workshops)">
+					description = <"">
+				>
+				["at0045"] = <
+					text = <"Participates in activities when asked to do so only">
+					description = <"">
+				>
+				["at0046"] = <
+					text = <"Sometimes refuses to participate in any activity">
+					description = <"">
+				>
+				["at0047"] = <
+					text = <"Refuses to participate in anything">
+					description = <"">
+				>
+				["at0048"] = <
+					text = <"Problems of behaviour">
+					description = <"The behaviour of the individual.">
+				>
+				["at0049"] = <
+					text = <"Normal behaviour">
+					description = <"">
+				>
+				["at0050"] = <
+					text = <"Problems of repetitive reactive behaviour">
+					description = <"">
+				>
+				["at0051"] = <
+					text = <"Problems of permanent reactive behaviour">
+					description = <"">
+				>
+				["at0052"] = <
+					text = <"Permanent behaviour problems (without any external stimulus)">
+					description = <"">
+				>
+				["at0053"] = <
+					text = <"Score">
+					description = <"The sum of points assigned for each of the component variables.">
+				>
+				["at0054"] = <
+					text = <"Protective actions taken at rest, even when not approached">
+					description = <"">
+				>
+				["at0055"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0056"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local content or to align with other reference models/formalisms.">
+					comment = <"For example: local information requirements or additional metadata to align with FHIR or CIMI equivalents.">
+				>
+			>
+		>
+	>
