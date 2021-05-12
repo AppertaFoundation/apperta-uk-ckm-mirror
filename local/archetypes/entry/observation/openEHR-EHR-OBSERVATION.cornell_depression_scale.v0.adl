@@ -1,0 +1,597 @@
+﻿archetype (adl_version=1.4; uid=8f62e76e-446e-4199-9717-fcd8e1594a90)
+	openEHR-EHR-OBSERVATION.cornell_depression_scale.v0
+
+concept
+	[at0000]	-- Cornell Depression Scale
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Heidi Koikkalainen">
+		["organisation"] = <"freshEHR Clinical Informatics, UK">
+		["email"] = <"heidi@freshehr.com">
+		["date"] = <"2021-04-07">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To assess and record the scale of depression in elderly individuals with dementia.">
+			use = <"Use to assess and record the scale of depression in elderly individuals with dementia.
+
+While openEHR archetypes are all freely available under an open license, the specific content of this Cornell Depression Scale archetype is copyright protected. Any use of this archetype within implementations must be in compliance with the terms established by the copyright owners.
+Copyright statement: Reprinted from Biological Psychiatry, volume 23, Alexopolous GS, Abrams RC, Young RC, Shamoian CA, “Cornell Scale for Depression in Dementia,”
+page 271-284, copyright 1998, with permission from the Society of Biological Psychiatry.
+Copyright information: https://eprovide.mapi-trust.org/instruments/cornell-scale-for-depression-in-dementia.">
+			keywords = <"depression, assessment, screening, dementia, scale, score", ...>
+			misuse = <"">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <"Ian McNicoll, freshEHR Clinical Informatics, UK", ...>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["references"] = <"Alexopoulos G, Abrams R, Young R, Shamoian C. Cornell scale for depression in dementia. Biological Psychiatry. 1988;23(3):271-284.">
+		["current_contact"] = <"Heidi Koikkalainen, heidi@freshehr.com">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"C60FCDD0D0DD046CD18F75E018F65D97">
+		["build_uid"] = <"3044a942-b0e0-4fa6-adca-fbeed4d19fcd">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- Cornell Depression Scale
+		data matches {
+			HISTORY[at0001] matches {    -- History
+				events cardinality matches {0..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..*} matches {    -- Any point in time event
+						data matches {
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {    -- Anxiety
+										value matches {
+											0|[local::at0006],
+											1|[local::at0007],
+											2|[local::at0008]
+										}
+									}
+									ELEMENT[at0009] occurrences matches {0..1} matches {    -- Sadness
+										value matches {
+											0|[local::at0011],
+											1|[local::at0012],
+											2|[local::at0013]
+										}
+									}
+									ELEMENT[at0014] occurrences matches {0..1} matches {    -- Lack of reactivity to pleasant events
+										value matches {
+											0|[local::at0017],
+											1|[local::at0018],
+											2|[local::at0019]
+										}
+									}
+									ELEMENT[at0015] occurrences matches {0..1} matches {    -- Irritability
+										value matches {
+											0|[local::at0021],
+											1|[local::at0022],
+											2|[local::at0023]
+										}
+									}
+									ELEMENT[at0024] occurrences matches {0..1} matches {    -- Agitation
+										value matches {
+											0|[local::at0040],
+											1|[local::at0041],
+											2|[local::at0042]
+										}
+									}
+									ELEMENT[at0025] occurrences matches {0..1} matches {    -- Retardation
+										value matches {
+											0|[local::at0044],
+											1|[local::at0045],
+											2|[local::at0046]
+										}
+									}
+									ELEMENT[at0026] occurrences matches {0..1} matches {    -- Multiple physical complaints
+										value matches {
+											0|[local::at0048],
+											1|[local::at0049],
+											2|[local::at0050]
+										}
+									}
+									ELEMENT[at0027] occurrences matches {0..1} matches {    -- Loss of interest
+										value matches {
+											0|[local::at0052],
+											1|[local::at0053],
+											2|[local::at0054]
+										}
+									}
+									ELEMENT[at0028] occurrences matches {0..1} matches {    -- Appetite loss
+										value matches {
+											0|[local::at0056],
+											1|[local::at0057],
+											2|[local::at0058]
+										}
+									}
+									ELEMENT[at0029] occurrences matches {0..1} matches {    -- Weight loss
+										value matches {
+											0|[local::at0060],
+											1|[local::at0061],
+											2|[local::at0062]
+										}
+									}
+									ELEMENT[at0030] occurrences matches {0..1} matches {    -- Lack of energy
+										value matches {
+											0|[local::at0064],
+											1|[local::at0065],
+											2|[local::at0066]
+										}
+									}
+									ELEMENT[at0031] occurrences matches {0..1} matches {    -- Diurnal variation of mood
+										value matches {
+											0|[local::at0068],
+											1|[local::at0069],
+											2|[local::at0070]
+										}
+									}
+									ELEMENT[at0032] occurrences matches {0..1} matches {    -- Difficulty falling asleep
+										value matches {
+											0|[local::at0072],
+											1|[local::at0073],
+											2|[local::at0074]
+										}
+									}
+									ELEMENT[at0033] occurrences matches {0..1} matches {    -- Multiple awakenings during sleep
+										value matches {
+											0|[local::at0076],
+											1|[local::at0077],
+											2|[local::at0078]
+										}
+									}
+									ELEMENT[at0034] occurrences matches {0..1} matches {    -- Early-morning awakening
+										value matches {
+											0|[local::at0080],
+											1|[local::at0081],
+											2|[local::at0082]
+										}
+									}
+									ELEMENT[at0035] occurrences matches {0..1} matches {    -- Suicide
+										value matches {
+											1|[local::at0084],
+											2|[local::at0085],
+											3|[local::at0086]
+										}
+									}
+									ELEMENT[at0036] occurrences matches {0..1} matches {    -- Poor self-esteem
+										value matches {
+											0|[local::at0088],
+											1|[local::at0089],
+											2|[local::at0090]
+										}
+									}
+									ELEMENT[at0037] occurrences matches {0..1} matches {    -- Pessimism
+										value matches {
+											0|[local::at0092],
+											1|[local::at0093],
+											2|[local::at0094]
+										}
+									}
+									ELEMENT[at0038] occurrences matches {0..1} matches {    -- Mood-congruent delusions
+										value matches {
+											0|[local::at0096],
+											1|[local::at0097],
+											2|[local::at0098]
+										}
+									}
+									ELEMENT[at0099] occurrences matches {0..1} matches {    -- Total score
+										value matches {
+											DV_COUNT matches {
+												magnitude matches {|0..38|}
+											}
+										}
+									}
+									ELEMENT[at0100] occurrences matches {0..1} matches {    -- Clinical interpretation
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0101,    -- Probably major depressive episode
+													at0102]    -- Definite major depressive episode
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0103] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0104] occurrences matches {0..*} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Cornell Depression Scale">
+					description = <"A screening tool used to assess depression in elderly individuals with dementia.">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any point in time event">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Anxiety">
+					description = <"Anxious expression, ruminations, worrying.">
+					comment = <"If it is not possible to evaluate the particular symptoms and signs, then a \"Not Applicable\" null flavour should be recorded.">
+				>
+				["at0006"] = <
+					text = <"Absent">
+					description = <"The symptoms and signs are absent.">
+				>
+				["at0007"] = <
+					text = <"Mild or intermittent">
+					description = <"Mild or intermittent symptoms and signs have been observed.">
+				>
+				["at0008"] = <
+					text = <"Severe">
+					description = <"Severe symptoms and signs have been observed.">
+				>
+				["at0009"] = <
+					text = <"Sadness">
+					description = <"Sad expression, sad voice, tearfulness.">
+					comment = <"If it is not possible to evaluate the particular symptoms and signs, then a \"Not Applicable\" null flavour should be recorded.">
+				>
+				["at0011"] = <
+					text = <"Absent">
+					description = <"The symptoms and signs are absent.">
+				>
+				["at0012"] = <
+					text = <"Mild or intermittent">
+					description = <"Mild or intermittent symptoms and signs have been observed.">
+				>
+				["at0013"] = <
+					text = <"Severe">
+					description = <"Severe symptoms and signs have been observed.">
+				>
+				["at0014"] = <
+					text = <"Lack of reactivity to pleasant events">
+					description = <"The individual shows lack of reactivity to pleasant events.">
+					comment = <"If it is not possible to evaluate the particular symptoms and signs, then a \"Not Applicable\" null flavour should be recorded.">
+				>
+				["at0015"] = <
+					text = <"Irritability">
+					description = <"The individual is easily annoyed or short tempered.">
+					comment = <"If it is not possible to evaluate the particular symptoms and signs, then a \"Not Applicable\" null flavour should be recorded.">
+				>
+				["at0017"] = <
+					text = <"Absent">
+					description = <"The symptoms and signs are absent.">
+				>
+				["at0018"] = <
+					text = <"Mild or intermittent">
+					description = <"Mild or intermittent symptoms and signs have been observed.">
+				>
+				["at0019"] = <
+					text = <"Severe">
+					description = <"Severe symptoms and signs have been observed.">
+				>
+				["at0021"] = <
+					text = <"Absent">
+					description = <"The symptoms and signs are absent.">
+				>
+				["at0022"] = <
+					text = <"Mild or intermittent">
+					description = <"Mild or intermittent symptoms and signs have been observed.">
+				>
+				["at0023"] = <
+					text = <"Severe">
+					description = <"Severe symptoms and signs have been observed.">
+				>
+				["at0024"] = <
+					text = <"Agitation">
+					description = <"Restlessness, handwringing, hairpulling.">
+					comment = <"If it is not possible to evaluate the particular symptoms and signs, then a \"Not Applicable\" null flavour should be recorded.">
+				>
+				["at0025"] = <
+					text = <"Retardation">
+					description = <"Slow movements, slow speech, slow reactions.">
+					comment = <"If it is not possible to evaluate the particular symptoms and signs, then a \"Not Applicable\" null flavour should be recorded.">
+				>
+				["at0026"] = <
+					text = <"Multiple physical complaints">
+					description = <"The individual has multiple physical complaints. Score 0 if GI symptoms only.">
+					comment = <"If it is not possible to evaluate the particular symptoms and signs, then a \"Not Applicable\" null flavour should be recorded.">
+				>
+				["at0027"] = <
+					text = <"Loss of interest">
+					description = <"The individual is less involved in usual activities. Score only if change occurred acutely, i.e. in less than 1 month.">
+					comment = <"If it is not possible to evaluate the particular symptoms and signs, then a \"Not Applicable\" null flavour should be recorded.">
+				>
+				["at0028"] = <
+					text = <"Appetite loss">
+					description = <"The individual is eating less than usual.">
+					comment = <"If it is not possible to evaluate the particular symptoms and signs, then a \"Not Applicable\" null flavour should be recorded.">
+				>
+				["at0029"] = <
+					text = <"Weight loss">
+					description = <"The individual has lost weight recently. Score 2 if greater than 5 lb. in one month.">
+					comment = <"If it is not possible to evaluate the particular symptoms and signs, then a \"Not Applicable\" null flavour should be recorded.">
+				>
+				["at0030"] = <
+					text = <"Lack of energy">
+					description = <"The individual fatigues easily or is unable to sustain activities. Score only if change occurred acutely, i.e. in less than 1 month.">
+					comment = <"If it is not possible to evaluate the particular symptoms and signs, then a \"Not Applicable\" null flavour should be recorded.">
+				>
+				["at0031"] = <
+					text = <"Diurnal variation of mood">
+					description = <"The individual's symptoms are worse in the morning.">
+					comment = <"If it is not possible to evaluate the particular symptoms and signs, then a \"Not Applicable\" null flavour should be recorded.">
+				>
+				["at0032"] = <
+					text = <"Difficulty falling asleep">
+					description = <"The individual is falling asleep later than usual.">
+					comment = <"If it is not possible to evaluate the particular symptoms and signs, then a \"Not Applicable\" null flavour should be recorded.">
+				>
+				["at0033"] = <
+					text = <"Multiple awakenings during sleep">
+					description = <"The individual wakes up multiple times during sleep.">
+					comment = <"If it is not possible to evaluate the particular symptoms and signs, then a \"Not Applicable\" null flavour should be recorded.">
+				>
+				["at0034"] = <
+					text = <"Early-morning awakening">
+					description = <"The individual wakes up earlier than usual.">
+					comment = <"If it is not possible to evaluate the particular symptoms and signs, then a \"Not Applicable\" null flavour should be recorded.">
+				>
+				["at0035"] = <
+					text = <"Suicide">
+					description = <"The individual feels life is not worth living, has suicidal wishes or has attempted suicide.">
+					comment = <"If it is not possible to evaluate the particular symptoms and signs, then a \"Not Applicable\" null flavour should be recorded.">
+				>
+				["at0036"] = <
+					text = <"Poor self-esteem">
+					description = <"The individual expresses self-blame, self-deprecation, or feelings of failure.">
+					comment = <"If it is not possible to evaluate the particular symptoms and signs, then a \"Not Applicable\" null flavour should be recorded.">
+				>
+				["at0037"] = <
+					text = <"Pessimism">
+					description = <"The individual anticipates the worst.">
+					comment = <"If it is not possible to evaluate the particular symptoms and signs, then a \"Not Applicable\" null flavour should be recorded.">
+				>
+				["at0038"] = <
+					text = <"Mood-congruent delusions">
+					description = <"The individual shows delusions of poverty, illness or loss.">
+					comment = <"If it is not possible to evaluate the particular symptoms and signs, then a \"Not Applicable\" null flavour should be recorded.">
+				>
+				["at0040"] = <
+					text = <"Absent">
+					description = <"The symptoms and signs are absent.">
+				>
+				["at0041"] = <
+					text = <"Mild or intermittent">
+					description = <"Mild or intermittent symptoms and signs have been observed.">
+				>
+				["at0042"] = <
+					text = <"Severe">
+					description = <"Severe symptoms and signs have been observed.">
+				>
+				["at0044"] = <
+					text = <"Absent">
+					description = <"The symptoms and signs are absent.">
+				>
+				["at0045"] = <
+					text = <"Mild or intermittent">
+					description = <"Mild or intermittent symptoms and signs have been observed.">
+				>
+				["at0046"] = <
+					text = <"Severe">
+					description = <"Severe symptoms and signs have been observed.">
+				>
+				["at0048"] = <
+					text = <"Absent">
+					description = <"The symptoms and signs are absent.">
+				>
+				["at0049"] = <
+					text = <"Mild or intermittent">
+					description = <"Mild or intermittent symptoms and signs have been observed.">
+				>
+				["at0050"] = <
+					text = <"Severe">
+					description = <"Severe symptoms and signs have been observed.">
+				>
+				["at0052"] = <
+					text = <"Absent">
+					description = <"The symptoms and signs are absent.">
+				>
+				["at0053"] = <
+					text = <"Mild or intermittent">
+					description = <"Mild or intermittent symptoms and signs have been observed.">
+				>
+				["at0054"] = <
+					text = <"Severe">
+					description = <"Severe symptoms and signs have been observed.">
+				>
+				["at0056"] = <
+					text = <"Absent">
+					description = <"The symptoms and signs are absent.">
+				>
+				["at0057"] = <
+					text = <"Mild or intermittent">
+					description = <"Mild or intermittent symptoms and signs have been observed.">
+				>
+				["at0058"] = <
+					text = <"Severe">
+					description = <"Severe symptoms and signs have been observed.">
+				>
+				["at0060"] = <
+					text = <"Absent">
+					description = <"The symptoms and signs are absent.">
+				>
+				["at0061"] = <
+					text = <"Mild or intermittent">
+					description = <"Mild or intermittent symptoms and signs have been observed.">
+				>
+				["at0062"] = <
+					text = <"Severe">
+					description = <"Severe symptoms and signs have been observed.">
+				>
+				["at0064"] = <
+					text = <"Absent">
+					description = <"The symptoms and signs are absent.">
+				>
+				["at0065"] = <
+					text = <"Mild or intermittent">
+					description = <"Mild or intermittent symptoms and signs have been observed.">
+				>
+				["at0066"] = <
+					text = <"Severe">
+					description = <"Severe symptoms and signs have been observed.">
+				>
+				["at0068"] = <
+					text = <"Absent">
+					description = <"The symptoms and signs are absent.">
+				>
+				["at0069"] = <
+					text = <"Mild or intermittent">
+					description = <"Mild or intermittent symptoms and signs have been observed.">
+				>
+				["at0070"] = <
+					text = <"Severe">
+					description = <"Severe symptoms and signs have been observed.">
+				>
+				["at0072"] = <
+					text = <"Absent">
+					description = <"The symptoms and signs are absent.">
+				>
+				["at0073"] = <
+					text = <"Mild or intermittent">
+					description = <"Mild or intermittent symptoms and signs have been observed.">
+				>
+				["at0074"] = <
+					text = <"Severe">
+					description = <"Severe symptoms and signs have been observed.">
+				>
+				["at0076"] = <
+					text = <"Absent">
+					description = <"The symptoms and signs are absent.">
+				>
+				["at0077"] = <
+					text = <"Mild or intermittent">
+					description = <"Mild or intermittent symptoms and signs have been observed.">
+				>
+				["at0078"] = <
+					text = <"Severe">
+					description = <"Severe symptoms and signs have been observed.">
+				>
+				["at0080"] = <
+					text = <"Absent">
+					description = <"The symptoms and signs are absent.">
+				>
+				["at0081"] = <
+					text = <"Mild or intermittent">
+					description = <"Mild or intermittent symptoms and signs have been observed.">
+				>
+				["at0082"] = <
+					text = <"Severe">
+					description = <"Severe symptoms and signs have been observed.">
+				>
+				["at0084"] = <
+					text = <"Absent">
+					description = <"The symptoms and signs are absent.">
+				>
+				["at0085"] = <
+					text = <"Mild or intermittent">
+					description = <"Mild or intermittent symptoms and signs have been observed.">
+				>
+				["at0086"] = <
+					text = <"Severe">
+					description = <"Severe symptoms and signs have been observed.">
+				>
+				["at0088"] = <
+					text = <"Absent">
+					description = <"The symptoms and signs are absent.">
+				>
+				["at0089"] = <
+					text = <"Mild or intermittent">
+					description = <"Mild or intermittent symptoms and signs have been observed.">
+				>
+				["at0090"] = <
+					text = <"Severe">
+					description = <"Severe symptoms and signs have been observed.">
+				>
+				["at0092"] = <
+					text = <"Absent">
+					description = <"The symptoms and signs are absent.">
+				>
+				["at0093"] = <
+					text = <"Mild or intermittent">
+					description = <"Mild or intermittent symptoms and signs have been observed.">
+				>
+				["at0094"] = <
+					text = <"Severe">
+					description = <"Severe symptoms and signs have been observed.">
+				>
+				["at0096"] = <
+					text = <"Absent">
+					description = <"The symptoms and signs are absent.">
+				>
+				["at0097"] = <
+					text = <"Mild or intermittent">
+					description = <"Mild or intermittent symptoms and signs have been observed.">
+				>
+				["at0098"] = <
+					text = <"Severe">
+					description = <"Severe symptoms and signs have been observed.">
+				>
+				["at0099"] = <
+					text = <"Total score">
+					description = <"The sum of points assigned for each of the component variables.">
+					comment = <"A score >10 probably major depressive episode.
+A score >18 definite major depressive episode.">
+				>
+				["at0100"] = <
+					text = <"Clinical interpretation">
+					description = <"Clinical interpretation of the total score.">
+				>
+				["at0101"] = <
+					text = <"Probably major depressive episode">
+					description = <"A score greater than 10 indicates a probable major depressive episode.">
+				>
+				["at0102"] = <
+					text = <"Definite major depressive episode">
+					description = <"A score greater than 18 indicates a probable major depressive episode.">
+				>
+				["at0103"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0104"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local content or to align with other reference models/formalisms.">
+					comment = <"For example: local information requirements or additional metadata to align with FHIR or CIMI equivalents.">
+				>
+			>
+		>
+	>
