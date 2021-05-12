@@ -1,0 +1,228 @@
+﻿archetype (adl_version=1.4; uid=8614812b-5493-4b7f-b8ea-9592a20bcd57)
+	openEHR-EHR-OBSERVATION.painad.v0
+
+concept
+	[at0000]	-- Pain Assessment in Advanced Dementia (PAINAD) scale
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Heidi Koikkalainen">
+		["organisation"] = <"freshEHR Clinical Informatics, UK">
+		["email"] = <"heidi@freshehr.com">
+		["date"] = <"2021-03-23">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To assess and record the severity of pain in individuals with advanced dementia.">
+			use = <"Use to assess and record the severity of pain in individuals with advanced dementia.">
+			keywords = <"pain, assessment, dementia, elderly, scale, score", ...>
+			misuse = <"">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <"Ian McNicoll, freshEHR Clinical Informatics, UK", ...>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["references"] = <"Jordan A, Hughes J, Pakresi M, Hepburn S, O'Brien J. The utility of PAINAD in assessing pain in a UK population with severe dementia. International Journal of Geriatric Psychiatry. 2011;26(2):118-126.
+
+Warden V, Hurley A, Volicer L. Development and Psychometric Evaluation of the Pain Assessment in Advanced Dementia (PAINAD) Scale. Journal of the American Medical Directors Association. 2003;4(1):9-15.">
+		["current_contact"] = <"Heidi Koikkalainen, heidi@freshehr.com">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"45DC7AA34DCEA84F0E4CA4F059543C54">
+		["build_uid"] = <"d1850837-ddf9-48d6-9bde-0d37f9db8ca2">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- Pain Assessment in Advanced Dementia (PAINAD) scale
+		data matches {
+			HISTORY[at0001] matches {    -- History
+				events cardinality matches {0..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..*} matches {    -- Any point in time event
+						data matches {
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {    -- Breathing
+										value matches {
+											0|[local::at0005],
+											1|[local::at0006],
+											2|[local::at0007]
+										}
+									}
+									ELEMENT[at0008] occurrences matches {0..1} matches {    -- Negative vocalization
+										value matches {
+											0|[local::at0009],
+											1|[local::at0010],
+											2|[local::at0011]
+										}
+									}
+									ELEMENT[at0012] occurrences matches {0..1} matches {    -- Facial expression
+										value matches {
+											0|[local::at0013],
+											1|[local::at0014],
+											2|[local::at0015]
+										}
+									}
+									ELEMENT[at0016] occurrences matches {0..1} matches {    -- Body language
+										value matches {
+											0|[local::at0017],
+											1|[local::at0018],
+											2|[local::at0019]
+										}
+									}
+									ELEMENT[at0020] occurrences matches {0..1} matches {    -- Consolability
+										value matches {
+											0|[local::at0021],
+											1|[local::at0022],
+											2|[local::at0023]
+										}
+									}
+									ELEMENT[at0024] occurrences matches {0..1} matches {    -- Total score
+										value matches {
+											DV_COUNT matches {
+												magnitude matches {|0..10|}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0025] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0026] occurrences matches {0..*} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Pain Assessment in Advanced Dementia (PAINAD) scale">
+					description = <"A pain assessment tool for people with advanced dementia.">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any point in time event">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Breathing">
+					description = <"The way the individual is breathing, independent of vocalization.">
+				>
+				["at0005"] = <
+					text = <"Normal">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Occasional labored breathing; short period of hyperventilation">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Noisy labored breathing; long period of hyperventilation; Cheyne-Stokes respirations">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Negative vocalization">
+					description = <"Negative vocalization by the individual.">
+				>
+				["at0009"] = <
+					text = <"None">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Occasional moan or groan; low level speech with a negative or disapproving quality.">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"Repeated troubled calling out; loud moaning or groaning; crying.">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"Facial expression">
+					description = <"The facial expression of the individual.">
+				>
+				["at0013"] = <
+					text = <"Smiling or inexpressive.">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"Sad; frightened; frown.">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"Facial grimacing.">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"Body language">
+					description = <"The body language of the individual.">
+				>
+				["at0017"] = <
+					text = <"Relaxed.">
+					description = <"">
+				>
+				["at0018"] = <
+					text = <"Tense; distressed pacing; fidgeting.">
+					description = <"">
+				>
+				["at0019"] = <
+					text = <"Rigid; fists clenched; knees pulled up; pulling or pushing away; striking out.">
+					description = <"">
+				>
+				["at0020"] = <
+					text = <"Consolability">
+					description = <"The consolability of the individual.">
+				>
+				["at0021"] = <
+					text = <"No need to console.">
+					description = <"">
+				>
+				["at0022"] = <
+					text = <"Distracted or reassured by voice or touch.">
+					description = <"">
+				>
+				["at0023"] = <
+					text = <"Unable to console, distract, or reassure.">
+					description = <"">
+				>
+				["at0024"] = <
+					text = <"Total score">
+					description = <"The sum of points assigned for each of the component variables.">
+				>
+				["at0025"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0026"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local content or to align with other reference models/formalisms.">
+					comment = <"For example: local information requirements or additional metadata to align with FHIR or CIMI equivalents.">
+				>
+			>
+		>
+	>
