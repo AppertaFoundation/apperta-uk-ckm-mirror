@@ -1,0 +1,328 @@
+﻿archetype (adl_version=1.4; uid=fbe9bb72-0715-4d03-8410-30fd34c3c93c)
+	openEHR-EHR-OBSERVATION.frase.v0
+
+concept
+	[at0000]	-- Fall Risk Assessment Scale for the Elderly (FRASE)
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Heidi Koikkalainen">
+		["organisation"] = <"freshEHR Clinical Informatics, UK">
+		["email"] = <"heidi@freshehr.com">
+		["date"] = <"2021-05-10">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record a falls risk assessment for an elderly individual using the FRASE tool.">
+			use = <"Use to record a falls risk assessment for an elderly individual using the FRASE tool.">
+			keywords = <"risk, fall, balance", ...>
+			misuse = <"">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <"Ian McNicoll, freshEHR Clinical Informatics, UK", ...>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["references"] = <"Jester R, Wade S, Henderson K. A pilot investigation of the efficacy of falls risk assessment tools and prevention strategies in an elderly hip fracture population. Journal of Orthopaedic Nursing. 2005;9(1):27-34.">
+		["current_contact"] = <"Heidi Koikkalainen, heidi@freshehr.com">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"13E6C32F1482543407B87610C959CE0D">
+		["build_uid"] = <"8f34bd1f-c15f-4e8a-9b49-46b026089cac">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- Fall Risk Assessment Scale for the Elderly (FRASE)
+		data matches {
+			HISTORY[at0001] matches {    -- History
+				events cardinality matches {1..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..*} matches {    -- Any point in time event
+						data matches {
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0006] occurrences matches {0..1} matches {    -- Sex
+										value matches {
+											1|[local::at0007],
+											2|[local::at0008]
+										}
+									}
+									ELEMENT[at0009] occurrences matches {0..1} matches {    -- Age
+										value matches {
+											1|[local::at0011],
+											2|[local::at0012],
+											1|[local::at0013]
+										}
+									}
+									ELEMENT[at0014] occurrences matches {0..*} matches {    -- Gait
+										value matches {
+											0|[local::at0015],
+											1|[local::at0016],
+											3|[local::at0017],
+											3|[local::at0018]
+										}
+									}
+									ELEMENT[at0019] occurrences matches {0..*} matches {    -- Sensory deficit
+										value matches {
+											2|[local::at0020],
+											1|[local::at0021],
+											2|[local::at0022]
+										}
+									}
+									ELEMENT[at0023] occurrences matches {0..1} matches {    -- Fall history
+										value matches {
+											0|[local::at0024],
+											2|[local::at0025],
+											1|[local::at0026],
+											3|[local::at0047]
+										}
+									}
+									ELEMENT[at0027] occurrences matches {0..*} matches {    -- Medication
+										value matches {
+											1|[local::at0028],
+											1|[local::at0029],
+											1|[local::at0030]
+										}
+									}
+									ELEMENT[at0031] occurrences matches {0..*} matches {    -- Medical history
+										value matches {
+											1|[local::at0032],
+											1|[local::at0033]
+										}
+									}
+									ELEMENT[at0037] occurrences matches {0..1} matches {    -- Mobility
+										value matches {
+											0|[local::at0038],
+											2|[local::at0039],
+											3|[local::at0040],
+											1|[local::at0041]
+										}
+									}
+									ELEMENT[at0042] occurrences matches {0..1} matches {    -- Total score
+										value matches {
+											DV_COUNT matches {
+												magnitude matches {|0..27|}
+											}
+										}
+									}
+									ELEMENT[at0043] occurrences matches {0..1} matches {    -- Interpretation
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0044,    -- Low risk
+													at0045,    -- Medium risk
+													at0046]    -- High risk
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0004] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0005] occurrences matches {0..*} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Fall Risk Assessment Scale for the Elderly (FRASE)">
+					description = <"An assessment tool used to predict the risk of falling in elderly individuals. Also known as the Cannard Falls Risk Assessment.">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any point in time event">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0005"] = <
+					text = <"Extension">
+					description = <"Additional information required to extend the model with local content or to align with other reference models/formalisms.">
+					comment = <"For example: local information requirements; or additional metadata to align with FHIR.">
+				>
+				["at0006"] = <
+					text = <"Sex">
+					description = <"The sex of the individual.">
+				>
+				["at0007"] = <
+					text = <"Male">
+					description = <"The individual is male.">
+				>
+				["at0008"] = <
+					text = <"Female">
+					description = <"The individual is female.">
+				>
+				["at0009"] = <
+					text = <"Age">
+					description = <"The age range of the individual.">
+				>
+				["at0011"] = <
+					text = <"60-70">
+					description = <"The individual is aged between 60-70.">
+				>
+				["at0012"] = <
+					text = <"71-80">
+					description = <"The individual is aged between 71-80.">
+				>
+				["at0013"] = <
+					text = <"81+">
+					description = <"The individual is aged 81 or over.">
+				>
+				["at0014"] = <
+					text = <"Gait">
+					description = <"The gait of the individual.">
+				>
+				["at0015"] = <
+					text = <"Steady">
+					description = <"The individual's gait is steady.">
+				>
+				["at0016"] = <
+					text = <"Hesitant">
+					description = <"The individual is hesitant in initiating movement.">
+				>
+				["at0017"] = <
+					text = <"Poor transfer">
+					description = <"The individual requires help with transfers, i.e. getting in or out of bed, getting on or off a chair, and moving from chair to standing.">
+				>
+				["at0018"] = <
+					text = <"Unsteady">
+					description = <"The individual's gait is unsteady.">
+				>
+				["at0019"] = <
+					text = <"Sensory deficit">
+					description = <"The sensory deficit(s) of the individual.">
+				>
+				["at0020"] = <
+					text = <"Sight">
+					description = <"The individual has a sight deficit.">
+				>
+				["at0021"] = <
+					text = <"Hearing">
+					description = <"The individual has a hearing deficit.">
+				>
+				["at0022"] = <
+					text = <"Balance">
+					description = <"The individual has a balance deficit.">
+				>
+				["at0023"] = <
+					text = <"Fall history">
+					description = <"The individual's history of falls.">
+				>
+				["at0024"] = <
+					text = <"None">
+					description = <"The individual has not had any falls.">
+				>
+				["at0025"] = <
+					text = <"At home">
+					description = <"The individual has had a fall at home.">
+				>
+				["at0026"] = <
+					text = <"In ward">
+					description = <"The individual has had a fall in the ward.">
+				>
+				["at0027"] = <
+					text = <"Medication">
+					description = <"Medication associated with falls risk.">
+				>
+				["at0028"] = <
+					text = <"Hypnotics">
+					description = <"The individual takes hypnotics.">
+				>
+				["at0029"] = <
+					text = <"Tranquilisers">
+					description = <"The individual takes tranquilisers.">
+				>
+				["at0030"] = <
+					text = <"Hypotensives">
+					description = <"The individual takes hypotensives.">
+				>
+				["at0031"] = <
+					text = <"Medical history">
+					description = <"Medical conditions associated with falls risk.">
+				>
+				["at0032"] = <
+					text = <"Diabetes">
+					description = <"The individual has diabetes.">
+				>
+				["at0033"] = <
+					text = <"Organic brain disease/confusion">
+					description = <"The individual has an organic brain disease/episodes of confusion.">
+				>
+				["at0037"] = <
+					text = <"Mobility">
+					description = <"The level of mobility of the individual.">
+				>
+				["at0038"] = <
+					text = <"Full">
+					description = <"The individual is fully mobile.">
+				>
+				["at0039"] = <
+					text = <"Uses aid">
+					description = <"The individual uses a mobility aid.">
+				>
+				["at0040"] = <
+					text = <"Restricted">
+					description = <"The individual's mobility is restricted.">
+				>
+				["at0041"] = <
+					text = <"Bed bound">
+					description = <"The individual is bed bound.">
+				>
+				["at0042"] = <
+					text = <"Total score">
+					description = <"The overall FRASE score.">
+				>
+				["at0043"] = <
+					text = <"Interpretation">
+					description = <"Interpretation of the overall FRASE score.">
+				>
+				["at0044"] = <
+					text = <"Low risk">
+					description = <"Overall score 3-8; low falls risk.">
+				>
+				["at0045"] = <
+					text = <"Medium risk">
+					description = <"Overall score 9-12; medium falls risk.">
+				>
+				["at0046"] = <
+					text = <"High risk">
+					description = <"Overall score 13+; high falls risk.">
+				>
+				["at0047"] = <
+					text = <"Both">
+					description = <"The individual has had a fall both at home and in the ward.">
+				>
+			>
+		>
+	>
