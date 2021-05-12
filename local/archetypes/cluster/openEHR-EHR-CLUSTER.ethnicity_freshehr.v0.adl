@@ -1,0 +1,195 @@
+﻿archetype (adl_version=1.4; uid=1fd54852-0483-4e81-b46f-f46fae4d7772)
+	openEHR-EHR-CLUSTER.ethnicity_freshehr.v0
+
+concept
+	[at0000]	-- Ethnicity_freshehr
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"ian@freshehr.com">
+		["date"] = <"2021-02-11">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record details about the ethnicity of an individual.">
+			use = <"Use to record details about the ethnicity of an individual.">
+			misuse = <"">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"F1B81499258B25FFA1CE072102EC6127">
+		["build_uid"] = <"492d98db-7a1a-4a99-943a-cad104ff375c">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Ethnicity_freshehr
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Ethnicity
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0002,    -- White
+							at0003,    -- Mixed of multiple ethnic groups
+							at0004,    -- Asian, Asian Scottish, or Asian British
+							at0005,    -- African, Caribbean, or Black
+							at0006,    -- Other
+							at0007]    -- Ethnic background not disclosed
+						}
+					}
+				}
+			}
+			ELEMENT[at0008] occurrences matches {0..1} matches {    -- Ethnicity England
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0009,    -- British
+							at0010,    -- Irish
+							at0011,    -- Any other White background
+							at0012,    -- White and Black Caribbean
+							at0013,    -- White and Black African
+							at0014,    -- White and Asian
+							at0015,    -- Any other mixed background
+							at0016,    -- Indian
+							at0017,    -- Pakistani
+							at0018,    -- Bangladeshi
+							at0019,    -- Any other Asian background
+							at0020,    -- Caribbean
+							at0021,    -- African
+							at0022,    -- Any other Black background
+							at0023,    -- Chinese
+							at0024,    -- Any other ethnic group
+							at0025]    -- Not stated
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Ethnicity_freshehr">
+					description = <"Ethnicity of an individual.">
+				>
+				["at0001"] = <
+					text = <"Ethnicity">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"White">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Mixed of multiple ethnic groups">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Asian, Asian Scottish, or Asian British">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"African, Caribbean, or Black">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Other">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Ethnic background not disclosed">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Ethnicity England">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"British">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Irish">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"Any other White background">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"White and Black Caribbean">
+					description = <"">
+				>
+				["at0013"] = <
+					text = <"White and Black African">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"White and Asian">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"Any other mixed background">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"Indian">
+					description = <"">
+				>
+				["at0017"] = <
+					text = <"Pakistani">
+					description = <"">
+				>
+				["at0018"] = <
+					text = <"Bangladeshi">
+					description = <"">
+				>
+				["at0019"] = <
+					text = <"Any other Asian background">
+					description = <"">
+				>
+				["at0020"] = <
+					text = <"Caribbean">
+					description = <"">
+				>
+				["at0021"] = <
+					text = <"African">
+					description = <"">
+				>
+				["at0022"] = <
+					text = <"Any other Black background">
+					description = <"">
+				>
+				["at0023"] = <
+					text = <"Chinese">
+					description = <"">
+				>
+				["at0024"] = <
+					text = <"Any other ethnic group">
+					description = <"">
+				>
+				["at0025"] = <
+					text = <"Not stated">
+					description = <"">
+				>
+			>
+		>
+	>
