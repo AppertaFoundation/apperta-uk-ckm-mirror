@@ -1,0 +1,138 @@
+﻿archetype (adl_version=1.4; uid=8c4c781a-005b-4b92-a031-bcec5dd088fd)
+	openEHR-EHR-OBSERVATION.star.v0
+
+concept
+	[at0000]	-- STAR Skin Tear Classification System
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Heidi Koikkalainen">
+		["organisation"] = <"freshEHR Clinical Informatics, UK">
+		["email"] = <"heidi@freshehr.com">
+		["date"] = <"2021-04-27">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record the STAR skin tear classification category of a wound.">
+			use = <"Use to record the STAR skin tear classification category of a wound.">
+			keywords = <"skin, tear, wound, classification, category", ...>
+			misuse = <"">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <"Ian McNicoll, freshEHR Clinical Informatics, UK", ...>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["references"] = <"Carville K, Lewin G, Newall N, Haslehurst P, Michael R, Santamaria N, Roberts P. STAR: a consensus for skin tear classification. Primary Intention: The Australian Journal of Wound Management. 2007 Feb;15(1):18.">
+		["current_contact"] = <"Heidi Koikkalainen, heidi@freshehr.com">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"F8EB66DBFFAECC0399ACAFB7F57F6050">
+		["build_uid"] = <"0e05604b-a4be-41c0-8dcf-d574258cef0a">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- STAR Skin Tear Classification System
+		data matches {
+			HISTORY[at0001] matches {    -- History
+				events cardinality matches {1..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..*} matches {    -- Any point in time event
+						data matches {
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0006] occurrences matches {0..1} matches {    -- Category
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0007,    -- Category 1a
+													at0008,    -- Category 1b
+													at0009,    -- Category 2a
+													at0010,    -- Category 2b
+													at0011]    -- Category 3
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0004] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0005] occurrences matches {0..*} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"STAR Skin Tear Classification System">
+					description = <"Skin Tear Audit Research (STAR) skin tear classification system.">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any point in time event">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0005"] = <
+					text = <"Extension">
+					description = <"Additional information required to extend the model with local content or to align with other reference models/formalisms.">
+					comment = <"For example: local information requirements; or additional metadata to align with FHIR.">
+				>
+				["at0006"] = <
+					text = <"Category">
+					description = <"STAR skin tear classification category of the wound.">
+				>
+				["at0007"] = <
+					text = <"Category 1a">
+					description = <"A skin tear where the edges can be realigned to the normal anatomical position (without undue stretching) and the skin or flap colour is not pale, dusky or darkened.">
+				>
+				["at0008"] = <
+					text = <"Category 1b">
+					description = <"A skin tear where the edges can be realigned to the normal anatomical position (without undue stretching) and the skin or flap colour is pale, dusky or darkened.">
+				>
+				["at0009"] = <
+					text = <"Category 2a">
+					description = <"A skin tear where the edges cannot be realigned to the normal anatomical position and the skin or flap colour is not pale, dusky or darkened.">
+				>
+				["at0010"] = <
+					text = <"Category 2b">
+					description = <"A skin tear where the edges cannot be realigned to the normal anatomical position and the skin or flap colour is pale, dusky or darkened.">
+				>
+				["at0011"] = <
+					text = <"Category 3">
+					description = <"A skin tear where the skin flap is completely absent.">
+				>
+			>
+		>
+	>
