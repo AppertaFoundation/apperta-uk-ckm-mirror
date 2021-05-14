@@ -46,7 +46,7 @@
             </item>
             <item>
                 <key>MD5-CAM-1.0.1</key>
-                <value>6180a19167d23874e70541859e18dc00</value>
+                <value>55bcbaa427898598002e746004b8cc3a</value>
             </item>
             <item>
                 <key>PARENT:MD5-CAM-1.0.1</key>
@@ -54,7 +54,7 @@
             </item>
             <item>
                 <key>sem_ver</key>
-                <value>9.1.0</value>
+                <value>9.3.1</value>
             </item>
             <item>
                 <key>build_uid</key>
@@ -969,7 +969,17 @@
             <Items
                 archetype_id="openEHR-EHR-CLUSTER.person_anonymised_parent.v0"
                 max="1"
-                path="/context/other_context[at0001]/items[at0002]" xsi:type="tem:CLUSTER"/>
+                path="/context/other_context[at0001]/items[at0002]" xsi:type="tem:CLUSTER">
+                <Rule max="0" path="/items[at0008]">
+                    <constraint xsi:type="tem:durationConstraint">
+                        <pattern>PYMWD</pattern>
+                        <minMagnitude>PT0H</minMagnitude>
+                        <includesMaximum>false</includesMaximum>
+                        <includesMinimum>true</includesMinimum>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/items[at0013]"/>
+            </Items>
             <Items
                 archetype_id="openEHR-EHR-CLUSTER.ethnicity_freshehr.v0"
                 max="1"
@@ -1008,7 +1018,7 @@
         archetype_id="openEHR-EHR-OBSERVATION.augmented_iorn.v0"
         xmlns:tem="openEHR/v1/Template"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
-        <digest id="MD5-CAM-1.0.1">278B6BF83B9866B567A3B61319AF11DB</digest>
+        <digest id="MD5-CAM-1.0.1">6CBEA4973EA0A0C8618DECDD1483BA50</digest>
     </integrity_checks>
     <integrity_checks archetype_id="openEHR-EHR-OBSERVATION.must.v0"
         xmlns:tem="openEHR/v1/Template"
@@ -1035,7 +1045,7 @@
     <integrity_checks archetype_id="openEHR-EHR-OBSERVATION.frat.v0"
         xmlns:tem="openEHR/v1/Template"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
-        <digest id="MD5-CAM-1.0.1">24FD78D6D38DCF42EAF0FEDB220D602C</digest>
+        <digest id="MD5-CAM-1.0.1">5E0ADE4D36EBE02E5F4FBE8A5D821E61</digest>
     </integrity_checks>
     <integrity_checks archetype_id="openEHR-EHR-OBSERVATION.phfrat1.v0"
         xmlns:tem="openEHR/v1/Template"
