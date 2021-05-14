@@ -38,8 +38,8 @@ Knight P. The Indicator of Relative Need (ioRN) - information for integrated wor
 		["original_namespace"] = <"uk.org.clinicalmodels">
 		["original_publisher"] = <"Apperta UK">
 		["custodian_namespace"] = <"uk.org.clinicalmodels">
-		["MD5-CAM-1.0.1"] = <"278B6BF83B9866B567A3B61319AF11DB">
-		["build_uid"] = <"142cf450-22e9-453d-8861-f1c576fda6af">
+		["MD5-CAM-1.0.1"] = <"6CBEA4973EA0A0C8618DECDD1483BA50">
+		["build_uid"] = <"99db9e45-07f3-441d-a93f-cb169a089235">
 		["revision"] = <"0.0.1-alpha">
 	>
 
@@ -89,7 +89,14 @@ definition
 													3|[local::at0121]
 												}
 											}
-											ELEMENT[at0089] occurrences matches {0..1} matches {    -- Activities of Daily Living score
+											ELEMENT[at0158] occurrences matches {0..1} matches {    -- Activities of Daily Living score
+												value matches {
+													DV_COUNT matches {
+														magnitude matches {|5..15|}
+													}
+												}
+											}
+											ELEMENT[at0089] occurrences matches {0..1} matches {    -- Activities of Daily Living score interpretation
 												value matches {
 													DV_CODED_TEXT matches {
 														defining_code matches {
@@ -123,7 +130,14 @@ definition
 													5|[local::at0133]
 												}
 											}
-											ELEMENT[at0094] occurrences matches {0..1} matches {    -- Continence score
+											ELEMENT[at0159] occurrences matches {0..1} matches {    -- Continence score
+												value matches {
+													DV_COUNT matches {
+														magnitude matches {|2..10|}
+													}
+												}
+											}
+											ELEMENT[at0094] occurrences matches {0..1} matches {    -- Continence score interpretation
 												value matches {
 													DV_CODED_TEXT matches {
 														defining_code matches {
@@ -174,7 +188,14 @@ definition
 													5|[local::at0157]
 												}
 											}
-											ELEMENT[at0098] occurrences matches {0..1} matches {    -- Risk & Behavioural support needs score
+											ELEMENT[at0160] occurrences matches {0..1} matches {    -- Risk & Behavioural support needs score
+												value matches {
+													DV_COUNT matches {
+														magnitude matches {|4..20|}
+													}
+												}
+											}
+											ELEMENT[at0098] occurrences matches {0..1} matches {    -- Risk & Behavioural support needs score interpretation
 												value matches {
 													DV_CODED_TEXT matches {
 														defining_code matches {
@@ -298,8 +319,8 @@ from 4 questions. The continence score is based on answers to two questions.">
 					description = <"">
 				>
 				["at0089"] = <
-					text = <"Activities of Daily Living score">
-					description = <"Total Activities of Daily Living and Mobility score.">
+					text = <"Activities of Daily Living score interpretation">
+					description = <"Interpretation of the total Activities of Daily Living and Mobility score.">
 				>
 				["at0090"] = <
 					text = <"Low">
@@ -318,8 +339,8 @@ from 4 questions. The continence score is based on answers to two questions.">
 					description = <"">
 				>
 				["at0094"] = <
-					text = <"Continence score">
-					description = <"Total Continence score.">
+					text = <"Continence score interpretation">
+					description = <"Interpretation of the total Continence score.">
 				>
 				["at0095"] = <
 					text = <"Low">
@@ -334,8 +355,8 @@ from 4 questions. The continence score is based on answers to two questions.">
 					description = <"">
 				>
 				["at0098"] = <
-					text = <"Risk & Behavioural support needs score">
-					description = <"Total Risk & Behavioural support needs score.">
+					text = <"Risk & Behavioural support needs score interpretation">
+					description = <"Interpretation of the total Risk & Behavioural support needs score.">
 				>
 				["at0099"] = <
 					text = <"Low">
@@ -576,6 +597,18 @@ from 4 questions. The continence score is based on answers to two questions.">
 				["at0157"] = <
 					text = <"Throughout the day">
 					description = <"There are episodes of severe, risky or disruptive problem behaviour throughout the day.">
+				>
+				["at0158"] = <
+					text = <"Activities of Daily Living score">
+					description = <"Total Activities of Daily Living and Mobility score.">
+				>
+				["at0159"] = <
+					text = <"Continence score">
+					description = <"Total Continence score.">
+				>
+				["at0160"] = <
+					text = <"Risk & Behavioural support needs score">
+					description = <"Total Risk & Behavioural support needs score.">
 				>
 			>
 		>
