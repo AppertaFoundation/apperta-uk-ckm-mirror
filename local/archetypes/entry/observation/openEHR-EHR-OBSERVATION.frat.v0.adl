@@ -32,8 +32,8 @@ description
 		["original_namespace"] = <"uk.org.clinicalmodels">
 		["original_publisher"] = <"Apperta UK">
 		["custodian_namespace"] = <"uk.org.clinicalmodels">
-		["MD5-CAM-1.0.1"] = <"24FD78D6D38DCF42EAF0FEDB220D602C">
-		["build_uid"] = <"243f5ef1-f888-4ed4-b32a-1e677c3b21eb">
+		["MD5-CAM-1.0.1"] = <"5E0ADE4D36EBE02E5F4FBE8A5D821E61">
+		["build_uid"] = <"8e9ccc17-2a9e-4e5b-bc52-a43fe817639d">
 		["revision"] = <"0.0.1-alpha">
 	>
 
@@ -179,8 +179,8 @@ Ask about symptoms of dizziness.">
 					description = <"Does the patient/client report any problems with his/her balance?">
 					comment = <"How assessed? Ask the person.
 Can they talk while walking?
-Do they sway significantly on standing?
-Do basic balance test such as Timed Up & Go test.">
+Do they sway significantly on standing?
+Do basic balance test such as Timed Up & Go test.">
 				>
 				["at0019"] = <
 					text = <"No">
