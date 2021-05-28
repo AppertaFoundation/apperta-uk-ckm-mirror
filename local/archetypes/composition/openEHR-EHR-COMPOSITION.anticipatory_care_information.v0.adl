@@ -1,0 +1,87 @@
+﻿archetype (adl_version=1.4; uid=45499d1a-3f8f-480c-b289-ed5a4bdc6664)
+	openEHR-EHR-COMPOSITION.anticipatory_care_information.v0
+
+concept
+	[at0000]	-- Anticipatory care information
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["date"] = <"2020-03-05">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Container e to carry details of personal information required in anticipation of care.">
+			use = <"">
+			keywords = <"living, will, advance, advanced, directive, decision, legal, preference, EoL, DNR, DNACPR, anticipatory", ...>
+			misuse = <"">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"7FDB4E275CB4D22B451830562812B5BA">
+		["build_uid"] = <"31eb0ac4-1bc1-419d-94f8-e0b4ed2246c5">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	COMPOSITION[at0000] matches {    -- Anticipatory care information
+		category matches {
+			DV_CODED_TEXT[at0001] matches {    -- Coded text
+				defining_code matches {
+					[openehr::433]
+				}
+			}
+		}
+		context matches {
+			EVENT_CONTEXT[at0002] matches {    -- Event Context
+				other_context matches {
+					ITEM_TREE[at0003] matches {    -- Item tree
+						items cardinality matches {0..*; unordered} matches {
+							allow_archetype CLUSTER[at0004] occurrences matches {0..*} matches {    -- XDS Metadata
+								include
+									archetype_id/value matches {/openEHR-EHR-CLUSTER\.xds_metadata\.v0/}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Anticipatory care information">
+					description = <"A framework to communicate information that has been captured and curated in anticipation of future need for care.">
+				>
+				["at0001"] = <
+					text = <"Coded text">
+					description = <"*">
+				>
+				["at0002"] = <
+					text = <"Event Context">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"XDS Metadata">
+					description = <"*">
+				>
+			>
+		>
+	>
