@@ -1,0 +1,130 @@
+﻿archetype (adl_version=1.4; uid=38b179e2-61f8-45f3-997b-6b39cce32021)
+	openEHR-EHR-EVALUATION.alert.v0
+
+concept
+	[at0000]	-- Alert
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"John Meredith">
+		["organisation"] = <"Digital Health and Care Wales">
+		["email"] = <"john.meredith@wales.nhs.uk">
+		["date"] = <"2021-06-08">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the recording of an alert which describes a clinical or administrative fact brought to the attention of the users of the clinical systems that is to be taken into account when shaping diagnostic and therapeutic policy or in dealing with the patient, usually because of a safety risk.">
+			use = <"">
+			keywords = <"alert, warnings", ...>
+			misuse = <"Not to be used for recording of conditions. Conditions or other problems to which the alert pertains should be referenced within an appropriate problem list or similar structure.">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <"Based upon Health and Care Information models (HCIM) by Nictiz (https://www.nictiz.nl/)", ...>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["references"] = <"Based upon ZIBS Alert-v4.1(2020EN), https://zibs.nl/wiki/Alert-v4.1(2020EN)">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"EBE9CAC3490C1D9CE6E7A0E8E85CB788">
+		["build_uid"] = <"d2b09c20-60c4-45be-8274-e79ef9201239">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	EVALUATION[at0000] matches {    -- Alert
+		data matches {
+			ITEM_TREE[at0001] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {    -- Alert name
+						value matches {
+							DV_CODED_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0006] occurrences matches {0..1} matches {    -- Condition of concern
+						value matches {
+							DV_CODED_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0003] occurrences matches {0..1} matches {    -- Alert start
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..1} matches {    -- Alert end
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {    -- Alert type
+						value matches {
+							DV_CODED_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0007] occurrences matches {0..1} matches {    -- Comment
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0008] matches {*}    -- Item tree
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Alert">
+					description = <"An alert describes a clinical or administrative fact brought to the attention of the users of the clinical systems to be taken into account when shaping diagnostic and therapeutic policy or in dealing with the patient, usually because of a safety risk.">
+				>
+				["at0001"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Alert name">
+					description = <"A warning, other than a condition or problem. For example, a patient can be given an ‘Aggressive patient' alert.
+The warning can be entered in code (there are codes for frequently used alerts), but seeing the dynamic nature of the warnings cf. SARS and Ebola, these alerts will often be entered as free text.">
+				>
+				["at0003"] = <
+					text = <"Alert start">
+					description = <"The date and time at which the described alert was entered as a warning.
+This can be an exact date and time, or a rough indication of the date (such as only the year, or the month and the year).">
+				>
+				["at0004"] = <
+					text = <"Alert end">
+					description = <"The date and time at which the described alert was retracted as a warning.
+This can be an exact date and time, or a rough indication of the date (such as only the year, or the month and the year).">
+				>
+				["at0005"] = <
+					text = <"Alert type">
+					description = <"Indicates the type of alert, meaning a rough description of the cause or origin of the warning.">
+				>
+				["at0006"] = <
+					text = <"Condition of concern">
+					description = <"The patient’s health problem or condition that is the subject of the alert. This could involve a patient’s problem, condition or diagnosis that is seen as a contraindication in prescribing medication or which has to be taken into account when shaping diagnostic and therapeutic policy. 
+
+This can be in the patient’s own interest, or it can involve a problem or disorder that can make the patient a risk to their surroundings, such as an infection hazard. These are references to conditions included on the patient’s problem list.">
+				>
+				["at0007"] = <
+					text = <"Comment">
+					description = <"Explanatory comments to the alert that can not be expressed in any of the other elements.">
+				>
+				["at0008"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+			>
+		>
+	>
