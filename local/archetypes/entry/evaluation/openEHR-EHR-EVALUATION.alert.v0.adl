@@ -31,8 +31,8 @@ description
 		["original_namespace"] = <"uk.org.clinicalmodels">
 		["original_publisher"] = <"Apperta UK">
 		["custodian_namespace"] = <"uk.org.clinicalmodels">
-		["MD5-CAM-1.0.1"] = <"EBE9CAC3490C1D9CE6E7A0E8E85CB788">
-		["build_uid"] = <"d2b09c20-60c4-45be-8274-e79ef9201239">
+		["MD5-CAM-1.0.1"] = <"6ABA6CFAFAB4672E33A27DB3423BC9B8">
+		["build_uid"] = <"e7f4ed21-804a-456c-90f1-867c570efd08">
 		["revision"] = <"0.0.1-alpha">
 	>
 
@@ -43,12 +43,7 @@ definition
 				items cardinality matches {0..*; unordered} matches {
 					ELEMENT[at0002] occurrences matches {0..1} matches {    -- Alert name
 						value matches {
-							DV_CODED_TEXT matches {*}
-						}
-					}
-					ELEMENT[at0006] occurrences matches {0..1} matches {    -- Condition of concern
-						value matches {
-							DV_CODED_TEXT matches {*}
+							DV_TEXT matches {*}
 						}
 					}
 					ELEMENT[at0003] occurrences matches {0..1} matches {    -- Alert start
@@ -59,11 +54,6 @@ definition
 					ELEMENT[at0004] occurrences matches {0..1} matches {    -- Alert end
 						value matches {
 							DV_DATE_TIME matches {*}
-						}
-					}
-					ELEMENT[at0005] occurrences matches {0..1} matches {    -- Alert type
-						value matches {
-							DV_CODED_TEXT matches {*}
 						}
 					}
 					ELEMENT[at0007] occurrences matches {0..1} matches {    -- Comment
@@ -106,16 +96,6 @@ This can be an exact date and time, or a rough indication of the date (such as o
 					text = <"Alert end">
 					description = <"The date and time at which the described alert was retracted as a warning.
 This can be an exact date and time, or a rough indication of the date (such as only the year, or the month and the year).">
-				>
-				["at0005"] = <
-					text = <"Alert type">
-					description = <"Indicates the type of alert, meaning a rough description of the cause or origin of the warning.">
-				>
-				["at0006"] = <
-					text = <"Condition of concern">
-					description = <"The patient’s health problem or condition that is the subject of the alert. This could involve a patient’s problem, condition or diagnosis that is seen as a contraindication in prescribing medication or which has to be taken into account when shaping diagnostic and therapeutic policy. 
-
-This can be in the patient’s own interest, or it can involve a problem or disorder that can make the patient a risk to their surroundings, such as an infection hazard. These are references to conditions included on the patient’s problem list.">
 				>
 				["at0007"] = <
 					text = <"Comment">
