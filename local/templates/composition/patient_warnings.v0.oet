@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xmlns="openEHR/v1/Template">
+    <id>b66dd7c7-ac11-46ac-a135-d77c1125d9f2</id>
+    <name>patient_warnings.v0</name>
+    <description>
+        <original_author>
+            <item>
+                <key>date</key>
+                <value>2021-06-28</value>
+            </item>
+            <item>
+                <key>name</key>
+                <value>John Meredith</value>
+            </item>
+            <item>
+                <key>organisation</key>
+                <value>Digital Health and Care Wales</value>
+            </item>
+            <item>
+                <key>email</key>
+                <value>john.meredith@wales.nhs.uk</value>
+            </item>
+        </original_author>
+        <lifecycle_state>in_development</lifecycle_state>
+        <details>
+            <purpose>To act as a persistent composition to support the capture and display of patient warnings. An alert or warning entry describes a clinical or administrative fact brought to the attention of the users of the clinical systems to be taken into account when shaping diagnostic and therapeutic policy or in dealing with the patient, usually because of a safety risk.</purpose>
+            <keywords>
+                <item>warning, alert</item>
+            </keywords>
+            <use>To capture a warning, other than a condition or problem. For example, a patient can be given an ‘Aggressive patient' alert.
+The warning can be entered in code (there are codes for frequently used alerts), but seeing the dynamic nature of the warnings cf. SARS and Ebola, these alerts will often be entered as free text.</use>
+            <misuse>Not to be used to capture diagnosis or other condition based entries. 
+Not to be used to capture adverse reaction events - please use the adverse reaction record.</misuse>
+            <copyright>Digital Health and Care Wales</copyright>
+        </details>
+        <other_details>
+            <item>
+                <key>licence</key>
+                <value/>
+            </item>
+            <item>
+                <key>custodian_organisation</key>
+                <value>Digital Health and Care Wales</value>
+            </item>
+            <item>
+                <key>original_namespace</key>
+                <value/>
+            </item>
+            <item>
+                <key>original_publisher</key>
+                <value>Digital Health and Care Wales</value>
+            </item>
+            <item>
+                <key>custodian_namespace</key>
+                <value/>
+            </item>
+            <item>
+                <key>sem_ver</key>
+                <value>0.1.4</value>
+            </item>
+            <item>
+                <key>build_uid</key>
+                <value>d4d35af5-eb80-4c98-9065-eebeb5ded684</value>
+            </item>
+            <item>
+                <key>MD5-CAM-1.0.1</key>
+                <value>3962235725ead444f7d52bab53053adc</value>
+            </item>
+            <item>
+                <key>PARENT:MD5-CAM-1.0.1</key>
+                <value>44D94C2952391723BB72523E4132FF1C</value>
+            </item>
+            <item>
+                <key>original_language</key>
+                <value>ISO_639-1::en</value>
+            </item>
+        </other_details>
+    </description>
+    <definition archetype_id="openEHR-EHR-COMPOSITION.encounter.v1"
+        concept_name="Encounter" name="Patient Warnings"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:COMPOSITION">
+        <Content archetype_id="openEHR-EHR-EVALUATION.alert.v0"
+            concept_name="Alert" name="Patient warnings" path="/content" xsi:type="tem:EVALUATION">
+            <Rule name="Warning" path="/data[at0001]/items[at0002]"/>
+            <Rule name="Warning start" path="/data[at0001]/items[at0003]"/>
+            <Rule name="Warning end" path="/data[at0001]/items[at0004]"/>
+            <Rule name="Warning detail" path="/data[at0001]/items[at0007]"/>
+        </Content>
+        <Context>
+            <Items archetype_id="openEHR-EHR-CLUSTER.xds_metadata.v0"
+                max="1"
+                path="/context/other_context[at0001]/items[at0002]" xsi:type="tem:CLUSTER">
+                <Rule max="0" path="/items[at0001]"/>
+                <Rule max="0" path="/items[at0002]"/>
+                <Rule
+                    default="SNOMEDCT::163211000000108::Risks and warnings - care record element (record artifact)" path="/items[at0003]">
+                    <constraint xsi:type="tem:textConstraint">
+                        <includedValues>SNOMED CT::163211000000108::Risks and warnings - care record element (record artifact)</includedValues>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/items[at0004]"/>
+                <Rule max="0" path="/items[at0009]"/>
+                <Rule max="0" path="/items[at0011]"/>
+                <Rule max="0" path="/items[at0010]"/>
+            </Items>
+        </Context>
+    </definition>
+    <integrity_checks
+        archetype_id="openEHR-EHR-COMPOSITION.encounter.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">44D94C2952391723BB72523E4132FF1C</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.xds_metadata.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">E62D896E2577FA727C75A9EFFD7CA63E</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-EVALUATION.alert.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">6FFFBA444CBC85435FB553A6B5BB3422</digest>
+    </integrity_checks>
+</template>
