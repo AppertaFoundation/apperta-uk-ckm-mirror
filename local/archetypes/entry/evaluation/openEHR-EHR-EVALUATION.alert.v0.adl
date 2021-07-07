@@ -31,8 +31,8 @@ description
 		["original_namespace"] = <"uk.org.clinicalmodels">
 		["original_publisher"] = <"Apperta UK">
 		["custodian_namespace"] = <"uk.org.clinicalmodels">
-		["MD5-CAM-1.0.1"] = <"6ABA6CFAFAB4672E33A27DB3423BC9B8">
-		["build_uid"] = <"e7f4ed21-804a-456c-90f1-867c570efd08">
+		["MD5-CAM-1.0.1"] = <"6FFFBA444CBC85435FB553A6B5BB3422">
+		["build_uid"] = <"96ae9df4-718f-4196-b071-816ed90fa1fd">
 		["revision"] = <"0.0.1-alpha">
 	>
 
@@ -41,17 +41,18 @@ definition
 		data matches {
 			ITEM_TREE[at0001] matches {    -- Item tree
 				items cardinality matches {0..*; unordered} matches {
-					ELEMENT[at0002] occurrences matches {0..1} matches {    -- Alert name
+					ELEMENT[at0002] matches {    -- Alert or warning name
 						value matches {
 							DV_TEXT matches {*}
+							DV_CODED_TEXT matches {*}
 						}
 					}
-					ELEMENT[at0003] occurrences matches {0..1} matches {    -- Alert start
+					ELEMENT[at0003] occurrences matches {0..1} matches {    -- Alert or warning start
 						value matches {
 							DV_DATE_TIME matches {*}
 						}
 					}
-					ELEMENT[at0004] occurrences matches {0..1} matches {    -- Alert end
+					ELEMENT[at0004] occurrences matches {0..1} matches {    -- Alert or warning end
 						value matches {
 							DV_DATE_TIME matches {*}
 						}
@@ -65,7 +66,19 @@ definition
 			}
 		}
 		protocol matches {
-			ITEM_TREE[at0008] matches {*}    -- Item tree
+			ITEM_TREE[at0008] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0009] occurrences matches {0..*} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+					ELEMENT[at0010] matches {    -- Last updated
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+				}
+			}
 		}
 	}
 
@@ -76,24 +89,24 @@ ontology
 			items = <
 				["at0000"] = <
 					text = <"Alert">
-					description = <"An alert describes a clinical or administrative fact brought to the attention of the users of the clinical systems to be taken into account when shaping diagnostic and therapeutic policy or in dealing with the patient, usually because of a safety risk.">
+					description = <"An alert or warning entry describes a clinical or administrative fact brought to the attention of the users of the clinical systems to be taken into account when shaping diagnostic and therapeutic policy or in dealing with the patient, usually because of a safety risk.">
 				>
 				["at0001"] = <
 					text = <"Item tree">
 					description = <"@ internal @">
 				>
 				["at0002"] = <
-					text = <"Alert name">
+					text = <"Alert or warning name">
 					description = <"A warning, other than a condition or problem. For example, a patient can be given an ‘Aggressive patient' alert.
 The warning can be entered in code (there are codes for frequently used alerts), but seeing the dynamic nature of the warnings cf. SARS and Ebola, these alerts will often be entered as free text.">
 				>
 				["at0003"] = <
-					text = <"Alert start">
+					text = <"Alert or warning start">
 					description = <"The date and time at which the described alert was entered as a warning.
 This can be an exact date and time, or a rough indication of the date (such as only the year, or the month and the year).">
 				>
 				["at0004"] = <
-					text = <"Alert end">
+					text = <"Alert or warning end">
 					description = <"The date and time at which the described alert was retracted as a warning.
 This can be an exact date and time, or a rough indication of the date (such as only the year, or the month and the year).">
 				>
@@ -104,6 +117,14 @@ This can be an exact date and time, or a rough indication of the date (such as o
 				["at0008"] = <
 					text = <"Item tree">
 					description = <"@ internal @">
+				>
+				["at0009"] = <
+					text = <"Extension">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Last updated">
+					description = <"">
 				>
 			>
 		>
