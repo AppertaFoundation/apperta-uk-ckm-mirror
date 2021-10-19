@@ -31,8 +31,8 @@ description
 		["original_namespace"] = <"uk.org.clinicalmodels">
 		["original_publisher"] = <"Apperta UK">
 		["custodian_namespace"] = <"uk.org.clinicalmodels">
-		["MD5-CAM-1.0.1"] = <"6FFFBA444CBC85435FB553A6B5BB3422">
-		["build_uid"] = <"96ae9df4-718f-4196-b071-816ed90fa1fd">
+		["MD5-CAM-1.0.1"] = <"73CC9971117F9341FAA375633E598746">
+		["build_uid"] = <"51c3cc48-aa0f-4e7e-9423-4411dc1875fd">
 		["revision"] = <"0.0.1-alpha">
 	>
 
@@ -45,6 +45,19 @@ definition
 						value matches {
 							DV_TEXT matches {*}
 							DV_CODED_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0017] occurrences matches {0..1} matches {    -- Status
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0018,    -- active
+									at0020,    -- inactive
+									at0021]    -- entered-in-error
+								}
+							}
+							DV_TEXT matches {*}
 						}
 					}
 					ELEMENT[at0003] occurrences matches {0..1} matches {    -- Alert or warning start
@@ -73,6 +86,11 @@ definition
 							archetype_id/value matches {/.*/}
 					}
 					ELEMENT[at0010] matches {    -- Last updated
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					ELEMENT[at0022] occurrences matches {0..1} matches {    -- Next review date
 						value matches {
 							DV_DATE_TIME matches {*}
 						}
@@ -124,6 +142,26 @@ This can be an exact date and time, or a rough indication of the date (such as o
 				>
 				["at0010"] = <
 					text = <"Last updated">
+					description = <"">
+				>
+				["at0017"] = <
+					text = <"Status">
+					description = <"References HL7 FHIR Alert-status ValueSet as a terminology binding (http://hl7.org/implement/standards/fhir/2015Jan/alert-status.html).">
+				>
+				["at0018"] = <
+					text = <"active">
+					description = <"A current alert that should be displayed to a user. A system may use the category to determine which roles should view the alert.">
+				>
+				["at0020"] = <
+					text = <"inactive">
+					description = <"The alert does not need to be displayed any more.">
+				>
+				["at0021"] = <
+					text = <"entered-in-error">
+					description = <"The alert was added in error, and should no longer be displayed.">
+				>
+				["at0022"] = <
+					text = <"Next review date">
 					description = <"">
 				>
 			>
