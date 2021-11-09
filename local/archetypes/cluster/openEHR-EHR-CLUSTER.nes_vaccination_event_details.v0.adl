@@ -1,0 +1,86 @@
+﻿archetype (adl_version=1.4; uid=211f7339-6d7c-473e-8c20-f3cf775307f7)
+	openEHR-EHR-CLUSTER.nes_vaccination_event_details.v0
+
+concept
+	[at0000]	-- NES Vaccination event details
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Dr Paul Miller">
+		["organisation"] = <"NHS Education Scotland">
+		["email"] = <"paul.miller@nhs.scot">
+		["date"] = <"2021-11-08">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"This cluster is to support specific additional details about vaccination events needed by NHS Education Scotland to allow the recording of vaccination events and the mapping of data from NES NCDS vaccination database to the NES openEHR CDR
+">
+			use = <"This cluster is intended to be used in the 'Additional Details' cluster slot of the Medication Management archetype as employed in the NES Vaccination Record template to support the specific internal use cases.">
+			keywords = <"vaccine, vaccination, immunise, immunisation, immunization, immunize, booster, dose, stage", ...>
+			misuse = <"It may not be appropriate to use this cluster in other jurisdictions
+">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"D8AEF5D497A1E066073B8A960D388465">
+		["build_uid"] = <"8f2f510e-a1dc-4117-b450-a90c20e92484">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- NES Vaccination event details
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Dose description
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {    -- Procedure term
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0003] occurrences matches {0..1} matches {    -- Is booster
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"NES Vaccination event details">
+					description = <"NES Vaccination event details">
+				>
+				["at0002"] = <
+					text = <"Dose description">
+					description = <"A text description for the dose or sequence that applies to this vaccination event e.g.'First'">
+				>
+				["at0003"] = <
+					text = <"Is booster">
+					description = <"A true/false element to allow the recording of whether this vaccination event was for a 'booster' dose - a booster dose is considered to be a reinforcing dose that is administered after the primary course (and primary immunity) has been conferred.
+">
+				>
+				["at0004"] = <
+					text = <"Procedure term">
+					description = <"A text or coded description for the vaccination procedure.">
+					comment = <"Should use a terminology, SNOMED CT in the context of this cluster's original use case in NHS Scotland.">
+				>
+			>
+		>
+	>

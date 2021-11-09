@@ -1,0 +1,137 @@
+﻿archetype (adl_version=1.4; uid=775f9dd8-3e93-4c88-bc6e-30a3c30c5a92)
+	openEHR-EHR-CLUSTER.nes_vaccination_protocol.v0
+
+concept
+	[at0000]	-- nes_vaccination_protocol
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Dr Paul Miller">
+		["organisation"] = <"NES Digital Service">
+		["email"] = <"paul.miller@nhs.scot">
+		["date"] = <"2021-11-08">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"This cluster is to support specific additional details about vaccination events needed by NHS Education Scotland to allow the recording of the protocol aspects of vaccination events and the mapping of data from NES NCDS vaccination database to the NES openEHR CDR">
+			use = <"This cluster is intended to be used in the 'Protocol' cluster slot of the Medication Management archetype as employed in the NES Vaccination Record template to support the specific internal use cases.">
+			keywords = <"vaccine, vaccination, immunise, immunisation, immunization, immunize, booster, dose, stage, course, series", ...>
+			misuse = <"It may not be appropriate to use this cluster in other jurisdictions
+">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"737DCDBDA865A67C1A76E5523BB31D0D">
+		["build_uid"] = <"d3e2e698-4139-4020-998f-ae1f7a75ccc6">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- nes_vaccination_protocol
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0003] occurrences matches {0..1} matches {    -- Series name
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0006] occurrences matches {0..1} matches {    -- Series doses
+				value matches {
+					DV_COUNT matches {*}
+				}
+			}
+			ELEMENT[at0007] occurrences matches {0..1} matches {    -- Series doses description
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0001] occurrences matches {0..*} matches {    -- Target disease
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {    -- Subject agreement to vaccination
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0009] occurrences matches {0..1} matches {    -- Vaccination centre
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			allow_archetype CLUSTER[at0010] occurrences matches {0..*} matches {    -- Vaccination centre details
+				include
+					archetype_id/value matches {/.*|openEHR-EHR-CLUSTER\.organisation\.v0/}
+			}
+			ELEMENT[at0005] occurrences matches {0..1} matches {    -- Appointment ID
+				value matches {
+					DV_IDENTIFIER matches {*}
+				}
+			}
+			ELEMENT[at0008] occurrences matches {0..1} matches {    -- Trial ID
+				value matches {
+					DV_IDENTIFIER matches {*}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"nes_vaccination_protocol">
+					description = <"NDS_Immunisation_Protocol. a small cluster to support recording additional details about immunization events.">
+				>
+				["at0001"] = <
+					text = <"Target disease">
+					description = <"Coded or textual data for the diseases against which the vaccination is intended to confer immunity.">
+				>
+				["at0003"] = <
+					text = <"Series name">
+					description = <"Local name or description for the immunisation or immunisation course e.g 'Influenza' 'Hepatitis A/B' 'Hepatitis A and Typhoid'">
+				>
+				["at0004"] = <
+					text = <"Subject agreement to vaccination">
+					description = <"A textual description of the subject's agreement to be vaccinated. Intended to apply to the event, not the complete course.
+">
+				>
+				["at0005"] = <
+					text = <"Appointment ID">
+					description = <"The ID of the 'appointment' from a scheduling system which was associated with this vaccination event.">
+				>
+				["at0006"] = <
+					text = <"Series doses">
+					description = <"The total number of doses in the series to complete the course.">
+				>
+				["at0007"] = <
+					text = <"Series doses description">
+					description = <"A textual description pf the total number of doses in the series to complete the course.">
+				>
+				["at0008"] = <
+					text = <"Trial ID">
+					description = <"An ID referring to the ID of a research or clinical trial if this vaccination event was associated with any such trial.">
+				>
+				["at0009"] = <
+					text = <"Vaccination centre">
+					description = <"A text element for the name or other description of the vaccination centre where this vaccination record originated.">
+				>
+				["at0010"] = <
+					text = <"Vaccination centre details">
+					description = <"A cluster slot to allow more details of the vaccination centre.">
+				>
+			>
+		>
+	>
