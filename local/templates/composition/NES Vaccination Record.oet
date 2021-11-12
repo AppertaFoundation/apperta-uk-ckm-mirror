@@ -54,7 +54,7 @@ Initial template version is to support a mapping between NES's 'NCDS' vaccines d
             </item>
             <item>
                 <key>MD5-CAM-1.0.1</key>
-                <value>243da046765579051e0591968e2e8db8</value>
+                <value>b25037f13e17bc36fa54816b969ea83b</value>
             </item>
             <item>
                 <key>PARENT:MD5-CAM-1.0.1</key>
@@ -268,6 +268,6 @@ Initial template version is to support a mapping between NES's 'NCDS' vaccines d
         archetype_id="openEHR-EHR-CLUSTER.nes_vaccination_protocol.v0"
         xmlns:tem="openEHR/v1/Template"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
-        <digest id="MD5-CAM-1.0.1">737DCDBDA865A67C1A76E5523BB31D0D</digest>
+        <digest id="MD5-CAM-1.0.1">8FE80186644C6CA75BBCB97B848AA4BB</digest>
     </integrity_checks>
 </template>
