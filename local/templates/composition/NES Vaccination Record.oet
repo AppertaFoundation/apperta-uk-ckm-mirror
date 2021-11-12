@@ -46,7 +46,7 @@ Initial template version is to support a mapping between NES's 'NCDS' vaccines d
             </item>
             <item>
                 <key>sem_ver</key>
-                <value>3.0.0</value>
+                <value>3.1.0</value>
             </item>
             <item>
                 <key>build_uid</key>
@@ -54,7 +54,7 @@ Initial template version is to support a mapping between NES's 'NCDS' vaccines d
             </item>
             <item>
                 <key>MD5-CAM-1.0.1</key>
-                <value>b25037f13e17bc36fa54816b969ea83b</value>
+                <value>379bcb5474ce69b7fdcd6821c8f6e75e</value>
             </item>
             <item>
                 <key>PARENT:MD5-CAM-1.0.1</key>
@@ -129,6 +129,7 @@ Initial template version is to support a mapping between NES's 'NCDS' vaccines d
                 <Rule max="0" path="/items[at0115]">
                     <constraint xsi:type="tem:quantityConstraint"/>
                 </Rule>
+                <Rule max="1" path="/items[at0150]"/>
                 <Rule max="0" path="/items[at0139]">
                     <constraint xsi:type="tem:quantityConstraint">
                         <unitMagnitude>
