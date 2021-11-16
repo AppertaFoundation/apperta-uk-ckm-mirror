@@ -46,7 +46,7 @@ Initial template version is to support a mapping between NES's 'NCDS' vaccines d
             </item>
             <item>
                 <key>sem_ver</key>
-                <value>3.1.0</value>
+                <value>5.0.0</value>
             </item>
             <item>
                 <key>build_uid</key>
@@ -54,7 +54,7 @@ Initial template version is to support a mapping between NES's 'NCDS' vaccines d
             </item>
             <item>
                 <key>MD5-CAM-1.0.1</key>
-                <value>379bcb5474ce69b7fdcd6821c8f6e75e</value>
+                <value>baa81bfd28c0a660435326393ac8e85b</value>
             </item>
             <item>
                 <key>PARENT:MD5-CAM-1.0.1</key>
@@ -90,16 +90,16 @@ Initial template version is to support a mapping between NES's 'NCDS' vaccines d
             <Rule max="0" min="0" name="Vaccination course commenced" path="/ism_transition[at0004]"/>
             <Rule max="0" min="0" path="/ism_transition[at0041]"/>
             <Rule max="0" min="0" name="Vaccination reassessed" path="/ism_transition[at0005]"/>
-            <Rule max="0" min="0" path="/ism_transition[at0006]"/>
-            <Rule max="0" min="0" path="/ism_transition[at0018]"/>
+            <Rule name="Vaccine dose administered" path="/ism_transition[at0006]"/>
+            <Rule name="Vaccine dose not given" path="/ism_transition[at0018]"/>
             <Rule max="0" min="0" path="/ism_transition[at0044]"/>
             <Rule max="0" min="0" path="/ism_transition[at0008]"/>
             <Rule max="0" min="0" path="/ism_transition[at0009]"/>
             <Rule max="0" min="0" path="/ism_transition[at0011]"/>
-            <Rule name="Vaccination not done" path="/ism_transition[at0015]"/>
+            <Rule max="0" min="0" name="Vaccination course stopped" path="/ism_transition[at0015]"/>
             <Rule max="0" min="0" path="/ism_transition[at0039]"/>
             <Rule max="0" min="0" path="/ism_transition[at0151]"/>
-            <Rule name="Vaccination completed" path="/ism_transition[at0007]"/>
+            <Rule max="0" min="0" name="Vaccination course completed" path="/ism_transition[at0007]"/>
             <Rule max="0" min="0" path="/ism_transition[at0152]"/>
             <Rule max="0" path="/description[at0017]/items[at0020]"/>
             <Rule max="0" path="/description[at0017]/items[at0156]"/>
@@ -113,7 +113,9 @@ Initial template version is to support a mapping between NES's 'NCDS' vaccines d
             <Rule max="0" path="/description[at0017]/items[at0149]"/>
             <Rule name="Dose number" path="/description[at0017]/items[at0025]"/>
             <Rule name="Note" path="/description[at0017]/items[at0024]"/>
-            <Rule max="0" path="/protocol[at0030]/items[at0103]"/>
+            <Rule max="0" name="Order ID" path="/protocol[at0030]/items[at0103]"/>
+            <Rule clone="true" max="1" name="Appointment ID" path="/protocol[at0030]/items[at0103]"/>
+            <Rule clone="true" max="0" name="Trial ID" path="/protocol[at0030]/items[at0103]"/>
             <Items archetype_id="openEHR-EHR-CLUSTER.medication.v1"
                 max="1" path="/description[at0017]/items[at0104]" xsi:type="tem:CLUSTER">
                 <Rule name="Vaccine name" path="/items[at0132]"/>
@@ -214,6 +216,7 @@ Initial template version is to support a mapping between NES's 'NCDS' vaccines d
                 <Rule max="0" path="/items[at0006]"/>
                 <Rule max="0" path="/items[at0007]"/>
                 <Rule max="0" name="Subject agreement to immunisation" path="/items[at0004]"/>
+                <Rule max="0" path="/items[at0005]"/>
                 <Rule max="0" path="/items[at0008]"/>
             </Items>
         </Content>
@@ -223,7 +226,12 @@ Initial template version is to support a mapping between NES's 'NCDS' vaccines d
                 path="/context[at0002]/other_context[at0003]/items[at0004]" xsi:type="tem:CLUSTER">
                 <Rule max="0" path="/items[at0001]"/>
                 <Rule max="0" path="/items[at0002]"/>
-                <Rule max="0" path="/items[at0003]"/>
+                <Rule
+                    default="local_terms::41000179103::Immunization record (record artifact)" path="/items[at0003]">
+                    <constraint xsi:type="tem:textConstraint">
+                        <includedValues>local_terms::41000179103::Immunization record (record artifact)</includedValues>
+                    </constraint>
+                </Rule>
                 <Rule max="0" path="/items[at0004]"/>
                 <Rule max="0" path="/items[at0007]"/>
                 <Rule max="0" path="/items[at0009]"/>
@@ -263,7 +271,7 @@ Initial template version is to support a mapping between NES's 'NCDS' vaccines d
         archetype_id="openEHR-EHR-CLUSTER.nes_vaccination_event_details.v0"
         xmlns:tem="openEHR/v1/Template"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
-        <digest id="MD5-CAM-1.0.1">D8AEF5D497A1E066073B8A960D388465</digest>
+        <digest id="MD5-CAM-1.0.1">11CD2274BAC1E308707AEF4143625F1A</digest>
     </integrity_checks>
     <integrity_checks
         archetype_id="openEHR-EHR-CLUSTER.nes_vaccination_protocol.v0"
