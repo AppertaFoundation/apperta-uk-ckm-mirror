@@ -32,8 +32,8 @@ description
 		["original_namespace"] = <"uk.org.clinicalmodels">
 		["original_publisher"] = <"Apperta UK">
 		["custodian_namespace"] = <"uk.org.clinicalmodels">
-		["MD5-CAM-1.0.1"] = <"D8AEF5D497A1E066073B8A960D388465">
-		["build_uid"] = <"8f2f510e-a1dc-4117-b450-a90c20e92484">
+		["MD5-CAM-1.0.1"] = <"11CD2274BAC1E308707AEF4143625F1A">
+		["build_uid"] = <"ddccd5f6-5ee1-4bb3-99c2-a7a0b93ac037">
 		["revision"] = <"0.0.1-alpha">
 	>
 
@@ -50,9 +50,15 @@ definition
 					DV_TEXT matches {*}
 				}
 			}
-			ELEMENT[at0003] occurrences matches {0..1} matches {    -- Is booster
+			ELEMENT[at0007] occurrences matches {0..1} matches {    -- Vaccination administration purpose
 				value matches {
-					DV_BOOLEAN matches {*}
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0008,    -- Primary course dose
+							at0009]    -- Booster dose
+						}
+					}
 				}
 			}
 		}
@@ -71,15 +77,22 @@ ontology
 					text = <"Dose description">
 					description = <"A text description for the dose or sequence that applies to this vaccination event e.g.'First'">
 				>
-				["at0003"] = <
-					text = <"Is booster">
-					description = <"A true/false element to allow the recording of whether this vaccination event was for a 'booster' dose - a booster dose is considered to be a reinforcing dose that is administered after the primary course (and primary immunity) has been conferred.
-">
-				>
 				["at0004"] = <
 					text = <"Procedure term">
 					description = <"A text or coded description for the vaccination procedure.">
 					comment = <"Should use a terminology, SNOMED CT in the context of this cluster's original use case in NHS Scotland.">
+				>
+				["at0007"] = <
+					text = <"Vaccination administration purpose">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Primary course dose">
+					description = <"Dose administered as part of the primary immunisatioon course">
+				>
+				["at0009"] = <
+					text = <"Booster dose">
+					description = <"Dose administered as a reinforcing dose">
 				>
 			>
 		>
