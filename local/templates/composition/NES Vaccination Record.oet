@@ -46,7 +46,7 @@ Initial template version is to support a mapping between NES's 'NCDS' vaccines d
             </item>
             <item>
                 <key>sem_ver</key>
-                <value>5.0.0</value>
+                <value>5.1.0</value>
             </item>
             <item>
                 <key>build_uid</key>
@@ -54,7 +54,7 @@ Initial template version is to support a mapping between NES's 'NCDS' vaccines d
             </item>
             <item>
                 <key>MD5-CAM-1.0.1</key>
-                <value>baa81bfd28c0a660435326393ac8e85b</value>
+                <value>e96537d0ac673887231b7a64c9ba2833</value>
             </item>
             <item>
                 <key>PARENT:MD5-CAM-1.0.1</key>
@@ -101,7 +101,7 @@ Initial template version is to support a mapping between NES's 'NCDS' vaccines d
             <Rule max="0" min="0" path="/ism_transition[at0151]"/>
             <Rule max="0" min="0" name="Vaccination course completed" path="/ism_transition[at0007]"/>
             <Rule max="0" min="0" path="/ism_transition[at0152]"/>
-            <Rule max="0" path="/description[at0017]/items[at0020]"/>
+            <Rule name="Vaccine name" path="/description[at0017]/items[at0020]"/>
             <Rule max="0" path="/description[at0017]/items[at0156]"/>
             <Rule max="0" path="/description[at0017]/items[at0132]"/>
             <Rule max="0" path="/description[at0017]/items[at0133]"/>
@@ -118,7 +118,7 @@ Initial template version is to support a mapping between NES's 'NCDS' vaccines d
             <Rule clone="true" max="0" name="Trial ID" path="/protocol[at0030]/items[at0103]"/>
             <Items archetype_id="openEHR-EHR-CLUSTER.medication.v1"
                 max="1" path="/description[at0017]/items[at0104]" xsi:type="tem:CLUSTER">
-                <Rule name="Vaccine name" path="/items[at0132]"/>
+                <Rule max="0" name="Vaccine name" path="/items[at0132]"/>
                 <Rule max="0" path="/items[at0071]"/>
                 <Rule max="0" path="/items[at0142]">
                     <constraint xsi:type="tem:multipleConstraint">
