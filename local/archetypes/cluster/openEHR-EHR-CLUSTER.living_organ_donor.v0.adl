@@ -1,0 +1,163 @@
+﻿archetype (adl_version=1.4; uid=95447f6f-1fe1-4879-97b6-88650f9af930)
+	openEHR-EHR-CLUSTER.living_organ_donor.v0
+
+concept
+	[at0000]	-- Living Organ Donor
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"ian@freshehr.com">
+		["date"] = <"2021-09-27">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record details about living kidney donor.">
+			use = <"">
+			misuse = <"">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"F1782EB6030AC2BCF1D57B802514F23D">
+		["build_uid"] = <"51583a36-5d48-4719-bcff-a3a2c5ff791c">
+		["ip_acknowledgements"] = <"This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact https://www.snomed.org/snomed-ct/get-snomed or info@snomed.org.">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Living Organ Donor
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0009] occurrences matches {0..1} matches {    -- Donation Type
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0020,    -- Directed
+							at0021,    -- Non-Directed
+							at0022]    -- Other
+						}
+					}
+				}
+			}
+			ELEMENT[at0013] occurrences matches {0..1} matches {    -- Relationship to Patient
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0023,    -- Sibling
+							at0024,    -- Parent
+							at0025,    -- Child
+							at0026,    -- Spouse
+							at0027,    -- Unrelated
+							at0031]    -- Friend/acquaintance
+						}
+					}
+				}
+			}
+			ELEMENT[at0019] occurrences matches {0..1} matches {    -- Human Tissue Authority (HTA) Reference Number
+				value matches {
+					DV_IDENTIFIER matches {
+						type matches {/HTA Reference number/}
+					}
+				}
+			}
+			ELEMENT[at0029] occurrences matches {0..1} matches {    -- Centre code
+				value matches {
+					DV_IDENTIFIER matches {*}
+				}
+			}
+			ELEMENT[at0030] occurrences matches {0..1} matches {    -- Transplant centre
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+
+ontology
+	terminologies_available = <"SNOMED-CT", ...>
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Living Organ Donor">
+					description = <"Living Organ Donor.">
+				>
+				["at0009"] = <
+					text = <"Donation Type">
+					description = <"">
+				>
+				["at0013"] = <
+					text = <"Relationship to Patient">
+					description = <"">
+				>
+				["at0019"] = <
+					text = <"Human Tissue Authority (HTA) Reference Number">
+					description = <"">
+				>
+				["at0020"] = <
+					text = <"Directed">
+					description = <"The person has agreed to direct their donation to a specific recipient.">
+				>
+				["at0021"] = <
+					text = <"Non-Directed">
+					description = <"The person has agreed to direct the donation to the waiting list.">
+				>
+				["at0022"] = <
+					text = <"Other">
+					description = <"">
+				>
+				["at0023"] = <
+					text = <"Sibling">
+					description = <"">
+				>
+				["at0024"] = <
+					text = <"Parent">
+					description = <"">
+				>
+				["at0025"] = <
+					text = <"Child">
+					description = <"">
+				>
+				["at0026"] = <
+					text = <"Spouse">
+					description = <"">
+				>
+				["at0027"] = <
+					text = <"Unrelated">
+					description = <"">
+				>
+				["at0029"] = <
+					text = <"Centre code">
+					description = <"">
+				>
+				["at0030"] = <
+					text = <"Transplant centre">
+					description = <"">
+				>
+				["at0031"] = <
+					text = <"Friend/acquaintance">
+					description = <"">
+				>
+			>
+		>
+	>
+	term_bindings = <
+		["SNOMED-CT"] = <
+			items = <
+				["at0013"] = <[SNOMED-CT::260909005]>
+			>
+		>
+	>
