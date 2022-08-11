@@ -81,17 +81,19 @@
         </Content>
         <Content archetype_id="openEHR-EHR-SECTION.adhoc.v1"
             concept_name="Ad hoc heading" max="1" name="Examination"
-            path="/content" xsi:type="tem:SECTION"/>
-        <Content archetype_id="openEHR-EHR-OBSERVATION.exam.v1" max="1"
-            path="/content" xsi:type="tem:OBSERVATION">
-            <Rule name="Examination" path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]"/>
-            <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]"/>
-            <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0011]"/>
-            <Rule max="0" path="/data[at0001]/events[at0002]/state[at0009]/items[at0008]"/>
-            <Rule max="0" path="/data[at0001]/events[at0002]/state[at0009]/items[at0013]"/>
+            path="/content" xsi:type="tem:SECTION">
+            <Item archetype_id="openEHR-EHR-OBSERVATION.exam.v1"
+                concept_name="Physical examination findings" max="1"
+                name="Examination findings" path="/items" xsi:type="tem:OBSERVATION">
+                <Rule name="Examination" path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0011]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/state[at0009]/items[at0008]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/state[at0009]/items[at0013]"/>
+            </Item>
         </Content>
         <Content archetype_id="openEHR-EHR-SECTION.adhoc.v1"
-            concept_name="Ad hoc heading" max="1" name="Observations"
+            concept_name="Ad hoc heading" max="0" name="Observations"
             path="/content" xsi:type="tem:SECTION">
             <Item
                 archetype_id="openEHR-EHR-OBSERVATION.blood_pressure.v2"
@@ -230,7 +232,7 @@
         </Content>
         <Content archetype_id="openEHR-EHR-OBSERVATION.exam.v1"
             concept_name="Physical examination findings" max="1"
-            name="Other observations" path="/content" xsi:type="tem:OBSERVATION">
+            name="Other Observations" path="/content" xsi:type="tem:OBSERVATION">
             <Rule name="Observations" path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]"/>
             <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]"/>
             <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0011]"/>
@@ -263,6 +265,7 @@
                         <includedTypes>Text</includedTypes>
                     </constraint>
                 </Rule>
+                <Rule max="0" path="/protocol[at0032]/items[at0070]"/>
             </Item>
         </Content>
         <Content archetype_id="openEHR-EHR-SECTION.adhoc.v1"
@@ -277,8 +280,8 @@
             <Item
                 archetype_id="openEHR-EHR-EVALUATION.clinical_synopsis.v1"
                 concept_name="Clinical synopsis" max="1"
-                name="Summary and plan" path="/items" xsi:type="tem:EVALUATION">
-                <Rule name="Summary and plan" path="/data[at0001]/items[at0002]"/>
+                name="Summary and treatment plan" path="/items" xsi:type="tem:EVALUATION">
+                <Rule name="Summary and treatment plan" path="/data[at0001]/items[at0002]"/>
             </Item>
         </Content>
     </definition>
