@@ -1,0 +1,92 @@
+﻿archetype (adl_version=1.4; uid=9ee2c099-624d-4663-927e-34ba27b53d2e)
+	openEHR-EHR-ADMIN_ENTRY.free_attachment_ol.v0
+
+concept
+	[at0000]	-- Free attachment
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"ian@freshehr.com">
+		["date"] = <"2021-12-09">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"D2AEDC581B1C83D095BEF0C922CA52CA">
+		["build_uid"] = <"f0a38880-b578-4ca3-8296-e7e50cdc410b">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	ADMIN_ENTRY[at0000] matches {    -- Free attachment
+		data matches {
+			ITEM_TREE[at0003] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0005] occurrences matches {0..1} matches {    -- Name
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0006] occurrences matches {0..1} matches {    -- Type
+						value matches {
+							DV_CODED_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0004] occurrences matches {0..*} matches {    -- Attachment
+						include
+							archetype_id/value matches {/.*|openEHR-EHR-CLUSTER\.multimedia_source\.v0/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Free attachment">
+					description = <"To record a free-standing attachment i.e not in a specific clinical context.">
+				>
+				["at0021.1"] = <
+					text = <"Element">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Attachment">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Name">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Type">
+					description = <"">
+				>
+			>
+		>
+	>

@@ -46,8 +46,8 @@ What is a Power of Attorney [Internet]. Office of the Public Guardian (Scotland)
 		["original_namespace"] = <"uk.org.clinicalmodels">
 		["original_publisher"] = <"Apperta UK">
 		["custodian_namespace"] = <"uk.org.clinicalmodels">
-		["MD5-CAM-1.0.1"] = <"796668D0D9B435FB43E0FC227D2BEE54">
-		["build_uid"] = <"465d56ce-69a9-46c8-8cba-5113a6e332fe">
+		["MD5-CAM-1.0.1"] = <"E266402BDA2C48470E35B77FB4A084F4">
+		["build_uid"] = <"7830c60a-6a7f-4182-a1fd-ca548774d709">
 		["revision"] = <"0.0.1-alpha">
 	>
 
@@ -56,7 +56,7 @@ definition
 		data matches {
 			ITEM_TREE[at0001] matches {    -- Item tree
 				items cardinality matches {0..*; unordered} matches {
-					ELEMENT[at0002] occurrences matches {0..1} matches {    -- Type
+					ELEMENT[at0002] occurrences matches {0..*} matches {    -- Type
 						value matches {
 							DV_TEXT matches {*}
 						}
@@ -146,6 +146,11 @@ definition
 					allow_archetype CLUSTER[at0040] occurrences matches {0..*} matches {    -- Extension
 						include
 							archetype_id/value matches {/.*/}
+					}
+					ELEMENT[at0046] occurrences matches {0..1} matches {    -- Last updated
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
 					}
 				}
 			}
@@ -255,6 +260,10 @@ ontology
 				["at0045"] = <
 					text = <"Authority">
 					description = <"Details about the authoritative body granting the directive, and/or nominated legal contact for further information about the directive.">
+				>
+				["at0046"] = <
+					text = <"Last updated">
+					description = <"">
 				>
 			>
 		>
