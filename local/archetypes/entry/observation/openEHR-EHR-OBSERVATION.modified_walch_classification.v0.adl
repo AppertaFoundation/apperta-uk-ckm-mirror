@@ -1,0 +1,147 @@
+﻿archetype (adl_version=1.4; uid=9a4e7aba-ad4a-484b-ab1b-c8786ca6beb8)
+	openEHR-EHR-OBSERVATION.modified_walch_classification.v0
+
+concept
+	[at0000]	-- Modified Walch Classification
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Kanthan Theivendran">
+		["organisation"] = <"KLT Medical Ltd">
+		["email"] = <"kanthan79@gmail.com">
+		["date"] = <"2022-12-19">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"A classification system to assess glenoid wear and morphology and humeral head subluxation in shoulder glenohumeral osteoarthritis.">
+			use = <"Shoulder osteoarthritis radiological assessment on 3DCT scan.">
+			keywords = <"orthopaedics, osteoarthritis, shoulder, glenoid, morphology, wear.", ...>
+			misuse = <"">
+			copyright = <"© While openEHR archetypes are all freely available under an open license, the specific content of this Modified Walch Classification archetype can be used freely as long as the original publication has been referenced. The authors of this Archetype are not aware of any licence/copyright linked to the Modified Walch Classification. Any use of this archetype within implementations must be in compliance with the terms established by the original publication referenced., Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["references"] = <"Bercik MJ, Kruse K, Yalizis M, Gauci MO, Chaoui J, Walch G. A modification to the Walch classification of the glenoid in primary glenohumeral osteoarthritis using three-dimensional imaging. J Shoulder Elbow Surg. 2016 Oct;25(10):1601–6. ">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"6EDB195FA6EE4021723AA9DF9E51CBFA">
+		["build_uid"] = <"863b18ff-e878-4164-be9c-1a780827bfb4">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- Modified Walch Classification
+		data matches {
+			HISTORY[at0001] matches {    -- History
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..*} matches {    -- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0005] occurrences matches {0..1} matches {    -- Glenoid Morphology
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0006,    -- A1
+													at0007,    -- A2
+													at0008,    -- B1
+													at0009,    -- B2
+													at0010,    -- B3
+													at0011,    -- C
+													at0012]    -- D
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0013] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0014] occurrences matches {0..*} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Modified Walch Classification">
+					description = <"A classification system to assess glenoid wear and morphology and humeral head subluxation in shoulder glenohumeral osteoarthritis. This is based on 3DCT scans.">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0005"] = <
+					text = <"Glenoid Morphology">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"A1">
+					description = <"Centred humeral head, minor erosion.">
+				>
+				["at0007"] = <
+					text = <"A2">
+					description = <"Centred humeral head, major central glenoid erosion. A line drawn from the anterior to the posterior rim of the native glenoid transects the humeral head.">
+				>
+				["at0008"] = <
+					text = <"B1">
+					description = <"Posterior subluxated head, no bony erosion.">
+				>
+				["at0009"] = <
+					text = <"B2">
+					description = <"Posterior subluxated head, posterior erosion with biconcavity of the glenoid.">
+				>
+				["at0010"] = <
+					text = <"B3">
+					description = <"Glenoid as monoconcave and posteriorly worn, with at least 15° of retroversion or at least 70% posterior humeral head subluxation, or both.">
+				>
+				["at0011"] = <
+					text = <"C">
+					description = <"Dysplastic glenoid with at least 25° of retroversion regardless of (not caused by) erosion.">
+				>
+				["at0012"] = <
+					text = <"D">
+					description = <"Glenoid with any level of glenoid anteversion or with humeral head subluxation of less than 40% (anterior head subluxation).">
+				>
+				["at0013"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0014"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"For example: Local hospital departmental information or additional metadata to align with FHIR or equivalents.">
+				>
+			>
+		>
+	>
