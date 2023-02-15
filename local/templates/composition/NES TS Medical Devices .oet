@@ -8,9 +8,31 @@
                 <key>date</key>
                 <value>2023-01-04</value>
             </item>
+            <item>
+                <key>name</key>
+                <value>Dr Paul Miller</value>
+            </item>
+            <item>
+                <key>organisation</key>
+                <value>NHS Education for Scotland Technology Service</value>
+            </item>
+            <item>
+                <key>email</key>
+                <value>paul.miller@nhs.scot</value>
+            </item>
         </original_author>
+        <other_contributors>
+            <item>Austin Mitchell austin.mitchell2@nhs.scot</item>
+        </other_contributors>
         <lifecycle_state>in_development</lifecycle_state>
-        <details/>
+        <details>
+            <purpose>This template is designed to be used as the data definition for compositions reflecting data items necessary to track the details of implantable medical devices This is stored as part of the Medical Devices Data Hub (MDDH) programme in NHS Scotland, a part of the wider 'Scan for Safety' programme. Data will often be populated via integrations with external systems, but will also be needed to support applications and user interfaces for user interaction and maintenance.</purpose>
+            <keywords>
+                <item>medical devices, implant, implants, mesh, nail, pacemaker, replacement, screw, wire</item>
+            </keywords>
+            <use>The data will be used to provide contextual information to clinical and non-clinical users including patients, for example allowing clinicians to view which devices have been implanted in a patient or to allow patients to see which devices have been implanted in them. The data may subsequently be used for reporting purposes across the programme of work. Data could potentially be used for decision support systems in specific contexts.</use>
+            <misuse>The scope does not extend to other purposes or projects for medical devices at this time. It should not be employed as a proxy for recording procedures on their own, i.e. without any associated medical device data. It is not intended to support the full process of procedure planning, ordering and completion as only the final outcome of any procedure is recorded.</misuse>
+        </details>
         <other_details>
             <item>
                 <key>licence</key>
@@ -34,7 +56,7 @@
             </item>
             <item>
                 <key>sem_ver</key>
-                <value>0.0.1</value>
+                <value>0.0.2</value>
             </item>
             <item>
                 <key>build_uid</key>
@@ -42,7 +64,11 @@
             </item>
             <item>
                 <key>MD5-CAM-1.0.1</key>
-                <value>8c38b347bf3906e5684037889e5088b7</value>
+                <value>f6d74a45a9bb280987be32ee184f4c2b</value>
+            </item>
+            <item>
+                <key>PARENT:MD5-CAM-1.0.1</key>
+                <value>2A789520F48E91960C4825733C8BA68F</value>
             </item>
             <item>
                 <key>original_language</key>
@@ -68,7 +94,10 @@
             <Rule max="0" min="0" path="/ism_transition[at0047]"/>
             <Rule max="0" min="0" path="/ism_transition[at0040]"/>
             <Rule max="0" min="0" path="/ism_transition[at0041]"/>
-            <Rule name="Procedure Name" path="/description[at0001]/items[at0002]"/>
+            <Rule path="/description[at0001]/items[at0002]">
+                <constraint limitToList="false" xsi:type="tem:textConstraint"/>
+            </Rule>
+            <Rule max="0" path="/description[at0001]/items[at0049]"/>
             <Rule max="0" path="/description[at0001]/items[at0070]"/>
             <Rule max="0" path="/description[at0001]/items[at0065]"/>
             <Rule max="0" path="/description[at0001]/items[at0058]"/>
@@ -77,7 +106,7 @@
             <Rule max="0" path="/description[at0001]/items[at0069]"/>
             <Rule max="0" path="/description[at0001]/items[at0006]"/>
             <Rule max="0" path="/description[at0001]/items[at0066]"/>
-            <Rule max="0" path="/description[at0001]/items[at0060]"/>
+            <Rule name="Operation Date" path="/description[at0001]/items[at0060]"/>
             <Rule max="0" path="/description[at0001]/items[at0061]">
                 <constraint xsi:type="tem:durationConstraint">
                     <minMagnitude>PT0S</minMagnitude>
@@ -85,13 +114,7 @@
                     <includesMinimum>true</includesMinimum>
                 </constraint>
             </Rule>
-            <Rule name="Operation type" path="/description[at0001]/items[at0067]">
-                <constraint xsi:type="tem:textConstraint">
-                    <includedValues>Insertion</includedValues>
-                    <includedValues>Revision</includedValues>
-                    <includedValues>Removal</includedValues>
-                </constraint>
-            </Rule>
+            <Rule name="Operation type" path="/description[at0001]/items[at0067]"/>
             <Rule max="0" path="/description[at0001]/items[at0014]"/>
             <Rule max="0" path="/description[at0001]/items[at0005]"/>
             <Rule max="0" path="/protocol[at0053]/items[at0054]">
@@ -100,7 +123,7 @@
                     <includedTypes>Identifier</includedTypes>
                 </constraint>
             </Rule>
-            <Rule max="0" path="/protocol[at0053]/items[at0056]">
+            <Rule name="Operation Identifier" path="/protocol[at0053]/items[at0056]">
                 <constraint xsi:type="tem:multipleConstraint">
                     <includedTypes>Text</includedTypes>
                     <includedTypes>Identifier</includedTypes>
@@ -108,7 +131,11 @@
             </Rule>
             <Items
                 archetype_id="openEHR-EHR-CLUSTER.anatomical_location.v1"
-                max="1" path="/description[at0001]/items[at0003]" xsi:type="tem:CLUSTER">
+                concept_name="Anatomical location" max="1"
+                name="Laterality"
+                path="/description[at0001]/items[at0003]" xsi:type="tem:CLUSTER">
+                <Rule default="Body Site" path="/items[at0001]"/>
+                <Rule max="0" path="/items[at0065]"/>
                 <Rule max="0" path="/items[at0064]">
                     <constraint xsi:type="tem:multipleConstraint">
                         <includedTypes>Coded_text</includedTypes>
@@ -123,41 +150,77 @@
                 </Rule>
                 <Rule max="0" path="/items[at0023]"/>
             </Items>
-            <Items archetype_id="openEHR-EHR-CLUSTER.device.v1" max="1"
+            <Items archetype_id="openEHR-EHR-CLUSTER.device.v1"
+                concept_name="Medical device" name="Device Details"
                 path="/description[at0001]/items[at0003]" xsi:type="tem:CLUSTER">
+                <Rule name="Product description" path="/items[at0001]"/>
                 <Rule max="0" path="/items[at0003]"/>
-                <Rule name="Product Description" path="/items[at0002]"/>
+                <Rule max="0" path="/items[at0002]"/>
                 <Rule max="0" path="/items[at0004]"/>
                 <Rule max="0" path="/items[at0005]"/>
                 <Rule name="Device Serial number" path="/items[at0020]"/>
                 <Rule max="0" path="/items[at0022]"/>
                 <Rule max="0" path="/items[at0023]"/>
-                <Rule name="Device Batch or Lot number" path="/items[at0006]"/>
+                <Rule name="Device Lot or Batch number" path="/items[at0006]"/>
                 <Rule max="0" path="/items[at0025]"/>
                 <Rule max="0" path="/items[at0007]"/>
                 <Rule max="0" path="/items[at0024]"/>
                 <Rule max="0" path="/items[at0008]"/>
             </Items>
+            <Items archetype_id="openEHR-EHR-CLUSTER.organisation.v1"
+                concept_name="Organisation" max="1"
+                name="Organisation Site of Treatment"
+                path="/protocol[at0053]/items[at0057]" xsi:type="tem:CLUSTER">
+                <Rule max="0" path="/items[at0004]"/>
+                <Rule max="0" path="/items[at0019]"/>
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.organisation.v1"
+                    concept_name="Organisation" max="1"
+                    name="Organisation Provider" path="/items[at0021]" xsi:type="tem:CLUSTER">
+                    <Rule path="/items[at0003]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Identifier</includedTypes>
+                            <includedTypes>Text</includedTypes>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0004]"/>
+                    <Rule max="0" path="/items[at0019]"/>
+                </Items>
+            </Items>
         </Content>
         <Context>
-            <Items archetype_id="openEHR-EHR-CLUSTER.fundingsource.v0"
+            <Items archetype_id="openEHR-EHR-CLUSTER.xds_metadata.v0"
                 max="1"
-                path="/context/other_context[at0001]/items[at0006]" xsi:type="tem:CLUSTER"/>
+                path="/context/other_context[at0001]/items[at0006]" xsi:type="tem:CLUSTER">
+                <Rule max="0" path="/items[at0001]"/>
+                <Rule max="0" path="/items[at0002]"/>
+                <Rule max="0" path="/items[at0004]"/>
+                <Rule max="0" path="/items[at0007]"/>
+                <Rule max="0" path="/items[at0009]"/>
+                <Rule max="0" path="/items[at0011]"/>
+                <Rule max="0" path="/items[at0010]"/>
+            </Items>
         </Context>
-        <Rule name="Operation ID" path="/context/other_context[at0001]/items[at0002]"/>
+        <Rule max="0" path="/context/other_context[at0001]/items[at0002]"/>
         <Rule max="0" path="/context/other_context[at0001]/items[at0005]"/>
     </definition>
+    <view>
+        <constraints path="[openEHR-EHR-COMPOSITION.report-procedure.v1]/category">
+            <items id="VisibleInView">
+                <value>category</value>
+            </items>
+        </constraints>
+    </view>
     <integrity_checks
         archetype_id="openEHR-EHR-COMPOSITION.report-procedure.v1"
         xmlns:tem="openEHR/v1/Template"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
         <digest id="MD5-CAM-1.0.1">2A789520F48E91960C4825733C8BA68F</digest>
     </integrity_checks>
-    <integrity_checks
-        archetype_id="openEHR-EHR-CLUSTER.fundingsource.v0"
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.xds_metadata.v0"
         xmlns:tem="openEHR/v1/Template"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
-        <digest id="MD5-CAM-1.0.1">99143E151E68B23CF3BB78D4E1F16CDD</digest>
+        <digest id="MD5-CAM-1.0.1">E62D896E2577FA727C75A9EFFD7CA63E</digest>
     </integrity_checks>
     <integrity_checks archetype_id="openEHR-EHR-ACTION.procedure.v1"
         xmlns:tem="openEHR/v1/Template"
@@ -174,5 +237,10 @@
         xmlns:tem="openEHR/v1/Template"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
         <digest id="MD5-CAM-1.0.1">EEC8640C1336806D602A1BC344D4F733</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.organisation.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">5DFD0809E7CD46EA0712A590C68F545B</digest>
     </integrity_checks>
 </template>
