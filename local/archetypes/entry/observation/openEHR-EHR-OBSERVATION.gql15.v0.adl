@@ -1,0 +1,605 @@
+﻿archetype (adl_version=1.4; uid=22e41634-5db3-48d3-83d7-e473abf87cf4)
+	openEHR-EHR-OBSERVATION.gql15.v0
+
+concept
+	[at0000]	-- gql15
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"David Jobling">
+		["organisation"] = <"Apperta Foundation CIC">
+		["email"] = <"david.jobling@apperta.org">
+		["date"] = <"2023-02-22">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the capture and reporting of GQL-15 questionnaire information.">
+			use = <"Use to record GQL-15 questionnaire information.
+
+">
+			misuse = <"Not to be used unless the terms of copyright have been observed.">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"FEBCCCF88185AFA09ABD7E5E7CC69680">
+		["build_uid"] = <"13c259f8-b4ee-476f-8870-e2264758b663">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- gql15
+		data matches {
+			HISTORY[at0001] matches {    -- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {    -- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {    -- 1. Reading newspapers
+										value matches {
+											1|[local::at0005],
+											2|[local::at0039],
+											3|[local::at0040],
+											4|[local::at0041],
+											5|[local::at0042]
+										}
+									}
+									ELEMENT[at0043] occurrences matches {0..1} matches {    -- 2. Walking after dark
+										value matches {
+											1|[local::at0044],
+											2|[local::at0045],
+											3|[local::at0046],
+											4|[local::at0047],
+											5|[local::at0048]
+										}
+									}
+									ELEMENT[at0073] occurrences matches {0..1} matches {    -- 3. Seeing at night
+										value matches {
+											1|[local::at0074],
+											2|[local::at0075],
+											3|[local::at0076],
+											4|[local::at0077],
+											5|[local::at0078]
+										}
+									}
+									ELEMENT[at0079] occurrences matches {0..1} matches {    -- 4. Walking on uneven ground
+										value matches {
+											1|[local::at0080],
+											2|[local::at0081],
+											3|[local::at0082],
+											4|[local::at0083],
+											5|[local::at0084]
+										}
+									}
+									ELEMENT[at0085] occurrences matches {0..1} matches {    -- 5. Adjusting to bright lights
+										value matches {
+											1|[local::at0086],
+											2|[local::at0087],
+											3|[local::at0088],
+											4|[local::at0089],
+											5|[local::at0090]
+										}
+									}
+									ELEMENT[at0091] occurrences matches {0..1} matches {    -- 6. Adjusting to dim lights
+										value matches {
+											1|[local::at0092],
+											2|[local::at0093],
+											3|[local::at0094],
+											4|[local::at0095],
+											5|[local::at0096]
+										}
+									}
+									ELEMENT[at0097] occurrences matches {0..1} matches {    -- 7. Going from light to dark room or vice versa
+										value matches {
+											1|[local::at0098],
+											2|[local::at0099],
+											3|[local::at0100],
+											4|[local::at0101],
+											5|[local::at0102]
+										}
+									}
+									ELEMENT[at0103] occurrences matches {0..1} matches {    -- 8. Tripping over objects
+										value matches {
+											1|[local::at0104],
+											2|[local::at0105],
+											3|[local::at0106],
+											4|[local::at0107],
+											5|[local::at0108]
+										}
+									}
+									ELEMENT[at0109] occurrences matches {0..1} matches {    -- 9. Seeing objects coming from the side
+										value matches {
+											1|[local::at0110],
+											2|[local::at0111],
+											3|[local::at0112],
+											4|[local::at0113],
+											5|[local::at0114]
+										}
+									}
+									ELEMENT[at0115] occurrences matches {0..1} matches {    -- 10. Crossing the road
+										value matches {
+											1|[local::at0116],
+											2|[local::at0117],
+											3|[local::at0118],
+											4|[local::at0119],
+											5|[local::at0120]
+										}
+									}
+									ELEMENT[at0121] occurrences matches {0..1} matches {    -- 11. Walking on steps/stairs
+										value matches {
+											1|[local::at0122],
+											2|[local::at0123],
+											3|[local::at0124],
+											4|[local::at0125],
+											5|[local::at0126]
+										}
+									}
+									ELEMENT[at0127] occurrences matches {0..1} matches {    -- 12. Bumping into objects
+										value matches {
+											1|[local::at0128],
+											2|[local::at0129],
+											3|[local::at0130],
+											4|[local::at0131],
+											5|[local::at0132]
+										}
+									}
+									ELEMENT[at0133] occurrences matches {0..1} matches {    -- 13. Judging distance of foot to step/curb
+										value matches {
+											1|[local::at0134],
+											2|[local::at0135],
+											3|[local::at0136],
+											4|[local::at0137],
+											5|[local::at0138]
+										}
+									}
+									ELEMENT[at0139] occurrences matches {0..1} matches {    -- 14. Finding dropped objects
+										value matches {
+											1|[local::at0140],
+											2|[local::at0141],
+											3|[local::at0142],
+											4|[local::at0143],
+											5|[local::at0144]
+										}
+									}
+									ELEMENT[at0145] occurrences matches {0..1} matches {    -- 15. Recognising faces
+										value matches {
+											1|[local::at0146],
+											2|[local::at0147],
+											3|[local::at0148],
+											4|[local::at0149],
+											5|[local::at0150]
+										}
+									}
+									ELEMENT[at0029] occurrences matches {0..1} matches {    -- Total score
+										value matches {
+											DV_COUNT matches {
+												magnitude matches {|15..75|}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0035] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0037] occurrences matches {0..*} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"gql15">
+					description = <"Glaucoma Quality of Life Questionnaire 15">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"1. Reading newspapers">
+					description = <"question: '1. Reading newspapers'">
+					comment = <"pagebreakInstruction: 'Does your vision give you any difficulty, even with glasses, with the following activities?' ">
+				>
+				["at0005"] = <
+					text = <"No difficulty">
+					description = <"The patient reports no difficulty with reading newspapers">
+				>
+				["at0029"] = <
+					text = <"Total score">
+					description = <"The total score of the fifteen questions.">
+				>
+				["at0035"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0037"] = <
+					text = <"Extension">
+					description = <"">
+				>
+				["at0039"] = <
+					text = <"A little bit of difficulty">
+					description = <"The patient reports a little bit of difficulty reading newspapers">
+				>
+				["at0040"] = <
+					text = <"Some difficulty">
+					description = <"The patient reports some difficulty reading newspapers">
+				>
+				["at0041"] = <
+					text = <"Quite a lot of difficulty">
+					description = <"The patient reports quite a lot of difficulty reading newspapers">
+				>
+				["at0042"] = <
+					text = <"Severe difficulity">
+					description = <"The patient reports severe difficulty reading newspapers">
+				>
+				["at0043"] = <
+					text = <"2. Walking after dark">
+					description = <"question: '2. Walking after dark'">
+				>
+				["at0044"] = <
+					text = <"No difficulty">
+					description = <"The patient reports no difficulty with walking after dark">
+				>
+				["at0045"] = <
+					text = <"A little bit of difficulty">
+					description = <"The patient reports a little bit of difficulty walking after dark">
+				>
+				["at0046"] = <
+					text = <"Some difficulty">
+					description = <"The patient reports some difficulty walking after dark">
+				>
+				["at0047"] = <
+					text = <"Quite a lot of difficulty">
+					description = <"The patient reports quite a lot of difficulty walking after dark">
+				>
+				["at0048"] = <
+					text = <"Severe difficulity">
+					description = <"The patient reports severe difficulty walking after dark">
+				>
+				["at0073"] = <
+					text = <"3. Seeing at night">
+					description = <"question: '3. Seeing at night'">
+				>
+				["at0074"] = <
+					text = <"No difficulty">
+					description = <"The patient reports no difficulty with seeing at night">
+				>
+				["at0075"] = <
+					text = <"A little bit of difficulty">
+					description = <"The patient reports a little bit of difficulty seeing at night">
+				>
+				["at0076"] = <
+					text = <"Some difficulty">
+					description = <"The patient reports some difficulty seeing at night">
+				>
+				["at0077"] = <
+					text = <"Quite a lot of difficulty">
+					description = <"The patient reports quite a lot of difficulty seeing at night">
+				>
+				["at0078"] = <
+					text = <"Severe difficulity">
+					description = <"The patient reports severe difficulty seeing at night">
+				>
+				["at0079"] = <
+					text = <"4. Walking on uneven ground">
+					description = <"question: '4. Walking on uneven ground'">
+				>
+				["at0080"] = <
+					text = <"No difficulty">
+					description = <"The patient reports no difficulty with walking on uneven ground">
+				>
+				["at0081"] = <
+					text = <"A little bit of difficulty">
+					description = <"The patient reports a little bit of difficulty walking on uneven ground">
+				>
+				["at0082"] = <
+					text = <"Some difficulty">
+					description = <"The patient reports some difficulty walking on uneven ground">
+				>
+				["at0083"] = <
+					text = <"Quite a lot of difficulty">
+					description = <"The patient reports quite a lot of difficulty walking on uneven ground">
+				>
+				["at0084"] = <
+					text = <"Severe difficulity">
+					description = <"The patient reports severe difficulty walking on uneven ground">
+				>
+				["at0085"] = <
+					text = <"5. Adjusting to bright lights">
+					description = <"question: '5. Adjusting to bright lights'">
+				>
+				["at0086"] = <
+					text = <"No difficulty">
+					description = <"The patient reports no difficulty with adjusting to bright lights">
+				>
+				["at0087"] = <
+					text = <"A little bit of difficulty">
+					description = <"The patient reports a little bit of difficulty adjusting to bright lights">
+				>
+				["at0088"] = <
+					text = <"Some difficulty">
+					description = <"The patient reports some difficulty reading adjusting to bright lights">
+				>
+				["at0089"] = <
+					text = <"Quite a lot of difficulty">
+					description = <"The patient reports quite a lot of difficulty adjusting to bright lights">
+				>
+				["at0090"] = <
+					text = <"Severe difficulity">
+					description = <"The patient reports severe difficulty reading adjusting to bright lights">
+				>
+				["at0091"] = <
+					text = <"6. Adjusting to dim lights">
+					description = <"question: '6. Adjusting to dim lights'">
+				>
+				["at0092"] = <
+					text = <"No difficulty">
+					description = <"The patient reports no difficulty with adjusting to dim lights">
+				>
+				["at0093"] = <
+					text = <"A little bit of difficulty">
+					description = <"The patient reports a little bit of difficulty adjusting to dim lights">
+				>
+				["at0094"] = <
+					text = <"Some difficulty">
+					description = <"The patient reports some difficulty adjusting to dim lights">
+				>
+				["at0095"] = <
+					text = <"Quite a lot of difficulty">
+					description = <"The patient reports quite a lot of difficulty adjusting to dim lights">
+				>
+				["at0096"] = <
+					text = <"Severe difficulity">
+					description = <"The patient reports severe difficulty adjusting to dim lights">
+				>
+				["at0097"] = <
+					text = <"7. Going from light to dark room or vice versa">
+					description = <"question: '7. Going from light to dark room or vice versa'">
+				>
+				["at0098"] = <
+					text = <"No difficulty">
+					description = <"The patient reports no difficulty with going from light to dark room or vice versa">
+				>
+				["at0099"] = <
+					text = <"A little bit of difficulty">
+					description = <"The patient reports a little bit of difficulty going from light to dark room or vice versa">
+				>
+				["at0100"] = <
+					text = <"Some difficulty">
+					description = <"The patient reports some difficulty going from light to dark room or vice versa">
+				>
+				["at0101"] = <
+					text = <"Quite a lot of difficulty">
+					description = <"The patient reports quite a lot of difficulty going from light to dark room or vice versa">
+				>
+				["at0102"] = <
+					text = <"Severe difficulity">
+					description = <"The patient reports severe difficulty going from light to dark room or vice versa">
+				>
+				["at0103"] = <
+					text = <"8. Tripping over objects">
+					description = <"question: '8. Tripping over objects'">
+				>
+				["at0104"] = <
+					text = <"No difficulty">
+					description = <"The patient reports no difficulty with tripping over objects">
+				>
+				["at0105"] = <
+					text = <"A little bit of difficulty">
+					description = <"The patient reports a little bit of difficulty tripping over objects">
+				>
+				["at0106"] = <
+					text = <"Some difficulty">
+					description = <"The patient reports some difficulty tripping over objects">
+				>
+				["at0107"] = <
+					text = <"Quite a lot of difficulty">
+					description = <"The patient reports quite a lot of difficulty tripping over objects">
+				>
+				["at0108"] = <
+					text = <"Severe difficulity">
+					description = <"The patient reports severe difficulty tripping over objects">
+				>
+				["at0109"] = <
+					text = <"9. Seeing objects coming from the side">
+					description = <"question: '9. Seeing objects coming from the side'">
+				>
+				["at0110"] = <
+					text = <"No difficulty">
+					description = <"The patient reports no difficulty with seeing objects coming from the side">
+				>
+				["at0111"] = <
+					text = <"A little bit of difficulty">
+					description = <"The patient reports a little bit of difficulty seeing objects coming from the side">
+				>
+				["at0112"] = <
+					text = <"Some difficulty">
+					description = <"The patient reports some difficulty seeing objects coming from the side">
+				>
+				["at0113"] = <
+					text = <"Quite a lot of difficulty">
+					description = <"The patient reports quite a lot of difficulty seeing objects coming from the side">
+				>
+				["at0114"] = <
+					text = <"Severe difficulity">
+					description = <"The patient reports severe difficulty seeing objects coming from the side">
+				>
+				["at0115"] = <
+					text = <"10. Crossing the road">
+					description = <"question: '10. Crossing the road'">
+				>
+				["at0116"] = <
+					text = <"No difficulty">
+					description = <"The patient reports no difficulty with crossing the road">
+				>
+				["at0117"] = <
+					text = <"A little bit of difficulty">
+					description = <"The patient reports a little bit of difficulty crossing the road">
+				>
+				["at0118"] = <
+					text = <"Some difficulty">
+					description = <"The patient reports some difficulty crossing the road">
+				>
+				["at0119"] = <
+					text = <"Quite a lot of difficulty">
+					description = <"The patient reports quite a lot of difficulty crossing the road">
+				>
+				["at0120"] = <
+					text = <"Severe difficulity">
+					description = <"The patient reports severe difficulty crossing the road">
+				>
+				["at0121"] = <
+					text = <"11. Walking on steps/stairs">
+					description = <"question: '11. Walking on steps/stairs'">
+				>
+				["at0122"] = <
+					text = <"No difficulty">
+					description = <"The patient reports no difficulty with walking on steps/stairs">
+				>
+				["at0123"] = <
+					text = <"A little bit of difficulty">
+					description = <"The patient reports a little bit of difficulty walking on steps/stairs">
+				>
+				["at0124"] = <
+					text = <"Some difficulty">
+					description = <"The patient reports some difficulty walking on steps/stairs">
+				>
+				["at0125"] = <
+					text = <"Quite a lot of difficulty">
+					description = <"The patient reports quite a lot of difficulty walking on steps/stairs">
+				>
+				["at0126"] = <
+					text = <"Severe difficulity">
+					description = <"The patient reports severe difficulty walking on steps/stairs">
+				>
+				["at0127"] = <
+					text = <"12. Bumping into objects">
+					description = <"question: '12. Bumping into objects'">
+				>
+				["at0128"] = <
+					text = <"No difficulty">
+					description = <"The patient reports no difficulty with bumping into objects">
+				>
+				["at0129"] = <
+					text = <"A little bit of difficulty">
+					description = <"The patient reports a little bit of difficulty bumping into objects">
+				>
+				["at0130"] = <
+					text = <"Some difficulty">
+					description = <"The patient reports some difficulty bumping into objects">
+				>
+				["at0131"] = <
+					text = <"Quite a lot of difficulty">
+					description = <"The patient reports quite a lot of difficulty bumping into objects">
+				>
+				["at0132"] = <
+					text = <"Severe difficulity">
+					description = <"The patient reports severe difficulty bumping into objects">
+				>
+				["at0133"] = <
+					text = <"13. Judging distance of foot to step/curb">
+					description = <"question: '13. Judging distance of foot to step/curb'">
+				>
+				["at0134"] = <
+					text = <"No difficulty">
+					description = <"The patient reports no difficulty with judging distance of foot to step/curb">
+				>
+				["at0135"] = <
+					text = <"A little bit of difficulty">
+					description = <"The patient reports a little bit of difficulty judging distance of foot to step/curb">
+				>
+				["at0136"] = <
+					text = <"Some difficulty">
+					description = <"The patient reports some difficulty judging distance of foot to step/curb">
+				>
+				["at0137"] = <
+					text = <"Quite a lot of difficulty">
+					description = <"The patient reports quite a lot of difficulty judging distance of foot to step/curb">
+				>
+				["at0138"] = <
+					text = <"Severe difficulty">
+					description = <"The patient reports severe difficulty judging distance of foot to step/curb">
+				>
+				["at0139"] = <
+					text = <"14. Finding dropped objects">
+					description = <"question: '14. Finding dropped objects'">
+				>
+				["at0140"] = <
+					text = <"No difficulty">
+					description = <"The patient reports no difficulty with finding dropped objects">
+				>
+				["at0141"] = <
+					text = <"A little bit of difficulty">
+					description = <"The patient reports a little bit of difficulty finding dropped objects">
+				>
+				["at0142"] = <
+					text = <"Some difficulty">
+					description = <"The patient reports some difficulty finding dropped objects">
+				>
+				["at0143"] = <
+					text = <"Quite a lot of difficulty">
+					description = <"The patient reports quite a lot of difficulty finding dropped objects">
+				>
+				["at0144"] = <
+					text = <"Severe difficulty">
+					description = <"The patient reports severe difficulty finding dropped objects">
+				>
+				["at0145"] = <
+					text = <"15. Recognising faces">
+					description = <"question: '15. Recognising faces'">
+				>
+				["at0146"] = <
+					text = <"No difficulty">
+					description = <"The patient reports no difficulty with recognising faces">
+				>
+				["at0147"] = <
+					text = <"A little bit of difficulty">
+					description = <"The patient reports a little bit of difficulty recognising faces">
+				>
+				["at0148"] = <
+					text = <"Some difficulty">
+					description = <"The patient reports some difficulty recognising faces">
+				>
+				["at0149"] = <
+					text = <"Quite a lot of difficulty">
+					description = <"The patient reports quite a lot of difficulty recognising faces">
+				>
+				["at0150"] = <
+					text = <"Severe difficulty">
+					description = <"The patient reports severe difficulty recognising faces">
+				>
+			>
+		>
+	>
