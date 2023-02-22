@@ -1,0 +1,500 @@
+﻿archetype (adl_version=1.4; uid=e3811395-dafa-457b-89bb-6622dcc88b41)
+	openEHR-EHR-OBSERVATION.quick_disabilities_of_the_arm_shoulder_and_hand_score_quickdash.v0
+
+concept
+	[at0000]	-- Quick Disabilities of the Arm Shoulder and Hand Score_QuickDASH
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Kanthan Theivendran">
+		["organisation"] = <"KLT Medical Ltd">
+		["email"] = <"kanthan79@gmail.com">
+		["date"] = <"2023-02-19">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"The Quick Disabilities of the Arm, Shoulder and Hand (QuickDASH) Outcome Measure is a 11-item, self-report questionnaire designed to measure physical function and symptoms in patients with any or several musculoskeletal disorders of the upper limb. 
+
+The questionnaire was designed to help describe the disability experienced by people with upper-limb disorders and also to monitor changes in symptoms and function over time. Testing has shown that the QuickDASH performs well in both these roles. It gives clinicians and researchers the advantage of having a single, reliable instrument that can be used to assess any or all joints in the upper extremity. ">
+			use = <"The QuickDASH Outcome measure is valid, reliable and responsive and can be used for clinical and/or research purposes to measure physical function and symptoms in patients with any or several musculoskeletal disorders of the upper limb.">
+			keywords = <"Patient Reported Outcomes Measure, QuickDASH, Arm, Shoulder, Hand, Wrist, Pain, Function, Upper Limb", ...>
+			misuse = <"">
+			copyright = <"© While openEHR archetypes are all freely available under an open license, the specific content of this QuickDASH archetype can be only be used under the terms of The Institute for Work & Health (the Institute) Licence agreement which can be found at: https://dash.iwh.on.ca/licences. Any use of this archetype within implementations must be in compliance with the terms established by Institute for Work & Health, Toronto, Canada. The terms of the License can be found at: https://dash.iwh.on.ca/licences, Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["references"] = <"Kennedy CA, Beaton DE, Solway S, McConnell S, Bombardier C. Disabilities of the Arm, Shoulder and Hand (DASH). The DASH and QuickDASH Outcome Measure User’s Manual, Third Edition. Toronto, Ontario: Institute for Work & Health, 2011.
+
+Beaton DE, Wright JG, Katz JN, and the Upper Extremity Collaborative Group. Development of the QuickDASH: Comparison of three item-reduction approaches. Journal of Bone and Joint Surgery 2005a; 87A(5):1038-1046.
+">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"A61E8F6A0111FC9DA4D5BBE7B05593F4">
+		["build_uid"] = <"87988dfd-5baf-4bf7-89d9-a758a080e871">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- Quick Disabilities of the Arm Shoulder and Hand Score_QuickDASH
+		data matches {
+			HISTORY[at0001] matches {    -- History
+				events cardinality matches {1..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..1} matches {    -- Point in time
+						data matches {
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									CLUSTER[at0052] occurrences matches {0..1} matches {    -- Rate ability
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0004] occurrences matches {0..1} matches {    -- 1. Open jar
+												value matches {
+													1|[local::at0005],
+													2|[local::at0006],
+													3|[local::at0007],
+													4|[local::at0008],
+													5|[local::at0009]
+												}
+											}
+											ELEMENT[at0010] occurrences matches {0..1} matches {    -- 2. Heavy chores
+												value matches {
+													1|[local::at0011],
+													2|[local::at0012],
+													3|[local::at0013],
+													4|[local::at0014],
+													5|[local::at0015]
+												}
+											}
+											ELEMENT[at0016] occurrences matches {0..1} matches {    -- 3. Carry bag
+												value matches {
+													1|[local::at0017],
+													2|[local::at0018],
+													3|[local::at0019],
+													4|[local::at0020],
+													5|[local::at0021]
+												}
+											}
+											ELEMENT[at0022] occurrences matches {0..1} matches {    -- 4. Wash back
+												value matches {
+													1|[local::at0023],
+													2|[local::at0024],
+													3|[local::at0025],
+													4|[local::at0026],
+													5|[local::at0027]
+												}
+											}
+											ELEMENT[at0028] occurrences matches {0..1} matches {    -- 5. Cut food
+												value matches {
+													1|[local::at0029],
+													2|[local::at0030],
+													3|[local::at0031],
+													4|[local::at0032],
+													5|[local::at0033]
+												}
+											}
+											ELEMENT[at0034] occurrences matches {0..1} matches {    -- 6. Recreational activities
+												value matches {
+													1|[local::at0035],
+													2|[local::at0036],
+													3|[local::at0037],
+													4|[local::at0038],
+													5|[local::at0039]
+												}
+											}
+											ELEMENT[at0040] occurrences matches {0..1} matches {    -- 7. Social activities
+												value matches {
+													1|[local::at0041],
+													2|[local::at0042],
+													3|[local::at0043],
+													4|[local::at0044],
+													5|[local::at0045]
+												}
+											}
+											ELEMENT[at0046] occurrences matches {0..1} matches {    -- 8. Work activities
+												value matches {
+													1|[local::at0047],
+													2|[local::at0048],
+													3|[local::at0049],
+													4|[local::at0050],
+													5|[local::at0051]
+												}
+											}
+										}
+									}
+									CLUSTER[at0067] occurrences matches {0..1} matches {    -- Symptom Severity
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0055] occurrences matches {0..1} matches {    -- 9. Pain
+												value matches {
+													1|[local::at0056],
+													2|[local::at0057],
+													3|[local::at0058],
+													4|[local::at0059],
+													5|[local::at0060]
+												}
+											}
+											ELEMENT[at0061] occurrences matches {0..1} matches {    -- 10. Tingling
+												value matches {
+													1|[local::at0062],
+													2|[local::at0063],
+													3|[local::at0064],
+													4|[local::at0065],
+													5|[local::at0066]
+												}
+											}
+										}
+									}
+									ELEMENT[at0068] occurrences matches {0..1} matches {    -- 11. Sleeping
+										value matches {
+											1|[local::at0069],
+											2|[local::at0070],
+											3|[local::at0071],
+											4|[local::at0072],
+											5|[local::at0073]
+										}
+									}
+									ELEMENT[at0074] occurrences matches {0..1} matches {    -- Total Score
+										value matches {
+											DV_COUNT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0054] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0075] occurrences matches {0..*} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Quick Disabilities of the Arm Shoulder and Hand Score_QuickDASH">
+					description = <"
+">
+					comment = <"instruction: '**INSTRUCTIONS: This questionnaire asks about your symptoms as well as your ability to perform certain activities. Please answer every question, based on your condition in the last week, by circling the appropriate number. If you did not have the opportunity to perform an activity in the past week, please make your best estimate of which response would be the most accurate. It doesn’t matter which hand or arm you use to perform the activity; please answer based on your ability regardless of how you perform the task.**'
+
+">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Point in time">
+					description = <"A specific date and/or time which may be explicitly defined in a template or at run-time.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"1. Open jar">
+					description = <"question: '1. Open a tight or new jar.'">
+					comment = <"pagebreakInstruction: '**Please rate your ability to do the following activities in the last week**'">
+				>
+				["at0005"] = <
+					text = <"NO DIFFICULTY">
+					description = <"No difficulty opening a tight or new jar">
+				>
+				["at0006"] = <
+					text = <"MILD DIFFICULTY">
+					description = <"Mild difficulty opening a new tight jar">
+				>
+				["at0007"] = <
+					text = <"MODERATE DIFFICULTY">
+					description = <"Moderate difficulty opening a new tight jar">
+				>
+				["at0008"] = <
+					text = <"SEVERE DIFFICULTY">
+					description = <"Severe difficulty opening a new tight jar">
+				>
+				["at0009"] = <
+					text = <"UNABLE">
+					description = <"Unable to open a new tight jar">
+				>
+				["at0010"] = <
+					text = <"2. Heavy chores">
+					description = <"question: '2. Do heavy household chores (e.g., wash walls, floors).'">
+				>
+				["at0011"] = <
+					text = <"NO DIFFICULTY">
+					description = <"No difficulty doing heavy household chores">
+				>
+				["at0012"] = <
+					text = <"MILD DIFFICULTY">
+					description = <"Mild difficulty doing heavy household chores">
+				>
+				["at0013"] = <
+					text = <"MODERATE DIFFICULTY">
+					description = <"Moderate difficulty doing heavy household chores">
+				>
+				["at0014"] = <
+					text = <"SEVERE DIFFICULTY">
+					description = <"Severe difficulty doing heavy household chores">
+				>
+				["at0015"] = <
+					text = <"UNABLE">
+					description = <"Unable to do heavy household chores">
+				>
+				["at0016"] = <
+					text = <"3. Carry bag">
+					description = <"question: '3. Carry a shopping bag or briefcase.'">
+				>
+				["at0017"] = <
+					text = <"NO DIFFICULTY">
+					description = <"No difficulty in carrying a shopping bag or briefcase">
+				>
+				["at0018"] = <
+					text = <"MILD DIFFICULTY">
+					description = <"Mild difficulty in carrying a shopping bag or briefcase">
+				>
+				["at0019"] = <
+					text = <"MODERATE DIFFICULTY">
+					description = <"Moderate difficulty in carrying a shopping bag or briefcase">
+				>
+				["at0020"] = <
+					text = <"SEVERE DIFFICULTY">
+					description = <"Severe difficulty in carrying a shopping bag or briefcase">
+				>
+				["at0021"] = <
+					text = <"UNABLE">
+					description = <"Unable to in carry a shopping bag or briefcase">
+				>
+				["at0022"] = <
+					text = <"4. Wash back">
+					description = <"question: '4. Wash your back.'">
+				>
+				["at0023"] = <
+					text = <"NO DIFFICULTY">
+					description = <"No difficulty washing back">
+				>
+				["at0024"] = <
+					text = <"MILD DIFFICULTY">
+					description = <"Mild difficulty washing back">
+				>
+				["at0025"] = <
+					text = <"MODERATE DIFFICULTY">
+					description = <"Moderate difficulty washing back">
+				>
+				["at0026"] = <
+					text = <"SEVERE DIFFICULTY">
+					description = <"Severe difficulty washing back">
+				>
+				["at0027"] = <
+					text = <"UNABLE">
+					description = <"Unable to wash back">
+				>
+				["at0028"] = <
+					text = <"5. Cut food">
+					description = <"question: '5. Use a knife to cut food.'">
+				>
+				["at0029"] = <
+					text = <"NO DIFFICULTY">
+					description = <"No difficulty in using a knife to cut food">
+				>
+				["at0030"] = <
+					text = <"MILD DIFFICULTY">
+					description = <"Mild difficulty in using a knife to cut food">
+				>
+				["at0031"] = <
+					text = <"MODERATE DIFFICULTY">
+					description = <"Moderate difficulty in using a knife to cut food">
+				>
+				["at0032"] = <
+					text = <"SEVERE DIFFICULTY">
+					description = <"Severe difficulty in using a knife to cut food">
+				>
+				["at0033"] = <
+					text = <"UNABLE">
+					description = <"Unable to use a knife to cut food">
+				>
+				["at0034"] = <
+					text = <"6. Recreational activities">
+					description = <"question: '6. Recreational activities in which you take some force or impact through your arm, shoulder or hand (e.g., golf, hammering, tennis, etc.).'">
+				>
+				["at0035"] = <
+					text = <"NO DIFFICULTY">
+					description = <"No difficulty in doing recreational activities in which you take some force or impact through your arm, shoulder or hand">
+				>
+				["at0036"] = <
+					text = <"MILD DIFFICULTY">
+					description = <"Mild difficulty in doing recreational activities in which you take some force or impact through your arm, shoulder or hand">
+				>
+				["at0037"] = <
+					text = <"MODERATE DIFFICULTY">
+					description = <"Moderate difficulty in doing recreational activities in which you take some force or impact through your arm, shoulder or hand">
+				>
+				["at0038"] = <
+					text = <"SEVERE DIFFICULTY">
+					description = <"Severe difficulty in doing recreational activities in which you take some force or impact through your arm, shoulder or hand">
+				>
+				["at0039"] = <
+					text = <"UNABLE">
+					description = <"Unable to do recreational activities in which you take some force or impact through your arm, shoulder or hand">
+				>
+				["at0040"] = <
+					text = <"7. Social activities">
+					description = <"question: '7. During the past week, to what extent has your arm, shoulder or hand problem interfered with your normal social activities with family, friends, neighbours or groups?'">
+				>
+				["at0041"] = <
+					text = <"NOT AT ALL">
+					description = <"Not at all interfered with normal social activities">
+				>
+				["at0042"] = <
+					text = <"SLIGHTLY">
+					description = <"Slightly interfered with normal social activities">
+				>
+				["at0043"] = <
+					text = <"MODERATELY">
+					description = <"Moderately interfered with normal social activities">
+				>
+				["at0044"] = <
+					text = <"QUITE A BIT">
+					description = <"Interfered quite a bit with normal social activities">
+				>
+				["at0045"] = <
+					text = <"EXTREMELY">
+					description = <"Extremely interfered with normal social activities">
+				>
+				["at0046"] = <
+					text = <"8. Work activities">
+					description = <"question: '8. During the past week, were you limited in your work or other regular daily activities as a result of your arm, shoulder or hand problem?'">
+				>
+				["at0047"] = <
+					text = <"NOT LIMITED AT ALL">
+					description = <"Not limited in work or other regular daily activities">
+				>
+				["at0048"] = <
+					text = <"SLIGHTLY LIMITED">
+					description = <"Slightly limited in work or other regular daily activities">
+				>
+				["at0049"] = <
+					text = <"MODERATELY LIMITED">
+					description = <"Moderately limited in work or other regular daily activities">
+				>
+				["at0050"] = <
+					text = <"VERY LIMITED">
+					description = <"Very limited in work or other regular daily activities">
+				>
+				["at0051"] = <
+					text = <"UNABLE">
+					description = <"Unable to work or do other regular daily activities">
+				>
+				["at0052"] = <
+					text = <"Rate ability">
+					description = <"">
+				>
+				["at0054"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0055"] = <
+					text = <"9. Pain">
+					description = <"question: '9. Arm, shoulder or hand pain.'">
+					comment = <"pagebreakInstruction: '**Please rate the severity of the following symptoms in the last week.**'">
+				>
+				["at0056"] = <
+					text = <"NONE">
+					description = <"No pain">
+				>
+				["at0057"] = <
+					text = <"MILD">
+					description = <"Mild pain">
+				>
+				["at0058"] = <
+					text = <"MODERATE">
+					description = <"Moderate pain">
+				>
+				["at0059"] = <
+					text = <"SEVERE">
+					description = <"Severe pain">
+				>
+				["at0060"] = <
+					text = <"EXTREME">
+					description = <"Extreme pain">
+				>
+				["at0061"] = <
+					text = <"10. Tingling">
+					description = <"question: '10. Tingling (pins and needles) in your arm, shoulder or hand.'">
+				>
+				["at0062"] = <
+					text = <"NONE">
+					description = <"No tingling">
+				>
+				["at0063"] = <
+					text = <"MILD">
+					description = <"Mild tingling">
+				>
+				["at0064"] = <
+					text = <"MODERATE">
+					description = <"Moderate tingling">
+				>
+				["at0065"] = <
+					text = <"SEVERE">
+					description = <"Severe tingling">
+				>
+				["at0066"] = <
+					text = <"EXTREME">
+					description = <"Extreme tingling">
+				>
+				["at0067"] = <
+					text = <"Symptom Severity">
+					description = <"">
+				>
+				["at0068"] = <
+					text = <"11. Sleeping">
+					description = <"question: '11. During the past week, how much difficulty have you had sleeping because of the pain in your arm, shoulder or hand?'">
+				>
+				["at0069"] = <
+					text = <"NO DIFFICULTY">
+					description = <"No difficulty sleeping">
+				>
+				["at0070"] = <
+					text = <"MILD DIFFICULTY">
+					description = <"Mild difficulty sleeping">
+				>
+				["at0071"] = <
+					text = <"MODERATE DIFFICULTY">
+					description = <"Moderate difficulty sleeping">
+				>
+				["at0072"] = <
+					text = <"SEVERE DIFFICULTY">
+					description = <"Severe difficulty sleeping">
+				>
+				["at0073"] = <
+					text = <"SO MUCH DIFFICULTY THAT I CAN'T SLEEP">
+					description = <"Unable to sleep">
+				>
+				["at0074"] = <
+					text = <"Total Score">
+					description = <"QuickDASH score = ((Sum of n responses)/n)-1) x25, where n is equal to the number of completed responses.
+
+A QuickDASH score may not be calculated if there is greater than 1 missing item. Minimum calculated score is 0 and maximum calculated score is 100.
+">
+				>
+				["at0075"] = <
+					text = <"Extension">
+					description = <"">
+				>
+			>
+		>
+	>
