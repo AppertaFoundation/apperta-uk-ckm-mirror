@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xmlns="openEHR/v1/Template">
+    <id>a8596835-1b1a-4e11-ba4d-359161226a96</id>
+    <name>CKM - Pharmacogenetic phenotype</name>
+    <description>
+        <original_author>
+            <item>
+                <key>date</key>
+                <value>2023-03-07</value>
+            </item>
+        </original_author>
+        <lifecycle_state>unmanaged</lifecycle_state>
+        <details/>
+        <other_details>
+            <item>
+                <key>licence</key>
+                <value>This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.</value>
+            </item>
+            <item>
+                <key>custodian_organisation</key>
+                <value>openEHR Foundation</value>
+            </item>
+            <item>
+                <key>original_namespace</key>
+                <value>org.openehr</value>
+            </item>
+            <item>
+                <key>original_publisher</key>
+                <value>openEHR Foundation</value>
+            </item>
+            <item>
+                <key>custodian_namespace</key>
+                <value>org.openehr</value>
+            </item>
+            <item>
+                <key>MD5-CAM-1.0.1</key>
+                <value>e9122f43f04b143492da00fd8d20ee8e</value>
+            </item>
+            <item>
+                <key>PARENT:MD5-CAM-1.0.1</key>
+                <value>70DE7D6A08DA0E7CEC7E6860EE6931FF</value>
+            </item>
+            <item>
+                <key>sem_ver</key>
+                <value>0.1.0</value>
+            </item>
+            <item>
+                <key>build_uid</key>
+                <value/>
+            </item>
+            <item>
+                <key>original_language</key>
+                <value>ISO_639-1::en</value>
+            </item>
+        </other_details>
+    </description>
+    <definition
+        archetype_id="openEHR-EHR-EVALUATION.pharmacogenetic_phenotype.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:EVALUATION">
+        <Rule path="/data[at0001]/items[at0002]">
+            <constraint xsi:type="tem:textConstraint">
+                <includedValues>http://snomed.info/sct::738764009::CYP2B6 poor metaboliser</includedValues>
+                <includedValues>http://snomed.info/sct::772077005::CYP2B6 rapid metabolizer</includedValues>
+                <includedValues>http://snomed.info/sct::738766006::CYP2B6 normal metaboliser</includedValues>
+                <includedValues>http://snomed.info/sct::772078000::CYP2B6 ultra-rapid metabolizer</includedValues>
+                <includedValues>http://snomed.info/sct::738765005::CYP2B6 intermediate metaboliser</includedValues>
+            </constraint>
+        </Rule>
+        <Items archetype_id="openEHR-EHR-CLUSTER.genotype.v0" max="1"
+            path="/data[at0001]/items[at0003]" xsi:type="tem:CLUSTER">
+            <Rule max="0" path="/items[at0045]"/>
+        </Items>
+    </definition>
+    <integrity_checks
+        archetype_id="openEHR-EHR-EVALUATION.pharmacogenetic_phenotype.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">70DE7D6A08DA0E7CEC7E6860EE6931FF</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.genotype.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">5AC8919C82A385E204622E68AFD6B867</digest>
+    </integrity_checks>
+</template>
