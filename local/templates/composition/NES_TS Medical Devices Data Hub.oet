@@ -60,7 +60,7 @@
             </item>
             <item>
                 <key>sem_ver</key>
-                <value>0.0.3</value>
+                <value>0.0.4</value>
             </item>
             <item>
                 <key>build_uid</key>
@@ -85,6 +85,14 @@
             <item>
                 <key>Implementation Note</key>
                 <value>There may be multiple Code/Term pairs required. Developers should use the Mappings reference model attribute to store multiple codes</value>
+            </item>
+        </items>
+    </annotations>
+    <annotations path="[openEHR-EHR-COMPOSITION.report-procedure.v1]/content[openEHR-EHR-ACTION.procedure.v1]/description[at0001]/items[openEHR-EHR-CLUSTER.anatomical_location-Laterality_Expansion.v0]/items[at0001]">
+        <items>
+            <item>
+                <key>Implementation Note</key>
+                <value>Mandatory value but we do not need it for this use case so use some default text and hide from interfaces</value>
             </item>
         </items>
     </annotations>
@@ -159,7 +167,7 @@
             <Items
                 archetype_id="openEHR-EHR-CLUSTER.anatomical_location-Laterality_Expansion.v0"
                 max="1" path="/description[at0001]/items[at0003]" xsi:type="tem:CLUSTER">
-                <Rule default="Body site" path="/items[at0001]"/>
+                <Rule default="Body site" name="Body Site" path="/items[at0001]"/>
                 <Rule max="0" path="/items[at0065]"/>
                 <Rule max="0" path="/items[at0064.1]">
                     <constraint xsi:type="tem:multipleConstraint">
@@ -212,7 +220,6 @@
                 path="/context/other_context[at0001]/items[at0006]" xsi:type="tem:CLUSTER">
                 <Rule max="0" path="/items[at0001]"/>
                 <Rule max="0" path="/items[at0002]"/>
-                <Rule default="local::09 ::" path="/items[at0003]"/>
                 <Rule max="0" path="/items[at0004]"/>
                 <Rule max="0" path="/items[at0007]"/>
                 <Rule max="0" path="/items[at0009]"/>
