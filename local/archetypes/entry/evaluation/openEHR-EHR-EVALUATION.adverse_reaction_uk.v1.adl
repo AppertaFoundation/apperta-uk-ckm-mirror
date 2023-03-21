@@ -1,4 +1,4 @@
-﻿archetype (adl_version=1.4; uid=0317d781-f1e4-43f1-8cc0-41a148470d40)
+﻿archetype (adl_version=1.4; uid=746105ec-69c4-4d05-9a0c-8e309c9c4893)
 	openEHR-EHR-EVALUATION.adverse_reaction_uk.v1
 
 concept
@@ -26,14 +26,14 @@ It is designed primarily for use with in a UK primary care context but may be su
 It should not be used to record negated statements such as \"No history of adverse reactions\" or \"Allergy to Penicillin refuted by challenge testing\". A specific 'Exclusion of adverse reaction' archetype is used for this purpose to ensure that negated statements are clearly separated from positive statements.
 
 It should not be used to record 'absence' statements such as \"No information available on adverse reactions\" . A different 'Absence of information' archetype is used for this purpose to ensure that 'absence' statements are clearly separated from positive statements.">
-			copyright = <"© Clinical Models UK">
+			copyright = <"© Apperta Foundation">
 		>
 	>
-	lifecycle_state = <"in_development">
+	lifecycle_state = <"deprecated">
 	other_contributors = <"Steve Bentley, HSCIC, United Kingdom", "Colin Brown, SCIMP, United Kingdom", "Rachel Clements, Cegedim Rx Ltd, United Kingdom", "Richard Cottrell, NHS Ayrshire and Arran, United Kingdom", "Leo Fogarty, GP2GP project, NHS England", "Gurminder Khamba, NHS CFH, United Kingdom", "Heather Leslie, Ocean Informatics, Australia", "Dawn MacDermid, United Kingdom", "Ian McNicoll, Ocean Informatics, United Kingdom (Editor)", "Barry Melia, NHS Lothian, United Kingdom", "Paul Miller, SCIMP, United Kingdom (Editor)", "Sam Patel, NHS Lanarkshire, United Kingdom", "Mike Robinson, INPS, United Kingdom", "Laura Sato, Health and Social Care Information Centre, United Kingdom", "Ian Thompson, SCIMP, United Kingdom (Editor)", "John Thomson, NHS Grampian, United Kingdom", "John Williams, GP2GP, United Kingdom (Editor)">
 	other_details = <
-		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
-		["custodian_organisation"] = <"UK Clinical Models">
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"Apperta UK">
 		["references"] = <"NHS Scotland SCI-XML schema http://www.sci.scot.nhs.uk/products/gateway/gate_down_xml.htm
 NWIS Wales SCI-XML schema
 HSCIC England  NHS Message Implementation Guidance, http://www.uktcregistration.nss.cfh.nhs.uk/trud3/
@@ -44,11 +44,11 @@ ISB England, Representation in Electronic Patient Records of Allergic Reactions,
 RCP London, Standards for the clinical structure and content of patient records, http://www.rcplondon.ac.uk/sites/default/files/standards-for-the-clinical-structure-and-content-of-patient-records.pdf
 RCP London, Standards for core clinical information, http://www.rcplondon.ac.uk/sites/default/files/core_clinical_headings_for_electronic_health_records_v1.4.pdf">
 		["original_namespace"] = <"uk.org.clinicalmodels">
-		["original_publisher"] = <"UK Clinical Models">
+		["original_publisher"] = <"Apperta UK">
 		["custodian_namespace"] = <"uk.org.clinicalmodels">
-		["MD5-CAM-1.0.1"] = <"E3F65A7EB6E3F44A7AF5928310293B26">
-		["build_uid"] = <"d7ab0b84-c2ba-4fde-8b71-d10aba450037">
-		["revision"] = <"1.0.2-alpha">
+		["MD5-CAM-1.0.1"] = <"33AC41368D0CAB88272D2A577B0F5F1B">
+		["build_uid"] = <"79097ab2-1fbb-454f-b3c3-c27a0574bd4a">
+		["revision"] = <"1.0.2">
 	>
 
 definition
