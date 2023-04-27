@@ -1,0 +1,109 @@
+﻿archetype (adl_version=1.4; uid=907ea9e9-c6b7-4db9-82b4-4054ec93bf38)
+	openEHR-EHR-CLUSTER.nes_ts-medical-device-regulatory-details.v0
+
+concept
+	[at0000]	-- nes_ts-medical-device-regulatory-details
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Dr Paul Miller">
+		["organisation"] = <"NHS Education for Scotland Technology Service">
+		["email"] = <"paul.miller@nhs.scot">
+		["date"] = <"2023-04-27">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"This cluster is to support the requirement to record 'Class' and possibly other values as part of a medical device record., where it is necessary to store these values in the EHR. Its initial purpose is specifically to enable the recording of the 'Class' of a medical device as defined in the United Kingdom's \"Medicines and Healthcare products Regulatory Agency\" (MHRA) requirements.">
+			use = <"Use inside the Medical Device or Medical Device Details clusters to allow the recording of taxonomical definitions of attributes relating to the regulation of medical devices, such as Class and Category.">
+			keywords = <"mhra, device, regulatory, class, category, mdr", ...>
+			misuse = <"Do not use this cluster for other medical device details, all of which should be captured in other medical device archetypes. If the required data can be externally referenced then it may be more appropriate to do that rather than persist the data inside the EHR.">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["references"] = <"Derived from: <Add reference to original resource here>
+
+https://www.gov.uk/government/publications/medicines-and-medical-devices-bill-overarching-documents/factsheet-medical-devices-overview">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"D7B3980EACDBD64DDB03467198D87469">
+		["build_uid"] = <"20952325-3d5f-4a45-82ea-4c4ab333ad80">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- nes_ts-medical-device-regulatory-details
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Class
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0007] occurrences matches {0..1} matches {    -- Category
+				value matches {
+					DV_TEXT matches {*}
+					DV_ORDINAL matches {*}
+					DV_CODED_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0008] occurrences matches {0..1} matches {    -- Other
+				value matches {
+					DV_TEXT matches {*}
+					DV_ORDINAL matches {*}
+					DV_CODED_TEXT matches {*}
+				}
+			}
+			allow_archetype CLUSTER[at0003] occurrences matches {0..*} matches {    -- Regulating organisation
+				include
+					archetype_id/value matches {/.*/}
+			}
+			allow_archetype CLUSTER[at0005] occurrences matches {0..*} matches {    -- Extension
+				include
+					archetype_id/value matches {/.*/}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"nes_ts-medical-device-regulatory-details">
+					description = <"NES_TS UK_MHRA Medical Device ">
+				>
+				["at0001"] = <
+					text = <"Class">
+					description = <"The Class of device as defined by the associated regulatory body or policy">
+					comment = <"For example, Class I">
+				>
+				["at0003"] = <
+					text = <"Regulating organisation">
+					description = <"The organisation that provides the values and definitions of the associated regulatory device metadata.">
+					comment = <"For example, UK MHRA.">
+				>
+				["at0005"] = <
+					text = <"Extension">
+					description = <"Additional information about the regulatory data values">
+				>
+				["at0007"] = <
+					text = <"Category">
+					description = <"The category of the device, as defined by the associated regulatory body or policy">
+					comment = <"For example, '1. Non Invasive'">
+				>
+				["at0008"] = <
+					text = <"Other">
+					description = <"Any additional allocated taxonomy values not elsewhere available">
+					comment = <"For example, 'Type', 'Branch', 'Chapter'">
+				>
+			>
+		>
+	>
