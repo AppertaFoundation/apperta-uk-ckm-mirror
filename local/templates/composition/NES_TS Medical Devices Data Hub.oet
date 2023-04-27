@@ -60,7 +60,7 @@
             </item>
             <item>
                 <key>sem_ver</key>
-                <value>0.0.4</value>
+                <value>0.0.5</value>
             </item>
             <item>
                 <key>build_uid</key>
@@ -68,7 +68,7 @@
             </item>
             <item>
                 <key>MD5-CAM-1.0.1</key>
-                <value>7258c6de9fb20a5c6f6b9dc5d9c85fe6</value>
+                <value>1d05592c2ec0c5c2996f56025e3a0f99</value>
             </item>
             <item>
                 <key>PARENT:MD5-CAM-1.0.1</key>
@@ -151,7 +151,14 @@
                 concept_name="Medical device" name="Device Details"
                 path="/description[at0001]/items[at0003]" xsi:type="tem:CLUSTER">
                 <Rule name="Product description" path="/items[at0001]"/>
-                <Rule max="0" path="/items[at0003]"/>
+                <Rule name="Class" path="/items[at0003]">
+                    <constraint limitToList="false" xsi:type="tem:textConstraint">
+                        <includedValues>Class I</includedValues>
+                        <includedValues>Class IIa</includedValues>
+                        <includedValues>Class IIb</includedValues>
+                        <includedValues>Class III</includedValues>
+                    </constraint>
+                </Rule>
                 <Rule max="0" path="/items[at0002]"/>
                 <Rule max="0" path="/items[at0004]"/>
                 <Rule max="0" path="/items[at0005]"/>
@@ -163,6 +170,41 @@
                 <Rule max="0" path="/items[at0007]"/>
                 <Rule max="0" path="/items[at0024]"/>
                 <Rule max="0" path="/items[at0008]"/>
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.nes_ts-medical-device-regulatory-details.v0"
+                    max="1" path="/items[at0026]" xsi:type="tem:CLUSTER">
+                    <Rule path="/items[at0001]">
+                        <constraint xsi:type="tem:textConstraint">
+                            <includedValues>Class I</includedValues>
+                            <includedValues>Class IIa</includedValues>
+                            <includedValues>Class IIb</includedValues>
+                            <includedValues>Class III</includedValues>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0007]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Text</includedTypes>
+                            <includedTypes>Ordinal</includedTypes>
+                            <includedTypes>Coded_text</includedTypes>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0008]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Text</includedTypes>
+                            <includedTypes>Ordinal</includedTypes>
+                            <includedTypes>Coded_text</includedTypes>
+                        </constraint>
+                    </Rule>
+                    <Items
+                        archetype_id="openEHR-EHR-CLUSTER.organisation_cc.v0"
+                        max="1" path="/items[at0003]" xsi:type="tem:CLUSTER">
+                        <Rule max="0" path="/items[at0010]"/>
+                        <Rule max="0" path="/items[at0011]"/>
+                        <Rule
+                            default="Medicines and Healthcare products Regulatory Agency" path="/items[at0012]"/>
+                        <Rule max="0" path="/items[at0013]"/>
+                    </Items>
+                </Items>
             </Items>
             <Items
                 archetype_id="openEHR-EHR-CLUSTER.anatomical_location-Laterality_Expansion.v0"
@@ -252,16 +294,22 @@
         <digest id="MD5-CAM-1.0.1">EEC8640C1336806D602A1BC344D4F733</digest>
     </integrity_checks>
     <integrity_checks
-        archetype_id="openEHR-EHR-CLUSTER.anatomical_location-Laterality_Expansion.v0"
+        archetype_id="openEHR-EHR-CLUSTER.nes_ts-medical-device-regulatory-details.v0"
         xmlns:tem="openEHR/v1/Template"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
-        <digest id="MD5-CAM-1.0.1">F205BE38CBC2879236D55CFA6235AF7C</digest>
+        <digest id="MD5-CAM-1.0.1">D7B3980EACDBD64DDB03467198D87469</digest>
     </integrity_checks>
     <integrity_checks
         archetype_id="openEHR-EHR-CLUSTER.organisation_cc.v0"
         xmlns:tem="openEHR/v1/Template"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
         <digest id="MD5-CAM-1.0.1">4DD4327B2A07666ACC92DBB0FDE0B2EC</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.anatomical_location-Laterality_Expansion.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">F205BE38CBC2879236D55CFA6235AF7C</digest>
     </integrity_checks>
     <integrity_checks
         archetype_id="openEHR-EHR-CLUSTER.identifier_cc.v0"
