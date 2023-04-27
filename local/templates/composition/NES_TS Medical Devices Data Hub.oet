@@ -151,7 +151,7 @@
                 concept_name="Medical device" name="Device Details"
                 path="/description[at0001]/items[at0003]" xsi:type="tem:CLUSTER">
                 <Rule name="Product description" path="/items[at0001]"/>
-                <Rule name="Class" path="/items[at0003]">
+                <Rule max="0" path="/items[at0003]">
                     <constraint limitToList="false" xsi:type="tem:textConstraint">
                         <includedValues>Class I</includedValues>
                         <includedValues>Class IIa</includedValues>
