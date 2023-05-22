@@ -1,5 +1,5 @@
-﻿archetype (adl_version=1.4; uid=e4c8ebe7-412f-448b-ae0d-890b42556861)
-	openEHR-EHR-EVALUATION.pharmacogenetic_phenotype.v0
+﻿archetype (adl_version=1.4; uid=97aeebde-01b4-4282-b489-7a597457efe7)
+	openEHR-EHR-EVALUATION.pharmacogenetic_gene_profile.v0
 
 concept
 	[at0000]	-- Pharmacogenetic phenotype
@@ -37,8 +37,8 @@ Dolin, R., Boxwala, A. and Shalaby, J. Dolin, R.H. et al. \"A Pharmacogenomics C
 		["original_namespace"] = <"uk.org.clinicalmodels">
 		["original_publisher"] = <"Apperta UK">
 		["custodian_namespace"] = <"uk.org.clinicalmodels">
-		["MD5-CAM-1.0.1"] = <"70DE7D6A08DA0E7CEC7E6860EE6931FF">
-		["build_uid"] = <"0f8c80a1-60dc-4559-9861-7a9c01deff0f">
+		["MD5-CAM-1.0.1"] = <"9929595E41813DAE78406A5A1E4D6B4E">
+		["build_uid"] = <"dce13f2d-9ba1-44ed-bde2-83b434fd09a1">
 		["ip_acknowledgements"] = <"This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact https://www.snomed.org/snomed-ct/get-snomed or info@snomed.org.">
 		["revision"] = <"0.0.1-alpha">
 	>
