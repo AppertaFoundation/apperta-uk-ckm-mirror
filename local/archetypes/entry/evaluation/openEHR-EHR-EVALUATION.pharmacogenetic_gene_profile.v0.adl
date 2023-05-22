@@ -2,7 +2,7 @@
 	openEHR-EHR-EVALUATION.pharmacogenetic_gene_profile.v0
 
 concept
-	[at0000]	-- Pharmacogenetic phenotype
+	[at0000]	-- Pharmacogenetic gene profile
 language
 	original_language = <[ISO_639-1::en]>
 description
@@ -15,14 +15,18 @@ description
 	details = <
 		["en"] = <
 			language = <[ISO_639-1::en]>
-			purpose = <"To record details of pharmacogenetic phenotype findings relating to a single genotype, in particular to record metaboliser status / functional activity against an enzyme known to impact the effectiveness/ toxicity of one or more medications.">
+			purpose = <"To record details of pharmacogenetic phenotype findings relating to a single genotype, in particular to record metaboliser status / functional activity against an enzyme known to impact the effectiveness/ toxicity of one or more medications.
+
+As individual pharmacogenetic tests may provide only incomplete allele testing, this archetype is intended to act as an overall cumulative representation of tall individual tests, from which therapeutic recommendations should be derived.">
 			use = <"There is crossover in purpose with the Precaution archetype https://ckm.openehr.org/ckm/archetypes/1013.1.2593, but this is designed to record many different therapeutic precautions, and to report only adverse effects e.g poor efficacy or toxicity, whereas this archetype is intended to capture both positive and negative effects and normal metaboliser status. 
 
 In that respect this is perhaps closer to a a diagnosis then a risk factor or precaution.
 
-There is an argument that Precaution might be used to flag the presence of significant phenotypes, perhaps as a general statement such as 'Significant known metaboliser issues'  which reference the specific Phenotypic records.">
-			keywords = <"pharmacogenetics, pharmacogenomics, decision support, contraindication, precaution", ...>
-			misuse = <"Not to be used to record genomic phenotypes which are unrelated to pharmacogenetics.">
+There is an argument that Precaution might be used to flag the presence of significant phenotypes, perhaps as a general statement such as 'Significant known metaboliser issues'  which reference the specific Phenotypic records.
+
+The main content is intended to be carried in a slotted CLUSTER Pharmacogenetics analyte result archetype=, but in this context to record the cumulative results and not that of a single test.">
+			keywords = <"pharmacogenetics, pharmacogenomics, decision support, contraindication, precaution, pgx.", ...>
+			misuse = <"Not to be used to record genomic phenotypes which are unrelated to pharmacogenetics, such as molecular genomics reports to support cancer care.">
 			copyright = <"© Apperta Foundation">
 		>
 	>
@@ -33,52 +37,26 @@ There is an argument that Precaution might be used to flag the presence of signi
 		["custodian_organisation"] = <"Apperta UK">
 		["references"] = <"HL7.FHIR.UV.GENOMICS-REPORTING\\Genomics Background - FHIR v4.0.1 \"HL7.FHIR.UV.GENOMICS-REPORTING\\Genomics Background - FHIR V4.0.1\". Build.Fhir.Org, 2023, http://build.fhir.org/ig/HL7/genomics-reporting/background.html. Accessed 7 Mar 2023.
 
-Dolin, R., Boxwala, A. and Shalaby, J. Dolin, R.H. et al. \"A Pharmacogenomics Clinical Decision Support Service Based On FHIR And CDS Hooks\". Methods Of Information In Medicine, vol 57, no. S 02, 2018, pp. e115-e123. Georg Thieme Verlag KG, doi:10.1055/s-0038-1676466. Accessed 7 Mar 2023.">
+Dolin, R., Boxwala, A. and Shalaby, J. Dolin, R.H. et al. \"A Pharmacogenomics Clinical Decision Support Service Based On FHIR And CDS Hooks\". Methods Of Information In Medicine, vol 57, no. S 02, 2018, pp. e115-e123. Georg Thieme Verlag KG, doi:10.1055/s-0038-1676466. Accessed 7 Mar 2023.
+
+Cpicpgx.Org, 2023, http://cpicpgx.org/wp-content/uploads/2016/02/CPIC-Term-Standardization-and-LOINC-151203.pdf. Accessed 22 May 2023.">
 		["original_namespace"] = <"uk.org.clinicalmodels">
 		["original_publisher"] = <"Apperta UK">
 		["custodian_namespace"] = <"uk.org.clinicalmodels">
-		["MD5-CAM-1.0.1"] = <"9929595E41813DAE78406A5A1E4D6B4E">
-		["build_uid"] = <"dce13f2d-9ba1-44ed-bde2-83b434fd09a1">
+		["MD5-CAM-1.0.1"] = <"95CD3DBC77EDD075406BFDAE4C631DD8">
+		["build_uid"] = <"6fb24d75-6464-4dee-bc32-16e76b85e62d">
 		["ip_acknowledgements"] = <"This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact https://www.snomed.org/snomed-ct/get-snomed or info@snomed.org.">
 		["revision"] = <"0.0.1-alpha">
 	>
 
 definition
-	EVALUATION[at0000] matches {    -- Pharmacogenetic phenotype
+	EVALUATION[at0000] matches {    -- Pharmacogenetic gene profile
 		data matches {
 			ITEM_TREE[at0001] matches {    -- Item tree
 				items cardinality matches {0..*; unordered} matches {
-					allow_archetype CLUSTER[at0003] occurrences matches {0..1} matches {    -- Genotype details
+					allow_archetype CLUSTER[at0003] occurrences matches {0..1} matches {    -- Pharmacogenetic profile
 						include
-							archetype_id/value matches {/.*|openEHR-EHR-CLUSTER\.genotype\.v0/}
-					}
-					ELEMENT[at0004] occurrences matches {0..1} matches {    -- Metaboliser/activity status
-						value matches {
-							DV_CODED_TEXT matches {
-								defining_code matches {
-									[local::
-									at0005,    -- Normal metaboliser
-									at0006,    -- Rapid metaboliser
-									at0007,    -- Ultrarapid metaboliser
-									at0008,    -- Intermediate metaboliser
-									at0009,    -- Poor metaboliser
-									at0010,    -- Increased function
-									at0011,    -- Decreased function
-									at0012,    -- Normal function
-									at0013]    -- Poor function
-								}
-							}
-						}
-					}
-					ELEMENT[at0002] occurrences matches {0..1} matches {    -- Phenotype term
-						value matches {
-							DV_TEXT matches {*}
-						}
-					}
-					ELEMENT[at0014] occurrences matches {0..1} matches {    -- Activity score
-						value matches {
-							DV_QUANTITY matches {*}
-						}
+							archetype_id/value matches {/.*/}
 					}
 				}
 			}
@@ -89,6 +67,11 @@ definition
 					ELEMENT[at0016] occurrences matches {0..1} matches {    -- Date assessed
 						value matches {
 							DV_DATE_TIME matches {*}
+						}
+					}
+					ELEMENT[at0030] occurrences matches {0..*} matches {    -- Original result
+						value matches {
+							DV_EHR_URI matches {*}
 						}
 					}
 					allow_archetype CLUSTER[at0017] occurrences matches {0..*} matches {    -- Extension
@@ -107,66 +90,18 @@ ontology
 		["en"] = <
 			items = <
 				["at0000"] = <
-					text = <"Pharmacogenetic phenotype">
-					description = <"Details of Pharmacogenetic phenotype findings relating to a single genotype, in particular to record metaboliser status / functional activity against an enzyme known to impact the effectiveness/ toxicity of one or more medications.">
+					text = <"Pharmacogenetic gene profile">
+					description = <"Details of cumulative pharmacogenetic phenotype findings relating to a single gene, in particular to record metaboliser status / functional activity against an enzyme known to impact the effectiveness/ toxicity of one or more medications.
+
+As individual pharmacogenetic tests may provide only incomplete allele testing, this archetype is intended to act as an overall cumulative representation of tall individual tests, from which therapeutic recommendations should be derived.">
 				>
 				["at0001"] = <
 					text = <"Item tree">
 					description = <"@ internal @">
 				>
-				["at0002"] = <
-					text = <"Phenotype term">
-					description = <"A single 'pre-coordinated' term which includes the gene/enzyme name and the metaboliser status.">
-					comment = <"This may need to be pre-computed to support clinical systems which require pre-coordinated SNOMED-CT terms to support CDSS.">
-				>
 				["at0003"] = <
-					text = <"Genotype details">
+					text = <"Pharmacogenetic profile">
 					description = <"Slot to include details of the genotype which relates to this phenotype.">
-				>
-				["at0004"] = <
-					text = <"Metaboliser/activity status">
-					description = <"The estimated metaboliser status or functional activity level derived from knowledge of the impact of the detected genotype.">
-					comment = <"For example: local information requirements or additional metadata to align with FHIR or equivalents.">
-				>
-				["at0005"] = <
-					text = <"Normal metaboliser">
-					description = <"The metaboliser status is normal.">
-				>
-				["at0006"] = <
-					text = <"Rapid metaboliser">
-					description = <"The metaboliser status is rapid.">
-				>
-				["at0007"] = <
-					text = <"Ultrarapid metaboliser">
-					description = <"The metaboliser status is ultrarapid.">
-				>
-				["at0008"] = <
-					text = <"Intermediate metaboliser">
-					description = <"The metaboliser status is intermediate.">
-				>
-				["at0009"] = <
-					text = <"Poor metaboliser">
-					description = <"The metaboliser status is poor.">
-				>
-				["at0010"] = <
-					text = <"Increased function">
-					description = <"Functional activity is increased.">
-				>
-				["at0011"] = <
-					text = <"Decreased function">
-					description = <"Functional activity is decreased.">
-				>
-				["at0012"] = <
-					text = <"Normal function">
-					description = <"Functional activity is normal.">
-				>
-				["at0013"] = <
-					text = <"Poor function">
-					description = <"Functional activity is poor.">
-				>
-				["at0014"] = <
-					text = <"Activity score">
-					description = <"An associated derived activity score, based on known association with specific genotypes, which is required to assess metaboliser status for some phenotypes.">
 				>
 				["at0015"] = <
 					text = <"Item tree">
@@ -180,34 +115,22 @@ ontology
 					text = <"Extension">
 					description = <"Additional information required to capture local content or to align with other reference models/formalisms.">
 				>
+				["at0030"] = <
+					text = <"Original result">
+					description = <"Details of those people who helped me to complete this record.">
+				>
 			>
 		>
 	>
 	term_bindings = <
 		["SNOMED-CT"] = <
 			items = <
-				["at0005"] = <[SNOMED-CT::3351000181105]>
-				["at0006"] = <[SNOMED-CT::3341000181107]>
-				["at0007"] = <[SNOMED-CT::3331000181100]>
-				["at0008"] = <[SNOMED-CT::3361000181108]>
-				["at0009"] = <[SNOMED-CT::3371000181103]>
-				["at0010"] = <[SNOMED-CT::3381000181101]>
-				["at0012"] = <[SNOMED-CT::3391000181104]>
-				["at0011"] = <[SNOMED-CT::3401000181101]>
-				["at0013"] = <[SNOMED-CT::3451000181100]>
+				["at0030"] = <[SNOMED-CT::3331000181100]>
 			>
 		>
 		["LOINC"] = <
 			items = <
-				["at0005"] = <[LOINC::LA25391-6]>
-				["at0006"] = <[LOINC::LA25390-8]>
-				["at0007"] = <[LOINC::LA10315-2]>
-				["at0008"] = <[LOINC::LA10317-8]>
-				["at0009"] = <[LOINC::LA9657-3]>
-				["at0010"] = <[LOINC::LA25392-4]>
-				["at0012"] = <[LOINC::LA25393-2]>
-				["at0011"] = <[LOINC::LA25395-7]>
-				["at0013"] = <[LOINC::LA25394-0]>
+				["at0030"] = <[LOINC::LA10315-2]>
 			>
 		>
 	>
