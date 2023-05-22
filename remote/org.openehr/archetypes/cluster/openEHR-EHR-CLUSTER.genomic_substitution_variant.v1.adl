@@ -87,9 +87,9 @@ Sequence Variant Nomenclature - DNA Recommendations - Substitution Variant [Inte
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"0AD06B6C11FA3C8DAB1B47F77D989E04">
-		["build_uid"] = <"07da0077-6df6-46a3-88c0-72a97062421e">
-		["revision"] = <"1.0.3">
+		["MD5-CAM-1.0.1"] = <"7940C38BF01B8F27E1AA7BD298C0EDAD">
+		["build_uid"] = <"d16b9939-4ab8-4afd-8a7e-934707ad7480">
+		["revision"] = <"1.0.4">
 	>
 
 definition
@@ -128,7 +128,7 @@ ontology
 				>
 				["at0001"] = <
 					text = <"Position substituted">
-					description = <"The position of the sustituted nucleotide.">
+					description = <"The position of the substituted nucleotide.">
 					comment = <"For example: for a variant where the reference sequence 'AGTAgAGG' is changed to 'AGTAtAGG', the position substituted is 5.">
 				>
 				["at0003"] = <
