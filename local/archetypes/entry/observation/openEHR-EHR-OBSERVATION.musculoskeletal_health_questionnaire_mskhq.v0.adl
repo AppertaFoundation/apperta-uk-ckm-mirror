@@ -19,7 +19,7 @@ description
 			use = <"MSK-HQ can be used to measure self reported pain and function in musculoskeletal arthritic conditions.">
 			keywords = <"Patient Reported Outcomes Measure, MSK-HQ,  musculoskeletal, questionnaire, arthritis, shoulder, hip, knee", ...>
 			misuse = <"">
-			copyright = <"© While openEHR archetypes are all freely available under an open license, the specific content of this MSK-HQ archetype can be only be used under the terms of Oxford University Innovation Licence agreement which can be found at: https://process.innovation.ox.ac.uk/ Any use of this archetype within implementations must be in compliance with the terms established by Oxford University Innovation. The terms of the License can be found at: https://process.innovation.ox.ac.uk/clinical/p/versus-arthritis-musculoskeletal-health-questionnaire-(msk-hq)/msk-hq-questionnaire/1, Apperta Foundation">
+			copyright = <"©Apperta Foundation">
 		>
 	>
 	lifecycle_state = <"in_development">
@@ -27,13 +27,18 @@ description
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
 		["custodian_organisation"] = <"Apperta UK">
-		["references"] = <"Hill JC, Kang S, Benedetto E, Myers H, Blackburn S, Smith S, Dunn KM, Hay E, Rees J, Beard D, Glyn-Jones S, Barker K, Ellis B, Fitzpatrick R, Price A. Development and initial cohort validation of the Arthritis Research UK Musculoskeletal Health Questionnaire (MSK-HQ) for use across musculoskeletal care pathways. BMJ Open. 2016 Aug 5;6(8):e012331. ">
+		["references"] = <"Hill JC, Kang S, Benedetto E, Myers H, Blackburn S, Smith S, Dunn KM, Hay E, Rees J, Beard D, Glyn-Jones S, Barker K, Ellis B, Fitzpatrick R, Price A. Development and initial cohort validation of the Arthritis Research UK Musculoskeletal Health Questionnaire (MSK-HQ) for use across musculoskeletal care pathways. BMJ Open. 2016 Aug 5;6(8):e012331.
+">
 		["original_namespace"] = <"uk.org.clinicalmodels">
 		["original_publisher"] = <"Apperta UK">
 		["custodian_namespace"] = <"uk.org.clinicalmodels">
-		["MD5-CAM-1.0.1"] = <"BEDA3E6FA5CDEDD6FD8581946C80B706">
-		["build_uid"] = <"82dc41ab-3657-4004-976c-9e028d47e7eb">
-		["ip_acknowledgements"] = <"This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact https://www.snomed.org/snomed-ct/get-snomed or info@snomed.org.">
+		["MD5-CAM-1.0.1"] = <"50369D8DD661F52AA36DBA4697C1ED4E">
+		["build_uid"] = <"31c21091-5e6a-4d5f-bd23-6bf0bc4db7ad">
+		["ip_acknowledgements"] = <"While openEHR archetypes are all freely available under an open license, the specific content of this MSK-HQ archetype can be only be used under the terms of Oxford University Innovation Licence agreement which can be found at: https://process.innovation.ox.ac.uk/ 
+
+Any use of this archetype within implementations must be in compliance with the terms established by Oxford University Innovation. The terms of the License can be found at: https://process.innovation.ox.ac.uk/clinical/p/versus-arthritis-musculoskeletal-health-questionnaire-(msk-hq)/msk-hq-questionnaire/1.
+
+This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact https://www.snomed.org/snomed-ct/get-snomed or info@snomed.org.">
 		["revision"] = <"0.0.1-alpha">
 	>
 
@@ -46,156 +51,152 @@ definition
 						data matches {
 							ITEM_TREE[at0003] matches {    -- Tree
 								items cardinality matches {0..*; unordered} matches {
-									CLUSTER[at0004] occurrences matches {0..1} matches {    -- Musculoskeletal Health Questionnaire (MSK-HQ)
-										items cardinality matches {1..*; unordered} matches {
-											ELEMENT[at0005] occurrences matches {0..1} matches {    -- 1. Pain/stiffness day
-												value matches {
-													4|[local::at0006],
-													3|[local::at0007],
-													2|[local::at0008],
-													1|[local::at0009],
-													0|[local::at0010]
-												}
+									ELEMENT[at0005] occurrences matches {0..1} matches {    -- 1. Pain/stiffness day
+										value matches {
+											4|[local::at0006],
+											3|[local::at0007],
+											2|[local::at0008],
+											1|[local::at0009],
+											0|[local::at0010]
+										}
+									}
+									ELEMENT[at0011] occurrences matches {0..1} matches {    -- 2. Pain/stiffness night
+										value matches {
+											4|[local::at0012],
+											3|[local::at0013],
+											2|[local::at0014],
+											1|[local::at0015],
+											0|[local::at0016]
+										}
+									}
+									ELEMENT[at0017] occurrences matches {0..1} matches {    -- 3. Walking
+										value matches {
+											4|[local::at0018],
+											3|[local::at0019],
+											2|[local::at0020],
+											1|[local::at0021],
+											0|[local::at0022]
+										}
+									}
+									ELEMENT[at0023] occurrences matches {0..1} matches {    -- 4. Washing/Dressing
+										value matches {
+											4|[local::at0024],
+											3|[local::at0025],
+											2|[local::at0026],
+											1|[local::at0027],
+											0|[local::at0028]
+										}
+									}
+									ELEMENT[at0029] occurrences matches {0..1} matches {    -- 5. Physical activity
+										value matches {
+											4|[local::at0030],
+											3|[local::at0031],
+											2|[local::at0032],
+											1|[local::at0033],
+											0|[local::at0034]
+										}
+									}
+									ELEMENT[at0035] occurrences matches {0..1} matches {    -- 6. Work/daily routine
+										value matches {
+											4|[local::at0036],
+											3|[local::at0037],
+											2|[local::at0038],
+											1|[local::at0039],
+											0|[local::at0040]
+										}
+									}
+									ELEMENT[at0041] occurrences matches {0..1} matches {    -- 7. Social/hobbies
+										value matches {
+											4|[local::at0042],
+											3|[local::at0043],
+											2|[local::at0044],
+											1|[local::at0045],
+											0|[local::at0046]
+										}
+									}
+									ELEMENT[at0047] occurrences matches {0..1} matches {    -- 8. Needing help
+										value matches {
+											4|[local::at0048],
+											3|[local::at0049],
+											2|[local::at0050],
+											1|[local::at0051],
+											0|[local::at0052]
+										}
+									}
+									ELEMENT[at0053] occurrences matches {0..1} matches {    -- 9. Sleep
+										value matches {
+											4|[local::at0054],
+											3|[local::at0055],
+											2|[local::at0056],
+											1|[local::at0057],
+											0|[local::at0058]
+										}
+									}
+									ELEMENT[at0059] occurrences matches {0..1} matches {    -- 10. Fatigue/low energy
+										value matches {
+											4|[local::at0060],
+											3|[local::at0061],
+											2|[local::at0062],
+											1|[local::at0063],
+											0|[local::at0064]
+										}
+									}
+									ELEMENT[at0065] occurrences matches {0..1} matches {    -- 11. Emotional wellbeing
+										value matches {
+											4|[local::at0066],
+											3|[local::at0067],
+											2|[local::at0068],
+											1|[local::at0069],
+											0|[local::at0070]
+										}
+									}
+									ELEMENT[at0071] occurrences matches {0..1} matches {    -- 12. Understanding condition
+										value matches {
+											4|[local::at0072],
+											3|[local::at0073],
+											2|[local::at0074],
+											1|[local::at0075],
+											0|[local::at0076]
+										}
+									}
+									ELEMENT[at0077] occurrences matches {0..1} matches {    -- 13. Manage symptoms
+										value matches {
+											4|[local::at0078],
+											3|[local::at0079],
+											2|[local::at0080],
+											1|[local::at0081],
+											0|[local::at0082]
+										}
+									}
+									ELEMENT[at0083] occurrences matches {0..1} matches {    -- 14. Impact
+										value matches {
+											4|[local::at0084],
+											3|[local::at0085],
+											2|[local::at0086],
+											1|[local::at0087],
+											0|[local::at0088]
+										}
+									}
+									ELEMENT[at0092] occurrences matches {0..1} matches {    -- Total score
+										value matches {
+											DV_COUNT matches {
+												magnitude matches {|0..56|}
 											}
-											ELEMENT[at0011] occurrences matches {0..1} matches {    -- 2. Pain/stiffness night
-												value matches {
-													4|[local::at0012],
-													3|[local::at0013],
-													2|[local::at0014],
-													1|[local::at0015],
-													0|[local::at0016]
-												}
-											}
-											ELEMENT[at0017] occurrences matches {0..1} matches {    -- 3. Walking
-												value matches {
-													4|[local::at0018],
-													3|[local::at0019],
-													2|[local::at0020],
-													1|[local::at0021],
-													0|[local::at0022]
-												}
-											}
-											ELEMENT[at0023] occurrences matches {0..1} matches {    -- 4. Washing/Dressing
-												value matches {
-													4|[local::at0024],
-													3|[local::at0025],
-													2|[local::at0026],
-													1|[local::at0027],
-													0|[local::at0028]
-												}
-											}
-											ELEMENT[at0029] occurrences matches {0..1} matches {    -- 5. Physical activity
-												value matches {
-													4|[local::at0030],
-													3|[local::at0031],
-													2|[local::at0032],
-													1|[local::at0033],
-													0|[local::at0034]
-												}
-											}
-											ELEMENT[at0035] occurrences matches {0..1} matches {    -- 6. Work/daily routine
-												value matches {
-													4|[local::at0036],
-													3|[local::at0037],
-													2|[local::at0038],
-													1|[local::at0039],
-													0|[local::at0040]
-												}
-											}
-											ELEMENT[at0041] occurrences matches {0..1} matches {    -- 7. Social/hobbies
-												value matches {
-													4|[local::at0042],
-													3|[local::at0043],
-													2|[local::at0044],
-													1|[local::at0045],
-													0|[local::at0046]
-												}
-											}
-											ELEMENT[at0047] occurrences matches {0..1} matches {    -- 8. Needing help
-												value matches {
-													4|[local::at0048],
-													3|[local::at0049],
-													2|[local::at0050],
-													1|[local::at0051],
-													0|[local::at0052]
-												}
-											}
-											ELEMENT[at0053] occurrences matches {0..1} matches {    -- 9. Sleep
-												value matches {
-													4|[local::at0054],
-													3|[local::at0055],
-													2|[local::at0056],
-													1|[local::at0057],
-													0|[local::at0058]
-												}
-											}
-											ELEMENT[at0059] occurrences matches {0..1} matches {    -- 10. Fatigue/low energy
-												value matches {
-													4|[local::at0060],
-													3|[local::at0061],
-													2|[local::at0062],
-													1|[local::at0063],
-													0|[local::at0064]
-												}
-											}
-											ELEMENT[at0065] occurrences matches {0..1} matches {    -- 11. Emotional wellbeing
-												value matches {
-													4|[local::at0066],
-													3|[local::at0067],
-													2|[local::at0068],
-													1|[local::at0069],
-													0|[local::at0070]
-												}
-											}
-											ELEMENT[at0071] occurrences matches {0..1} matches {    -- 12. Understanding condition
-												value matches {
-													4|[local::at0072],
-													3|[local::at0073],
-													2|[local::at0074],
-													1|[local::at0075],
-													0|[local::at0076]
-												}
-											}
-											ELEMENT[at0077] occurrences matches {0..1} matches {    -- 13. Manage symptoms
-												value matches {
-													4|[local::at0078],
-													3|[local::at0079],
-													2|[local::at0080],
-													1|[local::at0081],
-													0|[local::at0082]
-												}
-											}
-											ELEMENT[at0083] occurrences matches {0..1} matches {    -- 14. Impact
-												value matches {
-													4|[local::at0084],
-													3|[local::at0085],
-													2|[local::at0086],
-													1|[local::at0087],
-													0|[local::at0088]
-												}
-											}
-											ELEMENT[at0092] occurrences matches {0..1} matches {    -- Total score
-												value matches {
-													DV_COUNT matches {
-														magnitude matches {|0..56|}
-													}
-												}
-											}
-											ELEMENT[at0094] occurrences matches {0..1} matches {    -- Physical activity levels
-												value matches {
-													DV_CODED_TEXT matches {
-														defining_code matches {
-															[local::
-															at0103,    -- None
-															at0104,    -- 1 day
-															at0105,    -- 2 days
-															at0106,    -- 3 days
-															at0107,    -- 4 days
-															at0108,    -- 5 days
-															at0109,    -- 6 days
-															at0110]    -- 7 days
-														}
-													}
+										}
+									}
+									ELEMENT[at0094] occurrences matches {0..1} matches {    -- Physical activity levels
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0103,    -- None
+													at0104,    -- 1 day
+													at0105,    -- 2 days
+													at0106,    -- 3 days
+													at0107,    -- 4 days
+													at0108,    -- 5 days
+													at0109,    -- 6 days
+													at0110]    -- 7 days
 												}
 											}
 										}
@@ -230,6 +231,10 @@ ontology
 					description = <"The MSK-HQ is a short self reported questionnaire that allows people with musculoskeletal conditions (such as arthritis or back pain) to report their symptoms and quality of life in a standardised way. 
 
 ">
+					comment = <"pagebreakInstruction: |
+  This questionnaire is about your **joint, back, neck, bone and muscle symptoms** such as aches, pains and/or stiffness.
+
+  Please focus on the particular health problem(s) for which you sought treatment from this service.">
 				>
 				["at0001"] = <
 					text = <"History">
@@ -243,20 +248,13 @@ ontology
 					text = <"Tree">
 					description = <"@ internal @">
 				>
-				["at0004"] = <
-					text = <"Musculoskeletal Health Questionnaire (MSK-HQ)">
-					description = <"">
-				>
 				["at0005"] = <
 					text = <"1. Pain/stiffness day">
-					description = <"pagebreakInstruction: |
-  This questionnaire is about your **joint, back, neck, bone and muscle symptoms** such as aches, pains and/or stiffness.
-
-  Please focus on the particular health problem(s) for which you sought treatment from this service.
-
-question: |
+					description = <"">
+					comment = <"question: |
   **1. Pain/stiffness** during the **day**
   How severe was your usual joint or muscle pain and/or stiffness overall during the **day** in the last 2 weeks?">
+					fulltext = <"**1. Pain/stiffness** during the **day**   How severe was your usual joint or muscle pain and/or stiffness overall during the **day** in the last 2 weeks?">
 				>
 				["at0006"] = <
 					text = <"Not at all">
@@ -286,23 +284,23 @@ question: |
 				>
 				["at0012"] = <
 					text = <"Not at all">
-					description = <"No Pain/stiffness at all during the night">
+					description = <"No Pain/stiffness at all during the night.">
 				>
 				["at0013"] = <
 					text = <"Slightly">
-					description = <"Slight Pain/stiffness during the night">
+					description = <"Slight Pain/stiffness during the night.">
 				>
 				["at0014"] = <
 					text = <"Moderately">
-					description = <"Moderate Pain/stiffness during the night">
+					description = <"Moderate Pain/stiffness during the night.">
 				>
 				["at0015"] = <
 					text = <"Fairly severe">
-					description = <"Fairly severe Pain/stiffness during the night">
+					description = <"Fairly severe Pain/stiffness during the night.">
 				>
 				["at0016"] = <
 					text = <"Very Severe">
-					description = <"Very Severe Pain/stiffness during the night">
+					description = <"Very Severe Pain/stiffness during the night.">
 				>
 				["at0017"] = <
 					text = <"3. Walking">
@@ -312,23 +310,23 @@ question: |
 				>
 				["at0018"] = <
 					text = <"Not at all">
-					description = <"Symptoms not interfered with ability to walk at all in the last 2 weeks">
+					description = <"Symptoms not interfered with ability to walk at all in the last 2 weeks.">
 				>
 				["at0019"] = <
 					text = <"Slightly">
-					description = <"Symptoms slightly interfered with ability to walk in the last 2 weeks">
+					description = <"Symptoms slightly interfered with ability to walk in the last 2 weeks.">
 				>
 				["at0020"] = <
 					text = <"Moderately">
-					description = <"Symptoms moderately  interfered with ability to walk in the last 2 weeks">
+					description = <"Symptoms moderately  interfered with ability to walk in the last 2 weeks.">
 				>
 				["at0021"] = <
 					text = <"Severely">
-					description = <"Symptoms severely interfered with ability to walk in the last 2 weeks">
+					description = <"Symptoms severely interfered with ability to walk in the last 2 weeks.">
 				>
 				["at0022"] = <
 					text = <"Unable to walk">
-					description = <"Unable to walk in the last 2 weeks">
+					description = <"Unable to walk in the last 2 weeks.">
 				>
 				["at0023"] = <
 					text = <"4. Washing/Dressing">
@@ -338,23 +336,23 @@ question: |
 				>
 				["at0024"] = <
 					text = <"Not at all">
-					description = <"Symptoms has not interfered with ability to wash or dress in the last 2 weeks">
+					description = <"Symptoms has not interfered with ability to wash or dress in the last 2 weeks.">
 				>
 				["at0025"] = <
 					text = <"Slightly">
-					description = <"Symptoms slightly interfered with ability to wash or dress in the last 2 weeks">
+					description = <"Symptoms slightly interfered with ability to wash or dress in the last 2 weeks.">
 				>
 				["at0026"] = <
 					text = <"Moderately">
-					description = <"Symptoms moderately interfered with ability to wash or dress in the last 2 weeks">
+					description = <"Symptoms moderately interfered with ability to wash or dress in the last 2 weeks.">
 				>
 				["at0027"] = <
 					text = <"Severely">
-					description = <"Symptoms severely interfered with ability to wash or dress in the last 2 weeks">
+					description = <"Symptoms severely interfered with ability to wash or dress in the last 2 weeks.">
 				>
 				["at0028"] = <
 					text = <"Unable to wash or dress myself">
-					description = <"Unable to wash or dress">
+					description = <"Unable to wash or dress.">
 				>
 				["at0029"] = <
 					text = <"5. Physical activity">
@@ -364,23 +362,23 @@ question: |
 				>
 				["at0030"] = <
 					text = <"Not at all">
-					description = <"No problems with physical activity due to symptoms">
+					description = <"No problems with physical activity due to symptoms.">
 				>
 				["at0031"] = <
 					text = <"Slightly">
-					description = <"Slight problem with physical activity due to symptoms">
+					description = <"Slight problem with physical activity due to symptoms.">
 				>
 				["at0032"] = <
 					text = <"Moderately">
-					description = <"Moderate problem with physical activity due to symptoms">
+					description = <"Moderate problem with physical activity due to symptoms.">
 				>
 				["at0033"] = <
 					text = <"Very much">
-					description = <"Very much a problem with physical activity due to symptoms">
+					description = <"Very much a problem with physical activity due to symptoms.">
 				>
 				["at0034"] = <
 					text = <"Unable to do physical activities">
-					description = <"Unable to do physical activities due to symptoms">
+					description = <"Unable to do physical activities due to symptoms.">
 				>
 				["at0035"] = <
 					text = <"6. Work/daily routine">
@@ -390,23 +388,23 @@ question: |
 				>
 				["at0036"] = <
 					text = <"Not at all">
-					description = <"Symptoms not interfered with work or daily routine in the last 2 weeks (including work & jobs around the house)">
+					description = <"Symptoms not interfered with work or daily routine in the last 2 weeks (including work & jobs around the house).">
 				>
 				["at0037"] = <
 					text = <"Slightly">
-					description = <"Symptoms slightly interfered with work or daily routine in the last 2 weeks (including work & jobs around the house)">
+					description = <"Symptoms slightly interfered with work or daily routine in the last 2 weeks (including work & jobs around the house).">
 				>
 				["at0038"] = <
 					text = <"Moderately">
-					description = <"Symptoms moderately interfered with work or daily routine in the last 2 weeks (including work & jobs around the house)">
+					description = <"Symptoms moderately interfered with work or daily routine in the last 2 weeks (including work & jobs around the house).">
 				>
 				["at0039"] = <
 					text = <"Severely">
-					description = <"Symptoms severely interfered with work or daily routine in the last 2 weeks (including work & jobs around the house)">
+					description = <"Symptoms severely interfered with work or daily routine in the last 2 weeks (including work & jobs around the house).">
 				>
 				["at0040"] = <
 					text = <"Extremely">
-					description = <"Symptoms extremely interfered with work or daily routine in the last 2 weeks (including work & jobs around the house)">
+					description = <"Symptoms extremely interfered with work or daily routine in the last 2 weeks (including work & jobs around the house).">
 				>
 				["at0041"] = <
 					text = <"7. Social/hobbies">
@@ -416,23 +414,23 @@ question: |
 				>
 				["at0042"] = <
 					text = <"Not at all">
-					description = <"Symptoms not interfered with social activities and hobbies in the last 2 weeks">
+					description = <"Symptoms not interfered with social activities and hobbies in the last 2 weeks.">
 				>
 				["at0043"] = <
 					text = <"Slightly">
-					description = <"Symptoms slightly interfered with social activities and hobbies in the last 2 weeks">
+					description = <"Symptoms slightly interfered with social activities and hobbies in the last 2 weeks.">
 				>
 				["at0044"] = <
 					text = <"Moderately">
-					description = <"Symptoms moderately interfered with social activities and hobbies in the last 2 weeks">
+					description = <"Symptoms moderately interfered with social activities and hobbies in the last 2 weeks.">
 				>
 				["at0045"] = <
 					text = <"Severely">
-					description = <"Symptoms severely interfered with social activities and hobbies in the last 2 weeks">
+					description = <"Symptoms severely interfered with social activities and hobbies in the last 2 weeks.">
 				>
 				["at0046"] = <
 					text = <"Extremely">
-					description = <"Symptoms extremely interfered with social activities and hobbies in the last 2 weeks">
+					description = <"Symptoms extremely interfered with social activities and hobbies in the last 2 weeks.">
 				>
 				["at0047"] = <
 					text = <"8. Needing help">
@@ -442,11 +440,11 @@ question: |
 				>
 				["at0048"] = <
 					text = <"Not at all">
-					description = <"Not  needed help from others (including family, friends or carers) because of symptoms in the last 2 weeks">
+					description = <"Not  needed help from others (including family, friends or carers) because of symptoms in the last 2 weeks.">
 				>
 				["at0049"] = <
 					text = <"Rarely">
-					description = <"Rarely needed help from others (including family, friends or carers) because of symptoms in the last 2 weeks">
+					description = <"Rarely needed help from others (including family, friends or carers) because of symptoms in the last 2 weeks.">
 				>
 				["at0050"] = <
 					text = <"Sometimes">
@@ -454,11 +452,11 @@ question: |
 				>
 				["at0051"] = <
 					text = <"Frequently">
-					description = <"Frequently needed help from others (including family, friends or carers) because of symptoms in the last 2 weeks">
+					description = <"Frequently needed help from others (including family, friends or carers) because of symptoms in the last 2 weeks.">
 				>
 				["at0052"] = <
 					text = <"All the time">
-					description = <"Needed help all the time from others (including family, friends or carers) because of symptoms in the last 2 weeks">
+					description = <"Needed help all the time from others (including family, friends or carers) because of symptoms in the last 2 weeks.">
 				>
 				["at0053"] = <
 					text = <"9. Sleep">
@@ -468,23 +466,23 @@ question: |
 				>
 				["at0054"] = <
 					text = <"Not at all">
-					description = <"No trouble with either falling asleep or staying asleep because of joint or muscle symptoms in the last 2 weeks">
+					description = <"No trouble with either falling asleep or staying asleep because of joint or muscle symptoms in the last 2 weeks.">
 				>
 				["at0055"] = <
 					text = <"Rarely">
-					description = <"Rarely trouble with either falling asleep or staying asleep because of joint or muscle symptoms in the last 2 weeks">
+					description = <"Rarely trouble with either falling asleep or staying asleep because of joint or muscle symptoms in the last 2 weeks.">
 				>
 				["at0056"] = <
 					text = <"Sometimes">
-					description = <"Sometimes troubled with either falling asleep or staying asleep because of joint or muscle symptoms in the last 2 weeks">
+					description = <"Sometimes troubled with either falling asleep or staying asleep because of joint or muscle symptoms in the last 2 weeks.">
 				>
 				["at0057"] = <
 					text = <"Frequently">
-					description = <"Frequently troubled with either falling asleep or staying asleep because of joint or muscle symptoms in the last 2 weeks">
+					description = <"Frequently troubled with either falling asleep or staying asleep because of joint or muscle symptoms in the last 2 weeks.">
 				>
 				["at0058"] = <
 					text = <"Every night">
-					description = <"Every night troubled with either falling asleep or staying asleep because of joint or muscle symptoms in the last 2 weeks">
+					description = <"Every night troubled with either falling asleep or staying asleep because of joint or muscle symptoms in the last 2 weeks.">
 				>
 				["at0059"] = <
 					text = <"10. Fatigue/low energy">
@@ -521,23 +519,23 @@ question: |
 				>
 				["at0066"] = <
 					text = <"Not at all">
-					description = <"Not felt anxious or low in your mood because of joint or muscle symptoms in the last 2 weeks">
+					description = <"Not felt anxious or low in your mood because of joint or muscle symptoms in the last 2 weeks.">
 				>
 				["at0067"] = <
 					text = <"Slightly">
-					description = <"Slightly felt anxious or low in your mood because of joint or muscle symptoms in the last 2 weeks">
+					description = <"Slightly felt anxious or low in your mood because of joint or muscle symptoms in the last 2 weeks.">
 				>
 				["at0068"] = <
 					text = <"Moderately">
-					description = <"Moderately felt anxious or low in your mood because of joint or muscle symptoms in the last 2 weeks">
+					description = <"Moderately felt anxious or low in your mood because of joint or muscle symptoms in the last 2 weeks.">
 				>
 				["at0069"] = <
 					text = <"Severely">
-					description = <"Severely felt anxious or low in your mood because of joint or muscle symptoms in the last 2 weeks">
+					description = <"Severely felt anxious or low in your mood because of joint or muscle symptoms in the last 2 weeks.">
 				>
 				["at0070"] = <
 					text = <"Extremely">
-					description = <"Extremely felt anxious or low in your mood because of joint or muscle symptoms in the last 2 weeks">
+					description = <"Extremely felt anxious or low in your mood because of joint or muscle symptoms in the last 2 weeks.">
 				>
 				["at0071"] = <
 					text = <"12. Understanding condition">
@@ -547,23 +545,23 @@ question: |
 				>
 				["at0072"] = <
 					text = <"Completely">
-					description = <"Completely understand condition and any current treatment (including diagnosis and medication)">
+					description = <"Completely understand condition and any current treatment (including diagnosis and medication).">
 				>
 				["at0073"] = <
 					text = <"Very well">
-					description = <"Very well understand condition and any current treatment (including diagnosis and medication)">
+					description = <"Very well understand condition and any current treatment (including diagnosis and medication).">
 				>
 				["at0074"] = <
 					text = <"Moderately">
-					description = <"Moderately understand condition and any current treatment (including diagnosis and medication)">
+					description = <"Moderately understand condition and any current treatment (including diagnosis and medication).">
 				>
 				["at0075"] = <
 					text = <"Slightly">
-					description = <"Slightly understand condition and any current treatment (including diagnosis and medication)">
+					description = <"Slightly understand condition and any current treatment (including diagnosis and medication).">
 				>
 				["at0076"] = <
 					text = <"Not at all">
-					description = <"Do not understand condition and any current treatment (including diagnosis and medication)">
+					description = <"Do not understand condition and any current treatment (including diagnosis and medication).">
 				>
 				["at0077"] = <
 					text = <"13. Manage symptoms">
@@ -575,23 +573,23 @@ question: |
 				>
 				["at0078"] = <
 					text = <"Extremely">
-					description = <"Extremely confident in managing joint or muscle symptoms by yourself in the last 2 weeks (e.g. medication, changing lifestyle)">
+					description = <"Extremely confident in managing joint or muscle symptoms by yourself in the last 2 weeks (e.g. medication, changing lifestyle).">
 				>
 				["at0079"] = <
 					text = <"Very">
-					description = <"Very confident in managing joint or muscle symptoms by yourself in the last 2 weeks (e.g. medication, changing lifestyle)">
+					description = <"Very confident in managing joint or muscle symptoms by yourself in the last 2 weeks (e.g. medication, changing lifestyle).">
 				>
 				["at0080"] = <
 					text = <"Moderately">
-					description = <"Moderately confident in managing joint or muscle symptoms by yourself in the last 2 weeks (e.g. medication, changing lifestyle)">
+					description = <"Moderately confident in managing joint or muscle symptoms by yourself in the last 2 weeks (e.g. medication, changing lifestyle).">
 				>
 				["at0081"] = <
 					text = <"Slightly">
-					description = <"Slightly confident in managing joint or muscle symptoms by yourself in the last 2 weeks (e.g. medication, changing lifestyle)">
+					description = <"Slightly confident in managing joint or muscle symptoms by yourself in the last 2 weeks (e.g. medication, changing lifestyle).">
 				>
 				["at0082"] = <
 					text = <"Not at all">
-					description = <"Not confident in managing joint or muscle symptoms by yourself in the last 2 weeks (e.g. medication, changing lifestyle)">
+					description = <"Not confident in managing joint or muscle symptoms by yourself in the last 2 weeks (e.g. medication, changing lifestyle).">
 				>
 				["at0083"] = <
 					text = <"14. Impact">
@@ -605,19 +603,19 @@ question: |
 				>
 				["at0085"] = <
 					text = <"Slightly">
-					description = <"Joint or muscle symptoms slightly bothered you overall in the last 2 weeks">
+					description = <"Joint or muscle symptoms slightly bothered you overall in the last 2 weeks.">
 				>
 				["at0086"] = <
 					text = <"Moderately">
-					description = <"Joint or muscle symptoms moderately bothered you overall in the last 2 weeks">
+					description = <"Joint or muscle symptoms moderately bothered you overall in the last 2 weeks.">
 				>
 				["at0087"] = <
 					text = <"Very much">
-					description = <"Joint or muscle symptoms very much bothered you overall in the last 2 weeks">
+					description = <"Joint or muscle symptoms very much bothered you overall in the last 2 weeks.">
 				>
 				["at0088"] = <
 					text = <"Extremely">
-					description = <"Joint or muscle symptoms extremely bothered you overall in the last 2 weeks">
+					description = <"Joint or muscle symptoms extremely bothered you overall in the last 2 weeks.">
 				>
 				["at0092"] = <
 					text = <"Total score">
@@ -642,31 +640,31 @@ question: |
 				>
 				["at0104"] = <
 					text = <"1 day">
-					description = <"1 day">
+					description = <"1 day.">
 				>
 				["at0105"] = <
 					text = <"2 days">
-					description = <"2 days">
+					description = <"2 days.">
 				>
 				["at0106"] = <
 					text = <"3 days">
-					description = <"3 days">
+					description = <"3 days.">
 				>
 				["at0107"] = <
 					text = <"4 days">
-					description = <"4 days">
+					description = <"4 days.">
 				>
 				["at0108"] = <
 					text = <"5 days">
-					description = <"5 days">
+					description = <"5 days.">
 				>
 				["at0109"] = <
 					text = <"6 days">
-					description = <"6 days">
+					description = <"6 days.">
 				>
 				["at0110"] = <
 					text = <"7 days">
-					description = <"7 days">
+					description = <"7 days.">
 				>
 			>
 		>
@@ -675,7 +673,6 @@ question: |
 		["SNOMED-CT"] = <
 			items = <
 				["at0000"] = <[SNOMED-CT(1.36.4)::1036661000000104]>
-				["at0004"] = <[SNOMED-CT(1.36.4)::1036661000000104]>
 				["at0005"] = <[SNOMED-CT(1.36.4)::1099711000000106]>
 				["at0011"] = <[SNOMED-CT(1.36.4)::1099721000000100]>
 				["at0017"] = <[SNOMED-CT(1.36.4)::1099731000000103]>
