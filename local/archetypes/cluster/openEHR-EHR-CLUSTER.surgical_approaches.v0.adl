@@ -1,0 +1,149 @@
+﻿archetype (adl_version=1.4; uid=e6794e38-3017-4705-ad2f-e34b2de07472)
+	openEHR-EHR-CLUSTER.surgical_approaches.v0
+
+concept
+	[at0000]	-- Surgical approach
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"ian@freshehr.com">
+		["date"] = <"2023-03-31">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"503E9ED658308BC058A1715651F820F4">
+		["build_uid"] = <"a3939061-39d6-4a91-bee8-2374fae5bdf1">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] occurrences matches {0..*} matches {    -- Surgical approach
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..*} matches {    -- Arthroscopic approach
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0003,    -- Posterior portal
+							at0004,    -- Anterior portal
+							at0005,    -- Lateral portal
+							at0006,    -- Anteroinferior portal
+							at0007,    -- Posteriorinferior portal
+							at0008,    -- Nevasier (supraspinatus) portal
+							at0009]    -- Port of Wilmington (Posterolateral) portal
+						}
+					}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..*} matches {    -- Open approach
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0010,    -- Deltopectoral approach
+							at0011,    -- Anterolateral (Deltoid split) approach
+							at0012,    -- Superior strap approach
+							at0013,    -- Transacromial approach
+							at0014]    -- Posterior approach
+						}
+					}
+				}
+			}
+			ELEMENT[at0015] occurrences matches {0..1} matches {    -- Comment
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Surgical approach">
+					description = <"Surgical approaches">
+				>
+				["at0001"] = <
+					text = <"Arthroscopic approach">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Open approach">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Posterior portal">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Anterior portal">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Lateral portal">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Anteroinferior portal">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Posteriorinferior portal">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Nevasier (supraspinatus) portal">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"Port of Wilmington (Posterolateral) portal">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Deltopectoral approach">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"Anterolateral (Deltoid split) approach">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"Superior strap approach">
+					description = <"">
+				>
+				["at0013"] = <
+					text = <"Transacromial approach">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"Posterior approach">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"Comment">
+					description = <"">
+				>
+			>
+		>
+	>
