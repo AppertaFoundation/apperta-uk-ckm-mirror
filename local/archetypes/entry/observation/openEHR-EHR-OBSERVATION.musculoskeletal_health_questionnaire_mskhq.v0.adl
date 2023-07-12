@@ -32,8 +32,8 @@ description
 		["original_namespace"] = <"uk.org.clinicalmodels">
 		["original_publisher"] = <"Apperta UK">
 		["custodian_namespace"] = <"uk.org.clinicalmodels">
-		["MD5-CAM-1.0.1"] = <"50369D8DD661F52AA36DBA4697C1ED4E">
-		["build_uid"] = <"31c21091-5e6a-4d5f-bd23-6bf0bc4db7ad">
+		["MD5-CAM-1.0.1"] = <"274CA220C582EA162AA2F9716305885C">
+		["build_uid"] = <"96777fd6-10c5-4fb7-83c3-618630067ede">
 		["ip_acknowledgements"] = <"While openEHR archetypes are all freely available under an open license, the specific content of this MSK-HQ archetype can be only be used under the terms of Oxford University Innovation Licence agreement which can be found at: https://process.innovation.ox.ac.uk/ 
 
 Any use of this archetype within implementations must be in compliance with the terms established by Oxford University Innovation. The terms of the License can be found at: https://process.innovation.ox.ac.uk/clinical/p/versus-arthritis-musculoskeletal-health-questionnaire-(msk-hq)/msk-hq-questionnaire/1.
@@ -228,13 +228,12 @@ ontology
 			items = <
 				["at0000"] = <
 					text = <"Musculoskeletal Health Questionnaire MSK-HQ">
-					description = <"The MSK-HQ is a short self reported questionnaire that allows people with musculoskeletal conditions (such as arthritis or back pain) to report their symptoms and quality of life in a standardised way. 
+					description = <"The MSK-HQ is a short self-reported questionnaire that allows people with musculoskeletal conditions (such as arthritis or back pain) to report their symptoms and quality of life in a standardised way.">
+					comment = <"
+pagebreakInstruction: 
+This questionnaire is about your **joint, back, neck, bone and muscle symptoms** such as aches, pains and/or stiffness.
 
-">
-					comment = <"pagebreakInstruction: |
-  This questionnaire is about your **joint, back, neck, bone and muscle symptoms** such as aches, pains and/or stiffness.
-
-  Please focus on the particular health problem(s) for which you sought treatment from this service.">
+Please focus on the particular health problem(s) for which you sought treatment from this service.">
 				>
 				["at0001"] = <
 					text = <"History">
@@ -250,11 +249,8 @@ ontology
 				>
 				["at0005"] = <
 					text = <"1. Pain/stiffness day">
-					description = <"">
-					comment = <"question: |
-  **1. Pain/stiffness** during the **day**
-  How severe was your usual joint or muscle pain and/or stiffness overall during the **day** in the last 2 weeks?">
-					fulltext = <"**1. Pain/stiffness** during the **day**   How severe was your usual joint or muscle pain and/or stiffness overall during the **day** in the last 2 weeks?">
+					description = <"**1. Pain/stiffness** during the **day**
+How severe was your usual joint or muscle pain and/or stiffness overall during the **day** in the last 2 weeks?">
 				>
 				["at0006"] = <
 					text = <"Not at all">
@@ -278,9 +274,8 @@ ontology
 				>
 				["at0011"] = <
 					text = <"2. Pain/stiffness night">
-					description = <"question: |
-  **2. Pain/stiffness** during the **night** 
-  How severe was your usual joint or muscle pain and/or stiffness overall during the **night** in the last 2 weeks?">
+					description = <"**2. Pain/stiffness** during the **night** 
+How severe was your usual joint or muscle pain and/or stiffness overall during the **night** in the last 2 weeks?">
 				>
 				["at0012"] = <
 					text = <"Not at all">
@@ -304,9 +299,8 @@ ontology
 				>
 				["at0017"] = <
 					text = <"3. Walking">
-					description = <"question: |
-  **3. Walking**
-  How much have your symptoms interfered with your ability to walk in the last 2 weeks?">
+					description = <"**3. Walking**
+How much have your symptoms interfered with your ability to walk in the last 2 weeks?">
 				>
 				["at0018"] = <
 					text = <"Not at all">
@@ -330,9 +324,8 @@ ontology
 				>
 				["at0023"] = <
 					text = <"4. Washing/Dressing">
-					description = <"question: |
-  **4. Washing/Dressing**
-  How much have your symptoms interfered with your ability to wash or dress yourself in the last 2 weeks?">
+					description = <"**4. Washing/Dressing**
+How much have your symptoms interfered with your ability to wash or dress yourself in the last 2 weeks?">
 				>
 				["at0024"] = <
 					text = <"Not at all">
@@ -356,9 +349,8 @@ ontology
 				>
 				["at0029"] = <
 					text = <"5. Physical activity">
-					description = <"question: |
-  **5. Physical activity levels**
-  How much has it been a problem for you to do physical activities (e.g. going for a walk or jogging) to the level you want because of your joint or muscle symptoms in the last 2 weeks?">
+					description = <"**5. Physical activity levels**
+How much has it been a problem for you to do physical activities (e.g. going for a walk or jogging) to the level you want because of your joint or muscle symptoms in the last 2 weeks?">
 				>
 				["at0030"] = <
 					text = <"Not at all">
@@ -382,9 +374,8 @@ ontology
 				>
 				["at0035"] = <
 					text = <"6. Work/daily routine">
-					description = <"question: |
-  **6. Work/daily routine**
-  How much have your joint or muscle symptoms interfered with your work or daily routine in the last 2 weeks (including work & jobs around the house)?">
+					description = <"**6. Work/daily routine**
+How much have your joint or muscle symptoms interfered with your work or daily routine in the last 2 weeks (including work & jobs around the house)?">
 				>
 				["at0036"] = <
 					text = <"Not at all">
@@ -408,9 +399,8 @@ ontology
 				>
 				["at0041"] = <
 					text = <"7. Social/hobbies">
-					description = <"question: |
-  **7. Social activities and hobbies**
-  How much have your joint or muscle symptoms interfered with your social activities and hobbies in the last 2 weeks?">
+					description = <"**7. Social activities and hobbies**
+How much have your joint or muscle symptoms interfered with your social activities and hobbies in the last 2 weeks?">
 				>
 				["at0042"] = <
 					text = <"Not at all">
@@ -434,9 +424,8 @@ ontology
 				>
 				["at0047"] = <
 					text = <"8. Needing help">
-					description = <"question: |
-  **8. Needing help**
-  How often have you needed help from others (including family, friends or carers) because of your joint or muscle symptoms in the last 2 weeks?">
+					description = <"**8. Needing help**
+How often have you needed help from others (including family, friends or carers) because of your joint or muscle symptoms in the last 2 weeks?">
 				>
 				["at0048"] = <
 					text = <"Not at all">
@@ -460,9 +449,8 @@ ontology
 				>
 				["at0053"] = <
 					text = <"9. Sleep">
-					description = <"question: |
-  **9. Sleep**
-  How often have you had trouble with either falling asleep or staying asleep because of your joint or muscle symptoms in the last 2 weeks?">
+					description = <"**9. Sleep**
+How often have you had trouble with either falling asleep or staying asleep because of your joint or muscle symptoms in the last 2 weeks?">
 				>
 				["at0054"] = <
 					text = <"Not at all">
@@ -486,9 +474,8 @@ ontology
 				>
 				["at0059"] = <
 					text = <"10. Fatigue/low energy">
-					description = <"question: |
-  **10. Fatigue or low energy**
-  How much fatigue or low energy have you felt in the last 2 weeks?">
+					description = <"**10. Fatigue or low energy**
+How much fatigue or low energy have you felt in the last 2 weeks?">
 				>
 				["at0060"] = <
 					text = <"Not at all">
@@ -512,9 +499,8 @@ ontology
 				>
 				["at0065"] = <
 					text = <"11. Emotional wellbeing">
-					description = <"question: |
-  **11. Emotional well-being**
-  How much have you felt anxious or low in your mood because of your joint or muscle symptoms in the last 2 weeks?
+					description = <"**11. Emotional well-being**
+How much have you felt anxious or low in your mood because of your joint or muscle symptoms in the last 2 weeks?
 ">
 				>
 				["at0066"] = <
@@ -539,9 +525,8 @@ ontology
 				>
 				["at0071"] = <
 					text = <"12. Understanding condition">
-					description = <"question: |
-  **12. Understanding of your condition and any current treatment**
-  Thinking about your joint or muscle symptoms, how well do you feel you understand your condition and any current treatment (including your diagnosis and medication)?">
+					description = <"**12. Understanding of your condition and any current treatment**
+Thinking about your joint or muscle symptoms, how well do you feel you understand your condition and any current treatment (including your diagnosis and medication)?">
 				>
 				["at0072"] = <
 					text = <"Completely">
@@ -565,9 +550,8 @@ ontology
 				>
 				["at0077"] = <
 					text = <"13. Manage symptoms">
-					description = <"question: |
-  **13. Confidence in being able to manage your symptoms**
-  How confident have you felt in being able to manage your joint or muscle symptoms by yourself in the last 2 weeks (e.g. medication, changing lifestyle)?
+					description = <"**13. Confidence in being able to manage your symptoms**
+How confident have you felt in being able to manage your joint or muscle symptoms by yourself in the last 2 weeks (e.g. medication, changing lifestyle)?
 
 ">
 				>
@@ -593,9 +577,8 @@ ontology
 				>
 				["at0083"] = <
 					text = <"14. Impact">
-					description = <"question: |
-  **14. Overall impact** 
-  How much have your joint or muscle symptoms bothered you overall in the last 2 weeks?">
+					description = <"**14. Overall impact**
+How much have your joint or muscle symptoms bothered you overall in the last 2 weeks?">
 				>
 				["at0084"] = <
 					text = <"Not at all">
@@ -620,6 +603,9 @@ ontology
 				["at0092"] = <
 					text = <"Total score">
 					description = <"The MSK-HQ total score is the sum of items 1-14, using the response values provided.">
+					comment = <"
+question:
+The total score calculated from the sum of items 1 to 14.">
 				>
 				["at0093"] = <
 					text = <"Extension">
@@ -628,11 +614,11 @@ ontology
 				>
 				["at0094"] = <
 					text = <"Physical activity levels">
-					description = <"pagebreakInstruction: |
-  **Physical activity levels**
+					description = <"In the past week, on how many days have you done a total of 30 minutes or more of physical activity, which was enough to raise your heart rate? 
 
-question: |
-  In the past week, on how many days have you done a total of 30 minutes or more of physical activity, which was enough to raise your heart rate? ##This may include sport, exercise and brisk walking or cycling for recreation or to get to and from places, but should not include housework or physical activity that is part of your job.##">
+This may include sport, exercise and brisk walking or cycling for recreation or to get to and from places, but should not include housework or physical activity that is part of your job.">
+					comment = <"pagebreakInstruction: 
+**Physical activity levels**">
 				>
 				["at0103"] = <
 					text = <"None">
