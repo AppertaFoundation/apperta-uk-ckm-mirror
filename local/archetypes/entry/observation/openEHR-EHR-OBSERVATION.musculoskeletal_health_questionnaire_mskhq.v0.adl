@@ -33,7 +33,7 @@ description
 		["original_publisher"] = <"Apperta UK">
 		["custodian_namespace"] = <"uk.org.clinicalmodels">
 		["MD5-CAM-1.0.1"] = <"274CA220C582EA162AA2F9716305885C">
-		["build_uid"] = <"da560c3e-120f-48e7-9913-09ec09780c96">
+		["build_uid"] = <"96777fd6-10c5-4fb7-83c3-618630067ede">
 		["ip_acknowledgements"] = <"While openEHR archetypes are all freely available under an open license, the specific content of this MSK-HQ archetype can be only be used under the terms of Oxford University Innovation Licence agreement which can be found at: https://process.innovation.ox.ac.uk/ 
 
 Any use of this archetype within implementations must be in compliance with the terms established by Oxford University Innovation. The terms of the License can be found at: https://process.innovation.ox.ac.uk/clinical/p/versus-arthritis-musculoskeletal-health-questionnaire-(msk-hq)/msk-hq-questionnaire/1.
