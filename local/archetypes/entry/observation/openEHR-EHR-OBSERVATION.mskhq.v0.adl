@@ -2,7 +2,7 @@
 	openEHR-EHR-OBSERVATION.mskhq.v0
 
 concept
-	[at0000]	-- Musculoskeletal Health Questionnaire MSK-HQ
+	[at0000]	-- Musculoskeletal Health Questionnaire (MSK-HQ)
 language
 	original_language = <[ISO_639-1::en]>
 description
@@ -15,25 +15,26 @@ description
 	details = <
 		["en"] = <
 			language = <[ISO_639-1::en]>
-			purpose = <"MSK-HQ captures an overall rating of a person’s musculoskeletal health at any given time, the MSK-HQ enables patients and their clinicians to monitor progress over time and response to treatment. Considering individual components of the score, such as sleep quality or mood can allow particular aspects of musculoskeletal health to be addressed, ensuring a holistic approach to patient needs. Simply using the MSK-HQ may support people to report a wider range of their symptoms to their clinical team than they otherwise would feel able.">
-			use = <"MSK-HQ can be used to measure self reported pain and function in musculoskeletal arthritic conditions.">
-			keywords = <"Patient Reported Outcomes Measure, MSK-HQ,  musculoskeletal, questionnaire, arthritis, shoulder, hip, knee", ...>
+			purpose = <"To record the self-reported Musculoskeletal Health Questionnaire (MSK-HQ).">
+			use = <"Use to record the self-reported Musculoskeletal Health Questionnaire (MSK-HQ).
+
+MSK-HQ can be used to measure self reported pain and function in musculoskeletal conditions, such as arthritis or back pain.">
+			keywords = <"Patient Reported Outcomes Measure, MSK-HQ,  musculoskeletal, questionnaire, arthritis, shoulder, hip, knee, joint, back, neck, muscle, PROM, aches, pains, stiffness", ...>
 			misuse = <"">
-			copyright = <"©Apperta Foundation">
+			copyright = <"© Apperta Foundation">
 		>
 	>
 	lifecycle_state = <"in_development">
-	other_contributors = <>
+	other_contributors = <"Roanna Burgess, Sandwell and West Birmingham Hospitals NHS Trust, United Kingdom", "Jamila Chihab, UCL, United Kingdom", "Anji Kingman, Northumbria Healthcare NHS Foundation Trust, United Kingdom", "Heidi Koikkalainen, Edinburgh Napier University, United Kingdom (Apperta UK Editor)", "Ian McNicoll, freshEHR Clinical Informatics, United Kingdom (Apperta UK Editor)", "Kanthan Theivendran, KLT Medical, United Kingdom (Apperta UK Editor)">
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
 		["custodian_organisation"] = <"Apperta UK">
-		["references"] = <"Hill JC, Kang S, Benedetto E, Myers H, Blackburn S, Smith S, Dunn KM, Hay E, Rees J, Beard D, Glyn-Jones S, Barker K, Ellis B, Fitzpatrick R, Price A. Development and initial cohort validation of the Arthritis Research UK Musculoskeletal Health Questionnaire (MSK-HQ) for use across musculoskeletal care pathways. BMJ Open. 2016 Aug 5;6(8):e012331.
-">
+		["references"] = <"Hill JC, Kang S, Benedetto E, Myers H, Blackburn S, Smith S, Dunn KM, Hay E, Rees J, Beard D, Glyn-Jones S, Barker K, Ellis B, Fitzpatrick R, Price A. Development and initial cohort validation of the Arthritis Research UK Musculoskeletal Health Questionnaire (MSK-HQ) for use across musculoskeletal care pathways. BMJ Open. 2016 Aug 5;6(8):e012331.">
 		["original_namespace"] = <"uk.org.clinicalmodels">
 		["original_publisher"] = <"Apperta UK">
 		["custodian_namespace"] = <"uk.org.clinicalmodels">
-		["MD5-CAM-1.0.1"] = <"5CF0C29E5F4448B6553D40FF23716E58">
-		["build_uid"] = <"55ba9efe-f8fe-4329-a5cf-43f8225c221c">
+		["MD5-CAM-1.0.1"] = <"65E27071C81ECE8585A7DBB7EDC266B2">
+		["build_uid"] = <"d597baec-e762-427a-b8ab-bf24afa5b328">
 		["ip_acknowledgements"] = <"While openEHR archetypes are all freely available under an open license, the specific content of this MSK-HQ archetype can be only be used under the terms of Oxford University Innovation Licence agreement which can be found at: https://process.innovation.ox.ac.uk/ 
 
 Any use of this archetype within implementations must be in compliance with the terms established by Oxford University Innovation. The terms of the License can be found at: https://process.innovation.ox.ac.uk/clinical/p/versus-arthritis-musculoskeletal-health-questionnaire-(msk-hq)/msk-hq-questionnaire/1.
@@ -43,7 +44,7 @@ This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which 
 	>
 
 definition
-	OBSERVATION[at0000] matches {    -- Musculoskeletal Health Questionnaire MSK-HQ
+	OBSERVATION[at0000] matches {    -- Musculoskeletal Health Questionnaire (MSK-HQ)
 		data matches {
 			HISTORY[at0001] matches {    -- History
 				events cardinality matches {1..*; unordered} matches {
@@ -209,7 +210,7 @@ definition
 			}
 		}
 		protocol matches {
-			ITEM_TREE matches {
+			ITEM_TREE[at0004] matches {    -- Tree
 				items cardinality matches {0..*; unordered} matches {
 					allow_archetype CLUSTER[at0093] occurrences matches {0..*} matches {    -- Extension
 						include
@@ -227,10 +228,9 @@ ontology
 		["en"] = <
 			items = <
 				["at0000"] = <
-					text = <"Musculoskeletal Health Questionnaire MSK-HQ">
+					text = <"Musculoskeletal Health Questionnaire (MSK-HQ)">
 					description = <"The MSK-HQ is a short self-reported questionnaire that allows people with musculoskeletal conditions (such as arthritis or back pain) to report their symptoms and quality of life in a standardised way.">
-					comment = <"
-pagebreakInstruction: 
+					comment = <"pagebreakInstruction: 
 This questionnaire is about your **joint, back, neck, bone and muscle symptoms** such as aches, pains and/or stiffness.
 
 Please focus on the particular health problem(s) for which you sought treatment from this service.">
@@ -254,23 +254,23 @@ How severe was your usual joint or muscle pain and/or stiffness overall during t
 				>
 				["at0006"] = <
 					text = <"Not at all">
-					description = <"No pain/stiffness at all during the day">
+					description = <"No pain/stiffness at all during the day.">
 				>
 				["at0007"] = <
 					text = <"Slightly">
-					description = <"Slight pain/stiffness during the day">
+					description = <"Slight pain/stiffness during the day.">
 				>
 				["at0008"] = <
 					text = <"Moderately">
-					description = <"Moderate pain/stiffness during the day">
+					description = <"Moderate pain/stiffness during the day.">
 				>
 				["at0009"] = <
 					text = <"Fairly severe">
-					description = <"Fairly severe pain/stiffness during the day">
+					description = <"Fairly severe pain/stiffness during the day.">
 				>
 				["at0010"] = <
 					text = <"Very severe">
-					description = <"Very sever pain/stiffness during the day">
+					description = <"Very severe pain/stiffness during the day.">
 				>
 				["at0011"] = <
 					text = <"2. Pain/stiffness night">
@@ -279,23 +279,23 @@ How severe was your usual joint or muscle pain and/or stiffness overall during t
 				>
 				["at0012"] = <
 					text = <"Not at all">
-					description = <"No Pain/stiffness at all during the night.">
+					description = <"No pain/stiffness at all during the night.">
 				>
 				["at0013"] = <
 					text = <"Slightly">
-					description = <"Slight Pain/stiffness during the night.">
+					description = <"Slight pain/stiffness during the night.">
 				>
 				["at0014"] = <
 					text = <"Moderately">
-					description = <"Moderate Pain/stiffness during the night.">
+					description = <"Moderate pain/stiffness during the night.">
 				>
 				["at0015"] = <
 					text = <"Fairly severe">
-					description = <"Fairly severe Pain/stiffness during the night.">
+					description = <"Fairly severe pain/stiffness during the night.">
 				>
 				["at0016"] = <
 					text = <"Very Severe">
-					description = <"Very Severe Pain/stiffness during the night.">
+					description = <"Very severe pain/stiffness during the night.">
 				>
 				["at0017"] = <
 					text = <"3. Walking">
@@ -304,19 +304,19 @@ How much have your symptoms interfered with your ability to walk in the last 2 w
 				>
 				["at0018"] = <
 					text = <"Not at all">
-					description = <"Symptoms not interfered with ability to walk at all in the last 2 weeks.">
+					description = <"Symptoms have not interfered with ability to walk at all in the last 2 weeks.">
 				>
 				["at0019"] = <
 					text = <"Slightly">
-					description = <"Symptoms slightly interfered with ability to walk in the last 2 weeks.">
+					description = <"Symptoms have slightly interfered with ability to walk in the last 2 weeks.">
 				>
 				["at0020"] = <
 					text = <"Moderately">
-					description = <"Symptoms moderately  interfered with ability to walk in the last 2 weeks.">
+					description = <"Symptoms have moderately interfered with ability to walk in the last 2 weeks.">
 				>
 				["at0021"] = <
 					text = <"Severely">
-					description = <"Symptoms severely interfered with ability to walk in the last 2 weeks.">
+					description = <"Symptoms have severely interfered with ability to walk in the last 2 weeks.">
 				>
 				["at0022"] = <
 					text = <"Unable to walk">
@@ -329,19 +329,19 @@ How much have your symptoms interfered with your ability to wash or dress yourse
 				>
 				["at0024"] = <
 					text = <"Not at all">
-					description = <"Symptoms has not interfered with ability to wash or dress in the last 2 weeks.">
+					description = <"Symptoms have not interfered with ability to wash or dress in the last 2 weeks.">
 				>
 				["at0025"] = <
 					text = <"Slightly">
-					description = <"Symptoms slightly interfered with ability to wash or dress in the last 2 weeks.">
+					description = <"Symptoms have slightly interfered with ability to wash or dress in the last 2 weeks.">
 				>
 				["at0026"] = <
 					text = <"Moderately">
-					description = <"Symptoms moderately interfered with ability to wash or dress in the last 2 weeks.">
+					description = <"Symptoms have moderately interfered with ability to wash or dress in the last 2 weeks.">
 				>
 				["at0027"] = <
 					text = <"Severely">
-					description = <"Symptoms severely interfered with ability to wash or dress in the last 2 weeks.">
+					description = <"Symptoms have severely interfered with ability to wash or dress in the last 2 weeks.">
 				>
 				["at0028"] = <
 					text = <"Unable to wash or dress myself">
@@ -354,7 +354,7 @@ How much has it been a problem for you to do physical activities (e.g. going for
 				>
 				["at0030"] = <
 					text = <"Not at all">
-					description = <"No problems with physical activity due to symptoms.">
+					description = <"No problem with physical activity due to symptoms.">
 				>
 				["at0031"] = <
 					text = <"Slightly">
@@ -379,23 +379,23 @@ How much have your joint or muscle symptoms interfered with your work or daily r
 				>
 				["at0036"] = <
 					text = <"Not at all">
-					description = <"Symptoms not interfered with work or daily routine in the last 2 weeks (including work & jobs around the house).">
+					description = <"Symptoms have not interfered with work or daily routine in the last 2 weeks (including work & jobs around the house).">
 				>
 				["at0037"] = <
 					text = <"Slightly">
-					description = <"Symptoms slightly interfered with work or daily routine in the last 2 weeks (including work & jobs around the house).">
+					description = <"Symptoms have slightly interfered with work or daily routine in the last 2 weeks (including work & jobs around the house).">
 				>
 				["at0038"] = <
 					text = <"Moderately">
-					description = <"Symptoms moderately interfered with work or daily routine in the last 2 weeks (including work & jobs around the house).">
+					description = <"Symptoms have moderately interfered with work or daily routine in the last 2 weeks (including work & jobs around the house).">
 				>
 				["at0039"] = <
 					text = <"Severely">
-					description = <"Symptoms severely interfered with work or daily routine in the last 2 weeks (including work & jobs around the house).">
+					description = <"Symptoms have severely interfered with work or daily routine in the last 2 weeks (including work & jobs around the house).">
 				>
 				["at0040"] = <
 					text = <"Extremely">
-					description = <"Symptoms extremely interfered with work or daily routine in the last 2 weeks (including work & jobs around the house).">
+					description = <"Symptoms have extremely interfered with work or daily routine in the last 2 weeks (including work & jobs around the house).">
 				>
 				["at0041"] = <
 					text = <"7. Social/hobbies">
@@ -404,23 +404,23 @@ How much have your joint or muscle symptoms interfered with your social activiti
 				>
 				["at0042"] = <
 					text = <"Not at all">
-					description = <"Symptoms not interfered with social activities and hobbies in the last 2 weeks.">
+					description = <"Symptoms have not interfered with social activities and hobbies in the last 2 weeks.">
 				>
 				["at0043"] = <
 					text = <"Slightly">
-					description = <"Symptoms slightly interfered with social activities and hobbies in the last 2 weeks.">
+					description = <"Symptoms have slightly interfered with social activities and hobbies in the last 2 weeks.">
 				>
 				["at0044"] = <
 					text = <"Moderately">
-					description = <"Symptoms moderately interfered with social activities and hobbies in the last 2 weeks.">
+					description = <"Symptoms have moderately interfered with social activities and hobbies in the last 2 weeks.">
 				>
 				["at0045"] = <
 					text = <"Severely">
-					description = <"Symptoms severely interfered with social activities and hobbies in the last 2 weeks.">
+					description = <"Symptoms have severely interfered with social activities and hobbies in the last 2 weeks.">
 				>
 				["at0046"] = <
 					text = <"Extremely">
-					description = <"Symptoms extremely interfered with social activities and hobbies in the last 2 weeks.">
+					description = <"Symptoms have extremely interfered with social activities and hobbies in the last 2 weeks.">
 				>
 				["at0047"] = <
 					text = <"8. Needing help">
@@ -429,7 +429,7 @@ How often have you needed help from others (including family, friends or carers)
 				>
 				["at0048"] = <
 					text = <"Not at all">
-					description = <"Not  needed help from others (including family, friends or carers) because of symptoms in the last 2 weeks.">
+					description = <"Not needed help from others (including family, friends or carers) because of symptoms in the last 2 weeks.">
 				>
 				["at0049"] = <
 					text = <"Rarely">
@@ -437,7 +437,7 @@ How often have you needed help from others (including family, friends or carers)
 				>
 				["at0050"] = <
 					text = <"Sometimes">
-					description = <"Sometimes needed help from others (including family, friends or carers) because of symptoms in the last 2 weeks">
+					description = <"Sometimes needed help from others (including family, friends or carers) because of symptoms in the last 2 weeks.">
 				>
 				["at0051"] = <
 					text = <"Frequently">
@@ -454,11 +454,11 @@ How often have you had trouble with either falling asleep or staying asleep beca
 				>
 				["at0054"] = <
 					text = <"Not at all">
-					description = <"No trouble with either falling asleep or staying asleep because of joint or muscle symptoms in the last 2 weeks.">
+					description = <"Not troubled with either falling asleep or staying asleep because of joint or muscle symptoms in the last 2 weeks.">
 				>
 				["at0055"] = <
 					text = <"Rarely">
-					description = <"Rarely trouble with either falling asleep or staying asleep because of joint or muscle symptoms in the last 2 weeks.">
+					description = <"Rarely troubled with either falling asleep or staying asleep because of joint or muscle symptoms in the last 2 weeks.">
 				>
 				["at0056"] = <
 					text = <"Sometimes">
@@ -505,23 +505,23 @@ How much have you felt anxious or low in your mood because of your joint or musc
 				>
 				["at0066"] = <
 					text = <"Not at all">
-					description = <"Not felt anxious or low in your mood because of joint or muscle symptoms in the last 2 weeks.">
+					description = <"Not felt anxious or low in mood because of joint or muscle symptoms in the last 2 weeks.">
 				>
 				["at0067"] = <
 					text = <"Slightly">
-					description = <"Slightly felt anxious or low in your mood because of joint or muscle symptoms in the last 2 weeks.">
+					description = <"Felt slightly anxious or low in mood because of joint or muscle symptoms in the last 2 weeks.">
 				>
 				["at0068"] = <
 					text = <"Moderately">
-					description = <"Moderately felt anxious or low in your mood because of joint or muscle symptoms in the last 2 weeks.">
+					description = <"Felt moderately anxious or low in mood because of joint or muscle symptoms in the last 2 weeks.">
 				>
 				["at0069"] = <
 					text = <"Severely">
-					description = <"Severely felt anxious or low in your mood because of joint or muscle symptoms in the last 2 weeks.">
+					description = <"Felt severely anxious or low in mood because of joint or muscle symptoms in the last 2 weeks.">
 				>
 				["at0070"] = <
 					text = <"Extremely">
-					description = <"Extremely felt anxious or low in your mood because of joint or muscle symptoms in the last 2 weeks.">
+					description = <"Felt extremely anxious or low in mood because of joint or muscle symptoms in the last 2 weeks.">
 				>
 				["at0071"] = <
 					text = <"12. Understanding condition">
@@ -534,7 +534,7 @@ Thinking about your joint or muscle symptoms, how well do you feel you understan
 				>
 				["at0073"] = <
 					text = <"Very well">
-					description = <"Very well understand condition and any current treatment (including diagnosis and medication).">
+					description = <"Understand condition and any current treatment (including diagnosis and medication) very well.">
 				>
 				["at0074"] = <
 					text = <"Moderately">
@@ -557,23 +557,23 @@ How confident have you felt in being able to manage your joint or muscle symptom
 				>
 				["at0078"] = <
 					text = <"Extremely">
-					description = <"Extremely confident in managing joint or muscle symptoms by yourself in the last 2 weeks (e.g. medication, changing lifestyle).">
+					description = <"Extremely confident in managing joint or muscle symptoms in the last 2 weeks (e.g. medication, changing lifestyle).">
 				>
 				["at0079"] = <
 					text = <"Very">
-					description = <"Very confident in managing joint or muscle symptoms by yourself in the last 2 weeks (e.g. medication, changing lifestyle).">
+					description = <"Very confident in managing joint or muscle symptoms in the last 2 weeks (e.g. medication, changing lifestyle).">
 				>
 				["at0080"] = <
 					text = <"Moderately">
-					description = <"Moderately confident in managing joint or muscle symptoms by yourself in the last 2 weeks (e.g. medication, changing lifestyle).">
+					description = <"Moderately confident in managing joint or muscle symptoms in the last 2 weeks (e.g. medication, changing lifestyle).">
 				>
 				["at0081"] = <
 					text = <"Slightly">
-					description = <"Slightly confident in managing joint or muscle symptoms by yourself in the last 2 weeks (e.g. medication, changing lifestyle).">
+					description = <"Slightly confident in managing joint or muscle symptoms in the last 2 weeks (e.g. medication, changing lifestyle).">
 				>
 				["at0082"] = <
 					text = <"Not at all">
-					description = <"Not confident in managing joint or muscle symptoms by yourself in the last 2 weeks (e.g. medication, changing lifestyle).">
+					description = <"Not confident in managing joint or muscle symptoms in the last 2 weeks (e.g. medication, changing lifestyle).">
 				>
 				["at0083"] = <
 					text = <"14. Impact">
@@ -582,30 +582,28 @@ How much have your joint or muscle symptoms bothered you overall in the last 2 w
 				>
 				["at0084"] = <
 					text = <"Not at all">
-					description = <"Joint or muscle symptoms not bothered you overall in the last 2 weeks">
+					description = <"Not at all bothered by joint or muscle symptoms overall in the last 2 weeks.">
 				>
 				["at0085"] = <
 					text = <"Slightly">
-					description = <"Joint or muscle symptoms slightly bothered you overall in the last 2 weeks.">
+					description = <"Slightly bothered by joint or muscle symptoms overall in the last 2 weeks.">
 				>
 				["at0086"] = <
 					text = <"Moderately">
-					description = <"Joint or muscle symptoms moderately bothered you overall in the last 2 weeks.">
+					description = <"Moderately bothered by joint or muscle symptoms overall in the last 2 weeks.">
 				>
 				["at0087"] = <
 					text = <"Very much">
-					description = <"Joint or muscle symptoms very much bothered you overall in the last 2 weeks.">
+					description = <"Very much bothered by joint or muscle symptoms overall in the last 2 weeks.">
 				>
 				["at0088"] = <
 					text = <"Extremely">
-					description = <"Joint or muscle symptoms extremely bothered you overall in the last 2 weeks.">
+					description = <"Extremely bothered by joint or muscle symptoms overall in the last 2 weeks.">
 				>
 				["at0092"] = <
 					text = <"Total score">
-					description = <"The MSK-HQ total score is the sum of items 1-14, using the response values provided.">
-					comment = <"
-question:
-The total score calculated from the sum of items 1 to 14.">
+					description = <"The total score calculated from the sum of items 1 to 14.">
+					comment = <"clinical_description: The MSK-HQ total score is the sum of items 1-14, using the response values provided.">
 				>
 				["at0093"] = <
 					text = <"Extension">
@@ -622,7 +620,7 @@ This may include sport, exercise and brisk walking or cycling for recreation or 
 				>
 				["at0103"] = <
 					text = <"None">
-					description = <"None">
+					description = <"None.">
 				>
 				["at0104"] = <
 					text = <"1 day">
@@ -651,6 +649,10 @@ This may include sport, exercise and brisk walking or cycling for recreation or 
 				["at0110"] = <
 					text = <"7 days">
 					description = <"7 days.">
+				>
+				["at0004"] = <
+					text = <"Tree">
+					description = <"@ internal @">
 				>
 			>
 		>
