@@ -1,5 +1,5 @@
-﻿archetype (adl_version=1.4; uid=435df118-6f22-4703-b8f0-21539ed887dd)
-	openEHR-EHR-OBSERVATION.musculoskeletal_health_questionnaire_mskhq.v0
+﻿archetype (adl_version=1.4; uid=45825746-1bce-440e-ad07-130faa6a5599)
+	openEHR-EHR-OBSERVATION.mskhq.v0
 
 concept
 	[at0000]	-- Musculoskeletal Health Questionnaire MSK-HQ
@@ -32,8 +32,8 @@ description
 		["original_namespace"] = <"uk.org.clinicalmodels">
 		["original_publisher"] = <"Apperta UK">
 		["custodian_namespace"] = <"uk.org.clinicalmodels">
-		["MD5-CAM-1.0.1"] = <"274CA220C582EA162AA2F9716305885C">
-		["build_uid"] = <"96777fd6-10c5-4fb7-83c3-618630067ede">
+		["MD5-CAM-1.0.1"] = <"5CF0C29E5F4448B6553D40FF23716E58">
+		["build_uid"] = <"55ba9efe-f8fe-4329-a5cf-43f8225c221c">
 		["ip_acknowledgements"] = <"While openEHR archetypes are all freely available under an open license, the specific content of this MSK-HQ archetype can be only be used under the terms of Oxford University Innovation Licence agreement which can be found at: https://process.innovation.ox.ac.uk/ 
 
 Any use of this archetype within implementations must be in compliance with the terms established by Oxford University Innovation. The terms of the License can be found at: https://process.innovation.ox.ac.uk/clinical/p/versus-arthritis-musculoskeletal-health-questionnaire-(msk-hq)/msk-hq-questionnaire/1.
