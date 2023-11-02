@@ -44,8 +44,8 @@ Cpicpgx.Org, 2023, http://cpicpgx.org/wp-content/uploads/2016/02/CPIC-Term-Stand
 		["original_namespace"] = <"uk.org.clinicalmodels">
 		["original_publisher"] = <"Apperta UK">
 		["custodian_namespace"] = <"uk.org.clinicalmodels">
-		["MD5-CAM-1.0.1"] = <"519D2711315EA1DC92B375259FA1F934">
-		["build_uid"] = <"1448de4c-c859-41a8-babf-c979a55a8741">
+		["MD5-CAM-1.0.1"] = <"702B9B53880BC942A79F9D1CC2C56AC3">
+		["build_uid"] = <"62bafc3c-a086-42f4-b983-e8d9dfceb163">
 		["ip_acknowledgements"] = <"This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact https://www.snomed.org/snomed-ct/get-snomed or info@snomed.org.">
 		["revision"] = <"0.0.1-alpha">
 	>
@@ -63,7 +63,7 @@ definition
 					}
 				}
 			}
-			ELEMENT[at0004] occurrences matches {0..1} matches {    -- Genotype
+			ELEMENT[at0004] occurrences matches {0..1} matches {    -- Diplotype
 				value matches {
 					DV_TEXT matches {*}
 				}
@@ -181,8 +181,8 @@ See https://terminology.hl7.org/CodeSystem-v3-hgnc.json.html
 ">
 				>
 				["at0004"] = <
-					text = <"Genotype">
-					description = <"A textual representation of the genotype, normally as string of characters, either as as gene change descriptors or star allele diplotypes.">
+					text = <"Diplotype">
+					description = <"A textual representation of the diplotype, normally as string of characters, either as as gene change descriptors or star allele diplotypes.">
 					comment = <"For example:
 
 'g.94938683A>G' (Gene changes)
