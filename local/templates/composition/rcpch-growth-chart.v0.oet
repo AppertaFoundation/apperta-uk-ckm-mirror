@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xmlns="openEHR/v1/Template">
+    <id>1e979456-1008-4e60-87e0-c0b0ff654e2e</id>
+    <name>rcpch-growth-chart.v0</name>
+    <description>
+        <original_author>
+            <item>
+                <key>date</key>
+                <value>2023-06-06</value>
+            </item>
+            <item>
+                <key>name</key>
+                <value>John Meredith</value>
+            </item>
+            <item>
+                <key>organisation</key>
+                <value>Digital Health and Care Wales (DHCW) / openEHR International</value>
+            </item>
+            <item>
+                <key>email</key>
+                <value>john.meredith@openehr.org</value>
+            </item>
+        </original_author>
+        <other_contributors>
+            <item>Dr Ian McNicoll</item>
+            <item>Dr Marcus Baw</item>
+        </other_contributors>
+        <lifecycle_state>in_development</lifecycle_state>
+        <details>
+            <purpose>To record calculations for use in a child growth chart. The data points align to the Royal College of Paediatrics and Child Health API. 
+</purpose>
+            <keywords>
+                <item>RCPCH, growth, centile, chart, Turner, Trisomy-21</item>
+            </keywords>
+            <use>For use in capturing output from the RCPCH Growth Chart calculation API. Will take into account Height calculations aligned to UK-WHO, Turner Syndrome and Trisomy-21. </use>
+        </details>
+        <other_details>
+            <item>
+                <key>licence</key>
+                <value/>
+            </item>
+            <item>
+                <key>custodian_organisation</key>
+                <value/>
+            </item>
+            <item>
+                <key>original_namespace</key>
+                <value/>
+            </item>
+            <item>
+                <key>original_publisher</key>
+                <value/>
+            </item>
+            <item>
+                <key>custodian_namespace</key>
+                <value/>
+            </item>
+            <item>
+                <key>sem_ver</key>
+                <value>0.1.31</value>
+            </item>
+            <item>
+                <key>build_uid</key>
+                <value/>
+            </item>
+            <item>
+                <key>MD5-CAM-1.0.1</key>
+                <value>b50866c0e31ff9a4fe091a88336bba12</value>
+            </item>
+            <item>
+                <key>PARENT:MD5-CAM-1.0.1</key>
+                <value>2A64B8463AA11FF22EA7977CDF0E9959</value>
+            </item>
+            <item>
+                <key>original_language</key>
+                <value>ISO_639-1::en</value>
+            </item>
+        </other_details>
+    </description>
+    <definition archetype_id="openEHR-EHR-COMPOSITION.report-result.v1"
+        concept_name="Result report"
+        name="RCPCH Growth Chart Calculation"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:COMPOSITION">
+        <Content archetype_id="openEHR-EHR-SECTION.adhoc.v1"
+            concept_name="Ad hoc heading" max="1" name="Child Data"
+            path="/content" xsi:type="tem:SECTION">
+            <Item archetype_id="openEHR-EHR-EVALUATION.birth_summary.v0"
+                max="1" path="/items" xsi:type="tem:EVALUATION">
+                <Rule name="Birth date" path="/data[at0001]/items[at0004]"/>
+                <Rule max="0" path="/data[at0001]/items[at0002]"/>
+                <Rule max="0" path="/data[at0001]/items[at0012]"/>
+                <Rule max="0" path="/data[at0001]/items[at0006]"/>
+                <Rule max="0" path="/data[at0001]/items[at0007]"/>
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.birth_detail.v0"
+                    max="1" path="/data[at0001]/items[at0008]" xsi:type="tem:CLUSTER">
+                    <Rule max="0" path="/items[at0001]"/>
+                    <Rule max="0" path="/items[at0003]"/>
+                    <Rule path="/items[at0004]">
+                        <constraint xsi:type="tem:durationConstraint">
+                            <pattern>PWD</pattern>
+                            <maxMagnitude>P52W</maxMagnitude>
+                            <minMagnitude>P0W</minMagnitude>
+                            <includesMaximum>true</includesMaximum>
+                            <includesMinimum>true</includesMinimum>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0018]">
+                        <constraint xsi:type="tem:durationConstraint">
+                            <pattern>PW</pattern>
+                            <maxMagnitude>P52W</maxMagnitude>
+                            <minMagnitude>P0W</minMagnitude>
+                            <includesMaximum>true</includesMaximum>
+                            <includesMinimum>true</includesMinimum>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0005]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Coded_text</includedTypes>
+                            <includedTypes>Text</includedTypes>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0019]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Coded_text</includedTypes>
+                            <includedTypes>Text</includedTypes>
+                        </constraint>
+                    </Rule>
+                </Items>
+            </Item>
+            <Item archetype_id="openEHR-EHR-EVALUATION.gender.v1"
+                max="1" path="/items" xsi:type="tem:EVALUATION">
+                <Rule max="0" path="/data[at0002]/items[at0022]"/>
+                <Rule max="0" path="/data[at0002]/items[at0026]"/>
+                <Rule path="/data[at0002]/items[at0019]">
+                    <constraint limitToList="false" xsi:type="tem:textConstraint">
+                        <termQueryId terminologyID="https://fhir.hl7.org.uk/ValueSet/UKCore-BirthSex"/>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0002]/items[at0025]"/>
+                <Rule max="0" path="/data[at0002]/items[at0001]"/>
+                <Rule max="0" path="/data[at0002]/items[at0020]"/>
+                <Rule max="0" path="/data[at0002]/items[at0014]"/>
+                <Rule max="0" path="/protocol[at0003]/items[at0004]"/>
+            </Item>
+            <Item
+                archetype_id="openEHR-EHR-OBSERVATION.skeletal_age_rcpch.v0"
+                max="1" path="/items" xsi:type="tem:OBSERVATION">
+                <Rule name="Bone age" path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Duration</includedTypes>
+                        <includedTypes>Quantity</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule name="Bone age text" path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]"/>
+                <Rule name="Bone age centile" path="/data[at0001]/events[at0002]/data[at0003]/items[at0032]"/>
+                <Rule name="Bone age sds" path="/data[at0001]/events[at0002]/data[at0003]/items[at0034]">
+                    <constraint xsi:type="tem:quantityConstraint">
+                        <unitMagnitude>
+                            <unit>1</unit>
+                            <includesMaximum>false</includesMaximum>
+                            <includesMinimum>true</includesMinimum>
+                        </unitMagnitude>
+                    </constraint>
+                </Rule>
+                <Rule name="Event text" path="/data[at0001]/events[at0002]/state[at0027]/items[at0028]"/>
+                <Rule max="0" path="/protocol[at0007]/items[at0009]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Coded_text</includedTypes>
+                        <includedTypes>Text</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule name="Bone age type" path="/protocol[at0007]/items[at0021]">
+                    <constraint xsi:type="tem:textConstraint">
+                        <includedValues>greulich-pyle</includedValues>
+                        <includedValues>tanner-whitehouse-ii</includedValues>
+                        <includedValues>tanner-whitehouse-iii</includedValues>
+                        <includedValues>fels</includedValues>
+                        <includedValues>bonexpert</includedValues>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/protocol[at0007]/items[at0014]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Text</includedTypes>
+                        <includedTypes>Coded_text</includedTypes>
+                    </constraint>
+                </Rule>
+            </Item>
+        </Content>
+        <Content archetype_id="openEHR-EHR-SECTION.adhoc.v1"
+            concept_name="Ad hoc heading" max="1"
+            name="Measurement Data" path="/content" xsi:type="tem:SECTION">
+            <Item archetype_id="openEHR-EHR-OBSERVATION.age.v0" max="1"
+                path="/items" xsi:type="tem:OBSERVATION">
+                <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]">
+                    <constraint xsi:type="tem:durationConstraint">
+                        <pattern>PYMWD</pattern>
+                        <includesMaximum>true</includesMaximum>
+                        <includesMinimum>true</includesMinimum>
+                    </constraint>
+                </Rule>
+                <Rule name="Corrected age" path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]">
+                    <constraint xsi:type="tem:durationConstraint">
+                        <pattern>PYMWD</pattern>
+                        <includesMaximum>true</includesMaximum>
+                        <includesMinimum>true</includesMinimum>
+                    </constraint>
+                </Rule>
+            </Item>
+            <Item archetype_id="openEHR-EHR-OBSERVATION.child_growth.v0"
+                concept_name="Child growth indicators" max="1"
+                name="Length/height indicator" path="/items" xsi:type="tem:OBSERVATION">
+                <Rule max="1" name="Chronological" path="/data[at0001]/events[at0002]"/>
+                <Rule path="/data[at0001]/events[at0002, 'Chronological']/data[at0003]/items[at0014]">
+                    <constraint xsi:type="tem:textConstraint">
+                        <excludedValues>local::at0023</excludedValues>
+                        <excludedValues>local::at0025</excludedValues>
+                        <excludedValues>local::at0029</excludedValues>
+                        <excludedValues>local::at0024</excludedValues>
+                        <excludedValues>local::at0034</excludedValues>
+                        <excludedValues>local::at0036</excludedValues>
+                        <excludedValues>local::at0037</excludedValues>
+                        <excludedValues>local::at0038</excludedValues>
+                        <excludedValues>local::at0039</excludedValues>
+                        <excludedValues>local::at0040</excludedValues>
+                        <excludedValues>local::at0021</excludedValues>
+                        <excludedValues>local::at0022</excludedValues>
+                        <excludedValues>local::at0026</excludedValues>
+                        <excludedValues>local::at0027</excludedValues>
+                    </constraint>
+                </Rule>
+                <Rule name="Centile" path="/data[at0001]/events[at0002, 'Chronological']/data[at0003]/items[at0010]"/>
+                <Rule name="SDS" path="/data[at0001]/events[at0002, 'Chronological']/data[at0003]/items[at0011]">
+                    <constraint xsi:type="tem:quantityConstraint"/>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/events[at0002, 'Chronological']/data[at0003]/items[at0041]"/>
+                <Rule name="Centile band" path="/data[at0001]/events[at0002, 'Chronological']/data[at0003]/items[at0019]"/>
+                <Rule clone="true" max="1" name="Corrected" path="/data[at0001]/events[at0002]"/>
+                <Rule path="/data[at0001]/events[at0002, 'Corrected']/data[at0003]/items[at0014]">
+                    <constraint xsi:type="tem:textConstraint">
+                        <excludedValues>local::at0023</excludedValues>
+                        <excludedValues>local::at0025</excludedValues>
+                        <excludedValues>local::at0029</excludedValues>
+                        <excludedValues>local::at0024</excludedValues>
+                        <excludedValues>local::at0034</excludedValues>
+                        <excludedValues>local::at0036</excludedValues>
+                        <excludedValues>local::at0037</excludedValues>
+                        <excludedValues>local::at0038</excludedValues>
+                        <excludedValues>local::at0039</excludedValues>
+                        <excludedValues>local::at0040</excludedValues>
+                        <excludedValues>local::at0021</excludedValues>
+                        <excludedValues>local::at0022</excludedValues>
+                        <excludedValues>local::at0026</excludedValues>
+                        <excludedValues>local::at0027</excludedValues>
+                    </constraint>
+                </Rule>
+                <Rule name="Centile" path="/data[at0001]/events[at0002, 'Corrected']/data[at0003]/items[at0010]"/>
+                <Rule name="SDS" path="/data[at0001]/events[at0002, 'Corrected']/data[at0003]/items[at0011]">
+                    <constraint xsi:type="tem:quantityConstraint"/>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/events[at0002, 'Corrected']/data[at0003]/items[at0041]"/>
+                <Rule name="Centile band" path="/data[at0001]/events[at0002, 'Corrected']/data[at0003]/items[at0019]"/>
+                <Items archetype_id="openEHR-EHR-CLUSTER.media_file.v1"
+                    concept_name="Media file" max="1"
+                    name="Calculation results"
+                    path="/protocol[at0031]/items[at0032]" xsi:type="tem:CLUSTER">
+                    <Rule default="Imported RCHPH results" path="/items[at0002]"/>
+                    <Rule max="0" path="/items[at0010]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Identifier</includedTypes>
+                            <includedTypes>Text</includedTypes>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0005]"/>
+                    <Rule max="0" path="/items[at0004]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Date_Time</includedTypes>
+                            <includedTypes>Interval</includedTypes>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0007]"/>
+                </Items>
+            </Item>
+            <Item archetype_id="openEHR-EHR-OBSERVATION.child_growth.v0"
+                concept_name="Child growth indicators" max="1"
+                name="Weight indicator" path="/items" xsi:type="tem:OBSERVATION">
+                <Rule max="1" name="Chronological" path="/data[at0001]/events[at0002]"/>
+                <Rule path="/data[at0001]/events[at0002, 'Chronological']/data[at0003]/items[at0014]">
+                    <constraint xsi:type="tem:textConstraint">
+                        <excludedValues>local::at0020</excludedValues>
+                        <excludedValues>local::at0025</excludedValues>
+                        <excludedValues>local::at0029</excludedValues>
+                        <excludedValues>local::at0024</excludedValues>
+                        <excludedValues>local::at0034</excludedValues>
+                        <excludedValues>local::at0036</excludedValues>
+                        <excludedValues>local::at0037</excludedValues>
+                        <excludedValues>local::at0038</excludedValues>
+                        <excludedValues>local::at0039</excludedValues>
+                        <excludedValues>local::at0040</excludedValues>
+                        <excludedValues>local::at0021</excludedValues>
+                        <excludedValues>local::at0022</excludedValues>
+                        <excludedValues>local::at0026</excludedValues>
+                        <excludedValues>local::at0027</excludedValues>
+                    </constraint>
+                </Rule>
+                <Rule name="Centile" path="/data[at0001]/events[at0002, 'Chronological']/data[at0003]/items[at0010]"/>
+                <Rule name="SDS" path="/data[at0001]/events[at0002, 'Chronological']/data[at0003]/items[at0011]">
+                    <constraint xsi:type="tem:quantityConstraint"/>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/events[at0002, 'Chronological']/data[at0003]/items[at0041]"/>
+                <Rule name="Centile band" path="/data[at0001]/events[at0002, 'Chronological']/data[at0003]/items[at0019]"/>
+                <Rule clone="true" max="1" name="Corrected" path="/data[at0001]/events[at0002]"/>
+                <Rule path="/data[at0001]/events[at0002, 'Corrected']/data[at0003]/items[at0014]">
+                    <constraint xsi:type="tem:textConstraint">
+                        <excludedValues>local::at0020</excludedValues>
+                        <excludedValues>local::at0025</excludedValues>
+                        <excludedValues>local::at0029</excludedValues>
+                        <excludedValues>local::at0024</excludedValues>
+                        <excludedValues>local::at0034</excludedValues>
+                        <excludedValues>local::at0036</excludedValues>
+                        <excludedValues>local::at0037</excludedValues>
+                        <excludedValues>local::at0038</excludedValues>
+                        <excludedValues>local::at0039</excludedValues>
+                        <excludedValues>local::at0040</excludedValues>
+                        <excludedValues>local::at0021</excludedValues>
+                        <excludedValues>local::at0022</excludedValues>
+                        <excludedValues>local::at0026</excludedValues>
+                        <excludedValues>local::at0027</excludedValues>
+                    </constraint>
+                </Rule>
+                <Rule name="Centile" path="/data[at0001]/events[at0002, 'Corrected']/data[at0003]/items[at0010]"/>
+                <Rule name="SDS" path="/data[at0001]/events[at0002, 'Corrected']/data[at0003]/items[at0011]">
+                    <constraint xsi:type="tem:quantityConstraint"/>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/events[at0002, 'Corrected']/data[at0003]/items[at0041]"/>
+                <Rule name="Centile band" path="/data[at0001]/events[at0002, 'Corrected']/data[at0003]/items[at0019]"/>
+                <Items archetype_id="openEHR-EHR-CLUSTER.media_file.v1"
+                    concept_name="Media file" max="1"
+                    name="Calculation results"
+                    path="/protocol[at0031]/items[at0032]" xsi:type="tem:CLUSTER">
+                    <Rule default="Imported RCHPH results" path="/items[at0002]"/>
+                    <Rule max="0" path="/items[at0010]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Identifier</includedTypes>
+                            <includedTypes>Text</includedTypes>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0005]"/>
+                    <Rule max="0" path="/items[at0004]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Date_Time</includedTypes>
+                            <includedTypes>Interval</includedTypes>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0007]"/>
+                </Items>
+            </Item>
+            <Item archetype_id="openEHR-EHR-OBSERVATION.child_growth.v0"
+                concept_name="Child growth indicators" max="1"
+                name="Head circumference indicator" path="/items" xsi:type="tem:OBSERVATION">
+                <Rule max="1" name="Chronological" path="/data[at0001]/events[at0002]"/>
+                <Rule path="/data[at0001]/events[at0002, 'Chronological']/data[at0003]/items[at0014]">
+                    <constraint xsi:type="tem:textConstraint">
+                        <excludedValues>local::at0020</excludedValues>
+                        <excludedValues>local::at0023</excludedValues>
+                        <excludedValues>local::at0025</excludedValues>
+                        <excludedValues>local::at0029</excludedValues>
+                        <excludedValues>local::at0034</excludedValues>
+                        <excludedValues>local::at0036</excludedValues>
+                        <excludedValues>local::at0037</excludedValues>
+                        <excludedValues>local::at0038</excludedValues>
+                        <excludedValues>local::at0039</excludedValues>
+                        <excludedValues>local::at0040</excludedValues>
+                        <excludedValues>local::at0021</excludedValues>
+                        <excludedValues>local::at0022</excludedValues>
+                        <excludedValues>local::at0026</excludedValues>
+                        <excludedValues>local::at0027</excludedValues>
+                    </constraint>
+                </Rule>
+                <Rule name="Centile" path="/data[at0001]/events[at0002, 'Chronological']/data[at0003]/items[at0010]"/>
+                <Rule name="SDS" path="/data[at0001]/events[at0002, 'Chronological']/data[at0003]/items[at0011]">
+                    <constraint xsi:type="tem:quantityConstraint"/>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/events[at0002, 'Chronological']/data[at0003]/items[at0041]"/>
+                <Rule clone="true" max="1" name="Corrected" path="/data[at0001]/events[at0002]"/>
+                <Rule path="/data[at0001]/events[at0002, 'Corrected']/data[at0003]/items[at0014]">
+                    <constraint xsi:type="tem:textConstraint">
+                        <excludedValues>local::at0020</excludedValues>
+                        <excludedValues>local::at0023</excludedValues>
+                        <excludedValues>local::at0025</excludedValues>
+                        <excludedValues>local::at0029</excludedValues>
+                        <excludedValues>local::at0034</excludedValues>
+                        <excludedValues>local::at0036</excludedValues>
+                        <excludedValues>local::at0037</excludedValues>
+                        <excludedValues>local::at0038</excludedValues>
+                        <excludedValues>local::at0039</excludedValues>
+                        <excludedValues>local::at0040</excludedValues>
+                        <excludedValues>local::at0021</excludedValues>
+                        <excludedValues>local::at0022</excludedValues>
+                        <excludedValues>local::at0026</excludedValues>
+                        <excludedValues>local::at0027</excludedValues>
+                    </constraint>
+                </Rule>
+                <Rule name="Centile" path="/data[at0001]/events[at0002, 'Corrected']/data[at0003]/items[at0010]"/>
+                <Rule name="SDS" path="/data[at0001]/events[at0002, 'Corrected']/data[at0003]/items[at0011]">
+                    <constraint xsi:type="tem:quantityConstraint"/>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/events[at0002, 'Corrected']/data[at0003]/items[at0041]"/>
+                <Items archetype_id="openEHR-EHR-CLUSTER.media_file.v1"
+                    concept_name="Media file" max="1"
+                    name="Calculation results"
+                    path="/protocol[at0031]/items[at0032]" xsi:type="tem:CLUSTER">
+                    <Rule default="Imported RCHPH results" path="/items[at0002]"/>
+                    <Rule max="0" path="/items[at0010]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Identifier</includedTypes>
+                            <includedTypes>Text</includedTypes>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0005]"/>
+                    <Rule max="0" path="/items[at0004]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Date_Time</includedTypes>
+                            <includedTypes>Interval</includedTypes>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0007]"/>
+                </Items>
+            </Item>
+            <Item archetype_id="openEHR-EHR-OBSERVATION.child_growth.v0"
+                concept_name="Child growth indicators" max="1"
+                name="BMI indicator" path="/items" xsi:type="tem:OBSERVATION">
+                <Rule max="1" name="Chronological" path="/data[at0001]/events[at0002]"/>
+                <Rule path="/data[at0001]/events[at0002, 'Chronological']/data[at0003]/items[at0014]">
+                    <constraint xsi:type="tem:textConstraint">
+                        <excludedValues>local::at0020</excludedValues>
+                        <excludedValues>local::at0023</excludedValues>
+                        <excludedValues>local::at0025</excludedValues>
+                        <excludedValues>local::at0024</excludedValues>
+                        <excludedValues>local::at0034</excludedValues>
+                        <excludedValues>local::at0036</excludedValues>
+                        <excludedValues>local::at0037</excludedValues>
+                        <excludedValues>local::at0038</excludedValues>
+                        <excludedValues>local::at0039</excludedValues>
+                        <excludedValues>local::at0040</excludedValues>
+                        <excludedValues>local::at0021</excludedValues>
+                        <excludedValues>local::at0022</excludedValues>
+                        <excludedValues>local::at0026</excludedValues>
+                        <excludedValues>local::at0027</excludedValues>
+                    </constraint>
+                </Rule>
+                <Rule name="Centile" path="/data[at0001]/events[at0002, 'Chronological']/data[at0003]/items[at0010]"/>
+                <Rule name="SDS" path="/data[at0001]/events[at0002, 'Chronological']/data[at0003]/items[at0011]">
+                    <constraint xsi:type="tem:quantityConstraint"/>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/events[at0002, 'Chronological']/data[at0003]/items[at0041]"/>
+                <Rule name="Centile band" path="/data[at0001]/events[at0002, 'Chronological']/data[at0003]/items[at0019]"/>
+                <Rule clone="true" max="1" name="Corrected" path="/data[at0001]/events[at0002]"/>
+                <Rule path="/data[at0001]/events[at0002, 'Corrected']/data[at0003]/items[at0014]">
+                    <constraint xsi:type="tem:textConstraint">
+                        <excludedValues>local::at0020</excludedValues>
+                        <excludedValues>local::at0023</excludedValues>
+                        <excludedValues>local::at0025</excludedValues>
+                        <excludedValues>local::at0024</excludedValues>
+                        <excludedValues>local::at0034</excludedValues>
+                        <excludedValues>local::at0036</excludedValues>
+                        <excludedValues>local::at0037</excludedValues>
+                        <excludedValues>local::at0038</excludedValues>
+                        <excludedValues>local::at0039</excludedValues>
+                        <excludedValues>local::at0040</excludedValues>
+                        <excludedValues>local::at0021</excludedValues>
+                        <excludedValues>local::at0022</excludedValues>
+                        <excludedValues>local::at0026</excludedValues>
+                        <excludedValues>local::at0027</excludedValues>
+                    </constraint>
+                </Rule>
+                <Rule name="Centile" path="/data[at0001]/events[at0002, 'Corrected']/data[at0003]/items[at0010]"/>
+                <Rule name="SDS" path="/data[at0001]/events[at0002, 'Corrected']/data[at0003]/items[at0011]">
+                    <constraint xsi:type="tem:quantityConstraint"/>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/events[at0002, 'Corrected']/data[at0003]/items[at0041]"/>
+                <Rule name="Centile band" path="/data[at0001]/events[at0002, 'Corrected']/data[at0003]/items[at0019]"/>
+                <Items archetype_id="openEHR-EHR-CLUSTER.media_file.v1"
+                    concept_name="Media file" max="1"
+                    name="Calculation results"
+                    path="/protocol[at0031]/items[at0032]" xsi:type="tem:CLUSTER">
+                    <Rule default="Imported RCHPH results" path="/items[at0002]"/>
+                    <Rule max="0" path="/items[at0010]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Identifier</includedTypes>
+                            <includedTypes>Text</includedTypes>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0005]"/>
+                    <Rule max="0" path="/items[at0004]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Date_Time</includedTypes>
+                            <includedTypes>Interval</includedTypes>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0007]"/>
+                </Items>
+            </Item>
+        </Content>
+    </definition>
+    <integrity_checks
+        archetype_id="openEHR-EHR-COMPOSITION.report-result.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">2A64B8463AA11FF22EA7977CDF0E9959</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-SECTION.adhoc.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">8FE80F3E80C594AAF99D3BA540A53D73</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-EVALUATION.birth_summary.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">688E76C27F217B385CE1DBA503EABDAE</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.birth_detail.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">1281A10F9571D51164CAFCED7273DCFF</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-EVALUATION.gender.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">111A027E41E44BD9B3C9C014DB55D3FF</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-OBSERVATION.skeletal_age_rcpch.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">3B42BB91BE754B59230551D64B998DAD</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-OBSERVATION.age.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">DC3170C3E873B139C3C004F67A0469FD</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-OBSERVATION.child_growth.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">D95F81C9ECC1E4AACABD37C3B1E651EA</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.media_file.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">F3CC0032E8B4B09C7B535211E3DFAE66</digest>
+    </integrity_checks>
+</template>
