@@ -1,0 +1,65 @@
+﻿archetype (adl_version=1.4; uid=fcc5fbbf-9906-4dca-bccb-9f2066c6919f)
+	openEHR-EHR-CLUSTER.child_growth_indicator_details.v0
+
+concept
+	[at0000]	-- Child growth indicator details
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"John Meredith">
+		["organisation"] = <"Digital Health and Care Wales">
+		["email"] = <"john.meredith@openehr.org">
+		["date"] = <"2023-12-04">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To support additional information capture when generating child growth charts. ">
+			use = <"">
+			keywords = <"Royal College of Paediatrics and Child Health, RCPCH, growth chart,", ...>
+			misuse = <"">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"9D6B5E445500F29840984524772FF69E">
+		["build_uid"] = <"424aef11-ba19-4959-81fe-fc80eef24769">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Child growth indicator details
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Calculation reference
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Child growth indicator details">
+					description = <"To allow for the capture of additional information as part of a child growth indicator calculation, e.g. a reference type in the RCPCH digital growth chart to indicate this is for Turner's Syndrome.">
+				>
+				["at0001"] = <
+					text = <"Calculation reference">
+					description = <"Calculation reference for the growth indicator e.g. WHO, Down's Syndrome or Turner Syndrome.">
+					comment = <"For use with the Royal College of Paediatrics and Child Health (RCPCH) API.">
+				>
+			>
+		>
+	>
