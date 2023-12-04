@@ -57,7 +57,7 @@
             </item>
             <item>
                 <key>sem_ver</key>
-                <value>0.1.31</value>
+                <value>0.2.2</value>
             </item>
             <item>
                 <key>build_uid</key>
@@ -65,7 +65,7 @@
             </item>
             <item>
                 <key>MD5-CAM-1.0.1</key>
-                <value>b50866c0e31ff9a4fe091a88336bba12</value>
+                <value>ee17c2e44b86ab9c4ccf22ba425a7401</value>
             </item>
             <item>
                 <key>PARENT:MD5-CAM-1.0.1</key>
@@ -106,7 +106,7 @@
                             <includesMinimum>true</includesMinimum>
                         </constraint>
                     </Rule>
-                    <Rule max="0" path="/items[at0018]">
+                    <Rule max="0" name="Gestational maturity" path="/items[at0018]">
                         <constraint xsi:type="tem:durationConstraint">
                             <pattern>PW</pattern>
                             <maxMagnitude>P52W</maxMagnitude>
@@ -134,8 +134,11 @@
                 <Rule max="0" path="/data[at0002]/items[at0022]"/>
                 <Rule max="0" path="/data[at0002]/items[at0026]"/>
                 <Rule path="/data[at0002]/items[at0019]">
-                    <constraint limitToList="false" xsi:type="tem:textConstraint">
-                        <termQueryId terminologyID="https://fhir.hl7.org.uk/ValueSet/UKCore-BirthSex"/>
+                    <constraint xsi:type="tem:textConstraint">
+                        <includedValues>male</includedValues>
+                        <includedValues>female</includedValues>
+                        <includedValues>other</includedValues>
+                        <includedValues>unknown</includedValues>
                     </constraint>
                 </Rule>
                 <Rule max="0" path="/data[at0002]/items[at0025]"/>
@@ -261,25 +264,16 @@
                 </Rule>
                 <Rule max="0" path="/data[at0001]/events[at0002, 'Corrected']/data[at0003]/items[at0041]"/>
                 <Rule name="Centile band" path="/data[at0001]/events[at0002, 'Corrected']/data[at0003]/items[at0019]"/>
-                <Items archetype_id="openEHR-EHR-CLUSTER.media_file.v1"
-                    concept_name="Media file" max="1"
-                    name="Calculation results"
-                    path="/protocol[at0031]/items[at0032]" xsi:type="tem:CLUSTER">
-                    <Rule default="Imported RCHPH results" path="/items[at0002]"/>
-                    <Rule max="0" path="/items[at0010]">
-                        <constraint xsi:type="tem:multipleConstraint">
-                            <includedTypes>Identifier</includedTypes>
-                            <includedTypes>Text</includedTypes>
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.child_growth_indicator_details.v0"
+                    max="1" path="/protocol[at0031]/items[at0032]" xsi:type="tem:CLUSTER">
+                    <Rule path="/items[at0001]">
+                        <constraint xsi:type="tem:textConstraint">
+                            <includedValues>uk-who</includedValues>
+                            <includedValues>turner</includedValues>
+                            <includedValues>trisomy-21</includedValues>
                         </constraint>
                     </Rule>
-                    <Rule max="0" path="/items[at0005]"/>
-                    <Rule max="0" path="/items[at0004]">
-                        <constraint xsi:type="tem:multipleConstraint">
-                            <includedTypes>Date_Time</includedTypes>
-                            <includedTypes>Interval</includedTypes>
-                        </constraint>
-                    </Rule>
-                    <Rule max="0" path="/items[at0007]"/>
                 </Items>
             </Item>
             <Item archetype_id="openEHR-EHR-OBSERVATION.child_growth.v0"
@@ -335,25 +329,16 @@
                 </Rule>
                 <Rule max="0" path="/data[at0001]/events[at0002, 'Corrected']/data[at0003]/items[at0041]"/>
                 <Rule name="Centile band" path="/data[at0001]/events[at0002, 'Corrected']/data[at0003]/items[at0019]"/>
-                <Items archetype_id="openEHR-EHR-CLUSTER.media_file.v1"
-                    concept_name="Media file" max="1"
-                    name="Calculation results"
-                    path="/protocol[at0031]/items[at0032]" xsi:type="tem:CLUSTER">
-                    <Rule default="Imported RCHPH results" path="/items[at0002]"/>
-                    <Rule max="0" path="/items[at0010]">
-                        <constraint xsi:type="tem:multipleConstraint">
-                            <includedTypes>Identifier</includedTypes>
-                            <includedTypes>Text</includedTypes>
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.child_growth_indicator_details.v0"
+                    max="1" path="/protocol[at0031]/items[at0032]" xsi:type="tem:CLUSTER">
+                    <Rule path="/items[at0001]">
+                        <constraint xsi:type="tem:textConstraint">
+                            <includedValues>uk-who</includedValues>
+                            <includedValues>turner</includedValues>
+                            <includedValues>trisomy-21</includedValues>
                         </constraint>
                     </Rule>
-                    <Rule max="0" path="/items[at0005]"/>
-                    <Rule max="0" path="/items[at0004]">
-                        <constraint xsi:type="tem:multipleConstraint">
-                            <includedTypes>Date_Time</includedTypes>
-                            <includedTypes>Interval</includedTypes>
-                        </constraint>
-                    </Rule>
-                    <Rule max="0" path="/items[at0007]"/>
                 </Items>
             </Item>
             <Item archetype_id="openEHR-EHR-OBSERVATION.child_growth.v0"
@@ -407,25 +392,16 @@
                     <constraint xsi:type="tem:quantityConstraint"/>
                 </Rule>
                 <Rule max="0" path="/data[at0001]/events[at0002, 'Corrected']/data[at0003]/items[at0041]"/>
-                <Items archetype_id="openEHR-EHR-CLUSTER.media_file.v1"
-                    concept_name="Media file" max="1"
-                    name="Calculation results"
-                    path="/protocol[at0031]/items[at0032]" xsi:type="tem:CLUSTER">
-                    <Rule default="Imported RCHPH results" path="/items[at0002]"/>
-                    <Rule max="0" path="/items[at0010]">
-                        <constraint xsi:type="tem:multipleConstraint">
-                            <includedTypes>Identifier</includedTypes>
-                            <includedTypes>Text</includedTypes>
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.child_growth_indicator_details.v0"
+                    max="1" path="/protocol[at0031]/items[at0032]" xsi:type="tem:CLUSTER">
+                    <Rule path="/items[at0001]">
+                        <constraint xsi:type="tem:textConstraint">
+                            <includedValues>uk-who</includedValues>
+                            <includedValues>turner</includedValues>
+                            <includedValues>trisomy-21</includedValues>
                         </constraint>
                     </Rule>
-                    <Rule max="0" path="/items[at0005]"/>
-                    <Rule max="0" path="/items[at0004]">
-                        <constraint xsi:type="tem:multipleConstraint">
-                            <includedTypes>Date_Time</includedTypes>
-                            <includedTypes>Interval</includedTypes>
-                        </constraint>
-                    </Rule>
-                    <Rule max="0" path="/items[at0007]"/>
                 </Items>
             </Item>
             <Item archetype_id="openEHR-EHR-OBSERVATION.child_growth.v0"
@@ -481,25 +457,16 @@
                 </Rule>
                 <Rule max="0" path="/data[at0001]/events[at0002, 'Corrected']/data[at0003]/items[at0041]"/>
                 <Rule name="Centile band" path="/data[at0001]/events[at0002, 'Corrected']/data[at0003]/items[at0019]"/>
-                <Items archetype_id="openEHR-EHR-CLUSTER.media_file.v1"
-                    concept_name="Media file" max="1"
-                    name="Calculation results"
-                    path="/protocol[at0031]/items[at0032]" xsi:type="tem:CLUSTER">
-                    <Rule default="Imported RCHPH results" path="/items[at0002]"/>
-                    <Rule max="0" path="/items[at0010]">
-                        <constraint xsi:type="tem:multipleConstraint">
-                            <includedTypes>Identifier</includedTypes>
-                            <includedTypes>Text</includedTypes>
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.child_growth_indicator_details.v0"
+                    max="1" path="/protocol[at0031]/items[at0032]" xsi:type="tem:CLUSTER">
+                    <Rule path="/items[at0001]">
+                        <constraint xsi:type="tem:textConstraint">
+                            <includedValues>uk-who</includedValues>
+                            <includedValues>turner</includedValues>
+                            <includedValues>trisomy-21</includedValues>
                         </constraint>
                     </Rule>
-                    <Rule max="0" path="/items[at0005]"/>
-                    <Rule max="0" path="/items[at0004]">
-                        <constraint xsi:type="tem:multipleConstraint">
-                            <includedTypes>Date_Time</includedTypes>
-                            <includedTypes>Interval</includedTypes>
-                        </constraint>
-                    </Rule>
-                    <Rule max="0" path="/items[at0007]"/>
                 </Items>
             </Item>
         </Content>
@@ -548,9 +515,10 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
         <digest id="MD5-CAM-1.0.1">D95F81C9ECC1E4AACABD37C3B1E651EA</digest>
     </integrity_checks>
-    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.media_file.v1"
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.child_growth_indicator_details.v0"
         xmlns:tem="openEHR/v1/Template"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
-        <digest id="MD5-CAM-1.0.1">F3CC0032E8B4B09C7B535211E3DFAE66</digest>
+        <digest id="MD5-CAM-1.0.1">9D6B5E445500F29840984524772FF69E</digest>
     </integrity_checks>
 </template>
