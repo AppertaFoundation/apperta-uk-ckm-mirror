@@ -1,5 +1,5 @@
-﻿archetype (adl_version=1.4; uid=45825746-1bce-440e-ad07-130faa6a5599)
-	openEHR-EHR-OBSERVATION.mskhq.v0
+﻿archetype (adl_version=1.4; uid=70bea29e-5b8a-4a58-9cc5-a20562df3b00)
+	openEHR-EHR-OBSERVATION.mskhq.v1
 
 concept
 	[at0000]	-- Musculoskeletal Health Questionnaire (MSK-HQ)
@@ -24,7 +24,7 @@ MSK-HQ can be used to measure self reported pain and function in musculoskeletal
 			copyright = <"© Apperta Foundation">
 		>
 	>
-	lifecycle_state = <"in_development">
+	lifecycle_state = <"published">
 	other_contributors = <"Roanna Burgess, Sandwell and West Birmingham Hospitals NHS Trust, United Kingdom", "Jamila Chihab, UCL, United Kingdom", "Anji Kingman, Northumbria Healthcare NHS Foundation Trust, United Kingdom", "Heidi Koikkalainen, Edinburgh Napier University, United Kingdom (Apperta UK Editor)", "Ian McNicoll, freshEHR Clinical Informatics, United Kingdom (Apperta UK Editor)", "Kanthan Theivendran, KLT Medical, United Kingdom (Apperta UK Editor)">
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
@@ -33,14 +33,14 @@ MSK-HQ can be used to measure self reported pain and function in musculoskeletal
 		["original_namespace"] = <"uk.org.clinicalmodels">
 		["original_publisher"] = <"Apperta UK">
 		["custodian_namespace"] = <"uk.org.clinicalmodels">
-		["MD5-CAM-1.0.1"] = <"4E2730D31C24EB2175580C6CF4D2EA6F">
-		["build_uid"] = <"627514ad-8061-454d-b6a5-767ba3c17e44">
+		["MD5-CAM-1.0.1"] = <"B1600B046FFD4A203C8DAAF722A48B14">
+		["build_uid"] = <"0cdf4cdc-09d8-4242-a119-e7c2336818d2">
 		["ip_acknowledgements"] = <"While openEHR archetypes are all freely available under an open license, the specific content of this MSK-HQ archetype can be only be used under the terms of Oxford University Innovation Licence agreement which can be found at: https://process.innovation.ox.ac.uk/ 
 
 Any use of this archetype within implementations must be in compliance with the terms established by Oxford University Innovation. The terms of the License can be found at: https://process.innovation.ox.ac.uk/clinical/p/versus-arthritis-musculoskeletal-health-questionnaire-(msk-hq)/msk-hq-questionnaire/1.
 
 This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact https://www.snomed.org/snomed-ct/get-snomed or info@snomed.org.">
-		["revision"] = <"0.0.1-alpha">
+		["revision"] = <"1.0.0">
 	>
 
 definition
