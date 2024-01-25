@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <template xmlns="openEHR/v1/Template">
     <id>f107d367-f955-445c-9f58-fb944be14e2d</id>
-    <name>NES_TS Medical Devices Data Hub (10)</name>
+    <name>NES_TS Medical Devices Data Hub.v0</name>
     <description>
         <original_author>
             <item>
@@ -60,7 +60,7 @@
             </item>
             <item>
                 <key>sem_ver</key>
-                <value>2.0.0</value>
+                <value>0.0.7</value>
             </item>
             <item>
                 <key>build_uid</key>
@@ -117,9 +117,7 @@
             <Rule max="0" path="/description[at0001]/items[at0032]">
                 <constraint xsi:type="tem:multipleConstraint">
                     <includedTypes>Date_Time</includedTypes>
-                    <includedTypes>Interval</includedTypes>
                     <includedTypes>Duration</includedTypes>
-                    <includedTypes>Interval</includedTypes>
                     <includedTypes>Text</includedTypes>
                 </constraint>
             </Rule>
