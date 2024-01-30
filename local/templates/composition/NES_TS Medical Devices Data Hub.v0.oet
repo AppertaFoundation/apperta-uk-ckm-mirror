@@ -60,7 +60,7 @@
             </item>
             <item>
                 <key>sem_ver</key>
-                <value>0.0.7</value>
+                <value>0.0.8</value>
             </item>
             <item>
                 <key>build_uid</key>
@@ -68,7 +68,7 @@
             </item>
             <item>
                 <key>MD5-CAM-1.0.1</key>
-                <value>23bd73a65dc5a0b4a025450c245e157c</value>
+                <value>41cda6ba1b8218af6c510f221bdd03ed</value>
             </item>
             <item>
                 <key>PARENT:MD5-CAM-1.0.1</key>
@@ -239,7 +239,7 @@
                 </Items>
                 <Items
                     archetype_id="openEHR-EHR-CLUSTER.nes_ts-medical-device-regulatory-details.v0"
-                    max="1" path="/items[at0026]" xsi:type="tem:CLUSTER">
+                    max="0" path="/items[at0026]" xsi:type="tem:CLUSTER">
                     <Rule path="/items[at0001]">
                         <constraint xsi:type="tem:textConstraint">
                             <includedValues>Class I</includedValues>
