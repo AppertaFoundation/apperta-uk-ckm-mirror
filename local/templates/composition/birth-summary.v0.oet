@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?><template xmlns="openEHR/v1/Template">
+    <id>daf2c0a9-4f19-4f85-9db6-e39919290c8b</id>
+    <name>birth-summary.v0</name>
+    <description>
+        <original_author>
+            <item>
+                <key>date</key>
+                <value>2024-03-14</value>
+            </item>
+            <item>
+                <key>name</key>
+                <value>John Meredith</value>
+            </item>
+            <item>
+                <key>organisation</key>
+                <value>openEHR International</value>
+            </item>
+            <item>
+                <key>email</key>
+                <value>john.meredith@openehr.org</value>
+            </item>
+        </original_author>
+        <other_contributors>
+            <item>Dr Ian McNicoll</item>
+            <item>Dr Marlene Pérez Colman</item>
+        </other_contributors>
+        <lifecycle_state>in_development</lifecycle_state>
+        <details>
+            <purpose>To capture details pertaining to the birth summary of a child.</purpose>
+            <keywords>
+                <item>baby, child, birth</item>
+            </keywords>
+            <use>For use in capturing details pertinent to the birth of a child.</use>
+            <misuse>Not for capturing details related to the birth of a child from the mother's perspective.</misuse>
+        </details>
+        <other_details>
+            <item>
+                <key>licence</key>
+                <value/>
+            </item>
+            <item>
+                <key>custodian_organisation</key>
+                <value/>
+            </item>
+            <item>
+                <key>original_namespace</key>
+                <value/>
+            </item>
+            <item>
+                <key>original_publisher</key>
+                <value/>
+            </item>
+            <item>
+                <key>custodian_namespace</key>
+                <value/>
+            </item>
+            <item>
+                <key>sem_ver</key>
+                <value>0.1.3</value>
+            </item>
+            <item>
+                <key>build_uid</key>
+                <value>879e5bd2-4e69-4fbd-beb8-dd00952f7ceb</value>
+            </item>
+            <item>
+                <key>MD5-CAM-1.0.1</key>
+                <value>87c922549d077db2805738b8746780bc</value>
+            </item>
+            <item>
+                <key>PARENT:MD5-CAM-1.0.1</key>
+                <value>A0DA8D01B967B2B05FC941F6E389A94B</value>
+            </item>
+            <item>
+                <key>original_language</key>
+                <value>ISO_639-1::en</value>
+            </item>
+        </other_details>
+    </description>
+    <definition archetype_id="openEHR-EHR-COMPOSITION.health_summary.v1" concept_name="Health summary" name="Birth Summary" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:COMPOSITION">
+        <Content archetype_id="openEHR-EHR-SECTION.adhoc.v1" concept_name="Ad hoc heading" max="1" name="Child data" path="/content" xsi:type="tem:SECTION">
+            <Item archetype_id="openEHR-EHR-EVALUATION.birth_summary.v0" max="1" path="/items" xsi:type="tem:EVALUATION">
+                <Rule name="Birth date" path="/data[at0001]/items[at0004]"/>
+                <Rule max="0" path="/data[at0001]/items[at0002]"/>
+                <Rule max="0" path="/data[at0001]/items[at0012]"/>
+                <Rule max="0" path="/data[at0001]/items[at0006]"/>
+                <Rule max="0" path="/data[at0001]/items[at0007]"/>
+                <Rule max="0" path="/data[at0001]/items[at0014]"/>
+                <Rule max="0" path="/protocol[at0009]/items[at0010]"/>
+                <Items archetype_id="openEHR-EHR-CLUSTER.birth_detail.v0" max="1" path="/data[at0001]/items[at0008]" xsi:type="tem:CLUSTER">
+                    <Rule max="0" path="/items[at0001]"/>
+                    <Rule max="0" path="/items[at0003]"/>
+                    <Rule path="/items[at0004]">
+                        <constraint xsi:type="tem:durationConstraint">
+                            <pattern>PWD</pattern>
+                            <maxMagnitude>P52W</maxMagnitude>
+                            <minMagnitude>P0W</minMagnitude>
+                            <includesMaximum>true</includesMaximum>
+                            <includesMinimum>true</includesMinimum>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0018]">
+                        <constraint xsi:type="tem:durationConstraint">
+                            <pattern>PW</pattern>
+                            <maxMagnitude>P52W</maxMagnitude>
+                            <minMagnitude>P0W</minMagnitude>
+                            <includesMaximum>true</includesMaximum>
+                            <includesMinimum>true</includesMinimum>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0005]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Coded_text</includedTypes>
+                            <includedTypes>Text</includedTypes>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/items[at0019]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Coded_text</includedTypes>
+                            <includedTypes>Text</includedTypes>
+                        </constraint>
+                    </Rule>
+                </Items>
+            </Item>
+        </Content>
+        <Context>
+            <Items archetype_id="openEHR-EHR-CLUSTER.xds_metadata.v0" max="1" path="/context/other_context[at0001]/items[at0002]" xsi:type="tem:CLUSTER">
+                <Rule max="0" path="/items[at0002]"/>
+                <Rule default="SNOMED CT::1110601000000100::Birth details (record artifact)" path="/items[at0003]">
+                    <constraint xsi:type="tem:textConstraint">
+                        <includedValues>SNOMED CT::1110601000000100::Birth details (record artifact)</includedValues>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/items[at0004]"/>
+                <Rule max="0" path="/items[at0009]"/>
+                <Rule max="0" path="/items[at0011]"/>
+                <Rule max="0" path="/items[at0010]"/>
+            </Items>
+        </Context>
+    </definition>
+    <integrity_checks archetype_id="openEHR-EHR-COMPOSITION.health_summary.v1" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">A0DA8D01B967B2B05FC941F6E389A94B</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.xds_metadata.v0" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">E62D896E2577FA727C75A9EFFD7CA63E</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-SECTION.adhoc.v1" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">8FE80F3E80C594AAF99D3BA540A53D73</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-EVALUATION.birth_summary.v0" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">688E76C27F217B385CE1DBA503EABDAE</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.birth_detail.v0" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">1281A10F9571D51164CAFCED7273DCFF</digest>
+    </integrity_checks>
+</template>
