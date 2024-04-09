@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?><template xmlns="openEHR/v1/Template">
+    <id>b77d8d77-fd28-4546-8d08-3152140e01ae</id>
+    <name>parent-health-summary.v0</name>
+    <description>
+        <original_author>
+            <item>
+                <key>date</key>
+                <value>2024-03-14</value>
+            </item>
+            <item>
+                <key>name</key>
+                <value>John Meredith</value>
+            </item>
+            <item>
+                <key>organisation</key>
+                <value>openEHR International</value>
+            </item>
+            <item>
+                <key>email</key>
+                <value>john.meredith@openehr.org</value>
+            </item>
+        </original_author>
+        <lifecycle_state>in_development</lifecycle_state>
+        <details>
+            <purpose>For capturing data related to a child's parents.</purpose>
+            <use>For use in capturing health summary data relating to a child's parents as part of the child record. For example, containing information relating to parent height as part of growth chart calculations.</use>
+            <misuse>Not for capturing data from the parents perspective, for example, labour or birth summaries. Please record that data within the relevant parent record.</misuse>
+        </details>
+        <other_details>
+            <item>
+                <key>licence</key>
+                <value/>
+            </item>
+            <item>
+                <key>custodian_organisation</key>
+                <value/>
+            </item>
+            <item>
+                <key>original_namespace</key>
+                <value/>
+            </item>
+            <item>
+                <key>original_publisher</key>
+                <value/>
+            </item>
+            <item>
+                <key>custodian_namespace</key>
+                <value/>
+            </item>
+            <item>
+                <key>sem_ver</key>
+                <value>0.2.0</value>
+            </item>
+            <item>
+                <key>build_uid</key>
+                <value/>
+            </item>
+            <item>
+                <key>MD5-CAM-1.0.1</key>
+                <value>29bfddb43344ab10f0380b8347b47f99</value>
+            </item>
+            <item>
+                <key>PARENT:MD5-CAM-1.0.1</key>
+                <value>A0DA8D01B967B2B05FC941F6E389A94B</value>
+            </item>
+            <item>
+                <key>original_language</key>
+                <value>ISO_639-1::en</value>
+            </item>
+        </other_details>
+    </description>
+    <definition archetype_id="openEHR-EHR-COMPOSITION.health_summary.v1" concept_name="Health summary" name="Parent Health Summary" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:COMPOSITION">
+        <Content archetype_id="openEHR-EHR-SECTION.adhoc.v1" concept_name="Ad hoc heading" max="1" name="Parent height data" path="/content" xsi:type="tem:SECTION">
+            <Item archetype_id="openEHR-EHR-OBSERVATION.height.v2" concept_name="Height/Length" max="1" name="Paternal height" path="/items" xsi:type="tem:OBSERVATION">
+                <Rule max="1" path="/data[at0001]/events[at0002]"/>
+                <Rule name="Height" path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]">
+                    <constraint xsi:type="tem:quantityConstraint">
+                        <excludedUnits>[in_i]</excludedUnits>
+                        <unitMagnitude>
+                            <unit>cm</unit>
+                            <maxMagnitude>1000.0</maxMagnitude>
+                            <minMagnitude>0.0</minMagnitude>
+                            <includesMaximum>true</includesMaximum>
+                            <includesMinimum>true</includesMinimum>
+                        </unitMagnitude>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0018]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/state[at0013]/items[at0014]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/state[at0013]/items[at0019]"/>
+                <Rule max="0" path="/data[at0001]/events[at0021]"/>
+                <Rule clone="true" name="Simple" path="/data[at0001]/events[at0021]/data[at0003]"/>
+                <Rule clone="true" name="Tree" path="/data[at0001]/events[at0021]/state[at0013]"/>
+            </Item>
+            <Item archetype_id="openEHR-EHR-OBSERVATION.height.v2" concept_name="Height/Length" max="1" name="Maternal height" path="/items" xsi:type="tem:OBSERVATION">
+                <Rule max="1" path="/data[at0001]/events[at0002]"/>
+                <Rule name="Height" path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]">
+                    <constraint xsi:type="tem:quantityConstraint">
+                        <excludedUnits>[in_i]</excludedUnits>
+                        <unitMagnitude>
+                            <unit>cm</unit>
+                            <maxMagnitude>1000.0</maxMagnitude>
+                            <minMagnitude>0.0</minMagnitude>
+                            <includesMaximum>true</includesMaximum>
+                            <includesMinimum>true</includesMinimum>
+                        </unitMagnitude>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0018]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/state[at0013]/items[at0014]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/state[at0013]/items[at0019]"/>
+                <Rule max="0" path="/data[at0001]/events[at0021]"/>
+                <Rule clone="true" name="Simple" path="/data[at0001]/events[at0021]/data[at0003]"/>
+                <Rule clone="true" name="Tree" path="/data[at0001]/events[at0021]/state[at0013]"/>
+            </Item>
+        </Content>
+        <Context>
+            <Items archetype_id="openEHR-EHR-CLUSTER.xds_metadata.v0" max="1" path="/context/other_context[at0001]/items[at0002]" xsi:type="tem:CLUSTER">
+                <Rule max="0" path="/items[at0001]"/>
+                <Rule max="0" path="/items[at0002]"/>
+                <Rule default="SNOMED CT::887111000000104::Family history (record artifact)" path="/items[at0003]">
+                    <constraint xsi:type="tem:textConstraint">
+                        <includedValues>SNOMED CT::887111000000104::Family history (record artifact)</includedValues>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/items[at0004]"/>
+                <Rule max="0" path="/items[at0009]"/>
+                <Rule max="0" path="/items[at0011]"/>
+                <Rule max="0" path="/items[at0010]"/>
+            </Items>
+        </Context>
+    </definition>
+    <integrity_checks archetype_id="openEHR-EHR-COMPOSITION.health_summary.v1" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">A0DA8D01B967B2B05FC941F6E389A94B</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.xds_metadata.v0" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">E62D896E2577FA727C75A9EFFD7CA63E</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-SECTION.adhoc.v1" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">8FE80F3E80C594AAF99D3BA540A53D73</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-OBSERVATION.height.v2" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">C75BA8F0FF1D8D127E0E9469D06C9128</digest>
+    </integrity_checks>
+</template>
