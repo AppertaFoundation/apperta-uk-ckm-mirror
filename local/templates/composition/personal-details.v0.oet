@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?><template xmlns="openEHR/v1/Template">
+    <id>be3ab8a6-bb96-468a-bdc5-a795fd87a35b</id>
+    <name>personal-details.v0</name>
+    <description>
+        <original_author>
+            <item>
+                <key>date</key>
+                <value>2024-03-14</value>
+            </item>
+            <item>
+                <key>name</key>
+                <value>John Meredith</value>
+            </item>
+            <item>
+                <key>organisation</key>
+                <value>openEHR International</value>
+            </item>
+            <item>
+                <key>email</key>
+                <value>john.meredith@openehr.org</value>
+            </item>
+        </original_author>
+        <other_contributors>
+            <item>Dr Ian McNicoll</item>
+        </other_contributors>
+        <lifecycle_state>in_development</lifecycle_state>
+        <details>
+            <purpose>To capture details of a citizen, such as gender as a persistent composition.</purpose>
+            <keywords>
+                <item>Personal details, information for life,</item>
+            </keywords>
+            <use>Utilise as a persistent composition to capture details associated with the citizen or patient which are unlikely to change over time.</use>
+            <misuse>Not to be used for frequently changing data items.</misuse>
+        </details>
+        <other_details>
+            <item>
+                <key>licence</key>
+                <value/>
+            </item>
+            <item>
+                <key>custodian_organisation</key>
+                <value/>
+            </item>
+            <item>
+                <key>original_namespace</key>
+                <value/>
+            </item>
+            <item>
+                <key>original_publisher</key>
+                <value/>
+            </item>
+            <item>
+                <key>custodian_namespace</key>
+                <value/>
+            </item>
+            <item>
+                <key>sem_ver</key>
+                <value>0.2.1</value>
+            </item>
+            <item>
+                <key>is_singleton</key>
+                <value>ehr</value>
+            </item>
+            <item>
+                <key>build_uid</key>
+                <value/>
+            </item>
+            <item>
+                <key>MD5-CAM-1.0.1</key>
+                <value>49fb3804cdf50d8dbbe2f3d62f9042f9</value>
+            </item>
+            <item>
+                <key>PARENT:MD5-CAM-1.0.1</key>
+                <value>A0DA8D01B967B2B05FC941F6E389A94B</value>
+            </item>
+            <item>
+                <key>original_language</key>
+                <value>ISO_639-1::en</value>
+            </item>
+        </other_details>
+    </description>
+    <definition archetype_id="openEHR-EHR-COMPOSITION.health_summary.v1" concept_name="Health summary" name="Personal Details" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:COMPOSITION">
+        <Content archetype_id="openEHR-EHR-EVALUATION.gender.v1" max="1" path="/content" xsi:type="tem:EVALUATION">
+            <Rule max="0" path="/data[at0002]/items[at0022]"/>
+            <Rule max="0" path="/data[at0002]/items[at0026]"/>
+            <Rule path="/data[at0002]/items[at0019]">
+                <constraint limitToList="false" xsi:type="tem:textConstraint">
+                    <termQueryId terminologyID="https://fhir.hl7.org.uk/ValueSet/UKCore-BirthSex"/>
+                </constraint>
+            </Rule>
+            <Rule max="0" path="/data[at0002]/items[at0025]"/>
+            <Rule max="0" path="/data[at0002]/items[at0027]"/>
+            <Rule max="0" path="/data[at0002]/items[at0014]"/>
+        </Content>
+        <Context>
+            <Items archetype_id="openEHR-EHR-CLUSTER.xds_metadata.v0" path="/context/other_context[at0001]/items[at0002]" xsi:type="tem:CLUSTER">
+                <Rule max="0" path="/items[at0001]"/>
+                <Rule max="0" path="/items[at0002]"/>
+                <Rule default="SNOMED CT::886731000000109::Patient demographics (record artifact)" path="/items[at0003]">
+                    <constraint xsi:type="tem:textConstraint">
+                        <includedValues>SNOMED CT::886731000000109::Patient demographics (record artifact)</includedValues>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/items[at0004]"/>
+                <Rule max="0" path="/items[at0009]"/>
+                <Rule max="0" path="/items[at0011]"/>
+                <Rule max="0" path="/items[at0010]"/>
+            </Items>
+        </Context>
+    </definition>
+    <integrity_checks archetype_id="openEHR-EHR-COMPOSITION.health_summary.v1" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">A0DA8D01B967B2B05FC941F6E389A94B</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.xds_metadata.v0" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">E62D896E2577FA727C75A9EFFD7CA63E</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-EVALUATION.gender.v1" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">BF9B28403CBB9F2FB9C120F3EB89DA8E</digest>
+    </integrity_checks>
+</template>
