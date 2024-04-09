@@ -55,8 +55,8 @@ Manzoor Mughal, A., Hassan, N., & Ahmed, A. (2014). Bone Age Assessment Methods:
 		["original_namespace"] = <"uk.org.clinicalmodels">
 		["original_publisher"] = <"Apperta UK">
 		["custodian_namespace"] = <"uk.org.clinicalmodels">
-		["MD5-CAM-1.0.1"] = <"3B42BB91BE754B59230551D64B998DAD">
-		["build_uid"] = <"747dc6ae-d814-47bc-90fc-cbd196bc9c04">
+		["MD5-CAM-1.0.1"] = <"1D4AEFBFD470D8DDEDCCF1CC9ED44958">
+		["build_uid"] = <"4220f8a1-2932-4b40-a159-c506938342d7">
 		["revision"] = <"0.0.1-alpha">
 	>
 
@@ -72,17 +72,30 @@ definition
 									ELEMENT[at0005] occurrences matches {0..1} matches {    -- Skeletal age
 										value matches {
 											DV_DURATION matches {
-												value matches {PYM/|>=P0Y|}
+												value matches {|>=PT0S|}
 											}
 											C_DV_QUANTITY <
 												property = <[openehr::128]>
 												list = <
 													["1"] = <
 														units = <"a">
-														precision = <|1|>
+														magnitude = <|0.0..<200.0|>
 													>
 												>
 											>
+											DV_INTERVAL<DV_DURATION> matches {
+												lower matches {
+													DV_DURATION matches {
+														value matches {|PT0S..<P200Y|}
+													}
+												}
+												upper matches {
+													DV_DURATION matches {
+														value matches {|PT0S..<P200Y|}
+													}
+												}
+											}
+											DV_TEXT matches {*}
 										}
 									}
 									ELEMENT[at0006] occurrences matches {0..1} matches {    -- Comment
