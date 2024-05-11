@@ -33,8 +33,8 @@ https://www.gov.uk/government/publications/medicines-and-medical-devices-bill-ov
 		["original_namespace"] = <"uk.org.clinicalmodels">
 		["original_publisher"] = <"Apperta UK">
 		["custodian_namespace"] = <"uk.org.clinicalmodels">
-		["MD5-CAM-1.0.1"] = <"D7B3980EACDBD64DDB03467198D87469">
-		["build_uid"] = <"20952325-3d5f-4a45-82ea-4c4ab333ad80">
+		["MD5-CAM-1.0.1"] = <"20D6AB5380CEC403FF458C9902D5984B">
+		["build_uid"] = <"c8624cb7-c91a-49db-8471-812a728742e4">
 		["revision"] = <"0.0.1-alpha">
 	>
 
@@ -78,31 +78,31 @@ ontology
 			items = <
 				["at0000"] = <
 					text = <"nes_ts-medical-device-regulatory-details">
-					description = <"NES_TS UK_MHRA Medical Device ">
+					description = <"NES_TS UK_MHRA Medical Device. This cluster is for enabling the recording of regulatory details about a medical device, specifically 'class', in the EHR. THe requirement originally arose in the NHS Scotland Medical Devices Data Hub programme, part of the 'Scan for Safety' programme intended to enable the capture of details of implantable medical devices at the time of surgical procedures. This cluster allows the programme to capture the 'Class' value as it was at that event.">
 				>
 				["at0001"] = <
 					text = <"Class">
-					description = <"The Class of device as defined by the associated regulatory body or policy">
+					description = <"The Class of device as defined by the associated regulatory body or policy.">
 					comment = <"For example, Class I">
 				>
 				["at0003"] = <
 					text = <"Regulating organisation">
 					description = <"The organisation that provides the values and definitions of the associated regulatory device metadata.">
-					comment = <"For example, UK MHRA.">
+					comment = <"For example: UK MHRA.">
 				>
 				["at0005"] = <
 					text = <"Extension">
-					description = <"Additional information about the regulatory data values">
+					description = <"Additional information about the regulatory data values.">
 				>
 				["at0007"] = <
 					text = <"Category">
-					description = <"The category of the device, as defined by the associated regulatory body or policy">
+					description = <"The category of the device, as defined by the associated regulatory body or policy.">
 					comment = <"For example, '1. Non Invasive'">
 				>
 				["at0008"] = <
 					text = <"Other">
-					description = <"Any additional allocated taxonomy values not elsewhere available">
-					comment = <"For example, 'Type', 'Branch', 'Chapter'">
+					description = <"Any additional allocated taxonomy values not elsewhere available.">
+					comment = <"For example: 'Type', 'Branch', 'Chapter'.">
 				>
 			>
 		>
