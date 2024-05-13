@@ -2,7 +2,7 @@
 	openEHR-EHR-CLUSTER.nes_ts-medical-device-regulatory-details.v0
 
 concept
-	[at0000]	-- nes_ts-medical-device-regulatory-details
+	[at0000]	-- Medical device regulatory details
 language
 	original_language = <[ISO_639-1::en]>
 description
@@ -33,13 +33,13 @@ https://www.gov.uk/government/publications/medicines-and-medical-devices-bill-ov
 		["original_namespace"] = <"uk.org.clinicalmodels">
 		["original_publisher"] = <"Apperta UK">
 		["custodian_namespace"] = <"uk.org.clinicalmodels">
-		["MD5-CAM-1.0.1"] = <"20D6AB5380CEC403FF458C9902D5984B">
-		["build_uid"] = <"c8624cb7-c91a-49db-8471-812a728742e4">
+		["MD5-CAM-1.0.1"] = <"BA1F4A7C1DF6FE0305868466D89E97A6">
+		["build_uid"] = <"35eab8a9-6c87-42a6-95c1-e1f484e02ff8">
 		["revision"] = <"0.0.1-alpha">
 	>
 
 definition
-	CLUSTER[at0000] matches {    -- nes_ts-medical-device-regulatory-details
+	CLUSTER[at0000] matches {    -- Medical device regulatory details
 		items cardinality matches {1..*; unordered} matches {
 			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Class
 				value matches {
@@ -77,7 +77,7 @@ ontology
 		["en"] = <
 			items = <
 				["at0000"] = <
-					text = <"nes_ts-medical-device-regulatory-details">
+					text = <"Medical device regulatory details">
 					description = <"NES_TS UK_MHRA Medical Device. This cluster is for enabling the recording of regulatory details about a medical device, specifically 'class', in the EHR. THe requirement originally arose in the NHS Scotland Medical Devices Data Hub programme, part of the 'Scan for Safety' programme intended to enable the capture of details of implantable medical devices at the time of surgical procedures. This cluster allows the programme to capture the 'Class' value as it was at that event.">
 				>
 				["at0001"] = <
