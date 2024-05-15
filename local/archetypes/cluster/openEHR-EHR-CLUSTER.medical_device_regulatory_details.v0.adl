@@ -1,5 +1,5 @@
-﻿archetype (adl_version=1.4; uid=907ea9e9-c6b7-4db9-82b4-4054ec93bf38)
-	openEHR-EHR-CLUSTER.nes_ts-medical-device-regulatory-details.v0
+﻿archetype (adl_version=1.4; uid=d0dc5b58-056a-4e37-8c63-be9587adb89b)
+	openEHR-EHR-CLUSTER.medical_device_regulatory_details.v0
 
 concept
 	[at0000]	-- Medical device regulatory details
@@ -25,7 +25,7 @@ description
 	lifecycle_state = <"in_development">
 	other_contributors = <>
 	other_details = <
-		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
 		["custodian_organisation"] = <"Apperta UK">
 		["references"] = <"Derived from: <Add reference to original resource here>
 
@@ -33,8 +33,8 @@ https://www.gov.uk/government/publications/medicines-and-medical-devices-bill-ov
 		["original_namespace"] = <"uk.org.clinicalmodels">
 		["original_publisher"] = <"Apperta UK">
 		["custodian_namespace"] = <"uk.org.clinicalmodels">
-		["MD5-CAM-1.0.1"] = <"BA1F4A7C1DF6FE0305868466D89E97A6">
-		["build_uid"] = <"fa43e2fe-5bcc-4d91-a02c-3753f2e436eb">
+		["MD5-CAM-1.0.1"] = <"D4B06B7B01082A38E5A95EDD501F1969">
+		["build_uid"] = <"4c3b6c44-c6e3-4a8b-8a9a-70c420a1c72d">
 		["revision"] = <"0.0.1-alpha">
 	>
 
