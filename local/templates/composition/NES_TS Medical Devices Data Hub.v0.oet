@@ -59,7 +59,7 @@
             </item>
             <item>
                 <key>sem_ver</key>
-                <value>0.0.9</value>
+                <value>1.0.0</value>
             </item>
             <item>
                 <key>build_uid</key>
@@ -135,6 +135,16 @@
                     <includedTypes>Text</includedTypes>
                 </constraint>
             </Rule>
+            <Items archetype_id="openEHR-EHR-CLUSTER.organisation_cc.v0" path="/protocol[at0015]/items[at0019]" xsi:type="tem:CLUSTER">
+                <Rule max="0" path="/items[at0010]"/>
+                <Rule default="Health Board" max="0" path="/items[at0011]"/>
+                <Rule max="0" path="/items[at0013]"/>
+                <Items archetype_id="openEHR-EHR-CLUSTER.identifier_cc.v0" concept_name="Identifier" max="1" name="Health Board" path="/items[at0018]" xsi:type="tem:CLUSTER">
+                    <Rule max="0" path="/items[at0002]"/>
+                    <Rule max="0" path="/items[at0007]"/>
+                    <Rule max="0" path="/items[at0008]"/>
+                </Items>
+            </Items>
         </Content>
         <Content archetype_id="openEHR-EHR-ACTION.procedure.v1" min="1" path="/content" xsi:type="tem:ACTION">
             <Rule max="0" min="0" path="/ism_transition[at0004]"/>
@@ -148,6 +158,11 @@
             <Rule max="0" min="0" path="/ism_transition[at0047]"/>
             <Rule max="0" min="0" path="/ism_transition[at0040]"/>
             <Rule max="0" min="0" path="/ism_transition[at0041]"/>
+            <Rule path="/description[at0001]/items[at0002]">
+                <constraint limitToList="false" xsi:type="tem:textConstraint">
+                    <termQueryId queryName="CodeSystem?url=http://fhir.hl7.org.uk/CodeSystem/OPCS-4" terminologyID="NHS OPCS-4"/>
+                </constraint>
+            </Rule>
             <Rule max="0" path="/description[at0001]/items[at0049]"/>
             <Rule max="0" path="/description[at0001]/items[at0070]"/>
             <Rule max="0" path="/description[at0001]/items[at0065]"/>
@@ -224,13 +239,13 @@
                     </Rule>
                     <Rule max="0" path="/items[at0023]"/>
                 </Items>
-                <Items archetype_id="openEHR-EHR-CLUSTER.nes_ts-medical-device-regulatory-details.v0" path="/items[at0026]" xsi:type="tem:CLUSTER">
+                <Items archetype_id="openEHR-EHR-CLUSTER.medical_device_regulatory_details.v0" max="1" path="/items[at0026]" xsi:type="tem:CLUSTER">
                     <Rule path="/items[at0001]">
                         <constraint xsi:type="tem:textConstraint">
-                            <includedValues>Class I</includedValues>
-                            <includedValues>Class IIa</includedValues>
-                            <includedValues>Class IIb</includedValues>
-                            <includedValues>Class III</includedValues>
+                            <includedValues>I</includedValues>
+                            <includedValues>IIa</includedValues>
+                            <includedValues>IIb</includedValues>
+                            <includedValues>III</includedValues>
                         </constraint>
                     </Rule>
                     <Rule max="0" path="/items[at0007]">
@@ -247,22 +262,6 @@
                             <includedTypes>Coded_text</includedTypes>
                         </constraint>
                     </Rule>
-                    <Items archetype_id="openEHR-EHR-CLUSTER.organisation_cc.v0" max="0" path="/items[at0003]" xsi:type="tem:CLUSTER">
-                        <Rule max="0" path="/items[at0010]"/>
-                        <Rule max="0" path="/items[at0011]"/>
-                        <Rule default="Medicines and Healthcare products Regulatory Agency" max="0" path="/items[at0012]"/>
-                        <Rule max="0" path="/items[at0013]"/>
-                    </Items>
-                </Items>
-            </Items>
-            <Items archetype_id="openEHR-EHR-CLUSTER.organisation_cc.v0" path="/protocol[at0053]/items[at0057]" xsi:type="tem:CLUSTER">
-                <Rule max="0" path="/items[at0010]"/>
-                <Rule default="Health Board" max="1" path="/items[at0011]"/>
-                <Rule max="0" path="/items[at0013]"/>
-                <Items archetype_id="openEHR-EHR-CLUSTER.identifier_cc.v0" concept_name="Identifier" max="1" name="Health Board" path="/items[at0018]" xsi:type="tem:CLUSTER">
-                    <Rule max="0" path="/items[at0002]"/>
-                    <Rule max="0" path="/items[at0007]"/>
-                    <Rule max="0" path="/items[at0008]"/>
                 </Items>
             </Items>
         </Content>
@@ -289,6 +288,12 @@
     <integrity_checks archetype_id="openEHR-EHR-ACTION.service.v1" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
         <digest id="MD5-CAM-1.0.1">AD593E18455631079CCA895C6A3612C5</digest>
     </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.organisation_cc.v0" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">4DD4327B2A07666ACC92DBB0FDE0B2EC</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.identifier_cc.v0" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">A4C278B59C4D855C741CA3E0C21E9011</digest>
+    </integrity_checks>
     <integrity_checks archetype_id="openEHR-EHR-ACTION.procedure.v1" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
         <digest id="MD5-CAM-1.0.1">7976419EEFB8BFACDA7BAB23201F9BEF</digest>
     </integrity_checks>
@@ -298,13 +303,7 @@
     <integrity_checks archetype_id="openEHR-EHR-CLUSTER.anatomical_location.v1" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
         <digest id="MD5-CAM-1.0.1">62823A86BC1C2B02574125E21F5DECCB</digest>
     </integrity_checks>
-    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.nes_ts-medical-device-regulatory-details.v0" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
-        <digest id="MD5-CAM-1.0.1">D7B3980EACDBD64DDB03467198D87469</digest>
-    </integrity_checks>
-    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.organisation_cc.v0" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
-        <digest id="MD5-CAM-1.0.1">4DD4327B2A07666ACC92DBB0FDE0B2EC</digest>
-    </integrity_checks>
-    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.identifier_cc.v0" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
-        <digest id="MD5-CAM-1.0.1">A4C278B59C4D855C741CA3E0C21E9011</digest>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.medical_device_regulatory_details.v0" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">D4B06B7B01082A38E5A95EDD501F1969</digest>
     </integrity_checks>
 </template>
