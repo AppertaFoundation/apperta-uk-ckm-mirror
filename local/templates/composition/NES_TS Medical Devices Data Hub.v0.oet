@@ -160,7 +160,7 @@
             <Rule max="0" min="0" path="/ism_transition[at0041]"/>
             <Rule path="/description[at0001]/items[at0002]">
                 <constraint limitToList="false" xsi:type="tem:textConstraint">
-                    <termQueryId queryName="CodeSystem?url=http://fhir.hl7.org.uk/CodeSystem/OPCS-4" terminologyID="NHS OPCS-4"/>
+                    <termQueryId queryName="CodeSystem?url=http://fhir.hl7.org.uk/CodeSystem/OPCS-4" terminologyID="NHS_OPCS-4"/>
                 </constraint>
             </Rule>
             <Rule max="0" path="/description[at0001]/items[at0049]"/>
